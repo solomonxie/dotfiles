@@ -39,3 +39,18 @@ sudo curl -L https://github.com/solomonxie/cdn/raw/master/tmux-setup.sh | sh
 echo "========== (INSTALLING OFTEN USED PROGRAMS) ==========="
 yes | sudo pip install -U youtube-dl you-get
 yes | sudo pip install --user pipenv
+
+
+
+
+# [THIS SECTION SHOULD BETTER BE PLACED AT THE BOTTOM]
+echo "========== (SET UP SYSTEM AUTO-START PROGRAMS) ==========="
+sudo mv /etc/rc.local /etc/rc-local-backup
+sudo wget -O /etc/rc.local
+echo "========== (SET UP CRONTAB JOBS) ==========="
+curl |crontab
+
+
+
+
+

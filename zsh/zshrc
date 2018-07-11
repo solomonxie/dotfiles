@@ -9,11 +9,12 @@
 #
 #
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# This must be placed at first, or it won't show any theme
-#ZSH_THEME="agnoster"
+# This section must be placed at first, or it won't show any theme
 export TERM="xterm-256color"
-POWERLEVEL9K_MODE='nerdfont-complete' #PowerLevel9k 字体字体模式设定 (必须放在主题之前）
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#POWERLEVEL9K_MODE='nerdfont-complete' #PowerLevel9k 字体字体模式设定 (必须放在主题之前）
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+
+ZSH_THEME="agnoster"
 
 # Path to oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh

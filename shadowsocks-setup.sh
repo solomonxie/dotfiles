@@ -1,13 +1,15 @@
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
-# Enviroment: MacOS Sierra
+# Enviroment: MacOS Sierra / Ubuntu
 #
 #
 #
 # =======SETING UP SHADOWSOCKS =======
 # Install Shadowsocks
+echo "========== (INSTALLING SHADOWSOCKS) ==========="
 yes | sudo pip install shadowsocks
 # Create config file
+echo "========== (OVERWRITING SHADOWSOCK'S CONFIG) ==========="
 sudo cat> /etc/shadowsocks.json <<EOF
 {
     "server":"0.0.0.0",
@@ -21,8 +23,10 @@ sudo cat> /etc/shadowsocks.json <<EOF
 }
 EOF
 # Auto start Shadowsocks service when system starts
+#echo "========== (ADD SHADOWSOCKS TO SYSTEM START) ==========="
 #sudo echo "ssserver -c /etc/shadowsocks.json -d start" >> /etc/rc.local
 #sudo cat> /etc/rc.local <<EOF
 #    # Shadowsocks
+#echo "========== (STARTING SHADOWSOCKS SERVER) ==========="
 #ssserver -c /etc/shadowsocks.json -d start
 #EOF

@@ -15,23 +15,23 @@ yes | sudo apt-get install htop
 
 # Setup Python3
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python3-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/python3-setup.sh | sh
 
 # Setup Shadowsocks
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP SHADOWSOCKS) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/shadowsocks-setup.sh | sh
 
 # Setup ZSH
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/zsh/zsh-setup.sh | sh
 
 # Setup Vim
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP VIM) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/vim/vim-setup.sh | sh
 
 # Setup Tmux
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP TMUX) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/tmux-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/tmux-setup.sh | sh
 
 
 
@@ -48,7 +48,7 @@ yes | sudo pip install --user pipenv
 #sudo mv /etc/rc.local /etc/rc-local-backup
 #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/rc.local -O /etc/rc.local
 echo "========== (SET UP CRONTAB JOBS) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/crontab.txt |crontab
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/crontab.txt |crontab
 
 
 

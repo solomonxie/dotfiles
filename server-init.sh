@@ -10,17 +10,19 @@ yes | sudo apt-get install htop
 
 
 # Setup Python3
-
+sudo curl -L https://github.com/solomonxie/cdn/raw/master/python3-setup.sh | sh
 
 # Setup Shadowsocks
-
-
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks-setup.sh | sh
 
 # Setup ZSH
-
+sudo curl -L https://github.com/solomonxie/cdn/raw/master/zsh/zsh-setup.sh | sh
 
 # Setup Vim
+sudo curl -L https://github.com/solomonxie/cdn/raw/master/vim/vim-setup.sh | sh
 
+# Setup Tmux
+sudo curl -L https://github.com/solomonxie/cdn/raw/master/tmux-setup.sh | sh
 
 
 

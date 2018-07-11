@@ -5,8 +5,8 @@ yes | sudo pip install shadowsocks
 sudo cat> /etc/shadowsocks.json <<EOF
 {
     "server":"0.0.0.0",
-    "server_port": 1234,
-    "password":"123456",
+    "server_port": 1988,
+    "password":"shadow123",
     "local_address":"127.0.0.1",
     "method":"aes-256-cfb",
     "local_port":1080,

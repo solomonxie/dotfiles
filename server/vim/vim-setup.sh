@@ -12,7 +12,7 @@ echo "========== (DOWNLOADING VUNDLE - VIM PLUGIN MANAGER) ==========="
 sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # Download preset vimrc config file
 echo "========== (OVERWRITING VIMRC CONFIG) ==========="
-sudo wget https://github.com/solomonxie/cdn/raw/master/vim/vimrc -O ~/.vimrc
+sudo wget https://github.com/solomonxie/cdn/raw/master/server/vim/vimrc -O ~/.vimrc
 # Download gruvbox theme
 echo "========== (INSTALLING VIM COLOR SCHEME) ==========="
 sudo mkdir ~/.vim/colors

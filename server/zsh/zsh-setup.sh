@@ -15,4 +15,4 @@ sudo git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/
 yes | sudo pip install --user powerline-status
 # Setup configs
 echo "========== (OVERWRITE ZSHRC) ==========="
-sudo wget https://github.com/solomonxie/cdn/raw/master/zsh/zshrc -O ~/.zshrc
+sudo wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc -O ~/.zshrc

@@ -10,4 +10,15 @@
 # bits.
 #
 # By default this script does nothing.
-# exit 0;
+
+
+
+
+# [COMMANDS ARE HERE]
+
+
+
+
+
+# [PLEASE MAKE SURE THIS EXIT 0 PHRASE MUST BE AT THE END, AND DON'T REMOVE IT.]
+exit 0;

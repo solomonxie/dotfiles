@@ -1,7 +1,13 @@
-
-
-# Install Shadowsocks & create config file
+# Owner: Solomon Xie
+# Email: solomonxiewise@gmail.com
+# Enviroment: MacOS Sierra
+#
+#
+#
+# =======SETING UP SHADOWSOCKS =======
+# Install Shadowsocks
 yes | sudo pip install shadowsocks
+# Create config file
 sudo cat> /etc/shadowsocks.json <<EOF
 {
     "server":"0.0.0.0",

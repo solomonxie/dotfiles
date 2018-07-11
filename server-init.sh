@@ -1,7 +1,10 @@
 #! /bin/bash # ---UBUNTU SERVER INITIAL SETUP---
 # Notice: 
 #    This script should be run by "$ sudo bash xxx.sh"
-
+#
+# Owner: Solomon Xie
+# Email: solomonxiewise@gmail.com
+# Enviroment: MacOS Sierra
 
 # Update server & install essentials
 yes | sudo apt-get update

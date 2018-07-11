@@ -5,7 +5,7 @@
 #     $ sudo git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 #     $ sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 #     $ sudo git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-# Commands:
+# Manual Commands:
 #
 #
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes

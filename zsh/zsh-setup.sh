@@ -1,3 +1,7 @@
+# Owner: Solomon Xie
+# Email: solomonxiewise@gmail.com
+# Enviroment: MacOS Sierra
+#
 # =======SETING UP ZSH =======
 yes | sudo apt-get install zsh
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh

@@ -1,3 +1,8 @@
+# Owner: Solomon Xie
+# Email: solomonxiewise@gmail.com
+# Enviroment: MacOS Sierra
+#
+#
 # =======SETING UP VIM =======
 # Upgrade vim
 yes | sudo apt-get upgrade vim

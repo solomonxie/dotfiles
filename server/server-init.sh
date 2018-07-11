@@ -15,7 +15,7 @@ yes | sudo apt-get install htop
 
 # Setup Python3
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3) ==========="
-sudo curl -L https://github.com/solomonxie/cdn/raw/master/python3-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python3-setup.sh | sh
 
 # Setup Shadowsocks
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP SHADOWSOCKS) ==========="
@@ -23,15 +23,15 @@ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks
 
 # Setup ZSH
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH) ==========="
-sudo curl -L https://github.com/solomonxie/cdn/raw/master/zsh/zsh-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-setup.sh | sh
 
 # Setup Vim
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP VIM) ==========="
-sudo curl -L https://github.com/solomonxie/cdn/raw/master/vim/vim-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-setup.sh | sh
 
 # Setup Tmux
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP TMUX) ==========="
-sudo curl -L https://github.com/solomonxie/cdn/raw/master/tmux-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/tmux-setup.sh | sh
 
 
 
@@ -44,11 +44,11 @@ yes | sudo pip install --user pipenv
 
 
 # [THIS SECTION SHOULD BETTER BE PLACED AT THE BOTTOM]
-echo "========== (SET UP SYSTEM AUTO-START PROGRAMS) ==========="
-sudo mv /etc/rc.local /etc/rc-local-backup
-sudo wget -O /etc/rc.local
+#echo "========== (SET UP SYSTEM AUTO-START PROGRAMS) ==========="
+#sudo mv /etc/rc.local /etc/rc-local-backup
+#sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/rc.local -O /etc/rc.local
 echo "========== (SET UP CRONTAB JOBS) ==========="
-curl |crontab
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/crontab.txt |crontab
 
 
 

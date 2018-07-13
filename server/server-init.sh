@@ -1,10 +1,11 @@
-#! /bin/bash # ---UBUNTU SERVER INITIAL SETUP---
-# Notice: 
-#    This script should be run by "$ sudo bash xxx.sh"
+#! /bin/bash 
 #
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Enviroment: Ubuntu
+# Notice: 
+#    This script should be run by "$ sudo bash xxx.sh"
+
 
 # Update server & install essentials
 echo "========== (INITIAL UPDATE OF UBUNTU) ==========="

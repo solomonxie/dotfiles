@@ -21,6 +21,7 @@ echo "========== (Downloading latest OwnCloud version archive file) ==========="
 wget https://download.owncloud.org/community/owncloud-10.0.8.tar.bz2
 # Download the related MD5 checksum file:
 wget https://download.owncloud.org/community/owncloud-10.0.8.tar.bz2.md5
+echo "========== (Verifying downloaded file) ==========="
 # Verify the MD5 sum:
 md5sum -c owncloud-10.0.8.tar.bz2.md5 < owncloud-10.0.8.tar.bz2
 # Download the PGP signature:
@@ -29,6 +30,7 @@ wget https://owncloud.org/owncloud.asc
 # Verify the PGP signature:
 gpg --import owncloud.asc
 gpg --verify owncloud-10.0.8.tar.bz2.asc owncloud-10.0.8.tar.bz2
+echo "========== (Unzip file & move folder to Apache server's root path) ==========="
 # Unarchive the Owncloud package
 tar -xjf owncloud-10.0.8.tar.bz2
 # Copy the folder to Apache Webserver root path
@@ -56,6 +58,7 @@ EOF
 # Then create a symlink to /etc/apache2/sites-enabled:
 sudo ln -s /etc/apache2/sites-available/owncloud.conf /etc/apache2/sites-enabled/owncloud.conf
 # Enable the recommanded modules 
+echo "========== (Enabling Apache server modules) ==========="
 sudo a2enmod rewrite
 sudo a2enmod headers
 sudo a2enmod env
@@ -66,14 +69,16 @@ sudo a2enmod ssl
 sudo a2ensite default-ssl
 sudo service apache2 reload
 # Restart Apache
+echo "========== (Restarting Apache server) ==========="
 sudo service apache2 restart
 
 
-echo "========== (Configuring Owncloud Wizard) ==========="
+echo "========== (Configure Owncloud Wizard) ==========="
 echo "Please proceed to your web browser and open http://<IP>/owncloud to finish the setup."
 
 echo "========== (Enable Local External Storage, etc., Hard disk, flash disk) ==========="
 echo "Please add 'files_external_allow_create_new_local' => 'true', to /var/www/owncloud/config/config.php"
+echo "Refresh web browser to see the change."
 # Enable Local External Storage 
 #sudo vim /var/www/owncloud/config/config.php
 # Add this phrase into the array to enable local external storage

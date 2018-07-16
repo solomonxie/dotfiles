@@ -24,7 +24,8 @@ EOF
 echo "============== (Add local user & Samba user) ======================"
 #sudo groupadd samba -g 6000
 #sudo useradd samba1 -u 6000 -g 6000 -s /sbin/nologin -d /dev/null
-sudo smbpasswd -a samba1
+#sudo smbpasswd -a samba1
+sudo smbpasswd -a pi
 
 echo "============== (Restarting Samba server) ======================"
 sudo /etc/init.d/samba restart

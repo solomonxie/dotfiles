@@ -153,7 +153,7 @@ autocmd vimenter * if !argc()|NERDTree|endif
 "当NERDTree为剩下的唯一窗口时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " 不显示隐藏文件
-let g:NERDTreeHidden=0
+let g:NERDTreeHidden=1
 " 过滤: 所有.pyc文件不显示
 let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__']  
 " 美化菜单 不显示多余的东西

@@ -32,7 +32,7 @@ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/vim/
 
 # Setup Tmux
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP TMUX) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/tmux-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/tmux/tmux-setup.sh | sh
 
 
 

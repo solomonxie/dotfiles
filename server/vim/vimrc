@@ -43,6 +43,7 @@ filetype plugin indent on    " required
 
 
 
+
 " ==== Common customization ====
 colorscheme gruvbox 
 syntax enable 

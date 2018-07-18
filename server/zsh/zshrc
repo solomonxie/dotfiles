@@ -20,6 +20,9 @@ plugins=(
   colored-man-pages 
 ) 
 source $ZSH/oh-my-zsh.sh 
+
+# 引用不方便公开的本地配置文件
+source $HOME/.zshrc.extension
  
  
 # hide User @ Hostname 
@@ -37,46 +40,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export EDITOR=vim 
  
  
-# ==== ALIAS ==== 
-# 
-# Config files 
-alias zshrc="vim ~/.zshrc" 
-alias ohmyzsh="vim ~/.oh-my-zsh" 
-alias vimrc="vim ~/.vimrc" 
-alias tmuxconfig="vim ~/.tmux.conf" 
-alias bashrc="vim ~/.bash_profile" 
-# Shadowsocks proxy 
-alias proxy='export all_proxy=http://127.0.0.1:1087' 
-alias unproxy='unset all_proxy' 
-# 
-# frequent commands 
-alias ls="ls -G" 
-alias ju="cd ~/Workspace/repos/jupyter-notebooks && pipenv run jupyter notebook" 
-alias repos="cd ~/Workspace/repos" 
-# 
-# Git commands  
-alias gs="git status" 
-alias gc="git add . && git commit" 
-alias gcp="git add . && git commit -m \"Update from `uname -n`\" && git push" 
-# 
-# Tmux 
-#alias tmux="TERM=screen-256color-bce tmux" 
-# 
-# Python Virtualenv 
-alias venv2="source ~/venv2/bin/activate" 
-alias venv3="source ~/venv3/bin/activate" 
-# 
-# Self-made scripts 
-alias gpics="~/Workspace/venv2/bin/python2 ~/Workspace/repos/mini-projects/py2/githubpics.py" 
-# 
-# IDE 
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" 
-alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code" 
-# 
-# Browsers 
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome" 
-alias safari="/Applications/Safari.app/Contents/MacOS/Safari" 
-alias opera="/Applications/Opera.app/Contents/MacOS/Opera" 
 # 
  
  

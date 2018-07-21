@@ -40,9 +40,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export EDITOR=vim 
  
  
-# 
- 
- 
  
 # ==== Theme Settings ==== 
 # PowerLevel9k 
@@ -61,7 +58,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # 与上面的命令隔开一行 
 #POWERLEVEL9K_PROMPT_ADD_NEWLINE=true 
 #缩短目录层级 
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1 
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 #缩短目录策略：隐藏上层目录中间的字 
 #POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle" 
 # 显示目录是否可写 

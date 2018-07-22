@@ -1,6 +1,10 @@
 # Owner: Solomon Xie 
 # Email: solomonxiewise@gmail.com 
 # Preload dependencies: 
+#     # Plugin: Syntax-highlighting
+#     $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+#     # Plugin: zsh-autosuggestions
+#     $ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 #     # Theme: Agnoster
 #     $ wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
 #     # Theme: Powerlevel9k

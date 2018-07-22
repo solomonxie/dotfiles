@@ -1,6 +1,10 @@
 # Owner: Solomon Xie 
 # Email: solomonxiewise@gmail.com 
 # Preload dependencies: 
+#     # Theme: Agnoster
+#     $ wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
+#     # Theme: Powerlevel9k
+#     $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 # 
 # Commands: 
 # 

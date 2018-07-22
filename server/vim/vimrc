@@ -2,8 +2,10 @@
 " Email: solomonxiewise@gmail.com
 " Enviroment: MacOS Sierra
 " Preload dependencies:
-"     $ sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"     $ sudo wget https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
+"     # Plugins Manager: Vundle
+"     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"     # Color scheme: Gruvbox
+"     $ wget https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
 " Manual commands (type in vim, sodu mode required):
 "     :PluginInstall
 "

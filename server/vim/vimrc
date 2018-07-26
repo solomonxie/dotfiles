@@ -16,30 +16,32 @@ filetype off " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
-    " == Satus line ==
-    "Plugin 'itchyny/lightline.vim' "beautiful status line
-    "Plugin 'Lokaltog/vim-powerline' "fancy status line (python needed)
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    " == Git ==
-    "Plugin 'tpope/vim-fugitive'    " easy commands to do git
-    " == File Tree ==
-    Plugin 'scrooloose/nerdtree'          " File tree manager
-    Plugin 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-    Plugin 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-    Plugin 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-    "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
-    " == Snippets (Python required) ==
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'garbas/vim-snipmate'
-    "Plugin 'honza/vim-snippets' "some common snippets (python)
-    " == Search tools ==
-    "Plugin 'easymotion/vim-easymotion'
-    " == Syntax ==
-    "Plugin 'vim-syntastic/syntastic'
-    " == Surround ==
-    "Plugin 'tpope/vim-surround'
+    "<<STATUS-BAR>>
+        "Plugin 'itchyny/lightline.vim' "beautiful status line
+        "Plugin 'Lokaltog/vim-powerline' "fancy status line (python needed)
+        Plugin 'vim-airline/vim-airline'
+        Plugin 'vim-airline/vim-airline-themes'
+    "<<Git>>
+        "Plugin 'tpope/vim-fugitive'    " easy commands to do git
+    "<<Nerdtree>>
+        Plugin 'scrooloose/nerdtree'          " File tree manager
+        Plugin 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+        Plugin 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+        Plugin 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+        "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+    "<<Snippets>> (python required)
+        Plugin 'MarcWeber/vim-addon-mw-utils'
+        Plugin 'tomtom/tlib_vim'
+        Plugin 'garbas/vim-snipmate'
+        "Plugin 'honza/vim-snippets' "some common snippets (python)
+    "<<Search-Tools>>
+        "Plugin 'easymotion/vim-easymotion'
+    "<<Syntax>>
+        "Plugin 'vim-syntastic/syntastic'
+    "<<Surround>>
+        "Plugin 'tpope/vim-surround'
+    "<<Session>>
+        Plugin 'tpope/vim-obsession'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -66,9 +68,13 @@ filetype plugin indent on    " required
 " Key Mapping ================{{{
     "--Leader key--
         let mapleader = ','
+    " Reload vimrc config fil:
+        nnoremap <leader>r :source %<CR><ESC>
+    " Install Plugins
+        nnoremap <leader>I :PluginInstall<CR>
     " Escape key
-        inoremap <C-c> <Esc>:nohl<CR>
-        nnoremap <C-c> <ESC>:nohl<CR>
+        inoremap <C-c> <Esc>:nohl<CR><ESC>
+        nnoremap <C-c> <ESC>:nohl<CR><ESC>
     " 复制到系统剪切板
         nnoremap <leader>y "+Y
         vnoremap <leader>y "+y
@@ -78,9 +84,9 @@ filetype plugin indent on    " required
     " vim自带的自动补全Autocomplete
         inoremap <C-d> <C-x><C-l>
     "--Buffer--
-        nnoremap <C-h> :bp<CR>
-        nnoremap <C-l> :bn<CR>
-        nnoremap <leader>q :bd<CR>
+        nnoremap <C-h> :bp<CR><ESC>
+        nnoremap <C-l> :bn<CR><ESC>
+        nnoremap <leader>q :bd<CR><ESC>
     "--Nerdtree--
     " 将焦点放在树上（无论何种情况）
         nnoremap <leader>f :NERDTreeFocus<CR>

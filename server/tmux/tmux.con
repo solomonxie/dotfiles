@@ -101,7 +101,7 @@
     set-option -g status-left '#[fg=cyan][#{session_name}]'
     set-option -g status-left-length 25
     # <RIGHT-PART>
-    set-option -g status-right '#[fg=white,bg=default]%H:%M #[default] #[fg=blue]%Y-%m-%d %a Autosave: #{continuum_status}'
+    set-option -g status-right '#[fg=white,bg=default]%H:%M #[default] #[fg=blue]%Y-%m-%d %a (#{continuum_status}m)'
     
     # window
     setw -g automatic-rename off

@@ -23,10 +23,14 @@ sudo cat> /etc/shadowsocks.json <<EOF
 }
 EOF
 # Auto start Shadowsocks service when system starts
-#echo "========== (ADD SHADOWSOCKS TO SYSTEM START) ==========="
-#sudo echo "ssserver -c /etc/shadowsocks.json -d start" >> /etc/rc.local
-#sudo cat> /etc/rc.local <<EOF
-#    # Shadowsocks
-#echo "========== (STARTING SHADOWSOCKS SERVER) ==========="
-#ssserver -c /etc/shadowsocks.json -d start
-#EOF
+echo "========== (ADD SHADOWSOCKS TO SYSTEM START) ==========="
+sudo cat> /etc/rc.local <<EOF
+#!/bin/sh -e
+
+sudo ssserver -c /etc/shadowsocks.json -d start
+
+exit 0;
+EOF
+
+echo "========== (STARTING SHADOWSOCKS SERVER) ==========="
+ssserver -c /etc/shadowsocks.json -d start

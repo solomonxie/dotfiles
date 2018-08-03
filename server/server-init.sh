@@ -5,6 +5,8 @@
 # Enviroment: Ubuntu
 # Notice: 
 #    This script should be run by "$ sudo bash xxx.sh"
+# How to run this script:
+#    $ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/server-init.sh | sh
 
 
 # Update server & install essentials

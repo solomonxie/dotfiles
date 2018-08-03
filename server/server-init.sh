@@ -12,7 +12,6 @@
 # Update server & install essentials
 echo "========== (INITIAL UPDATE OF UBUNTU) ==========="
 yes | sudo apt-get update
-yes | sudo apt-get upgrade
 yes | sudo apt-get install htop
 
 

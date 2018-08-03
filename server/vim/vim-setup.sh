@@ -16,4 +16,4 @@ sudo wget https://github.com/solomonxie/cdn/raw/master/server/vim/vimrc -O ~/.vi
 # Download gruvbox theme
 echo "========== (INSTALLING VIM COLOR SCHEME) ==========="
 sudo mkdir ~/.vim/colors
-sudo wget https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim

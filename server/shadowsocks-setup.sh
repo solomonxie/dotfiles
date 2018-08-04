@@ -13,8 +13,12 @@ if [$? != 0]; then
 fi
 # Create config file
 echo "========== (OVERWRITING SHADOWSOCK'S CONFIG) ==========="
-sudo touch /etc/shadowsocks.json
-sudo cat> /etc/shadowsocks.json <EOF
+sudo touch ~/shadowsocks.json
+if [$? != 0]; then
+    echo "======Failed to create shadowsocks.json====="
+    exit 1;
+fi
+sudo cat> ~/shadowsocks.json <<EOF
 {
     "server":"0.0.0.0",
     "server_port": 1988,
@@ -28,7 +32,7 @@ sudo cat> /etc/shadowsocks.json <EOF
 EOF
 # Auto start Shadowsocks service when system starts
 echo "========== (Rewrite SYSTEM START commands with Shadowsocks) ==========="
-sudo cat> /etc/rc.local <EOF
+sudo cat> /etc/rc.local <<EOF
 #!/bin/sh -e
 sudo ssserver -c /etc/shadowsocks.json -d start
 exit 0;

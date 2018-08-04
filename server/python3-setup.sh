@@ -10,7 +10,7 @@ if [$? != 0];then
     exit 1;
 fi
 sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-yes | sudo python get-pip.py
+yes | sudo python3 get-pip.py
 if [$? != 0];then
     echo "======Failed on installing pip======="
     exit 1;

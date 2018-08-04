@@ -19,7 +19,7 @@ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/pyth
 
 # Setup Shadowsocks
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP SHADOWSOCKS) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/shadowsocks-setup.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/shadowsocks/shadowsocks-setup.sh | sh
 
 # Setup ZSH
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH) ==========="

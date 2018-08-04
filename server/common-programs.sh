@@ -5,5 +5,5 @@
 #
 
 echo "========== (INSTALLING OFTEN USED PROGRAMS) ==========="
-yes | sudo apt-get install htop glances
-yes | sudo pip install -U youtube-dl you-get
+yes | sudo apt-get install htop glances speedtest-cli
+yes | sudo pip install -U youtube-dl you-get tldr

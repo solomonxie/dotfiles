@@ -43,11 +43,11 @@ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/comm
 
 
 # [THIS SECTION SHOULD BETTER BE PLACED AT THE BOTTOM]
-#echo "========== (SET UP SYSTEM AUTO-START PROGRAMS) ==========="
-#sudo mv /etc/rc.local /etc/rc-local-backup
-#sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/rc.local -O /etc/rc.local
 echo "========== (SET UP CRONTAB JOBS) ==========="
 sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/crontab.txt |crontab
+
+echo "========== (Rewrite SYSTEM START commands with Shadowsocks) ==========="
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/rc.local -O /etc/rc.local
 
 
 

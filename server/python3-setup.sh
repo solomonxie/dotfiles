@@ -22,7 +22,7 @@ if [$? != 0];then
     exit 1;
 fi
 echo "======== Installing virtualenv ========"
-yes | sudo pip install virtualenv pipenv
+yes | sudo pip install -U virtualenv pipenv
 if [$? != 0];then
     echo "======Failed on installing virtualenv======="
     exit 1;

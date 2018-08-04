@@ -11,6 +11,7 @@ if [$? != 0]; then
 fi
 echo "========== (OVERWRITE ZSHRC) ==========="
 sudo wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc -O ~/.zshrc
+sudo wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc.extension -O ~/.zshrc.extension
 echo "========== (INSTALLING OH-MY-ZSH) ==========="
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 echo "========== (INSTALLING PLUGINS FOR ZSH) ==========="

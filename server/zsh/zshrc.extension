@@ -1,0 +1,39 @@
+# Owner: Solomon Xie 
+# Email: solomonxiewise@gmail.com 
+# Description: Additional configs for zshrc, which aren't good for public.
+#
+#
+#
+# ==== ALIAS ==== 
+# 
+# Config files 
+alias zshrc="vim ~/.zshrc" 
+alias zshrc2="vim ~/.zshrc.extension"
+alias ohmyzsh="vim ~/.oh-my-zsh" 
+alias vimrc="vim ~/.vimrc" 
+alias tmuxrc="vim ~/.tmux.conf" 
+alias bashrc="vim ~/.bash_profile" 
+# Shadowsocks proxy 
+alias proxy='export all_proxy=http://127.0.0.1:1087' 
+alias unproxy='unset all_proxy' 
+alias hosts='sudo vim /etc/hosts'
+# 
+# frequent commands 
+alias ls="ls -lahgG" 
+alias ju="jupyter notebook" 
+alias repos="cd ~/Workspace/repos" 
+# 
+# Git commands  
+alias gs="git status" 
+alias gc="git add . && git commit" 
+alias gcp="git add . && git commit -m \"Update from `uname -n`\" && git push" 
+# 
+# Tmux 
+#alias tmux="TERM=screen-256color-bce tmux" 
+# 
+# Python Virtualenv 
+alias venv2="source ~/venv2/bin/activate" 
+alias venv3="source ~/venv3/bin/activate" 
+alias venvju="source ~/venv-ju/bin/activate"
+# 
+

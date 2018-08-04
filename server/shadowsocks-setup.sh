@@ -8,9 +8,13 @@
 # Install Shadowsocks
 echo "========== (INSTALLING SHADOWSOCKS) ==========="
 yes | sudo pip install shadowsocks
+if [$? != 0]; then
+    exit 1;
+fi
 # Create config file
 echo "========== (OVERWRITING SHADOWSOCK'S CONFIG) ==========="
-sudo cat> /etc/shadowsocks.json <<EOF
+sudo touch /etc/shadowsocks.json
+sudo cat> /etc/shadowsocks.json <EOF
 {
     "server":"0.0.0.0",
     "server_port": 1988,
@@ -23,14 +27,15 @@ sudo cat> /etc/shadowsocks.json <<EOF
 }
 EOF
 # Auto start Shadowsocks service when system starts
-echo "========== (ADD SHADOWSOCKS TO SYSTEM START) ==========="
-sudo cat> /etc/rc.local <<EOF
+echo "========== (Rewrite SYSTEM START commands with Shadowsocks) ==========="
+sudo cat> /etc/rc.local <EOF
 #!/bin/sh -e
-
 sudo ssserver -c /etc/shadowsocks.json -d start
-
 exit 0;
 EOF
 
 echo "========== (STARTING SHADOWSOCKS SERVER) ==========="
-ssserver -c /etc/shadowsocks.json -d start
+sudo ssserver -c /etc/shadowsocks.json -d start
+if [$? != 0];then
+    echo "====Error occurred when starting the shadowsocks====="
+fi

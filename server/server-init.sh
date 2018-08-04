@@ -12,8 +12,6 @@
 # Update server & install essentials
 echo "========== (INITIAL UPDATE OF UBUNTU) ==========="
 yes | sudo apt-get update
-yes | sudo apt-get install htop
-
 
 # Setup Python3
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3) ==========="
@@ -38,9 +36,8 @@ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/tmux
 
 
 # Install Useful Programs
-echo "========== (INSTALLING OFTEN USED PROGRAMS) ==========="
-yes | sudo pip install -U youtube-dl you-get
-yes | sudo pip install --user pipenv
+echo "========== (DOWNLOADING BASH SCRIPT FOR Installing common programs) ==========="
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/common-programs.sh | sh
 
 
 

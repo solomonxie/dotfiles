@@ -40,9 +40,3 @@ sudo ssserver -c ~/shadowsocks.json -d start
 if [$? != 0];then
     echo "====Error occurred when starting the shadowsocks====="
 fi
-
-
-# Auto start Shadowsocks service when system starts
-echo "========== (Rewrite SYSTEM START commands with Shadowsocks) ==========="
-sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/rc.local -O /etc/rc.local
-

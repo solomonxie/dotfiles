@@ -1,0 +1,22 @@
+pane	0	1	:zsh	1	:*	1	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	1	:Config	0	:-	1	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	1	:Config	0	:-	2	:/home/ubuntu	0	vim	:vim /home/ubuntu/.tmux.conf
+pane	AWS-Workspace	1	:Config	0	:-	3	:/home/ubuntu/.tmux/resurrect	0	zsh	:
+pane	AWS-Workspace	1	:Config	0	:-	4	:/home/ubuntu/.tmux/resurrect	1	zsh	:
+pane	AWS-Workspace	2	:Netstat	1	:*	1	:/home/ubuntu	0	htop	:htop
+pane	AWS-Workspace	2	:Netstat	1	:*	2	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	2	:Netstat	1	:*	3	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	3	:frp	0	:#	1	:/home/ubuntu/frp	1	vim	:vim frps.ini
+pane	AWS-Workspace	3	:frp	0	:#	2	:/home/ubuntu/frp	0	zsh	:
+pane	AWS-Workspace	3	:frp	0	:#	3	:/home/ubuntu/frp	0	zsh	:
+pane	AWS-Workspace	3	:frp	0	:#	4	:/home/ubuntu/frp	0	zsh	:
+pane	AWS-Workspace	5	:Webdav	0	:	1	:/var/www/share	0	zsh	:
+pane	AWS-Workspace	5	:Webdav	0	:	2	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	5	:Webdav	0	:	3	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	5	:Webdav	0	:	4	:/home/ubuntu	0	zsh	:
+window	0	1	1	:*	c5be,150x37,0,0,1
+window	AWS-Workspace	1	0	:-	3c6d,150x37,0,0{65x37,0,0[65x9,0,0,2,65x27,0,10,3],84x37,66,0[84x9,66,0,4,84x27,66,10,5]}
+window	AWS-Workspace	2	1	:*	80bc,150x37,0,0[150x27,0,0{71x27,0,0,6,78x27,72,0,7},150x9,0,28,8]
+window	AWS-Workspace	3	0	:#	1b88,150x37,0,0{76x37,0,0,9,73x37,77,0[73x7,77,0,10,73x22,77,8,11,73x6,77,31,12]}
+window	AWS-Workspace	5	0	:	9600,150x37,0,0{76x37,0,0[76x9,0,0,13,76x27,0,10,14],73x37,77,0[73x18,77,0,15,73x18,77,19,16]}
+state	AWS-Workspace	

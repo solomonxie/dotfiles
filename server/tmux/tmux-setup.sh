@@ -12,5 +12,8 @@ fi
 echo "===== (Overwrite .tmux.conf) ======="
 sudo wget https://github.com/solomonxie/cdn/raw/master/server/tmux/tmux.conf -O ~/.tmux.conf
 echo "===== (Installing TPM for Tmux) ======="
+sudo mkdir ~/.tmux/resurrect
+sudo chown ubuntu ~/.tmux
 sudo chown ubuntu ~/.tmux/plugins
+sudo chown ubuntu ~/.tmux/resurrect
 sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

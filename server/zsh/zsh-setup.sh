@@ -9,11 +9,11 @@ if [$? != 0]; then
     echo "========Failed to install zsh========"
     exit 1;
 fi
+echo "========== (INSTALLING OH-MY-ZSH) ==========="
+sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 echo "========== (OVERWRITE ZSHRC) ==========="
 sudo wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc -O ~/.zshrc
 sudo wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc.extension -O ~/.zshrc.extension
-echo "========== (INSTALLING OH-MY-ZSH) ==========="
-sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 echo "========== (INSTALLING PLUGINS FOR ZSH) ==========="
 sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions

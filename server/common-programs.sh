@@ -5,5 +5,5 @@
 #
 
 echo "========== (INSTALLING OFTEN USED PROGRAMS) ==========="
-yes | sudo apt-get install mosh htop glances speedtest-cli
+yes | sudo apt-get install mosh htop glances speedtest-cli ffmpeg
 yes | sudo pip install -U youtube-dl you-get tldr

@@ -1,6 +1,6 @@
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
-# Enviroment: Ubuntu
+# Enviroment: Raspberry Pi (Raspbian)
 #
 # =======SETING UP ZSH =======
 echo "========== (START SETTING UP ZSH) ==========="
@@ -12,8 +12,8 @@ fi
 echo "========== (INSTALLING OH-MY-ZSH) ==========="
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 echo "========== (OVERWRITE ZSHRC) ==========="
-sudo wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc -O ~/.zshrc
-sudo wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc.extension -O ~/.zshrc.extension
+sudo wget https://github.com/solomonxie/cdn/raw/master/Rpi/zsh/zshrc -O ~/.zshrc
+sudo wget https://github.com/solomonxie/cdn/raw/master/Rpi/zsh/zshrc.extension -O ~/.zshrc.extension
 echo "======= (Installing Themes for ZSH) ========="
 sudo git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 sudo wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/

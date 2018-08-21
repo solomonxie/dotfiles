@@ -8,6 +8,14 @@
 # How to run this script:
 #    $ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/init.sh | sh
 
+# 
+echo "========== (Overwrite Raspberry Pi Default configs) ==========="
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/config.txt -O /boot/config.txt
+# Enable ssh
+sudo touch /boot/ssh
+# Setup WIFI
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
+
 
 # Update server & install essentials
 echo "========== (INITIAL UPDATE OF UBUNTU) ==========="

@@ -1,19 +1,19 @@
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
-# Enviroment: Ubuntu
+# Enviroment: Raspberry Pi (Raspbian)
 #
 #
 # =======SETING UP VIM =======
 echo "========== (OVERWRITING VIMRC CONFIG) ==========="
-sudo wget https://github.com/solomonxie/cdn/raw/master/server/vim/vimrc -O ~/.vimrc
+sudo wget https://github.com/solomonxie/cdn/raw/master/Rpi/vim/vimrc -O ~/.vimrc
 
 echo "========== (Change permission) ==========="
-sudo chown ubuntu ~/.vim
+sudo chown pi ~/.vim
 echo "========== (DOWNLOADING VUNDLE - VIM PLUGIN MANAGER) ==========="
 sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "========== (INSTALLING VIM COLOR SCHEME) ==========="
 sudo mkdir ~/.vim/colors
-sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/vim/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/vim/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
 echo "========== (UPGRADING VIM) ==========="
 # buggy one
 #yes | sudo apt-get upgrade vim

@@ -19,45 +19,32 @@ sudo apt-get install -y apache2 mariadb-server libapache2-mod-php7.0 \
 
 echo "========== (Downloading latest OwnCloud version archive file) ==========="
 # Download the latest version form the webpage: 
-wget https://download.owncloud.org/community/owncloud-10.0.8.tar.bz2
+sudo wget https://download.owncloud.org/community/owncloud-10.0.8.tar.bz2
 # Download the related MD5 checksum file:
-wget https://download.owncloud.org/community/owncloud-10.0.8.tar.bz2.md5
+sudo wget https://download.owncloud.org/community/owncloud-10.0.8.tar.bz2.md5
 echo "========== (Verifying downloaded file) ==========="
 # Verify the MD5 sum:
-md5sum -c owncloud-10.0.8.tar.bz2.md5 < owncloud-10.0.8.tar.bz2
+sudo md5sum -c owncloud-10.0.8.tar.bz2.md5 < owncloud-10.0.8.tar.bz2
 # Download the PGP signature:
-wget https://download.owncloud.org/community/owncloud-10.0.8.tar.bz2.asc
-wget https://owncloud.org/owncloud.asc
+sudo wget https://download.owncloud.org/community/owncloud-10.0.8.tar.bz2.asc
+sudo wget https://owncloud.org/owncloud.asc
 # Verify the PGP signature:
-gpg --import owncloud.asc
-gpg --verify owncloud-10.0.8.tar.bz2.asc owncloud-10.0.8.tar.bz2
+sudo gpg --import owncloud.asc
+sudo gpg --verify owncloud-10.0.8.tar.bz2.asc owncloud-10.0.8.tar.bz2
 echo "========== (Unzip file & move folder to Apache server's root path) ==========="
 # Unarchive the Owncloud package
-tar -xjf owncloud-10.0.8.tar.bz2
+sudo tar -xjf owncloud-10.0.8.tar.bz2
 # Copy the folder to Apache Webserver root path
 sudo cp -r owncloud /var/www
 
+echo "===== (Downloading OwnCloud Configuration file to Apache2) ======="
+sudo wget https://github.com/solomonxie/cdn/raw/master/Server/ownCloud/owncloud-apache.conf -O /etc/apache2/sites-available/owncloud.conf
 
-echo "========== (Configuring Apache Webserver) ==========="
-sudo touch /etc/apache2/sites-available/owncloud.conf
-sudo cat > /etc/apache2/sites-available/owncloud.conf <<EOF
-Alias /owncloud "/var/www/owncloud/"
 
-<Directory /var/www/owncloud/>
-  Options +FollowSymlinks
-  AllowOverride All
-
- <IfModule mod_dav.c>
-  Dav off
- </IfModule>
-
- SetEnv HOME /var/www/owncloud
- SetEnv HTTP_HOME /var/www/owncloud
-
-</Directory>
-EOF
 # Then create a symlink to /etc/apache2/sites-enabled:
 sudo ln -s /etc/apache2/sites-available/owncloud.conf /etc/apache2/sites-enabled/owncloud.conf
+
+
 # Enable the recommanded modules 
 echo "========== (Enabling Apache server modules) ==========="
 sudo a2enmod rewrite

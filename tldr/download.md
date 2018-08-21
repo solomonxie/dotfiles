@@ -13,9 +13,11 @@
 - With cookies:
     $ youtube-dl --cookies cookies.txt <URL>
 - Specify format:
-    $ youtube-dl -f bestvideo+bestaudio <URL>
+    $ youtube-dl -f best <URL>
     $ youtube-dl -f worstvideo <URL>
     $ youtube-dl -f mp4 <URL>
+- Download Audio:
+    $ youtube-dl -f bestaudio/m4a <URL>
 - Download multiple versions of formats:
     $ youtube-dl -f mp4/bestvideo,w4a/bestaudio <URL>
 - Write subtitles

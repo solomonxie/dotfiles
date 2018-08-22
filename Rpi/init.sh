@@ -19,6 +19,7 @@ sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/wpa_suppli
 
 # Update server & install essentials
 echo "========== (INITIAL UPDATE OF UBUNTU) ==========="
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/sources.list -O /etc/apt/sources.list
 yes | sudo apt-get update
 
 # Setup Python3

@@ -19,8 +19,8 @@ sudo git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/
 sudo wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
 yes | sudo pip install --user powerline-status
 echo "========== (INSTALLING PLUGINS FOR ZSH) ==========="
-sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting &
-sudo git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions &
+sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+sudo git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 if [$? != 0]; then
     echo "========Failed to install Plugins for ZSH========"
     exit 1;

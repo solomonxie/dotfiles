@@ -4,7 +4,8 @@
 # Preload:
 # Commands:
 #   1. Get in tmux
-#   2. Ctrl-b + Ctrl-I
+#   2. Install plugins: Ctrl-b + Ctrl-I
+#   3. Reload configs: Ctrl-b + Ctrl-r
 #
 # =======SETING UP TMUX =======
 sudo apt-get install tmux

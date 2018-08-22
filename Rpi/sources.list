@@ -1,0 +1,11 @@
+# 科大源
+deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free rpi
+# 阿里云
+deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib rpi
+deb-src http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib rpi
+
+# 树莓派官方源
+#deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
+#deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi
+#deb http://ftp.debian.org/debian jessie-backports main
+

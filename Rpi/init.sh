@@ -39,6 +39,11 @@ echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP TMUX) ==========="
 sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/tmux/tmux-setup.sh | sh
 
 
+# Setup Webdav
+echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP Webdav) ==========="
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/webdav/webdav-setup.sh | sh
+
+
 
 # Install Useful Programs
 echo "========== (DOWNLOADING BASH SCRIPT FOR Installing common programs) ==========="

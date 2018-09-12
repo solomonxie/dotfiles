@@ -7,11 +7,11 @@
 
 ## youtube-dl
 - Common use:
-    $ youtube-dl -civw -f bestvideo --proxy "" <URL>
+    $ youtube-dl -civw --write-sub --proxy "localhost:1087" -f best,mp4 <URL> 
 - List video formats:
     $ youtube-dl --list-formats <URL>
-- With cookies:
-    $ youtube-dl --cookies cookies.txt <URL>
+- Write subtitles
+    $ youtube-dl --write-sub --convert-subs srt <URL>
 - Specify format:
     $ youtube-dl -f best <URL>
     $ youtube-dl -f worstvideo <URL>
@@ -20,13 +20,13 @@
     $ youtube-dl -f bestaudio/m4a <URL>
 - Download multiple versions of formats:
     $ youtube-dl -f mp4/bestvideo,w4a/bestaudio <URL>
-- Write subtitles
-    $ youtube-dl --write-sub --convert-subs srt <URL>
+- With cookies:
+    $ youtube-dl --cookies cookies.txt <URL>
 
 
 ## you-get
 - Common use:
-    $ you-get -x localhost:1080 <URL>
+    $ you-get -x localhost:1087 <URL>
 - List video formats:
     $ you-get -i <URL>
 - With cookies:

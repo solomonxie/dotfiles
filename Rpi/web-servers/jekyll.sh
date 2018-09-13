@@ -5,9 +5,9 @@
 #
 
 echo "========== (Installing Jekyll/Bundler) ==========="
-gem update --system
-gem install jekyll
-gem install bundler
+yes | sudo gem update --system
+sudo gem install jekyll
+sudo gem install bundler
 
 echo "========== (Installing npm/gulp) ==========="
 

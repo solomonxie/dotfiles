@@ -12,6 +12,7 @@ fi
 
 echo "========== (INSTALLING OH-MY-ZSH) ==========="
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+sudo chown pi ~/.oh-my-zsh
 
 echo "========== (OVERWRITE ZSHRC) ==========="
 sudo wget https://github.com/solomonxie/cdn/raw/master/Rpi/zsh/zshrc -O ~/.zshrc

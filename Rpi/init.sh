@@ -40,8 +40,8 @@ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/tmux/tm
 
 
 # Setup Webdav
-echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP Webdav) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/webdav/webdav-setup.sh | sh
+#echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP Webdav) ==========="
+#sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/webdav/webdav-setup.sh | sh
 
 
 

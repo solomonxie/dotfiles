@@ -6,6 +6,7 @@
 
 echo "========== (INSTALLING OFTEN USED PROGRAMS) ==========="
 yes | sudo apt-get install mosh
+yes | sudo apt-get install ntfs-3g
 yes | sudo apt-get install htop
 yes | sudo apt-get install glances
 yes | sudo apt-get install speedtest-cli

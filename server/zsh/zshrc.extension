@@ -19,7 +19,7 @@ alias unproxy='unset all_proxy'
 alias hosts='sudo vim /etc/hosts'
 # 
 # frequent commands 
-alias ls="ls -lahgG" 
+alias ls="ls -lah" 
 alias ju="jupyter notebook" 
 alias repos="cd ~/Workspace/repos" 
 # 

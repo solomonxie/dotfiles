@@ -3,6 +3,8 @@
 # Enviroment: Ubuntu 16
 # Preload:
 # Commands:
+# How to run this script:
+#    $ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/ownCloud/owncloud-setup.sh | sh
 #
 
 
@@ -37,8 +39,12 @@ sudo tar -xjf owncloud-10.0.8.tar.bz2
 # Copy the folder to Apache Webserver root path
 sudo cp -r owncloud /var/www
 
+# Give permission for ownCloud to read/write the folder
+sudo chown -R www-data:www-data /var/www/owncloud
+
+
 echo "===== (Downloading OwnCloud Configuration file to Apache2) ======="
-sudo wget https://github.com/solomonxie/cdn/raw/master/Server/ownCloud/owncloud-apache.conf -O /etc/apache2/sites-available/owncloud.conf
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/ownCloud/owncloud-apache.conf -O /etc/apache2/sites-available/owncloud.conf
 
 
 # Then create a symlink to /etc/apache2/sites-enabled:

@@ -1,22 +1,43 @@
-pane	0	1	:zsh	1	:*	1	:/home/ubuntu	1	zsh	:
-pane	AWS-Workspace	1	:Config	0	:-	1	:/home/ubuntu	0	zsh	:
-pane	AWS-Workspace	1	:Config	0	:-	2	:/home/ubuntu	0	vim	:vim /home/ubuntu/.tmux.conf
-pane	AWS-Workspace	1	:Config	0	:-	3	:/home/ubuntu/.tmux/resurrect	0	zsh	:
-pane	AWS-Workspace	1	:Config	0	:-	4	:/home/ubuntu/.tmux/resurrect	1	zsh	:
-pane	AWS-Workspace	2	:Netstat	1	:*	1	:/home/ubuntu	0	htop	:htop
-pane	AWS-Workspace	2	:Netstat	1	:*	2	:/home/ubuntu	0	zsh	:
-pane	AWS-Workspace	2	:Netstat	1	:*	3	:/home/ubuntu	1	zsh	:
-pane	AWS-Workspace	3	:frp	0	:#	1	:/home/ubuntu/frp	1	vim	:vim frps.ini
-pane	AWS-Workspace	3	:frp	0	:#	2	:/home/ubuntu/frp	0	zsh	:
-pane	AWS-Workspace	3	:frp	0	:#	3	:/home/ubuntu/frp	0	zsh	:
-pane	AWS-Workspace	3	:frp	0	:#	4	:/home/ubuntu/frp	0	zsh	:
-pane	AWS-Workspace	5	:Webdav	0	:	1	:/var/www/share	0	zsh	:
-pane	AWS-Workspace	5	:Webdav	0	:	2	:/home/ubuntu	1	zsh	:
-pane	AWS-Workspace	5	:Webdav	0	:	3	:/home/ubuntu	0	zsh	:
-pane	AWS-Workspace	5	:Webdav	0	:	4	:/home/ubuntu	0	zsh	:
-window	0	1	1	:*	c5be,150x37,0,0,1
-window	AWS-Workspace	1	0	:-	3c6d,150x37,0,0{65x37,0,0[65x9,0,0,2,65x27,0,10,3],84x37,66,0[84x9,66,0,4,84x27,66,10,5]}
-window	AWS-Workspace	2	1	:*	80bc,150x37,0,0[150x27,0,0{71x27,0,0,6,78x27,72,0,7},150x9,0,28,8]
-window	AWS-Workspace	3	0	:#	1b88,150x37,0,0{76x37,0,0,9,73x37,77,0[73x7,77,0,10,73x22,77,8,11,73x6,77,31,12]}
-window	AWS-Workspace	5	0	:	9600,150x37,0,0{76x37,0,0[76x9,0,0,13,76x27,0,10,14],73x37,77,0[73x18,77,0,15,73x18,77,19,16]}
-state	AWS-Workspace	
+pane	0	1	:zsh	1	:*	1	:/home/ubuntu/Downloads	1	zsh	:
+pane	2	1	:zsh	1	:*	1	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	1	:Config	0	:#	1	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	1	:Config	0	:#	2	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	1	:Config	0	:#	3	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	1	:Config	0	:#	4	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	2	:Netstat	0	:#	1	:/home/ubuntu	0	htop	:htop
+pane	AWS-Workspace	2	:Netstat	0	:#	2	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	2	:Netstat	0	:#	3	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	3	:Download	0	:#	1	:/home/ubuntu/Downloads	1	zsh	:
+pane	AWS-Workspace	3	:Download	0	:#	2	:/home/ubuntu/Downloads	0	zsh	:
+pane	AWS-Workspace	3	:Download	0	:#	3	:/home/ubuntu/Downloads	0	zsh	:
+pane	AWS-Workspace	4	:gitissues	0	:#	1	:/home/ubuntu/gitissues	0	zsh	:
+pane	AWS-Workspace	4	:gitissues	0	:#	2	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	4	:gitissues	0	:#	3	:/home/ubuntu/autobackup/issues_blog	0	zsh	:
+pane	AWS-Workspace	4	:gitissues	0	:#	4	:/home/ubuntu	0	tail	:tail -f /home/ubuntu/autobackup/issues_blog/.local/log/last.log
+pane	AWS-Workspace	4	:gitissues	0	:#	5	:/home/ubuntu	1	tail	:tail -f /home/ubuntu/log_ssserver.txt
+pane	AWS-Workspace	5	:Webdav	0	:#	1	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	5	:Webdav	0	:#	2	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	5	:Webdav	0	:#	3	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	6	:frp	0	:#	1	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	6	:frp	0	:#	2	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	6	:frp	0	:#	3	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	7	:gh-pages	0	:#	1	:/home/ubuntu/gh-pages/test/test	1	zsh	:
+pane	AWS-Workspace	7	:gh-pages	0	:#	2	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	7	:gh-pages	0	:#	3	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	8	:ownCloud	0	:-	1	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	8	:ownCloud	0	:-	2	:/etc/apache2/ssl	0	zsh	:
+pane	AWS-Workspace	8	:ownCloud	0	:-	3	:/var/www/owncloud	0	zsh	:
+pane	AWS-Workspace	8	:ownCloud	0	:-	4	:/etc/apache2/sites-available	1	zsh	:
+pane	AWS-Workspace	9	:EBS	1	:*	1	:/data	1	zsh	:
+window	0	1	1	:*	af3e,134x31,0,0,1
+window	2	1	1	:*	af3f,134x31,0,0,2
+window	AWS-Workspace	1	0	:#	698f,134x31,0,0{58x31,0,0[58x6,0,0,3,58x24,0,7,4],75x31,59,0[75x6,59,0,5,75x24,59,7,6]}
+window	AWS-Workspace	2	0	:#	2543,134x31,0,0[134x22,0,0{91x22,0,0,7,42x22,92,0,8},134x8,0,23,9]
+window	AWS-Workspace	3	0	:#	d021,134x31,0,0{67x31,0,0,10,66x31,68,0[66x15,68,0,11,66x15,68,16,12]}
+window	AWS-Workspace	4	0	:#	ef3e,134x31,0,0{71x31,0,0,13,62x31,72,0[62x4,72,0,14,62x5,72,5,15,62x15,72,11,16,62x4,72,27,17]}
+window	AWS-Workspace	5	0	:#	666e,134x31,0,0{68x31,0,0[68x6,0,0,18,68x24,0,7,19],65x31,69,0,20}
+window	AWS-Workspace	6	0	:#	5d96,134x31,0,0{66x31,0,0,21,67x31,67,0[67x15,67,0,22,67x15,67,16,23]}
+window	AWS-Workspace	7	0	:#	3125,134x31,0,0{67x31,0,0,24,66x31,68,0[66x15,68,0,25,66x15,68,16,26]}
+window	AWS-Workspace	8	0	:-	4110,134x31,0,0{67x31,0,0[67x22,0,0,27,67x8,0,23,28],66x31,68,0[66x15,68,0,29,66x15,68,16,30]}
+window	AWS-Workspace	9	1	:*	57d1,134x31,0,0,31
+state	AWS-Workspace	2

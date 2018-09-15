@@ -53,7 +53,7 @@ filetype plugin indent on    " required
     "set paste   "设置可以直接用ctrl+c ctrl+v复制粘贴 其实没什么区别 只不过不用在insert模式而已
     set showcmd " show keypress at right-bottom
     set backspace=2 "backspace over everything in insert mode
-    set autoindent "换行时自动缩排 同时对应的还有其它两种模式 smartindent, cindent
+    "set autoindent "换行时自动缩排 同时对应的还有其它两种模式 smartindent, cindent
     set tabstop=4 "设定tab宽度为4个字符
     set shiftwidth=4 "设定自动缩进为4个字符
     set expandtab "用space替代tab的输入 取消的话 就用set noexpandtab "不用space替代tab的输入

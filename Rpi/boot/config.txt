@@ -54,3 +54,4 @@ config_hdmi_boost=4
 
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
+gpu_mem=16

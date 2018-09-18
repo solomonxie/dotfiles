@@ -8,7 +8,7 @@
 SERVERIP=$1
 
 #touch ~/log_vps_speed_test.txt
-#echo "\n========(Speed Test with IP)=========\n"
+echo "Speed Test with $SERVERIP..."
 
 # Speed of SSH connection
 time ssh ubuntu@$SERVERIP "exit"
@@ -21,4 +21,4 @@ time scp ubuntu@$SERVERIP:~/scptest.jpg ~/
 time ssh ubuntu@$SERVERIP "ping -c 1 youtube.com; exit"
 
 # Internet speed of remote server 
-time ssh ubuntu@$SERVERIP "speedtest; exit"
+#time ssh ubuntu@$SERVERIP "speedtest; exit"

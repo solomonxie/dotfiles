@@ -15,7 +15,7 @@
 
 
 # [COMMANDS ARE HERE]
-sudo ssserver -c ~/shadowsocks.json -d start
+sudo ssserver -c /etc/shadowsocks.json -d start
 
 
 

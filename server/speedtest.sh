@@ -4,24 +4,30 @@
 # Notice:
 #     This script is run on local machine to test server speed.
 
-SERVERIP=$1
+SERVER=$1
+PORT=$2
+USER=$3
 
 #touch ~/log_vps_speed_test.txt
-echo "Speed Test with $SERVERIP..."
+echo "Speed Test with $SERVER..."
+
+# Ping speed
+echo "Pinging Server..."
+ping -c 1 "$SERVER:$PORT"
 
 # Speed of SSH connection
 echo "Connecting SSH..."
-time ssh ubuntu@$SERVERIP "exit"
+time ssh "$USER:$SERVER" "exit"
 
 # Speed of uploading/download file with local machine
-echo "Uploading..."
-time scp ~/scptest.jpg ubuntu@$SERVERIP:~/
-echo "Downloading..."
-time scp ubuntu@$SERVERIP:~/scptest.jpg ~/
+# echo "Uploading..."
+# time scp ~/scptest $SERVER:~/
+# echo "Downloading..."
+# time scp $SERVER:~/scptest ~/
 
-# Speed of connection to Youtube
-echo "Pinging youtube..."
-time ssh ubuntu@$SERVERIP "ping -c 1 youtube.com; exit"
+# Speed of Downloading from Youtube
+echo "Downloading from youtube..."
+time youtube-dl --no-continue --proxy "localhost:1087" -f best,mp4 -o ~/speedtest "https://youtu.be/TO9TS4aGWL4"
 
 # Internet speed of remote server 
-#time ssh ubuntu@$SERVERIP "speedtest; exit"
+#time ssh $SERVER "speedtest; exit"

@@ -2,14 +2,19 @@
 
 ## wget
 - Download to folder:
-    $ wget <url> -P ./folder
-- 
+    $ wget <URL> -P ./folder
+- Specify a file name:
+    $ wget <URL> -o ./filename.txt
+- Download whole website as static site:
+    # wget -r --convert-links <URL>
 
 ## youtube-dl
 - Common use:
-    $ youtube-dl -civw --write-sub --proxy "localhost:1087" -f best,mp4 <URL> 
+    $ youtube-dl -civw --write-sub --proxy "localhost:1087" -f best/mp4 <URL> 
 - List video formats:
-    $ youtube-dl --list-formats <URL>
+    $ youtube-dl -F <URL>
+- Force overwrite:
+    $ youtube-dl --no-continue <URL>
 - Write subtitles
     $ youtube-dl --write-sub --convert-subs srt <URL>
 - Specify format:

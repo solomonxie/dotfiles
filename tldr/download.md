@@ -10,7 +10,7 @@
 
 ## youtube-dl
 - Common use:
-    $ youtube-dl -civw --write-sub --proxy "localhost:1087" -f best/mp4 <URL> 
+    $ youtube-dl -civw --proxy "localhost:1080" -f best/mp4  --write-sub <URL> 
 - List video formats:
     $ youtube-dl -F <URL>
 - Force overwrite:
@@ -31,7 +31,7 @@
 
 ## you-get
 - Common use:
-    $ you-get -x localhost:1087 <URL>
+    $ you-get -x localhost:1080 <URL>
 - List video formats:
     $ you-get -i <URL>
 - With cookies:

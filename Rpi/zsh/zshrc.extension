@@ -7,15 +7,16 @@
 # ==== ALIAS ==== 
 # 
 # Config files 
-alias zshrc="vim ~/.zshrc" 
+alias zshrc="vim ~/.zshrc"
 alias zshrc2="vim ~/.zshrc.extension"
-alias ohmyzsh="vim ~/.oh-my-zsh" 
-alias vimrc="vim ~/.vimrc" 
-alias tmuxrc="vim ~/.tmux.conf" 
-alias bashrc="vim ~/.bash_profile" 
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vimrc="vim ~/.vimrc"
+alias tmuxrc="vim ~/.tmux.conf"
+alias bashrc="vim ~/.bash_profile"
 # Shadowsocks proxy 
-alias proxy='export all_proxy=http://127.0.0.1:1087' 
-alias unproxy='unset all_proxy' 
+alias proxy='export ALL_PROXY=socks5://127.0.0.1:1080' 
+alias unproxy='unset ALL_PROXY'
+alias ip='curl ip.cn'
 alias hosts='sudo vim /etc/hosts'
 # 
 # frequent commands 

@@ -7,9 +7,11 @@
 #
 # =======SETING UP SHADOWSOCKS =======
 
+cd ~/.init
+
 # Install Shadowsocks
 echo "========== (INSTALLING SHADOWSOCKS) ==========="
-yes | sudo pip install shadowsocks
+yes | sudo pip install shadowsocks >> log_shadowsocks.txt
 if [$? != 0]; then
     exit 1;
 fi
@@ -17,14 +19,14 @@ fi
 
 # Create config file
 echo "========== (CREAT SHADOWSOCK'S CONFIG) ==========="
-sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/shadowsocks/shadowsocks.json -O /etc/shadowsocks.json
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/shadowsocks/shadowsocks.json -O /etc/shadowsocks.json  >> log_shadowsocks.txt
 if [$? != 0]; then
     echo "======Failed to create shadowsocks.json====="
     exit 1;
 fi
 
 echo "========== (STARTING SHADOWSOCKS SERVER) ==========="
-sudo ssserver -c /etc/shadowsocks.json -d start
+sudo ssserver -c /etc/shadowsocks.json -d start >> log_shadowsocks.txt
 if [$? != 0];then
     echo "====Error occurred when starting the shadowsocks====="
 fi

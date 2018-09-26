@@ -22,8 +22,8 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/ >> log_zsh.txt 2>&1
 yes | sudo pip install -U powerline-status >> log_zsh.txt 2>&1
 
-# echo "---[  Installing Themes for ZSH   ]----"
-# sudo chown -R $USER $ZSH_CUSTOM
+echo "---[  Installing Themes for ZSH   ]----"
+sudo chown -R $USER $ZSH_CUSTOM
 
 echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting >> log_zsh.txt 2>&1

@@ -21,36 +21,36 @@ yes | sudo apt-get update >> log_system_update.txt 2>&1
 
 # Setup Python3
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/python3-setup.sh | sudo sh >> log_python.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-setup-ubuntu.sh | sudo sh >> log_python.txt 2>&1
 
 # Setup Shadowsocks
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP SHADOWSOCKS   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/shadowsocks/shadowsocks-setup.sh | sudo sh >> log_shadowsocks.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/shadowsocks-setup-ubuntu.sh | sudo sh >> log_shadowsocks.txt 2>&1
 
 # Setup ZSH
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/zsh/zsh-setup.sh | sudo sh >> log_zsh.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-setup-ubuntu.sh | sudo sh >> log_zsh.txt 2>&1
 
 # Setup Vim
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP VIM   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/vim/vim-setup.sh | sudo sh >> log_vim.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-setup-ubuntu.sh | sudo sh >> log_vim.txt 2>&1
 
 # Setup Tmux
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP TMUX   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/tmux/tmux-setup.sh | sudo sh >> log_tmux.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/tmux-setup-ubuntu.sh | sudo sh >> log_tmux.txt 2>&1
 
 
 # Install Useful Programs
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR Installing common programs   ]--------------------"
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/common-programs.sh | sudo sh >> log_common.txt 2>&1
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/etc/common-programs-ubuntu.sh | sudo sh >> log_common.txt 2>&1
 
 
 # [THIS SECTION SHOULD BETTER BE PLACED AT THE BOTTOM]
 echo "--------------------[   SET UP CRONTAB JOBS   ]--------------------"
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/crontab.txt |crontab >> log_crontab.txt 2>&1
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/crontab.txt |crontab >> log_crontab.txt 2>&1
 
 echo "--------------------[   Rewrite SYSTEM START commands with Shadowsocks   ]--------------------"
-sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/rc.local -O /etc/rc.local >> log_rc_local.txt 2>&1
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/rc.local -O /etc/rc.local >> log_rc_local.txt 2>&1
 
 
 

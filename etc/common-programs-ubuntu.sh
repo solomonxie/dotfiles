@@ -7,5 +7,10 @@
 cd ~/.init
 
 echo "========== (INSTALLING OFTEN USED PROGRAMS) ==========="
-yes | sudo apt-get install mosh htop glances speedtest-cli ffmpeg >> log_common.txt 2>&1
-yes | sudo pip install -U youtube-dl you-get tldr
+yes | sudo apt-get install mosh
+yes | sudo apt-get install ntfs-3g
+yes | sudo apt-get install htop
+yes | sudo apt-get install glances
+yes | sudo apt-get install speedtest-cli
+yes | sudo apt-get install ifstat
+yes | sudo pip install -U youtube-dl you-get tldr ffmpeg

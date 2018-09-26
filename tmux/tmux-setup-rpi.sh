@@ -8,23 +8,24 @@
 #   3. Reload configs: Ctrl-b + r
 #   4. Resurrect: Ctrl-b + Ctrl-r
 #
-# =======SETING UP TMUX =======
-sudo apt-get install tmux
-if [$? != 0];then
-    echo "=====Failed on installing Tmux======="
-    exit 1;
-fi
 
-echo "===== (Overwrite .tmux.conf) ======="
-sudo wget https://github.com/solomonxie/cdn/raw/master/Rpi/tmux/tmux.conf -O ~/.tmux.conf
 
-echo "===== (Installing TPM for Tmux) ======="
-sudo mkdir ~/.tmux
-sudo chown -R pi ~/.tmux
-sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-sudo chown -R pi ~/.tmux/plugins
+cd ~/.init
 
-echo "===== (Recover preset Tmux session) ======="
-sudo mkdir ~/.tmux/resurrect
-sudo wget https://github.com/solomonxie/cdn/raw/master/Rpi/tmux/resurrect/last.txt -O ~/.tmux/resurrect/last.txt
-sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last
+#--------------SETING UP TMUX--------------
+yes | sudo apt-get install tmux >> log_tmux.txt 2>&1
+
+echo "----------[  Overwrite .tmux.conf   ]--------------"
+sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/tmux-rpi.conf -O ~/.tmux.conf >> log_tmux.txt 2>&1
+
+echo "----------[  Installing TPM for Tmux   ]--------------"
+sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm >> log_tmux.txt 2>&1
+
+echo "----------[  Recover preset Tmux session   ]--------------"
+sudo mkdir ~/.tmux/resurrect >> log_tmux.txt 2>&1
+sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/resurrect/last-rpi.txt -O ~/.tmux/resurrect/last.txt >> log_tmux.txt 2>&1
+sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last >> log_tmux.txt 2>&1
+
+
+echo "----------[   Change permission   ]--------------"
+sudo chown -R $USER ~/.tmux >> log_tmux.txt

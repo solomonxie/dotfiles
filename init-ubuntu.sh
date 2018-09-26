@@ -6,7 +6,7 @@
 # Notice: 
 #    This script should be run by "$ sudo bash xxx.sh"
 # How to run this script:
-#    curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/server/init.sh | sudo sh
+#    curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/init-ubuntu.sh | sudo sh
 
 mkdir ~/.init
 cd ~/.init
@@ -25,7 +25,7 @@ curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-s
 
 # Setup Shadowsocks
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP SHADOWSOCKS   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/shadowsocks-setup-ubuntu.sh | sudo sh >> log_shadowsocks.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-setup-ubuntu.sh | sudo sh >> log_shadowsocks.txt 2>&1
 
 # Setup ZSH
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH   ]--------------------"

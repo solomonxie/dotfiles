@@ -1,0 +1,9 @@
+{
+  "server":"SERVER-IP-ADDRESS",
+  "local_address": "127.0.0.1",
+  "local_port":1080,
+  "server_port": 1988,
+  "password":"shadow123",
+  "timeout":300,
+  "method":"aes-256-cfb"
+}

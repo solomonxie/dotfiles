@@ -6,7 +6,7 @@
 # Notice: 
 #    This script should be run by "$ sudo bash xxx.sh"
 # How to run this script:
-#    $ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/init.sh | sh
+#    curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/init-rpi.sh | sudo sh
 
 # 
 echo "========== (Overwrite Raspberry Pi Default configs) ==========="
@@ -24,7 +24,7 @@ yes | sudo apt-get update
 
 # Setup Python3
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3) ==========="
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python3-setup-rpi.sh | sh
+sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-setup-rpi.sh | sh
 
 # Setup ZSH
 echo "========== (DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH) ==========="

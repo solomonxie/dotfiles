@@ -6,25 +6,29 @@
 # =======SETING UP VIM =======
 
 
-echo "========== (OVERWRITING VIMRC CONFIG) ==========="
-sudo touch ~/.vimrc
-sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/vim/vimrc -O ~/.vimrc
 
-echo "========== (Change permission) ==========="
-sudo mkdir ~/.vim
-sudo chown pi ~/.vim
+cd ~/.init
 
-echo "========== (DOWNLOADING VUNDLE - VIM PLUGIN MANAGER) ==========="
-sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+mkdir ~/.vim
+export VIM=~/.vim
 
-echo "========== (INSTALLING VIM COLOR SCHEME) ==========="
-sudo mkdir ~/.vim/colors
-sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/vim/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
+# ---SETING UP VIM ---
+echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
+wget https://github.com/solomonxie/cdn/raw/master/vim/vimrc-rpi -O ~/.vimrc >> log_vim.txt 2>&1
 
-echo "========== (UPGRADING VIM) ==========="
+
+echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim >> log_vim.txt 2>&1
+
+
+echo "-----[  Change permission   ]-----"
+sudo chown -R $USER $VIM >> log_vim.txt 2>&1
+#sudo chown -R ubuntu ~/.vim >> log_vim.txt 2>&1
+
+echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
+mkdir ~/.vim/colors >> log_vim.txt 2>&1
+curl https://raw.githubusercontent.com/solomonxie/cdn/master/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim >> log_vim.txt 2>&1
+
 # buggy one
+#echo "-----[  UPGRADING VIM   ]-----"
 #yes | sudo apt-get upgrade vim
-if [$? != 0];then
-    echo "=======Failed on upgrading vim======="
-    exit 1;
-fi

@@ -22,7 +22,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim >
 
 echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
 mkdir ~/.vim/colors >> log_vim.txt 2>&1
-wget https://raw.githubusercontent.com/solomonxie/cdn/master/server/vim/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim >> log_vim.txt 2>&1
+curl https://raw.githubusercontent.com/solomonxie/cdn/master/server/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim >> log_vim.txt 2>&1
 
 # buggy one
 #echo "-----[  UPGRADING VIM   ]-----"

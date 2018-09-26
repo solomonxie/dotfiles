@@ -17,12 +17,13 @@ echo "-----[  OVERWRITE ZSHRC   ]-----"
 wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc -O ~/.zshrc >> log_zsh.txt 2>&1
 wget https://github.com/solomonxie/cdn/raw/master/server/zsh/zshrc.extension -O ~/.zshrc.extension >> log_zsh.txt 2>&1
 
-echo "--- (Installing Themes for ZSH   ]----"
+echo "---[  Installing Themes for ZSH   ]----"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k >> log_zsh.txt 2>&1
 wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/ >> log_zsh.txt 2>&1
 yes | sudo pip install -U powerline-status >> log_zsh.txt 2>&1
 
-sudo chown -R $USER $ZSH_CUSTOM
+# echo "---[  Installing Themes for ZSH   ]----"
+# sudo chown -R $USER $ZSH_CUSTOM
 
 echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting >> log_zsh.txt 2>&1

@@ -1,0 +1,52 @@
+# Owner: Solomon Xie 
+# Email: solomonxiewise@gmail.com 
+# Preload dependencies: 
+#     # (Theme: Agnoster)
+#     $ wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
+# Commands: 
+# 
+export TERM="xterm-256color" 
+ZSH_THEME="agnoster" 
+# The above has to go at first, or it won't show any theme 
+ 
+
+# Path to oh-my-zsh installation. 
+export ZSH=~/.oh-my-zsh 
+plugins=( 
+  git, 
+  zsh-autosuggestions, 
+  colored-man-pages 
+) 
+source $ZSH/oh-my-zsh.sh 
+
+# 引用不方便公开的本地配置文件
+source $HOME/.zshrc.extension
+ 
+ 
+# Hide Username and Hostname 
+#prompt_context() {} 
+ 
+
+# Hide Hostname only
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+ 
+ 
+# ----- User configuration ----- 
+ 
+export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
+export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
+export EDITOR=vim 
+ 
+ 
+ 
+# ==== Theme Settings ==== 
+ 
+
+ 
+# =====================================
+# This must be at the end of ~/.zshrc 
+source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

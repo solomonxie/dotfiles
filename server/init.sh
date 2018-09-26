@@ -12,7 +12,7 @@ mkdir ~/.init
 cd ~/.init
 
 # Change server timezone
-echo "--------------------[  Change TIMEZONE  ]--------------------"
+echo "--------------------[   Change TIMEZONE   ]--------------------"
 sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime >> log_system_update.txt 2>&1
 
 # Update server & install essentials

@@ -21,23 +21,23 @@ yes | sudo apt-get update >> log_system_update.txt 2>&1
 
 # Setup Python3
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-setup-ubuntu.sh | sudo sh >> log_python.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-install-ubuntu.sh | sudo sh >> log_python.txt 2>&1
 
 # Setup Shadowsocks
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP SHADOWSOCKS   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-setup-ubuntu.sh | sudo sh >> log_shadowsocks.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-install-ubuntu.sh | sudo sh >> log_shadowsocks.txt 2>&1
 
 # Setup ZSH
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-setup-ubuntu.sh | sudo sh >> log_zsh.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-install-ubuntu.sh | sudo sh >> log_zsh.txt 2>&1
 
 # Setup Vim
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP VIM   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-setup-ubuntu.sh | sudo sh >> log_vim.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-install-ubuntu.sh | sudo sh >> log_vim.txt 2>&1
 
 # Setup Tmux
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP TMUX   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/tmux-setup-ubuntu.sh | sudo sh >> log_tmux.txt 2>&1
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/tmux-install-ubuntu.sh | sudo sh >> log_tmux.txt 2>&1
 
 
 # Install Useful Programs

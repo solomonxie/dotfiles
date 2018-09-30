@@ -15,7 +15,7 @@
 
 
 # [COMMANDS ARE HERE]
-sudo ssserver -c /etc/shadowsocks.json -d start
+sudo ssserver -c /etc/ssserver.json -d start >> /home/ubuntu/log_ssserver.txt
 
 
 

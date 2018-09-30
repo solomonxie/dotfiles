@@ -1,37 +1,37 @@
 pane	0	1	:reattach-to-user-namespace	1	:*	1	:/Users/solomonxie	1	zsh	:
 pane	2	1	:reattach-to-user-namespace	1	:*	1	:/Users/solomonxie	1	zsh	:
 pane	MBA-Workspace	1	:Configs	1	:*Z	1	:/Users/solomonxie/Workspace/repos/cdn	0	zsh	:
-pane	MBA-Workspace	1	:Configs	1	:*Z	2	:/Users/solomonxie/Workspace/repos/cdn	0	zsh	:zsh
-pane	MBA-Workspace	1	:Configs	1	:*Z	3	:/Users/solomonxie/Workspace/etc/Mac	1	zsh	:
+pane	MBA-Workspace	1	:Configs	1	:*Z	2	:/Users/solomonxie/Workspace/repos/cdn	0	zsh	:
+pane	MBA-Workspace	1	:Configs	1	:*Z	3	:/Users/solomonxie/Workspace/etc	0	zsh	:
 pane	MBA-Workspace	1	:Configs	1	:*Z	4	:/Users/solomonxie/Workspace/etc	0	zsh	:
-pane	MBA-Workspace	1	:Configs	1	:*Z	5	:/Users/solomonxie	0	zsh	:
+pane	MBA-Workspace	1	:Configs	1	:*Z	5	:/Users/solomonxie/.tmux/resurrect	1	zsh	:
 pane	MBA-Workspace	1	:Configs	1	:*Z	6	:/Users/solomonxie/Workspace/tests/shell	0	zsh	:
-pane	MBA-Workspace	2	:Workspace	0	:	1	:/Users/solomonxie/Workspace/tests/jekyll/blog	0	zsh	:zsh
-pane	MBA-Workspace	2	:Workspace	0	:	2	:/Users/solomonxie/Workspace	1	zsh	:
+pane	MBA-Workspace	2	:Workspace	0	:	1	:/Users/solomonxie/Workspace/tests/jekyll/blog	0	zsh	:
+pane	MBA-Workspace	2	:Workspace	0	:	2	:/Users/solomonxie/Workspace	0	zsh	:
 pane	MBA-Workspace	2	:Workspace	0	:	3	:/Users/solomonxie/Workspace/repos/cdn/tldr	0	zsh	:
-pane	MBA-Workspace	2	:Workspace	0	:	4	:/Users/solomonxie/Workspace/repos/jupyter-notebooks	0	zsh	:
-pane	MBA-Workspace	3	:Stat	0	:	1	:/Users/solomonxie/Workspace/etc	0	zsh	:
-pane	MBA-Workspace	3	:Stat	0	:	2	:/Users/solomonxie/Workspace/repos/cdn/tldr	1	less	:less disk-utility.md
-pane	MBA-Workspace	3	:Stat	0	:	3	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	4	:Download	0	:-	1	:/Users/solomonxie/Movies	1	zsh	:zsh
+pane	MBA-Workspace	2	:Workspace	0	:	4	:/Users/solomonxie/Workspace/repos/jupyter-notebooks	1	zsh	:
+pane	MBA-Workspace	3	:sys	0	:	1	:/Users/solomonxie/Workspace/etc	1	zsh	:
+pane	MBA-Workspace	3	:sys	0	:	2	:/Users/solomonxie/Workspace/repos/cdn/tldr	0	less	:less disk-utility.md
+pane	MBA-Workspace	3	:sys	0	:	3	:/Users/solomonxie	0	zsh	:
+pane	MBA-Workspace	4	:Download	0	:-	1	:/Users/solomonxie/Movies	0	zsh	:
 pane	MBA-Workspace	4	:Download	0	:-	2	:/Users/solomonxie	0	less	:less /Users/solomonxie/Workspace/repos/cdn/tldr/download.md
-pane	MBA-Workspace	4	:Download	0	:-	3	:/Volumes/SD/Videos	0	zsh	:zsh
-pane	MBA-Workspace	4	:Download	0	:-	4	:/Users/solomonxie/Movies	0	zsh	:zsh
-pane	MBA-Workspace	5	:Writing	0	:#	1	:/Users/solomonxie/Workspace	1	zsh	:
+pane	MBA-Workspace	4	:Download	0	:-	3	:/Volumes/SD/Videos	1	zsh	:
+pane	MBA-Workspace	4	:Download	0	:-	4	:/Users/solomonxie/Movies	0	zsh	:
+pane	MBA-Workspace	5	:Writing	0	:	1	:/Users/solomonxie/Workspace	1	zsh	:
 pane	MBA-Workspace	6	:Gitissues	0	:	1	:/Users/solomonxie/Workspace/repos/gitissues	0	zsh	:
 pane	MBA-Workspace	6	:Gitissues	0	:	2	:/Users/solomonxie/Workspace/repos/gitissues	1	zsh	:
 pane	MBA-Workspace	6	:Gitissues	0	:	3	:/Users/solomonxie/Workspace/repos/gitissues	0	tail	:tail -f /Users/solomonxie/Workspace/autobackup/issues_blog/.local/log/last.log
 pane	MBA-Workspace	6	:Gitissues	0	:	4	:/Users/solomonxie/Workspace/autobackup/issues_blog	0	zsh	:
-pane	MBA-Workspace	9	:gh-pages	0	:#	1	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	9	:gh-pages	0	:#	2	:/Users/solomonxie/Workspace/web-templates/github-pages	1	zsh	:
-pane	MBA-Workspace	9	:gh-pages	0	:#	3	:/Users/solomonxie/Workspace	0	zsh	:
+pane	MBA-Workspace	9	:gh-pages	0	:	1	:/Users/solomonxie	1	zsh	:
+pane	MBA-Workspace	9	:gh-pages	0	:	2	:/Users/solomonxie/Workspace/web-templates/github-pages	0	zsh	:
+pane	MBA-Workspace	9	:gh-pages	0	:	3	:/Users/solomonxie/Workspace	0	zsh	:
 window	0	1	1	:*	b3fe,145x32,0,0,1
-window	2	1	1	:*	da37,145x32,0,0,28
-window	MBA-Workspace	1	1	:*Z	ae82,145x32,0,0{51x32,0,0[51x6,0,0,2,51x25,0,7,3],48x32,52,0[48x14,52,0,4,48x17,52,15,27],44x32,101,0[44x6,101,0,6,44x25,101,7,7]}
-window	MBA-Workspace	2	0	:	5e39,145x32,0,0{99x32,0,0[99x6,0,0,8,99x25,0,7,9],45x32,100,0[45x10,100,0,10,45x21,100,11,11]}
-window	MBA-Workspace	3	0	:	cae7,145x32,0,0{86x32,0,0,12,58x32,87,0[58x12,87,0,13,58x19,87,13,14]}
-window	MBA-Workspace	4	0	:-	5cd1,145x32,0,0{81x32,0,0,15,63x32,82,0[63x8,82,0,16,63x12,82,9,17,63x10,82,22,18]}
-window	MBA-Workspace	5	0	:#	5a38,145x32,0,0,19
-window	MBA-Workspace	6	0	:	e145,145x32,0,0{90x32,0,0[90x6,0,0,20,90x25,0,7,21],54x32,91,0[54x20,91,0,22,54x11,91,21,23]}
-window	MBA-Workspace	9	0	:#	8bff,145x32,0,0{92x32,0,0,24,52x32,93,0[52x11,93,0,25,52x20,93,12,26]}
+window	2	1	1	:*	b3ff,145x32,0,0,2
+window	MBA-Workspace	1	1	:*Z	ecf9,145x32,0,0{51x32,0,0[51x6,0,0,3,51x25,0,7,4],48x32,52,0[48x14,52,0,5,48x17,52,15,6],44x32,101,0[44x6,101,0,7,44x25,101,7,8]}
+window	MBA-Workspace	2	0	:	fe13,145x32,0,0{99x32,0,0[99x6,0,0,9,99x25,0,7,10],45x32,100,0[45x10,100,0,11,45x21,100,11,12]}
+window	MBA-Workspace	3	0	:	8b28,145x32,0,0{86x32,0,0,13,58x32,87,0[58x12,87,0,14,58x19,87,13,15]}
+window	MBA-Workspace	4	0	:-	1ed4,145x32,0,0{81x32,0,0,16,63x32,82,0[63x8,82,0,17,63x12,82,9,18,63x10,82,22,19]}
+window	MBA-Workspace	5	0	:	da2f,145x32,0,0,20
+window	MBA-Workspace	6	0	:	a266,145x32,0,0{90x32,0,0[90x6,0,0,21,90x25,0,7,22],54x32,91,0[54x20,91,0,23,54x11,91,21,24]}
+window	MBA-Workspace	9	0	:	4c40,145x32,0,0{92x32,0,0,25,52x32,93,0[52x11,93,0,26,52x20,93,12,27]}
 state	MBA-Workspace	2

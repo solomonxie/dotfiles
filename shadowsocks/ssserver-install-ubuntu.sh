@@ -1,6 +1,6 @@
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
-# Enviroment: MacOS Sierra / Ubuntu
+# Enviroment: Ubuntu
 # How to run this script:
 #    $ curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-setup-ubuntu.sh | sudo sh
 #
@@ -18,4 +18,4 @@ echo "-----[  CREAT SHADOWSOCK'S CONFIG   ]-----"
 sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver.json -O /etc/ssserver.json  >> log_shadowsocks.txt
 
 echo "-----[  STARTING SHADOWSOCKS SERVER   ]-----"
-sudo ssserver -c /etc/ssserver.json -d start >> log_shadowsocks.txt
+sudo ssserver -c /etc/ssserver.json -d start >> /home/ubuntu/log_ssserver.txt

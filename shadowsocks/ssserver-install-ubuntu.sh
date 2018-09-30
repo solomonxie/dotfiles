@@ -18,4 +18,4 @@ echo "-----[  CREAT SHADOWSOCK'S CONFIG   ]-----"
 sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver.json -O /etc/ssserver.json  >> log_shadowsocks.txt
 
 echo "-----[  STARTING SHADOWSOCKS SERVER   ]-----"
-sudo ssserver -c /etc/ssserver.json -d start >> /home/ubuntu/log_ssserver.txt
+sudo ssserver -c /etc/ssserver.json -d start >> ~/log_ssserver.txt

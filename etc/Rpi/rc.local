@@ -15,7 +15,7 @@
 
 
 # [COMMANDS ARE HERE]
-sudo mount -a >> /home/pi/log_mount.txt 2>&1
+sudo mount -a >> /home/pi/log_mount.txt 1>&2
 
 
 

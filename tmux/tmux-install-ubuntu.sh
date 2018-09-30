@@ -9,23 +9,22 @@
 #   4. Resurrect: Ctrl-b + Ctrl-r
 #
 
-cd ~/.init
 
 #--------------SETING UP TMUX--------------
-yes | sudo apt-get install tmux >> log_tmux.txt 2>&1
+yes | sudo apt-get install tmux >> ~/.init/log_tmux.txt 1>&2
 
 echo "----------[  Overwrite .tmux.conf   ]--------------"
-sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/tmux-ubuntu.conf -O ~/.tmux.conf >> log_tmux.txt 2>&1
+sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/tmux-ubuntu.conf -O ~/.tmux.conf >> ~/.init/log_tmux.txt 1>&2
 
 echo "----------[  Installing TPM for Tmux   ]--------------"
-sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm >> log_tmux.txt 2>&1
+sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm >> ~/.init/log_tmux.txt 1>&2
 
 echo "----------[  Recover preset Tmux session   ]--------------"
-sudo mkdir ~/.tmux/resurrect >> log_tmux.txt 2>&1
-sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/resurrect/last-ubuntu.txt -O ~/.tmux/resurrect/last.txt >> log_tmux.txt 2>&1
-sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last >> log_tmux.txt 2>&1
+sudo mkdir ~/.tmux/resurrect >> log_tmux.txt 1>&2
+sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/resurrect/last-ubuntu.txt -O ~/.tmux/resurrect/last.txt >> ~/.init/log_tmux.txt 1>&2
+sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last >> ~/.init/log_tmux.txt 1>&2
 
 
 echo "----------[   Change permission   ]--------------"
-sudo chown -R $USER ~/.tmux >> log_tmux.txt
+sudo chown -R $USER:$USER ~/.tmux >> ~/.init/log_tmux.txt
 

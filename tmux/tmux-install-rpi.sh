@@ -26,4 +26,4 @@ sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last >> ~/.init/log_tmu
 
 
 echo "----------[   Change permission   ]--------------"
-sudo chown -R $USER:$USER ~/.tmux >> ~/.init/log_tmux.txt
+sudo chown -R ubuntu:ubuntu ~/.tmux >> ~/.init/log_tmux.txt

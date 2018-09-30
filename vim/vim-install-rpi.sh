@@ -19,7 +19,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim >
 
 
 echo "-----[  Change permission   ]-----"
-sudo chown -R $USER:$USER $VIM >> ~/.init/log_vim.txt 1>&2
+sudo chown -R ubuntu:ubuntu $VIM >> ~/.init/log_vim.txt 1>&2
 #sudo chown -R ubuntu ~/.vim >> ~/.init/log_vim.txt 1>&2
 
 echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"

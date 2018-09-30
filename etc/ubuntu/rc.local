@@ -15,7 +15,7 @@
 
 
 # [COMMANDS ARE HERE]
-sudo ssserver -c /etc/ssserver.json -d start >> /home/ubuntu/log_ssserver.txt
+sudo ssserver -c /etc/ssserver.json -d start >> /home/ubuntu/log_ssserver.txt 1>&2
 
 
 

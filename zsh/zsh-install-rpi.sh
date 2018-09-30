@@ -22,7 +22,7 @@ wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnost
 yes | pip install -U powerline-status >> ~/.init/log_zsh.txt 1>&2
 
 echo "---[  Installing Themes for ZSH   ]----"
-sudo chown -R ubuntu:ubuntu $ZSH_CUSTOM
+sudo chown -R pi:pi $ZSH_CUSTOM
 
 echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting >> ~/.init/log_zsh.txt 1>&2

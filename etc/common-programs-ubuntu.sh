@@ -13,4 +13,4 @@ yes | sudo apt-get install htop
 yes | sudo apt-get install glances
 yes | sudo apt-get install speedtest-cli
 yes | sudo apt-get install ifstat
-yes | sudo pip install -U youtube-dl you-get tldr ffmpeg
+yes | pip install -U youtube-dl you-get tldr ffmpeg

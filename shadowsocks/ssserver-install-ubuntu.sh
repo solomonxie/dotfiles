@@ -10,7 +10,7 @@
 
 # Install Shadowsocks
 echo "-----[  INSTALLING SHADOWSOCKS   ]-----"
-yes | sudo pip install -U shadowsocks >> ~/.init/log_shadowsocks.txt
+yes | pip install -U shadowsocks >> ~/.init/log_shadowsocks.txt
 
 # Create config file
 echo "-----[  CREAT SHADOWSOCK'S CONFIG   ]-----"

@@ -19,7 +19,7 @@ wget https://github.com/solomonxie/cdn/raw/master/zsh/zshrc.extension-rpi -O ~/.
 echo "---[  Installing Themes for ZSH   ]----"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k >> ~/.init/log_zsh.txt 1>&2
 wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/ >> ~/.init/log_zsh.txt 1>&2
-yes | sudo pip install -U powerline-status >> ~/.init/log_zsh.txt 1>&2
+yes | pip install -U powerline-status >> ~/.init/log_zsh.txt 1>&2
 
 echo "---[  Installing Themes for ZSH   ]----"
 sudo chown -R ubuntu:ubuntu $ZSH_CUSTOM

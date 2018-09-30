@@ -8,15 +8,13 @@
 # ---SETING UP SHADOWSOCKS LOCAL CLIENT---
 
 
-cd ~/.init
-
 # Install Shadowsocks
 echo "-----[  INSTALLING SHADOWSOCKS   ]-----"
-yes | sudo pip install -U shadowsocks >> log_shadowsocks.txt
+yes | sudo pip install -U shadowsocks >> ~/.init/log_sslocal.txt
 
 # Create config file
 echo "-----[  CREAT SHADOWSOCK'S CONFIG   ]-----"
-sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/sslocal.json -O /etc/sslocal.json  >> log_shadowsocks.txt
+sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/sslocal.json -O /etc/sslocal.json  >> ~/.init/log_sslocal.txt
 
 echo "-----[  STARTING SHADOWSOCKS SERVER   ]-----"
-sudo sslocal -c /etc/sslocal.json -d start >> log_shadowsocks.txt
+sudo sslocal -c /etc/sslocal.json -d start >> log_sslocal.txt

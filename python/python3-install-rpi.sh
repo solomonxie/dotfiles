@@ -13,10 +13,10 @@ sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py >> ~/.init/log_pyth
 yes | sudo python3 get-pip.py >> ~/.init/log_python.txt 1>&2
 
 echo "----[ Upgrading pip ]-----"
-yes | sudo pip install --upgrade pip >> ~/.init/log_python.txt 1>&2
+yes | pip install --upgrade pip >> ~/.init/log_python.txt 1>&2
 
 echo "----[ Installing virtualenv ]----"
-yes | sudo pip install -U virtualenv pipenv >> ~/.init/log_python.txt 1>&2
+yes | pip install -U virtualenv pipenv >> ~/.init/log_python.txt 1>&2
 
 # ---- Make venvs ----
 echo "---[ Settingup virtual environments ]----"

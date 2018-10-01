@@ -3,20 +3,19 @@
 # Preload:
 # Commands:
 
-cd ~/.init
 
 # ---- Upgrade & Setup Python3 ----
-yes | sudo apt-get install python3 >> ~/.init/log_python.txt 1>&2
+yes | sudo apt-get install python3
 
-sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py >> ~/.init/log_python.txt 1>&2
-yes | sudo python3 get-pip.py >> ~/.init/log_python.txt 1>&2
+sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+yes | sudo python3 get-pip.py
 
 echo "----[ Upgrading pip ]-----"
-yes | pip install --upgrade pip >> ~/.init/log_python.txt 1>&2
+yes | pip install --upgrade pip
 
 echo "----[ Installing virtualenv ]----"
-yes | pip install -U virtualenv pipenv >> ~/.init/log_python.txt 1>&2
+yes | pip install -U virtualenv pipenv
 
 # ---- Make venvs ----
 echo "---[ Settingup virtual environments ]----"
-cd ~ && virtualenv -p python3 venv3 >> ~/.init/log_python.txt 1>&2
+cd ~ && virtualenv -p python3 venv3

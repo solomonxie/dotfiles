@@ -8,6 +8,7 @@ cd ~/.init
 
 echo "========== (INSTALLING OFTEN USED PROGRAMS) ==========="
 yes | sudo apt-get install mosh
+yes | sudo apt-get install unzip
 yes | sudo apt-get install ntfs-3g
 yes | sudo apt-get install htop
 yes | sudo apt-get install glances

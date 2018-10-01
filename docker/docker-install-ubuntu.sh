@@ -22,7 +22,7 @@ do_install_docker_manually(){
     sudo apt-get update
 
     # Install docker
-    sudo apt-get install docker-ce
+    yes | sudo apt-get install docker-ce
 
     # Hello-world
     sudo docker run hello-world

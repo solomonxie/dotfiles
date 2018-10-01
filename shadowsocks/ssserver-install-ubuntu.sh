@@ -12,14 +12,14 @@
 do_install_ssserver_manually(){
     # Install Shadowsocks
     echo "-----[  INSTALLING SHADOWSOCKS   ]-----"
-    yes | pip install -U shadowsocks >> ~/.init/log_shadowsocks.txt
+    yes | pip install -U shadowsocks
 
     # Create config file
     echo "-----[  CREAT SHADOWSOCK'S CONFIG   ]-----"
-    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver.json -O /etc/ssserver.json  >> ~/.init/log_shadowsocks.txt
+    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver.json -O /etc/ssserver.json
 
     echo "-----[  STARTING SHADOWSOCKS SERVER   ]-----"
-    sudo ssserver -c /etc/ssserver.json -d start >> ~/log_ssserver.txt
+    sudo ssserver -c /etc/ssserver.json -d start
 }
 
 do_install_ssserver_docker(){

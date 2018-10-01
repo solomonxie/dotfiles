@@ -11,19 +11,19 @@
 
 
 #--------------SETING UP TMUX--------------
-yes | sudo apt-get install tmux >> ~/.init/log_tmux.txt 1>&2
+yes | sudo apt-get install tmux
 
 echo "----------[  Overwrite .tmux.conf   ]--------------"
-sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/tmux-rpi.conf -O ~/.tmux.conf >> ~/.init/log_tmux.txt 1>&2
+sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/tmux-rpi.conf -O ~/.tmux.conf
 
 echo "----------[  Installing TPM for Tmux   ]--------------"
-sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm >> ~/.init/log_tmux.txt 1>&2
+sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "----------[  Recover preset Tmux session   ]--------------"
-sudo mkdir ~/.tmux/resurrect >> ~/.init/log_tmux.txt 1>&2
-sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/resurrect/last-rpi.txt -O ~/.tmux/resurrect/last.txt >> ~/.init/log_tmux.txt 1>&2
-sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last >> ~/.init/log_tmux.txt 1>&2
+sudo mkdir ~/.tmux/resurrect
+sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/resurrect/last-rpi.txt -O ~/.tmux/resurrect/last.txt
+sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last
 
 
 echo "----------[   Change permission   ]--------------"
-sudo chown -R pi:pi ~/.tmux >> ~/.init/log_tmux.txt
+sudo chown -R pi:pi ~/.tmux

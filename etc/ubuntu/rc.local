@@ -15,7 +15,8 @@
 
 
 # [COMMANDS ARE HERE]
-sudo ssserver -c /etc/ssserver.json -d start >> /home/ubuntu/log_ssserver.txt 1>&2
+sudo ssserver -c /etc/ssserver.json -d start >> /var/log/log_ssserver.txt 1>&2
+sudo systemctl start v2ray >> /var/log/log_v2ray.txt
 
 
 

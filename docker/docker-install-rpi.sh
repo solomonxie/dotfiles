@@ -36,3 +36,6 @@ docker_persmission(){
     # Reload current group
     newgrp docker
 }
+
+docker_manual_install
+docker_persmission

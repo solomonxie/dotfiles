@@ -21,7 +21,7 @@ source $ZSH/oh-my-zsh.sh
 
 # 引用不方便公开的本地配置文件
 source $HOME/.zshrc.extension
- 
+
  
 # Hide Username and Hostname 
 #prompt_context() {} 

@@ -5,11 +5,11 @@
 # Enviroment: Ubuntu
 # Notice: 
 
-docker_quick_install(){
+do_install_docker_quick(){
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 }
 
-docker_manual_install(){
+do_install_docker_manually(){
     # Setup SSL for downloading through HTTPS
     sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
     # Add GPG key for docker
@@ -28,7 +28,7 @@ docker_manual_install(){
     sudo docker run hello-world
 }
 
-docker_persmission(){
+do_give_permission_to_docker(){
     # add Docker group
     sudo groupadd docker
     # add current user to Docker group
@@ -37,5 +37,5 @@ docker_persmission(){
     newgrp docker
 }
 
-docker_manual_install
-docker_persmission
+do_install_docker_manually
+do_give_permission_to_docker

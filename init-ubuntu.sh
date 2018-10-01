@@ -18,6 +18,11 @@ sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime >> ~/.init/log_system_u
 echo "--------------------[   INITIAL UPDATE OF UBUNTU   ]--------------------"
 yes | sudo apt-get update >> ~/.init/log_system_update.txt 1>&2
 
+# Install docker
+echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP DOCKER   ]--------------------"
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/docker/docker-install-ubuntu.sh | sudo sh >> ~/.init/log_docker.txt 1>&2
+
+
 # Setup Python3
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3   ]--------------------"
 curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-install-ubuntu.sh | sudo sh >> ~/.init/log_python.txt 1>&2

@@ -30,6 +30,9 @@ alias gs="git status"
 alias gc="git add . && git commit" 
 alias gcp="git add . && git commit -m \"Update from `uname -n`\" && git push" 
 
+# Docker
+alias gitbook='docker run --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'
+
 # Tmux 
 #alias tmux="TERM=screen-256color-bce tmux" 
  

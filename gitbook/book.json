@@ -1,0 +1,11 @@
+{
+    "plugins": [
+        "todo",
+        "fontsettings",
+        "sharing",
+        "lunr",
+        "search",
+        "highlight",
+        "livereload"
+    ]
+}

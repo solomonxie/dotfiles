@@ -18,7 +18,7 @@ do_install_v2ray_docker(){
 
 do_setup_v2ray(){
     echo "----[  Overwrite V2Ray Config file  ]----"
-    wget https://github.com/solomonxie/cdn/raw/master/v2ray/config.json -O /etc/v2ray/config.json
+    wget https://github.com/solomonxie/cdn/raw/master/v2ray/config-server-vmess.json -O /etc/v2ray/config.json
 
     echo "----[   Starting V2Ray   ]----"
     sudo systemctl start v2ray

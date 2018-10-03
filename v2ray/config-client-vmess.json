@@ -1,0 +1,16 @@
+{
+  "inbound": {
+    "port": 1090, "protocol": "socks", "domainOverride": ["tls","http"],
+    "settings": {"auth": "noauth"}
+  },
+  "outbound": {
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [{
+          "address": "123.123.123.123", "port": 23409,
+          "users": [{"alterId": 64, "id": "480767c5-d546-4afb-902a-d572d57e0490"} ]
+      }]
+    }
+  },
+  "streamSettings": {"network":"ws"}
+}

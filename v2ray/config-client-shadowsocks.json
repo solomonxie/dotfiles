@@ -8,18 +8,15 @@
     }
   },
   "outbound": {
-    "protocol": "vmess",
+    "protocol": "shadowsocks",
     "settings": {
-      "vnext": [
+      "servers": [
         {
           "address": "123.123.123.123",
-          "port": 23409,
-          "users": [
-            {
-              "id": "480767c5-d546-4afb-902a-d572d57e0490",
-              "alterId": 64
-            }
-          ]
+          "method": "aes-256-gcm",
+          "ota": true,
+          "password": "shadow123",
+          "port": 23409
         }
       ]
     }

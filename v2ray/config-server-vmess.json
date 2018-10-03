@@ -1,0 +1,18 @@
+{
+  "inbound": {
+    "port": 23409, "protocol": "vmess",
+    "settings": {"clients": [{"alterId": 64, "id": "480767c5-d546-4afb-902a-d572d57e0490"} ] }
+  },
+  "outbound": {"protocol": "freedom", "settings": {} },
+  "streamSettings": {"network":"ws"},
+
+  "detour": {"to": "dynamicPort"},
+  "inboundDetour":[{
+      "port": "23000-23999", "protocol": "vmess", "tag": "dynamicPort",
+      "settings": {"default": {"level": 1, "alterId": 32 } },
+      "allocate": {"strategy": "random", "concurrency": 2, "refresh": 3 }
+  }],
+
+
+  "header": {"type": "http", "request": {"version": "1.1", "method": "GET", "path": ["/"], "headers": {"Host": ["www.baidu.com", "www.bing.com"], "User-Agent": ["Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36", "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46"], "Accept-Encoding": ["gzip, deflate"], "Connection": ["keep-alive"], "Pragma": "no-cache"} }, "response": {"version": "1.1", "status": "200", "reason": "OK", "headers": {"Content-Type": ["application/octet-stream", "video/mpeg"], "Transfer-Encoding": ["chunked"], "Connection": ["keep-alive"], "Pragma": "no-cache"} } }
+}

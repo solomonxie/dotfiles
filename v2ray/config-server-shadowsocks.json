@@ -1,0 +1,7 @@
+{
+  "inbound": {
+    "port": 23409, "protocol": "shadowsocks",
+    "settings": {"method": "aes-256-gcm", "ota": true, "password": "shadow123"}
+  },
+  "outbound": {"protocol": "freedom", "settings": {} },
+}

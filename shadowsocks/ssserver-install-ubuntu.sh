@@ -23,10 +23,12 @@ do_install_ssserver_manually(){
 }
 
 do_install_ssserver_docker(){
+    PORT=1990
+    PORT_UPD=1991
     docker run -dt --name ssserver --restart always \
-    -p 6443:6443 -p 6500:6500/udp mritd/shadowsocks -m "ss-server" \
-    -s "-s 0.0.0.0 -p 6443 -m chacha20 -k shadow123 --fast-open" \
-    -x -e "kcpserver" -k "-t 127.0.0.1:6443 -l :6500 -mode fast2 -key kcp123 -crypt aes-128"
+    -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \
+    -s "-s 0.0.0.0 -p $PORT -m chacha20 -k shadow123 --fast-open" \
+    -x -e "kcpserver" -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
 }
 
 do_install_ssserver_manually

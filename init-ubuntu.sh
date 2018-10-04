@@ -31,7 +31,7 @@ curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-i
 echo "--------------------[   DOWNLOADING SCRIPT FOR SHADOWSOCKS   ]--------------------"
 curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-install-ubuntu.sh | sudo sh >> /var/log/init/log_shadowsocks.txt 1>&2
 
-# Setup Shadowsocks
+# Setup V2Ray
 echo "--------------------[   DOWNLOADING SCRIPT FOR V2RAY   ]--------------------"
 curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/v2ray/install-v2ray-ubuntu.sh | sudo sh >> /var/log/init/log_shadowsocks.txt 1>&2
 

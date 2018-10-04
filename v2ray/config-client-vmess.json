@@ -12,5 +12,8 @@
       }]
     }
   },
-  "streamSettings": {"network":"ws"}
+  "streamSettings": {
+    "security": "tls", 
+    "network":"ws", "wsSettings": {"path":"/ray"}
+  }
 }

@@ -8,7 +8,7 @@
 
 do_install_gitbook_docker(){
     docker pull billryan/gitbook
-    alias gitbook='docker run --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'
+    alias gitbook='docker run -it --rm -v "$PWD":/gitbook -p 4000:4000  --name gitbook billryan/gitbook gitbook'
 }
 
 do_install_gitbook_manually(){

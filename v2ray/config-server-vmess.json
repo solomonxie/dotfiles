@@ -4,7 +4,7 @@
     "settings": {"clients": [{"alterId": 64, "id": "480767c5-d546-4afb-902a-d572d57e0490"} ] }
   },
   "outbound": {"protocol": "freedom", "settings": {} },
-  "streamSettings": {"network":"ws"},
+  "streamSettings": {"network":"ws", "wsSettings": {"path": "/ray"}},
 
 
 

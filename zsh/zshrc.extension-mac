@@ -28,7 +28,7 @@ alias you="youtube-dl -civw --proxy "localhost:1080" -f best/mp4 --write-sub "
 # Git commands  
 alias gs="git status" 
 alias gc="git add . && git commit" 
-alias gcp="git add . && git commit -m \"Update from `uname -n`\" && git push" 
+alias gcp="git add . && git commit -m \"Update from $USER\" && git push" 
 
 # Docker
 alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'

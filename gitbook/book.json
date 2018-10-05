@@ -7,5 +7,13 @@
         "search",
         "highlight",
         "livereload"
-    ]
+    ],
+
+    "pluginsConfig": {},
+
+    "pdf": {
+        "toc": true, "fontSize": 12, 
+        "pageNumbers": false, "paperSize": "a4",
+        "margin": {"right": 62, "left": 62, "top": 36, "bottom": 36}
+    }
 }

@@ -26,7 +26,7 @@ alias repos="cd ~/Workspace/repos"
 # Git commands  
 alias gs="git status" 
 alias gc="git add . && git commit" 
-alias gcp="git add . && git commit -m \"Update from `uname -n`\" && git push" 
+alias gcp="git add . && git commit -m \"Update from $USER\" && git push" 
 # 
 # Tmux 
 #alias tmux="TERM=screen-256color-bce tmux" 

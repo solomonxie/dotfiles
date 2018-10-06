@@ -25,7 +25,7 @@ curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/docker/docker-in
 
 # Setup Python3
 echo "--------------------[   DOWNLOADING SCRIPT FOR PYTHON3   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-install-ubuntu.sh | sudo sh >> /var/log/init/log_python.txt 1>&2
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/install_python3.sh | sudo sh >> /var/log/init/log_python.txt 1>&2
 
 # Setup Shadowsocks
 echo "--------------------[   DOWNLOADING SCRIPT FOR SHADOWSOCKS   ]--------------------"

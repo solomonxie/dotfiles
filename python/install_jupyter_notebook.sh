@@ -3,15 +3,11 @@
 # Preload:
 # Commands:
 
-do_install_jupyter_notebook(){
-
-}
-
 do_setup_virtualenv(){
     virtualenv -p python3 ~/venv-ju
     source ~/venv-ju/bin/activate
 
-    pip install ipykernel -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+    # Packages for ML
     pip install numpy -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
     pip install pandas -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
     pip install matplotlib -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
@@ -19,3 +15,29 @@ do_setup_virtualenv(){
 
     deactivate
 }
+
+do_install_jupyter_notebook(){
+    source ~/venv-ju/bin/activate
+
+    pip install ipykernel -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+
+    deactivate
+}
+
+do_install_jupyter_extensions(){
+    source ~/venv-ju/bin/activate
+
+    # Extension manager
+    pip install jupyter_nbextensions_configurator
+    jupyter nbextensions_configurator enable --user
+
+
+    # Themes for jupyter notebook
+    pip install jupyterthemes
+
+    deactivate
+}
+
+do_setup_virtualenv
+do_install_jupyter_notebook
+do_install_jupyter_extensions

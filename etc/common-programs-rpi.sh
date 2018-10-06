@@ -12,3 +12,6 @@ yes | sudo apt-get install glances
 yes | sudo apt-get install speedtest-cli
 yes | sudo apt-get install ifstat
 yes | pip install -U youtube-dl you-get tldr ffmpeg
+
+sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list
+yes | sudo apt update && sudo apt install neofetch

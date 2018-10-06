@@ -47,6 +47,11 @@ export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需�
 export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
 export EDITOR=vim 
  
+
+# Show Beautiful welcome message on SSH Login
+if [[ -n $SSH_CONNECTION ]] ; then
+    neofetch
+fi
  
  
 # ==== Theme Settings ==== 

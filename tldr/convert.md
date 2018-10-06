@@ -5,10 +5,10 @@
     $ exiftool <file>
     $ exiftool -imagesize -encoder <file>
     $ ffprobe -i <file>
-- Split video
-    $ ffmpeg -i <file> -ss <start> -t <duration> <output-file> 
 - Split video (without conversion)
-    $ ffmpeg -i <file> -ss <start> -t <duration> -vcodec copy -acodec copy <output-file>
+    $ ffmpeg -i FILE -ss START -t DURATION -vcodec copy -acodec copy OUTPUT
+- Split video
+    $ ffmpeg -i FILE -ss START -t DURATION OUTPUT
 - avi to mp4
     $ 
 - mov to mp4

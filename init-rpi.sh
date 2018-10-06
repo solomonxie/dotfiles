@@ -24,7 +24,7 @@ yes | sudo apt-get update
 
 # Setup Python3
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3   ]---------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/python3-setup-rpi.sh | sudo sh
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/isntall_python3.sh | sudo sh
 
 # Setup ZSH
 echo "--------------------[   DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH   ]---------------------"

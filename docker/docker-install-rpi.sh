@@ -5,11 +5,11 @@
 # Enviroment: Raspberry Pi (Raspbian)
 # Notice: 
 
-docker_quick_install(){
+do_docker_quick_install(){
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 }
 
-docker_manual_install(){
+do_docker_manual_install(){
     # Setup SSL for downloading through HTTPS
     sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
     # Add GPG key for docker
@@ -28,7 +28,7 @@ docker_manual_install(){
     sudo docker run hello-world
 }
 
-docker_persmission(){
+do_docker_persmission(){
     # add Docker group
     sudo groupadd docker
     # add current user to Docker group
@@ -37,5 +37,14 @@ docker_persmission(){
     newgrp docker
 }
 
-docker_manual_install
-docker_persmission
+do_docker_setup(){
+    # change sources/mirrors
+    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/docker/daemon.json -O /etc/docker/daemon.json
+
+    # install docker-compose
+    #sudo pip install -U docker-compose
+}
+
+do_docker_manual_install
+do_docker_persmission
+do_docker_setup

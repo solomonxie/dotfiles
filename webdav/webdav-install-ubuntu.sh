@@ -18,11 +18,11 @@ echo "===== (Make directories for Webdav sharing) ======="
 sudo mkdir -p /var/www/webdav
 sudo chown -R www-data:www-data  /var/www/webdav
 
-# 创建WebDav的访问用户数据库，顺便创建用户`ubuntu` (需要手动交互 输入密码)
+# 创建WebDav的访问用户数据库，顺便创建用户`ubuntu` 密码123
 echo "===== (Create user 'ubuntu' for Webdav access ---manual password input required) ======="
-sudo htpasswd -c /etc/apache2/webdav.password ubuntu
-#echo "===== (Create user 'guest' for Webdav access ---manual password input required) ======="
-sudo htpasswd /etc/apache2/webdav.password guest
+sudo htpasswd -c /etc/apache2/webdav.password ubuntu 123
+#echo "===== (Create user 'guest' for Webdav access) ======="
+sudo htpasswd /etc/apache2/webdav.password guest 123
 
 echo "===== (Change file permission of webdav password file) ======="
 sudo chown root:www-data /etc/apache2/webdav.password

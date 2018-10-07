@@ -21,7 +21,7 @@ yes | sudo apt-get update >> /var/log/init/log_system_update.txt 1>&2
 
 # Install docker
 echo "--------------------[   DOWNLOADING SCRIPT FOR DOCKER   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/docker/docker-install-ubuntu.sh | sudo sh >> /var/log/init/log_docker.txt 1>&2
+#curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-ubuntu.sh | sudo sh >> /var/log/init/log_docker.txt 1>&2
 
 # Setup Python3
 echo "--------------------[   DOWNLOADING SCRIPT FOR PYTHON3   ]--------------------"

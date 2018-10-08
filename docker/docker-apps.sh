@@ -20,9 +20,9 @@ docker_shadowsocks(){
     METHOD=chacha20
 
     docker run -dt --name ssserver --restart always \
-    -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \
-    -s "-s 0.0.0.0 -p $PORT -m $METHOD -k shadow123 --fast-open" \
-    -x -e "kcpserver" -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
+        -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \
+        -s "-s 0.0.0.0 -p $PORT -m $METHOD -k shadow123 --fast-open" \
+        -x -e "kcpserver" -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
 }
 
 

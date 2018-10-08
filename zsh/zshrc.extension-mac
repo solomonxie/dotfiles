@@ -23,7 +23,7 @@ alias hosts='sudo vim /etc/hosts'
 # frequent commands 
 alias ju="jupyter notebook" 
 alias repos="cd ~/Workspace/repos" 
-alias you="youtube-dl -civw --proxy "localhost:1080" -f best/mp4 --write-sub "
+alias you="youtube-dl -civw --proxy "localhost:2080" -f best/mp4 --write-sub "
 
 # Git commands  
 alias gs="git status" 

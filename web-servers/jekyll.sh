@@ -7,6 +7,7 @@
 
 do_install_jekyll_manually(){
     echo "========== (Installing Ruby & essentials) ==========="
+    sudo apt-get update
     sudo apt-get install ruby ruby-dev build-essential
     echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
     echo 'export GEM_HOME=$HOME/gems' >> ~/.bashrc

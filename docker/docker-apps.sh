@@ -15,10 +15,10 @@ docker_webav(){
 
 
 docker_shadowsocks(){
+    # mritd/shadowsocks
     PORT=1990
     PORT_UPD=1991
     METHOD=chacha20
-
     docker run -dt --name ssserver --restart always \
         -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \
         -s "-s 0.0.0.0 -p $PORT -m $METHOD -k shadow123 --fast-open" \
@@ -28,6 +28,9 @@ docker_shadowsocks(){
 
 
 docker_smb(){}
+
+
+docker_jekyll(){}
 
 
 docker_frp(){}

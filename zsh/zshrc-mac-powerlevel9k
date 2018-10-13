@@ -49,6 +49,7 @@ DEFAULT_USER=$USER
 export PATH="/usr/local/sbin:$PATH"  
 export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
 export EDITOR=vim 
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 # 开启命令行的Vim模式(开启后无法使用Ctrl+所有快捷键)
 #set -o vi

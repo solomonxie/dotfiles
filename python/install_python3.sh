@@ -3,11 +3,18 @@
 # Environment: Ubuntu / Raspbian
 #
 
-do_install_python3(){
-    # ---- Upgrade & Setup Python3 ----
+do_install_python3_ubuntu(){
     yes | sudo apt-get install python3
-
 }
+
+do_install_python3_rpi(){
+    yes | sudo apt-get install python3
+}
+
+do_install_python3_mac(){
+    brew install python3 
+}
+
 
 do_install_pip(){
     echo "----[ Installing pip ]-----"
@@ -23,7 +30,7 @@ do_install_pip(){
 
 do_install_virtualenv(){
     echo "----[ Installing virtualenv ]----"
-    yes | pip install -U virtualenv pipenv
+    yes | pip install -U virtualenv
 
     # ---- Make venvs ----
     echo "---[ Settingup virtual environments ]----"
@@ -31,6 +38,6 @@ do_install_virtualenv(){
 }
 
 
-do_install_python3
+do_install_python3_ubuntu
 do_install_pip
 do_install_virtualenv

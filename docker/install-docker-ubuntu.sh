@@ -43,4 +43,3 @@ do_setup_docker(){
 
 do_install_docker_manually
 do_give_permission_to_docker
-do_setup_docker

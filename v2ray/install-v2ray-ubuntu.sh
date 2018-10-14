@@ -25,5 +25,17 @@ do_setup_v2ray(){
     # sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 }
 
+do_remove_v2ray(){
+    sudo systemctl stop v2ray
+    sudo systemctl disable v2ray
+    sudo service v2ray stop
+    sudo update-rc.d -f v2ray remove
+    sudo rm -rvf /etc/v2ray
+    sudo rm -rvf /usr/bin/v2ray/
+    sudo rm -rvf /var/log/v2ray/
+    sudo rm -vf /lib/systemd/system/v2ray.service
+    sudo rm -vf /etc/init.d/v2ray
+}
+
 do_install_v2ray_quick
 do_setup_v2ray

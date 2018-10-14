@@ -21,7 +21,7 @@ yes | sudo apt-get update >> /var/log/init/log_system_update.txt 1>&2
 
 # Install docker
 echo "--------------------[   DOWNLOADING SCRIPT FOR DOCKER   ]--------------------"
-#curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-ubuntu.sh | sudo sh >> /var/log/init/log_docker.txt 1>&2
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-ubuntu.sh | sudo sh >> /var/log/init/log_docker.txt 1>&2
 
 # Setup Python3
 echo "--------------------[   DOWNLOADING SCRIPT FOR PYTHON3   ]--------------------"
@@ -29,11 +29,11 @@ curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/python/install_p
 
 # Setup Shadowsocks
 echo "--------------------[   DOWNLOADING SCRIPT FOR SHADOWSOCKS   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-install-ubuntu.sh | sudo sh >> /var/log/init/log_shadowsocks.txt 1>&2
+#curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-install-ubuntu.sh | sudo sh >> /var/log/init/log_shadowsocks.txt 1>&2
 
 # Setup V2Ray
 echo "--------------------[   DOWNLOADING SCRIPT FOR V2RAY   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/v2ray/install-v2ray-ubuntu.sh | sudo sh >> /var/log/init/log_shadowsocks.txt 1>&2
+#curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/v2ray/install-v2ray-ubuntu.sh | sudo sh >> /var/log/init/log_shadowsocks.txt 1>&2
 
 
 # Setup ZSH
@@ -55,11 +55,11 @@ sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/etc/common-
 
 
 # [THIS SECTION SHOULD BETTER BE PLACED AT THE BOTTOM]
-echo "--------------------[   SET UP CRONTAB JOBS   ]--------------------"
-sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/crontab.txt |crontab >> /var/log/init/log_crontab.txt 1>&2
+#echo "--------------------[   SET UP CRONTAB JOBS   ]--------------------"
+#sudo curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/crontab.txt |crontab >> /var/log/init/log_crontab.txt 1>&2
 
-echo "--------------------[   Rewrite SYSTEM START commands with Shadowsocks   ]--------------------"
-sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/rc.local -O /etc/rc.local >> /var/log/init/log_rc_local.txt 1>&2
+#echo "--------------------[   Rewrite SYSTEM START commands with Shadowsocks   ]--------------------"
+#sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/rc.local -O /etc/rc.local >> /var/log/init/log_rc_local.txt 1>&2
 
 
 

@@ -5,14 +5,14 @@
     $ exiftool <file>
     $ exiftool -imagesize -encoder <file>
     $ ffprobe -i <file>
+- Multi-threads (custom CPU usage)
+    $ ffmpeg -i FILE –threads 2 OUTPUT
 - Split video (without conversion)
     $ ffmpeg -i FILE -ss START -t DURATION -vcodec copy -acodec copy OUTPUT
 - Split video
     $ ffmpeg -i FILE -ss START -t DURATION OUTPUT
-- avi to mp4
-    $ 
-- mov to mp4
-    $ 
+- rmvb to mp4
+    $ ffmpeg -i FILE -c:a copy OUTPUT
 
 
 ## Audio Conversion

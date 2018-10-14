@@ -38,15 +38,15 @@ echo "--------------------[   DOWNLOADING SCRIPT FOR V2RAY   ]------------------
 
 # Setup ZSH
 echo "--------------------[   DOWNLOADING SCRIPT FOR ZSH   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-install-ubuntu.sh | sudo sh >> /var/log/init/log_zsh.txt 1>&2
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/install-zsh-ubuntu.sh | sudo sh >> /var/log/init/log_zsh.txt 1>&2
 
 # Setup Vim
 echo "--------------------[   DOWNLOADING SCRIPT FOR VIM   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-install-ubuntu.sh | sudo sh >> /var/log/init/log_vim.txt 1>&2
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/vim/install-vim-ubuntu.sh | sudo sh >> /var/log/init/log_vim.txt 1>&2
 
 # Setup Tmux
 echo "--------------------[   DOWNLOADING SCRIPT FOR TMUX   ]--------------------"
-curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/tmux-install-ubuntu.sh | sudo sh >> /var/log/init/log_tmux.txt 1>&2
+curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/install-tmux-ubuntu.sh | sudo sh >> /var/log/init/log_tmux.txt 1>&2
 
 
 # Install Useful Programs

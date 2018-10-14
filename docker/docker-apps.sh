@@ -13,6 +13,13 @@ docker_webav(){
         -p 8888:80 morrisjobke/webdav
 }
 
+docker_webdav_rpi(){
+    docker run -d --name webdav --restart always \
+        -v ~/webdav:/var/webdav \
+        -e USERNAME=pi -e PASSWORD=123 \
+        -p 8888:80 solomonxie/webdav-rpi:jessie
+}
+
 
 docker_shadowsocks(){
     # mritd/shadowsocks

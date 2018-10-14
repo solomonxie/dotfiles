@@ -21,7 +21,15 @@ do_install_jupyter_notebook(){
     virtualenv -p python3 ~/venv-ju
     source ~/venv-ju/bin/activate
 
+    # ipython kernel
     pip install ipykernel
+    # Octave Kernel
+    pip install metakernel
+    pip install octave_kernel
+    python -m octave_kernel install
+    echo export OCTAVE_EXECUTABLE=$(which octave) >> ~/.zshrc
+    # R Kernel
+    # ...
 
     deactivate
 }

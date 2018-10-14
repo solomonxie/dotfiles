@@ -10,7 +10,7 @@ docker_webav(){
     docker run -d --name webdav --restart always \
         -v ~/webdav:/var/webdav \
         -e USERNAME=ubuntu -e PASSWORD=123 \
-        -p 8888:80 morrisjobke/webdav
+        -p 8888:80 morrisjobke/webdav:latest
 }
 
 docker_webdav_rpi(){

@@ -49,9 +49,9 @@ export EDITOR=vim
  
 
 # Show Beautiful welcome message on SSH Login
-if [[ -n $SSH_CONNECTION ]] ; then
-    neofetch
-fi
+#if [[ -n $SSH_CONNECTION ]] ; then
+#    neofetch
+#fi
  
  
 # ==== Theme Settings ==== 

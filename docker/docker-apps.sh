@@ -9,6 +9,9 @@
 docker_webav(){
     # The folder on host MUST have the same permission
     # otherwise it'll cause permission error
+    # Permission problem: 
+    # has to get inside container by `docker exec -it webdav sh`
+    # and do `chown -R /var/webdav`
     sudo chown -R www-data:www-data ~/webdav
     docker run -d --name webdav --restart always \
         -v ~/webdav:/var/webdav \
@@ -17,6 +20,9 @@ docker_webav(){
 }
 
 docker_webdav_rpi(){
+    # Permission problem: 
+    # has to get inside container by `docker exec -it webdav sh`
+    # and do `chown -R /var/webdav`
     docker run -d --name webdav --restart always \
         -v ~/webdav:/var/webdav \
         -e USERNAME=pi -e PASSWORD=123 \
@@ -37,6 +43,27 @@ docker_shadowsocks(){
         -x -e "kcpserver" -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
 }
 
+docker_shadowsocks_old(){
+    # mritd/shadowsocks
+    PORT=1988
+    PORT_UPD=1989
+    METHOD=aes-256-cfb
+    PASSWORD=shadow123
+    #METHOD=chacha20
+    docker run -dt --name ssserver-old --restart always \
+        -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \
+        -s "-s 0.0.0.0 -p $PORT -m $METHOD -k $PASSWORD --fast-open" \
+        -x -e "kcpserver" -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
+}
+
+
+
+docker_v2ray(){
+    docker run -dt --restart always \
+        --name v2ray -p 12345:23456 solomonxie/v2ray:latest \
+        /usr/bin/v2ray/v2ray -config=/etc/v2ray/config.json
+}
+
 
 
 docker_smb(){}
@@ -54,19 +81,31 @@ docker_gitbook(){}
 docker_owncloud(){}
 
 
-docker_v2ray(){
-    docker run -dt --restart always \
-        --name v2ray -p 12345:23456 solomonxie/v2ray:latest \
-        /usr/bin/v2ray/v2ray -config=/etc/v2ray/config.json
+docker_nextcloud_sqlite(){
+    # Get current UID by `$ id -u $USER`
+    # Get current GID by `$ id -g $USER`
+    docker run -dt \
+        --name nextcloud \
+        -p 8080:80 -p 8443:443\
+        -e PUID=1000 -e PGID=1000 \
+        -v ~/nextcloud/config:/config \
+        -v ~/nextcloud/data:/data \
+        linuxserver/nextcloud
 }
 
+
 docker_ftp(){
+    # Permission problem: 
+    # Volume's owner in container is ftp:ftp
+    # shouldn't change ownership from HOST
+    # has to get inside container by `docker exec -it webdav sh`
+    # and do `chown -R /var/webdav`
+    #
     # Remember to connect with port 21
     docker run -d -v ~/ftpshare:/home/vsftpd \
         -p 20:20 -p 21:21 -p 21100-21110:21100-21110 \
         -e FTP_USER=ubuntu -e FTP_PASS=123 \
         -e PASV_ADDRESS=0.0.0.0 -e PASV_MIN_PORT=21100 -e PASV_MAX_PORT=21110 \
         --name vsftpd --restart=always fauria/vsftpd
-    # Volume's owner in container is ftp:ftp
-    # shouldn't change ownership from HOST
+
 }

@@ -29,7 +29,7 @@ do_install_jupyter_notebook(){
     python -m octave_kernel install
     echo export OCTAVE_EXECUTABLE=$(which octave) >> ~/.zshrc
     # R Kernel
-    # ...
+    # has to isntall from R-shell
 
     deactivate
 }

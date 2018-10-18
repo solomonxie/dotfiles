@@ -117,8 +117,8 @@ set_theme_powerlevel9k(){
         #POWERLEVEL9K_FOLDER_ICON='' 
     # }
 
-    # Python虚拟环境设定 ---------{
-        POWERLEVEL9K_VIRTUALENV_FOREGROUND='yellow' 
+    # Python virtualenv 虚拟环境设定 ---------{
+        POWERLEVEL9K_VIRTUALENV_FOREGROUND='green' 
         POWERLEVEL9K_VIRTUALENV_BACKGROUND='black' 
         POWERLEVEL9K_CUSTOM_VIRTUALENV="red" 
     # } 

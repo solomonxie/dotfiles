@@ -35,12 +35,6 @@ do_init_ubuntu(){
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/python/install_python3.sh | sudo sh
-    # Setup Shadowsocks
-    #echo "[   SETTING UP SHADOWSOCKS   ]"
-    #curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-install-ubuntu.sh | sudo sh
-    # Setup V2Ray
-    #echo "[   SETTING UP V2RAY   ]"
-    #curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/v2ray/install-v2ray-ubuntu.sh | sudo sh
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/install-zsh-ubuntu.sh | sudo sh
@@ -50,17 +44,9 @@ do_init_ubuntu(){
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/install-tmux-ubuntu.sh | sudo sh
-    # Install Useful Programs
-    echo "[   SETTING UP COMMON PROGRAMS   ]"
-    sudo curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/etc/common-programs-ubuntu.sh | sudo sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-ubuntu.sh | sudo sh
-    # [THIS SECTION SHOULD BETTER BE PLACED AT THE BOTTOM]
-    #echo "[   SET UP CRONTAB JOBS   ]"
-    #sudo curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/crontab.txt |crontab
-    #echo "[   Rewrite SYSTEM START commands with Shadowsocks   ]"
-    #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/rc.local -O /etc/rc.local
 }
 
 do_init_rpi(){
@@ -87,9 +73,9 @@ do_init_rpi(){
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]-"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/tmux-setup-rpi.sh | sudo sh
-    # Install Useful Programs
-    echo "[   SETTING UP COMMON PROGRAMS   ]-"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/etc/Rpi/common-programs-rpi.sh | sudo sh
+    # Install docker
+    echo "[    SCRIPT FOR DOCKER   ]"
+    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-rpi.sh | sudo sh
 }
 
 do_init_mac(){

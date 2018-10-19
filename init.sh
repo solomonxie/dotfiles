@@ -8,9 +8,8 @@
 #    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | sudo sh
 
 
-# Load uitility functions in the same directory
-INIT_DIR=$(dirname $0)
-source $INIT_DIR/utils.sh
+# Load uitility functions (check os)
+curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh | sudo sh
 
 do_init_by_os(){
     # Get Distro
@@ -31,32 +30,32 @@ do_init_ubuntu(){
     echo "[   Change TIMEZONE   ]"
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     # Update server & install essentials
-    echo "[   INITIAL UPDATE OF UBUNTU   ]"
+    echo "[   UPDATE APT REPOSITORIES   ]"
     yes | sudo apt-get update
-    # Install docker
-    echo "[   DOWNLOADING SCRIPT FOR DOCKER   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-ubuntu.sh | sudo sh
     # Setup Python3
-    echo "[   DOWNLOADING SCRIPT FOR PYTHON3   ]"
+    echo "[   SETTING UP PYTHON3   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/python/install_python3.sh | sudo sh
     # Setup Shadowsocks
-    echo "[   DOWNLOADING SCRIPT FOR SHADOWSOCKS   ]"
+    #echo "[   SETTING UP SHADOWSOCKS   ]"
     #curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/shadowsocks/ssserver-install-ubuntu.sh | sudo sh
     # Setup V2Ray
-    echo "[   DOWNLOADING SCRIPT FOR V2RAY   ]"
+    #echo "[   SETTING UP V2RAY   ]"
     #curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/v2ray/install-v2ray-ubuntu.sh | sudo sh
     # Setup ZSH
-    echo "[   DOWNLOADING SCRIPT FOR ZSH   ]"
+    echo "[   SETTING UP ZSH   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/install-zsh-ubuntu.sh | sudo sh
     # Setup Vim
-    echo "[   DOWNLOADING SCRIPT FOR VIM   ]"
+    echo "[   SETTING UP VIM   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/vim/install-vim-ubuntu.sh | sudo sh
     # Setup Tmux
-    echo "[   DOWNLOADING SCRIPT FOR TMUX   ]"
+    echo "[   SETTING UP TMUX   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/install-tmux-ubuntu.sh | sudo sh
     # Install Useful Programs
-    echo "[   DOWNLOADING SCRIPT FOR Installing common programs   ]"
+    echo "[   SETTING UP COMMON PROGRAMS   ]"
     sudo curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/etc/common-programs-ubuntu.sh | sudo sh
+    # Install docker
+    echo "[    SCRIPT FOR DOCKER   ]"
+    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-ubuntu.sh | sudo sh
     # [THIS SECTION SHOULD BETTER BE PLACED AT THE BOTTOM]
     #echo "[   SET UP CRONTAB JOBS   ]"
     #sudo curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/crontab.txt |crontab
@@ -73,23 +72,23 @@ do_init_rpi(){
     # Setup WIFI (need you to rewrite wifi password in the file)
     #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
     # Update server & install essentials
-    echo "[   INITIAL UPDATE OF UBUNTU   ]-"
+    echo "[   UPDATE APT REPOSITORIES   ]-"
     sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/Rpi/sources.list -O /etc/apt/sources.list
     yes | sudo apt-get update
     # Setup Python3
-    echo "[   DOWNLOADING BASH SCRIPT FOR SETTING UP PYTHON3   ]-"
+    echo "[   SETTING UP SETTING UP PYTHON3   ]-"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/python/isntall_python3.sh | sudo sh
     # Setup ZSH
-    echo "[   DOWNLOADING BASH SCRIPT FOR SETTING UP ZSH   ]-"
+    echo "[   SETTING UP SETTING UP ZSH   ]-"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-setup-rpi.sh | sudo sh
     # Setup Vim
-    echo "[   DOWNLOADING BASH SCRIPT FOR SETTING UP VIM   ]-"
+    echo "[   SETTING UP SETTING UP VIM   ]-"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-setup-rpi.sh | sudo sh
     # Setup Tmux
-    echo "[   DOWNLOADING BASH SCRIPT FOR SETTING UP TMUX   ]-"
+    echo "[   SETTING UP SETTING UP TMUX   ]-"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/tmux-setup-rpi.sh | sudo sh
     # Install Useful Programs
-    echo "[   DOWNLOADING BASH SCRIPT FOR Installing common programs   ]-"
+    echo "[   SETTING UP COMMON PROGRAMS   ]-"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/etc/Rpi/common-programs-rpi.sh | sudo sh
 }
 

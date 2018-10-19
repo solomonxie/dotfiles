@@ -6,16 +6,19 @@
 # Run:
 #   $ install_zsh.sh "Mac OS X"
 
+# Load uitility functions (check os)
+curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh | sudo sh
+
 do_init_by_os(){
-    # Get Distro from option passed to the script
-    distro=$1
+    # Get Distro
+    distro=$(get_distro)
     case distro in
-        "darwin" | "Mac OS X")
-            do_install_zsh_mac ;;
         "ubuntu")
             do_install_zsh_ubuntu ;;
         "raspbian")
             do_install_zsh_rpi ;;
+        "mac")
+            do_install_zsh_mac ;;
     esac
 }
 
@@ -31,12 +34,12 @@ do_install_zsh_rpi(){
     wget https://github.com/solomonxie/cdn/raw/master/zsh/zshrc-rpi -O ~/.zshrc
     wget https://github.com/solomonxie/cdn/raw/master/zsh/zshrc.extension-rpi -O ~/.zshrc.extension
 
-    echo "---[  Installing Themes for ZSH   ]----"
+    echo "-----[  Installing Themes for ZSH   ]-----"
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
     wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
     yes | pip install -U powerline-status >> ~/.init/log_zsh.txt 1>&2
 
-    echo "---[  Installing Themes for ZSH   ]----"
+    echo "-----[  Installing Themes for ZSH   ]-----"
     sudo chown -R pi:pi $ZSH_CUSTOM
 
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
@@ -55,12 +58,12 @@ do_install_zsh_ubuntu(){
     wget https://github.com/solomonxie/cdn/raw/master/zsh/zshrc-ubuntu -O ~/.zshrc
     wget https://github.com/solomonxie/cdn/raw/master/zsh/zshrc.extension-ubuntu -O ~/.zshrc.extension
 
-    echo "---[  Installing Themes for ZSH   ]----"
+    echo "-----[  Installing Themes for ZSH   ]-----"
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
     wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
     yes | pip install -U powerline-status
 
-    echo "---[  Installing Themes for ZSH   ]----"
+    echo "-----[  Installing Themes for ZSH   ]-----"
     sudo chown -R ubuntu:ubuntu $ZSH_CUSTOM
 
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"

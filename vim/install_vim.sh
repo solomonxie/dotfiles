@@ -3,6 +3,27 @@
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Enviroment: Ubuntu / Raspbian / MacOS Sierra
+# Commands:
+#   1. Get in VIM
+#   2. :PluginInstall
+#   3. If there's permission problem: $ sudo chown -R $USER:$USER ~/.vim
+#   4. :PluginInstall
+
+# Load uitility functions (check os)
+curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh | sudo sh
+
+do_init_by_os(){
+    # Get Distro
+    distro=$(get_distro)
+    case distro in
+        "ubuntu")
+            do_install_vim_ubuntu ;;
+        "raspbian")
+            do_install_vim_rpi ;;
+        "mac")
+            do_install_vim_mac ;;
+    esac
+}
 
 do_install_vim_ubuntu(){
     mkdir ~/.vim
@@ -45,5 +66,5 @@ do_install_vim_rpi(){
 }
 
 do_install_vim_mac(){
-    
+    echo "vim on mac"    
 }

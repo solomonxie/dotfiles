@@ -7,6 +7,8 @@
 # How to run this script:
 #    curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | sudo sh
 
+# Load uitility functions in the same directory
+source $(dirname $0)/utils.sh
 
 do_init_by_os(){
     # Get Distro
@@ -21,29 +23,6 @@ do_init_by_os(){
             echo "CURRENT Linux Distribution: [  Raspbian  ]. Start initializing system funtionalities..."
             do_init_rpi ;;
     esac
-}
-
-get_distro(){
-    local distro=""
-    if [ -x "$(command -v lsb_release)" ]; then #Linux
-        distro=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
-    elif [ -x "$(command -v sw_vers)" ]; then #MacOS
-        distro=$(sw_vers -productName)
-    elif [ -x "$(command -v uname)" ]; then #Others
-        local info=$(uname -a | tr '[:upper:]' '[:lower:]')
-        if [[ $info == *"Darwin"* ]]; then
-            distro="darwin"
-        elif [[ $info == *"Ubuntu"* ]]; then
-            distro="ubuntu"
-        elif [[ $info == *"raspberrypi"* ]]; then
-            distro="raspbian"
-        elif [[ $info == *"Linux"* ]]; then
-            distro="linux"
-        else
-            distro="OTHERS"
-        fi
-    fi
-    echo $distro
 }
 
 

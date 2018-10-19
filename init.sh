@@ -11,14 +11,15 @@
 do_init_by_os(){
     # Get Distro
     case $(get_distro) in
-        "darwin")
-            echo "doing mac";;
-        "Mac OS X")
-            echo "doing mac";;
+        "darwin" | "Mac OS X")
+            echo "CURRENT OS: [  Mac OS X  ]. Start initializing system funtionalities...";;
+            do_init_mac
         "ubuntu")
-            echo "doing ubuntu";;
+            echo "CURRENT Linux Distribution: [  Ubuntu  ]. Start initializing system funtionalities...";;
+            do_init_ubuntu
         "raspbian")
-            echo "doing rpi";;
+            echo "CURRENT Linux Distribution: [  Raspbian  ]. Start initializing system funtionalities...";;
+            do_init_rpi
     esac
 }
 
@@ -38,6 +39,8 @@ get_distro(){
             distro="raspbian"
         elif [[ $info == *"Linux"* ]]; then
             distro="linux"
+        else
+            distro="OTHERS"
         fi
     fi
     echo $distro

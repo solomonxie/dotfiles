@@ -34,4 +34,10 @@ do_install_apt_tools_rpi(){
 }
 
 
-do_clear_apt_cache(){}
+do_apt_clear_cache(){
+    echo ""
+}
+
+do_apt_remove_lock(){
+    echo ""
+}

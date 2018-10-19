@@ -12,14 +12,14 @@ do_init_by_os(){
     # Get Distro
     case $(get_distro) in
         "darwin" | "Mac OS X")
-            echo "CURRENT OS: [  Mac OS X  ]. Start initializing system funtionalities...";;
-            do_init_mac
+            echo "CURRENT OS: [  Mac OS X  ]. Start initializing system funtionalities..."
+            do_init_mac ;;
         "ubuntu")
-            echo "CURRENT Linux Distribution: [  Ubuntu  ]. Start initializing system funtionalities...";;
-            do_init_ubuntu
+            echo "CURRENT Linux Distribution: [  Ubuntu  ]. Start initializing system funtionalities..."
+            do_init_ubuntu ;;
         "raspbian")
-            echo "CURRENT Linux Distribution: [  Raspbian  ]. Start initializing system funtionalities...";;
-            do_init_rpi
+            echo "CURRENT Linux Distribution: [  Raspbian  ]. Start initializing system funtionalities..."
+            do_init_rpi ;;
     esac
 }
 

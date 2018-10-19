@@ -9,6 +9,22 @@
 #   3. Reload configs: Ctrl-b + r
 #   4. Resurrect: Ctrl-b + Ctrl-r
 
+# Load uitility functions (check os)
+curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh | sudo sh
+
+do_init_by_os(){
+    # Get Distro
+    distro=$(get_distro)
+    case distro in
+        "ubuntu")
+            do_install_tmux_ubuntu ;;
+        "raspbian")
+            do_install_tmux_rpi ;;
+        "mac")
+            do_install_tmux_mac ;;
+    esac
+}
+
 do_install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
 
@@ -46,5 +62,5 @@ do_install_tmux_rpi(){
 }
 
 do_install_tmux_mac(){
-
+    echo "tmux on mac"
 }

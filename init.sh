@@ -7,9 +7,7 @@
 # How to run this script:
 #    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | sudo sh
 
-
-# Load uitility functions (check os)
-curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh | sudo sh
+set -x
 
 do_init_by_os(){
     # Get Distro
@@ -23,6 +21,29 @@ do_init_by_os(){
     esac
 }
 
+get_distro(){
+    local distro=""
+    if [ -x "$(command -v lsb_release)" ]; then #Linux
+        distro=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
+    elif [ -x "$(command -v sw_vers)" ]; then #MacOS
+        #distro=$(sw_vers -productName)
+        distro="mac"
+    elif [ -x "$(command -v uname)" ]; then #Others
+        local info=$(uname -a | tr '[:upper:]' '[:lower:]')
+        if [[ $info == *"Darwin"* ]]; then
+            distro="mac"
+        elif [[ $info == *"Ubuntu"* ]]; then
+            distro="ubuntu"
+        elif [[ $info == *"raspberrypi"* ]]; then
+            distro="raspbian"
+        elif [[ $info == *"Linux"* ]]; then
+            distro="linux"
+        else
+            distro="OTHERS"
+        fi
+    fi
+    echo $distro
+}
 
 do_init_ubuntu(){
     echo "CURRENT Linux Distribution: [  Ubuntu  ]. Start initializing system funtionalities..."
@@ -51,27 +72,27 @@ do_init_ubuntu(){
 
 do_init_rpi(){
     echo "CURRENT Linux Distribution: [  Raspbian  ]. Start initializing system funtionalities..."
-    echo "[   Overwrite Raspberry Pi Default configs   ]-"
+    echo "[   Overwrite Raspberry Pi Default configs   ]"
     sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/Rpi/boot/config.txt -O /boot/config.txt
     # Enable ssh
     sudo touch /boot/ssh
     # Setup WIFI (need you to rewrite wifi password in the file)
     #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
     # Update server & install essentials
-    echo "[   UPDATE APT REPOSITORIES   ]-"
+    echo "[   UPDATE APT REPOSITORIES   ]"
     sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/Rpi/sources.list -O /etc/apt/sources.list
     yes | sudo apt-get update
     # Setup Python3
-    echo "[   SETTING UP SETTING UP PYTHON3   ]-"
+    echo "[   SETTING UP SETTING UP PYTHON3   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/python/isntall_python3.sh | sudo sh
     # Setup ZSH
-    echo "[   SETTING UP SETTING UP ZSH   ]-"
+    echo "[   SETTING UP SETTING UP ZSH   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-setup-rpi.sh | sudo sh
     # Setup Vim
-    echo "[   SETTING UP SETTING UP VIM   ]-"
+    echo "[   SETTING UP SETTING UP VIM   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-setup-rpi.sh | sudo sh
     # Setup Tmux
-    echo "[   SETTING UP SETTING UP TMUX   ]-"
+    echo "[   SETTING UP SETTING UP TMUX   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/tmux-setup-rpi.sh | sudo sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"

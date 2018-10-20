@@ -5,9 +5,7 @@
 # Enviroment: Ubuntu / Raspbian / MacOS
 # Notice: 
 # How to run this script:
-#    curl -sSL \
-#       https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | \
-#       sudo sh >> /var/init.log
+#    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | sudo sh >> /var/init.log
 
 set -x
 
@@ -49,8 +47,13 @@ get_distro(){
 
 do_init_ubuntu(){
     echo "CURRENT Linux Distribution: [  Ubuntu  ]. Start initializing system funtionalities..."
+    # Add uitility funcitons to bashrc
+    #echo "[   ADDING UTILITY FUNCTIONS TO BASHRC   ]"
+    #curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o $HOME/.bashrc.utils
+    #cat $HOME/.bashrc.utils >> $HOME/.bash_profile
+    #source $HOME/.bash_profile
     # Change server timezone
-    echo "[   Change TIMEZONE   ]"
+    echo "[   CHANGE TIMEZONE   ]"
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     # Update server & install essentials
     echo "[   UPDATE APT REPOSITORIES   ]"
@@ -70,6 +73,8 @@ do_init_ubuntu(){
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-ubuntu.sh | sudo sh
+    # Install common used apt packages & clean up
+    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/package-manager/apt.sh | sudo sh
 }
 
 do_init_rpi(){

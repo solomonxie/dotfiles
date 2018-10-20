@@ -4,8 +4,8 @@
 # How to use: 
 #   source this script in ~/.bashrc
 #   $ curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o $HOME/.bashrc.utils
-#   $ cat $HOME/.bashrc.utils >> $HOME/.bashrc
-#   $ source $HOME/.bashrc
+#   $ cat $HOME/.bashrc.utils >> $HOME/.bash_profile
+#   $ source $HOME/.bash_profile
 # 
 
 get_distro(){

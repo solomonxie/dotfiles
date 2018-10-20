@@ -5,7 +5,9 @@
 # Enviroment: Ubuntu / Raspbian / MacOS
 # Notice: 
 # How to run this script:
-#    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | sudo sh
+#    curl -sSL \
+#       https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | \
+#       sudo sh >> /var/init.log
 
 set -x
 

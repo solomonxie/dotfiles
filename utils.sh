@@ -1,8 +1,12 @@
-#! /bin/bash 
-#
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Enviroment: Ubuntu / Raspbian / MacOS
+# How to use: 
+#   source this script in ~/.bashrc
+#   $ curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o $HOME/.bashrc.utils
+#   $ cat $HOME/.bashrc.utils >> $HOME/.bashrc
+#   $ source $HOME/.bashrc
+# 
 
 get_distro(){
     local distro=""

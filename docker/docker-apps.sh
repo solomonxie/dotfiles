@@ -47,8 +47,8 @@ docker_shadowsocks_old(){
     # mritd/shadowsocks
     PORT=1988
     PORT_UPD=1989
-    METHOD=aes-256-cfb
     PASSWORD=shadow123
+    METHOD=aes-256-cfb
     #METHOD=chacha20
     docker run -dt --name ssserver-old --restart always \
         -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \

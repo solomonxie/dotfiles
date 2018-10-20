@@ -4,6 +4,37 @@
 # Email: solomonxiewise@gmail.com
 # Enviroment: Debian based distro
 
+set -x
+
+do_install_apt_by_os(){
+    # Get Distro
+    case $(get_distro) in
+        "ubuntu")
+            do_install_apt_tools_ubuntu ;;
+        "raspbian")
+            do_install_apt_tools_rpi ;;
+    esac
+}
+
+get_distro(){
+    local distro=""
+    if [ -x "$(command -v lsb_release)" ]; then #Linux
+        distro=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
+    elif [ -x "$(command -v uname)" ]; then #Others
+        local info=$(uname -a | tr '[:upper:]' '[:lower:]')
+        if [[ $info == *"Ubuntu"* ]]; then
+            distro="ubuntu"
+        elif [[ $info == *"raspberrypi"* ]]; then
+            distro="raspbian"
+        elif [[ $info == *"Linux"* ]]; then
+            distro="linux"
+        else
+            distro="OTHERS"
+        fi
+    fi
+    echo $distro
+}
+
 do_install_apt_tools_ubuntu(){
     yes | sudo apt-get install mosh
     yes | sudo apt-get install unzip
@@ -35,9 +66,12 @@ do_install_apt_tools_rpi(){
 
 
 do_apt_clear_cache(){
-    echo ""
+    yes | sudo apt autoremove
 }
 
 do_apt_remove_lock(){
     echo ""
 }
+
+do_install_apt_by_os
+do_apt_clear_cache

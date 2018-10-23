@@ -3,6 +3,8 @@
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Enviroment: Debian based distro
+# How to run:
+#   $ curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/package-manager/apt.sh | sudo sh
 
 set -x
 
@@ -44,7 +46,7 @@ do_install_apt_tools_ubuntu(){
     yes | sudo apt-get install speedtest-cli
     yes | sudo apt-get install ifstat
     yes | sudo apt-get install fortune cowsay cmatrix
-    yes | pip install -U youtube-dl you-get tldr ffmpeg
+    yes | pip install -U youtube-dl tldr ffmpeg
 
     sudo add-apt-repository ppa:dawidd0811/neofetch
     yes | sudo apt update && sudo apt install neofetch
@@ -58,10 +60,19 @@ do_install_apt_tools_rpi(){
     yes | sudo apt-get install speedtest-cli
     yes | sudo apt-get install ifstat
     yes | sudo apt-get install fortune cowsay cmatrix
-    yes | pip install -U youtube-dl you-get tldr ffmpeg
+    yes | pip install -U youtube-dl tldr ffmpeg
 
     sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list
     yes | sudo apt update && sudo apt install neofetch 
+}
+
+do_apt_add_sources(){
+    # Default sources
+    #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-default.list -O /etc/apt/sources.list
+    # China sources
+    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-cn.list -O /etc/apt/sources.list
+    # US sources
+    #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-us.list -O /etc/apt/sources.list
 }
 
 

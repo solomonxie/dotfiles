@@ -23,6 +23,7 @@ do_docker_manual_install(){
 
     # Install docker
     sudo apt-get install docker-ce
+    sudo apt install docker-compose
 
     # Hello-world
     sudo docker run hello-world
@@ -43,6 +44,11 @@ do_docker_setup(){
 
     # install docker-compose
     #sudo pip install -U docker-compose
+}
+
+rm_docker(){
+    sudo apt remove docker-ce -y
+    sudo apt remove docker -y
 }
 
 do_docker_manual_install

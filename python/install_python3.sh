@@ -24,8 +24,9 @@ do_install_pip(){
     echo "----[ Upgrading pip ]-----"
     yes | pip install --upgrade pip
 
-    mkdir ~/.pip
-    wget https://raw.githubusercontent.com/solomonxie/cdn/master/python/pip.conf -O ~/.pip/pip.conf
+    # Change source for pip to Chinese
+    #mkdir ~/.pip
+    #wget https://raw.githubusercontent.com/solomonxie/cdn/master/python/pip.conf -O ~/.pip/pip.conf
 }
 
 do_install_virtualenv(){

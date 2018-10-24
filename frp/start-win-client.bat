@@ -1,0 +1,1 @@
+"D:\Program Files\frp\frpc.exe" -c "d:\Program Files\frp\frpc.ini"

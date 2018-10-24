@@ -11,20 +11,20 @@ docker_webav(){
     # otherwise it'll cause permission error
     # Permission problem: 
     # has to get inside container by `docker exec -it webdav sh`
-    # and do `chown -R /var/webdav`
+    # and do `chown -R www-data:www-data /var/www/webdav`
     sudo chown -R www-data:www-data ~/webdav
     docker run -d --name webdav --restart always \
-        -v ~/webdav:/var/webdav \
+        -v ~/webdav:/var/www/webdav \
         -e USERNAME=ubuntu -e PASSWORD=123 \
-        -p 8888:80 morrisjobke/webdav:latest
+        -p 8888:80 solomonxie/webdav:ubuntu
 }
 
 docker_webdav_rpi(){
     # Permission problem: 
     # has to get inside container by `docker exec -it webdav sh`
-    # and do `chown -R /var/webdav`
+    # and do `chown -R www-data:www-data /var/www/webdav`
     docker run -d --name webdav --restart always \
-        -v ~/webdav:/var/webdav \
+        -v ~/webdav:/var/www/webdav \
         -e USERNAME=pi -e PASSWORD=123 \
         -p 8888:80 solomonxie/webdav-rpi:jessie
 }

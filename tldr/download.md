@@ -21,6 +21,10 @@
 - Download Audio: -f bestaudio/m4a
 - Download multiple versions of formats: -f mp4/bestvideo,w4a/bestaudio
 - With cookies: --cookies cookies.txt
+- Name format:
+    * Single: -o "%(title)s.%(ext)s"
+    * Playlist: -o "%(playlist_index)s-%(title)s.%(ext)s"
+                -o "%(playlist_title)s-%(playlist_index)s-%(title)s.%(ext)s"
 
 
 ## you-get

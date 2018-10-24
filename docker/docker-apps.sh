@@ -84,7 +84,11 @@ docker_smb(){}
 docker_jekyll(){}
 
 
-docker_frp(){}
+docker_frp(){
+    docker run --name frp -dt \
+    -p 7000:7000 -p 7500:7500 \
+    solomonxie/frp:alpine -c ~/.frps.ini 
+}
 
 
 docker_gitbook(){}

@@ -10,22 +10,23 @@
 #   4. :PluginInstall
 
 # Load uitility functions (check os)
-curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh | sudo sh
+curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
+source /tmp/utils.sh
 
-do_init_by_os(){
+do_install_vim(){
     # Get Distro
     distro=$(get_distro)
     case distro in
         "ubuntu")
-            do_install_vim_ubuntu ;;
+            install_vim_ubuntu ;;
         "raspbian")
-            do_install_vim_rpi ;;
+            install_vim_rpi ;;
         "mac")
-            do_install_vim_mac ;;
+            install_vim_mac ;;
     esac
 }
 
-do_install_vim_ubuntu(){
+install_vim_ubuntu(){
     mkdir ~/.vim
     export VIM="~/.vim"
 
@@ -45,7 +46,7 @@ do_install_vim_ubuntu(){
     curl https://raw.githubusercontent.com/solomonxie/cdn/master/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim 
 }
 
-do_install_vim_rpi(){
+install_vim_rpi(){
     mkdir ~/.vim
     export VIM=~/.vim
 
@@ -65,6 +66,6 @@ do_install_vim_rpi(){
     curl https://raw.githubusercontent.com/solomonxie/cdn/master/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim 
 }
 
-do_install_vim_mac(){
+install_vim_mac(){
     echo "vim on mac"    
 }

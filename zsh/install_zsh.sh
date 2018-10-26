@@ -7,9 +7,10 @@
 #   $ install_zsh.sh "Mac OS X"
 
 # Load uitility functions (check os)
-curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh | sudo sh
+curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
+source /tmp/utils.sh
 
-do_init_by_os(){
+do_init_zsh(){
     # Get Distro
     distro=$(get_distro)
     case distro in
@@ -23,7 +24,7 @@ do_init_by_os(){
 }
 
 
-do_install_zsh_rpi(){
+install_zsh_rpi(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     yes | sudo apt-get install zsh
 
@@ -47,7 +48,7 @@ do_install_zsh_rpi(){
     git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 }
 
-do_install_zsh_ubuntu(){
+install_zsh_ubuntu(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     yes | sudo apt-get install zsh
 

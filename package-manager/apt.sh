@@ -77,7 +77,8 @@ do_apt_add_sources(){
 
 
 do_apt_clear_cache(){
-    yes | sudo apt autoremove
+    yes | sudo apt-get autoremove
+    yes | sudo apt-get autoclean
 }
 
 do_apt_remove_lock(){

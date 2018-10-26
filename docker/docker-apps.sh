@@ -101,12 +101,27 @@ docker_nextcloud_sqlite(){
     # Get current UID by `$ id -u $USER`
     # Get current GID by `$ id -g $USER`
     docker run -dt \
-        --name nextcloud \
+        --name nextcloud --restart=always \
         -p 8080:80 -p 8443:443\
         -e PUID=1000 -e PGID=1000 \
         -v ~/nextcloud/config:/config \
         -v ~/nextcloud/data:/data \
         linuxserver/nextcloud
+}
+
+docker_nextcloud_rpi(){
+    echo ""
+}
+
+
+docker_emby_ubuntu(){
+    docker run -d --restart=always \
+        -v ~/emby/config:/config \
+        -v ~/emby/share1:/mnt/share1 \
+        -v ~/emby/share2:/mnt/share2 \
+        -p 8096:8096 -p 8920:8920 \
+        --env UID=1000 --env GID=100 --env GIDLIST=100 \
+        emby/embyserver:latest
 }
 
 

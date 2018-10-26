@@ -10,22 +10,23 @@
 #   4. Resurrect: Ctrl-b + Ctrl-r
 
 # Load uitility functions (check os)
-curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh | sudo sh
+curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
+source /tmp/utils.sh
 
-do_init_by_os(){
+do_install_tmux(){
     # Get Distro
     distro=$(get_distro)
     case distro in
         "ubuntu")
-            do_install_tmux_ubuntu ;;
+            install_tmux_ubuntu ;;
         "raspbian")
-            do_install_tmux_rpi ;;
+            install_tmux_rpi ;;
         "mac")
-            do_install_tmux_mac ;;
+            install_tmux_mac ;;
     esac
 }
 
-do_install_tmux_ubuntu(){
+install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
@@ -43,7 +44,7 @@ do_install_tmux_ubuntu(){
     sudo chown -R ubuntu:ubuntu ~/.tmux
 }
 
-do_install_tmux_rpi(){
+install_tmux_rpi(){
     yes | sudo apt-get install tmux
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
@@ -61,6 +62,6 @@ do_install_tmux_rpi(){
     sudo chown -R pi:pi ~/.tmux
 }
 
-do_install_tmux_mac(){
+install_tmux_mac(){
     echo "tmux on mac"
 }

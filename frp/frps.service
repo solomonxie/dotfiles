@@ -1,0 +1,14 @@
+[Unit]
+Description=FRP Server Daemon
+
+[Service]
+Type=simple
+ExecStartPre=-/usr/sbin/setcap cap_net_bind_service=+ep /opt/bin/frps
+ExecStart=/opt/bin/frps -c /opt/etc/frps.ini
+Restart=always
+RestartSec=20s
+User=nobody
+PermissionsStartOnly=true
+
+[Install]
+WantedBy=multi-user.target

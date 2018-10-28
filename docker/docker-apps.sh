@@ -85,9 +85,16 @@ docker_jekyll(){}
 
 
 docker_frp(){
-    docker run --name frp -dt \
-    -p 7000:7000 -p 7500:7500 \
-    solomonxie/frp:alpine -c ~/.frps.ini 
+    # frp-server
+    docker run -dt --name frps \
+        -p 7000:7000 -p 8000:7800 \
+        -v ~/frp:/conf solomonxie/frp:0.20.0 \
+        /frp/frps -c /conf/frps.ini
+
+    # Can't run a frp-client in docker ALONE
+    # because it's not making any sense
+    # it's only okay to run as docker service
+    # to connect another container
 }
 
 

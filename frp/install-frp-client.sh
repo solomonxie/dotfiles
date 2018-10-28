@@ -4,11 +4,11 @@
 # Commands:
 #
 
-DIR=$HOME
+VER="0.21.0_linux_arm"
+DIR=$HOME/$VER
 
 do_install_frpc_rpi(){
-    VER="0.21.0_linux_arm"
-    cd $DIR
+    cd $HOME
     wget https://github.com/fatedier/frp/releases/download/v0.21.0/frp_$VER.tar.gz
     tar -xzvf frp_$VER.tar.gz
     cd frp_$VER

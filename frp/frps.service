@@ -1,14 +1,29 @@
+# FRP-Server system service file
+# Environment: Ubuntu
+# Owner: Solomon Xie
+# Email: solomonxiewise@gmail.com
+# How to set this service
+#   1. Save this file as:
+#       `/etc/systemd/system/frps.service`
+#   2. Enable start on login:
+#       `sudo systemctl enable frps.service`
+#   3. Start now:
+#       `sudo systemctl start frps.service`
+# How to inspect its status:
+#   1. `sudo systemctl status frps.service`
+#   2. `tail -f /tmp/frps.log`
+
 [Unit]
 Description=FRP Server Daemon
 
 [Service]
 Type=simple
-ExecStartPre=-/usr/sbin/setcap cap_net_bind_service=+ep /opt/bin/frps
-ExecStart=/opt/bin/frps -c /opt/etc/frps.ini
-Restart=always
+ExecStart=/usr/sbin/frps -c /etc/frp/frps.ini
+Restart= always
 RestartSec=20s
-User=nobody
-PermissionsStartOnly=true
+ExecStop=/usr/bin/killall frps
+user=nobody
+permissionsstartonly=true
 
 [Install]
 WantedBy=multi-user.target

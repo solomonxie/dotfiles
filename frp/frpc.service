@@ -1,14 +1,30 @@
+# FRP-Client system service file
+# Environment: Ubuntu
+# Owner: Solomon Xie
+# Email: solomonxiewise@gmail.com
+# How to set this service
+#   1. Save this file as:
+#       `/etc/systemd/system/frpc.service`
+#   2. Enable start on login:
+#       `sudo systemctl enable frpc.service`
+#   3. Start now:
+#       `sudo systemctl start frpc.service`
+# How to inspect its status:
+#   1. `sudo systemctl status frpc.service`
+#   2. `tail -f /tmp/frpc.log`
+
 [Unit]
 Description=FRP Client Daemon
-After=network.target
+After=syslog.target  network.target
 Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/bin/frps -c /opt/etc/frpc.ini
-Restart=always
-RestartSec=20s
-User=nobody
+ExecStart=/usr/sbin/frpc -c /etc/frp/frpc.ini
+Restart= always
+RestartSec=1min
+ExecStop=/usr/bin/killall frpc
+
 
 [Install]
 WantedBy=multi-user.target

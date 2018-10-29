@@ -35,7 +35,7 @@ do_install_pip(){
 
 do_install_virtualenv(){
     echo "----[ Installing virtualenv ]----"
-    yes | pip install -U virtualenv
+    yes | pip install virtualenv
 
     # ---- Make venvs ----
     echo "---[ Settingup virtual environments ]----"

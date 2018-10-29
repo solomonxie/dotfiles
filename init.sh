@@ -60,6 +60,8 @@ do_init_ubuntu(){
     # sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-cn.list -O /etc/apt/sources.list
     echo "[   UPDATE APT REPOSITORIES   ]"
     yes | sudo apt-get update
+    # Get essential tools before any installation
+    yes |sudo apt-get install curl wget git
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/python/install_python3.sh | sudo sh

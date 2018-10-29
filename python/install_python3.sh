@@ -1,7 +1,11 @@
+#! /bin/bash 
+#
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Environment: Ubuntu / Raspbian
 #
+
+set -x
 
 do_install_python3_ubuntu(){
     yes | sudo apt-get install python3

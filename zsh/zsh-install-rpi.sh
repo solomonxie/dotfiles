@@ -1,8 +1,11 @@
+#! /bin/bash 
+#
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Enviroment: Rpi
 #
 
+set -x
 
 # ---SETING UP ZSH ---
 echo "-----[  START SETTING UP ZSH   ]-----"

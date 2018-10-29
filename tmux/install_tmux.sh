@@ -9,6 +9,8 @@
 #   3. Reload configs: Ctrl-b + r
 #   4. Resurrect: Ctrl-b + Ctrl-r
 
+set -x
+
 # Load uitility functions (check os)
 curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
 source /tmp/utils.sh

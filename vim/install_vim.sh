@@ -9,6 +9,8 @@
 #   3. If there's permission problem: $ sudo chown -R $USER:$USER ~/.vim
 #   4. :PluginInstall
 
+set -x
+
 # Load uitility functions (check os)
 curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
 source /tmp/utils.sh

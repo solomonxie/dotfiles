@@ -5,7 +5,7 @@
 # Enviroment: Ubuntu / Raspbian / MacOS
 # Notice: 
 # How to run this script:
-#    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | sudo sh >> /var/init.log
+#    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | sudo sh >> /tmp/init.log
 
 set -x
 
@@ -56,6 +56,8 @@ do_init_ubuntu(){
     echo "[   CHANGE TIMEZONE   ]"
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     # Update server & install essentials
+    # echo "[   UPDATE APT REPOSITORIES   ]"
+    # sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-cn.list -O /etc/apt/sources.list
     echo "[   UPDATE APT REPOSITORIES   ]"
     yes | sudo apt-get update
     # Setup Python3

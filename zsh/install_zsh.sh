@@ -6,6 +6,8 @@
 # Run:
 #   $ install_zsh.sh "Mac OS X"
 
+set -x
+
 # Load uitility functions (check os)
 curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
 source /tmp/utils.sh

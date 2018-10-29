@@ -1,3 +1,5 @@
+#! /bin/bash 
+#
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Enviroment: Raspberry Pi (Raspbian)
@@ -9,6 +11,7 @@
 #   4. Resurrect: Ctrl-b + Ctrl-r
 #
 
+set -x
 
 #--------------SETING UP TMUX--------------
 yes | sudo apt-get install tmux

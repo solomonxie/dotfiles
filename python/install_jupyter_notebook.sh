@@ -1,7 +1,11 @@
+#! /bin/bash 
+#
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Preload:
 # Commands:
+
+set -x
 
 do_install_ML_packages(){
     source ~/venv-ju/bin/activate

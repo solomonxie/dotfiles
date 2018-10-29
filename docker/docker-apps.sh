@@ -5,6 +5,7 @@
 # Enviroment: Ubuntu
 # Notice: 
 
+set -x
 
 docker_webav(){
     # The folder on host MUST have the same permission

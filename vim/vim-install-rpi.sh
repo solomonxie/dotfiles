@@ -9,6 +9,8 @@
 
 set -x
 
+yes | sudo apt-get install vim
+
 mkdir ~/.vim
 export VIM=~/.vim
 

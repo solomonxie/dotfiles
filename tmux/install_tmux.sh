@@ -12,8 +12,8 @@
 set -x
 
 # Load uitility functions (check os)
-curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
-source /tmp/utils.sh
+curl -fsSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o ~/utils.sh
+source ~/utils.sh
 
 do_install_tmux(){
     # Get Distro
@@ -35,7 +35,7 @@ install_tmux_ubuntu(){
     sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/tmux-ubuntu.conf -O ~/.tmux.conf
 
     echo "----------[  Installing TPM for Tmux   ]--------------"
-    sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    sudo git clone --no-checkout https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     echo "----------[  Recover preset Tmux session   ]--------------"
     sudo mkdir ~/.tmux/resurrect
@@ -53,7 +53,7 @@ install_tmux_rpi(){
     sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/tmux-rpi.conf -O ~/.tmux.conf
 
     echo "----------[  Installing TPM for Tmux   ]--------------"
-    sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    sudo git clone --no-checkout https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     echo "----------[  Recover preset Tmux session   ]--------------"
     sudo mkdir ~/.tmux/resurrect

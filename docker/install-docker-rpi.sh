@@ -40,7 +40,7 @@ do_docker_persmission(){
 
 do_docker_setup(){
     # change sources/mirrors
-    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/docker/daemon.json -O /etc/docker/daemon.json
+    sudo cp ./docker/daemon.json /etc/docker/
 
     # install docker-compose
     #sudo pip install -U docker-compose

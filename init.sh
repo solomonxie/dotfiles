@@ -5,7 +5,9 @@
 # Enviroment: Ubuntu / Raspbian / MacOS
 # Notice: 
 # How to run this script:
-#    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/init.sh | sudo sh >> /tmp/init.log
+#   git clone https://github.com/solomonxie/cdn.git
+#   cd ./cdn
+#   sudo ./init.sh >> /var/log/sys_init.log
 
 set -x
 
@@ -57,57 +59,61 @@ do_init_ubuntu(){
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     # Update server & install essentials
     # echo "[   UPDATE APT REPOSITORIES   ]"
-    # sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-cn.list -O /etc/apt/sources.list
     echo "[   UPDATE APT REPOSITORIES   ]"
+    # sudo cp ./etc/ubuntu/sources-cn.list /etc/apt/
     yes | sudo apt-get update
     # Get essential tools before any installation
     yes |sudo apt-get install curl wget git
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/python/install_python3.sh | sudo sh
+    sh ./python/install_python3.sh --distro ubuntu
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/install_zsh.sh | sudo sh
+    sh ./zsh/install_zsh.sh --distro ubuntu
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/vim/install-vim-ubuntu.sh | sudo sh
+    sh ./vim/install_vim.sh --distro ubuntu
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/install-tmux-ubuntu.sh | sudo sh
+    sh ./tmux/install_tmux.sh --distro ubuntu
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-ubuntu.sh | sudo sh
+    curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+    # sh ./docker/install-docker-ubuntu.sh
     # Install common used apt packages & clean up
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/package-manager/apt.sh | sudo sh
+    sh ./package-manager/apt.sh --distro ubuntu
 }
 
 do_init_rpi(){
     echo "CURRENT Linux Distribution: [  Raspbian  ]. Start initializing system funtionalities..."
     echo "[   Overwrite Raspberry Pi Default configs   ]"
-    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/Rpi/boot/config.txt -O /boot/config.txt
+    sudo cp ./etc/Rpi/boot/config.txt /boot/config.txt
     # Enable ssh
     sudo touch /boot/ssh
     # Setup WIFI (need you to rewrite wifi password in the file)
     #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
     # Update server & install essentials
     echo "[   UPDATE APT REPOSITORIES   ]"
-    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/Rpi/sources.list -O /etc/apt/sources.list
+    sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
     yes | sudo apt-get update
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/python/isntall_python3.sh | sudo sh
+    sh ./python/install_python3.sh --distro ubuntu
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/zsh-setup-rpi.sh | sudo sh
+    sh ./python/install_zsh.sh
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/vim/vim-setup-rpi.sh | sudo sh
+    sh ./vim/install_vim.sh
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/tmux/tmux-setup-rpi.sh | sudo sh
+    sh ./tmux/install_tmux.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/docker/install-docker-rpi.sh | sudo sh
+    curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+    # sh ./docker/install-docker-rpi.sh
+    # Install common used apt packages & clean up
+    sh ./package-manager/apt.sh 
 }
 
 do_init_mac(){

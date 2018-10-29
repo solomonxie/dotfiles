@@ -29,8 +29,8 @@ do_install_pip(){
     yes | pip install --upgrade pip
 
     # Change source for pip to Chinese
-    #mkdir ~/.pip
-    #wget https://raw.githubusercontent.com/solomonxie/cdn/master/python/pip.conf -O ~/.pip/pip.conf
+    mkdir ~/.pip
+    cp ./pip.conf ~/.pip/
 }
 
 do_install_virtualenv(){

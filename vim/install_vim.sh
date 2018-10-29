@@ -16,8 +16,6 @@ curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /t
 source /tmp/utils.sh
 
 do_install_vim(){
-    # Get Distro
-    distro=$(get_distro)
     case distro in
         "ubuntu")
             install_vim_ubuntu ;;
@@ -32,12 +30,14 @@ install_vim_ubuntu(){
     mkdir ~/.vim
     export VIM="~/.vim"
 
+    yes | sudo apt-get install vim
+
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
     wget https://github.com/solomonxie/cdn/raw/master/vim/vimrc-ubuntu -O ~/.vimrc
 
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone --no-checkout https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
     echo "-----[  Change permission   ]-----"
     sudo chown -R ubuntu:ubuntu ~/.vim
@@ -52,12 +52,14 @@ install_vim_rpi(){
     mkdir ~/.vim
     export VIM=~/.vim
 
+    yes | sudo apt-get install vim
+
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
     wget https://github.com/solomonxie/cdn/raw/master/vim/vimrc-rpi -O ~/.vimrc
 
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone --no-checkout https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
     echo "-----[  Change permission   ]-----"
     sudo chown -R pi:pi ~/.vim
@@ -71,3 +73,6 @@ install_vim_rpi(){
 install_vim_mac(){
     echo "vim on mac"    
 }
+
+# Start this script
+do_install_vim

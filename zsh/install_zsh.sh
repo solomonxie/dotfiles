@@ -9,7 +9,7 @@
 set -x
 
 # Load uitility functions (check os)
-curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
+wget https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -O /tmp/utils.sh
 source /tmp/utils.sh
 
 do_init_zsh(){

@@ -67,7 +67,7 @@ do_init_ubuntu(){
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/python/install_python3.sh | sudo sh
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/install-zsh-ubuntu.sh | sudo sh
+    curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/zsh/install_zsh.sh | sudo sh
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
     curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/vim/install-vim-ubuntu.sh | sudo sh

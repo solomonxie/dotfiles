@@ -38,7 +38,11 @@ do_give_permission_to_docker(){
 }
 
 do_setup_docker(){
-    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/docker/daemon.json -O /etc/docker/daemon.json
+    # change sources/mirrors
+    sudo cp ./docker/daemon.json /etc/docker/
+
+    # install docker-compose
+    #sudo pip install -U docker-compose
 }
 
 do_install_docker_manually

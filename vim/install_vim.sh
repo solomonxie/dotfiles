@@ -12,8 +12,7 @@
 set -x
 
 # Load uitility functions (check os)
-curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o /tmp/utils.sh
-source /tmp/utils.sh
+source ../utils.sh
 
 do_install_vim(){
     case distro in
@@ -34,7 +33,7 @@ install_vim_ubuntu(){
 
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-    wget https://github.com/solomonxie/cdn/raw/master/vim/vimrc-ubuntu -O ~/.vimrc
+    cp ./vimrc-ubuntu ~/.vimrc
 
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
     git clone --no-checkout https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -45,7 +44,7 @@ install_vim_ubuntu(){
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir ~/.vim/colors
-    curl https://raw.githubusercontent.com/solomonxie/cdn/master/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim 
+    cp ./colors/gruvbox.vim ~/.vim/colors/
 }
 
 install_vim_rpi(){
@@ -56,7 +55,7 @@ install_vim_rpi(){
 
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-    wget https://github.com/solomonxie/cdn/raw/master/vim/vimrc-rpi -O ~/.vimrc
+    cp ./vimrc-rpi ~/.vimrc
 
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
     git clone --no-checkout https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -67,7 +66,7 @@ install_vim_rpi(){
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir ~/.vim/colors
-    curl https://raw.githubusercontent.com/solomonxie/cdn/master/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim 
+    cp ./colors/gruvbox.vim ~/.vim/colors/
 }
 
 install_vim_mac(){

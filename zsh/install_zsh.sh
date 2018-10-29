@@ -9,8 +9,7 @@
 set -x
 
 # Load uitility functions (check os)
-curl -fsSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o ~/utils.sh
-source ~/utils.sh
+source ../utils.sh
 
 do_init_zsh(){
     # Get Distro
@@ -34,8 +33,8 @@ install_zsh_rpi(){
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    wget -q https://github.com/solomonxie/cdn/raw/master/zsh/zshrc-rpi -O ~/.zshrc
-    wget -q https://github.com/solomonxie/cdn/raw/master/zsh/zshrc.extension-rpi -O ~/.zshrc.extension
+    cp zshrc-rpi ~/.zshrc
+    cp zshrc.extension-rpi ~/.zshrc.extension
 
     echo "-----[  Installing Themes for ZSH   ]-----"
     git clone --no-checkout https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
@@ -58,8 +57,8 @@ install_zsh_ubuntu(){
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    wget -q https://github.com/solomonxie/cdn/raw/master/zsh/zshrc-ubuntu -O ~/.zshrc
-    wget -q https://github.com/solomonxie/cdn/raw/master/zsh/zshrc.extension-ubuntu -O ~/.zshrc.extension
+    cp ./zshrc-ubuntu ~/.zshrc
+    cp ~/zshrc.extension-ubuntu ~/.zshrc.extension
 
     echo "-----[  Installing Themes for ZSH   ]-----"
     git clone --no-checkout https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k

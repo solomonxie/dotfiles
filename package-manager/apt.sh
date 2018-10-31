@@ -4,9 +4,10 @@
 # Email: solomonxiewise@gmail.com
 # Enviroment: Debian based distro
 # How to run:
-#   $ curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/package-manager/apt.sh | sudo sh
 
 set -x
+
+source ../utils.sh
 
 do_install_apt_by_os(){
     # Get Distro
@@ -18,26 +19,8 @@ do_install_apt_by_os(){
     esac
 }
 
-get_distro(){
-    local distro=""
-    if [ -x "$(command -v lsb_release)" ]; then #Linux
-        distro=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
-    elif [ -x "$(command -v uname)" ]; then #Others
-        local info=$(uname -a | tr '[:upper:]' '[:lower:]')
-        if [[ $info == *"Ubuntu"* ]]; then
-            distro="ubuntu"
-        elif [[ $info == *"raspberrypi"* ]]; then
-            distro="raspbian"
-        elif [[ $info == *"Linux"* ]]; then
-            distro="linux"
-        else
-            distro="OTHERS"
-        fi
-    fi
-    echo $distro
-}
 
-do_install_apt_tools_ubuntu(){
+install_apt_tools_ubuntu(){
     yes | sudo apt-get install mosh
     yes | sudo apt-get install unzip
     yes | sudo apt-get install ntfs-3g
@@ -52,7 +35,7 @@ do_install_apt_tools_ubuntu(){
     yes | sudo apt update && sudo apt install neofetch
 }
 
-do_install_apt_tools_rpi(){
+install_apt_tools_rpi(){
     yes | sudo apt-get install mosh
     yes | sudo apt-get install ntfs-3g
     yes | sudo apt-get install tightvncserver
@@ -67,7 +50,7 @@ do_install_apt_tools_rpi(){
     yes | sudo apt update && sudo apt install neofetch 
 }
 
-do_apt_add_sources(){
+apt_add_sources(){
     # Default sources
     #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-default.list -O /etc/apt/sources.list
     # China sources
@@ -77,14 +60,14 @@ do_apt_add_sources(){
 }
 
 
-do_apt_clear_cache(){
+apt_clear_cache(){
     yes | sudo apt-get autoremove
     yes | sudo apt-get autoclean
 }
 
-do_apt_remove_lock(){
+apt_remove_lock(){
     echo ""
 }
 
 do_install_apt_by_os
-do_apt_clear_cache
+apt_clear_cache

@@ -26,7 +26,10 @@ install_s3fs_ubuntu(){
     chmod 600 ~/.passwd-s3fs
     # Mount the aws S3 bucket
     mkdir ~/s3-drive
-    /usr/bin/s3fs Your-Bucket-Name ~/s3-drive
+    /usr/bin/s3fs Your-Bucket-Name ~/s3-drive -o umask=0007,uid=1000,gid=1000
+    # Debugging mode
+    # /usr/bin/s3fs Your-Bucket-Name ~/s3-drive -o dbglevel=info -f -o curldbg
     # Show all the mounted devices
     mount
+    sudo ls ~/s3-drive
 }

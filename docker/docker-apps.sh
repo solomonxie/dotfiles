@@ -13,8 +13,9 @@ docker_webav(){
     # Permission problem: 
     # has to get inside container by `docker exec -it webdav sh`
     # and do `chown -R www-data:www-data /var/www/webdav`
+    mkdir ~/webdav
     sudo chown -R www-data:www-data ~/webdav
-    docker run -d --name webdav --restart always \
+    docker run -d --name webdav --restart=always \
         -v ~/webdav:/var/www/webdav \
         -e USERNAME=ubuntu -e PASSWORD=123 \
         -p 8888:80 solomonxie/webdav:ubuntu
@@ -28,6 +29,12 @@ docker_webdav_rpi(){
         -v ~/webdav:/var/www/webdav \
         -e USERNAME=pi -e PASSWORD=123 \
         -p 8888:80 solomonxie/webdav-rpi:jessie
+}
+
+docker_wsgidav(){
+    docker run -dt \
+        --restart always -p 8880:8080 \
+        -v ~/webdav:/var/wsgidav-root mar10/wsgidav
 }
 
 
@@ -71,7 +78,7 @@ docker_vpn_cisco_ipsec(){
     echo "VPN_PASSWORD=password123" >> ~/.vpn.env
     echo "VPN_IPSEC_PSK=pre-password123" >> ~/.vpn.env
     docker run \
-        --name vpn --restart=always \
+        --name vpn --restart always \
         -p 500:500/udp -p 4500:4500/udp \
         -v /lib/modules:/lib/modules:ro \
         --env-file ~/.vpn.env -d --privileged \
@@ -109,7 +116,7 @@ docker_nextcloud_sqlite(){
     # Get current UID by `$ id -u $USER`
     # Get current GID by `$ id -g $USER`
     docker run -dt \
-        --name nextcloud --restart=always \
+        --name nextcloud --restart always \
         -p 8080:80 -p 8443:443\
         -e PUID=1000 -e PGID=1000 \
         -v ~/nextcloud/config:/config \

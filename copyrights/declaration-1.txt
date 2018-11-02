@@ -1,0 +1,9 @@
+# THIS FILE IS PART OF LibreBoot PROJECT （归属）
+# reboot.py - The core part of the reboot library （文件名和作用概述）
+# 
+# THIS PROGRAM IS FREE SOFTWARE, XXXXXXXX, IS LICENSED UNDER XXXXXX
+# YOU SHOULD HAVE RECEIVED A COPY OF WTFPL LICENSE, IF NOT, BALABALA （声明所使用的许可名称，通常许可证有要求）
+# 
+# Copyright (c) 1989-2014 Pasta Spaghetti 
+# Copyright (c) 2014 RAmen Monster
+

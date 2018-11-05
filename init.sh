@@ -1,13 +1,12 @@
 #! /bin/bash 
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
-# Enviroment: Ubuntu / Raspbian / MacOS
-# Notice: 
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
+# ENVIRONMENT: Ubuntu / Raspbian / MacOS
+# NOTICE: 
 # How to run this script:
-#   git clone https://github.com/solomonxie/cdn.git
-#   cd ./cdn
-#   sudo ./init.sh >> /var/log/sys_init.log
+#   $ git clone https://github.com/solomonxie/cdn.git
+#   $ cd ./cdn
+#   $ sudo ./init.sh >> /var/log/sys_init.log
 
 set -x
 

@@ -1,13 +1,10 @@
-# MAINTAINER: Solomon Xie
-# EMAIL: solomonxiewise@gmail.com
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # ENVIRONMENT: Python on any Unix-like OS
-# DESCRIPTION:
-#   WsgiDav is a Python implementation for Webadv Server
-#   which runs stand-alone without Apache/Nginx servers
-
+#
 # WsgiDAV configuration file
 # How to run:
 #   $ wsgidav --config=myconfig.yaml
+#
 
 
 # ============================================================================
@@ -15,6 +12,49 @@
 
 host: 0.0.0.0
 port: 8880
+
+# ==========================================================
+# SHARES
+#
+#: Application root, applied before provider mapping shares,
+#: e.g. <mount_path>/<share_name>/<res_path>
+#: supports relative path
+mount_path: "~/webdav"  # root_path, NULL by default
+provider_mapping:
+    "/webdav": "~/webdav"
+    "/share": "~/share"
+
+
+# ===========================================================
+# AUTHENTICATION
+#
+# These routes must match the provider mapping.
+# Fail on matching, will be open for anonymous access!
+user_mapping:
+    "/webdav":
+        "user1":
+            password: "123"
+            description: "Prime user for webdav"
+            roles: []
+        "user2":
+            password: "456"
+            description: "User 2 for webdav"
+            roles: []
+    "/share":
+        "user1":
+            password: "456"
+            description: "User 1 for Share 2"
+            roles: []
+        "user2":
+            password: "qwerty"
+            description: "User 2 for Share 2"
+            roles: []
+
+
+
+# ===========================================================
+# ADDITIONAL OPTIONS
+#
 
 server: "cheroot"
 server_args: {}
@@ -48,40 +88,3 @@ http_authenticator:
     trusted_auth_header: null
     preset_domain: null
     preset_server: null
-
-# ==========================================================
-# SHARES
-
-#: Application root, applied before provider mapping shares,
-#: e.g. <mount_path>/<share_name>/<res_path>
-#: supports relative path
-mount_path: "~/webdav"  # root_path, NULL by default
-provider_mapping:
-    "/webdav": "~/webdav"
-    "/share": "~/share"
-
-
-# ===========================================================
-# AUTHENTICATION
-# These routes must match the provider mapping.
-# Fail on matching, will be open for anonymous access!
-user_mapping:
-    "/webdav":
-        "user1":
-            password: "123"
-            description: "Prime user for webdav"
-            roles: []
-        "user2":
-            password: "456"
-            description: "User 2 for webdav"
-            roles: []
-    "/share":
-        "user1":
-            password: "456"
-            description: "User 1 for Share 2"
-            roles: []
-        "user2":
-            password: "qwerty"
-            description: "User 2 for Share 2"
-            roles: []
-

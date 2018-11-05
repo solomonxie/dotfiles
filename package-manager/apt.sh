@@ -13,14 +13,20 @@ do_install_apt_by_os(){
     # Get Distro
     case $(get_distro) in
         "ubuntu")
-            do_install_apt_tools_ubuntu ;;
+            install_utils_ubuntu
+            install_printer_ubuntu
+            install_scanner_ubuntu
+            ;;
         "raspbian")
-            do_install_apt_tools_rpi ;;
+            install_utils_rpi
+            install_printer_ubuntu
+            install_scanner_ubuntu
+            ;;
     esac
 }
 
 
-install_apt_tools_ubuntu(){
+install_utils_ubuntu(){
     yes | sudo apt-get install mosh
     yes | sudo apt-get install unzip
     yes | sudo apt-get install ntfs-3g
@@ -35,7 +41,7 @@ install_apt_tools_ubuntu(){
     yes | sudo apt update && sudo apt install neofetch
 }
 
-install_apt_tools_rpi(){
+install_utils_rpi(){
     yes | sudo apt-get install mosh
     yes | sudo apt-get install ntfs-3g
     yes | sudo apt-get install tightvncserver
@@ -48,6 +54,38 @@ install_apt_tools_rpi(){
 
     sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list
     yes | sudo apt update && sudo apt install neofetch 
+}
+
+install_printer_ubuntu(){
+    sudo apt-get install cups -y
+    sudo usermod -aG lpadmin $USER
+    sudo cupsctl --remote-any
+    # Process to this url to manage printers:
+    # https://ServerIP:631/
+}
+
+install_printer_rpi(){
+    sudo apt-get install cups -y
+    sudo usermod -aG lpadmin $USER
+    sudo cupsctl --remote-any
+    # Process to this url to manage printers:
+    # https://ServerIP:631/
+}
+
+install_scanner_ubuntu(){
+    sudo apt install sane -y
+    # List all Scan devices with Names
+    scanimage -L
+    # Scan an image
+    scanimage -d "DeviceName" –-format=tiff > sample.tiff
+}
+
+install_scanner_rpi(){
+    sudo apt install sane -y
+    # List all Scan devices with Names
+    scanimage -L
+    # Scan an image
+    scanimage -d "DeviceName" –-format=tiff > sample.tiff
 }
 
 apt_add_sources(){

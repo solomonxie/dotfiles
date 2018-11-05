@@ -1,7 +1,9 @@
+#
 # FRP-Server system service file
+#
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Environment: Ubuntu
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
+#
 # How to set this service
 #   1. Save this file as:
 #       `/etc/systemd/system/frps.service`
@@ -9,6 +11,7 @@
 #       `sudo systemctl enable frps.service`
 #   3. Start now:
 #       `sudo systemctl start frps.service`
+#
 # How to inspect its status:
 #   1. `sudo systemctl status frps.service`
 #   2. `tail -f /tmp/frps.log`

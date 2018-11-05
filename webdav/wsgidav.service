@@ -1,0 +1,34 @@
+# FRP-Server system service file
+#
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
+# Environment: Ubuntu
+#
+# How to set this service
+#   1. Move files to each place:
+#       `sudo ln -s $(whereis wsgidav) /usr/sbin/wsgidav`
+#       `sudo ln mywsgidav.yaml /etc/mywsgidav.yaml`
+#   2. Save this file as:
+#       `/etc/systemd/system/wsgidav.service`
+#   3. Enable start on login:
+#       `sudo systemctl enable wsgidav.service`
+#   4. Start now:
+#       `sudo systemctl start wsgidav.service`
+#
+# How to inspect its status:
+#   1. `sudo systemctl status wsgidav.service`
+#   2. `tail -f /tmp/wsgidav.log`
+
+[Unit]
+Description=Wsgidav Webdav Server Daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/wsgidav --config=/etc/mywsgidav.yaml
+Restart= always
+RestartSec=20s
+ExecStop=/usr/bin/killall wsgidav.service
+user=nobody
+permissionsstartonly=true
+
+[Install]
+WantedBy=multi-user.target

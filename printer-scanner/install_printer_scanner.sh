@@ -41,14 +41,18 @@ install_printer_rpi(){
 
 install_scanner_ubuntu(){
     sudo apt install sane -y
-    # List all Scan devices
+    # List all Scan devices with Names
     scanimage -L
+    # Scan an image
+    scanimage -d "DeviceName" –-format=tiff > sample.tiff
 }
 
 install_scanner_rpi(){
     sudo apt install sane -y
-    # List all Scan devices
+    # List all Scan devices with Names
     scanimage -L
+    # Scan an image
+    scanimage -d "DeviceName" –-format=tiff > sample.tiff
 }
 
 

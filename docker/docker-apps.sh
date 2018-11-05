@@ -1,7 +1,6 @@
 #! /bin/bash 
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Ubuntu
 # Notice: 
 
@@ -72,10 +71,10 @@ docker_v2ray(){
         /usr/bin/v2ray/v2ray -config=/etc/v2ray/config.json
 }
 
-docker_vpn_cisco_ipsec(){
+docker_vpn_ipsec(){
     touch ~/.vpn.env
     echo "VPN_USER=ubuntu" >> ~/.vpn.env
-    echo "VPN_PASSWORD=password123" >> ~/.vpn.env
+    echo "VPN_PASSWORD=ipsec123" >> ~/.vpn.env
     echo "VPN_IPSEC_PSK=pre-password123" >> ~/.vpn.env
     docker run \
         --name vpn --restart always \
@@ -85,6 +84,18 @@ docker_vpn_cisco_ipsec(){
         hwdsl2/ipsec-vpn-server
 }
 
+docker_vpn_ipsec_rpi(){
+    touch ~/.vpn.env
+    echo "VPN_USER=pi" >> ~/.vpn.env
+    echo "VPN_PASSWORD=ipsec123" >> ~/.vpn.env
+    echo "VPN_IPSEC_PSK=pre-password123" >> ~/.vpn.env
+    docker run \
+        --name vpn --restart always \
+        -p 500:500/udp -p 4500:4500/udp \
+        -v /lib/modules:/lib/modules:ro \
+        --env-file ~/.vpn.env -d --privileged \
+        solomonxie/vpn-ipsec-rpi
+}
 
 docker_smb(){}
 

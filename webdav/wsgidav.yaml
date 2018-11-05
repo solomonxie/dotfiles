@@ -1,0 +1,87 @@
+# MAINTAINER: Solomon Xie
+# EMAIL: solomonxiewise@gmail.com
+# ENVIRONMENT: Python on any Unix-like OS
+# DESCRIPTION:
+#   WsgiDav is a Python implementation for Webadv Server
+#   which runs stand-alone without Apache/Nginx servers
+
+# WsgiDAV configuration file
+# How to run:
+#   $ wsgidav --config=myconfig.yaml
+
+
+# ============================================================================
+# SERVER OPTIONS
+
+host: 0.0.0.0
+port: 8880
+
+server: "cheroot"
+server_args: {}
+
+verbose: 3
+property_manager: true
+mutable_live_props:
+    - "{DAV:}getlastmodified"
+emulate_win32_lastmod: true
+lock_manager: true
+unquote_path_info: false #: See issue #8
+re_encode_path_info: null #: (See issue #73)
+
+dir_browser:
+    ignore:
+        - ".DS_Store"  # macOS folder meta data
+        - "Thumbs.db"  # Windows image previews
+        - "._*"  # macOS hidden data files
+    icon: true
+    show_user: true
+    davmount: false
+    ms_mount: false
+    ms_sharepoint_support: true
+    #response_trailer: true  # BUG, DOESN'T WORK
+
+http_authenticator:
+    domain_controller: null
+    accept_basic: false
+    accept_digest: true
+    default_to_digest: true
+    trusted_auth_header: null
+    preset_domain: null
+    preset_server: null
+
+# ==========================================================
+# SHARES
+
+#: Application root, applied before provider mapping shares,
+#: e.g. <mount_path>/<share_name>/<res_path>
+#: supports relative path
+mount_path: "~/webdav"  # root_path, NULL by default
+provider_mapping:
+    "/webdav": "~/webdav"
+    "/share": "~/share"
+
+
+# ===========================================================
+# AUTHENTICATION
+# These routes must match the provider mapping.
+# Fail on matching, will be open for anonymous access!
+user_mapping:
+    "/webdav":
+        "user1":
+            password: "123"
+            description: "Prime user for webdav"
+            roles: []
+        "user2":
+            password: "456"
+            description: "User 2 for webdav"
+            roles: []
+    "/share":
+        "user1":
+            password: "456"
+            description: "User 1 for Share 2"
+            roles: []
+        "user2":
+            password: "qwerty"
+            description: "User 2 for Share 2"
+            roles: []
+

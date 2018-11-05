@@ -1,2 +1,2 @@
-# cdn
-Store some often used scripts, config files.
+# dotfiles
+Store often used bash scripts, config files.

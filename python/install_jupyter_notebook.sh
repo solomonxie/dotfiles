@@ -7,23 +7,6 @@
 
 set -x
 
-REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-
-
-do_install_ML_packages(){
-    source ~/venv-ju/bin/activate
-
-    # Packages for ML
-    pip install scikit-learn
-    pip install numpy
-    pip install pandas
-    pip install matplotlib
-    pip install seaborn scipy
-    pip install xgboost
-
-    deactivate
-}
-
 do_install_jupyter_notebook(){
     virtualenv -p python3 ~/venv-ju
     source ~/venv-ju/bin/activate
@@ -59,6 +42,21 @@ do_install_jupyter_extensions(){
     deactivate
 }
 
+do_install_ML_packages(){
+    source ~/venv-ju/bin/activate
+
+    # Packages for ML
+    pip install scikit-learn
+    pip install numpy
+    pip install pandas
+    pip install matplotlib
+    pip install seaborn scipy
+    pip install xgboost
+
+    deactivate
+}
+
 do_install_ML_packages
 do_install_jupyter_notebook
 do_install_jupyter_extensions
+do_install_ML_packages

@@ -9,10 +9,9 @@ set -x
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
-
 do_install_apt_by_os(){
     # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT//utils.sh -o $HOME/.bash-utils.sh
+    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
     source $HOME/.bash-utils.sh
     
     # Get Distro

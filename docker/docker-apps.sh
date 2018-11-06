@@ -82,6 +82,8 @@ docker_wsgidav_rpi(){
         -v ~/.config/wsgidav:/var/wsgidav/config \
         -v ~/webdav:/var/wsgidav/webdav -v ~/share:/var/wsgidav/share \
         -p 8880:80 solomonxie/wsgidav-rpi:latest
+    #
+    # docker run -it --rm -p 8880:80 -v ~/.config/wsgidav:/var/wsgidav/configs -v ~/webdav:/var/wsgidav/webdav -v ~/share:/var/wsgidav/share solomonxie/wsgidav-rpi wsgidav -c /var/wsgidav/configs/wsgidav.yaml
 }
 
 

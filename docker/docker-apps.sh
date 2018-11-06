@@ -77,10 +77,6 @@ docker_wsgidav(){
 }
 
 docker_wsgidav_rpi(){
-    #docker run -dt \
-    #    --restart always -p 8880:8080 \
-    #    -v ~/webdav:/var/wsgidav-root mar10/wsgidav
-    #
     #Image: $ docker pull solomonxie/wsgidav-rpi:latest
     docker run -dt --name wsgidav --restart always \
         -v ~/.config/wsgidav:/var/wsgidav/config \

@@ -45,7 +45,7 @@ do_download_owncloud(){
 
 do_setup_owncloud_apache(){
     echo "===== (Downloading OwnCloud Configuration file to Apache2) ======="
-    sudo wget https://github.com/solomonxie/cdn/raw/master/ownCloud/owncloud-apache-ubuntu.conf -O /etc/apache2/sites-available/owncloud.conf
+    sudo wget https://github.com/solomonxie/dotfiles/raw/master/ownCloud/owncloud-apache-ubuntu.conf -O /etc/apache2/sites-available/owncloud.conf
     # Then create a symlink to /etc/apache2/sites-enabled:
     sudo ln -s /etc/apache2/sites-available/owncloud.conf /etc/apache2/sites-enabled/owncloud.conf
 

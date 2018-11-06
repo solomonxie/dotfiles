@@ -17,9 +17,9 @@ do_install_gitbook_manually(){
 }
 
 do_setup_gitbook(){
-    wget https://raw.githubusercontent.com/solomonxie/cdn/master/gitbook/book.json
-    wget https://raw.githubusercontent.com/solomonxie/cdn/master/gitbook/SUMMARY.json
-    wget https://raw.githubusercontent.com/solomonxie/cdn/master/gitbook/README.json
+    wget https://raw.githubusercontent.com/solomonxie/dotfiles/master/gitbook/book.json
+    wget https://raw.githubusercontent.com/solomonxie/dotfiles/master/gitbook/SUMMARY.json
+    wget https://raw.githubusercontent.com/solomonxie/dotfiles/master/gitbook/README.json
 
     gitbook init
     gitbook install

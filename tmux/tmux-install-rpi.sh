@@ -17,14 +17,14 @@ set -x
 yes | sudo apt-get install tmux
 
 echo "----------[  Overwrite .tmux.conf   ]--------------"
-sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/tmux-rpi.conf -O ~/.tmux.conf
+sudo wget https://github.com/solomonxie/dotfiles/raw/master/tmux/tmux-rpi.conf -O ~/.tmux.conf
 
 echo "----------[  Installing TPM for Tmux   ]--------------"
 sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "----------[  Recover preset Tmux session   ]--------------"
 sudo mkdir ~/.tmux/resurrect
-sudo wget https://github.com/solomonxie/cdn/raw/master/tmux/resurrect/last-rpi.txt -O ~/.tmux/resurrect/last.txt
+sudo wget https://github.com/solomonxie/dotfiles/raw/master/tmux/resurrect/last-rpi.txt -O ~/.tmux/resurrect/last.txt
 sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last
 
 

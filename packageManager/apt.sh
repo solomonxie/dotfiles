@@ -7,7 +7,15 @@
 
 set -x
 
-source ../utils.sh
+# Load uitility functions (check os)
+if [ -r $HOME/.bash-utils.sh ]; then
+    source $HOME/.bash-utils.sh
+elif [ -r ../utils.sh ]; then
+    source ../utils.sh
+else
+    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+    source $HOME/.bash-utils.sh
+fi
 
 do_install_apt_by_os(){
     # Get Distro
@@ -90,11 +98,11 @@ install_scanner_rpi(){
 
 apt_add_sources(){
     # Default sources
-    #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-default.list -O /etc/apt/sources.list
+    #sudo wget https://raw.githubusercontent.com/solomonxie/dotfiles/master/etc/ubuntu/sources-default.list -O /etc/apt/sources.list
     # China sources
-    sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-cn.list -O /etc/apt/sources.list
+    sudo wget https://raw.githubusercontent.com/solomonxie/dotfiles/master/etc/ubuntu/sources-cn.list -O /etc/apt/sources.list
     # US sources
-    #sudo wget https://raw.githubusercontent.com/solomonxie/cdn/master/etc/ubuntu/sources-us.list -O /etc/apt/sources.list
+    #sudo wget https://raw.githubusercontent.com/solomonxie/dotfiles/master/etc/ubuntu/sources-us.list -O /etc/apt/sources.list
 }
 
 

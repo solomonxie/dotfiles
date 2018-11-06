@@ -1,7 +1,6 @@
 #! /bin/bash 
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Ubuntu / Raspbian / MacOS Sierra
 # Commands:
 #   1. Get in VIM
@@ -12,10 +11,18 @@
 set -x
 
 # Load uitility functions (check os)
-source ../utils.sh
+if [ -r $HOME/.bash-utils.sh ]; then
+    source $HOME/.bash-utils.sh
+elif [ -r ../utils.sh ]; then
+    source ../utils.sh
+else
+    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+    source $HOME/.bash-utils.sh
+fi
+
 
 do_install_vim(){
-    case distro in
+    case $(get_distro) in
         "ubuntu")
             install_vim_ubuntu ;;
         "raspbian")

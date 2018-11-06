@@ -5,8 +5,8 @@
 #
 # How to set this service
 #   1. Move files to each place:
-#       `sudo ln -s $(whereis wsgidav) /usr/sbin/wsgidav`
-#       `sudo ln mywsgidav.yaml /etc/mywsgidav.yaml`
+#       `sudo ln -s /usr/local/bin/wsgidav /usr/sbin/wsgidav`
+#       `sudo ln mywsgidav.yaml /etc/wsgidav.yaml`
 #   2. Save this file as:
 #       `/etc/systemd/system/wsgidav.service`
 #   3. Enable start on login:
@@ -23,7 +23,7 @@ Description=Wsgidav Webdav Server Daemon
 
 [Service]
 Type=simple
-ExecStart=/usr/sbin/wsgidav --config=/etc/mywsgidav.yaml
+ExecStart=/usr/sbin/wsgidav -c /etc/wsgidav.yaml
 Restart= always
 RestartSec=20s
 ExecStop=/usr/bin/killall wsgidav.service

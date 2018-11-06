@@ -14,7 +14,7 @@ export VIM="~/.vim"
 
 # ---SETING UP VIM ---
 echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-wget https://github.com/solomonxie/cdn/raw/master/vim/vimrc-ubuntu -O ~/.vimrc
+wget https://github.com/solomonxie/dotfiles/raw/master/vim/vimrc-ubuntu -O ~/.vimrc
 
 
 echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
@@ -27,7 +27,7 @@ sudo chown -R ubuntu:ubuntu ~/.vim
 
 echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
 mkdir ~/.vim/colors
-curl https://raw.githubusercontent.com/solomonxie/cdn/master/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim 
+curl https://raw.githubusercontent.com/solomonxie/dotfiles/master/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim 
 
 # buggy one
 #echo "-----[  UPGRADING VIM   ]-----"

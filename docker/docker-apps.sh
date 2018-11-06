@@ -6,6 +6,38 @@
 
 set -x
 
+# Load uitility functions (check os)
+if [ -r $HOME/.bash-utils.sh ]; then
+    source $HOME/.bash-utils.sh
+elif [ -r ../utils.sh ]; then
+    source ../utils.sh
+else
+    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+    source $HOME/.bash-utils.sh
+fi
+
+do_install_docker_apps(){
+    case distro in
+        "ubuntu")
+            docker_webav
+            docker_wsgidav
+            docker_shadowsocks
+            docker_shadowsocks_old
+            docker_v2ray
+            docker_vpn_ipsec
+            docker_frp
+            docker_frp
+            ;;
+        "raspbian")
+            docker_webdav_rpi
+            docker_vpn_ipsec_rpi
+            ;;
+        "mac")
+            echo "" ;;
+    esac
+}
+
+
 docker_webav(){
     # The folder on host MUST have the same permission
     # otherwise it'll cause permission error
@@ -31,16 +63,21 @@ docker_webdav_rpi(){
 }
 
 docker_wsgidav(){
-    docker run -dt \
-        --restart always -p 8880:8080 \
-        -v ~/webdav:/var/wsgidav-root mar10/wsgidav
+    #docker run -dt \
+    #    --restart always -p 8880:8080 \
+    #    -v ~/webdav:/var/wsgidav-root mar10/wsgidav
+    docker run -dt --name wsgidav \
+        -v ~/docker/wsgidav/configs:/var/wsgidav/configs \
+        -v ~/webdav:/var/wsgidav/webdav -v ~/share:/var/wsgidav/share \
+        -p 8880:80 solomonxie/wsgidav 
+        wsgidav -c /var/wsgidav/configs/wsgidav.yaml
 }
 
 
 docker_shadowsocks(){
     # mritd/shadowsocks
     PORT=6000
-    PORT_UPD=6001
+    PORT_UPD=6050
     METHOD=aes-256-gcm
     #METHOD=chacha20
     PASSWORD=shadow123

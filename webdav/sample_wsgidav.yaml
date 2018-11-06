@@ -47,6 +47,7 @@ re_encode_path_info: null
 # ----------------------------------------------------------------------------
 
 #: Modify to customize the WSGI application stack:
+#: Bug, doesn't work!
 middleware_stack:
     - wsgidav.debug_filter.WsgiDavDebugFilter
     - wsgidav.error_printer.ErrorPrinter
@@ -65,7 +66,7 @@ provider_mapping:
     "/share1": "/path/to/share1"
     "/share2":
         - "/path/to/share2"
-        - true  # read-only
+        #- true  # read-only # Bug, doesn't work
 
 
 # ==============================================================================

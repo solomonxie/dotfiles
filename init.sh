@@ -48,9 +48,9 @@ do_init_ubuntu(){
     # echo "[   UPDATE APT REPOSITORIES   ]"
     echo "[   UPDATE APT REPOSITORIES   ]"
     # sudo cp ./etc/ubuntu/sources-cn.list /etc/apt/
-    yes | sudo apt-get update
+    sudo apt-get update
     # Get essential tools before any installation
-    yes |sudo apt-get install curl wget git
+    sudo apt-get install curl wget git -y
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
     sh ./python/install_python3.sh --distro ubuntu
@@ -65,7 +65,7 @@ do_init_ubuntu(){
     sh ./tmux/install_tmux.sh --distro ubuntu
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+    sh ./docker/install-docker-ubuntu.sh
     # sh ./docker/install-docker-ubuntu.sh
     # Install common used apt packages & clean up
     sh ./packageManager/apt.sh --distro ubuntu
@@ -82,7 +82,7 @@ do_init_rpi(){
     # Update server & install essentials
     echo "[   UPDATE APT REPOSITORIES   ]"
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
-    yes | sudo apt-get update
+    sudo apt-get update
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
     sh ./python/install_python3.sh --distro ubuntu

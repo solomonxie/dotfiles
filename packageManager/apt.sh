@@ -36,33 +36,33 @@ do_install_apt_by_os(){
 
 
 install_utils_ubuntu(){
-    yes | sudo apt-get install mosh
-    yes | sudo apt-get install unzip
-    yes | sudo apt-get install ntfs-3g
-    yes | sudo apt-get install htop
-    yes | sudo apt-get install glances
-    yes | sudo apt-get install speedtest-cli
-    yes | sudo apt-get install ifstat
-    yes | sudo apt-get install fortune cowsay cmatrix
-    yes | pip install -U youtube-dl tldr ffmpeg
+    sudo apt-get install mosh -y
+    sudo apt-get install unzip -y
+    sudo apt-get install ntfs-3g -y
+    sudo apt-get install htop -y
+    sudo apt-get install glances -y
+    sudo apt-get install speedtest-cli -y
+    sudo apt-get install ifstat -y
+    sudo apt-get install fortune cowsay cmatrix -y
+    sudo pip install youtube-dl tldr ffmpeg
 
-    sudo add-apt-repository ppa:dawidd0811/neofetch
-    yes | sudo apt update && sudo apt install neofetch
+    yes | sudo add-apt-repository ppa:dawidd0811/neofetch
+    sudo apt update && sudo apt install neofetch -y
 }
 
 install_utils_rpi(){
-    yes | sudo apt-get install mosh
-    yes | sudo apt-get install ntfs-3g
-    yes | sudo apt-get install tightvncserver
-    yes | sudo apt-get install htop
-    yes | sudo apt-get install glances
-    yes | sudo apt-get install speedtest-cli
-    yes | sudo apt-get install ifstat
-    yes | sudo apt-get install fortune cowsay cmatrix
-    yes | pip install -U youtube-dl tldr ffmpeg
+    sudo apt-get install mosh -y
+    sudo apt-get install ntfs-3g -y
+    sudo apt-get install tightvncserver -y
+    sudo apt-get install htop -y
+    sudo apt-get install glances -y
+    sudo apt-get install speedtest-cli -y
+    sudo apt-get install ifstat -y
+    sudo apt-get install fortune cowsay cmatrix -y
+    sudo pip install youtube-dl tldr ffmpeg
 
     sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list
-    yes | sudo apt update && sudo apt install neofetch 
+    sudo apt update && sudo apt install neofetch -y
 }
 
 install_printer_ubuntu(){

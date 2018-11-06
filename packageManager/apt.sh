@@ -7,17 +7,11 @@
 
 set -x
 
-# Load uitility functions (check os)
-if [ -r $HOME/.bash-utils.sh ]; then
-    source $HOME/.bash-utils.sh
-elif [ -r ../utils.sh ]; then
-    source ../utils.sh
-else
+do_install_apt_by_os(){
+    # Load uitility functions (check os)
     curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
     source $HOME/.bash-utils.sh
-fi
-
-do_install_apt_by_os(){
+    
     # Get Distro
     case $(get_distro) in
         "ubuntu")

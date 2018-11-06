@@ -68,7 +68,7 @@ do_init_ubuntu(){
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
     # sh ./docker/install-docker-ubuntu.sh
     # Install common used apt packages & clean up
-    sh ./package-manager/apt.sh --distro ubuntu
+    sh ./packageManager/apt.sh --distro ubuntu
 }
 
 do_init_rpi(){
@@ -100,7 +100,7 @@ do_init_rpi(){
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
     # sh ./docker/install-docker-rpi.sh
     # Install common used apt packages & clean up
-    sh ./package-manager/apt.sh 
+    sh ./packageManager/apt.sh 
 }
 
 do_init_mac(){

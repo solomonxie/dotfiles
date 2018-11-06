@@ -6,17 +6,13 @@
 
 set -x
 
-# Load uitility functions (check os)
-if [ -r $HOME/.bash-utils.sh ]; then
-    source $HOME/.bash-utils.sh
-elif [ -r ../utils.sh ]; then
-    source ../utils.sh
-else
-    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
-fi
 
 do_install_docker_apps(){
+    # Load uitility functions (check os)
+    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+    source $HOME/.bash-utils.sh
+
+    # Get Distro
     case distro in
         "ubuntu")
             docker_webav
@@ -84,7 +80,8 @@ docker_shadowsocks(){
     docker run -dt --name ssserver --restart always \
         -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \
         -s "-s 0.0.0.0 -p $PORT -m $METHOD -k $PASSWORD --fast-open" \
-        -x -e "kcpserver" -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
+        -x -e "kcpserver" \
+        -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
 }
 
 docker_shadowsocks_old(){

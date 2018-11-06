@@ -10,18 +10,13 @@
 
 set -x
 
-# Load uitility functions (check os)
-if [ -r $HOME/.bash-utils.sh ]; then
-    source $HOME/.bash-utils.sh
-elif [ -r ../utils.sh ]; then
-    source ../utils.sh
-else
-    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
-fi
-
 
 do_install_vim(){
+    # Load uitility functions (check os)
+    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+    source $HOME/.bash-utils.sh
+    
+    # Get distro
     case $(get_distro) in
         "ubuntu")
             install_vim_ubuntu ;;

@@ -11,17 +11,14 @@
 
 set -x
 
-# Load uitility functions (check os)
-if [ -r $HOME/.bash-utils.sh ]; then
-    source $HOME/.bash-utils.sh
-elif [ -r ../utils.sh ]; then
-    source ../utils.sh
-else
-    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
-fi
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
 
 do_install_tmux(){
+    # Load uitility functions (check os)
+    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
+    source $HOME/.bash-utils.sh
+
     # Get Distro
     distro=$(get_distro)
     case distro in
@@ -36,17 +33,18 @@ do_install_tmux(){
 
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
+    $TMUX="$HOME/.tmux"
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp ./tmux-ubuntu.conf ~/.tmux.conf
+    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/tmux/tmux-ubuntu -o $HOME/.tmux.conf
 
     echo "----------[  Installing TPM for Tmux   ]--------------"
     sudo git clone --no-checkout https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     echo "----------[  Recover preset Tmux session   ]--------------"
-    sudo mkdir ~/.tmux/resurrect
-    cp ./resurrect/last-ubuntu.txt ~/.tmux/resurrect/last.txt
-    sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last
+    sudo mkdir -p $TMUX/resurrect
+    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/tmux/resurrect/last-ubuntu.txt -o $TMUX/resurrect/last-ubuntu.txt
+    sudo ln -sf $TMUX/resurrect/last.txt $TMUX/resurrect/last
 
     echo "----------[   Change permission   ]--------------"
     sudo chown -R ubuntu:ubuntu ~/.tmux

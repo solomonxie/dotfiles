@@ -2,11 +2,14 @@
 # Email: solomonxiewise@gmail.com
 # Enviroment: Ubuntu
 # How to run this script:
-#    $ curl -L https://raw.githubusercontent.com/solomonxie/dotfiles/master/shadowsocks/ssserver-setup-ubuntu.sh | sudo sh
+#    $ curl -L $REPO_ROOT//shadowsocks/ssserver-setup-ubuntu.sh | sudo sh
 #
 #
 # ---SETING UP SHADOWSOCKS SERVER ---
 
+set -x
+
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_ssserver_manually(){
@@ -16,7 +19,7 @@ do_install_ssserver_manually(){
 
     # Create config file
     echo "-----[  CREAT SHADOWSOCK'S CONFIG   ]-----"
-    sudo wget https://raw.githubusercontent.com/solomonxie/dotfiles/master/shadowsocks/ssserver.json -O /etc/ssserver.json
+    sudo wget $REPO_ROOT/shadowsocks/ssserver.json -O /etc/ssserver.json
 
     echo "-----[  STARTING SHADOWSOCKS SERVER   ]-----"
     sudo ssserver -c /etc/ssserver.json -d start

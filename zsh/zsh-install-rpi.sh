@@ -7,6 +7,9 @@
 
 set -x
 
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
+
 # ---SETING UP ZSH ---
 echo "-----[  START SETTING UP ZSH   ]-----"
 yes | sudo apt-get install zsh

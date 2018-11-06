@@ -13,6 +13,9 @@
 
 set -x
 
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
+
 #--------------SETING UP TMUX--------------
 yes | sudo apt-get install tmux
 

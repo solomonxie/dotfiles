@@ -6,10 +6,12 @@
 
 set -x
 
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
 
 do_install_docker_apps(){
     # Load uitility functions (check os)
-    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+    curl -fsSL $REPO_ROOT//utils.sh -o $HOME/.bash-utils.sh
     source $HOME/.bash-utils.sh
 
     # Get Distro

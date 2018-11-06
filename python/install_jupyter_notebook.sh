@@ -7,6 +7,9 @@
 
 set -x
 
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
+
 do_install_ML_packages(){
     source ~/venv-ju/bin/activate
 

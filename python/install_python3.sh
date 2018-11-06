@@ -11,11 +11,11 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_python3_ubuntu(){
-    yes | sudo apt-get install python3
+    sudo apt-get install python3 -y
 }
 
 do_install_python3_rpi(){
-    yes | sudo apt-get install python3
+    sudo apt-get install python3 -y
 }
 
 do_install_python3_mac(){

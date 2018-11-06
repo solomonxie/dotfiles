@@ -12,7 +12,14 @@
 set -x
 
 # Load uitility functions (check os)
-source ../utils.sh
+if [ -r $HOME/.bash-utils.sh ]; then
+    source $HOME/.bash-utils.sh
+elif [ -r ../utils.sh ]; then
+    source ../utils.sh
+else
+    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+    source $HOME/.bash-utils.sh
+fi
 
 do_install_tmux(){
     # Get Distro

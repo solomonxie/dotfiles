@@ -6,11 +6,11 @@ Linux/Mac initiate bash scripts, dotfiles.
 Fetch and run `init.sh` to initialize a local linux/mac machine:
 ```sh
 $ git clone https://github.com/solomonxie/dotfiles.git
-$ cd ./cdn
+$ cd ./dotfiles
 $ sudo ./init.sh >> /var/log/sys_init.log
 ```
 
 or fetch individual script to install/setup programs:
 ```sh
-$ curl -L https://raw.githubusercontent.com/solomonxie/cdn/master/vim/install_vim.sh | sudo sh
+$ curl -L https://raw.githubusercontent.com/solomonxie/dotfiles/master/vim/install_vim.sh | sudo sh
 ```

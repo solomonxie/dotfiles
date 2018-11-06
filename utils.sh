@@ -1,12 +1,13 @@
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com
 # Enviroment: Ubuntu / Raspbian / MacOS
+#
 # How to use: 
 #   source this script in ~/.bashrc
-#   $ curl -sSL https://raw.githubusercontent.com/solomonxie/cdn/master/utils.sh -o $HOME/.bashrc.utils
-#   $ cat $HOME/.bashrc.utils >> $HOME/.bash_profile
+#   $ curl -sSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+#   $ echo "source $HOME/.bash-utils.sh" >> $HOME/.bash_profile
 #   $ source $HOME/.bash_profile
-# 
+#
 
 get_distro(){
     local distro=""

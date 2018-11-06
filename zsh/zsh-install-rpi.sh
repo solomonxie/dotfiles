@@ -16,8 +16,8 @@ echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 echo "-----[  OVERWRITE ZSHRC   ]-----"
-wget https://github.com/solomonxie/cdn/raw/master/zsh/zshrc-rpi -O ~/.zshrc
-wget https://github.com/solomonxie/cdn/raw/master/zsh/zshrc.extension-rpi -O ~/.zshrc.extension
+wget https://github.com/solomonxie/dotfiles/raw/master/zsh/zshrc-rpi -O ~/.zshrc
+wget https://github.com/solomonxie/dotfiles/raw/master/zsh/zshrc.extension-rpi -O ~/.zshrc.extension
 
 echo "---[  Installing Themes for ZSH   ]----"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k

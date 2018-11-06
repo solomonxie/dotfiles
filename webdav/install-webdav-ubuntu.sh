@@ -29,7 +29,7 @@ sudo chown root:www-data /etc/apache2/webdav.password
 sudo chmod 640 /etc/apache2/webdav.password
 
 echo "===== (Downloading Webdav Configuration file to Apache2) ======="
-sudo wget https://github.com/solomonxie/cdn/raw/master/webdav/webdav-apache-ubuntu.conf -O /etc/apache2/sites-available/webdav-apache.conf
+sudo wget https://github.com/solomonxie/dotfiles/raw/master/webdav/webdav-apache-ubuntu.conf -O /etc/apache2/sites-available/webdav-apache.conf
 sudo ln -sf /etc/apache2/sites-available/webdav-apache.conf /etc/apache2/sites-enabled/webdav-apache.conf
 
 # 重启Apache2服务器

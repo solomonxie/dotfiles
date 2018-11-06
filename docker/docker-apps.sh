@@ -42,18 +42,22 @@ docker_webav(){
     # Permission problem: 
     # has to get inside container by `docker exec -it webdav sh`
     # and do `chown -R www-data:www-data /var/www/webdav`
+    #
+    # Image: $ docker pull solomonxie/webdav:latest
     mkdir ~/webdav
     sudo chown -R www-data:www-data ~/webdav
     docker run -d --name webdav --restart=always \
         -v ~/webdav:/var/www/webdav \
         -e USERNAME=ubuntu -e PASSWORD=123 \
-        -p 8888:80 solomonxie/webdav:ubuntu
+        -p 8888:80 solomonxie/webdav:latest
 }
 
 docker_webdav_rpi(){
     # Permission problem: 
     # has to get inside container by `docker exec -it webdav sh`
     # and do `chown -R www-data:www-data /var/www/webdav`
+    #
+    # Image: $ docker pull solomonxie/webdav-rpi:latest
     docker run -d --name webdav --restart always \
         -v ~/webdav:/var/www/webdav \
         -e USERNAME=pi -e PASSWORD=123 \
@@ -64,16 +68,29 @@ docker_wsgidav(){
     #docker run -dt \
     #    --restart always -p 8880:8080 \
     #    -v ~/webdav:/var/wsgidav-root mar10/wsgidav
-    docker run -dt --name wsgidav \
-        -v ~/docker/wsgidav/configs:/var/wsgidav/configs \
+    #
+    #Image: $ docker pull solomonxie/wsgidav:latest
+    docker run -dt --name wsgidav --restart always \
+        -v ~/.config/wsgidav:/var/wsgidav/configs \
         -v ~/webdav:/var/wsgidav/webdav -v ~/share:/var/wsgidav/share \
-        -p 8880:80 solomonxie/wsgidav 
-        wsgidav -c /var/wsgidav/configs/wsgidav.yaml
+        -p 8880:80 solomonxie/wsgidav:latest
+}
+
+docker_wsgidav_rpi(){
+    #docker run -dt \
+    #    --restart always -p 8880:8080 \
+    #    -v ~/webdav:/var/wsgidav-root mar10/wsgidav
+    #
+    #Image: $ docker pull solomonxie/wsgidav-rpi:latest
+    docker run -dt --name wsgidav --restart always \
+        -v ~/.config/wsgidav:/var/wsgidav/config \
+        -v ~/webdav:/var/wsgidav/webdav -v ~/share:/var/wsgidav/share \
+        -p 8880:80 solomonxie/wsgidav-rpi:latest
 }
 
 
 docker_shadowsocks(){
-    # mritd/shadowsocks
+    # Image: $ docker pull mritd/shadowsocks
     PORT=6000
     PORT_UPD=6050
     METHOD=aes-256-gcm
@@ -87,7 +104,7 @@ docker_shadowsocks(){
 }
 
 docker_shadowsocks_old(){
-    # mritd/shadowsocks
+    # Image: $ docker pull mritd/shadowsocks
     PORT=1988
     PORT_UPD=1989
     METHOD=aes-256-cfb
@@ -102,12 +119,14 @@ docker_shadowsocks_old(){
 
 
 docker_v2ray(){
+    # Image: $ docker pull solomonxie/v2ray:latest
     docker run -dt --restart always \
         --name v2ray -p 12345:23456 solomonxie/v2ray:latest \
         /usr/bin/v2ray/v2ray -config=/etc/v2ray/config.json
 }
 
 docker_vpn_ipsec(){
+    # Image: $ docker pull hwdsl2/ipsec-vpn-server:latest
     touch ~/.vpn.env
     echo "VPN_USER=ubuntu" >> ~/.vpn.env
     echo "VPN_PASSWORD=ipsec123" >> ~/.vpn.env
@@ -121,6 +140,7 @@ docker_vpn_ipsec(){
 }
 
 docker_vpn_ipsec_rpi(){
+    # Image: $ docker pull solomonxie/vpn-ipsec-rpi:latest
     touch ~/.vpn.env
     echo "VPN_USER=pi" >> ~/.vpn.env
     echo "VPN_PASSWORD=ipsec123" >> ~/.vpn.env
@@ -133,17 +153,22 @@ docker_vpn_ipsec_rpi(){
         solomonxie/vpn-ipsec-rpi
 }
 
-docker_smb(){}
+docker_smb(){
+    echo ""
+}
 
 
-docker_jekyll(){}
+docker_jekyll(){
+    echo ""
+}
 
 
 docker_frp(){
-    # frp-server
+    #frp-server
+    #Image: $ docker pull solomonxie/frp:latest
     docker run -dt --name frps \
         -p 7000:7000 -p 8000:7800 \
-        -v ~/frp:/conf solomonxie/frp:0.20.0 \
+        -v ~/frp:/conf solomonxie/frp:latest \
         /frp/frps -c /conf/frps.ini
 
     # Can't run a frp-client in docker ALONE
@@ -153,15 +178,21 @@ docker_frp(){
 }
 
 
-docker_gitbook(){}
+docker_gitbook(){
+    echo ""
+}
 
 
-docker_owncloud(){}
+docker_owncloud(){
+    echo ""
+}
 
 
 docker_nextcloud_sqlite(){
     # Get current UID by `$ id -u $USER`
     # Get current GID by `$ id -g $USER`
+    #
+    # IMAGE: $ docker pull linuxserver/nextcloud:latest
     docker run -dt \
         --name nextcloud --restart always \
         -p 8080:80 -p 8443:443\
@@ -177,6 +208,7 @@ docker_nextcloud_rpi(){
 
 
 docker_emby_ubuntu(){
+    # IMAGE: $ docker pull emby/embyserver:latest
     docker run -d --restart=always \
         -v ~/emby/config:/config \
         -v ~/emby/share1:/mnt/share1 \
@@ -195,6 +227,8 @@ docker_ftp(){
     # and do `chown -R /var/webdav`
     #
     # Remember to connect with port 21
+    #
+    # IMAGE: $ docker pull fauria/vsftpd:latest
     docker run -d -v ~/ftpshare:/home/vsftpd \
         -p 20:20 -p 21:21 -p 21100-21110:21100-21110 \
         -e FTP_USER=ubuntu -e FTP_PASS=123 \

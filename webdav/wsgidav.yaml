@@ -11,7 +11,7 @@
 # SERVER OPTIONS
 
 host: 0.0.0.0
-port: 8880
+port: 80
 
 # ==========================================================
 # SHARES
@@ -19,10 +19,11 @@ port: 8880
 #: Application root, applied before provider mapping shares,
 #: e.g. <mount_path>/<share_name>/<res_path>
 #: supports relative path
-mount_path: "~/webdav"  # root_path, NULL by default
+#mount_path: "/var/wsgidav/webdav"  # root_path, NULL by default
+mount_path: null
 provider_mapping:
-    "/webdav": "~/webdav"
-    "/share": "~/share"
+    "/webdav": "/var/wsgidav/webdav"
+    "/share": "/var/wsgidav/share"
 
 
 # ===========================================================

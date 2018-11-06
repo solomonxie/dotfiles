@@ -24,6 +24,7 @@ do_install_apt_by_os(){
             install_utils_ubuntu
             install_printer_ubuntu
             install_scanner_ubuntu
+            apt_clear_cache
             ;;
         "raspbian")
             install_utils_rpi
@@ -116,4 +117,3 @@ apt_remove_lock(){
 }
 
 do_install_apt_by_os
-apt_clear_cache

@@ -7,6 +7,9 @@
 
 set -x
 
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
+
 yes | sudo apt-get install vim
 
 mkdir ~/.vim
@@ -27,7 +30,7 @@ sudo chown -R ubuntu:ubuntu ~/.vim
 
 echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
 mkdir ~/.vim/colors
-curl https://raw.githubusercontent.com/solomonxie/dotfiles/master/vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim 
+curl $REPO_ROOT//vim/colors/gruvbox.vim --create-dirs -o ~/.vim/colors/gruvbox.vim 
 
 # buggy one
 #echo "-----[  UPGRADING VIM   ]-----"

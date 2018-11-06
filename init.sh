@@ -10,10 +10,13 @@
 
 set -x
 
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
+
 
 do_init_by_os(){
     # Load uitility functions (check os)
-    curl -fsSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+    curl -fsSL $REPO_ROOT//utils.sh -o $HOME/.bash-utils.sh
     source $HOME/.bash-utils.sh
 
     # Get Distro
@@ -32,7 +35,7 @@ do_init_ubuntu(){
     echo "CURRENT Linux Distribution: [  Ubuntu  ]. Start initializing system funtionalities..."
     # Add uitility funcitons to bashrc
     #echo "[   ADDING UTILITY FUNCTIONS TO BASHRC   ]"
-    #curl -sSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bashrc.utils
+    #curl -sSL $REPO_ROOT//utils.sh -o $HOME/.bashrc.utils
     #cat $HOME/.bashrc.utils >> $HOME/.bash_profile
     #source $HOME/.bash_profile
     # Change server timezone
@@ -72,7 +75,7 @@ do_init_rpi(){
     # Enable ssh
     sudo touch /boot/ssh
     # Setup WIFI (need you to rewrite wifi password in the file)
-    #sudo wget https://raw.githubusercontent.com/solomonxie/dotfiles/master/Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
+    #sudo wget $REPO_ROOT//Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
     # Update server & install essentials
     echo "[   UPDATE APT REPOSITORIES   ]"
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/

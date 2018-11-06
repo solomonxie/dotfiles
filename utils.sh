@@ -4,7 +4,7 @@
 #
 # How to use: 
 #   source this script in ~/.bashrc
-#   $ curl -sSL https://raw.githubusercontent.com/solomonxie/dotfiles/master/utils.sh -o $HOME/.bash-utils.sh
+#   $ curl -sSL $REPO_ROOT//utils.sh -o $HOME/.bash-utils.sh
 #   $ echo "source $HOME/.bash-utils.sh" >> $HOME/.bash_profile
 #   $ source $HOME/.bash_profile
 #

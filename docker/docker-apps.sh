@@ -53,11 +53,14 @@ docker_webav(){
 }
 
 docker_webdav_rpi(){
-    # Permission problem: 
+    #: <Permission problem>
     # has to get inside container by `docker exec -it webdav sh`
     # and do `chown -R www-data:www-data /var/www/webdav`
+    # then edit /etc/fstab to mount drive with uid=www-data,gid=www-data
+    mkdir ~/webdav
+    sudo chown -R www-data:www-data ~/webdav
     #
-    # Image: $ docker pull solomonxie/webdav-rpi:latest
+    # <Image>: $ docker pull solomonxie/webdav-rpi:latest
     docker run -d --name webdav --restart always \
         -v ~/webdav:/var/www/webdav \
         -e USERNAME=pi -e PASSWORD=123 \

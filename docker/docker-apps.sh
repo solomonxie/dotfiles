@@ -11,7 +11,7 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_docker_apps(){
     # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT//utils.sh -o $HOME/.bash-utils.sh
+    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
     source $HOME/.bash-utils.sh
 
     # Get Distro
@@ -82,8 +82,8 @@ docker_wsgidav_rpi(){
         -v ~/.config/wsgidav:/var/wsgidav/config \
         -v ~/webdav:/var/wsgidav/webdav -v ~/share:/var/wsgidav/share \
         -p 8880:80 solomonxie/wsgidav-rpi:latest
-    #
-    # docker run -it --rm -p 8880:80 -v ~/.config/wsgidav:/var/wsgidav/configs -v ~/webdav:/var/wsgidav/webdav -v ~/share:/var/wsgidav/share solomonxie/wsgidav-rpi wsgidav -c /var/wsgidav/configs/wsgidav.yaml
+    # Debugging:
+    # docker run -it --rm -p 8880:80 -v ~/.config/wsgidav:/var/wsgidav/configs -v ~/webdav:/var/wsgidav/webdav -v ~/share:/var/wsgidav/share solomonxie/wsgidav-rpi
 }
 
 

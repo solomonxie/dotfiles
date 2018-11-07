@@ -69,4 +69,12 @@ install_seafile_mysql_ubuntu(){
     sudo curl -fsSL $REPO_ROOT/fileSharing/seafile_nginx.conf -o /etc/nginx/site-available/seafile.conf
     sudo ln -sf /etc/nginx/sites-available/seafile.conf /etc/nginx/sites-enabled/seafile.conf
 
+    # Restart services
+    sudo nginx -t
+    sudo systemctl restart nginx
+    ./seafile.sh stop
+    ./seahub.sh stop
+    ./seafile.sh start
+    ./seahub.sh start 8000
+
 }

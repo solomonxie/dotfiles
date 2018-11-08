@@ -24,6 +24,24 @@ do_install_jupyter_notebook(){
     deactivate
 }
 
+install_kernel_cpp(){
+    # Download package for Mac 10.12 (~300MB)
+    # Archive page: https://root.cern.ch/download/cling/
+    wget https://root.cern.ch/download/cling/cling_2018-11-05_mac1012.tar.bz2
+    tar -xvf cling_*.tar.bz2
+    mv cling_*.tar.bz2 ~/local/cling
+    ln -s ~/local/cling/bin/cling ~/bin/cling
+    # Test
+    cling --version
+    # Install kernel to Jupyter
+    source ~/venv-ju/bin/activate
+    cd ~/local/cling/share/cling/Jupyter/kernel
+    pip install .
+    jupyter kernelspec install cling-cpp14
+
+    deactivate
+}
+
 do_install_jupyter_extensions(){
     source ~/venv-ju/bin/activate
 

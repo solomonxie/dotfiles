@@ -16,8 +16,10 @@
 
 #  Theme settings {
     source $HOME/.zshrc.themes
-    set_theme_agnoster
     #set_theme_powerlevel9k
+    #set_theme_agnoster
+    #set_theme_junkfood
+    set_theme_avit
 # }
 
 # Setting up Oh-my-zsh {
@@ -28,6 +30,10 @@
       colored-man-pages 
     ) 
     source $ZSH/oh-my-zsh.sh 
+    # updates
+    DISABLE_UPDATE_PROMPT=true
+    DISABLE_AUTO_UPDATE=true
+
 # }
 
 # Common settings {

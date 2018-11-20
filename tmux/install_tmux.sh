@@ -15,15 +15,10 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_tmux(){
-    # Load uitility functions (check os)
-    if [ ! -r /tmp/bash-utils.sh ]; then
-        curl -fsSL $REPO_ROOT/utils.sh -o /tmp/bash-utils.sh
+    if [ "$1" == "--distro" ];then
+        distro="$2"
     fi
-    source /tmp/bash-utils.sh
-
-    # Get Distro
-    distro=$(get_distro)
-    case distro in
+    case $distro in
         "ubuntu")
             install_tmux_ubuntu ;;
         "raspbian")
@@ -76,4 +71,4 @@ install_tmux_mac(){
 
 
 # Entry point
-do_install_tmux
+do_install_tmux $1 $2

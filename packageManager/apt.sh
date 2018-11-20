@@ -9,12 +9,10 @@ set -x
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_apt_by_os(){
-    # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
-    
-    # Get Distro
-    case $(get_distro) in
+    if [ "$1" == "--distro" ];then
+        distro="$2"
+    fi
+    case $distro in
         "ubuntu")
             install_utils_ubuntu
             install_printer_ubuntu
@@ -112,4 +110,4 @@ apt_remove_lock(){
     echo ""
 }
 
-do_install_apt_by_os
+do_install_apt_by_os $1 $2

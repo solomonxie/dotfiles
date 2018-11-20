@@ -4,27 +4,24 @@
 # Enviroment: Ubuntu
 # Notice: 
 
-set -x
+set -xe
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_docker_apps(){
-    # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
-
-    # Get Distro
-    case distro in
+    if [ "$1" = "--distro" ];then
+        distro="$2"
+    fi
+    case $distro in
         "ubuntu")
             docker_webav
-            docker_wsgidav
+            # docker_wsgidav
             docker_shadowsocks
             docker_shadowsocks_old
             docker_v2ray
-            docker_vpn_ipsec
-            docker_frp
-            docker_frp
+            # docker_vpn_ipsec
+            # docker_frp
             ;;
         "raspbian")
             docker_webdav_rpi
@@ -236,3 +233,7 @@ docker_ftp(){
         --name vsftpd --restart=always fauria/vsftpd
 
 }
+
+
+# Entry point
+do_install_docker_apps $1 $2

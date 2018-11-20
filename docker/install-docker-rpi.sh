@@ -5,6 +5,8 @@
 # Enviroment: Raspberry Pi (Raspbian)
 # Notice: 
 
+set -x
+
 do_docker_quick_install(){
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 }

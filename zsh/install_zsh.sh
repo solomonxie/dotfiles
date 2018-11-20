@@ -48,7 +48,8 @@ install_zsh_rpi(){
     echo "-----[  Installing Themes for ZSH   ]-----"
     sudo chown -R pi:pi $ZSH_CUSTOM
 
-    # Enter Z-Shell
+    # Change default shell as Z-Shell
+    sudo chsh -s /bin/zsh
     /bin/zsh
 
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"

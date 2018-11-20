@@ -5,7 +5,7 @@
 # Run:
 #   $ install_zsh.sh "Mac OS X"
 
-set -ex
+set -x
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 

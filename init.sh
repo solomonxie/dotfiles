@@ -6,7 +6,7 @@
 # How to run this script:
 #   git clone https://github.com/solomonxie/dotfiles.git && cd ./dotfiles && sudo ./init.sh >> /tmp/sys_init.log
 
-set -ex
+set -x
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 SRC=$PWD

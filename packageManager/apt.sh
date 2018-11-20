@@ -4,7 +4,7 @@
 # Enviroment: Debian based distro
 # How to run:
 
-set -xe
+set -x
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 

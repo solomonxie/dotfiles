@@ -5,7 +5,7 @@
 # Enviroment: Ubuntu
 # Notice: 
 
-set -xe
+set -x
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
@@ -96,4 +96,4 @@ install_docker_rpi(){
 }
 
 # [ Entry point ]
-do_install_docker_by_os
+do_install_docker_by_os $1 $2

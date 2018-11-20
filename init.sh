@@ -9,7 +9,7 @@
 set -x
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-SRC=$(PWD)
+SRC=$PWD
 
 
 do_init_by_os(){

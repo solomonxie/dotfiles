@@ -85,5 +85,5 @@ install_zsh_ubuntu(){
     sudo git clone --no-checkout https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 }
 
-# Start this script
+# Entry point
 do_init_zsh

@@ -71,3 +71,7 @@ install_tmux_rpi(){
 install_tmux_mac(){
     echo "tmux on mac"
 }
+
+
+# Entry point
+do_install_tmux

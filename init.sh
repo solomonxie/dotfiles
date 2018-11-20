@@ -9,12 +9,12 @@
 set -x
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-
+SRC=$(PWD)
 
 
 do_init_by_os(){
     # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT//utils.sh -o $HOME/.bash-utils.sh
+    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
     source $HOME/.bash-utils.sh
 
     # Get Distro
@@ -48,22 +48,22 @@ do_init_ubuntu(){
     sudo apt-get install curl wget git -y
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
-    sh ./python/install_python3.sh
+    sh $SRC/python/install_python3.sh
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh ./zsh/install_zsh.sh
+    sh $SRC/zsh/install_zsh.sh
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh ./vim/install_vim.sh
+    sh $SRC/vim/install_vim.sh
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh ./tmux/install_tmux.sh
+    sh $SRC/tmux/install_tmux.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
     #sh ./docker/install-docker-ubuntu.sh
     # Install common used apt packages & clean up
-    sh ./packageManager/apt.sh
+    sh $SRC/packageManager/apt.sh
 }
 
 do_init_rpi(){
@@ -80,22 +80,22 @@ do_init_rpi(){
     sudo apt-get update
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    sh ./python/install_python3.sh --distro ubuntu
+    sh $SRC/python/install_python3.sh --distro ubuntu
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh ./python/install_zsh.sh
+    sh $SRC/python/install_zsh.sh
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh ./vim/install_vim.sh
+    sh $SRC/vim/install_vim.sh
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh ./tmux/install_tmux.sh
+    sh $SRC/tmux/install_tmux.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
     # sh ./docker/install-docker-rpi.sh
     # Install common used apt packages & clean up
-    sh ./packageManager/apt.sh 
+    sh $SRC/packageManager/apt.sh 
 }
 
 do_init_mac(){

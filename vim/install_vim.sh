@@ -15,8 +15,10 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_vim(){
     # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
+    if [ ! -r /tmp/.bash-utils.sh ]; then
+        curl -fsSL $REPO_ROOT/utils.sh -o /tmp/bash-utils.sh
+    fi
+    source /tmp/bash-utils.sh
 
     # Get distro
     case $(get_distro) in

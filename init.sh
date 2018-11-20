@@ -4,9 +4,7 @@
 # ENVIRONMENT: Ubuntu / Raspbian / MacOS
 # NOTICE: 
 # How to run this script:
-#   $ git clone https://github.com/solomonxie/dotfiles.git
-#   $ cd ./dotfiles
-#   $ sudo ./init.sh >> /tmp/sys_init.log
+#   git clone https://github.com/solomonxie/dotfiles.git && cd ./dotfiles && sudo ./init.sh >> /tmp/sys_init.log
 
 set -x
 
@@ -62,8 +60,8 @@ do_init_ubuntu(){
     sh ./tmux/install_tmux.sh --distro ubuntu
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh ./docker/install-docker-ubuntu.sh
-    # sh ./docker/install-docker-ubuntu.sh
+    curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+    #sh ./docker/install-docker-ubuntu.sh
     # Install common used apt packages & clean up
     sh ./packageManager/apt.sh --distro ubuntu
 }

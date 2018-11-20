@@ -5,6 +5,8 @@
 # Enviroment: Ubuntu
 # Notice: 
 
+set -x
+
 do_install_docker_quick(){
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 }

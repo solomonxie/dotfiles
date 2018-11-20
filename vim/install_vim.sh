@@ -14,7 +14,7 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_vim(){
-    if [ "$1" == "--distro" ];then
+    if [ "$1" = "--distro" ];then
         distro="$2"
     fi
     case $distro in

@@ -8,7 +8,7 @@
 #   3. If there's permission problem: $ sudo chown -R $USER:$USER ~/.vim
 #   4. :PluginInstall
 
-set -x
+set -ex
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 

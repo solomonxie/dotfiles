@@ -33,6 +33,7 @@
     # updates
     DISABLE_UPDATE_PROMPT=true
     DISABLE_AUTO_UPDATE=true
+    upgrade_oh_my_zsh # manually update oh-my-zsh
 
 # }
 

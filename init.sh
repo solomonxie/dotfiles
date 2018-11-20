@@ -13,7 +13,7 @@ SRC=$PWD
 
 
 do_init_by_os(){
-    if [ "$1" == "--distro" ];then
+    if [ "$1" = "--distro" ];then
         distro="$2"
     fi
     case $distro in

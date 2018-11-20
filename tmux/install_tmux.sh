@@ -16,8 +16,10 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_tmux(){
     # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
+    if [ ! -r /tmp/.bash-utils.sh ]; then
+        curl -fsSL $REPO_ROOT/utils.sh -o /tmp/bash-utils.sh
+    fi
+    source /tmp/bash-utils.sh
 
     # Get Distro
     distro=$(get_distro)

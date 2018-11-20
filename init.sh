@@ -58,8 +58,8 @@ do_init_ubuntu(){
     sh $SRC/tmux/install_tmux.sh --distro ubuntu
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
-    #sh ./docker/install-docker-ubuntu.sh
+    # curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
+    sh $SRC/docker/install-docker-ubuntu.sh
     # Install common used apt packages & clean up
     sh $SRC/packageManager/apt.sh --distro ubuntu
 }
@@ -90,8 +90,8 @@ do_init_rpi(){
     sh $SRC/tmux/install_tmux.sh --distro raspbian
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
-    # sh ./docker/install-docker-rpi.sh
+    # curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
+    sh $SRC/docker/install-docker-rpi.sh
     # Install common used apt packages & clean up
     sh $SRC/packageManager/apt.sh --distro raspbian
 }

@@ -5,7 +5,7 @@
 # Enviroment: Ubuntu
 # Notice: 
 
-set -x
+set -ex
 
 do_install_docker_quick(){
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
@@ -47,5 +47,6 @@ do_setup_docker(){
     #sudo pip install -U docker-compose
 }
 
-do_install_docker_manually
+# do_install_docker_manually
+do_install_docker_quick
 do_give_permission_to_docker

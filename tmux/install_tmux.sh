@@ -30,10 +30,11 @@ do_install_tmux(){
 
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
-    $TMUX="$HOME/.tmux"
+    TMUX="$HOME/.tmux"
+    sudo mkdir -p $TMUX
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_ROOT/tmux/tmux-ubuntu -o $HOME/.tmux.conf
+    curl -fsSL $REPO_ROOT/tmux/tmux-ubuntu.conf -o $HOME/.tmux.conf
 
     echo "----------[  Installing TPM for Tmux   ]--------------"
     sudo git clone --no-checkout https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

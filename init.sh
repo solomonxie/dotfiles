@@ -13,12 +13,10 @@ SRC=$PWD
 
 
 do_init_by_os(){
-    # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
-
-    # Get Distro
-    case $(get_distro) in
+    if [ "$1" == "--distro" ];then
+        distro="$2"
+    fi
+    case $distro in
         "ubuntu")
             do_init_ubuntu ;;
         "raspbian")
@@ -48,22 +46,22 @@ do_init_ubuntu(){
     sudo apt-get install curl wget git -y
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh
+    sh $SRC/python/install_python3.sh --distro ubuntu
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh
+    sh $SRC/zsh/install_zsh.sh --distro ubuntu
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh
+    sh $SRC/vim/install_vim.sh --distro ubuntu
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh
+    sh $SRC/tmux/install_tmux.sh --distro ubuntu
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+    curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
     #sh ./docker/install-docker-ubuntu.sh
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh
+    sh $SRC/packageManager/apt.sh --distro ubuntu
 }
 
 do_init_rpi(){
@@ -80,28 +78,64 @@ do_init_rpi(){
     sudo apt-get update
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --distro ubuntu
+    sh $SRC/python/install_python3.sh --distro raspbian
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/python/install_zsh.sh
+    sh $SRC/python/install_zsh.sh --distro raspbian
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh
+    sh $SRC/vim/install_vim.sh --distro raspbian
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh
+    sh $SRC/tmux/install_tmux.sh --distro raspbian
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+    curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
     # sh ./docker/install-docker-rpi.sh
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh 
+    sh $SRC/packageManager/apt.sh --distro raspbian
 }
 
 do_init_mac(){
     echo "CURRENT OS: [  Mac OS X  ]. Start initializing system funtionalities..."
 }
 
+
+get_distro(){
+    local distro=""
+    if [ -x "$(command -v lsb_release)" ]; then #Linux
+        distro=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
+    elif [ -x "$(command -v sw_vers)" ]; then #MacOS
+        #distro=$(sw_vers -productName)
+        distro="mac"
+    elif [ -x "$(command -v uname)" ]; then #Others
+        local info=$(uname -a | tr '[:upper:]' '[:lower:]')
+        if [[ $info == *"Darwin"* ]]; then
+            distro="mac"
+        elif [[ $info == *"Ubuntu"* ]]; then
+            distro="ubuntu"
+        elif [[ $info == *"raspberrypi"* ]]; then
+            distro="raspbian"
+        elif [[ $info == *"Linux"* ]]; then
+            distro="linux"
+        else
+            distro="OTHERS"
+        fi
+    fi
+    echo $distro
+}
+
+get_os(){
+    case $(get_distro) in
+        "ubuntu")
+            echo "CURRENT Linux Distribution: [  Ubuntu  ].";;
+        "raspbian")
+            echo "CURRENT Linux Distribution: [  Raspbian  ].";;
+        "mac")
+            echo "CURRENT OS: [  Mac OS X  ].";;
+    esac
+}
+
 # Run initial functions by os version
-do_init_by_os
+do_init_by_os --distro $(get_distro)
 

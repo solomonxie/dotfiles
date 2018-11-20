@@ -14,14 +14,11 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_vim(){
-    # Load uitility functions (check os)
-    if [ ! -r /tmp/bash-utils.sh ]; then
-        curl -fsSL $REPO_ROOT/utils.sh -o /tmp/bash-utils.sh
+    if [ "$1" == "--distro" ];then
+        distro="$2"
     fi
-    source /tmp/bash-utils.sh
+    case $distro in
 
-    # Get distro
-    case $(get_distro) in
         "ubuntu")
             install_vim_ubuntu ;;
         "raspbian")
@@ -80,4 +77,4 @@ install_vim_mac(){
 }
 
 # Start this script
-do_install_vim
+do_install_vim $1 $2

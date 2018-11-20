@@ -48,22 +48,22 @@ do_init_ubuntu(){
     sudo apt-get install curl wget git -y
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
-    sh ./python/install_python3.sh --distro ubuntu
+    sh ./python/install_python3.sh
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh ./zsh/install_zsh.sh --distro ubuntu
+    sh ./zsh/install_zsh.sh
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh ./vim/install_vim.sh --distro ubuntu
+    sh ./vim/install_vim.sh
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh ./tmux/install_tmux.sh --distro ubuntu
+    sh ./tmux/install_tmux.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
     #sh ./docker/install-docker-ubuntu.sh
     # Install common used apt packages & clean up
-    sh ./packageManager/apt.sh --distro ubuntu
+    sh ./packageManager/apt.sh
 }
 
 do_init_rpi(){

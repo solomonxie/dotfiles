@@ -73,7 +73,7 @@ install_zsh_rpi(){
     sudo pip install powerline-status >> ~/.init/log_zsh.txt 1>&2
 
     echo "-----[  Installing Themes for ZSH   ]-----"
-    sudo chown -R pi:pi $ZSH_CUSTOM
+    sudo chown -R pi:pi $HOME/.oh-my-zsh/
 
     # Change default shell as Z-Shell
     sudo chsh -s /bin/zsh

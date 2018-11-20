@@ -12,7 +12,7 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_init_zsh(){
     # Load uitility functions (check os)
-    if [ ! -r /tmp/.bash-utils.sh ]; then
+    if [ ! -r /tmp/bash-utils.sh ]; then
         curl -fsSL $REPO_ROOT/utils.sh -o /tmp/bash-utils.sh
     fi
     source /tmp/bash-utils.sh

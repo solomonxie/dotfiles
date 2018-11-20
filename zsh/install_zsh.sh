@@ -1,7 +1,6 @@
 #! /bin/bash 
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Ubuntu / Raspbian / MacOS Sierra
 # Run:
 #   $ install_zsh.sh "Mac OS X"
@@ -37,6 +36,7 @@ install_zsh_rpi(){
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
     sudo cp $HOME/dotfiles/zsh/zshrc-rpi ~/.zshrc
+    sudo cp $HOME/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
     sudo cp $HOME/dotfiles/zsh/zshrc.extension-rpi ~/.zshrc.extension
 
 
@@ -65,6 +65,7 @@ install_zsh_ubuntu(){
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
     sudo cp $HOME/dotfiles/zsh/zshrc-ubuntu ~/.zshrc
+    sudo cp $HOME/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
     sudo cp $HOME/dotfiles/zsh/zshrc.extension-ubuntu ~/.zshrc.extension
 
     echo "-----[  Installing Themes for ZSH   ]-----"

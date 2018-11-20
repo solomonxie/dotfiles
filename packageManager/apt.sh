@@ -1,7 +1,6 @@
 #! /bin/bash 
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Debian based distro
 # How to run:
 

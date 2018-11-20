@@ -5,7 +5,7 @@
 # Enviroment: Raspberry Pi (Raspbian)
 # Notice: 
 
-set -x
+set -ex
 
 do_docker_quick_install(){
     curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
@@ -53,6 +53,7 @@ rm_docker(){
     sudo apt remove docker -y
 }
 
-do_docker_manual_install
+# do_docker_manual_install
+do_docker_quick_install
 do_docker_persmission
 do_docker_setup

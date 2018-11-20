@@ -47,7 +47,7 @@ install_vim_ubuntu(){
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $HOME/.vim/colors
-    curl -fsSL $REPO_ROOT/vim/colors/gruvbox -o $HOME/.vim/colors/
+    curl -fsSL $REPO_ROOT/vim/colors/gruvbox.vim -o $HOME/.vim/colors/gruvbox.vim
 }
 
 install_vim_rpi(){
@@ -69,7 +69,7 @@ install_vim_rpi(){
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $HOME/.vim/colors
-    curl -fsSL $REPO_ROOT//vim/colors/gruvbox -o $HOME/.vim/colors/
+    curl -fsSL $REPO_ROOT//vim/colors/gruvbox.vim -o $HOME/.vim/colors/gruvbox.vim
 }
 
 install_vim_mac(){

@@ -15,11 +15,11 @@ do_install_docker_apps(){
     fi
     case $distro in
         "ubuntu")
-            docker_webav
-            # docker_wsgidav
             docker_shadowsocks
             docker_shadowsocks_old
             docker_v2ray
+            docker_webav
+            # docker_wsgidav
             # docker_vpn_ipsec
             # docker_frp
             ;;

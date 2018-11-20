@@ -6,7 +6,7 @@
 # How to run this script:
 #   $ git clone https://github.com/solomonxie/dotfiles.git
 #   $ cd ./dotfiles
-#   $ sudo ./init.sh >> /var/log/sys_init.log
+#   $ sudo ./init.sh >> /tmp/sys_init.log
 
 set -x
 

@@ -14,12 +14,10 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_vim(){
-    # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
-
-    # Get distro
-    case $(get_distro) in
+    if [ "$1" = "--distro" ];then
+        distro="$2"
+    fi
+    case $distro in
         "ubuntu")
             install_vim_ubuntu ;;
         "raspbian")
@@ -47,8 +45,8 @@ install_vim_ubuntu(){
     # sudo chown -R ubuntu ~/.vim >> ~/.init/log_vim.txt 1>&2
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    mkdir $VIM/colors
-    curl -fsSL $REPO_ROOT/vim/colors/gruvbox -o $VIM/colors/
+    mkdir -p ~/.vim/colors
+    curl -fsSL $REPO_ROOT/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
 }
 
 install_vim_rpi(){
@@ -69,8 +67,8 @@ install_vim_rpi(){
     #sudo chown -R ubuntu ~/.vim >> ~/.init/log_vim.txt 1>&2
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    mkdir -p $HOME/.vim/colors
-    curl -fsSL $REPO_ROOT//vim/colors/gruvbox -o $HOME/.vim/colors/
+    mkdir -p ~/.vim/colors
+    curl -fsSL $REPO_ROOT/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
 }
 
 install_vim_mac(){
@@ -78,4 +76,4 @@ install_vim_mac(){
 }
 
 # Start this script
-do_install_vim
+do_install_vim $1 $2

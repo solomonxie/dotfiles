@@ -14,11 +14,12 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_vim(){
-    if [ "$1" = "--distro" ];then
-        distro="$2"
-    fi
-    case $distro in
+    # Load uitility functions (check os)
+    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
+    source $HOME/.bash-utils.sh
 
+    # Get distro
+    case $(get_distro) in
         "ubuntu")
             install_vim_ubuntu ;;
         "raspbian")
@@ -29,25 +30,25 @@ do_install_vim(){
 }
 
 install_vim_ubuntu(){
-    mkdir $HOME/.vim
-    export VIM="$HOME/.vim"
-
     sudo apt-get install vim -y
+
+    mkdir ~/.vim
+    export VIM="~/.vim"
 
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-    curl -fsSL $REPO_ROOT/vim/vimrc-ubuntu -o $HOME/.vimrc
+    curl -fsSL $REPO_ROOT/vim/vimrc-ubuntu -o ~/.vimrc
 
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
-    git clone --no-checkout https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
     echo "-----[  Change permission   ]-----"
     sudo chown -R ubuntu:ubuntu ~/.vim
     # sudo chown -R ubuntu ~/.vim >> ~/.init/log_vim.txt 1>&2
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    mkdir -p $HOME/.vim/colors
-    curl -fsSL $REPO_ROOT/vim/colors/gruvbox.vim -o $HOME/.vim/colors/gruvbox.vim
+    mkdir $VIM/colors
+    curl -fsSL $REPO_ROOT/vim/colors/gruvbox -o $VIM/colors/
 }
 
 install_vim_rpi(){
@@ -69,7 +70,7 @@ install_vim_rpi(){
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $HOME/.vim/colors
-    curl -fsSL $REPO_ROOT//vim/colors/gruvbox.vim -o $HOME/.vim/colors/gruvbox.vim
+    curl -fsSL $REPO_ROOT//vim/colors/gruvbox -o $HOME/.vim/colors/
 }
 
 install_vim_mac(){
@@ -77,4 +78,4 @@ install_vim_mac(){
 }
 
 # Start this script
-do_install_vim $1 $2
+do_install_vim

@@ -72,4 +72,4 @@ install_tmux_mac(){
 
 
 # Entry point
-do_install_tmux $1 $2
+do_install_tmux "$@"

@@ -96,4 +96,4 @@ install_docker_rpi(){
 }
 
 # [ Entry point ]
-do_install_docker_by_os $1 $2
+do_install_docker_by_os "$@"

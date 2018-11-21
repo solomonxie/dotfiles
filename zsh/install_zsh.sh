@@ -86,4 +86,4 @@ install_zsh_rpi(){
 
 
 # Entry point
-do_init_zsh $1 $2
+do_init_zsh "$@"

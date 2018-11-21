@@ -76,4 +76,4 @@ install_vim_mac(){
 }
 
 # Start this script
-do_install_vim $1 $2
+do_install_vim "$@"

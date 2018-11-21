@@ -4,14 +4,29 @@
 # Email: solomonxiewise@gmail.com
 # Enviroment: MacOS Sierra
 
-do_install_homebrew(){
+set -x
+
+REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
+
+do_setup_homebrew(){
+    install_homebrew
+    while [ $# -gt 0 ] ;do
+        case "$1" in
+            "--geo")
+                case $2 in
+                    cn) change_source_cn
+                esac
+                shift 2;;
+        esac
+    done
+    install_utils_mac
+}
+
+
+install_homebrew(){
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-    # Change source to speed up download
-    change_source_cn
-    
-    # Install terminal utilities
-    install_utils_mac
 }
 
 install_utils_mac(){
@@ -44,4 +59,4 @@ change_source_default(){
 
 
 # Entry point
-do_install_homebrew
+do_setup_homebrew

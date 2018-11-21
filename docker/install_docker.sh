@@ -11,9 +11,16 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_docker_by_os(){
-    if [ "$1" = "--distro" ];then
-        distro="$2"
-    fi
+    # Get distro information
+    distro=""
+    while [ $# -gt 0 ] ;do
+        case "$1" in
+            "--distro")
+                distro=$2 
+                shift 2;;
+        esac
+    done
+    # Do different things with different OS
     case $distro in
         "ubuntu")
             install_docker_quick

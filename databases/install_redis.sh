@@ -8,7 +8,7 @@ set -x
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
-do_install_mysql_by_os(){
+do_install_redis_by_os(){
     # Get distro information
     distro=""
     while [ $# -gt 0 ] ;do
@@ -21,28 +21,38 @@ do_install_mysql_by_os(){
     # Do different things with different OS
     case $distro in
         "ubuntu")
-            install_mysql_ubuntu
+            install_redis_ubuntu
             ;;
         "raspbian")
-            echo ""
+            install_redis_rpi
+            ;;
+        "mac")
+            install_redis_mac
             ;;
     esac
 
 }
 
+build_redis(){
+    # Download redis
+    wget http://download.redis.io/releases/redis-5.0.0.tar.gz
+    tar -xvzf redis-*.tar.gz
+    cd redis-*
+    # Compile redis
+    make
+    make test
+    sudo make install
+}
 
-install_mysql_ubuntu(){
-    sudo apt-get update
-    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password your_password'
-    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password your_password'
-    sudo apt-get -y install mysql-server
+install_redis_ubuntu(){
+    sudo apt-get install redis-server
 }
 
 
-install_mysql_rpi(){
-    echo ""
+install_redis_rpi(){
+    sudo apt-get install redis-server
 }
 
-install_mysql_mac(){
-    echo ""
+install_redis_mac(){
+    brew install redis
 }

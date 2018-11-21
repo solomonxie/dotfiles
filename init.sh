@@ -19,20 +19,20 @@ REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 SRC=$PWD
 
 do_init_by_os(){
-    distro=""
     # Get distro information
+    distro=""
     while [ $# -gt 0 ] ;do
         case "$1" in
             "--distro")
-                $distro=$2 
-                shift ;;
+                distro=$2 
+                shift 2;;
             *)
-            $distro=$(get_distro)
+            distro=$(get_distro)
             ;;
         esac
-        
+
         # Continue next loop
-        shift $(( $# > 0 ? 1 : 0 ))
+        #shift $(( $# > 0 ? 1 : 0 ))
     done
     # Do different script based on the OS
     case $distro in

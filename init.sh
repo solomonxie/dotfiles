@@ -18,11 +18,19 @@ set -x
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 SRC=$PWD
 
-
 do_init_by_os(){
-    if [ "$1" = "--distro" ];then
-        distro="$2"
-    fi
+    distro=""
+    # Get distro information
+    while [ $# -gt 0 ] ;do
+        case "$1" in
+            "--distro")
+                $distro=$2 
+                shift ;;
+            *)
+            $distro=$(get_distro)
+        esac
+    done
+    # Do different script based on the OS
     case $distro in
         "ubuntu")
             do_init_ubuntu ;;

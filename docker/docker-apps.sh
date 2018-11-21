@@ -236,4 +236,4 @@ docker_ftp(){
 
 
 # Entry point
-do_install_docker_apps $1 $2
+do_install_docker_apps "$@"

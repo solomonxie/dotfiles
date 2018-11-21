@@ -112,4 +112,4 @@ apt_remove_lock(){
     echo ""
 }
 
-do_install_apt_by_os $1 $2
+do_install_apt_by_os "$@"

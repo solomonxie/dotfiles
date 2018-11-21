@@ -157,5 +157,5 @@ get_os(){
 }
 
 # Run initial functions by os version
-do_init_by_os --distro $(get_distro)
+do_init_by_os "$@"
 

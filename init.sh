@@ -30,6 +30,9 @@ do_init_by_os(){
             $distro=$(get_distro)
             ;;
         esac
+        
+        # Continue next loop
+        shift $(( $# > 0 ? 1 : 0 ))
     done
     # Do different script based on the OS
     case $distro in

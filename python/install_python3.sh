@@ -25,8 +25,8 @@ do_install_python3_mac(){
 
 do_install_pip(){
     echo "----[ Installing pip ]-----"
-    sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    yes | sudo python3 get-pip.py
+    sudo curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+    yes | sudo python3 /tmp/get-pip.py
 
     echo "----[ Upgrading pip ]-----"
     yes | pip install --upgrade pip

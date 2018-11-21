@@ -43,7 +43,7 @@ install_zsh_ubuntu(){
     sudo pip install powerline-status
 
     echo "-----[  Installing Themes for ZSH   ]-----"
-    chown -R ubuntu:ubuntu $ZSH_CUSTOM
+    sudo chown -R ubuntu:ubuntu $HOME/.oh-my-zsh/
 
     # Enter Z-Shell
     /bin/zsh

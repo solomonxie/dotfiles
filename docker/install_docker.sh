@@ -18,7 +18,7 @@ do_install_docker_by_os(){
         "ubuntu")
             install_docker_quick
             docker_add_permission
-            curl -fsSL $REPO_ROOT/docker/docker-apps.sh | sudo sh
+            sudo sh $PWD/docker-apps.sh --distro ubuntu
             ;;
         "raspbian")
             install_docker_quick

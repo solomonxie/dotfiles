@@ -28,6 +28,7 @@ do_init_by_os(){
                 shift ;;
             *)
             $distro=$(get_distro)
+            ;;
         esac
     done
     # Do different script based on the OS

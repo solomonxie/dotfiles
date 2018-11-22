@@ -12,9 +12,9 @@ check_oh_my_zsh(){
 }
 #check_oh_my_zsh
 
-set_theme_avit(){
+set_theme_awesomepanda(){
     export TERM="xterm-256color" 
-    export ZSH_THEME="avit"
+    export ZSH_THEME="awesomepanda"
 }
 
 set_theme_junkfood(){

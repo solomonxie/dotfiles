@@ -13,7 +13,7 @@
 #   then:
 #   type "s" to execute each line, type "n" for each top-level function
 
-set -x
+set -ax
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 SRC=$PWD

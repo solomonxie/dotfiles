@@ -65,6 +65,9 @@ install_zsh_ubuntu(){
     if [ ! -e $ZSH_PLUGINS/zsh-syntax-highlighting ];then echo "[  FAILED  ]:----zsh-syntax-highlighting----"; fi
     sudo git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions
     if [ ! -e $ZSH_PLUGINS/zsh-autosuggestions ];then echo "[  FAILED  ]:----zsh-autosuggestions----"; fi
+
+    echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
+    echo "vim command  :%s/ubuntu.+\/bin\/bash$/\/bin\/zsh"
 }
 
 

@@ -38,18 +38,18 @@ do_install_tmux(){
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
     TMUX="$HOME/.tmux"
-    sudo mkdir -p $TMUX
+    mkdir -p $TMUX
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
     curl -fsSL $REPO_ROOT/tmux/tmux-ubuntu.conf -o $HOME/.tmux.conf
 
     echo "----------[  Installing TPM for Tmux   ]--------------"
-    sudo git clone --no-checkout https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     echo "----------[  Recover preset Tmux session   ]--------------"
-    sudo mkdir -p $TMUX/resurrect
-    curl -fsSL $REPO_ROOT/tmux/resurrect/last-ubuntu.txt -o $TMUX/resurrect/last-ubuntu.txt
-    sudo ln -sf $TMUX/resurrect/last.txt $TMUX/resurrect/last
+    mkdir -p $TMUX/resurrect
+    curl -fsSL $REPO_ROOT/tmux/resurrect/last-ubuntu.txt -o $TMUX/resurrect/last.txt
+    ln -sf $TMUX/resurrect/last.txt $TMUX/resurrect/last
 
     echo "----------[   Change permission   ]--------------"
     sudo chown -R ubuntu:ubuntu ~/.tmux

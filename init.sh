@@ -77,10 +77,10 @@ do_init_ubuntu(){
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
     sudo sh $SRC/python/install_python3.sh --distro ubuntu
-    # Install docker
-    echo "[    SCRIPT FOR DOCKER   ]"
     # Install common used apt packages & clean up
     sudo sh $SRC/packageManager/apt.sh --distro ubuntu
+    # Install docker
+    echo "[    SCRIPT FOR DOCKER   ]"
     # curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
     sudo sh $SRC/docker/install_docker.sh --distro ubuntu
 }

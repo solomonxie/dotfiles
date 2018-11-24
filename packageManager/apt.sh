@@ -4,7 +4,7 @@
 # Enviroment: Debian based distro
 # How to run:
 
-set -x
+set -ax
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
@@ -44,7 +44,7 @@ install_utils_ubuntu(){
     sudo apt-get install speedtest-cli -y
     sudo apt-get install ifstat -y
     sudo apt-get install bashdb -y
-    sudo apt-get install fortune cowsay cmatrix -y
+    #sudo apt-get install fortune cowsay cmatrix -y
     sudo pip install youtube-dl tldr ffmpeg
 
     yes | sudo add-apt-repository ppa:dawidd0811/neofetch
@@ -61,7 +61,7 @@ install_utils_rpi(){
     sudo apt-get install ifstat -y
     sudo apt-get install lsof -y
     sudo apt-get install bashdb -y
-    sudo apt-get install fortune cowsay cmatrix -y
+    #sudo apt-get install fortune cowsay cmatrix -y
     sudo pip install youtube-dl tldr ffmpeg
 
     sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list

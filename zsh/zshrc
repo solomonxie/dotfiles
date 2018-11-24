@@ -30,6 +30,7 @@
       colored-man-pages 
     )
     DISABLE_AUTO_UPDATE="true"
+    ZSH_DISABLE_COMPFIX="true"
     source $ZSH/oh-my-zsh.sh 
     # updates
     DISABLE_UPDATE_PROMPT=true

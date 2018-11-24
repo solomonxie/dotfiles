@@ -56,11 +56,9 @@ install_zsh_ubuntu(){
         echo "[  FAILED  ]:----Powerlevel9k----"
     fi
 
-    echo "-----[  Installing Themes for ZSH   ]-----"
-    sudo chown -R ubuntu:ubuntu $HOME/.oh-my-zsh/
-
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
     ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
+    sudo chown -R ubuntu:ubuntu $ZSH_PLUGINS
     sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGINS/zsh-syntax-highlighting
     if [ ! -e $ZSH_PLUGINS/zsh-syntax-highlighting ];then echo "[  FAILED  ]:----zsh-syntax-highlighting----"; fi
     sudo git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions

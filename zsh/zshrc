@@ -29,14 +29,13 @@
       zsh-autosuggestions, 
       colored-man-pages 
     )
-    ZSH_DISABLE_COMPFIX="true"
-    DISABLE_AUTO_UPDATE="true"
-    source $ZSH/oh-my-zsh.sh 
-    # updates
+    # Disable update checks:
     DISABLE_UPDATE_PROMPT=true
     DISABLE_AUTO_UPDATE=true
-    upgrade_oh_my_zsh # manually update oh-my-zsh
-
+    ZSH_DISABLE_COMPFIX=true
+    # Manually update oh-my-zsh:
+    # upgrade_oh_my_zsh 
+    source $ZSH/oh-my-zsh.sh 
 # }
 
 # Common settings {

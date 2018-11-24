@@ -2,7 +2,11 @@
 #
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Debian based distro
-# How to run:
+#
+# Run:
+#   $ ./apt.sh --distro ubuntu
+# Debug:
+#   $ bashdb ./apt.sh --distro ubuntu
 
 set -ax
 

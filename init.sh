@@ -7,9 +7,7 @@
 #   $ git clone https://github.com/solomonxie/dotfiles.git && cd ./dotfiles && sudo ./init.sh >> /tmp/sys_init.log
 #
 # Debug:
-#   $ bashdb init.sh
-#   or
-#   $ bashdb zsh/install_zsh.sh --distro ubuntu
+#   $ bashdb init.sh --distro ubuntu
 #   then:
 #   type "s" to execute each line, type "n" for each top-level function
 

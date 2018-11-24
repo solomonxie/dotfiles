@@ -2,8 +2,9 @@
 #
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Ubuntu / Raspbian / MacOS Sierra
+#
 # Run:
-#   $ install_zsh.sh "Mac OS X"
+#   $ ./install_zsh.sh --distro ubuntu
 
 set -ax
 

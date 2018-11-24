@@ -1,8 +1,13 @@
 #! /bin/bash 
 #
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
-# Enviroment: Ubuntu
-# Notice: 
+# Enviroment: Ubuntu / Rpi
+#
+# Run:
+#   $ ./docker-apps.sh --distro ubuntu
+# Debug:
+#   $ bashdb ./apt.sh --distro ubuntu
+
 
 set -ax
 

@@ -24,7 +24,10 @@ do_install_mysql_by_os(){
             install_mysql_ubuntu
             ;;
         "raspbian")
-            echo ""
+            install_mysql_rpi
+            ;;
+        "mac")
+            install_mysql_mac
             ;;
     esac
 
@@ -32,17 +35,22 @@ do_install_mysql_by_os(){
 
 
 install_mysql_ubuntu(){
-    sudo apt-get update
-    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password your_password'
-    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password your_password'
+    # Set root user's password without prompt
+    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root123'
+    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root123'
+    # Install
     sudo apt-get -y install mysql-server
 }
 
 
 install_mysql_rpi(){
-    echo ""
+    # Set root user's password without prompt
+    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root123'
+    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root123'
+    # Install
+    sudo apt-get -y install mysql-server
 }
 
 install_mysql_mac(){
-    echo ""
+    brew install mysql
 }

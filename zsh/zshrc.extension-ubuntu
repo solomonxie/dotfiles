@@ -9,6 +9,7 @@
 # Config files 
 alias zshrc="vim ~/.zshrc"
 alias zshrc2="vim ~/.zshrc.extension"
+alias zshrc3="vim ~/.zshrc.themes"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias vimrc="vim ~/.vimrc"
 alias tmuxrc="vim ~/.tmux.conf"

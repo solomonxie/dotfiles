@@ -12,15 +12,6 @@ check_oh_my_zsh(){
 }
 #check_oh_my_zsh
 
-set_theme_awesomepanda(){
-    export TERM="xterm-256color" 
-    export ZSH_THEME="awesomepanda"
-}
-
-set_theme_junkfood(){
-    export TERM="xterm-256color" 
-    export ZSH_THEME="junkfood"
-}
 
 # [ Agnoster ]
 set_theme_agnoster(){

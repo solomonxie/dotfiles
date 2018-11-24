@@ -65,24 +65,24 @@ do_init_ubuntu(){
     sudo apt-get update
     # Get essential tools before any installation
     sudo apt-get install curl wget git bashdb -y
-    # Setup Python3
-    echo "[   SETTING UP PYTHON3   ]"
-    sudo sh $SRC/python/install_python3.sh --distro ubuntu
-    # Setup ZSH
-    echo "[   SETTING UP ZSH   ]"
-    sudo sh $SRC/zsh/install_zsh.sh --distro ubuntu
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
     sudo sh $SRC/vim/install_vim.sh --distro ubuntu
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
     sudo sh $SRC/tmux/install_tmux.sh --distro ubuntu
+    # Setup ZSH
+    echo "[   SETTING UP ZSH   ]"
+    sudo sh $SRC/zsh/install_zsh.sh --distro ubuntu
+    # Setup Python3
+    echo "[   SETTING UP PYTHON3   ]"
+    sudo sh $SRC/python/install_python3.sh --distro ubuntu
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    # curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
-    sudo sh $SRC/docker/install_docker.sh --distro ubuntu
     # Install common used apt packages & clean up
     sudo sh $SRC/packageManager/apt.sh --distro ubuntu
+    # curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
+    sudo sh $SRC/docker/install_docker.sh --distro ubuntu
 }
 
 do_init_rpi(){
@@ -97,24 +97,26 @@ do_init_rpi(){
     echo "[   UPDATE APT REPOSITORIES   ]"
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
     sudo apt-get update
-    # Setup Python3
-    echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --distro raspbian
-    # Setup ZSH
-    echo "[   SETTING UP SETTING UP ZSH   ]"
-    sudo sh $SRC/python/install_zsh.sh --distro raspbian
+    # Get essential tools before any installation
+    sudo apt-get install curl wget git bashdb -y
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
     sudo sh $SRC/vim/install_vim.sh --distro raspbian
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
     sudo sh $SRC/tmux/install_tmux.sh --distro raspbian
+    # Setup ZSH
+    echo "[   SETTING UP SETTING UP ZSH   ]"
+    sudo sh $SRC/python/install_zsh.sh --distro raspbian
+    # Setup Python3
+    echo "[   SETTING UP SETTING UP PYTHON3   ]"
+    sh $SRC/python/install_python3.sh --distro raspbian
+    # Install common used apt packages & clean up
+    sudo sh $SRC/packageManager/apt.sh --distro raspbian
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     sudo sh $SRC/docker/install-docker-rpi.sh
     sudo sh $SRC/docker/docker-apps.sh --distro raspbian
-    # Install common used apt packages & clean up
-    sudo sh $SRC/packageManager/apt.sh --distro raspbian
 }
 
 do_init_mac(){

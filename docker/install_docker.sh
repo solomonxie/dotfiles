@@ -1,9 +1,13 @@
 #! /bin/bash 
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
-# Enviroment: Ubuntu
-# Notice: 
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
+# Enviroment: Ubuntu / Rpi
+#
+# Run:
+#   $ ./install_docker.sh --distro ubuntu
+# Debug:
+#   $ bashdb ./install_docker.sh --distro ubuntu
+
 
 set -ax
 

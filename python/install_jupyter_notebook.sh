@@ -1,11 +1,11 @@
 #! /bin/bash 
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
+# ENVIRONMENT: MAC / UBUNTU
 # Preload:
 # Commands:
 
-set -x
+set -ax
 
 do_install_jupyter_notebook(){
     virtualenv -p python3 ~/venv-ju
@@ -22,26 +22,6 @@ do_install_jupyter_notebook(){
     # has to isntall from R-shell
 
     deactivate
-}
-
-install_kernel_cpp(){
-    # Download package for Mac 10.12 (~300MB)
-    # Archive page: https://root.cern.ch/download/cling/
-    wget https://root.cern.ch/download/cling/cling_2018-11-05_mac1012.tar.bz2
-    tar -xvf cling_*.tar.bz2
-    find . -type d -name "cling_*" -exec mv -v {} ./cling
-    mv cling_*.tar.bz2 ./cling/
-    mv cling ~/.local/
-    ln -s ~/.local/cling/bin/cling /usr/local/bin/cling
-    # Test
-    cling --version
-    # Install kernel to Jupyter
-    source ~/venv-ju/bin/activate
-    cd ~/.local/cling/share/cling/Jupyter/kernel
-    pip install .
-    jupyter kernelspec install cling-cpp14
-
-    cd - ; deactivate
 }
 
 do_install_jupyter_extensions(){
@@ -76,7 +56,28 @@ do_install_ML_packages(){
     deactivate
 }
 
-do_install_ML_packages
+install_kernel_cpp(){
+    # Download package for Mac 10.12 (~300MB)
+    # Archive page: https://root.cern.ch/download/cling/
+    wget https://root.cern.ch/download/cling/cling_2018-11-05_mac1012.tar.bz2
+    tar -xvf cling_*.tar.bz2
+    find . -type d -name "cling_*" -exec mv -v {} ./cling
+    mv cling_*.tar.bz2 ./cling/
+    mv cling ~/.local/
+    ln -s ~/.local/cling/bin/cling /usr/local/bin/cling
+    # Test
+    cling --version
+    # Install kernel to Jupyter
+    source ~/venv-ju/bin/activate
+    cd ~/.local/cling/share/cling/Jupyter/kernel
+    pip install .
+    jupyter kernelspec install cling-cpp14
+
+    cd - ; deactivate
+}
+
+
+# Entry point
 do_install_jupyter_notebook
 do_install_jupyter_extensions
 do_install_ML_packages

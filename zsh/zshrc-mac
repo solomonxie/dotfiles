@@ -31,7 +31,7 @@
       zsh-autosuggestions, 
       colored-man-pages 
     )
-    ZSH_DISABLE_COMPFIX
+    ZSH_DISABLE_COMPFIX="true"
     DISABLE_AUTO_UPDATE="true"
     source $ZSH/oh-my-zsh.sh 
 # }

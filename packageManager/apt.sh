@@ -89,7 +89,7 @@ install_scanner_ubuntu(){
     # List all Scan devices with Names
     scanimage -L
     # Scan an image
-    scanimage -d "DeviceName" –-format=tiff > sample.tiff
+    # scanimage -d "DeviceName" –-format=tiff > sample.tiff
 }
 
 install_scanner_rpi(){
@@ -97,7 +97,7 @@ install_scanner_rpi(){
     # List all Scan devices with Names
     scanimage -L
     # Scan an image
-    scanimage -d "DeviceName" –-format=tiff > sample.tiff
+    # scanimage -d "DeviceName" –-format=tiff > sample.tiff
 }
 
 apt_add_sources(){

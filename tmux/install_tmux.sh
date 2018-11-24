@@ -9,7 +9,7 @@
 #   3. Reload configs: Ctrl-b + r
 #   4. Resurrect: Ctrl-b + Ctrl-r
 
-set -x
+set -ax
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 

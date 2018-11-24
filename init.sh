@@ -21,7 +21,7 @@ SRC=$PWD
 do_init_by_os(){
     # Get distro information
     distro=""
-    while [ $# -gt 0 ] ;do
+    while [ $# -gt 1 ] ;do
         case "$1" in
             "--distro")
                 distro=$2 
@@ -30,10 +30,12 @@ do_init_by_os(){
             distro=$(get_distro)
             ;;
         esac
-
         # Continue next loop
         #shift $(( $# > 0 ? 1 : 0 ))
     done
+    if [ "$distro" = "" ]; then
+        distro=$(get_distro)
+    fi
     # Do different script based on the OS
     case $distro in
         "ubuntu")

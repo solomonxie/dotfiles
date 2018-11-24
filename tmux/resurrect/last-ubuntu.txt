@@ -1,30 +1,28 @@
-pane	0	1	:zsh	1	:*	1	:/home/pi	1	zsh	:
-pane	2	1	:zsh	1	:*	1	:/home/pi	1	zsh	:
-pane	3	1	:zsh	1	:*	1	:/home/pi	1	zsh	:
-pane	Rpi-Workspace	1	:CONFIG	0	:-	1	:/home/pi	0	zsh	:zsh
-pane	Rpi-Workspace	1	:CONFIG	0	:-	2	:/home/pi	1	zsh	:zsh
-pane	Rpi-Workspace	2	:STATS	1	:*	1	:/home/pi	1	vim	:zsh
-pane	Rpi-Workspace	2	:STATS	1	:*	2	:/home/pi	0	zsh	:
-pane	Rpi-Workspace	2	:STATS	1	:*	3	:/home/pi	0	zsh	:
-pane	Rpi-Workspace	3	:DOCKER	0	: 	1	:/home/pi/docker-rpi/init-rpi	0	zsh	:zsh
-pane	Rpi-Workspace	3	:DOCKER	0	: 	2	:/home/pi/docker-rpi	1	zsh	:zsh
-pane	Rpi-Workspace	4	:WEBDAV	0	: 	1	:/home/pi	0	zsh	:zsh
-pane	Rpi-Workspace	4	:WEBDAV	0	: 	2	:/home/pi	1	zsh	:zsh
-pane	Rpi-Workspace	5	:HTTP	0	: 	1	:/etc/nginx/ssl	1	zsh	:zsh
-pane	Rpi-Workspace	5	:HTTP	0	: 	2	:/etc/nginx/sites-available	0	zsh	:zsh
-pane	Rpi-Workspace	5	:HTTP	0	: 	3	:/home/pi/.ssl	0	zsh	:zsh
-pane	Rpi-Workspace	6	:W1	0	:#	1	:/home/pi/gitissues	1	zsh	:zsh
-pane	Rpi-Workspace	6	:W1	0	:#	2	:/home/pi/autobackup/issues_blog	0	tail	:tail -f /tmp/gitissues.log
-pane	Rpi-Workspace	7	:W2	0	: 	1	:/home/pi	1	zsh	:zsh
-pane	Rpi-Workspace	7	:W2	0	: 	2	:/home/pi	0	zsh	:zsh
+pane	0	1	:zsh	1	:*	1	:/home/ubuntu	1	zsh	:
+pane	1	1	:bash	1	:*	1	:/home/ubuntu	1	zsh	:
+pane	2	1	:bash	1	:*	1	:/home/ubuntu	1	zsh	:
+pane	4	1	:bash	1	:*	1	:/home/ubuntu/.tmux/resurrect	1	zsh	:
+pane	6	1	:bash	1	:*	1	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	1	:CONFIG	0	:	1	:/home/ubuntu	1	zsh	:zsh
+pane	AWS-Workspace	1	:CONFIG	0	:	2	:/home/ubuntu/webdav	0	zsh	:zsh
+pane	AWS-Workspace	2	:STATS	0	:#-	1	:/home/ubuntu	0	zsh	:zsh
+pane	AWS-Workspace	2	:STATS	0	:#-	2	:/home/ubuntu	0	zsh	:zsh
+pane	AWS-Workspace	2	:STATS	0	:#-	3	:/home/ubuntu	0	htop	:htop
+pane	AWS-Workspace	2	:STATS	0	:#-	4	:/home/ubuntu	1	zsh	:zsh
+pane	AWS-Workspace	3	:DOCKER	1	:*	1	:/home/ubuntu/docker-builds/vps	1	zsh	:zsh
+pane	AWS-Workspace	4	:WEBDAV	0	:	1	:/home/ubuntu/webdav	0	zsh	:
+pane	AWS-Workspace	4	:WEBDAV	0	:	2	:/home/ubuntu/webdav	1	zsh	:
+pane	AWS-Workspace	5	:W1	0	:	1	:/home/ubuntu	1	zsh	:
+pane	AWS-Workspace	6	:W2	0	:	1	:/home/ubuntu	1	zsh	:
 window	0	1	1	:*	b3fe,145x32,0,0,1
-window	2	1	1	:*	b3ff,145x32,0,0,2
-window	3	1	1	:*	5b11,158x32,0,0,31
-window	Rpi-Workspace	1	0	:-	cd65,158x32,0,0[158x16,0,0,3,158x15,0,17,4]
-window	Rpi-Workspace	2	1	:*	42e3,158x32,0,0{94x32,0,0,5,63x32,95,0[63x21,95,0,6,63x10,95,22,7]}
-window	Rpi-Workspace	3	0	: 	4d72,158x32,0,0[158x16,0,0,8,158x15,0,17,9]
-window	Rpi-Workspace	4	0	: 	6bf4,158x32,0,0[158x16,0,0,10,158x15,0,17,11]
-window	Rpi-Workspace	5	0	: 	b9a9,158x32,0,0[158x16,0,0,12,158x15,0,17{79x15,0,17,13,78x15,80,17,14}]
-window	Rpi-Workspace	6	0	:#	ebfb,158x32,0,0[158x16,0,0,15,158x15,0,17,16]
-window	Rpi-Workspace	7	0	: 	ebf8,158x32,0,0[158x16,0,0,32,158x15,0,17,33]
-state	Rpi-Workspace	
+window	1	1	1	:*	b3ff,145x32,0,0,2
+window	2	1	1	:*	b400,145x32,0,0,3
+window	4	1	1	:*	b401,145x32,0,0,4
+window	6	1	1	:*	b402,145x32,0,0,5
+window	AWS-Workspace	1	0	:	e6fd,158x32,0,0[158x16,0,0,8,158x15,0,17,20]
+window	AWS-Workspace	2	0	:#-	9e11,158x32,0,0[158x18,0,0{107x18,0,0,10,50x18,108,0,11},158x13,0,19{75x13,0,19,12,82x13,76,19,13}]
+window	AWS-Workspace	3	1	:*	5b14,158x32,0,0,15
+window	AWS-Workspace	4	0	:	6bfd,158x32,0,0[158x16,0,0,16,158x15,0,17,17]
+window	AWS-Workspace	5	0	:	db10,158x32,0,0,21
+window	AWS-Workspace	6	0	:	db11,158x32,0,0,22
+state	AWS-Workspace	

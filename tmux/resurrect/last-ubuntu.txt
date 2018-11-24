@@ -3,15 +3,16 @@ pane	1	1	:bash	1	:*	1	:/home/ubuntu	1	zsh	:
 pane	2	1	:bash	1	:*	1	:/home/ubuntu	1	zsh	:
 pane	4	1	:bash	1	:*	1	:/home/ubuntu/.tmux/resurrect	1	zsh	:
 pane	6	1	:bash	1	:*	1	:/home/ubuntu	1	zsh	:
-pane	AWS-Workspace	1	:CONFIG	0	:	1	:/home/ubuntu	1	zsh	:zsh
-pane	AWS-Workspace	1	:CONFIG	0	:	2	:/home/ubuntu/webdav	0	zsh	:zsh
-pane	AWS-Workspace	2	:STATS	0	:#-	1	:/home/ubuntu	0	zsh	:zsh
-pane	AWS-Workspace	2	:STATS	0	:#-	2	:/home/ubuntu	0	zsh	:zsh
-pane	AWS-Workspace	2	:STATS	0	:#-	3	:/home/ubuntu	0	htop	:htop
-pane	AWS-Workspace	2	:STATS	0	:#-	4	:/home/ubuntu	1	zsh	:zsh
-pane	AWS-Workspace	3	:DOCKER	1	:*	1	:/home/ubuntu/docker-builds/vps	1	zsh	:zsh
-pane	AWS-Workspace	4	:WEBDAV	0	:	1	:/home/ubuntu/webdav	0	zsh	:
-pane	AWS-Workspace	4	:WEBDAV	0	:	2	:/home/ubuntu/webdav	1	zsh	:
+pane	AWS-Workspace	1	:CONFIG	1	:*	1	:/home/ubuntu	1	zsh	:zsh
+pane	AWS-Workspace	1	:CONFIG	1	:*	2	:/home/ubuntu/webdav	0	zsh	:zsh
+pane	AWS-Workspace	2	:STATS	0	:#	1	:/home/ubuntu	0	zsh	:zsh
+pane	AWS-Workspace	2	:STATS	0	:#	2	:/home/ubuntu	0	zsh	:zsh
+pane	AWS-Workspace	2	:STATS	0	:#	3	:/home/ubuntu	0	htop	:htop
+pane	AWS-Workspace	2	:STATS	0	:#	4	:/home/ubuntu	1	zsh	:zsh
+pane	AWS-Workspace	3	:DOCKER	0	:	1	:/home/ubuntu	1	zsh	:zsh
+pane	AWS-Workspace	3	:DOCKER	0	:	2	:/home/ubuntu	0	zsh	:
+pane	AWS-Workspace	4	:WEBDAV	0	:-	1	:/home/ubuntu/webdav	0	zsh	:
+pane	AWS-Workspace	4	:WEBDAV	0	:-	2	:/home/ubuntu/webdav	1	zsh	:
 pane	AWS-Workspace	5	:W1	0	:	1	:/home/ubuntu	1	zsh	:
 pane	AWS-Workspace	6	:W2	0	:	1	:/home/ubuntu	1	zsh	:
 window	0	1	1	:*	b3fe,145x32,0,0,1
@@ -19,10 +20,10 @@ window	1	1	1	:*	b3ff,145x32,0,0,2
 window	2	1	1	:*	b400,145x32,0,0,3
 window	4	1	1	:*	b401,145x32,0,0,4
 window	6	1	1	:*	b402,145x32,0,0,5
-window	AWS-Workspace	1	0	:	e6fd,158x32,0,0[158x16,0,0,8,158x15,0,17,20]
-window	AWS-Workspace	2	0	:#-	9e11,158x32,0,0[158x18,0,0{107x18,0,0,10,50x18,108,0,11},158x13,0,19{75x13,0,19,12,82x13,76,19,13}]
-window	AWS-Workspace	3	1	:*	5b14,158x32,0,0,15
-window	AWS-Workspace	4	0	:	6bfd,158x32,0,0[158x16,0,0,16,158x15,0,17,17]
+window	AWS-Workspace	1	1	:*	e6fd,158x32,0,0[158x16,0,0,8,158x15,0,17,20]
+window	AWS-Workspace	2	0	:#	9e11,158x32,0,0[158x18,0,0{107x18,0,0,10,50x18,108,0,11},158x13,0,19{75x13,0,19,12,82x13,76,19,13}]
+window	AWS-Workspace	3	0	:	abfa,158x32,0,0[158x16,0,0,15,158x15,0,17,23]
+window	AWS-Workspace	4	0	:-	6bfd,158x32,0,0[158x16,0,0,16,158x15,0,17,17]
 window	AWS-Workspace	5	0	:	db10,158x32,0,0,21
 window	AWS-Workspace	6	0	:	db11,158x32,0,0,22
 state	AWS-Workspace	

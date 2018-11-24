@@ -5,7 +5,7 @@
 # Enviroment: Ubuntu
 # Notice: 
 
-set -x
+set -ax
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
@@ -36,7 +36,7 @@ do_install_docker_by_os(){
 }
 
 install_docker_quick(){
-    curl -fsSL get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+    curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
 }
 
 docker_add_permission(){

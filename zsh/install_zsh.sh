@@ -42,9 +42,9 @@ install_zsh_ubuntu(){
     if [ ! -e ~/.oh-my-zsh/ ];then echo "[  FAILED  ]:----Oh-My-ZSH----"; fi
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    sudo cp $HOME/dotfiles/zsh/zshrc-ubuntu ~/.zshrc
+    sudo cp $HOME/dotfiles/zsh/zshrc ~/.zshrc
     sudo cp $HOME/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
-    sudo cp $HOME/dotfiles/zsh/zshrc.extension-ubuntu ~/.zshrc.extension
+    sudo cp $HOME/dotfiles/zsh/zshrc.extension ~/.zshrc.extension
     if [ ! -e ~/.zshrc ] || [ ! -e ~/.zshrc.extension ] || [ ! -e ~/.zshrc.themes ]; then
         echo "[  FAILED  ]:---zshrc---"
     fi
@@ -76,9 +76,9 @@ install_zsh_rpi(){
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo sh
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    sudo cp $HOME/dotfiles/zsh/zshrc-rpi ~/.zshrc
+    sudo cp $HOME/dotfiles/zsh/zshrc ~/.zshrc
     sudo cp $HOME/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
-    sudo cp $HOME/dotfiles/zsh/zshrc.extension-rpi ~/.zshrc.extension
+    sudo cp $HOME/dotfiles/zsh/zshrc.extension ~/.zshrc.extension
 
 
     echo "-----[  Installing Themes for ZSH   ]-----"

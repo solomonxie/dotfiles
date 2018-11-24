@@ -8,105 +8,45 @@
 #     $ wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
 #     # Theme: Powerlevel9k
 #     $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-# Commands:
+# Commands: 
 # 
 
+# 引用不方便公开的本地配置文件
+    source $HOME/.zshrc.extension
 
-configure_zsh_mac(){
-    # 引用不方便公开的本地配置文件
-        source $HOME/.zshrc.extension
+#  Theme settings {
+    source $HOME/.zshrc.themes
+    #set_theme_powerlevel9k
+    #set_theme_agnoster
+    #set_theme_junkfood
+    set_theme_awesomepanda
+# }
 
-    #  Theme settings {
-        source $HOME/.zshrc.themes
-        #set_theme_agnoster
-        set_theme_powerlevel9k
-    # }
+# Setting up Oh-my-zsh {
+    export ZSH=~/.oh-my-zsh 
+    plugins=( 
+      git, 
+      zsh-autosuggestions, 
+      colored-man-pages 
+    )
+    DISABLE_AUTO_UPDATE="true"
+    source $ZSH/oh-my-zsh.sh 
+    # updates
+    DISABLE_UPDATE_PROMPT=true
+    DISABLE_AUTO_UPDATE=true
+    upgrade_oh_my_zsh # manually update oh-my-zsh
 
-    # Setting up Oh-my-zsh {
-        export ZSH=~/.oh-my-zsh 
-        plugins=( 
-          git, 
-          zsh-autosuggestions, 
-          colored-man-pages 
-        )
-        DISABLE_AUTO_UPDATE="true"
-        source $ZSH/oh-my-zsh.sh 
-    # }
+# }
 
-    # Common settings {
-        export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
-        export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
-        export EDITOR=vim 
-        export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-    # }
-
-    # This must be at the end of ~/.zshrc {
-        source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-    # }
-}
-
-
-configure_zsh_rpi(){
-    # 引用不方便公开的本地配置文件
-        source $HOME/.zshrc.extension
-
-    #  Theme settings {
-        source $HOME/.zshrc.themes
-        set_theme_agnoster
-        # set_theme_powerlevel9k
-    # }
-
-    # Setting up Oh-my-zsh {
-        export ZSH=~/.oh-my-zsh 
-        plugins=( 
-          git, 
-          zsh-autosuggestions, 
-          colored-man-pages 
-        ) 
-        source $ZSH/oh-my-zsh.sh 
-    # }
-
-    # Common settings {
-        export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
-        export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
-        export EDITOR=vim 
-        export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-    # }
-
-    # This must be at the end of ~/.zshrc {
-        source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-    # }
-}
+# Common settings {
+    export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
+    export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
+    export EDITOR=vim 
+    export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+# }
 
 
-configure_zsh_ubuntu(){
-    # 引用不方便公开的本地配置文件
-        source $HOME/.zshrc.extension
 
-    #  Theme settings {
-        source $HOME/.zshrc.themes
-        set_theme_agnoster
-        # set_theme_powerlevel9k
-    # }
-
-    # Setting up Oh-my-zsh {
-        export ZSH=~/.oh-my-zsh 
-        plugins=( 
-          git, 
-          zsh-autosuggestions, 
-          colored-man-pages 
-        ) 
-        source $ZSH/oh-my-zsh.sh 
-    # }
-
-    # Common settings {
-        export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
-        export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
-        export EDITOR=vim 
-        export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-    # }
-
-    # This must be at the end of ~/.zshrc {
-        source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-    # }
-}
+# This must be at the end of ~/.zshrc {
+    source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# }

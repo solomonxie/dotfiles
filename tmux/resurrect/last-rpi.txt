@@ -1,31 +1,30 @@
 pane	0	1	:zsh	1	:*	1	:/home/pi	1	zsh	:
-pane	Rpi-Workspace	1	:Config	0	: 	1	:/home/pi	1	zsh	:
-pane	Rpi-Workspace	1	:Config	0	: 	2	:/home/pi/.tmux/resurrect	0	zsh	:
-pane	Rpi-Workspace	1	:Config	0	: 	3	:/home/pi	0	zsh	:
-pane	Rpi-Workspace	2	:Stat	0	:#-	1	:/home/pi	0	htop	:htop
-pane	Rpi-Workspace	2	:Stat	0	:#-	2	:/home/pi	1	zsh	:
-pane	Rpi-Workspace	2	:Stat	0	:#-	3	:/home/pi	0	zsh	:
-pane	Rpi-Workspace	3	:Webdav	0	:#	1	:/var/www/webdav	0	zsh	:
-pane	Rpi-Workspace	3	:Webdav	0	:#	2	:/home/pi	1	zsh	:
-pane	Rpi-Workspace	3	:Webdav	0	:#	3	:/etc/apache2/sites-available	0	zsh	:
-pane	Rpi-Workspace	3	:Webdav	0	:#	4	:/home/pi	0	zsh	:
-pane	Rpi-Workspace	4	:gitissues	1	:*	1	:/home/pi/autobackup/issues_blog	1	zsh	:
-pane	Rpi-Workspace	4	:gitissues	1	:*	2	:/home/pi/gitissues	0	zsh	:
-pane	Rpi-Workspace	4	:gitissues	1	:*	3	:/home/pi	0	tail	:tail -f /home/pi/autobackup/issues_blog/.local/log/last.log
-pane	Rpi-Workspace	4	:gitissues	1	:*	4	:/home/pi/gitissues	0	zsh	:zsh
-pane	Rpi-Workspace	5	:frp	0	:#	1	:/home/pi/frp	0	zsh	:
-pane	Rpi-Workspace	5	:frp	0	:#	2	:/home/pi/frp	0	zsh	:
-pane	Rpi-Workspace	5	:frp	0	:#	3	:/home/pi/frp	0	zsh	:
-pane	Rpi-Workspace	5	:frp	0	:#	4	:/home/pi/frp	1	zsh	:
-pane	Rpi-Workspace	6	:Workspace	0	:#	1	:/home/pi	1	zsh	:
-pane	Rpi-Workspace	7	:Download	0	: 	1	:/var/www/webdav/udisk	1	zsh	:
-pane	Rpi-Workspace	7	:Download	0	: 	2	:/home/pi/share	0	zsh	:
-window	0	1	1	:*	bf3e,153x35,0,0,1
-window	Rpi-Workspace	1	0	: 	1bdd,153x35,0,0{80x35,0,0,2,72x35,81,0[72x8,81,0,3,72x26,81,9,4]}
-window	Rpi-Workspace	2	0	:#-	5138,153x35,0,0{91x35,0,0,5,61x35,92,0[61x22,92,0,6,61x12,92,23,7]}
-window	Rpi-Workspace	3	0	:#	3df9,153x35,0,0{76x35,0,0[76x15,0,0,8,76x19,0,16,9],76x35,77,0[76x15,77,0,10,76x19,77,16,11]}
-window	Rpi-Workspace	4	1	:*	45df,153x35,0,0{77x35,0,0,12,75x35,78,0[75x7,78,0,13,75x19,78,8,14,75x7,78,28,15]}
-window	Rpi-Workspace	5	0	:#	4e13,153x35,0,0{76x35,0,0,16,76x35,77,0[76x7,77,0,17,76x19,77,8,18,76x7,77,28,19]}
-window	Rpi-Workspace	6	0	:#	dfcf,153x35,0,0,20
-window	Rpi-Workspace	7	0	: 	9ff7,153x35,0,0{77x35,0,0,21,75x35,78,0,22}
+pane	2	1	:zsh	1	:*	1	:/home/pi	1	zsh	:
+pane	3	1	:zsh	1	:*	1	:/home/pi	1	zsh	:
+pane	Rpi-Workspace	1	:CONFIG	0	:-	1	:/home/pi	0	zsh	:zsh
+pane	Rpi-Workspace	1	:CONFIG	0	:-	2	:/home/pi	1	zsh	:zsh
+pane	Rpi-Workspace	2	:STATS	1	:*	1	:/home/pi	1	vim	:zsh
+pane	Rpi-Workspace	2	:STATS	1	:*	2	:/home/pi	0	zsh	:
+pane	Rpi-Workspace	2	:STATS	1	:*	3	:/home/pi	0	zsh	:
+pane	Rpi-Workspace	3	:DOCKER	0	: 	1	:/home/pi/docker-rpi/init-rpi	0	zsh	:zsh
+pane	Rpi-Workspace	3	:DOCKER	0	: 	2	:/home/pi/docker-rpi	1	zsh	:zsh
+pane	Rpi-Workspace	4	:WEBDAV	0	: 	1	:/home/pi	0	zsh	:zsh
+pane	Rpi-Workspace	4	:WEBDAV	0	: 	2	:/home/pi	1	zsh	:zsh
+pane	Rpi-Workspace	5	:HTTP	0	: 	1	:/etc/nginx/ssl	1	zsh	:zsh
+pane	Rpi-Workspace	5	:HTTP	0	: 	2	:/etc/nginx/sites-available	0	zsh	:zsh
+pane	Rpi-Workspace	5	:HTTP	0	: 	3	:/home/pi/.ssl	0	zsh	:zsh
+pane	Rpi-Workspace	6	:W1	0	:#	1	:/home/pi/gitissues	1	zsh	:zsh
+pane	Rpi-Workspace	6	:W1	0	:#	2	:/home/pi/autobackup/issues_blog	0	tail	:tail -f /tmp/gitissues.log
+pane	Rpi-Workspace	7	:W2	0	: 	1	:/home/pi	1	zsh	:zsh
+pane	Rpi-Workspace	7	:W2	0	: 	2	:/home/pi	0	zsh	:zsh
+window	0	1	1	:*	b3fe,145x32,0,0,1
+window	2	1	1	:*	b3ff,145x32,0,0,2
+window	3	1	1	:*	5b11,158x32,0,0,31
+window	Rpi-Workspace	1	0	:-	cd65,158x32,0,0[158x16,0,0,3,158x15,0,17,4]
+window	Rpi-Workspace	2	1	:*	42e3,158x32,0,0{94x32,0,0,5,63x32,95,0[63x21,95,0,6,63x10,95,22,7]}
+window	Rpi-Workspace	3	0	: 	4d72,158x32,0,0[158x16,0,0,8,158x15,0,17,9]
+window	Rpi-Workspace	4	0	: 	6bf4,158x32,0,0[158x16,0,0,10,158x15,0,17,11]
+window	Rpi-Workspace	5	0	: 	b9a9,158x32,0,0[158x16,0,0,12,158x15,0,17{79x15,0,17,13,78x15,80,17,14}]
+window	Rpi-Workspace	6	0	:#	ebfb,158x32,0,0[158x16,0,0,15,158x15,0,17,16]
+window	Rpi-Workspace	7	0	: 	ebf8,158x32,0,0[158x16,0,0,32,158x15,0,17,33]
 state	Rpi-Workspace	

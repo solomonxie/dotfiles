@@ -28,7 +28,8 @@ configure_zsh_mac(){
           git, 
           zsh-autosuggestions, 
           colored-man-pages 
-        ) 
+        )
+        DISABLE_AUTO_UPDATE="true"
         source $ZSH/oh-my-zsh.sh 
     # }
 

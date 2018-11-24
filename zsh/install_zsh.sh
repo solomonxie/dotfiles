@@ -5,7 +5,7 @@
 # Run:
 #   $ install_zsh.sh "Mac OS X"
 
-set -x
+set -ax
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
@@ -35,19 +35,27 @@ do_init_zsh(){
 install_zsh_ubuntu(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     sudo apt-get install zsh -y
+    if [ ! -e /bin/zsh ];then echo "[  FAILED  ]:----ZSH----"; fi
 
     echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo sh
+    if [ ! -e ~/.oh-my-zsh/ ];then echo "[  FAILED  ]:----Oh-My-ZSH----"; fi
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
     sudo cp $HOME/dotfiles/zsh/zshrc-ubuntu ~/.zshrc
     sudo cp $HOME/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
     sudo cp $HOME/dotfiles/zsh/zshrc.extension-ubuntu ~/.zshrc.extension
+    if [ ! -e ~/.zshrc ] || [ ! -e ~/.zshrc.extension ] || [ ! -e ~/.zshrc.themes ]; then
+        echo "[  FAILED  ]:---zshrc---"
+    fi
 
     echo "-----[  Installing Themes for ZSH   ]-----"
     sudo git clone --no-checkout https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-    sudo wget -q https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
     sudo pip install powerline-status
+    if [ ! -e ~/.oh-my-zsh/custom/themes/powerlevel9k ];then 
+        echo "[  FAILED  ]:----Powerlevel9k----"
+    fi
+
 
     echo "-----[  Installing Themes for ZSH   ]-----"
     sudo chown -R ubuntu:ubuntu $HOME/.oh-my-zsh/
@@ -57,7 +65,9 @@ install_zsh_ubuntu(){
 
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
     sudo git clone --no-checkout https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+    if [ ! -e $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ];then echo "[  FAILED  ]:----zsh-syntax-highlighting----"; fi
     sudo git clone --no-checkout https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    if [ ! -e $ZSH_CUSTOM/plugins/zsh-autosuggestions ];then echo "[  FAILED  ]:----zsh-autosuggestions----"; fi
 }
 
 

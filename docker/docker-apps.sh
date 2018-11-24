@@ -4,7 +4,7 @@
 # Enviroment: Ubuntu
 # Notice: 
 
-set -x
+set -ax
 
 REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 

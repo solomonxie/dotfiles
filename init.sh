@@ -77,6 +77,8 @@ do_init_ubuntu(){
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
     sudo sh $SRC/python/install_python3.sh --distro ubuntu
+    echo "[   SETTING UP JUPYTER ]"
+    sudo sh $SRC/python/install_jupyter.sh --distro ubuntu
     # Install common used apt packages & clean up
     sudo sh $SRC/packageManager/apt.sh --distro ubuntu
     # Install docker

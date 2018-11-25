@@ -82,8 +82,8 @@ do_init_ubuntu(){
     sh $SRC/packageManager/apt.sh --distro ubuntu 2>&1 > /dev/null
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    # curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
     sh $SRC/docker/install_docker.sh --distro ubuntu 2>&1 > /dev/null
+    sh $SRC/docker/docker-apps.sh --distro ubuntu 2>&1 > /dev/null
 }
 
 do_init_rpi(){

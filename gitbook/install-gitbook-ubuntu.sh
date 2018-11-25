@@ -17,9 +17,9 @@ do_install_gitbook_manually(){
 }
 
 do_setup_gitbook(){
-    wget $REPO_ROOT//gitbook/book.json
-    wget $REPO_ROOT//gitbook/SUMMARY.json
-    wget $REPO_ROOT//gitbook/README.json
+    wget $REPO_URL/gitbook/book.json
+    wget $REPO_URL/gitbook/SUMMARY.json
+    wget $REPO_URL/gitbook/README.json
 
     gitbook init
     gitbook install

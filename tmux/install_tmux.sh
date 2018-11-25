@@ -17,8 +17,10 @@
 
 set -ax
 
-REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-
+TMUX="~/.tmux"
+mkdir -p $TMUX
+mkdir -p $TMUX/resurrect
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_tmux(){
     # Get distro information
@@ -43,46 +45,47 @@ do_install_tmux(){
 
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
-    TMUX="$HOME/.tmux"
-    mkdir -p $TMUX
-
-    echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_ROOT/tmux/tmux-ubuntu.conf -o $HOME/.tmux.conf
 
     echo "----------[  Installing TPM for Tmux   ]--------------"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
+    echo "----------[  Overwrite .tmux.conf   ]--------------"
+    curl -fsSL $REPO_URL/tmux/tmux-ubuntu.conf -o ~/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    mkdir -p $TMUX/resurrect
-    curl -fsSL $REPO_ROOT/tmux/resurrect/last-ubuntu.txt -o $TMUX/resurrect/last.txt
+    curl -fsSL $REPO_URL/tmux/resurrect/last-ubuntu.txt -o $TMUX/resurrect/last.txt
     ln -sf $TMUX/resurrect/last.txt $TMUX/resurrect/last
-
-    echo "----------[   Change permission   ]--------------"
-    sudo chown -R ubuntu:ubuntu ~/.tmux
 }
 
 install_tmux_rpi(){
     yes | sudo apt-get install tmux
 
-    echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp ./tmux-rpi.conf ~/.tmux.conf
-
     echo "----------[  Installing TPM for Tmux   ]--------------"
-    sudo git clone --no-checkout https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    echo "----------[  Overwrite .tmux.conf   ]--------------"
+    curl -fsSL $REPO_URL/tmux/tmux-rpi.conf -o ~/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    sudo mkdir ~/.tmux/resurrect
-    cp ./resurrect/last-rpi.txt ~/.tmux/resurrect/last.txt
-    sudo ln -sf ~/.tmux/resurrect/last.txt ~/.tmux/resurrect/last
-
-    echo "----------[   Change permission   ]--------------"
-    sudo chown -R pi:pi ~/.tmux
+    curl -fsSL $REPO_URL/tmux/resurrect/last-rpi.txt -o $TMUX/resurrect/last.txt
+    ln -sf $TMUX/resurrect/last.txt $TMUX/resurrect/last
 }
 
 install_tmux_mac(){
-    echo "tmux on mac"
+    brew install tmux  
+
+    echo "----------[  Installing TPM for Tmux   ]--------------"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    echo "----------[  Overwrite .tmux.conf   ]--------------"
+    curl -fsSL $REPO_URL/tmux/tmux-mac.conf -o ~/.tmux.conf
+    echo "----------[  Recover preset Tmux session   ]--------------"
+    curl -fsSL $REPO_URL/tmux/resurrect/last-mac.txt -o $TMUX/resurrect/last.txt
+    ln -sf $TMUX/resurrect/last.txt $TMUX/resurrect/last
 }
 
+do_test_installment(){
+    if [ -e ~/.tmux ];then
+        echo "[  OK  ]:----TMUX----"
+    else
+        echo "[  FAILED  ]:----TMUX----"
+    fi
+}
 
 # Entry point
 do_install_tmux "$@"

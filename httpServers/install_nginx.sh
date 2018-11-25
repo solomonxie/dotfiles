@@ -7,13 +7,13 @@
 
 set -x
 
-REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_nginx(){
     # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
+    curl -fsSL $REPO_URL/utils.sh -o ~/.bash-utils.sh
+    source ~/.bash-utils.sh
 
     # Get Distro
     case distro in

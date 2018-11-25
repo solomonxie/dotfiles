@@ -6,13 +6,13 @@
 
 set -x
 
-REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 
 do_install_seafile(){
     # Load uitility functions (check os)
-    curl -fsSL $REPO_ROOT/utils.sh -o $HOME/.bash-utils.sh
-    source $HOME/.bash-utils.sh
+    curl -fsSL $REPO_URL/utils.sh -o ~/.bash-utils.sh
+    source ~/.bash-utils.sh
 
     # Get Distro
     case distro in
@@ -66,7 +66,7 @@ install_seafile_mysql_ubuntu(){
 
     # Setup Nginx as HTTP server for seafile
     sudo mv /etc/nginx/sites-enabled/default /tmp
-    sudo curl -fsSL $REPO_ROOT/fileSharing/seafile_nginx.conf -o /etc/nginx/site-available/seafile.conf
+    sudo curl -fsSL $REPO_URL/fileSharing/seafile_nginx.conf -o /etc/nginx/site-available/seafile.conf
     sudo ln -sf /etc/nginx/sites-available/seafile.conf /etc/nginx/sites-enabled/seafile.conf
 
     # Restart services

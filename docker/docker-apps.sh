@@ -31,9 +31,9 @@ do_install_docker_apps(){
             docker_shadowsocks_old
             docker_v2ray
             docker_webav
+            docker_frp
+            docker_vpn_ipsec
             # docker_wsgidav
-            # docker_vpn_ipsec
-            # docker_frp
             ;;
         "raspbian")
             docker_webdav_rpi

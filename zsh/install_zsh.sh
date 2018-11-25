@@ -13,7 +13,7 @@ set -ax
 
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
-ZSH_PLUGINS="~/.zsh"
+ZSH_PLUGINS="$HOME/.zsh"
 #ZSH_PLUGINS="~/.oh-my-zsh/custom/plugins"
 mkdir -p $ZSH_PLUGINS
 

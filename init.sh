@@ -5,7 +5,7 @@
 # NOTICE: 
 # How to run this script:
 #   $ git clone https://github.com/solomonxie/dotfiles.git && cd ./dotfiles 
-#   $ sudo ./init.sh 2>&1 > /dev/null
+#   $ ./init.sh 2>&1 > /dev/null
 #
 # Debug:
 #   $ bashdb init.sh --distro ubuntu
@@ -61,29 +61,29 @@ do_init_ubuntu(){
     # echo "[   UPDATE APT REPOSITORIES   ]"
     echo "[   UPDATE APT REPOSITORIES   ]"
     # sudo cp ./etc/ubuntu/sources-cn.list /etc/apt/
-    sudo apt-get update
+    sudo apt-get update 2>&1 > /dev/null
     # Get essential tools before any installation
-    sudo apt-get install curl wget git bashdb -y
+    sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --distro ubuntu
+    sh $SRC/vim/install_vim.sh --distro ubuntu 2>&1 > /dev/null
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --distro ubuntu
+    sh $SRC/tmux/install_tmux.sh --distro ubuntu 2>&1 > /dev/null
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh --distro ubuntu
+    sh $SRC/zsh/install_zsh.sh --distro ubuntu 2>&1 > /dev/null
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --distro ubuntu
+    sh $SRC/python/install_python3.sh --distro ubuntu 2>&1 > /dev/null
     echo "[   SETTING UP JUPYTER ]"
-    sh $SRC/python/install_jupyter.sh --distro ubuntu
+    sh $SRC/python/install_jupyter.sh --distro ubuntu 2>&1 > /dev/null
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --distro ubuntu
+    sh $SRC/packageManager/apt.sh --distro ubuntu 2>&1 > /dev/null
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     # curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
-    sh $SRC/docker/install_docker.sh --distro ubuntu
+    sh $SRC/docker/install_docker.sh --distro ubuntu 2>&1 > /dev/null
 }
 
 do_init_rpi(){

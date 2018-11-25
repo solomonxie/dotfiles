@@ -5,7 +5,7 @@
 # NOTICE: 
 # How to run this script:
 #   $ git clone https://github.com/solomonxie/dotfiles.git && cd ./dotfiles 
-#   $ ./init.sh 2>&1 > /dev/null
+#   $ ./init.sh --distro ubuntu 2>&1 > /dev/null
 #
 # Debug:
 #   $ bashdb init.sh --distro ubuntu
@@ -141,11 +141,11 @@ get_distro(){
         local info=$(uname -a | tr '[:upper:]' '[:lower:]')
         if [[ $info == *"Darwin"* ]]; then
             distro="mac"
-        elif [[ $info == *"Ubuntu"* ]]; then
+        elif [[ $info == *"ubuntu"* ]]; then
             distro="ubuntu"
         elif [[ $info == *"raspberrypi"* ]]; then
             distro="raspbian"
-        elif [[ $info == *"Linux"* ]]; then
+        elif [[ $info == *"linux"* ]]; then
             distro="linux"
         else
             distro="OTHERS"

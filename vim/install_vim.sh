@@ -41,6 +41,14 @@ do_install_vim(){
         "mac")
             install_vim_mac ;;
     esac
+    # Color Scheme
+    echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
+    mkdir -p ~/.vim/colors
+    curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
+    # Download Vundle & Install plugins
+    echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
 }
 
 install_vim_ubuntu(){
@@ -50,16 +58,9 @@ install_vim_ubuntu(){
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
     curl -fsSL $REPO_URL/vim/vimrc-ubuntu -o ~/.vimrc
 
-    echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
     echo "-----[  Change permission   ]-----"
     sudo chown -R ubuntu:ubuntu ~/.vim
     # sudo chown -R ubuntu ~/.vim >> ~/.init/log_vim.txt 1>&2
-
-    echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    mkdir -p ~/.vim/colors
-    curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
 }
 
 install_vim_rpi(){
@@ -69,20 +70,17 @@ install_vim_rpi(){
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
     curl -fsSL $REPO_URL/vim/vimrc-rpi -o ~/.vimrc
 
-    echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
-    git clone --no-checkout https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
     echo "-----[  Change permission   ]-----"
     sudo chown -R pi:pi ~/.vim
     #sudo chown -R ubuntu ~/.vim >> ~/.init/log_vim.txt 1>&2
-
-    echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    mkdir -p ~/.vim/colors
-    curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
 }
 
 install_vim_mac(){
-    echo "vim on mac"    
+    brew install vim
+
+    # ---SETING UP VIM ---
+    echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
+    curl -fsSL $REPO_URL/vim/vimrc-mac -o ~/.vimrc
 }
 
 # Start this script

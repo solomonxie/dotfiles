@@ -5,7 +5,7 @@
 # NOTICE: 
 # How to run this script:
 #   git clone https://github.com/solomonxie/dotfiles.git && cd dotfiles 
-#   ./init.sh 2>&1 > /dev/null
+#   nohup ./init.sh 2>&1 > /dev/null &
 #
 # Debug:
 #   $ bashdb init.sh --distro ubuntu

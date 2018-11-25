@@ -31,15 +31,12 @@ do_init_zsh(){
     case $distro in
         "ubuntu")
             install_zsh_ubuntu
-            install_zsh_plugins
             ;;
         "raspbian")
             install_zsh_rpi
-            install_zsh_plugins
             ;;
         "mac")
             install_zsh_mac
-            install_zsh_plugins
             ;;
     esac
     # Check installment
@@ -52,6 +49,8 @@ install_zsh_ubuntu(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     sudo apt-get install zsh -y
 
+    install_zsh_plugins
+
     echo "-----[  OVERWRITE ZSHRC   ]-----"
     wget $REPO_URL/zsh/zshrc -O ~/.zshrc
     wget $REPO_URL/zsh/zshrc-themes -O ~/.zshrc.themes
@@ -62,6 +61,8 @@ install_zsh_ubuntu(){
 install_zsh_rpi(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     sudo apt-get install zsh -y
+    
+    install_zsh_plugins
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
     wget $REPO_URL/zsh/zshrc -O ~/.zshrc

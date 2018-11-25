@@ -41,13 +41,15 @@ do_install_tmux(){
         "mac")
             install_tmux_mac ;;
     esac
+    # Download & Install plugins
+    echo "----------[  Installing TPM for Tmux   ]--------------"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ~/.tmux/plugins/tpm/bin/install_plugins
 }
 
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
 
-    echo "----------[  Installing TPM for Tmux   ]--------------"
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     echo "----------[  Overwrite .tmux.conf   ]--------------"
     curl -fsSL $REPO_URL/tmux/tmux-ubuntu.conf -o ~/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
@@ -58,8 +60,6 @@ install_tmux_ubuntu(){
 install_tmux_rpi(){
     yes | sudo apt-get install tmux
 
-    echo "----------[  Installing TPM for Tmux   ]--------------"
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     echo "----------[  Overwrite .tmux.conf   ]--------------"
     curl -fsSL $REPO_URL/tmux/tmux-rpi.conf -o ~/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
@@ -70,8 +70,6 @@ install_tmux_rpi(){
 install_tmux_mac(){
     brew install tmux  
 
-    echo "----------[  Installing TPM for Tmux   ]--------------"
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     echo "----------[  Overwrite .tmux.conf   ]--------------"
     curl -fsSL $REPO_URL/tmux/tmux-mac.conf -o ~/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"

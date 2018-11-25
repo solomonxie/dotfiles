@@ -4,8 +4,8 @@
 # ENVIRONMENT: Ubuntu / Raspbian / MacOS
 # NOTICE: 
 # How to run this script:
-#   $ git clone https://github.com/solomonxie/dotfiles.git && cd ./dotfiles 
-#   $ ./init.sh --distro ubuntu 2>&1 > /dev/null
+#   $ git clone https://github.com/solomonxie/dotfiles.git && cd dotfiles 
+#   $ ./init.sh 2>&1 > /dev/null
 #
 # Debug:
 #   $ bashdb init.sh --distro ubuntu

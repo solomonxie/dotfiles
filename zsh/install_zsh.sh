@@ -73,7 +73,7 @@ install_zsh_plugins(){
     echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo sh
     echo "-----[  Installing Themes for ZSH   ]-----"
-    git clone --no-checkout https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
     sudo pip install powerline-status
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
     git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions

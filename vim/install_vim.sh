@@ -20,7 +20,7 @@ set -ax
 
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 mkdir ~/.vim
-export VIM="~/.vim"
+export VIM="$HOME/.vim"
 
 
 do_install_vim(){

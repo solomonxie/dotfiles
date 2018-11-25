@@ -17,7 +17,7 @@
 
 set -ax
 
-TMUX="~/.tmux"
+TMUX="$HOME/.tmux"
 mkdir -p $TMUX
 mkdir -p $TMUX/resurrect
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"

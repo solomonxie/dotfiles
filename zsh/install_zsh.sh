@@ -53,9 +53,9 @@ install_zsh_ubuntu(){
     sudo apt-get install zsh -y
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    cp ~/dotfiles/zsh/zshrc ~/.zshrc
-    cp ~/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
-    cp ~/dotfiles/zsh/zshrc.extension ~/.zshrc.extension
+    wget $REPO_URL/zsh/zshrc -O ~/.zshrc
+    wget $REPO_URL/zsh/zshrc-themes -O ~/.zshrc.themes
+    wget $REPO_URL/zsh/zshrc-extension -O ~/.zshrc.extension
 }
 
 
@@ -64,14 +64,14 @@ install_zsh_rpi(){
     sudo apt-get install zsh -y
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    sudo cp ~/dotfiles/zsh/zshrc ~/.zshrc
-    sudo cp ~/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
-    sudo cp ~/dotfiles/zsh/zshrc.extension ~/.zshrc.extension
+    wget $REPO_URL/zsh/zshrc -O ~/.zshrc
+    wget $REPO_URL/zsh/zshrc-themes -O ~/.zshrc.themes
+    wget $REPO_URL/zsh/zshrc-extension -O ~/.zshrc.extension
 }
 
 install_zsh_plugins(){
     echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
-    curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo sh
+    curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
     echo "-----[  Installing Themes for ZSH   ]-----"
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
     sudo pip install powerline-status

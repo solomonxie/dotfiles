@@ -3,6 +3,10 @@
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # ENVIRONMENT: Ubuntu / Raspbian / MacOS
 # NOTICE: 
+#   This script shouldn't be run as ROOT user,
+#   please don't abuse "sudo" on top of this script.
+#   Run this as ROOT results apps installed to wrong paths.
+#
 # How to run this script:
 #   git clone https://github.com/solomonxie/dotfiles.git && cd dotfiles 
 #   nohup ./init.sh 2>&1 > /dev/null &
@@ -97,27 +101,27 @@ do_init_rpi(){
     # Update server & install essentials
     echo "[   UPDATE APT REPOSITORIES   ]"
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
-    sudo apt-get update
+    sudo apt-get update 2>&1 /dev/null
     # Get essential tools before any installation
-    sudo apt-get install curl wget git bashdb -y
+    sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --distro raspbian
+    sh $SRC/vim/install_vim.sh --distro raspbian 2>&1 > /dev/null
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --distro raspbian
+    sh $SRC/tmux/install_tmux.sh --distro raspbian 2>&1 > /dev/null
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/python/install_zsh.sh --distro raspbian
+    sh $SRC/python/install_zsh.sh --distro raspbian 2>&1 > /dev/null
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --distro raspbian
+    sh $SRC/python/install_python3.sh --distro raspbian 2>&1 > /dev/null
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --distro raspbian
+    sh $SRC/packageManager/apt.sh --distro raspbian 2>&1 > /dev/null
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install-docker-rpi.sh
-    sh $SRC/docker/docker-apps.sh --distro raspbian
+    sh $SRC/docker/install-docker-rpi.sh --distro raspbian 2>&1 > /dev/null
+    sh $SRC/docker/docker-apps.sh --distro raspbian 2>&1 > /dev/null
 }
 
 do_init_mac(){

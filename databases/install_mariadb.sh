@@ -6,7 +6,7 @@
 
 set -x
 
-REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_mariadb_by_os(){
     # Get distro information

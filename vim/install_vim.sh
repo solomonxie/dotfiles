@@ -18,7 +18,9 @@
 
 set -ax
 
-REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+mkdir ~/.vim
+export VIM="~/.vim"
 
 
 do_install_vim(){
@@ -45,12 +47,9 @@ do_install_vim(){
 install_vim_ubuntu(){
     sudo apt-get install vim -y
 
-    mkdir ~/.vim
-    export VIM="~/.vim"
-
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-    curl -fsSL $REPO_ROOT/vim/vimrc-ubuntu -o ~/.vimrc
+    curl -fsSL $REPO_URL/vim/vimrc-ubuntu -o ~/.vimrc
 
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -61,18 +60,15 @@ install_vim_ubuntu(){
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p ~/.vim/colors
-    curl -fsSL $REPO_ROOT/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
+    curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
 }
 
 install_vim_rpi(){
-    mkdir ~/.vim
-    export VIM=~/.vim
-
     yes | sudo apt-get install vim
 
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-    curl -fsSL $REPO_ROOT/vim/vimrc-rpi -o $HOME/.vimrc
+    curl -fsSL $REPO_URL/vim/vimrc-rpi -o ~/.vimrc
 
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
     git clone --no-checkout https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -83,7 +79,7 @@ install_vim_rpi(){
 
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p ~/.vim/colors
-    curl -fsSL $REPO_ROOT/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
+    curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
 }
 
 install_vim_mac(){

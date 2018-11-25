@@ -6,7 +6,7 @@
 
 set -x
 
-REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_redis_by_os(){
     # Get distro information
@@ -35,13 +35,15 @@ do_install_redis_by_os(){
 
 build_redis(){
     # Download redis
+    cd /tmp/
     wget http://download.redis.io/releases/redis-5.0.0.tar.gz
-    tar -xvzf redis-*.tar.gz
-    cd redis-*
+    tar -xvzf redis-5.0.0.tar.gz
+    cd redis-5.0.0
     # Compile redis
     make
     make test
     sudo make install
+    cd -
 }
 
 install_redis_ubuntu(){

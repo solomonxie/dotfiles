@@ -4,7 +4,7 @@
 #
 
 check_oh_my_zsh(){
-    if [ ! -e $HOME/.oh-my-zsh ]; then
+    if [ ! -e ~/.oh-my-zsh ]; then
         # If haven't installed oh-my-zsh, then install it
         export ZSH=~/.oh-my-zsh 
         source $ZSH/oh-my-zsh.sh 
@@ -31,7 +31,7 @@ set_theme_junkfood(){
 # [ Agnoster ]
 set_theme_agnoster(){
     # Preload dependencies: 
-        if [ ! -e $HOME/.oh-my-zsh/themes/agnoster.zsh-theme ]; then
+        if [ ! -e ~/.oh-my-zsh/themes/agnoster.zsh-theme ]; then
             wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
         fi
         export TERM="xterm-256color" 
@@ -51,7 +51,7 @@ set_theme_agnoster(){
 # [ PowerLevel9k ]
 set_theme_powerlevel9k(){
     # Preload dependencies: 
-        if [ ! -e $HOME/.oh-my-zsh/custom/themes/powerlevel9k ]; then
+        if [ ! -e ~/.oh-my-zsh/custom/themes/powerlevel9k ]; then
             git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
         fi
         export TERM="xterm-256color" 

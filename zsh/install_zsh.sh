@@ -5,11 +5,17 @@
 #
 # Run:
 #   $ ./install_zsh.sh --distro ubuntu
+# Debug:
+#   $ bashdb ./install_zsh.sh --distro ubuntu
+
 
 set -ax
 
-REPO_ROOT="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
+ZSH_PLUGINS="~/.zsh"
+#ZSH_PLUGINS="~/.oh-my-zsh/custom/plugins"
+mkdir -p $ZSH_PLUGINS
 
 do_init_zsh(){
     # Get distro information
@@ -24,49 +30,32 @@ do_init_zsh(){
     # Do different things with different OS
     case $distro in
         "ubuntu")
-            install_zsh_ubuntu ;;
+            install_zsh_ubuntu
+            install_zsh_plugins
+            ;;
         "raspbian")
-            install_zsh_rpi ;;
+            install_zsh_rpi
+            install_zsh_plugins
+            ;;
         "mac")
-            install_zsh_mac ;;
+            install_zsh_mac
+            install_zsh_plugins
+            ;;
     esac
+    # Check installment
+    do_test_installment_zsh
+    change_default_shell_zsh
 }
 
 
 install_zsh_ubuntu(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     sudo apt-get install zsh -y
-    if [ ! -e /bin/zsh ];then echo "[  FAILED  ]:----ZSH----"; fi
-
-    echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
-    curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo sh
-    if [ ! -e ~/.oh-my-zsh/ ];then echo "[  FAILED  ]:----Oh-My-ZSH----"; fi
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    sudo cp $HOME/dotfiles/zsh/zshrc ~/.zshrc
-    sudo cp $HOME/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
-    sudo cp $HOME/dotfiles/zsh/zshrc.extension ~/.zshrc.extension
-    if [ ! -e ~/.zshrc ] || [ ! -e ~/.zshrc.extension ] || [ ! -e ~/.zshrc.themes ]; then
-        echo "[  FAILED  ]:---zshrc---"
-    fi
-
-    echo "-----[  Installing Themes for ZSH   ]-----"
-    sudo git clone --no-checkout https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-    sudo pip install powerline-status
-    if [ ! -e ~/.oh-my-zsh/custom/themes/powerlevel9k ];then 
-        echo "[  FAILED  ]:----Powerlevel9k----"
-    fi
-
-    echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
-    ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
-    sudo chown -R ubuntu:ubuntu $ZSH_PLUGINS
-    sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGINS/zsh-syntax-highlighting
-    if [ ! -e $ZSH_PLUGINS/zsh-syntax-highlighting ];then echo "[  FAILED  ]:----zsh-syntax-highlighting----"; fi
-    sudo git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions
-    if [ ! -e $ZSH_PLUGINS/zsh-autosuggestions ];then echo "[  FAILED  ]:----zsh-autosuggestions----"; fi
-
-    echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
-    echo "vim command  :%s/ubuntu.+\/bin\/bash$/\/bin\/zsh"
+    cp ~/dotfiles/zsh/zshrc ~/.zshrc
+    cp ~/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
+    cp ~/dotfiles/zsh/zshrc.extension ~/.zshrc.extension
 }
 
 
@@ -74,30 +63,56 @@ install_zsh_rpi(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     sudo apt-get install zsh -y
 
+    echo "-----[  OVERWRITE ZSHRC   ]-----"
+    sudo cp ~/dotfiles/zsh/zshrc ~/.zshrc
+    sudo cp ~/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
+    sudo cp ~/dotfiles/zsh/zshrc.extension ~/.zshrc.extension
+}
+
+install_zsh_plugins(){
     echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo sh
-
-    echo "-----[  OVERWRITE ZSHRC   ]-----"
-    sudo cp $HOME/dotfiles/zsh/zshrc ~/.zshrc
-    sudo cp $HOME/dotfiles/zsh/zshrc-themes ~/.zshrc.themes
-    sudo cp $HOME/dotfiles/zsh/zshrc.extension ~/.zshrc.extension
-
-
     echo "-----[  Installing Themes for ZSH   ]-----"
-    sudo git clone --no-checkout https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-    sudo wget -q https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
-    sudo pip install powerline-status >> ~/.init/log_zsh.txt 1>&2
-
-    echo "-----[  Installing Themes for ZSH   ]-----"
-    sudo chown -R pi:pi $HOME/.oh-my-zsh/
-
-    # Change default shell as Z-Shell
-    sudo chsh -s /bin/zsh
-    /bin/zsh
-
+    git clone --no-checkout https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    sudo pip install powerline-status
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
-    sudo git clone --no-checkout https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting 
-    sudo git clone --no-checkout https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGINS/zsh-syntax-highlighting
+}
+
+
+change_default_shell_zsh(){
+    echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
+    echo "vim command  :%s/$USER.+\/bin\/bash$/\/bin\/zsh"
+}
+
+
+do_test_installment_zsh(){
+    if [ -e /bin/zsh ];then 
+        echo "[  OK  ]:----ZSH----"
+    else
+        echo "[  FAILED  ]:----ZSH----"
+    fi
+    if [ -e ~/.oh-my-zsh/ ];then 
+        echo "[  OK  ]:----Oh-My-ZSH----"
+    else
+        echo "[  FAILED  ]:----Oh-My-ZSH----"
+    fi
+    if [ -e $ZSH_PLUGINS/zsh-syntax-highlighting ];then 
+        echo "[  OK  ]:----zsh-syntax-highlighting----"
+    else
+        echo "[  FAILED  ]:----zsh-syntax-highlighting----"
+    fi
+    if [ -e $ZSH_PLUGINS/zsh-autosuggestions ];then 
+        echo "[  OK  ]:----zsh-autosuggestions----"
+    else
+        echo "[  FAILED  ]:----zsh-autosuggestions----"
+    fi
+    if [ -e ~/.oh-my-zsh/custom/themes/powerlevel9k ];then 
+        echo "[  OK  ]:----Powerlevel9k----"
+    else
+        echo "[  FAILED  ]:----Powerlevel9k----"
+    fi
 }
 
 

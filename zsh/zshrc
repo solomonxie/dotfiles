@@ -12,21 +12,26 @@
 # 
 
 # 引用不方便公开的本地配置文件
-    source $HOME/.zshrc.extension
+    source ~/.zshrc.extension
 
 #  Theme settings {
-    source $HOME/.zshrc.themes
+    source ~/.zshrc.themes
     #set_theme_powerlevel9k
     #set_theme_agnoster
     #set_theme_junkfood
     set_theme_awesomepanda
 # }
 
+# Plugins {
+    # Fish-like commandline suggestions (not working with oh-my-zsh)
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# }
+
 # Setting up Oh-my-zsh {
     export ZSH=~/.oh-my-zsh 
     plugins=( 
       git, 
-      zsh-autosuggestions, 
       colored-man-pages 
     )
     # Disable update checks:
@@ -35,18 +40,12 @@
     ZSH_DISABLE_COMPFIX=true
     # Manually update oh-my-zsh:
     # upgrade_oh_my_zsh 
-    source $ZSH/oh-my-zsh.sh 
+    source $ZSH/oh-my-zsh.sh
 # }
 
-# Common settings {
+# # Environment Variables, paths {
     export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
     export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
     export EDITOR=vim 
     export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-# }
-
-
-
-# This must be at the end of ~/.zshrc {
-    source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # }

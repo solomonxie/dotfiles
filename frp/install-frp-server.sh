@@ -4,7 +4,10 @@
 # Commands:
 #
 
-DIR=$HOME
+ME=$(who am i | awk '{print $1}')
+MYHOME=`getent passwd $ME | cut -d: -f 6`
+DIR=$MYHOME
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_frps_ubuntu(){
     cd $DIR

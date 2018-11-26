@@ -73,13 +73,13 @@ do_init_ubuntu(){
     sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --distro ubuntu 2>&1 > /dev/null
+    sh $SRC/vim/install_vim.sh --distro ubuntu
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --distro ubuntu 2>&1 > /dev/null
+    sh $SRC/tmux/install_tmux.sh --distro ubuntu
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh --distro ubuntu 2>&1 > /dev/null
+    sh $SRC/zsh/install_zsh.sh --distro ubuntu
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
     sh $SRC/python/install_python3.sh --distro ubuntu 2>&1 > /dev/null
@@ -109,18 +109,18 @@ do_init_rpi(){
     sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --distro raspbian 2>&1 > /dev/null
+    sh $SRC/vim/install_vim.sh --distro raspbian
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --distro raspbian 2>&1 > /dev/null
+    sh $SRC/tmux/install_tmux.sh --distro raspbian
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/python/install_zsh.sh --distro raspbian 2>&1 > /dev/null
+    sh $SRC/python/install_zsh.sh --distro raspbian
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
     sh $SRC/python/install_python3.sh --distro raspbian 2>&1 > /dev/null
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --distro raspbian 2>&1 > /dev/null
+    sh $SRC/packageManager/apt.sh --distro raspbian
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     sh $SRC/docker/install-docker-rpi.sh --distro raspbian

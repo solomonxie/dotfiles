@@ -95,9 +95,11 @@ call vundle#end()            " required
         " Bash script
         autocmd FileType sh nnoremap <buffer> <C-i> :!sh % <CR>
         " Executable
-        " ....
+        nnoremap <buffer> <C-i> :!./% <CR>
+        "nnoremap <buffer> <C-i> :! %:p <CR>
         " RCs (Configs)
-        autocmd FileType vim,zsh,tmux nnoremap <buffer> <C-i> :source % <CR>
+        autocmd FileType vim,tmux nnoremap <buffer> <C-i> :source % <CR>
+        autocmd FileType zsh nnoremap <buffer> <C-i> :!source % <CR>
     " }
     "--Nerdtree--
     " 将焦点放在树上（无论何种情况）
@@ -117,25 +119,6 @@ call vundle#end()            " required
         "inoremap ( ()<Esc>i
         "inoremap [ []<Esc>i
         "inoremap { {}<Esc>i
-" }}}
-
-
-
-
-" Search Highlighting -----------{{{
-    highlight Search guibg='Purple' guifg='NONE'
-    highlight IncSearch gui=underline,bold guifg=White guibg=Red3
-    "highlight IncSearch ctermbg=black ctermfg=yellow 
-    " 鼠标无动作时取消高亮
-    autocmd cursorhold * set nohlsearch
-    " 当输入查找命令时，再启用高亮
-    noremap n :set hlsearch<cr>n
-    noremap N :set hlsearch<cr>N
-    noremap / :set hlsearch<cr>/
-    noremap ? :set hlsearch<cr>?
-    noremap * *:set hlsearch<cr>
-    " 括号匹配自动高亮
-    "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
 " }}}
 
 

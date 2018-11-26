@@ -22,30 +22,57 @@
     set_theme_awesomepanda
 # }
 
+
+# Builtin behaviors {
+    setopt correct_all # autocorrect commands
+    setopt auto_list # automatically list choices on ambiguous completion
+    setopt auto_menu # automatically use menu completion
+    setopt always_to_end # move cursor to end if word had one match
+    zstyle ':completion:*' menu select # select completions with arrow keys
+    zstyle ':completion:*' group-name '' # group results by category
+    # enable approximate matches for completion
+    zstyle ':completion:::::' completer _expand _complete _ignored _approximate 
+# }
+
+
 # Plugins {
     # Fish-like commandline suggestions (not working with oh-my-zsh)
     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # Setups for plugins {
+        # [zsh-autosuggestions]
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6' # [Essential]
+        # [zsh-history-substring-search]
+    # }
 # }
+
+
+# Key Bindings / Mappings {
+    bindkey '^i' autosuggest-accept # [Essential] Ctrl+i to confirm hint
+    #bindkey '^p' up-line-or-search # Up arrow (conflict with autosuggest)
+    #bindkey '^n' down-line-or-search # Down arrow (conflict with autosuggest)
+# }
+
 
 # Setting up Oh-my-zsh {
     export ZSH=~/.oh-my-zsh 
     plugins=( 
       git, 
-      colored-man-pages 
+      #history-substring-search,
+      colored-man-pages
     )
     # Disable update checks:
     DISABLE_UPDATE_PROMPT=true
     DISABLE_AUTO_UPDATE=true
     ZSH_DISABLE_COMPFIX=true
-    # Manually update oh-my-zsh:
-    # upgrade_oh_my_zsh 
-    source $ZSH/oh-my-zsh.sh
+    # Manually update oh-my-zsh: $ upgrade_oh_my_zsh 
+    # Use oh-my-zsh
+    source $ZSH/oh-my-zsh.sh 
 # }
+
 
 # # Environment Variables, paths {
     export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
     export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
     export EDITOR=vim 
-    export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 # }

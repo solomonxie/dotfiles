@@ -8,11 +8,9 @@
 "     $ wget https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
 " Manual commands (type in vim, sodu mode required):
 "     :PluginInstall
-"
-"
+
+
 " [VUNDLE DIFINITIONS MUST BE ON THE TOP]
-set nocompatible   " be iMproved, required
-filetype off " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
@@ -42,13 +40,19 @@ call vundle#begin()
         "Plugin 'tpope/vim-surround'
     "<<Session>>
         Plugin 'tpope/vim-obsession'
-call vundle#end()            " required
-filetype plugin indent on    " required
+    "<<Autocomplete>>
+        "Plugin 'ervandew/supertab'
+        Plugin 'valloric/youcompleteme'
+call vundle#end()
 
 
 " General Settings ==================={{{
+    filetype plugin indent on    " [Essential]
+    set nocompatible   " be iMproved, required
     colorscheme gruvbox 
     syntax enable 
+    set ignorecase "Case Insensitive
+    set smartcase  "Also detects specified case
     set background=dark
     set hidden " 设置Buffer缓冲区允许不保存时切换buffer
     set number "show line number
@@ -64,6 +68,17 @@ filetype plugin indent on    " required
     set encoding=utf8  "设置默认编码
     retab "打开文件时自动转换所有tab为空格
 " }}}
+
+" Filetype based builtin Autocomplete [omnifunc] --{
+    filetype plugin on
+    "au FileType python setl ofu=pythoncomplete#CompletePHP
+    "au FileType php setl ofu=phpcomplete#CompletePHP
+    "au FileType ruby,eruby setl ofu=rubycomplete#Complete
+    "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+    "au FileType c setl ofu=ccomplete#CompleteCpp
+    "au FileType css setl ofu=csscomplete#CompleteCSS
+" }
+
 
 " Key Mapping ================{{{
     "--Leader key--
@@ -81,12 +96,39 @@ filetype plugin indent on    " required
     " 从系统剪切板中粘贴到当前位置
         nnoremap <leader>p "+P
         vnoremap <leader>p "+p
-    " vim自带的自动补全Autocomplete
-        inoremap <C-d> <C-x><C-l>
-    "--Buffer--
+    "--buffer--
         nnoremap <C-h> :bp<CR><ESC>
         nnoremap <C-l> :bn<CR><ESC>
         nnoremap <leader>q :bd<CR><ESC>
+
+    " Filetype based Mappings----{
+        " Get current filetype -> :echo &filetype or as variable &filetype
+        " [ Builds / Compiles / Interpretes  ]
+        " C Compiler:
+        autocmd FileType c nnoremap <buffer> <C-i> :!gcc % && ./a.out <CR>
+        " C++ Compiler
+        autocmd FileType cpp nnoremap <buffer> <C-i> :!g++ % && ./a.out <CR>
+        " Python Interpreter
+        autocmd FileType python nnoremap <buffer> <C-i> :!python % <CR>
+        " Bash script
+        autocmd FileType sh nnoremap <buffer> <C-i> :!sh % <CR>
+        " Executable
+        nnoremap <buffer> <C-i> :!./% <CR>
+        "nnoremap <buffer> <C-i> :! %:p <CR>
+        " RCs (Configs)
+        autocmd FileType vim,tmux nnoremap <buffer> <C-i> :source % <CR>
+        autocmd FileType zsh nnoremap <buffer> <C-i> :!source % <CR>
+    " }
+    
+    "--Autocomplete--
+    " vim自带的自动补全Autocomplete [omnifunc]
+        inoremap <C-d> <C-x><C-l>
+        "inoremap ' ''<Esc>i
+        "inoremap " ""<Esc>i
+        "inoremap ( ()<Esc>i
+        "inoremap [ []<Esc>i
+        "inoremap { {}<Esc>i
+    
     "--Nerdtree--
     " 将焦点放在树上（无论何种情况）
         nnoremap <leader>f :NERDTreeFocus<CR>
@@ -99,12 +141,6 @@ filetype plugin indent on    " required
         "nnoremap <leader>t :tabe<CR>
     " 按leader+q 关闭当前tab
         "nnoremap <leader>c :tabc
-    "--Autocomplete--
-        "inoremap ' ''<Esc>i
-        "inoremap " ""<Esc>i
-        "inoremap ( ()<Esc>i
-        "inoremap [ []<Esc>i
-        "inoremap { {}<Esc>i
 " }}}
 
 

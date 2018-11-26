@@ -25,14 +25,15 @@
 # }
 
 # Builtin behaviors {
-    setopt correct_all # autocorrect commands
-    setopt auto_list # automatically list choices on ambiguous completion
-    setopt auto_menu # automatically use menu completion
-    setopt always_to_end # move cursor to end if word had one match
-    zstyle ':completion:*' menu select # select completions with arrow keys
-    zstyle ':completion:*' group-name '' # group results by category
+    #zstyle ':completion:*' menu select # select completions with arrow keys
+    #zstyle ':completion:*' group-name '' # group results by category
     # enable approximate matches for completion
-    zstyle ':completion:::::' completer _expand _complete _ignored _approximate 
+    #zstyle ':completion:::::' completer _expand _complete _ignored _approximate 
+    # [Conflict options]
+    #setopt auto_list # automatically list choices on ambiguous completion
+    #setopt auto_menu # automatically use menu completion
+    #setopt always_to_end # move cursor to end if word had one match
+    #setopt correct_all # autocorrect commands
 # }
 
 
@@ -49,9 +50,10 @@
 
 
 # Key Bindings / Mappings {
-    bindkey '^i' autosuggest-accept # [Essential] Ctrl+i to confirm hint
-    #bindkey '^p' up-line-or-search # Up arrow (conflict with autosuggest)
-    #bindkey '^n' down-line-or-search # Down arrow (conflict with autosuggest)
+    bindkey '^p' up-line-or-search # Up arrow
+    bindkey '^n' down-line-or-search # Down arrow
+    # [autosuggestions] (history conflict with zsh hints, not recommanded)
+    #bindkey '^i' autosuggest-accecpt # [Essential] Ctrl+i to confirm hint
 # }
 
 

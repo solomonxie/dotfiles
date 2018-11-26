@@ -89,8 +89,8 @@ do_init_ubuntu(){
     sh $SRC/packageManager/apt.sh --distro ubuntu 2>&1 > /dev/null
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install_docker.sh --distro ubuntu 2>&1 > /dev/null
-    sh $SRC/docker/docker-apps.sh --distro ubuntu 2>&1 > /dev/null
+    sh $SRC/docker/install_docker.sh --distro ubuntu
+    sh $SRC/docker/docker-apps.sh --distro ubuntu
 }
 
 do_init_rpi(){
@@ -123,8 +123,8 @@ do_init_rpi(){
     sh $SRC/packageManager/apt.sh --distro raspbian 2>&1 > /dev/null
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install-docker-rpi.sh --distro raspbian 2>&1 > /dev/null
-    sh $SRC/docker/docker-apps.sh --distro raspbian 2>&1 > /dev/null
+    sh $SRC/docker/install-docker-rpi.sh --distro raspbian
+    sh $SRC/docker/docker-apps.sh --distro raspbian
 }
 
 do_init_mac(){

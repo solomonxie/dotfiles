@@ -95,9 +95,11 @@ call vundle#end()            " required
         " Bash script
         autocmd FileType sh nnoremap <buffer> <C-i> :!sh % <CR>
         " Executable
-        " ....
+        nnoremap <buffer> <C-i> :!./% <CR>
+        "nnoremap <buffer> <C-i> :! %:p <CR>
         " RCs (Configs)
-        autocmd FileType vim,zsh,tmux nnoremap <buffer> <C-i> :source % <CR>
+        autocmd FileType vim,tmux nnoremap <buffer> <C-i> :source % <CR>
+        autocmd FileType zsh nnoremap <buffer> <C-i> :!source % <CR>
     " }
     "--Nerdtree--
     " 将焦点放在树上（无论何种情况）

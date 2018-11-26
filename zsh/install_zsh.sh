@@ -71,6 +71,18 @@ install_zsh_rpi(){
     wget $REPO_URL/zsh/zshrc-extension -O $MYHOME/.zshrc.extension
 }
 
+install_zsh_rpi(){
+    echo "-----[  START SETTING UP ZSH   ]-----"
+    brew install zsh
+    
+    install_zsh_plugins
+
+    echo "-----[  OVERWRITE ZSHRC   ]-----"
+    wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
+    wget $REPO_URL/zsh/zshrc-themes -O $MYHOME/.zshrc.themes
+    wget $REPO_URL/zsh/zshrc-extension -O $MYHOME/.zshrc.extension
+}
+
 install_zsh_plugins(){
     echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh

@@ -24,17 +24,33 @@
     set_theme_powerlevel9k
 # }
 
+# Builtin behaviors {
+    setopt correct_all # autocorrect commands
+    setopt auto_list # automatically list choices on ambiguous completion
+    setopt auto_menu # automatically use menu completion
+    setopt always_to_end # move cursor to end if word had one match
+    zstyle ':completion:*' menu select # select completions with arrow keys
+    zstyle ':completion:*' group-name '' # group results by category
+    # enable approximate matches for completion
+    zstyle ':completion:::::' completer _expand _complete _ignored _approximate 
+# }
+
 # Plugins {
     # Fish-like commandline suggestions (not working with oh-my-zsh)
     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # }
 
+# Key bindings / mappings {
+    # [zsh-autosuggestions]
+    bindkey '^i' autosuggest-accept
+# }
+
 # Setting up Oh-my-zsh {
     export ZSH=~/.oh-my-zsh 
     plugins=( 
       git, 
-      colored-man-pages 
+      colored-man-pages
     )
     # Disable update checks:
     DISABLE_UPDATE_PROMPT=true

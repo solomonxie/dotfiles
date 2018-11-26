@@ -40,6 +40,7 @@ do_install_apt_by_os(){
 
 
 install_utils_ubuntu(){
+    sudo apt-get install apt-utils -y
     sudo apt-get install mosh -y
     sudo apt-get install unzip -y
     sudo apt-get install ntfs-3g -y
@@ -51,11 +52,12 @@ install_utils_ubuntu(){
     #sudo apt-get install fortune cowsay cmatrix -y
     sudo pip install youtube-dl tldr ffmpeg
 
-    yes | sudo add-apt-repository ppa:dawidd0811/neofetch
-    sudo apt update && sudo apt install neofetch -y
+    #yes | sudo add-apt-repository ppa:dawidd0811/neofetch
+    #sudo apt update && sudo apt install neofetch -y
 }
 
 install_utils_rpi(){
+    sudo apt-get install apt-utils -y
     sudo apt-get install mosh -y
     sudo apt-get install ntfs-3g -y
     sudo apt-get install tightvncserver -y
@@ -68,8 +70,8 @@ install_utils_rpi(){
     #sudo apt-get install fortune cowsay cmatrix -y
     sudo pip install youtube-dl tldr ffmpeg
 
-    sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list
-    sudo apt update && sudo apt install neofetch -y
+    #sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list
+    #sudo apt update && sudo apt install neofetch -y
 }
 
 install_printer_ubuntu(){

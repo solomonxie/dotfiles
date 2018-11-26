@@ -43,7 +43,9 @@ call vundle#end()            " required
 
 " General Settings ==================={{{
     colorscheme gruvbox 
-    syntax enable 
+    syntax enable
+    set ignorecase "Case Insensitive
+    set smartcase  "Also detects specified case
     set background=dark
     set hidden " 设置Buffer缓冲区允许不保存时切换buffer
     set number "show line number
@@ -61,41 +63,62 @@ call vundle#end()            " required
 
 " Key Mapping ================{{{
     "--Leader key--
-    let mapleader = ','
+        let mapleader = ','
+    " Reload vimrc config fil:
+        nnoremap <leader>r :source %<CR><ESC>
+    " Install Plugins
+        nnoremap <leader>I :PluginInstall<CR>
     " Escape key
-    inoremap <C-c> <Esc>:nohl<CR>
-    nnoremap <C-c> <ESC>:nohl<CR>
+        inoremap <C-c> <Esc>:nohl<CR><ESC>
+        nnoremap <C-c> <ESC>:nohl<CR><ESC>
     " 复制到系统剪切板
-    nnoremap <leader>y "+Y
-    vnoremap <leader>y "+y
+        nnoremap <leader>y "+Y
+        vnoremap <leader>y "+y
     " 从系统剪切板中粘贴到当前位置
-    nnoremap <leader>p "+P
-    vnoremap <leader>p "+p
+        nnoremap <leader>p "+P
+        vnoremap <leader>p "+p
     " vim自带的自动补全Autocomplete
-    inoremap <C-d> <C-x><C-l>
-    "--Airline--
-    nnoremap <C-h> :bp<CR>
-    nnoremap <C-l> :bn<CR>
-    nnoremap <leader>q :bd<CR>
+        inoremap <C-d> <C-x><C-l>
+    "--buffer--
+        nnoremap <C-h> :bp<CR><ESC>
+        nnoremap <C-l> :bn<CR><ESC>
+        nnoremap <leader>q :bd<CR><ESC>
+    " Filetype based Mappings----{
+        " Get current filetype -> :echo &filetype or as variable &filetype
+        " [ Builds / Compiles / Interpretes  ]
+        " C Compiler:
+        autocmd FileType c nnoremap <buffer> <C-i> :!gcc % && ./a.out <CR>
+        " C++ Compiler
+        autocmd FileType cpp nnoremap <buffer> <C-i> :!g++ % && ./a.out <CR>
+        " Python Interpreter
+        autocmd FileType python nnoremap <buffer> <C-i> :!python % <CR>
+        " Bash script
+        autocmd FileType sh nnoremap <buffer> <C-i> :!sh % <CR>
+        " Executable
+        " ....
+        " RCs (Configs)
+        autocmd FileType vim,zsh,tmux nnoremap <buffer> <C-i> :source % <CR>
+    " }
     "--Nerdtree--
     " 将焦点放在树上（无论何种情况）
-    nnoremap <leader>f :NERDTreeFocus<CR>
+        nnoremap <leader>f :NERDTreeFocus<CR>
     " 开/关文件菜单
-    nnoremap <C-f> :NERDTreeToggle<CR>  
+        nnoremap <C-f> :NERDTreeToggle<CR>  
     " 向右向左切换tab
-    "nnoremap <leader>l gt
-    "nnoremap <leader>h gT
+        "nnoremap <leader>l gt
+        "nnoremap <leader>h gT
     " 按leader+t 打开新tab
-    "nnoremap <leader>t :tabe<CR>
+        "nnoremap <leader>t :tabe<CR>
     " 按leader+q 关闭当前tab
-    "nnoremap <leader>c :tabc
+        "nnoremap <leader>c :tabc
     "--Autocomplete--
-    "inoremap ' ''<Esc>i
-    "inoremap " ""<Esc>i
-    "inoremap ( ()<Esc>i
-    "inoremap [ []<Esc>i
-    "inoremap { {}<Esc>i
+        "inoremap ' ''<Esc>i
+        "inoremap " ""<Esc>i
+        "inoremap ( ()<Esc>i
+        "inoremap [ []<Esc>i
+        "inoremap { {}<Esc>i
 " }}}
+
 
 
 

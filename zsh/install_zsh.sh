@@ -11,10 +11,11 @@
 
 set -ax
 
+ME=$(who am i | awk '{print $1}')
+MYHOME=`getent passwd $ME | cut -d: -f 6`
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
-ZSH_PLUGINS="$HOME/.zsh"
-#ZSH_PLUGINS="~/.oh-my-zsh/custom/plugins"
+ZSH_PLUGINS="$MYHOME/.zsh"
 mkdir -p $ZSH_PLUGINS
 
 do_init_zsh(){
@@ -52,9 +53,9 @@ install_zsh_ubuntu(){
     install_zsh_plugins
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    wget $REPO_URL/zsh/zshrc -O ~/.zshrc
-    wget $REPO_URL/zsh/zshrc-themes -O ~/.zshrc.themes
-    wget $REPO_URL/zsh/zshrc-extension -O ~/.zshrc.extension
+    wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
+    wget $REPO_URL/zsh/zshrc-themes -O $MYHOME/.zshrc.themes
+    wget $REPO_URL/zsh/zshrc-extension -O $MYHOME/.zshrc.extension
 }
 
 
@@ -65,20 +66,20 @@ install_zsh_rpi(){
     install_zsh_plugins
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
-    wget $REPO_URL/zsh/zshrc -O ~/.zshrc
-    wget $REPO_URL/zsh/zshrc-themes -O ~/.zshrc.themes
-    wget $REPO_URL/zsh/zshrc-extension -O ~/.zshrc.extension
+    wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
+    wget $REPO_URL/zsh/zshrc-themes -O $MYHOME/.zshrc.themes
+    wget $REPO_URL/zsh/zshrc-extension -O $MYHOME/.zshrc.extension
 }
 
 install_zsh_plugins(){
     echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
     echo "-----[  Installing Themes for ZSH   ]-----"
-    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    git clone https://github.com/bhilburn/powerlevel9k.git $MYHOME/.oh-my-zsh/custom/themes/powerlevel9k
     sudo pip install powerline-status
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions $MYHOME/.zsh/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $MYHOME/.zsh/zsh-syntax-highlighting
 }
 
 
@@ -94,7 +95,7 @@ do_test_installment_zsh(){
     else
         echo "[  FAILED  ]:----ZSH----"
     fi
-    if [ -e ~/.oh-my-zsh/ ];then 
+    if [ -e $MYHOME/.oh-my-zsh/ ];then 
         echo "[  OK  ]:----Oh-My-ZSH----"
     else
         echo "[  FAILED  ]:----Oh-My-ZSH----"
@@ -109,7 +110,7 @@ do_test_installment_zsh(){
     else
         echo "[  FAILED  ]:----zsh-autosuggestions----"
     fi
-    if [ -e ~/.oh-my-zsh/custom/themes/powerlevel9k ];then 
+    if [ -e $MYHOME/.oh-my-zsh/custom/themes/powerlevel9k ];then 
         echo "[  OK  ]:----Powerlevel9k----"
     else
         echo "[  FAILED  ]:----Powerlevel9k----"

@@ -19,7 +19,10 @@
 set -ax
 
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-mkdir ~/.vim
+ME=$(who am i | awk '{print $1}')
+MYHOME=`getent passwd $ME | cut -d: -f 6`
+
+mkdir $MYHOME/.vim
 
 
 do_install_vim(){
@@ -43,11 +46,11 @@ do_install_vim(){
     esac
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    mkdir -p ~/.vim/colors
-    curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o ~/.vim/colors/gruvbox.vim
+    mkdir -p $MYHOME/.vim/colors
+    curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o $MYHOME/.vim/colors/gruvbox.vim
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git $MYHOME/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
 }
 
@@ -56,11 +59,11 @@ install_vim_ubuntu(){
 
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-    curl -fsSL $REPO_URL/vim/vimrc-ubuntu -o ~/.vimrc
+    curl -fsSL $REPO_URL/vim/vimrc-ubuntu -o $MYHOME/.vimrc
 
     echo "-----[  Change permission   ]-----"
-    sudo chown -R ubuntu:ubuntu ~/.vim
-    # sudo chown -R ubuntu ~/.vim >> ~/.init/log_vim.txt 1>&2
+    sudo chown -R ubuntu:ubuntu $MYHOME/.vim
+    # sudo chown -R ubuntu $MYHOME/.vim >> $MYHOME/.init/log_vim.txt 1>&2
 }
 
 install_vim_rpi(){
@@ -68,11 +71,11 @@ install_vim_rpi(){
 
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-    curl -fsSL $REPO_URL/vim/vimrc-rpi -o ~/.vimrc
+    curl -fsSL $REPO_URL/vim/vimrc-rpi -o $MYHOME/.vimrc
 
     echo "-----[  Change permission   ]-----"
-    sudo chown -R pi:pi ~/.vim
-    #sudo chown -R ubuntu ~/.vim >> ~/.init/log_vim.txt 1>&2
+    sudo chown -R pi:pi $MYHOME/.vim
+    #sudo chown -R ubuntu $MYHOME/.vim >> $MYHOME/.init/log_vim.txt 1>&2
 }
 
 install_vim_mac(){

@@ -17,10 +17,12 @@
 
 set -ax
 
-TMUX="$HOME/.tmux"
-mkdir -p $TMUX
-mkdir -p $TMUX/resurrect
+ME=$(who am i | awk '{print $1}')
+MYHOME=`getent passwd $ME | cut -d: -f 6`
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+
+TMUX="$MYHOME/.tmux"
+mkdir -p $TMUX/resurrect
 
 do_install_tmux(){
     # Get distro information
@@ -43,15 +45,15 @@ do_install_tmux(){
     esac
     # Download & Install plugins
     echo "----------[  Installing TPM for Tmux   ]--------------"
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    ~/.tmux/plugins/tpm/bin/install_plugins
+    git clone https://github.com/tmux-plugins/tpm $MYHOME/.tmux/plugins/tpm
+    $MYHOME/.tmux/plugins/tpm/bin/install_plugins
 }
 
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_URL/tmux/tmux-ubuntu.conf -o ~/.tmux.conf
+    curl -fsSL $REPO_URL/tmux/tmux-ubuntu.conf -o $MYHOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
     curl -fsSL $REPO_URL/tmux/resurrect/last-ubuntu.txt -o $TMUX/resurrect/last.txt
     ln -sf $TMUX/resurrect/last.txt $TMUX/resurrect/last
@@ -61,7 +63,7 @@ install_tmux_rpi(){
     yes | sudo apt-get install tmux
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_URL/tmux/tmux-rpi.conf -o ~/.tmux.conf
+    curl -fsSL $REPO_URL/tmux/tmux-rpi.conf -o $MYHOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
     curl -fsSL $REPO_URL/tmux/resurrect/last-rpi.txt -o $TMUX/resurrect/last.txt
     ln -sf $TMUX/resurrect/last.txt $TMUX/resurrect/last
@@ -78,7 +80,7 @@ install_tmux_mac(){
 }
 
 do_test_installment(){
-    if [ -e ~/.tmux ];then
+    if [ -e $MYHOME/.tmux ];then
         echo "[  OK  ]:----TMUX----"
     else
         echo "[  FAILED  ]:----TMUX----"

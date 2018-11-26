@@ -11,6 +11,8 @@
 
 set -ax
 
+ME=$(who am i | awk '{print $1}')
+MYHOME=`getent passwd $ME | cut -d: -f 6`
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 

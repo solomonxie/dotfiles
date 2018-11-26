@@ -32,6 +32,7 @@ install_homebrew(){
 install_utils_mac(){
     # Debugging for bash script
     brew install bashdb
+    brew install watch
 }
 
 change_source_cn(){

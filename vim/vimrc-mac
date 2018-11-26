@@ -1,6 +1,6 @@
 " Owner: Solomon Xie
 " Email: solomonxiewise@gmail.com
-" Enviroment: MacOS Sierra
+" Enviroment: MacOS Sierra / Raspbian / Ubuntu
 " Preload dependencies:
 "     # Plugins Manager: Vundle
 "     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -41,8 +41,8 @@ call vundle#begin()
     "<<Session>>
         Plugin 'tpope/vim-obsession'
     "<<Autocomplete>>
-        "Plugin 'ervandew/supertab'
-        Plugin 'valloric/youcompleteme'
+        Plugin 'ervandew/supertab'
+        "Plugin 'valloric/youcompleteme'   "Not working
 call vundle#end()
 
 

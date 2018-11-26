@@ -21,8 +21,8 @@ set -ax
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 SRC=$PWD
 
-ME=$(who am i | awk '{print $1}')
-MYHOME=`getent passwd $me | cut -d: -f 6`
+ME=${SUDO_USER:-$LOGNAME}
+MYHOME=`getent passwd $ME | cut -d: -f 6`
 
 do_init_by_os(){
     # Get distro information

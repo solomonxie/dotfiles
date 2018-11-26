@@ -45,7 +45,6 @@ install_utils_ubuntu(){
     sudo apt-get install unzip -y
     sudo apt-get install ntfs-3g -y
     sudo apt-get install htop -y
-    sudo apt-get install glances -y
     sudo apt-get install speedtest-cli -y
     sudo apt-get install ifstat -y
     sudo apt-get install bashdb -y
@@ -62,7 +61,6 @@ install_utils_rpi(){
     sudo apt-get install ntfs-3g -y
     sudo apt-get install tightvncserver -y
     sudo apt-get install htop -y
-    sudo apt-get install glances -y
     sudo apt-get install speedtest-cli -y
     sudo apt-get install ifstat -y
     sudo apt-get install lsof -y

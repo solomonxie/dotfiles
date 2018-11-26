@@ -35,6 +35,7 @@ do_install_docker_apps(){
             docker_webav
             docker_frp
             docker_vpn_ipsec
+            docker_playground_ubuntu
             # docker_wsgidav
             ;;
         "raspbian")
@@ -46,6 +47,9 @@ do_install_docker_apps(){
     esac
 }
 
+docker_playground_ubuntu(){
+    docker run -it --name ubuntu solomonxie/lightsail:ubuntu-1604 bash
+}
 
 docker_webav(){
     # The folder on host MUST have the same permission

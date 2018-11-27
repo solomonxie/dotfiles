@@ -54,8 +54,8 @@ install_zsh_ubuntu(){
 
     echo "-----[  OVERWRITE ZSHRC   ]-----"
     wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
-    wget $REPO_URL/zsh/zshrc-themes -O $MYHOME/.zshrc.themes
-    wget $REPO_URL/zsh/zshrc-extension -O $MYHOME/.zshrc.extension
+    wget $REPO_URL/zsh/zshrc.themes -O $MYHOME/.zshrc.themes
+    wget $REPO_URL/zsh/zshrc.extension -O $MYHOME/.zshrc.extension
 }
 
 

@@ -4,9 +4,9 @@
 # Enviroment: Ubuntu / Rpi
 #
 # Run:
-#   $ ./install_docker.sh --distro ubuntu
+#   $ ./install_docker.sh --os ubuntu
 # Debug:
-#   $ bashdb ./install_docker.sh --distro ubuntu
+#   $ bashdb ./install_docker.sh --os ubuntu
 
 
 set -ax
@@ -21,7 +21,7 @@ do_install_docker_by_os(){
     distro=""
     while [ $# -gt 0 ] ;do
         case "$1" in
-            "--distro")
+            "--os")
                 distro=$2 
                 shift 2;;
         esac
@@ -31,7 +31,7 @@ do_install_docker_by_os(){
         "ubuntu")
             install_docker_quick
             docker_add_permission
-            sudo sh $PWD/docker-apps.sh --distro ubuntu
+            sudo sh $PWD/docker-apps.sh --os ubuntu
             ;;
         "raspbian")
             install_docker_quick

@@ -13,7 +13,7 @@ do_install_mariadb_by_os(){
     distro=""
     while [ $# -gt 0 ] ;do
         case "$1" in
-            "--distro")
+            "--os")
                 distro=$2 
                 shift 2;;
         esac

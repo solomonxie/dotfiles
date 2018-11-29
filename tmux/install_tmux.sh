@@ -10,9 +10,9 @@
 #   4. Resurrect: Ctrl-b + Ctrl-r
 #
 # Run:
-#   $ ./install_tmux.sh --distro ubuntu
+#   $ ./install_tmux.sh --os ubuntu
 # Debug:
-#   $ bashdb ./install_tmux.sh --distro ubuntu
+#   $ bashdb ./install_tmux.sh --os ubuntu
 
 
 set -ax
@@ -20,17 +20,21 @@ set -ax
 ME=${SUDO_USER:-$LOGNAME}
 MYHOME=`getent passwd $ME | cut -d: -f 6`
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+SRC="$MYHOME/dotfiles"
+OS=""
 
 TMUX="$MYHOME/.tmux"
 mkdir -p $TMUX/resurrect
 
 do_install_tmux(){
     # Get distro information
-    distro=""
     while [ $# -gt 0 ] ;do
         case "$1" in
-            "--distro")
-                distro=$2 
+            "--os")
+                OS=$2 
+                shift 2;;
+            "--src")
+                SRC=$2 
                 shift 2;;
         esac
     done

@@ -10,9 +10,9 @@
 #   4. :PluginInstall
 #
 # Run:
-#   $ ./install_vim.sh --distro ubuntu
+#   $ ./install_vim.sh --os ubuntu
 # Debug:
-#   $ bashdb ./install_vim.sh --distro ubuntu
+#   $ bashdb ./install_vim.sh --os ubuntu
 
 
 
@@ -21,17 +21,21 @@ set -ax
 ME=${SUDO_USER:-$LOGNAME}
 MYHOME=`getent passwd $ME | cut -d: -f 6`
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+SRC="$MYHOME/dotfiles"
+OS=""
 
 mkdir $MYHOME/.vim
 
 
 do_install_vim(){
     # Get distro information
-    distro=""
     while [ $# -gt 0 ] ;do
         case "$1" in
-            "--distro")
-                distro=$2 
+            "--os")
+                OS=$2 
+                shift 2;;
+            "--src")
+                SRC=$2 
                 shift 2;;
         esac
     done

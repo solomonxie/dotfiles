@@ -4,9 +4,9 @@
 # Enviroment: Debian based distro
 #
 # Run:
-#   $ ./apt.sh --distro ubuntu
+#   $ ./apt.sh --os ubuntu
 # Debug:
-#   $ bashdb ./apt.sh --distro ubuntu
+#   $ bashdb ./apt.sh --os ubuntu
 
 set -ax
 
@@ -17,7 +17,7 @@ do_install_apt_by_os(){
     distro=""
     while [ $# -gt 0 ] ;do
         case "$1" in
-            "--distro")
+            "--os")
                 distro=$2 
                 shift 2;;
         esac

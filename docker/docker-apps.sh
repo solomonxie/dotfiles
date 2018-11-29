@@ -4,9 +4,9 @@
 # Enviroment: Ubuntu / Rpi
 #
 # Run:
-#   $ ./docker-apps.sh --distro ubuntu
+#   $ ./docker-apps.sh --os ubuntu
 # Debug:
-#   $ bashdb ./apt.sh --distro ubuntu
+#   $ bashdb ./apt.sh --os ubuntu
 
 
 set -ax
@@ -21,7 +21,7 @@ do_install_docker_apps(){
     distro=""
     while [ $# -gt 0 ] ;do
         case "$1" in
-            "--distro")
+            "--os")
                 distro=$2 
                 shift 2;;
         esac
@@ -59,11 +59,12 @@ docker_webav(){
     # and do `chown -R www-data:www-data /var/www/webdav`
     #
     # Image: $ docker pull solomonxie/webdav:latest
-    mkdir ~/webdav
-    sudo chown -R www-data:www-data ~/webdav
+    sudo mkdir /webdav
+    sudo chown -R $ME:www-data /webdav
+    sudo chmod -R g+s /webdav
     docker run -d --name webdav --restart=always \
-        -v ~/webdav:/var/www/webdav \
-        -e USERNAME=ubuntu -e PASSWORD=123 \
+        -v /webdav:/var/www/webdav \
+        -e USERNAME=$ME -e PASSWORD=123 \
         -p 8888:80 solomonxie/webdav:latest
 }
 

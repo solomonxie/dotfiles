@@ -4,9 +4,9 @@
 # Enviroment: Ubuntu / Raspbian / MacOS Sierra
 #
 # Run:
-#   $ ./install_zsh.sh --distro ubuntu
+#   $ ./install_zsh.sh --os ubuntu
 # Debug:
-#   $ bashdb ./install_zsh.sh --distro ubuntu
+#   $ bashdb ./install_zsh.sh --os ubuntu
 
 
 set -ax
@@ -14,30 +14,35 @@ set -ax
 ME=${SUDO_USER:-$LOGNAME}
 MYHOME=`getent passwd $ME | cut -d: -f 6`
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+SRC="$MYHOME/dotfiles"
+OS=""
 
 ZSH_PLUGINS="$MYHOME/.zsh"
 mkdir -p $ZSH_PLUGINS
 
 do_init_zsh(){
     # Get distro information
-    distro=""
     while [ $# -gt 0 ] ;do
         case "$1" in
-            "--distro")
-                distro=$2 
+            "--os")
+                OS=$2 
+                shift 2;;
+            "--src")
+                SRC=$2 
                 shift 2;;
         esac
     done
     # Do different things with different OS
     case $distro in
-        "ubuntu")
-            install_zsh_ubuntu
+        ubuntu|raspbian)
+            install_zsh_deb
+            install_zsh_plugins
+            setup_zsh
             ;;
-        "raspbian")
-            install_zsh_rpi
-            ;;
-        "mac")
+        mac)
             install_zsh_mac
+            install_zsh_plugins
+            setup_zsh
             ;;
     esac
     # Check installment
@@ -46,42 +51,30 @@ do_init_zsh(){
 }
 
 
-install_zsh_ubuntu(){
+install_zsh_deb(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     sudo apt-get install zsh -y
-
-    install_zsh_plugins
-
-    echo "-----[  OVERWRITE ZSHRC   ]-----"
-    wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
-    wget $REPO_URL/zsh/zshrc.themes -O $MYHOME/.zshrc.themes
-    wget $REPO_URL/zsh/zshrc.extension -O $MYHOME/.zshrc.extension
 }
 
-
-install_zsh_rpi(){
-    echo "-----[  START SETTING UP ZSH   ]-----"
-    sudo apt-get install zsh -y
-    
-    install_zsh_plugins
-
-    echo "-----[  OVERWRITE ZSHRC   ]-----"
-    wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
-    wget $REPO_URL/zsh/zshrc-themes -O $MYHOME/.zshrc.themes
-    wget $REPO_URL/zsh/zshrc-extension -O $MYHOME/.zshrc.extension
-}
-
-install_zsh_rpi(){
+install_zsh_mac(){
     echo "-----[  START SETTING UP ZSH   ]-----"
     brew install zsh
-    
-    install_zsh_plugins
-
-    echo "-----[  OVERWRITE ZSHRC   ]-----"
-    wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
-    wget $REPO_URL/zsh/zshrc-themes -O $MYHOME/.zshrc.themes
-    wget $REPO_URL/zsh/zshrc-extension -O $MYHOME/.zshrc.extension
 }
+
+
+setup_zsh(){
+    echo "-----[  OVERWRITE ZSHRC   ]-----"
+    if [ -e "REPO_PATH" ]; then
+        ln -sf $REPO_PATH/zsh/zshrc $MYHOME/.zshrc
+        ln -sf $REPO_URL/zsh/zshrc.themes $MYHOME/.zshrc.themes
+        ln -sf $REPO_URL/zsh/zshrc.extension $MYHOME/.zshrc.extension
+    else
+        wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
+        wget $REPO_URL/zsh/zshrc.themes -O $MYHOME/.zshrc.themes
+        wget $REPO_URL/zsh/zshrc.extension -O $MYHOME/.zshrc.extension
+    fi
+}
+
 
 install_zsh_plugins(){
     echo "-----[  INSTALLING OH-MY-ZSH   ]-----"

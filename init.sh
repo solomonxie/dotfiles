@@ -12,25 +12,26 @@
 #   nohup ./init.sh 2>&1 > /dev/null &
 #
 # Debug:
-#   $ bashdb init.sh --distro ubuntu
+#   $ bashdb init.sh --os ubuntu
 #   then:
 #   type "s" to execute each line, type "n" for each top-level function
 
 set -ax
 
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-SRC=$PWD
 
 ME=${SUDO_USER:-$LOGNAME}
 MYHOME=`getent passwd $ME | cut -d: -f 6`
+SRC="$MYHOME/dotfiles"
+REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+OS=""
+
 
 do_init_by_os(){
     # Get distro information
-    distro=""
     while [ $# -gt 1 ] ;do
         case "$1" in
-            "--distro")
-                distro=$2 
+            "--os")
+                OS=$2 
                 shift 2;;
             *)
             distro=$(get_distro)
@@ -39,16 +40,16 @@ do_init_by_os(){
         # Continue next loop
         #shift $(( $# > 0 ? 1 : 0 ))
     done
-    if [ "$distro" = "" ]; then
-        distro=$(get_distro)
+    if [ "$OS" = "" ]; then
+        OS=$(get_distro)
     fi
     # Do different script based on the OS
-    case $distro in
-        "ubuntu")
+    case $OS in
+        ubuntu)
             do_init_ubuntu ;;
-        "raspbian")
+        raspbian)
             do_init_rpi ;;
-        "mac")
+        mac)
             do_init_mac ;;
     esac
 }
@@ -73,24 +74,24 @@ do_init_ubuntu(){
     sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --distro ubuntu
+    sh $SRC/vim/install_vim.sh --os ubuntu
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --distro ubuntu
+    sh $SRC/tmux/install_tmux.sh --os ubuntu
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh --distro ubuntu
+    sh $SRC/zsh/install_zsh.sh --os ubuntu
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --distro ubuntu 2>&1 > /dev/null
+    sh $SRC/python/install_python3.sh --os ubuntu 2>&1 > /dev/null
     echo "[   SETTING UP JUPYTER ]"
-    sh $SRC/python/install_jupyter.sh --distro ubuntu 2>&1 > /dev/null
+    sh $SRC/python/install_jupyter.sh --os ubuntu 2>&1 > /dev/null
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --distro ubuntu 2>&1 > /dev/null
+    sh $SRC/packageManager/apt.sh --os ubuntu 2>&1 > /dev/null
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install_docker.sh --distro ubuntu
-    sh $SRC/docker/docker-apps.sh --distro ubuntu
+    sh $SRC/docker/install_docker.sh --os ubuntu
+    sh $SRC/docker/docker-apps.sh --os ubuntu
 }
 
 do_init_rpi(){
@@ -109,22 +110,22 @@ do_init_rpi(){
     sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --distro raspbian
+    sh $SRC/vim/install_vim.sh --os raspbian
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --distro raspbian
+    sh $SRC/tmux/install_tmux.sh --os raspbian
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/python/install_zsh.sh --distro raspbian
+    sh $SRC/python/install_zsh.sh --os raspbian
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --distro raspbian 2>&1 > /dev/null
+    sh $SRC/python/install_python3.sh --os raspbian 2>&1 > /dev/null
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --distro raspbian
+    sh $SRC/packageManager/apt.sh --os raspbian
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install-docker-rpi.sh --distro raspbian
-    sh $SRC/docker/docker-apps.sh --distro raspbian
+    sh $SRC/docker/install-docker-rpi.sh --os raspbian
+    sh $SRC/docker/docker-apps.sh --os raspbian
 }
 
 do_init_mac(){

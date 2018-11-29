@@ -9,7 +9,7 @@ set -x
 
 
 do_install_s3fs(){
-    if [ "$1" = "--distro" ];then
+    if [ "$1" = "--os" ];then
         distro="$2"
     fi
     case $distro in

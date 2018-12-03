@@ -2,10 +2,11 @@
 " Email: solomonxiewise@gmail.com
 " Enviroment: MacOS Sierra / Raspbian / Ubuntu
 " Preload dependencies:
-"     # Plugins Manager: Vundle
-"     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"     # Color scheme: Gruvbox
-"     $ wget https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
+"     # [Plugins Manager: Vundle]
+"       $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"     # [Plugin dependencies]
+"       $ brew install ctags
+"       $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " Manual commands (type in vim, sodu mode required):
 "     :PluginInstall
 
@@ -43,6 +44,15 @@ call vundle#begin()
     "<<Autocomplete>>
         Plugin 'ervandew/supertab'
         "Plugin 'valloric/youcompleteme'   "Not working
+    "<<Tags>>
+        Plugin 'majutsushi/tagbar'
+    "<<Folding>>
+        Plugin 'tmhedberg/SimpylFold'
+    "<<Indentation>>
+        "Plugin 'nathanaelkane/vim-indent-guides'
+        Plugin 'Yggdroot/indentLine'
+    "<<Language-Specific>>
+        "Plugin 'python-mode/python-mode'
 call vundle#end()
 
 
@@ -69,6 +79,24 @@ call vundle#end()
     retab "打开文件时自动转换所有tab为空格
 " }}}
 
+
+" Advanced Settings ========================{{{
+    "<Taging>
+    set tags=tags  "Plugin: Ctags  
+    "<Folding>
+    set foldenable              " 开始折叠
+    set foldmethod=syntax       " 设置语法折叠
+    set foldnestmax=1
+    set foldcolumn=0            " 设置折叠区域的宽度
+    setlocal foldlevel=1        " 设置折叠层数
+    "set foldlevelstart=99       " 打开文件是默认不折叠代码
+    "set foldclose=all          " 设置为自动关闭折叠
+    " 用空格键来开关折叠
+    "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+    nnoremap <return> za
+" }}}
+
+
 " Filetype based builtin Autocomplete [omnifunc] --{
     filetype plugin on
     "au FileType python setl ofu=pythoncomplete#CompletePHP
@@ -81,45 +109,48 @@ call vundle#end()
 
 
 " Key Mapping ================{{{
-    "--Leader key--
+    "<Leader key>
         let mapleader = ','
-    " Reload vimrc config fil:
-        nnoremap <leader>r :source %<CR><ESC>
-    " Install Plugins
-        nnoremap <leader>I :PluginInstall<CR>
-    " Escape key
+    "<Plugins>
+        nnoremap <leader>i :PluginInstall<CR>
+    "<Escape key>
         inoremap <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <C-c> <ESC>:nohl<CR><ESC>
-    " 复制到系统剪切板
+    "<Clipboard>
+        " 复制到系统剪切板
         nnoremap <leader>y "+Y
         vnoremap <leader>y "+y
-    " 从系统剪切板中粘贴到当前位置
+        " 从系统剪切板中粘贴到当前位置
         nnoremap <leader>p "+P
         vnoremap <leader>p "+p
-    "--buffer--
+    "<Buffer>
         nnoremap <C-h> :bp<CR><ESC>
         nnoremap <C-l> :bn<CR><ESC>
         nnoremap <leader>q :bd<CR><ESC>
-
-    " Filetype based Mappings----{
+    "<Tagging>
+        nnoremap <C-t> :TagbarToggle<CR>
+    "<Folding>
+        nnoremap <return> za
+        vnoremap <space> zf
+    "<Filetype based Mappings>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
-        " C Compiler:
+        "<C Compiler>
         autocmd FileType c nnoremap <buffer> <C-i> :!gcc % && ./a.out <CR>
-        " C++ Compiler
+        "<C++ Compiler>
         autocmd FileType cpp nnoremap <buffer> <C-i> :!g++ % && ./a.out <CR>
-        " Python Interpreter
+        "<Python Interpreter>
         autocmd FileType python nnoremap <buffer> <C-i> :!python % <CR>
-        " Bash script
+        "<Bash Script>
         autocmd FileType sh nnoremap <buffer> <C-i> :!sh % <CR>
-        " Executable
-        nnoremap <buffer> <C-i> :!./% <CR>
-        "nnoremap <buffer> <C-i> :! %:p <CR>
-        " RCs (Configs)
+        "<RCs> (Configs)
         autocmd FileType vim,tmux nnoremap <buffer> <C-i> :source % <CR>
         autocmd FileType zsh nnoremap <buffer> <C-i> :!source % <CR>
+        "<Executable>
+        "nnoremap <buffer> <C-i> :!./% <CR>
+        "nnoremap <buffer> <C-i> :! %:p <CR>
     " }
-    
+
     "--Autocomplete--
     " vim自带的自动补全Autocomplete [omnifunc]
         inoremap <C-d> <C-x><C-l>
@@ -163,7 +194,51 @@ call vundle#end()
 " }}}
 
 
-" Status Line ========== {{{
+" Swap files (for recovery) --------{{{
+    set swapfile    "enable swap file
+    set directory=/tmp    "set swp file directory. 
+    set updatecount=20     "save swp file every amount of characters
+    " ▼ update also check cursor-holds and other functions, bit expensive one.
+    set updatetime=4000   "save swap file every amount of ms
+" }}}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"==============================PLUGIN SETTINGS=================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+" <IndentLine>--------{
+    let g:indentLine_enabled = 1
+    let g:indentLine_char='│'
+    let g:indentLine_conceallevel = 2
+    let g:indentLine_color_term = 239
+    let g:indentLine_concealcursor = 'inc'
+    "let g:indentLine_setColors = 0
+    "let g:indentLine_setConceal = 0
+" }
+
+
+" <SimpylFold>------------{
+    let g:SimpylFold_docstring_preview = 1
+" }
+
+
+" <Python-Mode>-------{
+    "let g:pymode_python = 'python3'
+" }
+
+" <Vim-Indent-Guides>----------------------{
+    "let g:indent_guides_enable_on_vim_startup = 1
+    "set ts=1 sw=1 et
+    "let g:indent_guides_start_level=2
+    "let g:indent_guides_size=1
+    "hi IndentGuidesOdd  ctermbg=black
+    "hi IndentGuidesEven ctermbg=darkgrey
+" }
+
+
+" <Status-Line>-----------{
     " @airline
         set t_Co=256      "在windows中用xshell连接打开vim可以显示色彩
         let g:airline#extensions#tabline#enabled = 1   " 是否打开tabline
@@ -190,21 +265,10 @@ call vundle#end()
         "set t_Co=256
         "let g:Powerline_symbols= 'unicode'
         "set encoding=utf8
-" }}} 
+" } 
 
 
-
-" Swap files (for recovery) --------{{{
-    set swapfile    "enable swap file
-    set directory=/tmp    "set swp file directory. 
-    set updatecount=20     "save swp file every amount of characters
-    " ▼ update also check cursor-holds and other functions, bit expensive one.
-    set updatetime=4000   "save swap file every amount of ms
-" }}}
-
-
-
-" Nerdtree =================================={{{
+" <Nerdtree>-----------------------------------{
     ">>
         "let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
         "let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
@@ -256,5 +320,5 @@ call vundle#end()
         "let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
         "let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
         "let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
-" }}}
-"
+" }
+

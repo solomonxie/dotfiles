@@ -48,6 +48,7 @@ install_utils_ubuntu(){
     sudo apt-get install speedtest-cli -y
     sudo apt-get install ifstat -y
     sudo apt-get install bashdb -y
+    sudo apt-get install unar -y
     #sudo apt-get install fortune cowsay cmatrix -y
     sudo pip install youtube-dl tldr ffmpeg
 
@@ -65,6 +66,7 @@ install_utils_rpi(){
     sudo apt-get install ifstat -y
     sudo apt-get install lsof -y
     sudo apt-get install bashdb -y
+    sudo apt-get install unar -y
     #sudo apt-get install fortune cowsay cmatrix -y
     sudo pip install youtube-dl tldr ffmpeg
 

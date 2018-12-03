@@ -52,6 +52,10 @@ do_install_vim(){
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $MYHOME/.vim/colors
     curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o $MYHOME/.vim/colors/gruvbox.vim
+    # Syntax files
+    echo "-----[  INSTALLING VIM SYNTAX  ]-----"
+    mkdir -p $MYHOME/.vim/syntax
+    curl -fsSL $REPO_URL/vim/syntax/python.vim -o $MYHOME/.vim/syntax/python.vim
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
     git clone https://github.com/VundleVim/Vundle.vim.git $MYHOME/.vim/bundle/Vundle.vim
@@ -68,6 +72,9 @@ install_vim_ubuntu(){
     echo "-----[  Change permission   ]-----"
     sudo chown -R ubuntu:ubuntu $MYHOME/.vim
     # sudo chown -R ubuntu $MYHOME/.vim >> $MYHOME/.init/log_vim.txt 1>&2
+
+    # Plugin dependencies
+    sudo apt-get install ctags -y
 }
 
 install_vim_rpi(){
@@ -80,6 +87,9 @@ install_vim_rpi(){
     echo "-----[  Change permission   ]-----"
     sudo chown -R pi:pi $MYHOME/.vim
     #sudo chown -R ubuntu $MYHOME/.vim >> $MYHOME/.init/log_vim.txt 1>&2
+
+    # Plugin dependencies
+    sudo apt-get install ctags -y
 }
 
 install_vim_mac(){
@@ -88,6 +98,10 @@ install_vim_mac(){
     # ---SETING UP VIM ---
     echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
     curl -fsSL $REPO_URL/vim/vimrc-mac -o ~/.vimrc
+
+    # Install plugin dependencies
+    brew install ctags
+    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 }
 
 # Start this script

@@ -183,7 +183,7 @@ docker_frp(){
     #frp-server
     #Image: $ docker pull solomonxie/frp:latest
     docker run -dt --name frps \
-        -p 7000:7000 -p 8000:7800 \
+        -p 7000:7000 -p 7500:7500 -p 7800:7800 \
         -v ~/frp:/conf solomonxie/frp:latest \
         /frp/frps -c /conf/frps.ini
 

@@ -5,7 +5,10 @@
 #
 #
 # ==== ALIAS ==== 
-# 
+
+# Builtin Utils
+alias lah="ls -lah"
+
 # Config files 
 alias zshrc="vim ~/.zshrc" 
 alias zshrc2="vim ~/.zshrc.extension"

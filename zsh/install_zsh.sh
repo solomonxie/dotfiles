@@ -20,6 +20,10 @@ ZSH_PLUGINS="$MYHOME/.zsh"
 mkdir -p $ZSH_PLUGINS
 
 do_init_zsh(){
+    if [ $# -eq 0 ]; then 
+        echo "[ Failed ] Please specify OS version with --os flag."
+        return 1; 
+    fi
     # Get distro information
     while [ $# -gt 0 ] ;do
         case "$1" in

@@ -9,6 +9,8 @@
 #
 # How to run this script:
 #   git clone https://github.com/solomonxie/dotfiles.git && cd dotfiles 
+#   ./init.sh 2>&1 > /dev/null
+#   #or
 #   nohup ./init.sh 2>&1 > /dev/null &
 #
 # Debug:
@@ -18,9 +20,7 @@
 
 set -ax
 
-
-ME=${SUDO_USER:-$LOGNAME}
-MYHOME=`getent passwd $ME | cut -d: -f 6`
+MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
 SRC="$MYHOME/dotfiles"
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 OS=""

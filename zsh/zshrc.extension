@@ -37,8 +37,8 @@ alias gcp="git add . && git commit -m \"Update from $USER\" && git push"
 #alias tmux="TERM=screen-256color-bce tmux" 
  
 # Python Virtualenv 
-alias venv2="source ~/venv2/bin/activate" 
-alias venv3="source ~/venv3/bin/activate" 
-alias venvju="source ~/venv-ju/bin/activate"
+alias venv2="source ~/virtualenv/venv2/bin/activate" 
+alias venv3="source ~/virtualenv/venv3/bin/activate" 
+alias venv-ju="source ~/virtualenv/venv-ju/bin/activate"
 # 
 

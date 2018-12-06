@@ -4,76 +4,90 @@
 " Preload dependencies:
 "     # [Plugins Manager: Vundle]
 "       $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"     # [Plug  dependencies]
+"     # [Plugin dependencies]
 "       $ brew install ctags
 "       $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+"     # [Python dependencies]
+"       $ pip install neovim jedi psutil setproctitle
 " Manual commands (type in vim, sodu mode required):
 "     :PluginInstall
 
 
-" [Plugins Manager vim-plug]
-call plug#begin('~/.vim/plugged')
+let g:python3_host_prog = '/Users/Jason/virtualenv/venv-neovim/bin/python'
+
+
+" [ Plugin Manager vim-plug ] ======= {{{
+"call plug#begin('~/.vim/plugged')
+"    "<< nvim-completion-manager >>
+"    Plug 'ncm2/ncm2'
+"    Plug 'roxma/nvim-yarp'
+"    Plug 'ncm2/ncm2-bufword'
+"    Plug 'ncm2/ncm2-tmux'
+"    Plug 'ncm2/ncm2-path'
+"call plug#end()
+" }}}}
+
+
+" [VUNDLE DIFINITIONS MUST BE ON THE TOP]
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
     "<<STATUS-BAR>>
-        "Plug 'itchyny/lightline.vim' "beautiful status line
-        "Plug 'Lokaltog/vim-powerline' "fancy status line (python needed)
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
-
+        "Plugin 'itchyny/lightline.vim' "beautiful status line
+        "Plugin 'Lokaltog/vim-powerline' "fancy status line (python needed)
+        Plugin 'vim-airline/vim-airline'
+        Plugin 'vim-airline/vim-airline-themes'
     "<<Git>>
-        "Plug 'tpope/vim-fugitive'    " easy commands to do git
-
-    "<<File Browser>>
+        "Plugin 'tpope/vim-fugitive'    " easy commands to do git
+    "<<File Browsing>>
         " NERDTREE
-        Plug 'scrooloose/nerdtree'          " File tree manager
-        Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-        Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-        Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-        "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+        Plugin 'scrooloose/nerdtree'          " File tree manager
+        Plugin 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+        Plugin 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+        Plugin 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+        "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
         " COMMAND-T
-        Plug 'wincent/command-t'
-
+        Plugin 'wincent/command-t'
     "<<Snippets>> (python required)
-        Plug 'MarcWeber/vim-addon-mw-utils'
-        Plug 'tomtom/tlib_vim'
-        Plug 'garbas/vim-snipmate'
-        "Plug 'honza/vim-snippets' "some common snippets (python)
-
+        Plugin 'MarcWeber/vim-addon-mw-utils'
+        Plugin 'tomtom/tlib_vim'
+        Plugin 'garbas/vim-snipmate'
+        "Plugin 'honza/vim-snippets' "some common snippets (python)
     "<<Search-Tools>>
-        "Plug 'easymotion/vim-easymotion'
-
+        "Plugin 'easymotion/vim-easymotion'
     "<<Syntax>>
-        "Plug 'vim-syntastic/syntastic'
-
+        "Plugin 'vim-syntastic/syntastic'
     "<<Surround>>
-        "Plug 'tpope/vim-surround'
-
+        "Plugin 'tpope/vim-surround'
     "<<Session>>
-        Plug 'tpope/vim-obsession'
-
-    "<<Completion>>
-        "Plug 'ervandew/supertab'
-        "Plug 'valloric/youcompleteme'
-        "Plug 'davidhalter/jedi-vim'
-
+        Plugin 'tpope/vim-obsession'
+    "<<Autocomplete>>
+        "Plugin 'ervandew/supertab'
+        "Plugin 'valloric/youcompleteme'   "Not working
+        Plugin 'davidhalter/jedi-vim'
     "<<Tags>>
-        "Plug 'majutsushi/tagbar'
-
+        Plugin 'majutsushi/tagbar'
     "<<Folding>>
-        Plug 'tmhedberg/SimpylFold'
-
+        Plugin 'tmhedberg/SimpylFold'
     "<<Indentation>>
-        "Plug 'nathanaelkane/vim-indent-guides'
-        Plug  'Yggdroot/indentLine'
-
+        "Plugin 'nathanaelkane/vim-indent-guides'
+        Plugin 'Yggdroot/indentLine'
     "<<Language-Specific>>
-        "Plug 'python-mode/python-mode'
-call plug#end()
+        "Plugin 'python-mode/python-mode'
+    "<<nvim-completion-manager>>
+    Plugin 'roxma/nvim-completion-manager'
+    "Plugin 'ncm2/ncm2'
+    "Plugin 'roxma/nvim-yarp'
+    "Plugin 'ncm2/ncm2-bufword'
+    "Plugin 'ncm2/ncm2-tmux'
+    "Plugin 'ncm2/ncm2-path'
+call vundle#end()
 
 
 " General Settings ==================={{{
     filetype plugin indent on    " [Essential]
     set nocompatible   " be iMproved, required
-    colorscheme gruvbox 
+    "colorscheme gruvbox 
     syntax enable 
     set ignorecase "Case Insensitive
     set smartcase  "Also detects specified case
@@ -91,10 +105,6 @@ call plug#end()
     set expandtab "用space替代tab的输入 取消的话 就用set noexpandtab "不用space替代tab的输入
     set encoding=utf8  "设置默认编码
     retab "打开文件时自动转换所有tab为空格
-" }}}
-
-" Advanced Settings =============={{{
-    let g:jedi#force_py_version=2.7
 " }}}
 
 
@@ -130,7 +140,7 @@ call plug#end()
     "<Leader key>
         let mapleader = ','
     "<Plugins>
-        nnoremap <leader>i :PlugInstall<CR>
+        nnoremap <leader>i :PluginInstall<CR>
     "<Escape key>
         inoremap <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <C-c> <ESC>:nohl<CR><ESC>
@@ -224,6 +234,14 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "==============================PLUGIN SETTINGS=================================
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+" <nvim-completion-manager>-----{
+    " enable ncm2 for all buffers
+    "autocmd BufEnter * call ncm2#enable_for_buffer()
+    " IMPORTANTE: :help Ncm2PopupOpen for more information
+    "set completeopt=noinsert,menuone,noselect
+" }
 
 
 " <IndentLine>--------{

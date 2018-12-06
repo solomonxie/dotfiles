@@ -15,6 +15,7 @@ alias zshrc2="vim ~/.zshrc.extension"
 alias zshrc3="vim ~/.zshrc.themes"
 alias ohmyzsh="vim ~/.oh-my-zsh" 
 alias vimrc="vim ~/.vimrc" 
+alias nvimrc="nvim ~/.vim/init.vim" 
 alias tmuxrc="vim ~/.tmux.conf" 
 alias bashrc="vim ~/.bash_profile" 
 
@@ -43,9 +44,10 @@ alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:400
 #alias tmux="TERM=screen-256color-bce tmux" 
  
 # Python Virtualenv 
-alias venv2="source ~/venv2/bin/activate" 
-alias venv3="source ~/venv3/bin/activate" 
-alias venvju="source ~/venv-ju/bin/activate"
+alias venv2="source ~/virtualenv/venv2/bin/activate" 
+alias venv3="source ~/virtualenv/venv3/bin/activate" 
+alias venv-ju="source ~/virtualenv/venv-ju/bin/activate"
+alias venv-nvim="source ~/virtualenv/venv-ju/bin/activate"
  
 # IDE 
 alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" 

@@ -4,8 +4,7 @@
 # Commands:
 #
 
-ME=$(who am i | awk '{print $1}')
-MYHOME=`getent passwd $ME | cut -d: -f 6`
+MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 VER="0.21.0_linux_arm"

@@ -8,8 +8,8 @@
 set -ax
 
 do_install_jupyter_notebook(){
-    virtualenv -p python3 ~/venv-ju
-    source ~/venv-ju/bin/activate
+    virtualenv -p python3 ~/virtualenv/venv-ju
+    source ~/virtualenv/venv-ju/bin/activate
 
     # ipython kernel
     pip install ipykernel
@@ -25,7 +25,7 @@ do_install_jupyter_notebook(){
 }
 
 do_install_jupyter_extensions(){
-    source ~/venv-ju/bin/activate
+    source ~/virtualenv/venv-ju/bin/activate
 
     # Configurator
     pip install jupyter_nbextensions_configurator
@@ -43,7 +43,7 @@ do_install_jupyter_extensions(){
 }
 
 do_install_ML_packages(){
-    source ~/venv-ju/bin/activate
+    source ~/virtualenv/venv-ju/bin/activate
 
     # Packages for ML
     pip install scikit-learn
@@ -68,7 +68,7 @@ install_kernel_cpp(){
     # Test
     cling --version
     # Install kernel to Jupyter
-    source ~/venv-ju/bin/activate
+    source ~/virtualenv/venv-ju/bin/activate
     cd ~/.local/cling/share/cling/Jupyter/kernel
     pip install .
     jupyter kernelspec install cling-cpp14

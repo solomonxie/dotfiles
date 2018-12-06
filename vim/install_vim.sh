@@ -18,8 +18,7 @@
 
 set -ax
 
-ME=${SUDO_USER:-$LOGNAME}
-MYHOME=`getent passwd $ME | cut -d: -f 6`
+MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 SRC="$MYHOME/dotfiles"
 OS=""

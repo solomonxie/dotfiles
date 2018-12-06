@@ -42,7 +42,7 @@ do_install_virtualenv(){
 
     # ---- Make venvs ----
     echo "---[ Settingup virtual environments ]----"
-    virtualenv -p python3 ~/venv3
+    virtualenv -p python3 ~/virtualenv/venv3
 }
 
 

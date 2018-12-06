@@ -9,6 +9,10 @@ set -x
 REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_install_mariadb_by_os(){
+    if [ $# -eq 0 ]; then 
+        echo "[ Failed ] Please specify OS version with --os flag."
+        return 1; 
+    fi
     # Get distro information
     distro=""
     while [ $# -gt 0 ] ;do

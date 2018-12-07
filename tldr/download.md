@@ -59,6 +59,6 @@
 - m4a to mp3
     $ ffmpeg -i INPUT.m4a OUTPUT.mp3
 - webm to mp3
-    $ ffmpeg -i INPUT.webm OUTPUT.mp3
+    $ ffmpeg -i "${FILE}" -vn -ab 128k -ar 44100 -y "${FILE%.webm}.mp3";
 - mp4 to m4a
 - mp3 to m4a

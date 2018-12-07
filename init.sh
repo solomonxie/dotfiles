@@ -33,15 +33,15 @@ do_init_by_os(){
             "--os")
                 OS=$2 
                 shift 2;;
-            *)
-            distro=$(get_distro)
-            ;;
         esac
         # Continue next loop
         #shift $(( $# > 0 ? 1 : 0 ))
     done
+    OS=${OS:-$(get_distro)}
     if [ "$OS" = "" ]; then
-        OS=$(get_distro)
+        echo "[ Failed ] Can't get current OS version."
+        echo "Please specify with --os flag: mac, raspbian, ubuntu"
+        return 1;
     fi
     # Do different script based on the OS
     case $OS in
@@ -74,13 +74,13 @@ do_init_ubuntu(){
     sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --os ubuntu
+    sh $SRC/vim/install_vim.sh --os ubuntu 2>&1 > /dev/null
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --os ubuntu
+    sh $SRC/tmux/install_tmux.sh --os ubuntu 2>&1 > /dev/null
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh --os ubuntu
+    sh $SRC/zsh/install_zsh.sh --os ubuntu 2>&1 > /dev/null
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
     sh $SRC/python/install_python3.sh --os ubuntu 2>&1 > /dev/null
@@ -90,7 +90,7 @@ do_init_ubuntu(){
     sh $SRC/packageManager/apt.sh --os ubuntu 2>&1 > /dev/null
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install_docker.sh --os ubuntu
+    sh $SRC/docker/install_docker.sh --os ubuntu 2>&1 > /dev/null
     sh $SRC/docker/docker-apps.sh --os ubuntu
 }
 
@@ -110,21 +110,21 @@ do_init_rpi(){
     sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --os raspbian
+    sh $SRC/vim/install_vim.sh --os raspbian  2>&1 > /dev/null
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --os raspbian
+    sh $SRC/tmux/install_tmux.sh --os raspbian  2>&1 > /dev/null
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/python/install_zsh.sh --os raspbian
+    sh $SRC/python/install_zsh.sh --os raspbian 2>&1 > /dev/null
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
     sh $SRC/python/install_python3.sh --os raspbian 2>&1 > /dev/null
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --os raspbian
+    sh $SRC/packageManager/apt.sh --os raspbian 2>&1 > /dev/null
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install-docker-rpi.sh --os raspbian
+    sh $SRC/docker/install-docker-rpi.sh --os raspbian 2>&1 > /dev/null
     sh $SRC/docker/docker-apps.sh --os raspbian
 }
 

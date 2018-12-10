@@ -1,6 +1,6 @@
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
-# Enviroment: MacOS Sierra / Ubuntu
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
+# ENVIRONMENT: Ubuntu / Raspbian
+#
 # How to run this script:
 #    $ curl -L $REPO_URL//shadowsocks/sslocal-setup-rpi.sh | sh
 #

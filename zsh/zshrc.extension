@@ -21,7 +21,7 @@ alias bashrc="vim ~/.bash_profile"
 # Shadowsocks proxy 
 alias proxy='export ALL_PROXY=socks5://127.0.0.1:1080' 
 alias unproxy='unset ALL_PROXY'
-alias ip='curl ip.cn'
+alias ip='curl https://ip.cn'
 alias hosts='sudo vim /etc/hosts'
  
 # frequent commands 

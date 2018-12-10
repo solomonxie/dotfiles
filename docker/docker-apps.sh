@@ -111,12 +111,11 @@ docker_wsgidav_rpi(){
 docker_shadowsocks(){
     # Image: $ docker pull mritd/shadowsocks
     PORT=6000
-    PORT_UPD=6050
     METHOD=aes-256-gcm
     #METHOD=chacha20
     PASSWORD=shadow123
     docker run -dt --name ssserver --restart always \
-        -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \
+        -p $PORT:$PORT -p $PORT:$PORT/udp mritd/shadowsocks -m "ss-server" \
         -s "-s 0.0.0.0 -p $PORT -m $METHOD -k $PASSWORD --fast-open" \
         -x -e "kcpserver" \
         -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
@@ -125,14 +124,22 @@ docker_shadowsocks(){
 docker_shadowsocks_old(){
     # Image: $ docker pull mritd/shadowsocks
     PORT=1988
-    PORT_UPD=1989
     METHOD=aes-256-cfb
     #METHOD=chacha20
     PASSWORD=shadow123
     docker run -dt --name ssserver-old --restart always \
-        -p $PORT:$PORT -p $PORT_UPD:$PORT_UPD/udp mritd/shadowsocks -m "ss-server" \
+        -p $PORT:$PORT -p $PORT:$PORT/udp mritd/shadowsocks -m "ss-server" \
         -s "-s 0.0.0.0 -p $PORT -m $METHOD -k $PASSWORD --fast-open" \
         -x -e "kcpserver" -k "-t 127.0.0.1:$PORT -l :$PORT_UPD -mode fast2 -key kcp123 -crypt aes-128"
+}
+
+
+docker_shadowsocks_libev_local(){
+    PORT=6000
+    PASSWORD=shadow123
+    docker run -dt -e PASSWORD=$PASSWORD \
+        -p $PORT:$PORT -p $PORT:$PORT/udp \
+        shadowsocks/shadowsocks-libev
 }
 
 

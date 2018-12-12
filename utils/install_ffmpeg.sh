@@ -15,12 +15,41 @@ mkdir -p ~/ffmpeg_sources -p ~/bin
 cd ~/ffmpeg_sources
 
 do_install_ffmpeg(){
-    echo "ffmpeg"
+    if [ $# -eq 0 ]; then 
+        echo "[ Failed ] Please specify OS version with --os flag."
+        return 1; 
+    fi
+    # Get distro information
+    distro=""
+    while [ $# -gt 0 ] ;do
+        case "$1" in
+            "--os")
+                distro=$2 
+                shift 2;;
+        esac
+    done
+    # Do different things with different OS
+    case $distro in
+        "ubuntu")
+            echo "ubuntu"
+            ;;
+        "raspbian")
+            build_NASM_pi
+            build_YASM_pi
+            build_libx264_pi
+            build_libmp3lame_pi
+            build_libopus_pi
+            build_libvpx_pi
+            build_libfdk_aac_pi
+            # build_libx265_pi
+            # build_libaom_pi
+            build_ffmpeg_pi
+            ;;
+    esac
 }
 
 
-build_ffmpeg(){
-    echo ".."
+build_ffmpeg_pi(){
     cd ~/ffmpeg_sources && \
     wget -O ffmpeg-snapshot.tar.bz2 https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 && \
     tar xjvf ffmpeg-snapshot.tar.bz2 && \
@@ -45,10 +74,10 @@ build_ffmpeg(){
     PATH="$HOME/bin:$PATH" make && \
     sudo make install && \
     hash -r && \
-    echo "[ OK ]"
+    echo "[ OK. ]"
 }
 
-build_NASM(){
+build_NASM_pi(){
     echo "Buildin[NASM] for ffmpeg..."
     cd ~/ffmpeg_sources && \
     wget https://www.nasm.us/pub/nasm/releasebuilds/2.13.03/nasm-2.13.03.tar.bz2 && \
@@ -60,7 +89,7 @@ build_NASM(){
     sudo make install && \
     echo "[ OK. ]"
 }
-build_YASM(){
+build_YASM_pi(){
     sudo apt-get install -y yasm && echo "[ OK. ]"
 
     # Check if the version of yasm >= 1.2.0
@@ -78,12 +107,11 @@ build_YASM(){
     sudo make install && \
     echo "[ OK ]"
 }
-build_libx264(){
-    sudo apt-get install -y libx264-dev && echo "[ OK. ]"
-
+build_libx264_pi(){
+    #sudo apt-get install -y libx264-dev && echo "[ Doesn't work well. ]"
     # Check if the version of yasm >= 118
     # ....
-    return 0
+    #return 0
 
     # If not, then manually build
     echo "Building [libx264] for ffmpeg..."
@@ -95,9 +123,9 @@ build_libx264(){
         --bindir="$HOME/bin" --enable-static --enable-pic && \
     PATH="$HOME/bin:$PATH" make && \
     sudo make install && \
-    echo "[ OK ]"
+    echo "[ OK. ]"
 }
-build_libmp3lame(){
+build_libmp3lame_pi(){
     sudo apt-get install -y libmp3lame-dev && echo "[ OK. ]"
 
     # Check if the version of yasm >= 3.98.3
@@ -115,7 +143,7 @@ build_libmp3lame(){
     sudo make install && \
     echo "[ OK ]"
 }
-build_libopus(){
+build_libopus_pi(){
     sudo apt-get install -y libopus-dev && echo "[ OK. ]"
 
     # Check if the version of yasm >= 1.1
@@ -153,7 +181,7 @@ build_libvpx_pi(){
     sudo make install && \
     echo "[ OK. ]"
 }
-build_libfdk-aac_pi(){
+build_libfdk_aac_pi(){
     #sudo apt-get install -y libfdk-aac-dev && echo "[ FAILED ]" 
 
     # Check if it's installed

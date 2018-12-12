@@ -1,0 +1,4 @@
+directory: ~/Music
+library: ~/Music/BeetsMusicLibrary.db
+import:
+    copy: no

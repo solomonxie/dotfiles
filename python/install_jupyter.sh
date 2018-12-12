@@ -12,6 +12,7 @@ do_install_jupyter_notebook(){
     source ~/virtualenv/venv-ju/bin/activate
 
     # ipython kernel
+    pip install jupyter
     pip install ipykernel
     # Octave Kernel
     pip install metakernel
@@ -57,6 +58,8 @@ do_install_ML_packages(){
 }
 
 install_kernel_cpp(){
+    # Not working yet!!
+    #
     # Download package for Mac 10.12 (~300MB)
     # Archive page: https://root.cern.ch/download/cling/
     wget https://root.cern.ch/download/cling/cling_2018-11-05_mac1012.tar.bz2
@@ -74,6 +77,22 @@ install_kernel_cpp(){
     jupyter kernelspec install cling-cpp14
 
     cd - ; deactivate
+}
+
+
+install_jupyter_lab(){
+    pip install jupyterlab
+
+    # Install extensions
+    # 目录结构显示
+    jupyter labextension install @jupyterlab/toc
+    # Voyager 数据优化浏览
+    jupyter labextension install jupyterlab_voyager
+    # Drawio 画流程图
+    jupyter labextension install jupyterlab-drawio
+    # Lantern数据绘图加强
+    jupyter labextension install pylantern
+    jupyter serverextension enable --py lantern
 }
 
 

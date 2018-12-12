@@ -56,10 +56,10 @@ call plug#begin('~/.vim/plugged')
         "Plug 'davidhalter/jedi-vim'
 
     "<<Tags>>
-        "Plug 'majutsushi/tagbar'
+        Plug 'majutsushi/tagbar'
 
     "<<Folding>>
-        Plug 'tmhedberg/SimpylFold'
+        "Plug 'tmhedberg/SimpylFold'
 
     "<<Indentation>>
         "Plug 'nathanaelkane/vim-indent-guides'
@@ -146,10 +146,13 @@ call plug#end()
         nnoremap <C-l> :bn<CR><ESC>
         nnoremap <leader>q :bd<CR><ESC>
     "<Tagging>
-        nnoremap <C-t> :TagbarToggle<CR>
+        nnoremap <leader>t :TagbarToggle<CR>
+    "<CommandT File Searching>
+        nnoremap <leader>/ :CommandT<CR>
     "<Folding>
-        nnoremap <return> za
-        vnoremap <space> zf
+        nnoremap <space> za
+        nnoremap <leader><space> zR
+        vnoremap <return> zf
     "<Filetype based Mappings>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
@@ -180,12 +183,12 @@ call plug#end()
     
     "--Nerdtree--
     " 将焦点放在树上（无论何种情况）
-        nnoremap <leader>f :NERDTreeFocus<CR>
+        "nnoremap <leader>f :NERDTreeFocus<CR>
     " 开/关文件菜单
-        nnoremap <C-f> :NERDTreeToggle<CR>  
+        nnoremap <leader>f :NERDTreeToggle<CR>  
     " 向右向左切换tab
-        "nnoremap <leader>l gt
-        "nnoremap <leader>h gT
+        nnoremap <leader>n gt
+        nnoremap <leader>p gT
     " 按leader+t 打开新tab
         "nnoremap <leader>t :tabe<CR>
     " 按leader+q 关闭当前tab
@@ -238,7 +241,7 @@ call plug#end()
 
 
 " <SimpylFold>------------{
-    let g:SimpylFold_docstring_preview = 1
+    "let g:SimpylFold_docstring_preview = 1
 " }
 
 

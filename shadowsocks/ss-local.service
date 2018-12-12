@@ -1,0 +1,32 @@
+# FRP-Client system service file
+# Environment: Ubuntu
+# Owner: Solomon Xie
+# Email: solomonxiewise@gmail.com
+# How to set this service
+#   1. Save this file as:
+#       `/etc/systemd/system/ss-local.service`
+#   2. Create symlink:
+#       `sudo ln -s /usr/bin/ss-local /usr/sbin/ss-local`
+#   3. Enable start on login:
+#       `sudo systemctl enable ss-local.service`
+#   4. Start now:
+#       `sudo systemctl start ss-local.service`
+# How to inspect its status:
+#   1. `sudo systemctl status ss-local.service`
+#   2. `tail -f /tmp/ss-local.log`
+
+[Unit]
+Description=Shadowsocks-libev Client Daemon
+After=syslog.target  network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/ss-local -c /etc/shadowsocks-libev/config.json
+Restart= always
+RestartSec=1min
+ExecStop=/usr/bin/killall ss-local
+
+
+[Install]
+WantedBy=multi-user.target

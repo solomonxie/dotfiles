@@ -65,6 +65,36 @@ do_init_by_os(){
 }
 
 
+get_distro(){
+    if [ -x "$(command -v lsb_release)" ]; then #Linux
+        info=$(lsb_release -si)
+    elif [ -x "$(command -v sw_vers)" ]; then #MacOS
+        info=$(sw_vers -productName)
+    elif [ -e /etc/os-release ]; then #Linux (not docker)
+        info=$(cat /etc/os-release |grep NAME)
+    elif [ -x "$(command -v uname)" ]; then #Linux, docker & Others
+        info=$(uname -a)
+    fi
+    case "$(echo $info | tr '[:upper:]' '[:lower:]')" in
+        *mac*) distro="mac" ;;
+        *raspbian* | *raspberrypi*) distro="raspbian" ;;
+        *ubuntu*) distro="ubuntu" ;;
+    esac
+    echo $distro
+}
+
+get_os(){
+    case $(get_distro) in
+        ubuntu)
+            echo "CURRENT Linux Distribution: [  Ubuntu  ].";;
+        raspbian)
+            echo "CURRENT Linux Distribution: [  Raspbian  ].";;
+        mac)
+            echo "CURRENT OS: [  Mac OS X  ].";;
+    esac
+}
+
+
 do_init_ubuntu(){
     echo "CURRENT Linux Distribution: [  Ubuntu  ]. Start initializing system funtionalities..."
     # Add uitility funcitons to bashrc
@@ -147,41 +177,6 @@ do_init_mac(){
     # 
 }
 
-
-get_distro(){
-    local distro=""
-    if [ -x "$(command -v lsb_release)" ]; then #Linux
-        distro=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
-    elif [ -x "$(command -v sw_vers)" ]; then #MacOS
-        #distro=$(sw_vers -productName)
-        distro="mac"
-    elif [ -x "$(command -v uname)" ]; then #Others
-        local info=$(uname -a | tr '[:upper:]' '[:lower:]')
-        if [[ $info == *"Darwin"* ]]; then
-            distro="mac"
-        elif [[ $info == *"ubuntu"* ]]; then
-            distro="ubuntu"
-        elif [[ $info == *"raspberrypi"* ]]; then
-            distro="raspbian"
-        elif [[ $info == *"linux"* ]]; then
-            distro="linux"
-        else
-            distro="OTHERS"
-        fi
-    fi
-    echo $distro
-}
-
-get_os(){
-    case $(get_distro) in
-        "ubuntu")
-            echo "CURRENT Linux Distribution: [  Ubuntu  ].";;
-        "raspbian")
-            echo "CURRENT Linux Distribution: [  Raspbian  ].";;
-        "mac")
-            echo "CURRENT OS: [  Mac OS X  ].";;
-    esac
-}
 
 
 

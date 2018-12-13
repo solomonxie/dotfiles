@@ -8,23 +8,31 @@
 #   Run this as ROOT results apps installed to wrong paths.
 #
 # How to run this script:
-#   git clone https://github.com/solomonxie/dotfiles.git && cd dotfiles 
-#   ./init.sh 2>&1 > /dev/null
+#   $ git clone https://github.com/solomonxie/dotfiles.git ~/dotfiles 
+#   $ ~/dotfiles/init.sh 2>&1 > /dev/null
 #   #or
-#   nohup ./init.sh 2>&1 > /dev/null &
+#   $ nohup ~/dotfiles/init.sh 2>&1 > /dev/null &
 #
-# Debug:
-#   $ bashdb init.sh --os ubuntu
+# Debugging:
+#   $ bashdb ~/dotfiles/init.sh --os ubuntu
 #   then:
 #   type "s" to execute each line, type "n" for each top-level function
 
 set -ax
 
-MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
+MYHOME=${$(`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`):-$HOME}
+REPO_URL="git@github.com:solomonxie/dotfiles.git"
 SRC="$MYHOME/dotfiles"
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-OS=""
 
+# Download Repo if not exists
+if [ ! -e $MYHOME/dotfiles ]; then
+    git clone $REPO_URL $MYHOME/dotfiles
+fi
+
+
+#-------------------------------------
+#     Initialization Functions
+#-------------------------------------
 
 do_init_by_os(){
     # Get distro information
@@ -172,6 +180,12 @@ get_os(){
             echo "CURRENT OS: [  Mac OS X  ].";;
     esac
 }
+
+
+
+#-------------------------------------
+#          Entry points
+#-------------------------------------
 
 # Run initial functions by os version
 do_init_by_os "$@"

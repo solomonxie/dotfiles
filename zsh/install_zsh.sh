@@ -11,19 +11,26 @@
 
 set -ax
 
-MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+MYHOME=${$(`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`):-$HOME}
+REPO_URL="git@github.com:solomonxie/dotfiles.git"
 SRC="$MYHOME/dotfiles"
-OS=""
 
-ZSH_PLUGINS="$MYHOME/.zsh"
-mkdir -p $ZSH_PLUGINS
+# Download Repo if not exists
+if [ ! -e $MYHOME/dotfiles ]; then
+    git clone $REPO_URL $MYHOME/dotfiles
+fi
+
+# Check flags
+if [ $# -eq 0 ]; then 
+    echo "[ Failed ] Please specify OS version with --os flag."
+    return 1; 
+fi
+
+#-------------------------------------
+#     Installation Methods
+#-------------------------------------
 
 do_init_zsh(){
-    if [ $# -eq 0 ]; then 
-        echo "[ Failed ] Please specify OS version with --os flag."
-        return 1; 
-    fi
     # Get distro information
     while [ $# -gt 0 ] ;do
         case "$1" in
@@ -35,48 +42,29 @@ do_init_zsh(){
                 shift 2;;
         esac
     done
+    # Make paths for ZSH extensions
+    mkdir -p "$MYHOME/.zsh"
     # Do different things with different OS
     case $distro in
         ubuntu|raspbian)
-            install_zsh_deb
-            install_zsh_plugins
-            setup_zsh
+            sudo apt-get install zsh -y
             ;;
         mac)
-            install_zsh_mac
-            install_zsh_plugins
-            setup_zsh
+            brew install zsh
             ;;
     esac
+    # Install Plugins
+    install_zsh_plugins
     # Check installment
     do_test_installment_zsh
     change_default_shell_zsh
+
+    # Create Symlinks
+    ln -sf $SRC/zsh/zshrc $MYHOME/.zshrc
+    ln -sf $SRC/zsh/zshrc.themes $MYHOME/.zshrc.themes
+    ln -sf $SRC/zsh/zshrc.extension $MYHOME/.zshrc.extension
 }
 
-
-install_zsh_deb(){
-    echo "-----[  START SETTING UP ZSH   ]-----"
-    sudo apt-get install zsh -y
-}
-
-install_zsh_mac(){
-    echo "-----[  START SETTING UP ZSH   ]-----"
-    brew install zsh
-}
-
-
-setup_zsh(){
-    echo "-----[  OVERWRITE ZSHRC   ]-----"
-    if [ -e "REPO_PATH" ]; then
-        ln -sf $REPO_PATH/zsh/zshrc $MYHOME/.zshrc
-        ln -sf $REPO_URL/zsh/zshrc.themes $MYHOME/.zshrc.themes
-        ln -sf $REPO_URL/zsh/zshrc.extension $MYHOME/.zshrc.extension
-    else
-        wget $REPO_URL/zsh/zshrc -O $MYHOME/.zshrc
-        wget $REPO_URL/zsh/zshrc.themes -O $MYHOME/.zshrc.themes
-        wget $REPO_URL/zsh/zshrc.extension -O $MYHOME/.zshrc.extension
-    fi
-}
 
 
 install_zsh_plugins(){
@@ -97,6 +85,11 @@ change_default_shell_zsh(){
 }
 
 
+
+#-------------------------------------
+#          Unit Tests
+#-------------------------------------
+
 do_test_installment_zsh(){
     if [ -e /bin/zsh ];then 
         echo "[  OK  ]:----ZSH----"
@@ -108,12 +101,12 @@ do_test_installment_zsh(){
     else
         echo "[  FAILED  ]:----Oh-My-ZSH----"
     fi
-    if [ -e $ZSH_PLUGINS/zsh-syntax-highlighting ];then 
+    if [ -e $MYHOME/.zsh/zsh-syntax-highlighting ];then 
         echo "[  OK  ]:----zsh-syntax-highlighting----"
     else
         echo "[  FAILED  ]:----zsh-syntax-highlighting----"
     fi
-    if [ -e $ZSH_PLUGINS/zsh-autosuggestions ];then 
+    if [ -e $MYHOME/.zsh/zsh-autosuggestions ];then 
         echo "[  OK  ]:----zsh-autosuggestions----"
     else
         echo "[  FAILED  ]:----zsh-autosuggestions----"
@@ -126,5 +119,14 @@ do_test_installment_zsh(){
 }
 
 
-# Entry point
+
+
+#-------------------------------------
+#          Entry points
+#-------------------------------------
+
 do_init_zsh "$@"
+
+
+
+

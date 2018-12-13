@@ -2,8 +2,8 @@
 " Email: solomonxiewise@gmail.com
 " Enviroment: MacOS Sierra / Raspbian / Ubuntu
 " Preload dependencies:
-"     # [Plugins Manager: Vundle]
-"       $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"     # [Plugins Manager: Vim-Plug]
+"       $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "     # [Plug  dependencies]
 "       $ brew install ctags
 "       $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
@@ -15,7 +15,7 @@
 call plug#begin('~/.vim/plugged')
     "<<STATUS-BAR>>
         "Plug 'itchyny/lightline.vim' "beautiful status line
-        "Plug 'Lokaltog/vim-powerline' "fancy status line (python needed)
+        "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
 
@@ -36,7 +36,7 @@ call plug#begin('~/.vim/plugged')
         Plug 'MarcWeber/vim-addon-mw-utils'
         Plug 'tomtom/tlib_vim'
         Plug 'garbas/vim-snipmate'
-        "Plug 'honza/vim-snippets' "some common snippets (python)
+        "Plug 'honza/vim-snippets' "some common snippets (python required)
 
     "<<Search-Tools>>
         "Plug 'easymotion/vim-easymotion'
@@ -59,18 +59,23 @@ call plug#begin('~/.vim/plugged')
         Plug 'majutsushi/tagbar'
 
     "<<Folding>>
-        "Plug 'tmhedberg/SimpylFold'
+        Plug 'tmhedberg/SimpylFold'
 
     "<<Indentation>>
         "Plug 'nathanaelkane/vim-indent-guides'
         Plug  'Yggdroot/indentLine'
 
-    "<<Language-Specific>>
-        "Plug 'python-mode/python-mode'
+    "<<Syntax-Specific>>
+        "Plug 'python-mode/python-mode'    "Deprecated
+        "Plug 'vim-python/python-syntax'
+        Plug 'hdima/python-syntax'
+        "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+
 call plug#end()
 
 
-" General Settings ==================={{{
+" General Builtin Settings -----------{
+"function Builtin_settings_general()
     filetype plugin indent on    " [Essential]
     set nocompatible   " be iMproved, required
     colorscheme gruvbox 
@@ -91,14 +96,12 @@ call plug#end()
     set expandtab "用space替代tab的输入 取消的话 就用set noexpandtab "不用space替代tab的输入
     set encoding=utf8  "设置默认编码
     retab "打开文件时自动转换所有tab为空格
-" }}}
-
-" Advanced Settings =============={{{
-    let g:jedi#force_py_version=2.7
-" }}}
+"endfunction
+" }
 
 
-" Advanced Settings ========================{{{
+" Advanced Builtin Settings  -----------{
+"function Builtin_settings_advanced()
     "<Taging>
     set tags=tags  "Plugin: Ctags  
     "<Folding>
@@ -107,33 +110,42 @@ call plug#end()
     set foldnestmax=1
     set foldcolumn=0            " 设置折叠区域的宽度
     setlocal foldlevel=1        " 设置折叠层数
-    "set foldlevelstart=99       " 打开文件是默认不折叠代码
+    set foldlevelstart=99       " 打开文件是默认不折叠代码
     "set foldclose=all          " 设置为自动关闭折叠
     " 用空格键来开关折叠
     "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
     nnoremap <return> za
-" }}}
+"endfunction
+" }
 
 
-" Filetype based builtin Autocomplete [omnifunc] --{
+" Filetype based builtin Autocomplete [omnifunc] ----{
+"function Builtin_settings_filetype()
     filetype plugin on
-    "au FileType python setl ofu=pythoncomplete#CompletePHP
+    au FileType python setl ofu=pythoncomplete#CompletePHP
     "au FileType php setl ofu=phpcomplete#CompletePHP
     "au FileType ruby,eruby setl ofu=rubycomplete#Complete
     "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
     "au FileType c setl ofu=ccomplete#CompleteCpp
     "au FileType css setl ofu=csscomplete#CompleteCSS
+"endfunction
 " }
 
 
-" Key Mapping ================{{{
+" Key Mapping ----------------------------{
+"call Builtin_settings_key_mapping()
     "<Leader key>
         let mapleader = ','
-    "<Plugins>
-        nnoremap <leader>i :PlugInstall<CR>
-    "<Escape key>
+
+    "<Common Keys>
         inoremap <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <C-c> <ESC>:nohl<CR><ESC>
+        nnoremap <leader>qw :q<CR>
+        vnoremap <leader>qw :q<CR>
+
+    "<Vim-Plug>
+        nnoremap <leader>i :PlugInstall<CR>
+        
     "<Clipboard>
         " 复制到系统剪切板
         nnoremap <leader>y "+Y
@@ -141,63 +153,50 @@ call plug#end()
         " 从系统剪切板中粘贴到当前位置
         nnoremap <leader>p "+P
         vnoremap <leader>p "+p
+
     "<Buffer>
         nnoremap <C-h> :bp<CR><ESC>
         nnoremap <C-l> :bn<CR><ESC>
-        nnoremap <leader>q :bd<CR><ESC>
-    "<Tagging>
-        nnoremap <leader>t :TagbarToggle<CR>
-    "<CommandT File Searching>
-        nnoremap <leader>/ :CommandT<CR>
+        nnoremap <leader>qb :bd<CR><ESC>
+        vnoremap <leader>qb :bd<CR><ESC>
+
     "<Folding>
         nnoremap <space> za
         nnoremap <leader><space> zR
-        vnoremap <return> zf
+        nnoremap <leader><return> zM
+
     "<Filetype based Mappings>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
         "<C Compiler>
-        autocmd FileType c nnoremap <buffer> <C-i> :!gcc % && ./a.out <CR>
+        autocmd FileType c nnoremap <buffer> <C-i> :w<CR>:!gcc % && ./a.out <CR>
         "<C++ Compiler>
-        autocmd FileType cpp nnoremap <buffer> <C-i> :!g++ % && ./a.out <CR>
+        autocmd FileType cpp nnoremap <buffer> <C-i> :w<CR>:!g++ % && ./a.out <CR>
         "<Python Interpreter>
-        autocmd FileType python nnoremap <buffer> <C-i> :!python % <CR>
+        autocmd FileType python nnoremap <buffer> <C-i> :w<CR>:!python % <CR>
         "<Bash Script>
-        autocmd FileType sh nnoremap <buffer> <C-i> :!sh % <CR>
+        autocmd FileType sh nnoremap <buffer> <C-i> :w<CR>:!sh % <CR>
         "<RCs> (Configs)
-        autocmd FileType vim,tmux nnoremap <buffer> <C-i> :source % <CR>
-        autocmd FileType zsh nnoremap <buffer> <C-i> :!source % <CR>
+        autocmd FileType vim,tmux nnoremap <buffer> <C-i> :w<CR>:source % <CR>
+        autocmd FileType zsh nnoremap <buffer> <C-i> :w<CR>:!source % <CR>
         "<Executable>
         "nnoremap <buffer> <C-i> :!./% <CR>
         "nnoremap <buffer> <C-i> :! %:p <CR>
     " }
 
-    "--Autocomplete--
-    " vim自带的自动补全Autocomplete [omnifunc]
+    "<Omni-autocomplete> Vim自带的Omni自动补全
         inoremap <C-d> <C-x><C-l>
         "inoremap ' ''<Esc>i
         "inoremap " ""<Esc>i
         "inoremap ( ()<Esc>i
         "inoremap [ []<Esc>i
         "inoremap { {}<Esc>i
-    
-    "--Nerdtree--
-    " 将焦点放在树上（无论何种情况）
-        "nnoremap <leader>f :NERDTreeFocus<CR>
-    " 开/关文件菜单
-        nnoremap <leader>f :NERDTreeToggle<CR>  
-    " 向右向左切换tab
-        nnoremap <leader>n gt
-        nnoremap <leader>p gT
-    " 按leader+t 打开新tab
-        "nnoremap <leader>t :tabe<CR>
-    " 按leader+q 关闭当前tab
-        "nnoremap <leader>c :tabc
-" }}}
+"endfunction
+" }
 
 
 
-" Search Highlighting -----------{{{
+" Search Highlighting -----------{
     " >>
         highlight Search guibg='Purple' guifg='NONE'
         highlight IncSearch gui=underline,bold guifg=White guibg=Red3
@@ -212,16 +211,16 @@ call plug#end()
         noremap * *:set hlsearch<cr>
     " 括号匹配自动高亮
         "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
-" }}}
+" }
 
 
-" Swap files (for recovery) --------{{{
+" Swap files (for recovery) --------{
     set swapfile    "enable swap file
     set directory=/tmp    "set swp file directory. 
     set updatecount=20     "save swp file every amount of characters
     " ▼ update also check cursor-holds and other functions, bit expensive one.
     set updatetime=4000   "save swap file every amount of ms
-" }}}
+" }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -244,10 +243,30 @@ call plug#end()
     "let g:SimpylFold_docstring_preview = 1
 " }
 
+" <Tagbar>--------------{
+    let tagbar_autofocus = 1
+    "----Key mapping----
+    nnoremap <leader>t :TagbarToggle<CR>
+    "nnoremap <leader>t :TagbarOpen f<CR>
+" }
+
+" <Command-T File Searching>-----------{
+    "----Key mapping----
+    nnoremap <leader>/ :CommandT<CR>
+" }
 
 " <Python-Mode>-------{
     "let g:pymode_python = 'python3'
 " }
+
+" <Python-syntax>-----{
+    let g:python_highlight_all = 1
+" }
+
+" Jedi Settings =============={{{
+    let g:jedi#force_py_version=2.7
+" }}}
+
 
 " <Vim-Indent-Guides>----------------------{
     "let g:indent_guides_enable_on_vim_startup = 1
@@ -289,22 +308,36 @@ call plug#end()
 " } 
 
 
-" <Nerdtree>-----------------------------------{
+
+" Plugin Settings Nerdtree -------------------{
+"function Plugin_settings_NerdTree()
+    " Key bindings
+        " 将焦点放在树上（无论何种情况）
+        "nnoremap <leader>f :NERDTreeFocus<CR>
+        " 开/关文件菜单
+        nnoremap <leader>f :NERDTreeToggle<CR>  
+        " 向右向左切换tab
+        nnoremap <leader>h gt
+        nnoremap <leader>l gT
+        " 按leader+t 打开新tab
+        "nnoremap <leader>t :tabe<CR>
+        " 按leader+q 关闭当前tab
+        "nnoremap <leader>c :tabc
     ">>
         "let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
         "let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
-    " 自动开启Nerdtree
-        "autocmd vimenter * NERDTree  
     " 从nerdtree上打开文件后菜单自动关闭
         let NERDTreeQuitOnOpen=1
-    "打开vim时如果没有文件自动打开NERDTree
-        autocmd vimenter * if !argc()|NERDTree|endif
-    "当NERDTree为剩下的唯一窗口时自动关闭
+    " 打开vim时如果没有文件自动打开NERDTree
+        "autocmd vimenter * if !argc()|NERDTree|endif
+    " 或, 自动开启Nerdtree
+        "autocmd vimenter * NERDTree  
+    " 当NERDTree为剩下的唯一窗口时自动关闭
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     " 不显示隐藏文件
         let g:NERDTreeHidden=1
     " 过滤: 所有.pyc文件不显示
-        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__']  
+        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']  
     " 美化菜单 不显示多余的东西
         let NERDTreeMinimalUI = 1
         let NERDTreeDirArrows = 1
@@ -341,5 +374,14 @@ call plug#end()
         "let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
         "let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
         "let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+"endfunction
 " }
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"==============================FUNCTION CALLINGS=================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"call Builtin_settings_general()
+"call Builtin_settings_advanced()
+"call Builtin_settings_filetype()
+""call Builtin_settings_key_mapping()
+"call Plugin_settings_NerdTree()

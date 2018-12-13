@@ -265,9 +265,7 @@ call plug#end()
 
 " <Deoplete>--------------{
     let g:deoplete#enable_at_startup = 1
-    " Set a single option
-    call deoplete#custom#option('auto_complete_delay', 0)
-    " Pass a dictionary to set multiple options
+    " Set multiple options
     call deoplete#custom#option({
     \ 'auto_complete_delay': 200,
     \ 'smart_case': v:true,

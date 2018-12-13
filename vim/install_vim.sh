@@ -116,13 +116,10 @@ build_vim_pi(){
     cd vim-8.1.0561
 
     # Install / Download Language support libraries
-    sudo apt-get install -y libncurses5-dev liblua5.3-dev libperl-dev python-dev python3-dev ruby-dev
-
-    # Fix lua paths
-    sudo mv $(which lua) "$(which lua)_old"
-    sudo ln -s /usr/bin/lua5.3 /usr/bin/lua
-    sudo ln -s /usr/include/lua5.3 /usr/include/lua
-    sudo ln -s /usr/lib/arm-linux-gnueabihf/liblua5.3.so /usr/local/lib/liblua.so
+    sudo apt install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
+        libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+        libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+        python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev git
 
     # Fix python paths
     sudo ln -s /usr/lib/python2.7/config-arm-linux-gnueabihf /usr/lib/python2.7/config
@@ -140,22 +137,18 @@ build_vim_pi(){
 
     # Build
     ./configure \
-        --prefix=/opt/vim-8.1 \
-        --enable-gui=auto \
-        --enable-luainterp \
-        --enable-python3interp \
-        --enable-pythoninterp=dynamic \
-        --enable-perlinterp=dynamic \
-        --enable-rubyinterp=dynamic \
-        --enable-cscope \
-        --enable-multibyte \
-        --enable-fontset \
-        --enable-largefile \
-        --enable-fail-if-missing \
         --with-features=huge \
+        --enable-multibyte \
+        --enable-rubyinterp=yes \
+        --enable-pythoninterp=yes \
         --with-python-config-dir=/usr/lib/python2.7/config \
+        --enable-python3interp=yes \
         --with-python3-config-dir=/usr/lib/python3.4/config \
-        --disable-netbeans && \
+        --enable-perlinterp=yes \
+        --enable-luainterp=yes \
+        --enable-gui=gtk2 \
+        --enable-cscope \
+        --prefix=/opt/vim-8.1 && \
         echo '[ OK ]'
 
     make && sudo make install && echo '[ OK ]'
@@ -164,6 +157,80 @@ build_vim_pi(){
     sudo mv $(which vim) "$(which vim)_old"
     sudo ln -s /opt/vim-8.1/bin/vim /usr/bin/vim
 }
+
+
+build_vim_ubuntu(){
+    # Download
+    cd /tmp
+    wget https://github.com/vim/vim/archive/v8.1.0561.tar.gz
+    tar -xzvf v8.1.0561.tar.gz
+    cd vim-8.1.0561
+
+    # Install / Download Language support libraries
+    sudo apt install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
+        libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+        libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+        python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev git
+
+    # Fix python paths
+    sudo ln -s /usr/lib/python2.7/config-x86_64-linux-gnu /usr/lib/python2.7/config
+    sudo ln -s /usr/lib/python3.5/config-3.5m-x86_64-linux-gnu /usr/lib/python3.5/config
+
+    # Get language support paths
+    # For Mac
+    #py2="/usr/lib/python2.7/config"
+    #py3="/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/config-3.7m-darwin"
+    #lua="/usr/local/Cellar/lua/5.3.5_1"
+    # For Rpi
+    #py2="/usr/lib/python2.7/config-arm-linux-gnueabihf"
+    #py3="/usr/lib/python3.4/config-3.4m-arm-linux-gnueabihf"
+    #lua="/usr/lib"
+
+    # Build
+    ./configure \
+        --with-features=huge \
+        --enable-multibyte \
+        --enable-rubyinterp=yes \
+        --enable-pythoninterp=yes \
+        --with-python-config-dir=/usr/lib/python2.7/config \
+        --enable-python3interp=yes \
+        --with-python3-config-dir=/usr/lib/python3.5/config \
+        --enable-perlinterp=yes \
+        --enable-luainterp=yes \
+        --enable-gui=gtk2 \
+        --enable-cscope \
+        --prefix=/opt/vim-8.1 && \
+        echo '[ OK ]'
+
+    make && sudo make install && echo '[ OK ]'
+
+    # Replace VIM in old version with new
+    sudo mv $(which vim) "$(which vim)_old"
+    sudo ln -s /opt/vim-8.1/bin/vim /usr/bin/vim
+}
+
+
+install_vim_plugin_deoplete_deb(){
+    # Install pip2 & pip3
+    sudo apt-get install -y python-pip python3-pip
+    # Install dependencies
+    pip2 install --user pynvim
+    pip3 install --user pynvim
+    pip2 install --user neovim
+    pip3 install --user neovim
+}
+
+install_vim_plugin_deoplete_mac(){
+    # Install pip2 & pip3
+    brew install python@2
+    brew reinstall python@2
+    # Install dependencies
+    pip2 install --user pynvim
+    pip3 install --user pynvim
+    pip2 install --user neovim
+    pip3 install --user neovim
+}
+
 
 
 #-------------------------------------

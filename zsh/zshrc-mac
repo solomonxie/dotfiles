@@ -84,3 +84,5 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export EDITOR=vim 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export OCTAVE_EXECUTABLE=/usr/local/bin/octave
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

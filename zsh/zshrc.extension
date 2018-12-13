@@ -27,6 +27,7 @@ alias hosts='sudo vim /etc/hosts'
 # frequent commands 
 alias ju="jupyter notebook" 
 alias repos="cd ~/Workspace/repos" 
+alias you="youtube-dl"
  
 # Git commands  
 alias gs="git status" 

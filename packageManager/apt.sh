@@ -41,6 +41,7 @@ do_install_apt_by_os(){
 
 install_utils_ubuntu(){
     sudo apt-get install apt-utils -y
+    sudo apt-get install checkinstall -y
     sudo apt-get install mosh -y
     sudo apt-get install unzip -y
     sudo apt-get install ntfs-3g -y
@@ -58,6 +59,7 @@ install_utils_ubuntu(){
 
 install_utils_rpi(){
     sudo apt-get install apt-utils -y
+    sudo apt-get install checkinstall -y
     sudo apt-get install mosh -y
     sudo apt-get install ntfs-3g -y
     sudo apt-get install tightvncserver -y

@@ -155,8 +155,8 @@ call plug#end()
         vnoremap <leader>p "+p
 
     "<Buffer>
-        nnoremap <C-h> :bp<CR><ESC>
-        nnoremap <C-l> :bn<CR><ESC>
+        nnoremap <leader>h :bp<CR><ESC>
+        nnoremap <leader>l :bn<CR><ESC>
         nnoremap <leader>qb :bd<CR><ESC>
         vnoremap <leader>qb :bd<CR><ESC>
 
@@ -245,6 +245,7 @@ call plug#end()
 
 " <Tagbar>--------------{
     let tagbar_autofocus = 1
+    let tagbar_autoclose = 1
     "----Key mapping----
     nnoremap <leader>t :TagbarToggle<CR>
     "nnoremap <leader>t :TagbarOpen f<CR>
@@ -252,7 +253,12 @@ call plug#end()
 
 " <Command-T File Searching>-----------{
     "----Key mapping----
-    nnoremap <leader>/ :CommandT<CR>
+    "nnoremap <leader>/ :CommandT<CR>
+    nnoremap <leader>c :CommandT<CR>
+    let g:CommandTMaxDepth = 10
+    let g:CommandTMaxFiles=2000
+    let g:CommandTSuppressMaxFilesWarning = 1
+    set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.jpg, *.png, *.gif, *.doc, *.docx"
 " }
 
 " <Python-Mode>-------{
@@ -317,8 +323,8 @@ call plug#end()
         " 开/关文件菜单
         nnoremap <leader>f :NERDTreeToggle<CR>  
         " 向右向左切换tab
-        nnoremap <leader>h gt
-        nnoremap <leader>l gT
+        nnoremap <C-h> gt
+        nnoremap <C-l> gT
         " 按leader+t 打开新tab
         "nnoremap <leader>t :tabe<CR>
         " 按leader+q 关闭当前tab

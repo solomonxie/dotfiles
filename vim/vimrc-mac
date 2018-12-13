@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
 
     "<<File Browser>>
         " COMMAND-T
-        Plug 'wincent/command-t'    "(Ruby required)
+        Plug 'wincent/command-t'    "VIM only (Ruby required)
         " NERDTREE
         Plug 'scrooloose/nerdtree'          " File tree manager
         Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
@@ -127,7 +127,7 @@ call plug#end()
     nnoremap <return> za
 
     " <Language support>
-    if has('vim')    "for VIM only 
+    if ! has('vim')    "for VIM only 
         "set pyxversion=2
         if has('python3')
            set pyx=3

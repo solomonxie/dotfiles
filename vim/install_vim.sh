@@ -5,9 +5,9 @@
 #
 # Commands:
 #   1. Get in VIM
-#   2. :PluginInstall
+#   2. :Pluginstall
 #   3. If there's permission problem: $ sudo chown -R $USER:$USER ~/.vim
-#   4. :PluginInstall
+#   4. :Pluginstall
 #
 # Run:
 #   $ ./install_vim.sh --os ubuntu

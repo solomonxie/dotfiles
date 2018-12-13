@@ -18,7 +18,7 @@
 #   then:
 #   type "s" to execute each line, type "n" for each top-level function
 
-set -ax
+set -x
 
 MYHOME="`cat /etc/passwd |grep ${SUDO_UID:-$(id -u)} | cut -d: -f 6`"
 MYHOME=${MYHOME:-$HOME}

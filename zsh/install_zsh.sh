@@ -9,7 +9,7 @@
 #   $ bashdb ./install_zsh.sh --os ubuntu
 
 
-set -ax
+set -x
 
 MYHOME="`cat /etc/passwd |grep ${SUDO_UID:-$(id -u)} | cut -d: -f 6`"
 MYHOME=${MYHOME:-$HOME}

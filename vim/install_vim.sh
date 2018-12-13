@@ -18,19 +18,26 @@
 
 set -ax
 
-MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-SRC="$MYHOME/dotfiles"
-OS=""
+# Check flags
+if [ $# -eq 0 ]; then 
+    echo "[ Failed ] Please specify OS version with --os flag."
+    return 1; 
+fi
 
-mkdir $MYHOME/.vim
+MYHOME=${$(`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`):-$HOME}
+REPO_URL="git@github.com:solomonxie/dotfiles.git"
+SRC="$MYHOME/dotfiles"
+
+mkdir -p $MYHOME/.vim
+
+# Check repo
+if [ ! -e $MYHOME/dotfiles ]; then
+    git clone $REPO_URL $MYHOME/dotfiles
+fi
+
 
 
 do_install_vim(){
-    if [ $# -eq 0 ]; then 
-        echo "[ Failed ] Please specify OS version with --os flag."
-        return 1; 
-    fi
     # Get distro information
     while [ $# -gt 0 ] ;do
         case "$1" in
@@ -51,21 +58,21 @@ do_install_vim(){
         "mac")
             install_vim_mac ;;
     esac
-    # ---SETING UP VIM ---
-    echo "-----[  OVERWRITING VIMRC CONFIG   ]-----"
-    curl -fsSL $REPO_URL/vim/vimrc -o $MYHOME/.vimrc
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $MYHOME/.vim/colors
-    curl -fsSL $REPO_URL/vim/colors/gruvbox.vim -o $MYHOME/.vim/colors/gruvbox.vim
+    curl -fsSL $SRC/vim/colors/gruvbox.vim -o $MYHOME/.vim/colors/gruvbox.vim
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
     mkdir -p $MYHOME/.vim/syntax
-    curl -fsSL $REPO_URL/vim/syntax/python.vim -o $MYHOME/.vim/syntax/python.vim
+    curl -fsSL $SRC/vim/syntax/python.vim -o $MYHOME/.vim/syntax/python.vim
     # Download Vundle & Install plugins
-    echo "-----[  DOWNLOADING VUNDLE - VIM PLUGIN MANAGER   ]-----"
-    git clone https://github.com/VundleVim/Vundle.vim.git $MYHOME/.vim/bundle/Vundle.vim
+    echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
+    curl -fLo $MYHOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall +qall
+
+    echo "-----[   Create Symlinks   ]-----"
+    ln -sf $MYHOME/dotfiles/vim/vimrc $MYHOME/.vimrc
 }
 
 install_vim_ubuntu(){
@@ -77,6 +84,7 @@ install_vim_ubuntu(){
     echo "-----[  Change permission   ]-----"
     sudo chown -R ubuntu:ubuntu $MYHOME/.vim
     # sudo chown -R ubuntu $MYHOME/.vim >> $MYHOME/.init/log_vim.txt 1>&2
+
 }
 
 install_vim_rpi(){

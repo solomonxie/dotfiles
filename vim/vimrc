@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
 
     "<<File Browser>>
         " COMMAND-T
-        Plug 'wincent/command-t'    "(Ruby required)
+        "Plug 'wincent/command-t'    "(Ruby required)
         " NERDTREE
         Plug 'scrooloose/nerdtree'          " File tree manager
         Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
@@ -66,7 +66,7 @@ call plug#begin('~/.vim/plugged')
         "endif
 
     "<<Tags>>
-        Plug 'majutsushi/tagbar'   " (ctags required)
+        "Plug 'majutsushi/tagbar'   " (ctags required)
 
     "<<Folding>>
         Plug 'tmhedberg/SimpylFold'   "improving folding
@@ -122,9 +122,6 @@ call plug#end()
     setlocal foldlevel=1        " 设置折叠层数
     set foldlevelstart=99       " 打开文件是默认不折叠代码
     "set foldclose=all          " 设置为自动关闭折叠
-    " 用空格键来开关折叠
-    "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-    nnoremap <return> za
 
     " <Language support>
     if has('vim')    "for VIM only 
@@ -278,11 +275,11 @@ call plug#end()
 " }
 
 " <Tagbar>--------------{
-    let tagbar_autofocus = 1
-    let tagbar_autoclose = 1
-    "----Key mapping----
-    nnoremap <leader>t :TagbarToggle<CR>
-    "nnoremap <leader>t :TagbarOpen f<CR>
+    "let tagbar_autofocus = 1
+    "let tagbar_autoclose = 1
+    ""----Key mapping----
+    "nnoremap <leader>t :TagbarToggle<CR>
+    ""nnoremap <leader>t :TagbarOpen f<CR>
 " }
 
 " <Command-T File Searching>-----------{

@@ -11,7 +11,8 @@
 
 set -ax
 
-MYHOME=${$(`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`):-$HOME}
+MYHOME="`cat /etc/passwd |grep ${SUDO_UID:-$(id -u)} | cut -d: -f 6`"
+MYHOME=${MYHOME:-$HOME}
 REPO_URL="git@github.com:solomonxie/dotfiles.git"
 SRC="$MYHOME/dotfiles"
 

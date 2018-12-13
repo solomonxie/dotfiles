@@ -102,9 +102,12 @@ do_init_ubuntu(){
     #curl -sSL $REPO_URL//utils.sh -o ~/.bashrc.utils
     #cat ~/.bashrc.utils >> ~/.bash_profile
     #source ~/.bash_profile
+    #
     # Change server timezone
     echo "[   CHANGE TIMEZONE   ]"
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    # Add cron job to auto update dotfiles
+    echo "$(crontab -l)\n*/10 * * * * git -C ~/dotfiles pull" | crontab
     # Update server & install essentials
     # echo "[   UPDATE APT REPOSITORIES   ]"
     echo "[   UPDATE APT REPOSITORIES   ]"
@@ -140,9 +143,13 @@ do_init_rpi(){
     sudo cp ./etc/Rpi/boot/config.txt /boot/config.txt
     # Enable ssh
     sudo touch /boot/ssh
+    #
     # Setup WIFI (need you to rewrite wifi password in the file)
     #sudo wget $REPO_URL//Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
-    # Update server & install essentials
+    #
+    # Add cron job to auto update dotfiles
+    echo "$(crontab -l)\n*/10 * * * * git -C ~/dotfiles pull" | crontab
+    #
     echo "[   UPDATE APT REPOSITORIES   ]"
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
     sudo apt-get update 2>&1 /dev/null

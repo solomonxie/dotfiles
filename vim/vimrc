@@ -23,19 +23,19 @@ call plug#begin('~/.vim/plugged')
         "Plug 'tpope/vim-fugitive'    " easy commands to do git
 
     "<<File Browser>>
+        " COMMAND-T
+        Plug 'wincent/command-t'    "(Ruby required)
         " NERDTREE
         Plug 'scrooloose/nerdtree'          " File tree manager
-        Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
         Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
         Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+        "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
         "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
-        " COMMAND-T
-        Plug 'wincent/command-t'
 
     "<<Snippets>> (python required)
-        Plug 'MarcWeber/vim-addon-mw-utils'
-        Plug 'tomtom/tlib_vim'
-        Plug 'garbas/vim-snipmate'
+        "Plug 'MarcWeber/vim-addon-mw-utils'
+        "Plug 'tomtom/tlib_vim'
+        "Plug 'garbas/vim-snipmate'
         "Plug 'honza/vim-snippets' "some common snippets (python required)
 
     "<<Search-Tools>>
@@ -52,23 +52,33 @@ call plug#begin('~/.vim/plugged')
 
     "<<Completion>>
         "Plug 'ervandew/supertab'
-        "Plug 'valloric/youcompleteme'
-        "Plug 'davidhalter/jedi-vim'
+        "Plug 'valloric/youcompleteme'    "hard to build
+        "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
+        "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
+        "work
+        "Plug 'rkulla/pydiction'   " not work as expected
+        if has('nvim')
+            Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        else
+            Plug 'Shougo/deoplete.nvim'
+            Plug 'roxma/nvim-yarp'
+            Plug 'roxma/vim-hug-neovim-rpc'
+        endif
 
     "<<Tags>>
-        Plug 'majutsushi/tagbar'
+        Plug 'majutsushi/tagbar'   " (ctags required)
 
     "<<Folding>>
-        Plug 'tmhedberg/SimpylFold'
+        Plug 'tmhedberg/SimpylFold'   "improving folding
 
     "<<Indentation>>
         "Plug 'nathanaelkane/vim-indent-guides'
-        Plug  'Yggdroot/indentLine'
+        Plug  'Yggdroot/indentLine'    "Beautiful indent lines
 
     "<<Syntax-Specific>>
         "Plug 'python-mode/python-mode'    "Deprecated
         "Plug 'vim-python/python-syntax'
-        Plug 'hdima/python-syntax'
+        Plug 'hdima/python-syntax'   "better than vim-python's 
         "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
 
 call plug#end()
@@ -115,6 +125,16 @@ call plug#end()
     " 用空格键来开关折叠
     "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
     nnoremap <return> za
+
+    " <Language support>
+    if has('vim')    "for VIM only 
+        "set pyxversion=2
+        if has('python3')
+           set pyx=3
+        else
+           set pyx=2
+        endif
+    endif
 "endfunction
 " }
 
@@ -140,8 +160,8 @@ call plug#end()
     "<Common Keys>
         inoremap <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <C-c> <ESC>:nohl<CR><ESC>
-        nnoremap <leader>qw :q<CR>
-        vnoremap <leader>qw :q<CR>
+        "nnoremap <leader>qw :q<CR>
+        "vnoremap <leader>qw :q<CR>
 
     "<Vim-Plug>
         nnoremap <leader>i :PlugInstall<CR>
@@ -157,8 +177,8 @@ call plug#end()
     "<Buffer>
         nnoremap <leader>h :bp<CR><ESC>
         nnoremap <leader>l :bn<CR><ESC>
-        nnoremap <leader>qb :bd<CR><ESC>
-        vnoremap <leader>qb :bd<CR><ESC>
+        nnoremap <leader>q :bd<CR><ESC>
+        vnoremap <leader>q :bd<CR><ESC>
 
     "<Folding>
         nnoremap <space> za
@@ -238,6 +258,22 @@ call plug#end()
     "let g:indentLine_setConceal = 0
 " }
 
+" <pydiction>-------------{
+    "let g:pydiction_location = '$HOME/.vim/plugged/pydiction/complete-dict'
+    "let g:pydiction_menu_height = 7
+" }
+
+" <Deoplete>--------------{
+    let g:deoplete#enable_at_startup = 1
+    " Set a single option
+    call deoplete#custom#option('auto_complete_delay', 0)
+    " Pass a dictionary to set multiple options
+    call deoplete#custom#option({
+    \ 'auto_complete_delay': 200,
+    \ 'smart_case': v:true,
+    \ })
+" }
+
 
 " <SimpylFold>------------{
     "let g:SimpylFold_docstring_preview = 1
@@ -258,7 +294,7 @@ call plug#end()
     let g:CommandTMaxDepth = 10
     let g:CommandTMaxFiles=2000
     let g:CommandTSuppressMaxFilesWarning = 1
-    set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.jpg, *.png, *.gif, *.doc, *.docx"
+    set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
 " }
 
 " <Python-Mode>-------{

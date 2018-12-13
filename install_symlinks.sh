@@ -32,3 +32,5 @@ ln -sf $MYHOME/dotfiles/zsh/zshrc $MYHOME/.zshrc
 ln -sf $MYHOME/dotfiles/zsh/zshrc.extension $MYHOME/.zshrc.extension
 ln -sf $MYHOME/dotfiles/zsh/zshrc.themes $MYHOME/.zshrc.themes
 ln -sf $MYHOME/dotfiles/tmux/tmux.conf $MYHOME/.tmux.conf
+
+echo '[  OK  ]'

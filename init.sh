@@ -156,7 +156,7 @@ do_init_rpi(){
     sh $SRC/tmux/install_tmux.sh --os raspbian  2>&1 > /dev/null
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/python/install_zsh.sh --os raspbian 2>&1 > /dev/null
+    sh $SRC/zsh/install_zsh.sh --os raspbian 2>&1 > /dev/null
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
     sh $SRC/python/install_python3.sh --os raspbian 2>&1 > /dev/null

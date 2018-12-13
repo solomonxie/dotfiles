@@ -8,8 +8,8 @@
 #   Run this as ROOT results apps installed to wrong paths.
 #
 # How to run this script:
-#   $ git clone https://github.com/solomonxie/dotfiles.git ~/dotfiles 
-#   $ ~/dotfiles/init.sh 2>&1 > /dev/null
+#   git clone https://github.com/solomonxie/dotfiles.git ~/dotfiles 
+#   ~/dotfiles/init.sh
 #   #or
 #   $ nohup ~/dotfiles/init.sh 2>&1 > /dev/null &
 #

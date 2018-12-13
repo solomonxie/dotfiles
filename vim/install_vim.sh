@@ -15,8 +15,16 @@
 #   $ bashdb ./install_vim.sh --os ubuntu
 
 
-
 set -ax
+
+MYHOME=${$(`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`):-$HOME}
+REPO_URL="git@github.com:solomonxie/dotfiles.git"
+SRC="$MYHOME/dotfiles"
+
+# Download Repo if not exists
+if [ ! -e $MYHOME/dotfiles ]; then
+    git clone $REPO_URL $MYHOME/dotfiles
+fi
 
 # Check flags
 if [ $# -eq 0 ]; then 
@@ -24,18 +32,9 @@ if [ $# -eq 0 ]; then
     return 1; 
 fi
 
-MYHOME=${$(`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`):-$HOME}
-REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$MYHOME/dotfiles"
-
-mkdir -p $MYHOME/.vim
-
-# Check repo
-if [ ! -e $MYHOME/dotfiles ]; then
-    git clone $REPO_URL $MYHOME/dotfiles
-fi
-
-
+#-------------------------------------
+#     Installation Methods
+#-------------------------------------
 
 do_install_vim(){
     # Get distro information
@@ -49,6 +48,8 @@ do_install_vim(){
                 shift 2;;
         esac
     done
+    # Make paths for vim extensions
+    mkdir -p $MYHOME/.vim
     # Do different things with different OS
     case $distro in
         "ubuntu")
@@ -163,5 +164,9 @@ build_vim_pi(){
     sudo ln -s /opt/vim-8.1/bin/vim /usr/bin/vim
 }
 
-# Start this script
+
+#-------------------------------------
+#          Entry points
+#-------------------------------------
+
 do_install_vim "$@"

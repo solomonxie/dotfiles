@@ -11,9 +11,24 @@
 
 set -ax
 
-MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+MYHOME=${$(`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`):-$HOME}
+REPO_URL="git@github.com:solomonxie/dotfiles.git"
+SRC="$MYHOME/dotfiles"
 
+# Download Repo if not exists
+if [ ! -e $MYHOME/dotfiles ]; then
+    git clone $REPO_URL $MYHOME/dotfiles
+fi
+
+# Check flags
+if [ $# -eq 0 ]; then 
+    echo "[ Failed ] Please specify OS version with --os flag."
+    return 1; 
+fi
+
+#-------------------------------------
+#     Installation Methods
+#-------------------------------------
 
 do_install_docker_apps(){
     if [ $# -eq 0 ]; then 
@@ -264,5 +279,10 @@ docker_ftp(){
 }
 
 
-# Entry point
+
+
+#-------------------------------------
+#          Entry points
+#-------------------------------------
+
 do_install_docker_apps "$@"

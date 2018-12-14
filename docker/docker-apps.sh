@@ -48,8 +48,8 @@ do_install_docker_apps(){
         esac
     done
     # Do different things with different OS
-    case $distro in
-        "ubuntu")
+    case $OS in
+        ubuntu)
             docker_shadowsocks
             docker_shadowsocks_old
             docker_v2ray
@@ -59,12 +59,12 @@ do_install_docker_apps(){
             docker_playground_ubuntu
             # docker_wsgidav
             ;;
-        "raspbian")
+        raspbian)
             docker_webdav_rpi
             docker_vpn_ipsec_rpi
             ;;
-        "mac")
-            echo "" ;;
+        mac)
+            echo "Mac" ;;
     esac
 }
 

@@ -20,7 +20,7 @@ cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
 
 do_install_docker_apps(){
     # Do different things with different OS
-    case $OS in
+    case $MYOS in
         ubuntu)
             docker_shadowsocks
             docker_shadowsocks_old

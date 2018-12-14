@@ -17,14 +17,16 @@
 
 set -x
 
-MYHOME="`cat /etc/passwd |grep ${SUDO_UID:-$(id -u)} | cut -d: -f 6`"
-MYHOME=${MYHOME:-$HOME}
+ME=${SUDO_USER:-$(id -un)}
+HOUSE="`cat /etc/passwd |grep ^${ME}: | cut -d: -f 6`"
+HOUSE=${HOUSE:-$HOME}
+echo $HOUSE
 REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$MYHOME/dotfiles"
+SRC="$HOUSE/dotfiles"
 
 # Download Repo if not exists
-if [ ! -e $MYHOME/dotfiles ]; then
-    git clone $REPO_URL $MYHOME/dotfiles
+if [ ! -e $HOUSE/dotfiles ]; then
+    git clone $REPO_URL $HOUSE/dotfiles
 fi
 
 # Check flags
@@ -50,7 +52,7 @@ do_install_vim(){
         esac
     done
     # Make paths for vim extensions
-    mkdir -p $MYHOME/.vim
+    mkdir -p $HOUSE/.vim
     # Do different things with different OS
     case $distro in
         "ubuntu")
@@ -62,19 +64,19 @@ do_install_vim(){
     esac
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    mkdir -p $MYHOME/.vim/colors
-    curl -fsSL $SRC/vim/colors/gruvbox.vim -o $MYHOME/.vim/colors/gruvbox.vim
+    mkdir -p $HOUSE/.vim/colors
+    curl -fsSL $SRC/vim/colors/gruvbox.vim -o $HOUSE/.vim/colors/gruvbox.vim
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
-    mkdir -p $MYHOME/.vim/syntax
-    curl -fsSL $SRC/vim/syntax/python.vim -o $MYHOME/.vim/syntax/python.vim
+    mkdir -p $HOUSE/.vim/syntax
+    curl -fsSL $SRC/vim/syntax/python.vim -o $HOUSE/.vim/syntax/python.vim
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
-    curl -fLo $MYHOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo $HOUSE/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall +qall
 
     echo "-----[   Create Symlinks   ]-----"
-    ln -sf $MYHOME/dotfiles/vim/vimrc $MYHOME/.vimrc
+    ln -sf $HOUSE/dotfiles/vim/vimrc $HOUSE/.vimrc
 }
 
 install_vim_ubuntu(){
@@ -84,8 +86,8 @@ install_vim_ubuntu(){
     sudo apt-get install ctags -y
 
     echo "-----[  Change permission   ]-----"
-    sudo chown -R ubuntu:ubuntu $MYHOME/.vim
-    # sudo chown -R ubuntu $MYHOME/.vim >> $MYHOME/.init/log_vim.txt 1>&2
+    sudo chown -R ubuntu:ubuntu $HOUSE/.vim
+    # sudo chown -R ubuntu $HOUSE/.vim >> $HOUSE/.init/log_vim.txt 1>&2
 
 }
 
@@ -96,8 +98,8 @@ install_vim_rpi(){
     sudo apt-get install ctags -y
 
     echo "-----[  Change permission   ]-----"
-    sudo chown -R pi:pi $MYHOME/.vim
-    #sudo chown -R ubuntu $MYHOME/.vim >> $MYHOME/.init/log_vim.txt 1>&2
+    sudo chown -R pi:pi $HOUSE/.vim
+    #sudo chown -R ubuntu $HOUSE/.vim >> $HOUSE/.init/log_vim.txt 1>&2
 }
 
 install_vim_mac(){

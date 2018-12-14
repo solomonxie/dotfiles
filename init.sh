@@ -20,15 +20,16 @@
 
 set -x
 
-MYHOME="`cat /etc/passwd |grep ${SUDO_UID:-$(id -u)} | cut -d: -f 6`"
-MYHOME=${MYHOME:-$HOME}
-echo $MYHOME
+ME=${SUDO_USER:-$(id -un)}
+HOUSE="`cat /etc/passwd |grep ^${ME}: | cut -d: -f 6`"
+HOUSE=${HOUSE:-$HOME}
+echo $HOUSE
 REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$MYHOME/dotfiles"
+SRC="$HOUSE/dotfiles"
 
 # Download Repo if not exists
-if [ ! -e $MYHOME/dotfiles ]; then
-    git clone $REPO_URL $MYHOME/dotfiles
+if [ ! -e $HOUSE/dotfiles ]; then
+    git clone $REPO_URL $HOUSE/dotfiles
 fi
 
 

@@ -72,9 +72,9 @@ install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_URL/tmux/tmux-ubuntu.conf -o $HOUSE/.tmux.conf
+    cp $SRC/tmux/tmux-ubuntu.conf $HOUSE/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    curl -fsSL $REPO_URL/tmux/resurrect/last-ubuntu.txt -o $HOUSE/.tmux/resurrect/last.txt
+    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOUSE/.tmux/resurrect/last.txt
     ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
 }
 
@@ -82,9 +82,9 @@ install_tmux_rpi(){
     yes | sudo apt-get install tmux
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_URL/tmux/tmux-rpi.conf -o $HOUSE/.tmux.conf
+    cp $SRC/tmux/tmux-rpi.conf $HOUSE/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    curl -fsSL $REPO_URL/tmux/resurrect/last-rpi.txt -o $HOUSE/.tmux/resurrect/last.txt
+    cp $SRC/tmux/resurrect/last-rpi.txt $HOUSE/.tmux/resurrect/last.txt
     ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
 }
 
@@ -92,9 +92,9 @@ install_tmux_mac(){
     brew install tmux  
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_URL/tmux/tmux-mac.conf -o ~/.tmux.conf
+    cp $SRC/tmux/tmux-mac.conf $HOUSE/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    curl -fsSL $REPO_URL/tmux/resurrect/last-mac.txt -o $HOUSE/.tmux/resurrect/last.txt
+    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOUSE/.tmux/resurrect/last.txt
     ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
 }
 

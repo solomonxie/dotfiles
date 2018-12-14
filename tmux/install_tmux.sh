@@ -17,8 +17,7 @@
 
 set -x
 
-if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
-source ~/.dotfiles.en
+source ../dotfiles.env
 
 #-------------------------------------
 #     Installation Methods
@@ -34,8 +33,10 @@ do_install_tmux(){
         mac)
             install_tmux_mac ;;
     esac
+
     # Make paths for tmux extensions
     mkdir -p $HOUSE/.tmux/resurrect
+    
     # Download & Install plugins
     echo "----------[  Installing TPM for Tmux   ]--------------"
     git clone https://github.com/tmux-plugins/tpm $HOUSE/.tmux/plugins/tpm

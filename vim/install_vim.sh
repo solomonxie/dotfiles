@@ -17,8 +17,7 @@
 
 set -x
 
-if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
-source ~/.dotfiles.en
+source ../dotfiles.env
 
 #-------------------------------------
 #     Installation Methods
@@ -34,16 +33,20 @@ do_install_vim(){
         mac)
             install_vim_mac ;;
     esac
+
     # Make paths for vim extensions
     mkdir -p $HOUSE/.vim
+
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $HOUSE/.vim/colors
     cp $SRC/vim/colors/gruvbox.vim $HOUSE/.vim/colors/gruvbox.vim
+
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
     mkdir -p $HOUSE/.vim/syntax
     cp $SRC/vim/syntax/python.vim $HOUSE/.vim/syntax/python.vim
+    
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
     curl -fLo $HOUSE/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

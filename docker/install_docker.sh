@@ -11,8 +11,7 @@
 
 set -x
 
-if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
-source ~/.dotfiles.en
+source ../dotfiles.env
 
 #-------------------------------------
 #     Installation Methods

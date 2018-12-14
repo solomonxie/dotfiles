@@ -51,7 +51,8 @@ do_init_ubuntu(){
     echo "[   CHANGE TIMEZONE   ]"
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     # Add cron job to auto update dotfiles
-    echo "$(crontab -l)\n*/1 * * * * git -C ~/dotfiles pull" | crontab
+    #echo "$(crontab -l)\n*/1 * * * * git -C ~/dotfiles pull" | crontab
+    echo "\n*/1 * * * * git -C ~/dotfiles pull" | crontab
     # Update server & install essentials
     # echo "[   UPDATE APT REPOSITORIES   ]"
     echo "[   UPDATE APT REPOSITORIES   ]"

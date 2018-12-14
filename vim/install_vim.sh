@@ -54,12 +54,12 @@ do_install_vim(){
     # Make paths for vim extensions
     mkdir -p $HOUSE/.vim
     # Do different things with different OS
-    case $distro in
-        "ubuntu")
+    case $OS in
+        ubuntu)
             install_vim_ubuntu ;;
-        "raspbian")
+        raspbian)
             install_vim_rpi ;;
-        "mac")
+        mac)
             install_vim_mac ;;
     esac
     # Color Scheme

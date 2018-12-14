@@ -48,7 +48,7 @@ do_init_zsh(){
     # Make paths for ZSH extensions
     mkdir -p "$HOUSE/.zsh"
     # Do different things with different OS
-    case $distro in
+    case $OS in
         ubuntu|raspbian)
             sudo apt-get install zsh -y
             ;;

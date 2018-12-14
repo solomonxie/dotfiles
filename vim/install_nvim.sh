@@ -55,7 +55,7 @@ do_install_nvim(){
     mkdir -p $HOUSE/.vim
     ln -s $HOUSE/.vim $HOUSE/.config/nvim
     # Do different things with different OS
-    case $distro in
+    case $OS in
         ubuntu)
             install_vim_ubuntu ;;
         raspbian)

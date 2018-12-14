@@ -44,13 +44,13 @@ do_install_docker_by_os(){
         esac
     done
     # Do different things with different OS
-    case $distro in
-        "ubuntu")
+    case $OS in
+        ubuntu)
             install_docker_quick
             docker_add_permission
             sudo sh $PWD/docker-apps.sh --os ubuntu
             ;;
-        "raspbian")
+        raspbian)
             install_docker_quick
             docker_add_permission
             docker_setup

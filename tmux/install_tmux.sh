@@ -54,12 +54,12 @@ do_install_tmux(){
     # Make paths for tmux extensions
     mkdir -p $HOUSE/.tmux/resurrect
     # Do different things with different OS
-    case $distro in
-        "ubuntu")
+    case $OS in
+        ubuntu)
             install_tmux_ubuntu ;;
-        "raspbian")
+        raspbian)
             install_tmux_rpi ;;
-        "mac")
+        mac)
             install_tmux_mac ;;
     esac
     # Download & Install plugins

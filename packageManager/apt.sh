@@ -43,6 +43,7 @@ install_utils_ubuntu(){
     sudo apt-get install apt-utils -y
     sudo apt-get install checkinstall -y
     sudo apt-get install mosh -y
+    sudo apt-get install tree -y
     sudo apt-get install unzip -y
     sudo apt-get install ntfs-3g -y
     sudo apt-get install htop -y
@@ -51,7 +52,7 @@ install_utils_ubuntu(){
     sudo apt-get install bashdb -y
     sudo apt-get install unar -y
     #sudo apt-get install fortune cowsay cmatrix -y
-    sudo pip install youtube-dl tldr ffmpeg
+    pip install --user youtube-dl tldr ffmpeg
 
     #yes | sudo add-apt-repository ppa:dawidd0811/neofetch
     #sudo apt update && sudo apt install neofetch -y
@@ -61,6 +62,7 @@ install_utils_rpi(){
     sudo apt-get install apt-utils -y
     sudo apt-get install checkinstall -y
     sudo apt-get install mosh -y
+    sudo apt-get install tree -y
     sudo apt-get install ntfs-3g -y
     sudo apt-get install tightvncserver -y
     sudo apt-get install htop -y
@@ -70,7 +72,7 @@ install_utils_rpi(){
     sudo apt-get install bashdb -y
     sudo apt-get install unar -y
     #sudo apt-get install fortune cowsay cmatrix -y
-    sudo pip install youtube-dl tldr ffmpeg
+    pip install --user youtube-dl tldr ffmpeg
 
     #sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list
     #sudo apt update && sudo apt install neofetch -y

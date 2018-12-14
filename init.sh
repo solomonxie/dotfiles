@@ -18,9 +18,9 @@
 #   then:
 #   type "s" to execute each line, type "n" for each top-level function
 
-set -x
+set -xe
 
-source ./dotfiles.env
+source `dirname $0`/dotfiles.env
 
 #-------------------------------------
 #     Initialization Functions

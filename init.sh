@@ -20,18 +20,8 @@
 
 set -x
 
-ME=${SUDO_USER:-$(id -un)}
-HOUSE="`cat /etc/passwd |grep ^${ME}: | cut -d: -f 6`"
-HOUSE=${HOUSE:-$HOME}
-echo $HOUSE
-REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$HOUSE/dotfiles"
-
-# Download Repo if not exists
-if [ ! -e $HOUSE/dotfiles ]; then
-    git clone $REPO_URL $HOUSE/dotfiles
-fi
-
+if [ -e ./dotfiles.env ]; then source ./dotfiles.env ;
+else echo "Environment file [bashrc.env] hasn't been found."; exit 1; fi
 
 #-------------------------------------
 #     Initialization Functions
@@ -108,7 +98,7 @@ do_init_ubuntu(){
     echo "[   CHANGE TIMEZONE   ]"
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     # Add cron job to auto update dotfiles
-    echo "$(crontab -l)\n*/10 * * * * git -C ~/dotfiles pull" | crontab
+    echo "$(crontab -l)\n*/1 * * * * git -C ~/dotfiles pull" | crontab
     # Update server & install essentials
     # echo "[   UPDATE APT REPOSITORIES   ]"
     echo "[   UPDATE APT REPOSITORIES   ]"
@@ -149,7 +139,7 @@ do_init_rpi(){
     #sudo wget $REPO_URL//Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
     #
     # Add cron job to auto update dotfiles
-    echo "$(crontab -l)\n*/10 * * * * git -C ~/dotfiles pull" | crontab
+    echo "$(crontab -l)\n*/1 * * * * git -C ~/dotfiles pull" | crontab
     #
     echo "[   UPDATE APT REPOSITORIES   ]"
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/

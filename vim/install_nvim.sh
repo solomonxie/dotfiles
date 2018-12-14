@@ -66,11 +66,11 @@ do_install_nvim(){
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $HOUSE/.vim/colors
-    curl -fsSL $SRC/vim/colors/gruvbox.vim -o $HOUSE/.vim/colors/gruvbox.vim
+    cp $SRC/vim/colors/gruvbox.vim $HOUSE/.vim/colors/gruvbox.vim
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
     mkdir -p $HOUSE/.vim/syntax
-    curl -fsSL $SRC/vim/syntax/python.vim -o $HOUSE/.vim/syntax/python.vim
+    cp $SRC/vim/syntax/python.vim $HOUSE/.vim/syntax/python.vim
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
     curl -fLo $HOUSE/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

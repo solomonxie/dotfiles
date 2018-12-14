@@ -65,22 +65,22 @@ do_init_ubuntu(){
     sudo apt-get install curl wget git bashdb -y 
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh
+    $SRC/vim/install_vim.sh
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh
+    $SRC/tmux/install_tmux.sh
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh
+    $SRC/zsh/install_zsh.sh
     # Setup Python3
     echo "[   SETTING UP PYTHON   ]"
-    sh $SRC/python/install_python.sh
+    $SRC/python/install_python.sh
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh
+    $SRC/packageManager/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install_docker.sh
-    sh $SRC/docker/docker-apps.sh
+    $SRC/docker/install_docker.sh
+    $SRC/docker/docker-apps.sh
 }
 
 do_init_rpi(){
@@ -103,22 +103,22 @@ do_init_rpi(){
     sudo apt-get install curl wget git bashdb -y 
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh
+    $SRC/vim/install_vim.sh
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh
+    $SRC/tmux/install_tmux.sh
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh
+    $SRC/zsh/install_zsh.sh
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh
+    $SRC/python/install_python3.sh
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh
+    $SRC/packageManager/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install-docker-rpi.sh
-    sh $SRC/docker/docker-apps.sh
+    $SRC/docker/install-docker-rpi.sh
+    $SRC/docker/docker-apps.sh
 }
 
 do_init_mac(){

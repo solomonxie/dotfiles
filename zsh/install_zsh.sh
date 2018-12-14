@@ -11,8 +11,7 @@
 
 set -x
 
-if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
-source ~/.dotfiles.env
+source ../dotfiles.env
 
 #-------------------------------------
 #     Installation Methods
@@ -30,11 +29,14 @@ do_init_zsh(){
     esac
     # Make paths for ZSH extensions
     mkdir -p "$HOUSE/.zsh"
+
     # Install Plugins
     install_zsh_plugins
+
     # Check installment
     do_test_installment_zsh
-    change_default_shell_zsh
+    
+    #change_default_shell_zsh
 
     # Create Symlinks
     ln -sf $SRC/zsh/zshrc $HOUSE/.zshrc

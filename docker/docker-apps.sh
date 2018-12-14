@@ -11,8 +11,7 @@
 
 set -x
 
-if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
-source ~/.dotfiles.en
+source ../dotfiles.env
 
 #-------------------------------------
 #     Installation Methods
@@ -36,7 +35,8 @@ do_install_docker_apps(){
             docker_vpn_ipsec_rpi
             ;;
         mac)
-            echo "Mac" ;;
+            echo "Mac"
+            ;;
     esac
 }
 

@@ -78,8 +78,10 @@
 # }
 
 
-# # Environment Variables, paths {
-    export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
-    export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
-    export EDITOR=vim 
-# }
+# Environment Variables, paths
+# Some would be imported here by other programms automatically
+# etc., cat 'expot path=...' > ~/.zshrc
+
+export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
+export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
+export EDITOR=vim 

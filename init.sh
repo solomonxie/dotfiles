@@ -20,8 +20,7 @@
 
 set -x
 
-if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
-source ~/.dotfiles.env
+source ./dotfiles.env
 
 #-------------------------------------
 #     Initialization Functions

@@ -73,10 +73,8 @@ do_init_ubuntu(){
     echo "[   SETTING UP ZSH   ]"
     sh $SRC/zsh/install_zsh.sh
     # Setup Python3
-    echo "[   SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh
-    echo "[   SETTING UP JUPYTER ]"
-    sh $SRC/python/install_jupyter.sh
+    echo "[   SETTING UP PYTHON   ]"
+    sh $SRC/python/install_python.sh
     # Install common used apt packages & clean up
     sh $SRC/packageManager/apt.sh
     # Install docker

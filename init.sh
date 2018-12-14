@@ -56,28 +56,28 @@ do_init_ubuntu(){
     # echo "[   UPDATE APT REPOSITORIES   ]"
     echo "[   UPDATE APT REPOSITORIES   ]"
     # sudo cp ./etc/ubuntu/sources-cn.list /etc/apt/
-    sudo apt-get update 2>&1 > /dev/null
+    sudo apt-get update 
     # Get essential tools before any installation
-    sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
+    sudo apt-get install curl wget git bashdb -y 
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --os ubuntu 2>&1 > /dev/null
+    sh $SRC/vim/install_vim.sh --os ubuntu 
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --os ubuntu 2>&1 > /dev/null
+    sh $SRC/tmux/install_tmux.sh --os ubuntu 
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh --os ubuntu 2>&1 > /dev/null
+    sh $SRC/zsh/install_zsh.sh --os ubuntu 
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --os ubuntu 2>&1 > /dev/null
+    sh $SRC/python/install_python3.sh --os ubuntu 
     echo "[   SETTING UP JUPYTER ]"
-    sh $SRC/python/install_jupyter.sh --os ubuntu 2>&1 > /dev/null
+    sh $SRC/python/install_jupyter.sh --os ubuntu 
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --os ubuntu 2>&1 > /dev/null
+    sh $SRC/packageManager/apt.sh --os ubuntu 
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install_docker.sh --os ubuntu 2>&1 > /dev/null
+    sh $SRC/docker/install_docker.sh --os ubuntu 
     sh $SRC/docker/docker-apps.sh --os ubuntu
 }
 
@@ -98,24 +98,24 @@ do_init_rpi(){
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
     sudo apt-get update 2>&1 /dev/null
     # Get essential tools before any installation
-    sudo apt-get install curl wget git bashdb -y 2>&1 > /dev/null
+    sudo apt-get install curl wget git bashdb -y 
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --os raspbian  2>&1 > /dev/null
+    sh $SRC/vim/install_vim.sh --os raspbian  
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --os raspbian  2>&1 > /dev/null
+    sh $SRC/tmux/install_tmux.sh --os raspbian  
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh --os raspbian 2>&1 > /dev/null
+    sh $SRC/zsh/install_zsh.sh --os raspbian 
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --os raspbian 2>&1 > /dev/null
+    sh $SRC/python/install_python3.sh --os raspbian 
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --os raspbian 2>&1 > /dev/null
+    sh $SRC/packageManager/apt.sh --os raspbian 
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install-docker-rpi.sh --os raspbian 2>&1 > /dev/null
+    sh $SRC/docker/install-docker-rpi.sh --os raspbian 
     sh $SRC/docker/docker-apps.sh --os raspbian
 }
 

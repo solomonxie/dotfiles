@@ -38,8 +38,6 @@ do_init_zsh(){
     echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
     sudo usermod -s /bin/zsh $ME
 
-    #change_default_shell_zsh
-
     # Create Symlinks
     ln -sf $SRC/zsh/zshrc $HOUSE/.zshrc
     ln -sf $SRC/zsh/zshrc.themes $HOUSE/.zshrc.themes

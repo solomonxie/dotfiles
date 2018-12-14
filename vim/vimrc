@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
 
     "<<File Browser>>
         " COMMAND-T
-        "Plug 'wincent/command-t'    "(Ruby required)
+        Plug 'wincent/command-t'    "VIM only (Ruby required)
         " NERDTREE
         Plug 'scrooloose/nerdtree'          " File tree manager
         Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
@@ -55,18 +55,20 @@ call plug#begin('~/.vim/plugged')
         "Plug 'valloric/youcompleteme'    "hard to build
         "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
         "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
-        "work
         "Plug 'rkulla/pydiction'   " not work as expected
-        "if has('nvim')
-        "    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        "else
-        "    Plug 'Shougo/deoplete.nvim'
-        "    Plug 'roxma/nvim-yarp'
-        "    Plug 'roxma/vim-hug-neovim-rpc'
-        "endif
+        "
+        "<Deoplete.nvim>
+        if has('nvim')
+            Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        else
+            Plug 'Shougo/deoplete.nvim'
+            Plug 'roxma/nvim-yarp'
+            Plug 'roxma/vim-hug-neovim-rpc'
+        endif
+        Plug 'zchee/deoplete-jedi'
 
     "<<Tags>>
-        "Plug 'majutsushi/tagbar'   " (ctags required)
+        Plug 'majutsushi/tagbar'   " (ctags required)
 
     "<<Folding>>
         Plug 'tmhedberg/SimpylFold'   "improving folding
@@ -122,9 +124,12 @@ call plug#end()
     setlocal foldlevel=1        " 设置折叠层数
     set foldlevelstart=99       " 打开文件是默认不折叠代码
     "set foldclose=all          " 设置为自动关闭折叠
+    " 用空格键来开关折叠
+    "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+    nnoremap <return> za
 
     " <Language support>
-    if has('vim')    "for VIM only 
+    if ! has('vim')    "for VIM only 
         "set pyxversion=2
         if has('python3')
            set pyx=3
@@ -261,12 +266,15 @@ call plug#end()
 " }
 
 " <Deoplete>--------------{
-   " let g:deoplete#enable_at_startup = 1
-   " " Set multiple options
-   " call deoplete#custom#option({
-   " \ 'auto_complete_delay': 200,
-   " \ 'smart_case': v:true,
-   " \ })
+    let g:deoplete#enable_at_startup = 1
+    " Set multiple options
+    call deoplete#custom#option({
+    \ 'auto_complete_delay': 0,
+    \ 'smart_case': v:true,
+    \ })
+    " Deoplete-jedi
+    let g:deoplete#sources#jedi#enable_typeinfo = 0
+    let g:deoplete#sources#jedi#show_docstring = 1
 " }
 
 
@@ -275,11 +283,11 @@ call plug#end()
 " }
 
 " <Tagbar>--------------{
-    "let tagbar_autofocus = 1
-    "let tagbar_autoclose = 1
-    ""----Key mapping----
-    "nnoremap <leader>t :TagbarToggle<CR>
-    ""nnoremap <leader>t :TagbarOpen f<CR>
+    let tagbar_autofocus = 1
+    let tagbar_autoclose = 1
+    "----Key mapping----
+    nnoremap <leader>t :TagbarToggle<CR>
+    "nnoremap <leader>t :TagbarOpen f<CR>
 " }
 
 " <Command-T File Searching>-----------{

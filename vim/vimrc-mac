@@ -55,15 +55,18 @@ call plug#begin('~/.vim/plugged')
         "Plug 'valloric/youcompleteme'    "hard to build
         "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
         "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
-        "work
         "Plug 'rkulla/pydiction'   " not work as expected
-        "if has('nvim')
-        "    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        "else
-        "    Plug 'Shougo/deoplete.nvim'
-        "    Plug 'roxma/nvim-yarp'
-        "    Plug 'roxma/vim-hug-neovim-rpc'
-        "endif
+        "
+        "<Deoplete.nvim>
+        if has('nvim')
+            Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        else
+            Plug 'Shougo/deoplete.nvim'
+            Plug 'roxma/nvim-yarp'    " ??
+            Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
+        endif
+        Plug 'zchee/deoplete-jedi'    " Python completion
+        Plug 'Shougo/deoplete-clangx'   " C/C++ completion
 
     "<<Tags>>
         Plug 'majutsushi/tagbar'   " (ctags required)
@@ -127,14 +130,14 @@ call plug#end()
     nnoremap <return> za
 
     " <Language support>
-    if ! has('vim')    "for VIM only 
-        "set pyxversion=2
-        if has('python3')
-           set pyx=3
-        else
-           set pyx=2
-        endif
-    endif
+    "if ! has('vim')    "for VIM only 
+    "    "set pyxversion=2
+    "    if has('python3')
+    "       set pyx=3
+    "    else
+    "       set pyx=2
+    "    endif
+    "endif
 "endfunction
 " }
 
@@ -160,6 +163,10 @@ call plug#end()
     "<Common Keys>
         inoremap <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <C-c> <ESC>:nohl<CR><ESC>
+        vnoremap <C-s> <ESC>:w<CR><ESC>
+        nnoremap <C-s> <ESC>:w<CR><ESC>
+        vnoremap <C-x> <ESC>:x<CR><ESC>
+        nnoremap <C-x> <ESC>:x<CR><ESC>
         "nnoremap <leader>qw :q<CR>
         "vnoremap <leader>qw :q<CR>
 
@@ -264,12 +271,15 @@ call plug#end()
 " }
 
 " <Deoplete>--------------{
-    "let g:deoplete#enable_at_startup = 1
-    "" Set multiple options
-    "call deoplete#custom#option({
-    "\ 'auto_complete_delay': 200,
-    "\ 'smart_case': v:true,
-    "\ })
+    let g:deoplete#enable_at_startup = 1
+    " Set multiple options
+    call deoplete#custom#option({
+    \ 'auto_complete_delay': 0,
+    \ 'smart_case': v:true,
+    \ })
+    " Deoplete-jedi
+    let g:deoplete#sources#jedi#enable_typeinfo = 0
+    let g:deoplete#sources#jedi#show_docstring = 0
 " }
 
 

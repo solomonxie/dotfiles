@@ -20,7 +20,9 @@
 
 set -xe
 
+# Setup env variables and shared functions
 source `dirname $0`/dotfiles.env
+
 
 #-------------------------------------
 #     Initialization Functions
@@ -50,8 +52,8 @@ do_init_ubuntu(){
     # Change server timezone
     echo "[   CHANGE TIMEZONE   ]"
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-    export EDITOR=$(which vim)
     # Add cron job to auto update dotfiles
+    export EDITOR=$(which vim)
     #echo "$(crontab -l)*/1 * * * * git -C ~/dotfiles pull" | crontab
     echo "*/1 * * * * git -C ~/dotfiles pull" | crontab
     # Update server & install essentials
@@ -63,24 +65,24 @@ do_init_ubuntu(){
     sudo apt-get install curl wget git bashdb -y 
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --os ubuntu 
+    sh $SRC/vim/install_vim.sh
     # Setup Tmux
     echo "[   SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --os ubuntu 
+    sh $SRC/tmux/install_tmux.sh
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh --os ubuntu 
+    sh $SRC/zsh/install_zsh.sh
     # Setup Python3
     echo "[   SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --os ubuntu 
+    sh $SRC/python/install_python3.sh
     echo "[   SETTING UP JUPYTER ]"
-    sh $SRC/python/install_jupyter.sh --os ubuntu 
+    sh $SRC/python/install_jupyter.sh
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --os ubuntu 
+    sh $SRC/packageManager/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install_docker.sh --os ubuntu 
-    sh $SRC/docker/docker-apps.sh --os ubuntu
+    sh $SRC/docker/install_docker.sh
+    sh $SRC/docker/docker-apps.sh
 }
 
 do_init_rpi(){
@@ -94,7 +96,7 @@ do_init_rpi(){
     #sudo wget $REPO_URL//Rpi/wpa_supplicant.conf -O /boot/wpa_supplicant.conf
     #
     # Add cron job to auto update dotfiles
-    echo "$(crontab -l)\n*/1 * * * * git -C ~/dotfiles pull" | crontab
+    echo "*/1 * * * * git -C ~/dotfiles pull" | crontab
     #
     echo "[   UPDATE APT REPOSITORIES   ]"
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
@@ -103,22 +105,22 @@ do_init_rpi(){
     sudo apt-get install curl wget git bashdb -y 
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
-    sh $SRC/vim/install_vim.sh --os raspbian  
+    sh $SRC/vim/install_vim.sh
     # Setup Tmux
     echo "[   SETTING UP SETTING UP TMUX   ]"
-    sh $SRC/tmux/install_tmux.sh --os raspbian  
+    sh $SRC/tmux/install_tmux.sh
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
-    sh $SRC/zsh/install_zsh.sh --os raspbian 
+    sh $SRC/zsh/install_zsh.sh
     # Setup Python3
     echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    sh $SRC/python/install_python3.sh --os raspbian 
+    sh $SRC/python/install_python3.sh
     # Install common used apt packages & clean up
-    sh $SRC/packageManager/apt.sh --os raspbian 
+    sh $SRC/packageManager/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    sh $SRC/docker/install-docker-rpi.sh --os raspbian 
-    sh $SRC/docker/docker-apps.sh --os raspbian
+    sh $SRC/docker/install-docker-rpi.sh
+    sh $SRC/docker/docker-apps.sh
 }
 
 do_init_mac(){

@@ -11,44 +11,16 @@
 
 set -x
 
-ME=${SUDO_USER:-$(id -un)}
-HOUSE="`cat /etc/passwd |grep ^${ME}: | cut -d: -f 6`"
-HOUSE=${HOUSE:-$HOME}
-echo $HOUSE
-REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$HOUSE/dotfiles"
-
-# Download Repo if not exists
-if [ ! -e $HOUSE/dotfiles ]; then
-    git clone $REPO_URL $HOUSE/dotfiles
-fi
-
-# Check flags
-if [ $# -eq 0 ]; then 
-    echo "[ Failed ] Please specify OS version with --os flag."
-    return 1; 
-fi
+if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
+source ~/.dotfiles.env
 
 #-------------------------------------
 #     Installation Methods
 #-------------------------------------
 
 do_init_zsh(){
-    # Get distro information
-    while [ $# -gt 0 ] ;do
-        case "$1" in
-            "--os")
-                OS=$2 
-                shift 2;;
-            "--src")
-                SRC=$2 
-                shift 2;;
-        esac
-    done
-    # Make paths for ZSH extensions
-    mkdir -p "$HOUSE/.zsh"
     # Do different things with different OS
-    case $OS in
+    case $MYOS in
         ubuntu|raspbian)
             sudo apt-get install zsh -y
             ;;
@@ -56,6 +28,8 @@ do_init_zsh(){
             brew install zsh
             ;;
     esac
+    # Make paths for ZSH extensions
+    mkdir -p "$HOUSE/.zsh"
     # Install Plugins
     install_zsh_plugins
     # Check installment

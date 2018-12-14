@@ -17,45 +17,16 @@
 
 set -x
 
-ME=${SUDO_USER:-$(id -un)}
-HOUSE="`cat /etc/passwd |grep ^${ME}: | cut -d: -f 6`"
-HOUSE=${HOUSE:-$HOME}
-echo $HOUSE
-REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$HOUSE/dotfiles"
-
-# Download Repo if not exists
-if [ ! -e $HOUSE/dotfiles ]; then
-    git clone $REPO_URL $HOUSE/dotfiles
-fi
-
-# Check flags
-if [ $# -eq 0 ]; then 
-    echo "[ Failed ] Please specify OS version with --os flag."
-    return 1; 
-fi
+if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
+source ~/.dotfiles.en
 
 #-------------------------------------
 #     Installation Methods
 #-------------------------------------
 
 do_install_nvim(){
-    # Get distro information
-    while [ $# -gt 0 ] ;do
-        case "$1" in
-            "--os")
-                OS=$2 
-                shift 2;;
-            "--src")
-                SRC=$2 
-                shift 2;;
-        esac
-    done
-    # Make paths for vim extensions
-    mkdir -p $HOUSE/.vim
-    ln -s $HOUSE/.vim $HOUSE/.config/nvim
     # Do different things with different OS
-    case $OS in
+    case $MYOS in
         ubuntu)
             install_vim_ubuntu ;;
         raspbian)
@@ -63,6 +34,9 @@ do_install_nvim(){
         mac)
             install_vim_mac ;;
     esac
+    # Make paths for vim extensions
+    mkdir -p $HOUSE/.vim
+    ln -s $HOUSE/.vim $HOUSE/.config/nvim
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $HOUSE/.vim/colors

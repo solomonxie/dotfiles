@@ -20,68 +20,22 @@
 
 set -x
 
-if [ -e ./dotfiles.env ]; then source ./dotfiles.env ;
-else echo "Environment file [bashrc.env] hasn't been found."; exit 1; fi
+if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
+source ~/.dotfiles.env
 
 #-------------------------------------
 #     Initialization Functions
 #-------------------------------------
 
 do_init_by_os(){
-    # Get distro information
-    while [ $# -gt 1 ] ;do
-        case "$1" in
-            "--os")
-                OS=$2 
-                shift 2;;
-        esac
-        # Continue next loop
-        #shift $(( $# > 0 ? 1 : 0 ))
-    done
-    OS=${OS:-$(get_distro)}
-    if [ "$OS" = "" ]; then
-        echo "[ Failed ] Can't get current OS version."
-        echo "Please specify with --os flag: mac, raspbian, ubuntu"
-        return 1;
-    fi
     # Do different script based on the OS
-    case $OS in
+    case $MYOS in
         ubuntu)
             do_init_ubuntu ;;
         raspbian)
             do_init_rpi ;;
         mac)
             do_init_mac ;;
-    esac
-}
-
-
-get_distro(){
-    if [ -x "$(command -v lsb_release)" ]; then #Linux
-        info=$(lsb_release -si)
-    elif [ -x "$(command -v sw_vers)" ]; then #MacOS
-        info=$(sw_vers -productName)
-    elif [ -e /etc/os-release ]; then #Linux (not docker)
-        info=$(cat /etc/os-release |grep NAME)
-    elif [ -x "$(command -v uname)" ]; then #Linux, docker & Others
-        info=$(uname -a)
-    fi
-    case "$(echo $info | tr '[:upper:]' '[:lower:]')" in
-        *mac*) distro="mac" ;;
-        *raspbian* | *raspberrypi*) distro="raspbian" ;;
-        *ubuntu*) distro="ubuntu" ;;
-    esac
-    echo $distro
-}
-
-get_os(){
-    case $(get_distro) in
-        ubuntu)
-            echo "CURRENT Linux Distribution: [  Ubuntu  ].";;
-        raspbian)
-            echo "CURRENT Linux Distribution: [  Raspbian  ].";;
-        mac)
-            echo "CURRENT OS: [  Mac OS X  ].";;
     esac
 }
 

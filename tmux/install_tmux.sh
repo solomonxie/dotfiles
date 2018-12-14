@@ -17,44 +17,16 @@
 
 set -x
 
-ME=${SUDO_USER:-$(id -un)}
-HOUSE="`cat /etc/passwd |grep ^${ME}: | cut -d: -f 6`"
-HOUSE=${HOUSE:-$HOME}
-echo $HOUSE
-REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$HOUSE/dotfiles"
-
-# Download Repo if not exists
-if [ ! -e $HOUSE/dotfiles ]; then
-    git clone $REPO_URL $HOUSE/dotfiles
-fi
-
-# Check flags
-if [ $# -eq 0 ]; then 
-    echo "[ Failed ] Please specify OS version with --os flag."
-    return 1; 
-fi
+if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
+source ~/.dotfiles.en
 
 #-------------------------------------
 #     Installation Methods
 #-------------------------------------
 
 do_install_tmux(){
-    # Get distro information
-    while [ $# -gt 0 ] ;do
-        case "$1" in
-            "--os")
-                OS=$2 
-                shift 2;;
-            "--src")
-                SRC=$2 
-                shift 2;;
-        esac
-    done
-    # Make paths for tmux extensions
-    mkdir -p $HOUSE/.tmux/resurrect
     # Do different things with different OS
-    case $OS in
+    case $MYOS in
         ubuntu)
             install_tmux_ubuntu ;;
         raspbian)
@@ -62,6 +34,8 @@ do_install_tmux(){
         mac)
             install_tmux_mac ;;
     esac
+    # Make paths for tmux extensions
+    mkdir -p $HOUSE/.tmux/resurrect
     # Download & Install plugins
     echo "----------[  Installing TPM for Tmux   ]--------------"
     git clone https://github.com/tmux-plugins/tpm $HOUSE/.tmux/plugins/tpm

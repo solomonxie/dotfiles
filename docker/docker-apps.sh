@@ -11,42 +11,14 @@
 
 set -x
 
-ME=${SUDO_USER:-$(id -un)}
-HOUSE="`cat /etc/passwd |grep ^${ME}: | cut -d: -f 6`"
-HOUSE=${HOUSE:-$HOME}
-echo $HOUSE
-REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$HOUSE/dotfiles"
-
-# Download Repo if not exists
-if [ ! -e $HOUSE/dotfiles ]; then
-    git clone $REPO_URL $HOUSE/dotfiles
-fi
-
-# Check flags
-if [ $# -eq 0 ]; then 
-    echo "[ Failed ] Please specify OS version with --os flag."
-    return 1; 
-fi
+if [ !-e ~/.dotfiles.env ];then echo "[ ~/.dotfiles.env ] NOT found."; exit 1; fi
+source ~/.dotfiles.en
 
 #-------------------------------------
 #     Installation Methods
 #-------------------------------------
 
 do_install_docker_apps(){
-    if [ $# -eq 0 ]; then 
-        echo "[ Failed ] Please specify OS version with --os flag."
-        return 1; 
-    fi
-    # Get distro information
-    distro=""
-    while [ $# -gt 0 ] ;do
-        case "$1" in
-            "--os")
-                distro=$2 
-                shift 2;;
-        esac
-    done
     # Do different things with different OS
     case $OS in
         ubuntu)
@@ -70,6 +42,10 @@ do_install_docker_apps(){
 
 docker_playground_ubuntu(){
     docker run -it --name ubuntu solomonxie/lightsail:ubuntu-1604 bash
+}
+
+docker_playground_rpi(){
+    docker run -it --name ubuntu solomonxie/rpi-init:jessie bash
 }
 
 docker_webav(){

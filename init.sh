@@ -50,9 +50,10 @@ do_init_ubuntu(){
     # Change server timezone
     echo "[   CHANGE TIMEZONE   ]"
     sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    export EDITOR=$(which vim)
     # Add cron job to auto update dotfiles
-    #echo "$(crontab -l)\n*/1 * * * * git -C ~/dotfiles pull" | crontab
-    echo "\n*/1 * * * * git -C ~/dotfiles pull" | crontab
+    #echo "$(crontab -l)*/1 * * * * git -C ~/dotfiles pull" | crontab
+    echo "*/1 * * * * git -C ~/dotfiles pull" | crontab
     # Update server & install essentials
     # echo "[   UPDATE APT REPOSITORIES   ]"
     echo "[   UPDATE APT REPOSITORIES   ]"

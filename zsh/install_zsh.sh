@@ -34,8 +34,9 @@ do_init_zsh(){
     install_zsh_plugins
 
     # Check installment
-    do_test_installment_zsh
-    
+    echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
+    sudo usermod -s /bin/zsh $ME
+
     #change_default_shell_zsh
 
     # Create Symlinks
@@ -55,12 +56,6 @@ install_zsh_plugins(){
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
     git clone https://github.com/zsh-users/zsh-autosuggestions $HOUSE/.zsh/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOUSE/.zsh/zsh-syntax-highlighting
-}
-
-
-change_default_shell_zsh(){
-    echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
-    echo "vim command  :%s/$USER.+\/bin\/bash$/\/bin\/zsh"
 }
 
 

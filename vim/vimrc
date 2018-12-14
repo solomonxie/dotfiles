@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
 
     "<<File Browser>>
         " COMMAND-T
-        Plug 'wincent/command-t'    "VIM only (Ruby required)
+        "Plug 'wincent/command-t'    "VIM only (Ruby required)
         " NERDTREE
         Plug 'scrooloose/nerdtree'          " File tree manager
         Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
@@ -58,20 +58,20 @@ call plug#begin('~/.vim/plugged')
         "Plug 'rkulla/pydiction'   " not work as expected
         "
         "<Deoplete.nvim>
-        if has('nvim')
-            Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        else
-            Plug 'Shougo/deoplete.nvim'
-            Plug 'roxma/nvim-yarp'
-            Plug 'roxma/vim-hug-neovim-rpc'
-        endif
-        Plug 'zchee/deoplete-jedi'
+        "if has('nvim')
+        "    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        "else
+        "    Plug 'Shougo/deoplete.nvim'
+        "    Plug 'roxma/nvim-yarp'
+        "    Plug 'roxma/vim-hug-neovim-rpc'
+        "endif
+        "Plug 'zchee/deoplete-jedi'
 
     "<<Tags>>
-        Plug 'majutsushi/tagbar'   " (ctags required)
+        "Plug 'majutsushi/tagbar'   " (ctags required)
 
     "<<Folding>>
-        Plug 'tmhedberg/SimpylFold'   "improving folding
+        "Plug 'tmhedberg/SimpylFold'   "improving folding
 
     "<<Indentation>>
         "Plug 'nathanaelkane/vim-indent-guides'
@@ -80,7 +80,7 @@ call plug#begin('~/.vim/plugged')
     "<<Syntax-Specific>>
         "Plug 'python-mode/python-mode'    "Deprecated
         "Plug 'vim-python/python-syntax'
-        Plug 'hdima/python-syntax'   "better than vim-python's 
+        "Plug 'hdima/python-syntax'   "better than vim-python's 
         "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
 
 call plug#end()
@@ -129,14 +129,14 @@ call plug#end()
     nnoremap <return> za
 
     " <Language support>
-    if ! has('vim')    "for VIM only 
-        "set pyxversion=2
-        if has('python3')
-           set pyx=3
-        else
-           set pyx=2
-        endif
-    endif
+    "if ! has('vim')    "for VIM only 
+    "    "set pyxversion=2
+    "    if has('python3')
+    "       set pyx=3
+    "    else
+    "       set pyx=2
+    "    endif
+    "endif
 "endfunction
 " }
 
@@ -266,15 +266,15 @@ call plug#end()
 " }
 
 " <Deoplete>--------------{
-    let g:deoplete#enable_at_startup = 1
-    " Set multiple options
-    call deoplete#custom#option({
-    \ 'auto_complete_delay': 0,
-    \ 'smart_case': v:true,
-    \ })
-    " Deoplete-jedi
-    let g:deoplete#sources#jedi#enable_typeinfo = 0
-    let g:deoplete#sources#jedi#show_docstring = 1
+    "let g:deoplete#enable_at_startup = 1
+    "" Set multiple options
+    "call deoplete#custom#option({
+    "\ 'auto_complete_delay': 0,
+    "\ 'smart_case': v:true,
+    "\ })
+    "" Deoplete-jedi
+    "let g:deoplete#sources#jedi#enable_typeinfo = 0
+    "let g:deoplete#sources#jedi#show_docstring = 1
 " }
 
 
@@ -283,21 +283,21 @@ call plug#end()
 " }
 
 " <Tagbar>--------------{
-    let tagbar_autofocus = 1
-    let tagbar_autoclose = 1
-    "----Key mapping----
-    nnoremap <leader>t :TagbarToggle<CR>
-    "nnoremap <leader>t :TagbarOpen f<CR>
+    "let tagbar_autofocus = 1
+    "let tagbar_autoclose = 1
+    ""----Key mapping----
+    "nnoremap <leader>t :TagbarToggle<CR>
+    ""nnoremap <leader>t :TagbarOpen f<CR>
 " }
 
 " <Command-T File Searching>-----------{
     "----Key mapping----
-    "nnoremap <leader>/ :CommandT<CR>
-    nnoremap <leader>c :CommandT<CR>
-    let g:CommandTMaxDepth = 10
-    let g:CommandTMaxFiles=2000
-    let g:CommandTSuppressMaxFilesWarning = 1
-    set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
+    ""nnoremap <leader>/ :CommandT<CR>
+    "nnoremap <leader>c :CommandT<CR>
+    "let g:CommandTMaxDepth = 10
+    "let g:CommandTMaxFiles=2000
+    "let g:CommandTSuppressMaxFilesWarning = 1
+    "set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
 " }
 
 " <Python-Mode>-------{

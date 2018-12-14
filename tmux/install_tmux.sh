@@ -17,14 +17,16 @@
 
 set -x
 
-MYHOME="`cat /etc/passwd |grep ${SUDO_UID:-$(id -u)} | cut -d: -f 6`"
-MYHOME=${MYHOME:-$HOME}
+ME=${SUDO_USER:-$(id -un)}
+HOUSE="`cat /etc/passwd |grep ^${ME}: | cut -d: -f 6`"
+HOUSE=${HOUSE:-$HOME}
+echo $HOUSE
 REPO_URL="git@github.com:solomonxie/dotfiles.git"
-SRC="$MYHOME/dotfiles"
+SRC="$HOUSE/dotfiles"
 
 # Download Repo if not exists
-if [ ! -e $MYHOME/dotfiles ]; then
-    git clone $REPO_URL $MYHOME/dotfiles
+if [ ! -e $HOUSE/dotfiles ]; then
+    git clone $REPO_URL $HOUSE/dotfiles
 fi
 
 # Check flags
@@ -50,7 +52,7 @@ do_install_tmux(){
         esac
     done
     # Make paths for tmux extensions
-    mkdir -p $MYHOME/.tmux/resurrect
+    mkdir -p $HOUSE/.tmux/resurrect
     # Do different things with different OS
     case $distro in
         "ubuntu")
@@ -62,28 +64,28 @@ do_install_tmux(){
     esac
     # Download & Install plugins
     echo "----------[  Installing TPM for Tmux   ]--------------"
-    git clone https://github.com/tmux-plugins/tpm $MYHOME/.tmux/plugins/tpm
-    $MYHOME/.tmux/plugins/tpm/bin/install_plugins
+    git clone https://github.com/tmux-plugins/tpm $HOUSE/.tmux/plugins/tpm
+    $HOUSE/.tmux/plugins/tpm/bin/install_plugins
 }
 
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_URL/tmux/tmux-ubuntu.conf -o $MYHOME/.tmux.conf
+    curl -fsSL $REPO_URL/tmux/tmux-ubuntu.conf -o $HOUSE/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    curl -fsSL $REPO_URL/tmux/resurrect/last-ubuntu.txt -o $MYHOME/.tmux/resurrect/last.txt
-    ln -sf $MYHOME/.tmux/resurrect/last.txt $MYHOME/.tmux/resurrect/last
+    curl -fsSL $REPO_URL/tmux/resurrect/last-ubuntu.txt -o $HOUSE/.tmux/resurrect/last.txt
+    ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
 }
 
 install_tmux_rpi(){
     yes | sudo apt-get install tmux
 
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    curl -fsSL $REPO_URL/tmux/tmux-rpi.conf -o $MYHOME/.tmux.conf
+    curl -fsSL $REPO_URL/tmux/tmux-rpi.conf -o $HOUSE/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    curl -fsSL $REPO_URL/tmux/resurrect/last-rpi.txt -o $MYHOME/.tmux/resurrect/last.txt
-    ln -sf $MYHOME/.tmux/resurrect/last.txt $MYHOME/.tmux/resurrect/last
+    curl -fsSL $REPO_URL/tmux/resurrect/last-rpi.txt -o $HOUSE/.tmux/resurrect/last.txt
+    ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
 }
 
 install_tmux_mac(){
@@ -92,8 +94,8 @@ install_tmux_mac(){
     echo "----------[  Overwrite .tmux.conf   ]--------------"
     curl -fsSL $REPO_URL/tmux/tmux-mac.conf -o ~/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    curl -fsSL $REPO_URL/tmux/resurrect/last-mac.txt -o $MYHOME/.tmux/resurrect/last.txt
-    ln -sf $MYHOME/.tmux/resurrect/last.txt $MYHOME/.tmux/resurrect/last
+    curl -fsSL $REPO_URL/tmux/resurrect/last-mac.txt -o $HOUSE/.tmux/resurrect/last.txt
+    ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
 }
 
 
@@ -104,7 +106,7 @@ install_tmux_mac(){
 #-------------------------------------
 
 do_test_installment(){
-    if [ -e $MYHOME/.tmux ];then
+    if [ -e $HOUSE/.tmux ];then
         echo "[  OK  ]:----TMUX----"
     else
         echo "[  FAILED  ]:----TMUX----"

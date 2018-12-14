@@ -81,8 +81,9 @@ install_kernel_cpp(){
 
 
 install_jupyter_lab(){
-    pip install jupyterlab
+    source ~/virtualenv/venv-ju/bin/activate
 
+    pip install jupyterlab
     # Install extensions
     # 目录结构显示
     jupyter labextension install @jupyterlab/toc
@@ -93,6 +94,8 @@ install_jupyter_lab(){
     # Lantern数据绘图加强
     jupyter labextension install pylantern
     jupyter serverextension enable --py lantern
+
+    deactivate
 }
 
 

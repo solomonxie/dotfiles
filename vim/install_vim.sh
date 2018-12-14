@@ -17,7 +17,8 @@
 
 set -x
 
-source ../dotfiles.env
+# Setup env variables and shared functions
+cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
 
 #-------------------------------------
 #     Installation Methods

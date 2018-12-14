@@ -22,6 +22,9 @@
     set_theme_awesomepanda
 # }
 
+# General settings {
+    MAILCHECK=0   # Get rid of "you have a mail" from crontab
+# }
 
 # Builtin behaviors {
     #zstyle ':completion:*' menu select # select completions with arrow keys

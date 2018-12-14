@@ -24,6 +24,10 @@
     set_theme_powerlevel9k
 # }
 
+# General settings {
+    MAILCHECK=0   # Get rid of "you have a mail" from crontab
+# }
+
 # Builtin behaviors {
     #zstyle ':completion:*' menu select # select completions with arrow keys
     #zstyle ':completion:*' group-name '' # group results by category

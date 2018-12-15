@@ -22,35 +22,43 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         " <Syntax Highlighting>
-        "Plug 'vim-syntastic/syntastic'
-        "Plug 'vim-python/python-syntax'
-        Plug 'hdima/python-syntax'   "better than vim-python's 
-        "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
-        "Plug 'python-mode/python-mode'    "Deprecated
+            "Plug 'vim-syntastic/syntastic'
+            "Plug 'vim-python/python-syntax'
+            Plug 'hdima/python-syntax'   "Stable the Most
+            "Plug 'vitiral/vim-python'  "Not working
+            "Plug 'numirias/semshi'    "Not working
+            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+            "Plug 'python-mode/python-mode'    "Deprecated
+            "Plug 'python-mode/python-mode', { 'branch': 'develop' }   "More errors, too many builtin plugins
+
+        " <Color Scheme>
+            "Plug 'chriskempson/base16-vim'   "Ugly !!
+            "Plug 'jpo/vim-railscasts-theme'  "Ugly !
+            "Plug 'NLKNguyen/papercolor-theme'   "No python support
 
     " [    File Browsing   ]
 
         "<Fuzzy File Search>
-        " <COMMAND-T>
-        "Plug 'wincent/command-t'    "VIM only (Ruby required)
-        " <fzf>
-        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-        Plug 'junegunn/fzf.vim'
+            " <COMMAND-T>
+            "Plug 'wincent/command-t'    "VIM only (Ruby required)
+            " <fzf>
+            Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+            Plug 'junegunn/fzf.vim'
 
 
         "<NERDTREE>
-        Plug 'scrooloose/nerdtree'          " File tree manager
-        Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-        Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-        "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-        "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+            Plug 'scrooloose/nerdtree'          " File tree manager
+            Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+            Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+            "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+            "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
 
         "<Tags>
-        Plug 'majutsushi/tagbar'   " (ctags required)
+            Plug 'majutsushi/tagbar'   " (ctags required)
 
         " <Git>
-        "Plug 'tpope/vim-fugitive'    " easy commands to do git
-        "Plug 'easymotion/vim-easymotion'
+            "Plug 'tpope/vim-fugitive'    " easy commands to do git
+            "Plug 'easymotion/vim-easymotion'
 
     " [   INSERTION    ]
 
@@ -100,7 +108,6 @@ call plug#end()
 "function Builtin_settings_general()
     filetype plugin indent on    " [Essential]
     set nocompatible   " be iMproved, required
-    colorscheme gruvbox 
     syntax enable 
     set ignorecase "Case Insensitive
     set smartcase  "Also detects specified case
@@ -150,6 +157,10 @@ call plug#end()
 "endfunction
 " }
 
+" Color Scheme>---------{
+    colorscheme gruvbox
+    "colorscheme base16-default-dark  "Base16-vim
+" }
 
 " Filetype based builtin Autocomplete [omnifunc] ----{
 "function Builtin_settings_filetype()

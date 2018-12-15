@@ -19,6 +19,8 @@ alias nvimrc="nvim ~/.vim/init.vim"
 alias tmuxrc="vim ~/.tmux.conf" 
 alias bashrc="vim ~/.bash_profile" 
 
+alias vim="nvim"
+
 # Shadowsocks proxy 
 alias proxy='export all_proxy=http://127.0.0.1:1080' 
 alias unproxy='unset all_proxy' 

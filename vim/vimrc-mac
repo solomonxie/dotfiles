@@ -13,76 +13,85 @@
 
 " [Plugins Manager vim-plug]
 call plug#begin('~/.vim/plugged')
-    "<<STATUS-BAR>>
-        "Plug 'itchyny/lightline.vim' "beautiful status line
-        "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
+    " [    UI     ]
 
-    "<<Git>>
-        "Plug 'tpope/vim-fugitive'    " easy commands to do git
+        "<STATUS-BAR>
+            "Plug 'itchyny/lightline.vim' "beautiful status line
+            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
+            Plug 'vim-airline/vim-airline'
+            Plug 'vim-airline/vim-airline-themes'
 
-    "<<File Browser>>
-        " COMMAND-T
-        Plug 'wincent/command-t'    "VIM only (Ruby required)
-        " NERDTREE
+        " <Syntax Highlighting>
+        "Plug 'vim-syntastic/syntastic'
+        "Plug 'vim-python/python-syntax'
+        Plug 'hdima/python-syntax'   "better than vim-python's 
+        "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+        "Plug 'python-mode/python-mode'    "Deprecated
+
+    " [    File Browsing   ]
+
+        "<Fuzzy File Search>
+        " <COMMAND-T>
+        "Plug 'wincent/command-t'    "VIM only (Ruby required)
+        " <fzf>
+        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        Plug 'junegunn/fzf.vim'
+
+
+        "<NERDTREE>
         Plug 'scrooloose/nerdtree'          " File tree manager
         Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
         Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
         "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
         "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
 
-    "<<Snippets>> (python required)
-        "Plug 'MarcWeber/vim-addon-mw-utils'
-        "Plug 'tomtom/tlib_vim'
-        "Plug 'garbas/vim-snipmate'
-        "Plug 'honza/vim-snippets' "some common snippets (python required)
-
-    "<<Search-Tools>>
-        "Plug 'easymotion/vim-easymotion'
-
-    "<<Syntax>>
-        "Plug 'vim-syntastic/syntastic'
-
-    "<<Surround>>
-        "Plug 'tpope/vim-surround'
-
-    "<<Session>>
-        Plug 'tpope/vim-obsession'
-
-    "<<Completion>>
-        "Plug 'ervandew/supertab'
-        "Plug 'valloric/youcompleteme'    "hard to build
-        "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
-        "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
-        "Plug 'rkulla/pydiction'   " not work as expected
-        "
-        "<Deoplete.nvim>
-        if has('nvim')
-            Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        else
-            Plug 'Shougo/deoplete.nvim'
-            Plug 'roxma/nvim-yarp'    " ??
-            Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
-        endif
-        Plug 'zchee/deoplete-jedi'    " Python completion
-        Plug 'Shougo/deoplete-clangx'   " C/C++ completion
-
-    "<<Tags>>
+        "<Tags>
         Plug 'majutsushi/tagbar'   " (ctags required)
 
-    "<<Folding>>
-        Plug 'tmhedberg/SimpylFold'   "improving folding
+        " <Git>
+        "Plug 'tpope/vim-fugitive'    " easy commands to do git
+        "Plug 'easymotion/vim-easymotion'
 
-    "<<Indentation>>
-        "Plug 'nathanaelkane/vim-indent-guides'
-        Plug  'Yggdroot/indentLine'    "Beautiful indent lines
+    " [   INSERTION    ]
 
-    "<<Syntax-Specific>>
-        "Plug 'python-mode/python-mode'    "Deprecated
-        "Plug 'vim-python/python-syntax'
-        Plug 'hdima/python-syntax'   "better than vim-python's 
-        "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+        "<Snippets> (python required)
+            "Plug 'MarcWeber/vim-addon-mw-utils'
+            "Plug 'tomtom/tlib_vim'
+            "Plug 'garbas/vim-snipmate'
+            "Plug 'honza/vim-snippets' "some common snippets (python required)
+
+        "<Bracket Closing>
+            "Plug 'tpope/vim-surround'
+            Plug 'Townk/vim-autoclose'
+
+        "<Indentation>
+            "Plug 'nathanaelkane/vim-indent-guides'
+            Plug  'Yggdroot/indentLine'    "Beautiful indent lines
+
+        "<Folding>
+            Plug 'tmhedberg/SimpylFold'   "improving folding
+
+        "<Completion>
+            "Plug 'valloric/youcompleteme'    "hard to build
+            "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
+            "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
+            "Plug 'rkulla/pydiction'   " not work as expected
+            "Plug 'ervandew/supertab'
+            
+            " <Deoplete.nvim>
+            if has('nvim')
+                Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+            else
+                Plug 'Shougo/deoplete.nvim'
+                Plug 'roxma/nvim-yarp'    " ??
+                Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
+            endif
+            Plug 'zchee/deoplete-jedi'    " Python completion
+            Plug 'Shougo/deoplete-clangx'   " C/C++ completion
+
+    "<Session>
+        Plug 'tpope/vim-obsession'
+
 
 call plug#end()
 
@@ -127,7 +136,7 @@ call plug#end()
     "set foldclose=all          " 设置为自动关闭折叠
     " 用空格键来开关折叠
     "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-    nnoremap <return> za
+    "nnoremap <return> za
 
     " <Language support>
     "if ! has('vim')    "for VIM only 
@@ -163,6 +172,7 @@ call plug#end()
     "<Common Keys>
         inoremap <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <C-c> <ESC>:nohl<CR><ESC>
+        inoremap <C-s> <ESC>:w<CR><ESC>
         vnoremap <C-s> <ESC>:w<CR><ESC>
         nnoremap <C-s> <ESC>:w<CR><ESC>
         vnoremap <C-x> <ESC>:x<CR><ESC>
@@ -295,8 +305,8 @@ call plug#end()
 " }
 
 " <Tagbar>--------------{
-    let tagbar_autofocus = 1
-    let tagbar_autoclose = 1
+    let tagbar_autofocus = 1   "Focus on tagbar window when open
+    let tagbar_autoclose = 1   "Close tagbar window when select tag
     "----Key mapping----
     nnoremap <leader>t :TagbarToggle<CR>
     "nnoremap <leader>t :TagbarOpen f<CR>
@@ -305,11 +315,18 @@ call plug#end()
 " <Command-T File Searching>-----------{
     "----Key mapping----
     "nnoremap <leader>/ :CommandT<CR>
-    nnoremap <leader>c :CommandT<CR>
-    let g:CommandTMaxDepth = 10
-    let g:CommandTMaxFiles=2000
-    let g:CommandTSuppressMaxFilesWarning = 1
-    set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
+    "nnoremap <leader>c :CommandT<CR>
+    "let g:CommandTMaxDepth = 10
+    "let g:CommandTMaxFiles=2000
+    "let g:CommandTSuppressMaxFilesWarning = 1
+    "set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
+" }
+
+" <fzf> ------------{
+    "---Key Mapping---
+    nnoremap <leader>/ :Files<CR>
+    "nnoremap <C-e> :Buffers<CR>
+    "let g:fzf_action = { 'ctrl-e': 'edit' }
 " }
 
 " <Python-Mode>-------{
@@ -381,27 +398,26 @@ call plug#end()
         " 按leader+q 关闭当前tab
         "nnoremap <leader>c :tabc
     ">>
-        "let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
-        "let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
-    " 从nerdtree上打开文件后菜单自动关闭
-        let NERDTreeQuitOnOpen=1
+
+        let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
+        let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
+        let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+        let NERDTreeChDirMode=2    " Change current working directory based on root directory in NERDTree
+        let g:NERDTreeHidden=1     " 不显示隐藏文件
+        let NERDTreeWinSize=30     " Initial NERDTree width
+        let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
+        "let NERDTreeShowBookmarks=0   " Show NERDTree bookmarks
+        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']   " Hide temp files in NERDTree
+        "let g:NERDTreeShowLineNumbers=1  " 显示菜单上行号
     " 打开vim时如果没有文件自动打开NERDTree
         "autocmd vimenter * if !argc()|NERDTree|endif
     " 或, 自动开启Nerdtree
         "autocmd vimenter * NERDTree  
     " 当NERDTree为剩下的唯一窗口时自动关闭
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    " 不显示隐藏文件
-        let g:NERDTreeHidden=1
-    " 过滤: 所有.pyc文件不显示
-        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']  
-    " 美化菜单 不显示多余的东西
-        let NERDTreeMinimalUI = 1
-        let NERDTreeDirArrows = 1
-    "设置树的显示图标
+    " 设置树的显示图标
         let g:NERDTreeDirArrowExpandable = '▸'
         let g:NERDTreeDirArrowCollapsible = '▾'
-    "let g:NERDTreeShowLineNumbers=1  " 显示菜单上行号
 
     "NERDTREE-GIT
     let g:NERDTreeIndicatorMapCustom = {

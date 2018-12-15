@@ -30,6 +30,9 @@ alias ju="jupyter notebook"
 alias repos="cd ~/Workspace/repos" 
 #alias you="youtube-dl -civw --proxy "socks5://127.0.0.1:1086" -f best/mp4 --write-sub "
 alias you="youtube-dl"
+#alias fzf="~/.fzf/bin/fzf --height 40%"
+#alias vfzf="vim $(fzf)"
+#alias dfzf="cd $(sh 'find * -type d | fzf')"
 
 # Git commands  
 alias gs="git status" 

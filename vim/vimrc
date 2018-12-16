@@ -3,7 +3,8 @@
 " Enviroment: MacOS Sierra / Raspbian / Ubuntu
 " Preload dependencies:
 "     # [Plugins Manager: Vim-Plug]
-"       $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"       $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "     # [Plug  dependencies]
 "       $ brew install ctags
 "       $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
@@ -13,75 +14,94 @@
 
 " [Plugins Manager vim-plug]
 call plug#begin('~/.vim/plugged')
-    "<<STATUS-BAR>>
-        "Plug 'itchyny/lightline.vim' "beautiful status line
-        "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
+    " [    UI     ]
 
-    "<<Git>>
-        "Plug 'tpope/vim-fugitive'    " easy commands to do git
+        "<STATUS-BAR>
+            "Plug 'itchyny/lightline.vim' "beautiful status line
+            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
+            Plug 'vim-airline/vim-airline'
+            Plug 'vim-airline/vim-airline-themes'
 
-    "<<File Browser>>
-        " COMMAND-T
-        "Plug 'wincent/command-t'    "VIM only (Ruby required)
-        " NERDTREE
-        Plug 'scrooloose/nerdtree'          " File tree manager
-        Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-        Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-        "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-        "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+        " <Syntax Highlighting>
+            "Plug 'vim-syntastic/syntastic'
+            "Plug 'vim-python/python-syntax'
+            Plug 'hdima/python-syntax'   "Stable the Most
+            "Plug 'vitiral/vim-python'  "Not working
+            "Plug 'numirias/semshi'    "Not working
+            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+            "> More errors, too many builtin plugins
+                "Plug 'python-mode/python-mode'    "Deprecated
+                "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
 
-    "<<Snippets>> (python required)
-        "Plug 'MarcWeber/vim-addon-mw-utils'
-        "Plug 'tomtom/tlib_vim'
-        "Plug 'garbas/vim-snipmate'
-        "Plug 'honza/vim-snippets' "some common snippets (python required)
+        " <Color Scheme>
+            "Plug 'chriskempson/base16-vim'   "Ugly !!
+            "Plug 'jpo/vim-railscasts-theme'  "Ugly !
+            "Plug 'NLKNguyen/papercolor-theme'   "No python support
 
-    "<<Search-Tools>>
-        "Plug 'easymotion/vim-easymotion'
+    " [    File Browsing   ]
 
-    "<<Syntax>>
-        "Plug 'vim-syntastic/syntastic'
+        "<Fuzzy File Search>
+            " <COMMAND-T>
+            "Plug 'wincent/command-t'    "VIM only (Ruby required)
+            " <fzf>
+            Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+            Plug 'junegunn/fzf.vim'
 
-    "<<Surround>>
-        "Plug 'tpope/vim-surround'
 
-    "<<Session>>
+        "<NERDTREE>
+            Plug 'scrooloose/nerdtree'          " File tree manager
+            Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+            Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+            "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+            "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+
+        "<Tags>
+            "Plug 'majutsushi/tagbar'   " (ctags required)
+
+        " <Git>
+            "Plug 'tpope/vim-fugitive'    " easy commands to do git
+            "Plug 'easymotion/vim-easymotion'
+
+    " [   INSERTION    ]
+
+        "<Snippets> (python required)
+            "Plug 'MarcWeber/vim-addon-mw-utils'
+            "Plug 'tomtom/tlib_vim'
+            "Plug 'garbas/vim-snipmate'
+            "Plug 'honza/vim-snippets' "some common snippets (python required)
+
+        "<Bracket Closing>
+            "Plug 'tpope/vim-surround'
+            Plug 'Townk/vim-autoclose'
+
+        "<Indentation>
+            "Plug 'nathanaelkane/vim-indent-guides'
+            Plug  'Yggdroot/indentLine'    "Beautiful indent lines
+
+        "<Folding>
+            Plug 'tmhedberg/SimpylFold'   "improving folding
+
+        "<Completion>
+            "Plug 'valloric/youcompleteme'    "hard to build
+            "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
+            "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
+            "Plug 'rkulla/pydiction'   " not work as expected
+            "Plug 'ervandew/supertab'
+            
+            " <Deoplete.nvim>
+                "if has('nvim')
+                "    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+                "else
+                "    Plug 'Shougo/deoplete.nvim'
+                "    Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
+                "    Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
+                "endif
+                "Plug 'zchee/deoplete-jedi'    " Python completion source
+                "Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
+
+    "<Session>
         Plug 'tpope/vim-obsession'
 
-    "<<Completion>>
-        "Plug 'ervandew/supertab'
-        "Plug 'valloric/youcompleteme'    "hard to build
-        "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
-        "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
-        "Plug 'rkulla/pydiction'   " not work as expected
-        "
-        "<Deoplete.nvim>
-        "if has('nvim')
-        "    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        "else
-        "    Plug 'Shougo/deoplete.nvim'
-        "    Plug 'roxma/nvim-yarp'
-        "    Plug 'roxma/vim-hug-neovim-rpc'
-        "endif
-        "Plug 'zchee/deoplete-jedi'
-
-    "<<Tags>>
-        "Plug 'majutsushi/tagbar'   " (ctags required)
-
-    "<<Folding>>
-        "Plug 'tmhedberg/SimpylFold'   "improving folding
-
-    "<<Indentation>>
-        "Plug 'nathanaelkane/vim-indent-guides'
-        Plug  'Yggdroot/indentLine'    "Beautiful indent lines
-
-    "<<Syntax-Specific>>
-        "Plug 'python-mode/python-mode'    "Deprecated
-        "Plug 'vim-python/python-syntax'
-        "Plug 'hdima/python-syntax'   "better than vim-python's 
-        "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
 
 call plug#end()
 
@@ -90,14 +110,12 @@ call plug#end()
 "function Builtin_settings_general()
     filetype plugin indent on    " [Essential]
     set nocompatible   " be iMproved, required
-    colorscheme gruvbox 
     syntax enable 
     set ignorecase "Case Insensitive
-    set smartcase  "Also detects specified case
-    set background=dark
+    set ignorecase   "搜索时忽略大小写
+    set smartcase  "搜索时如果输大写, 就不再忽略大小写
     set hidden " 设置Buffer缓冲区允许不保存时切换buffer
     set number "show line number
-    set cursorline "highlight current line with cursor on
     set mouse=a  "设置鼠标滚动为All，即在tmux中的vim也能滚动 （但是选中文字自动会进入Visual模式）
     "set paste   "设置可以直接用ctrl+c ctrl+v复制粘贴 其实没什么区别 只不过不用在insert模式而已
     set showcmd " show keypress at right-bottom
@@ -126,7 +144,7 @@ call plug#end()
     "set foldclose=all          " 设置为自动关闭折叠
     " 用空格键来开关折叠
     "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-    nnoremap <return> za
+    "nnoremap <return> za
 
     " <Language support>
     "if ! has('vim')    "for VIM only 
@@ -138,6 +156,30 @@ call plug#end()
     "    endif
     "endif
 "endfunction
+" }
+
+
+" Builtin UI / Color Scheme>---------{
+    " <Builtin Settings>
+        set background=dark
+        set cursorline    "highlight current line with cursor on
+    " <Color Scheme>
+        colorscheme gruvbox
+        "colorscheme base16-default-dark  "Base16-vim
+    " <Length Marker>
+        "> Warning color
+        "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+        "match OverLength /\%81v.\+/
+        "> Warning Column
+        "let &colorcolumn=join(range(81,999),",")
+        "let &colorcolumn="80,".join(range(400,999),",")
+        "> or
+        "set colorcolumn=80
+        "highlight ColorColumn guibg=#155460
+        "> or
+        "highlight ColorColumn ctermbg=grey
+        "> or
+        "highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 " }
 
 
@@ -162,6 +204,11 @@ call plug#end()
     "<Common Keys>
         inoremap <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <C-c> <ESC>:nohl<CR><ESC>
+        inoremap <C-s> <ESC>:w<CR><ESC>
+        vnoremap <C-s> <ESC>:w<CR><ESC>
+        nnoremap <C-s> <ESC>:w<CR><ESC>
+        vnoremap <C-x> <ESC>:x<CR><ESC>
+        nnoremap <C-x> <ESC>:x<CR><ESC>
         "nnoremap <leader>qw :q<CR>
         "vnoremap <leader>qw :q<CR>
 
@@ -197,7 +244,7 @@ call plug#end()
         "<Python Interpreter>
         autocmd FileType python nnoremap <buffer> <C-i> :w<CR>:!python % <CR>
         "<Bash Script>
-        autocmd FileType sh nnoremap <buffer> <C-i> :w<CR>:!sh % <CR>
+        autocmd FileType sh nnoremap <buffer> <C-i> :w<CR>:!bash % <CR>
         "<RCs> (Configs)
         autocmd FileType vim,tmux nnoremap <buffer> <C-i> :w<CR>:source % <CR>
         autocmd FileType zsh nnoremap <buffer> <C-i> :w<CR>:!source % <CR>
@@ -218,7 +265,8 @@ call plug#end()
 
 
 
-" Search Highlighting -----------{
+" [  Search Highlighting  ]-----------{
+    set incsearch    "即时显示匹配结果
     " >>
         highlight Search guibg='Purple' guifg='NONE'
         highlight IncSearch gui=underline,bold guifg=White guibg=Red3
@@ -236,7 +284,7 @@ call plug#end()
 " }
 
 
-" Swap files (for recovery) --------{
+" [  Swap files  ]--------{
     set swapfile    "enable swap file
     set directory=/tmp    "set swp file directory. 
     set updatecount=20     "save swp file every amount of characters
@@ -266,15 +314,22 @@ call plug#end()
 " }
 
 " <Deoplete>--------------{
-    "let g:deoplete#enable_at_startup = 1
+    "" Enable at startup
+    "    let g:deoplete#enable_at_startup = 1
     "" Set multiple options
-    "call deoplete#custom#option({
-    "\ 'auto_complete_delay': 0,
-    "\ 'smart_case': v:true,
-    "\ })
+    "    call deoplete#custom#option({
+    "    \ 'auto_complete_delay': 0,
+    "    \ 'smart_case': v:true,
+    "    \ })
     "" Deoplete-jedi
-    "let g:deoplete#sources#jedi#enable_typeinfo = 0
-    "let g:deoplete#sources#jedi#show_docstring = 1
+    "    let g:deoplete#sources#jedi#enable_typeinfo = 0
+    "    let g:deoplete#sources#jedi#show_docstring = 0
+    "" deoplete-clangx
+    "    " Change clang binary path
+    "    "call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+    "    " Change clang options
+    "    "call deoplete#custom#var('clangx', 'default_c_options', '')
+    "    "call deoplete#custom#var('clangx', 'default_cpp_options', '')
 " }
 
 
@@ -283,16 +338,16 @@ call plug#end()
 " }
 
 " <Tagbar>--------------{
-    "let tagbar_autofocus = 1
-    "let tagbar_autoclose = 1
-    ""----Key mapping----
-    "nnoremap <leader>t :TagbarToggle<CR>
-    ""nnoremap <leader>t :TagbarOpen f<CR>
+    let tagbar_autofocus = 1   "Focus on tagbar window when open
+    let tagbar_autoclose = 1   "Close tagbar window when select tag
+    "----Key mapping----
+    nnoremap <leader>t :TagbarToggle<CR>
+    "nnoremap <leader>t :TagbarOpen f<CR>
 " }
 
 " <Command-T File Searching>-----------{
     "----Key mapping----
-    ""nnoremap <leader>/ :CommandT<CR>
+    "nnoremap <leader>/ :CommandT<CR>
     "nnoremap <leader>c :CommandT<CR>
     "let g:CommandTMaxDepth = 10
     "let g:CommandTMaxFiles=2000
@@ -300,8 +355,11 @@ call plug#end()
     "set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
 " }
 
-" <Python-Mode>-------{
-    "let g:pymode_python = 'python3'
+" <fzf> ------------{
+    "---Key Mapping---
+    nnoremap <leader>/ :Files<CR>
+    "nnoremap <C-e> :Buffers<CR>
+    "let g:fzf_action = { 'ctrl-e': 'edit' }
 " }
 
 " <Python-syntax>-----{
@@ -369,27 +427,26 @@ call plug#end()
         " 按leader+q 关闭当前tab
         "nnoremap <leader>c :tabc
     ">>
-        "let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
-        "let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
-    " 从nerdtree上打开文件后菜单自动关闭
-        let NERDTreeQuitOnOpen=1
+
+        let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
+        let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
+        let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+        let NERDTreeChDirMode=2    " Change current working directory based on root directory in NERDTree
+        let g:NERDTreeHidden=1     " 不显示隐藏文件
+        let NERDTreeWinSize=30     " Initial NERDTree width
+        let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
+        "let NERDTreeShowBookmarks=0   " Show NERDTree bookmarks
+        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']   " Hide temp files in NERDTree
+        "let g:NERDTreeShowLineNumbers=1  " 显示菜单上行号
     " 打开vim时如果没有文件自动打开NERDTree
         "autocmd vimenter * if !argc()|NERDTree|endif
     " 或, 自动开启Nerdtree
         "autocmd vimenter * NERDTree  
     " 当NERDTree为剩下的唯一窗口时自动关闭
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    " 不显示隐藏文件
-        let g:NERDTreeHidden=1
-    " 过滤: 所有.pyc文件不显示
-        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']  
-    " 美化菜单 不显示多余的东西
-        let NERDTreeMinimalUI = 1
-        let NERDTreeDirArrows = 1
-    "设置树的显示图标
+    " 设置树的显示图标
         let g:NERDTreeDirArrowExpandable = '▸'
         let g:NERDTreeDirArrowCollapsible = '▾'
-    "let g:NERDTreeShowLineNumbers=1  " 显示菜单上行号
 
     "NERDTREE-GIT
     let g:NERDTreeIndicatorMapCustom = {

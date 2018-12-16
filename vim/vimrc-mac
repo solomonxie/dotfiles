@@ -3,7 +3,8 @@
 " Enviroment: MacOS Sierra / Raspbian / Ubuntu
 " Preload dependencies:
 "     # [Plugins Manager: Vim-Plug]
-"       $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"       $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "     # [Plug  dependencies]
 "       $ brew install ctags
 "       $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
@@ -28,8 +29,9 @@ call plug#begin('~/.vim/plugged')
             "Plug 'vitiral/vim-python'  "Not working
             "Plug 'numirias/semshi'    "Not working
             "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
-            "Plug 'python-mode/python-mode'    "Deprecated
-            "Plug 'python-mode/python-mode', { 'branch': 'develop' }   "More errors, too many builtin plugins
+            "> More errors, too many builtin plugins
+                "Plug 'python-mode/python-mode'    "Deprecated
+                "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
 
         " <Color Scheme>
             "Plug 'chriskempson/base16-vim'   "Ugly !!
@@ -87,15 +89,15 @@ call plug#begin('~/.vim/plugged')
             "Plug 'ervandew/supertab'
             
             " <Deoplete.nvim>
-            if has('nvim')
-                Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-            else
-                Plug 'Shougo/deoplete.nvim'
-                Plug 'roxma/nvim-yarp'    " ??
-                Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
-            endif
-            Plug 'zchee/deoplete-jedi'    " Python completion
-            Plug 'Shougo/deoplete-clangx'   " C/C++ completion
+                if has('nvim')
+                    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+                else
+                    Plug 'Shougo/deoplete.nvim'
+                    Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
+                    Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
+                endif
+                Plug 'zchee/deoplete-jedi'    " Python completion source
+                Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
 
     "<Session>
         Plug 'tpope/vim-obsession'
@@ -110,11 +112,10 @@ call plug#end()
     set nocompatible   " be iMproved, required
     syntax enable 
     set ignorecase "Case Insensitive
-    set smartcase  "Also detects specified case
-    set background=dark
+    set ignorecase   "搜索时忽略大小写
+    set smartcase  "搜索时如果输大写, 就不再忽略大小写
     set hidden " 设置Buffer缓冲区允许不保存时切换buffer
     set number "show line number
-    set cursorline "highlight current line with cursor on
     set mouse=a  "设置鼠标滚动为All，即在tmux中的vim也能滚动 （但是选中文字自动会进入Visual模式）
     "set paste   "设置可以直接用ctrl+c ctrl+v复制粘贴 其实没什么区别 只不过不用在insert模式而已
     set showcmd " show keypress at right-bottom
@@ -157,10 +158,30 @@ call plug#end()
 "endfunction
 " }
 
-" Color Scheme>---------{
-    colorscheme gruvbox
-    "colorscheme base16-default-dark  "Base16-vim
+
+" Builtin UI / Color Scheme>---------{
+    " <Builtin Settings>
+        set background=dark
+        set cursorline    "highlight current line with cursor on
+    " <Color Scheme>
+        colorscheme gruvbox
+        "colorscheme base16-default-dark  "Base16-vim
+    " <Length Marker>
+        "> Warning color
+        "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+        "match OverLength /\%81v.\+/
+        "> Warning Column
+        "let &colorcolumn=join(range(81,999),",")
+        "let &colorcolumn="80,".join(range(400,999),",")
+        "> or
+        "set colorcolumn=80
+        "highlight ColorColumn guibg=#155460
+        "> or
+        "highlight ColorColumn ctermbg=grey
+        "> or
+        "highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 " }
+
 
 " Filetype based builtin Autocomplete [omnifunc] ----{
 "function Builtin_settings_filetype()
@@ -244,7 +265,8 @@ call plug#end()
 
 
 
-" Search Highlighting -----------{
+" [  Search Highlighting  ]-----------{
+    set incsearch    "即时显示匹配结果
     " >>
         highlight Search guibg='Purple' guifg='NONE'
         highlight IncSearch gui=underline,bold guifg=White guibg=Red3
@@ -262,7 +284,7 @@ call plug#end()
 " }
 
 
-" Swap files (for recovery) --------{
+" [  Swap files  ]--------{
     set swapfile    "enable swap file
     set directory=/tmp    "set swp file directory. 
     set updatecount=20     "save swp file every amount of characters
@@ -338,10 +360,6 @@ call plug#end()
     nnoremap <leader>/ :Files<CR>
     "nnoremap <C-e> :Buffers<CR>
     "let g:fzf_action = { 'ctrl-e': 'edit' }
-" }
-
-" <Python-Mode>-------{
-    "let g:pymode_python = 'python3'
 " }
 
 " <Python-syntax>-----{

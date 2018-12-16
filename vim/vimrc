@@ -56,7 +56,9 @@ call plug#begin('~/.vim/plugged')
             "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
 
         "<Tags>
-            "Plug 'majutsushi/tagbar'   " (ctags required)
+        if has('mac')
+            Plug 'majutsushi/tagbar'   " (ctags required)
+        endif
 
         " <Git>
             "Plug 'tpope/vim-fugitive'    " easy commands to do git
@@ -89,15 +91,17 @@ call plug#begin('~/.vim/plugged')
             "Plug 'ervandew/supertab'
             
             " <Deoplete.nvim>
-                "if has('nvim')
-                "    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-                "else
-                "    Plug 'Shougo/deoplete.nvim'
-                "    Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
-                "    Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
-                "endif
-                "Plug 'zchee/deoplete-jedi'    " Python completion source
-                "Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
+            if has('mac')
+                if has('nvim')
+                    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+                else
+                    Plug 'Shougo/deoplete.nvim'
+                    Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
+                    Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
+                endif
+                Plug 'zchee/deoplete-jedi'    " Python completion source
+                Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
+            endif
 
     "<Session>
         Plug 'tpope/vim-obsession'
@@ -314,22 +318,22 @@ call plug#end()
 " }
 
 " <Deoplete>--------------{
-    "" Enable at startup
-    "    let g:deoplete#enable_at_startup = 1
-    "" Set multiple options
-    "    call deoplete#custom#option({
-    "    \ 'auto_complete_delay': 0,
-    "    \ 'smart_case': v:true,
-    "    \ })
-    "" Deoplete-jedi
-    "    let g:deoplete#sources#jedi#enable_typeinfo = 0
-    "    let g:deoplete#sources#jedi#show_docstring = 0
-    "" deoplete-clangx
-    "    " Change clang binary path
-    "    "call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
-    "    " Change clang options
-    "    "call deoplete#custom#var('clangx', 'default_c_options', '')
-    "    "call deoplete#custom#var('clangx', 'default_cpp_options', '')
+    " Enable at startup
+        let g:deoplete#enable_at_startup = 1
+    " Set multiple options
+        call deoplete#custom#option({
+        \ 'auto_complete_delay': 0,
+        \ 'smart_case': v:true,
+        \ })
+    " Deoplete-jedi
+        let g:deoplete#sources#jedi#enable_typeinfo = 0
+        let g:deoplete#sources#jedi#show_docstring = 0
+    " deoplete-clangx
+        " Change clang binary path
+        "call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+        " Change clang options
+        "call deoplete#custom#var('clangx', 'default_c_options', '')
+        "call deoplete#custom#var('clangx', 'default_cpp_options', '')
 " }
 
 

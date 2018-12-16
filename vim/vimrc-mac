@@ -56,7 +56,9 @@ call plug#begin('~/.vim/plugged')
             "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
 
         "<Tags>
+        if has('mac')
             Plug 'majutsushi/tagbar'   " (ctags required)
+        endif
 
         " <Git>
             "Plug 'tpope/vim-fugitive'    " easy commands to do git
@@ -89,6 +91,7 @@ call plug#begin('~/.vim/plugged')
             "Plug 'ervandew/supertab'
             
             " <Deoplete.nvim>
+            if has('mac')
                 if has('nvim')
                     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
                 else
@@ -98,6 +101,7 @@ call plug#begin('~/.vim/plugged')
                 endif
                 Plug 'zchee/deoplete-jedi'    " Python completion source
                 Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
+            endif
 
     "<Session>
         Plug 'tpope/vim-obsession'

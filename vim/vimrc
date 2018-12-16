@@ -12,7 +12,7 @@
 "     :PluginInstall
 
 
-" [Plugins Manager vim-plug]
+" [  Plugins Manager vim-plug  ]--------------------------------{
 call plug#begin('~/.vim/plugged')
     " [    UI     ]
 
@@ -106,12 +106,11 @@ call plug#begin('~/.vim/plugged')
     "<Session>
         Plug 'tpope/vim-obsession'
 
-
 call plug#end()
+" }
 
 
-" General Builtin Settings -----------{
-"function Builtin_settings_general()
+" [  General Builtin Settings  ]-----------{
     filetype plugin indent on    " [Essential]
     set nocompatible   " be iMproved, required
     syntax enable 
@@ -130,12 +129,10 @@ call plug#end()
     set expandtab "用space替代tab的输入 取消的话 就用set noexpandtab "不用space替代tab的输入
     set encoding=utf8  "设置默认编码
     retab "打开文件时自动转换所有tab为空格
-"endfunction
 " }
 
 
-" Advanced Builtin Settings  -----------{
-"function Builtin_settings_advanced()
+" [  Advanced Builtin Settings  ]-----------{
     "<Taging>
     set tags=tags  "Plugin: Ctags  
     "<Folding>
@@ -159,11 +156,10 @@ call plug#end()
     "       set pyx=2
     "    endif
     "endif
-"endfunction
 " }
 
 
-" Builtin UI / Color Scheme>---------{
+" [  Builtin UI / Color Scheme  ]---------{
     " <Builtin Settings>
         set background=dark
         set cursorline    "highlight current line with cursor on
@@ -187,8 +183,7 @@ call plug#end()
 " }
 
 
-" Filetype based builtin Autocomplete [omnifunc] ----{
-"function Builtin_settings_filetype()
+" [  Builtin Autocomplete (omnifunc) ] ----{
     filetype plugin on
     au FileType python setl ofu=pythoncomplete#CompletePHP
     "au FileType php setl ofu=phpcomplete#CompletePHP
@@ -196,12 +191,10 @@ call plug#end()
     "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
     "au FileType c setl ofu=ccomplete#CompleteCpp
     "au FileType css setl ofu=csscomplete#CompleteCSS
-"endfunction
 " }
 
 
-" Key Mapping ----------------------------{
-"call Builtin_settings_key_mapping()
+" [   Key Mapping   ]----------------------------{
     "<Leader key>
         let mapleader = ','
 
@@ -264,7 +257,6 @@ call plug#end()
         "inoremap ( ()<Esc>i
         "inoremap [ []<Esc>i
         "inoremap { {}<Esc>i
-"endfunction
 " }
 
 
@@ -318,6 +310,7 @@ call plug#end()
 " }
 
 " <Deoplete>--------------{
+    if has('mac')
     " Enable at startup
         let g:deoplete#enable_at_startup = 1
     " Set multiple options
@@ -334,6 +327,7 @@ call plug#end()
         " Change clang options
         "call deoplete#custom#var('clangx', 'default_c_options', '')
         "call deoplete#custom#var('clangx', 'default_cpp_options', '')
+    endif
 " }
 
 

@@ -78,6 +78,19 @@
 # }
 
 
+# Setup fzf Searching tool {
+    # Import binary execution to PATH
+    if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
+    # Import key bindings for auto completion
+    [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+    # Import specific key bindings
+    source "$HOME/.fzf/shell/key-bindings.zsh"
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    # Setup appearence (Highlighting, scale, preview...)
+    export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+# }
+
+
 # Environment Variables, paths
 # Some would be imported here by other programms automatically
 # etc., cat 'expot path=...' > ~/.zshrc

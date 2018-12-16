@@ -41,11 +41,13 @@ call plug#begin('~/.vim/plugged')
     " [    File Browsing   ]
 
         "<Fuzzy File Search>
+        if has('mac')
             " <COMMAND-T>
             "Plug 'wincent/command-t'    "VIM only (Ruby required)
             " <fzf>
             Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
             Plug 'junegunn/fzf.vim'
+        endif
 
 
         "<NERDTREE>
@@ -354,10 +356,12 @@ call plug#end()
 " }
 
 " <fzf> ------------{
+    if has('mac')
     "---Key Mapping---
     nnoremap <leader>/ :Files<CR>
     "nnoremap <C-e> :Buffers<CR>
     "let g:fzf_action = { 'ctrl-e': 'edit' }
+    endif
 " }
 
 " <Python-syntax>-----{

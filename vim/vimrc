@@ -79,7 +79,7 @@ call plug#begin('~/.vim/plugged')
             Plug  'Yggdroot/indentLine'    "Beautiful indent lines
 
         "<Folding>
-            Plug 'tmhedberg/SimpylFold'   "improving folding
+            "Plug 'tmhedberg/SimpylFold'   "improving folding
 
         "<Completion>
             "Plug 'valloric/youcompleteme'    "hard to build

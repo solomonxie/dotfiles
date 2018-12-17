@@ -43,17 +43,15 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         " <Syntax Highlighting>
-            if has_mac
-                "Plug 'vim-syntastic/syntastic'
-                "Plug 'vim-python/python-syntax'
-                Plug 'hdima/python-syntax'   "Stable the Most
-                "Plug 'vitiral/vim-python'  "Not working
-                "Plug 'numirias/semshi'    "Not working
-                "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
-                "> Python-mode: (More errors, too many builtin plugins)
-                    "Plug 'python-mode/python-mode'    "Deprecated
-                    "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
-            endif
+            "Plug 'vim-syntastic/syntastic'
+            "Plug 'vim-python/python-syntax'
+            Plug 'hdima/python-syntax'   "Stable the Most
+            "Plug 'vitiral/vim-python'  "Not working
+            "Plug 'numirias/semshi'    "Not working
+            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+            "> Python-mode: (More errors, too many builtin plugins)
+                "Plug 'python-mode/python-mode'    "Deprecated
+                "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
 
         " <Color Scheme>
             "Plug 'chriskempson/base16-vim'   "Ugly !!
@@ -180,7 +178,7 @@ call plug#end()
 
     "<FileType>
     filetype plugin on    " [essential]
-    "filetype plugin indent on
+    filetype plugin indent on
 
     "<Language support>
     "if ! has('vim')    "for VIM only 
@@ -197,7 +195,7 @@ call plug#end()
 " [  Builtin UI / Color Scheme  ]---------{
     " <Builtin Settings>
         set background=dark
-        set cursorline    "highlight current line with cursor on
+        set cursorline    "highlight current line 
 
     " <Color Scheme>
         if has_mac
@@ -208,11 +206,7 @@ call plug#end()
         "colorscheme base16-default-dark  "Base16-vim
 
     " <Syntax Highlighting>
-        if has_mac
-            syntax enable 
-        else
-            syntax off 
-        endif
+        syntax enable 
 
     " <NetRW File Tree>
         set autochdir
@@ -250,12 +244,14 @@ call plug#end()
 
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
-    au FileType python setl ofu=pythoncomplete#CompletePHP
-    "au FileType php setl ofu=phpcomplete#CompletePHP
-    "au FileType ruby,eruby setl ofu=rubycomplete#Complete
-    "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-    "au FileType c setl ofu=ccomplete#CompleteCpp
-    "au FileType css setl ofu=csscomplete#CompleteCSS
+    if has_mac
+        au FileType python setl ofu=pythoncomplete#CompletePHP
+        "au FileType php setl ofu=phpcomplete#CompletePHP
+        "au FileType ruby,eruby setl ofu=rubycomplete#Complete
+        "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+        "au FileType c setl ofu=ccomplete#CompleteCpp
+        "au FileType css setl ofu=csscomplete#CompleteCSS
+    endif  ">> autocmd will slow off old machine
 " }
 
 
@@ -298,24 +294,22 @@ call plug#end()
         nnoremap <leader><return> zM
 
     "<Filetype based Mappings>----{
-        if has_mac 
-            " Get current filetype -> :echo &filetype or as variable &filetype
-            " [ Builds / Compiles / Interpretes  ]
-            "<C Compiler>
-            autocmd FileType c nnoremap <buffer> <C-i> :w<CR>:!gcc % && ./a.out <CR>
-            "<C++ Compiler>
-            autocmd FileType cpp nnoremap <buffer> <C-i> :w<CR>:!g++ % && ./a.out <CR>
-            "<Python Interpreter>
-            autocmd FileType python nnoremap <buffer> <C-i> :w<CR>:!python % <CR>
-            "<Bash Script>
-            autocmd FileType sh nnoremap <buffer> <C-i> :w<CR>:!bash % <CR>
-            "<RCs> (Configs)
-            autocmd FileType vim,tmux nnoremap <buffer> <C-i> :w<CR>:source % <CR>
-            autocmd FileType zsh nnoremap <buffer> <C-i> :w<CR>:!source % <CR>
-            "<Executable>
-            "nnoremap <buffer> <C-i> :!./% <CR>
-            "nnoremap <buffer> <C-i> :! %:p <CR>
-        endif ">> autocmd will slow off old machine
+        " Get current filetype -> :echo &filetype or as variable &filetype
+        " [ Builds / Compiles / Interpretes  ]
+        "<C Compiler>
+        autocmd FileType c nnoremap <buffer> <C-i> :w<CR>:!gcc % && ./a.out <CR>
+        "<C++ Compiler>
+        autocmd FileType cpp nnoremap <buffer> <C-i> :w<CR>:!g++ % && ./a.out <CR>
+        "<Python Interpreter>
+        autocmd FileType python nnoremap <buffer> <C-i> :w<CR>:!python % <CR>
+        "<Bash Script>
+        autocmd FileType sh nnoremap <buffer> <C-i> :w<CR>:!bash % <CR>
+        "<RCs> (Configs)
+        autocmd FileType vim,tmux nnoremap <buffer> <C-i> :w<CR>:source % <CR>
+        autocmd FileType zsh nnoremap <buffer> <C-i> :w<CR>:!source % <CR>
+        "<Executable>
+        "nnoremap <buffer> <C-i> :!./% <CR>
+        "nnoremap <buffer> <C-i> :! %:p <CR>
     " }
 
     "<Omni-autocomplete> Vim自带的Omni自动补全

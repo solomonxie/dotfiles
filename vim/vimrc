@@ -69,14 +69,18 @@ call plug#begin('~/.vim/plugged')
                 Plug 'junegunn/fzf.vim'
             endif
 
-            "Plug 'justinmk/vim-dirvish'
+            "<NetRW>
+            "Plug 'justinmk/vim-dirvish'  "Netrw enhancement
+            Plug 'tpope/vim-vinegar'      "Netrw enhancement
             
         "<NERDTREE>
-            "Plug 'scrooloose/nerdtree'          " File tree manager
-            "Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-            "Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-            ""Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-            ""Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+            if has_mac
+                Plug 'scrooloose/nerdtree'          " File tree manager
+                Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+                Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+                "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+                "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+            endif
 
         "<Tags>
             if has_mac
@@ -195,10 +199,21 @@ call plug#end()
         "colorscheme base16-default-dark  "Base16-vim
 
     " <NetRW File Tree>
-        let g:netrw_liststyle=3
+        set autochdir
+        let g:netrw_browse_split=0   "[Essential]
+        let g:netrw_liststyle=3   "List Style  3:Tree listing
+        let g:netrw_banner=0  "Hide banner
+        let g:netrw_altv = 2
+        let g:netrw_winsize = 25
         let g:netrw_hide=1
-        "let g:netrw_list_hide='.*\.swp$,.*\.pyc,\.git$,^\./$'
-        let g:netrw_list_hide= '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,^\.\.\=/\=$'
+        "let g:netrw_list_hide= '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,^\.\.\=/\=$'
+        let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+        "autocmd FileType netrw setl bufhidden=wipe
+        "autocmd FileType netrw setl bufhidden=delete
+        ">> Key mapping  (Lexplore/Vexplore/Texplore/Explore/Sexplore/edit.)
+        "nnoremap <leader>f :Lexplore<CR>
+        "nnoremap <leader>f :Explore<CR>
+        "nnoremap <leader>f :edit.<CR>
 
     " <Length Marker>
         "> Warning color
@@ -331,10 +346,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-" <NetRW>-------------{
-    nnoremap <leader>f :Vexplore<CR>
-" }
-
 
 " <IndentLine>--------{
     let g:indentLine_enabled = 1
@@ -382,13 +393,13 @@ call plug#end()
 " <Tagbar>--------------{
     let tagbar_autofocus = 1   "Focus on tagbar window when open
     let tagbar_autoclose = 1   "Close tagbar window when select tag
-    "----Key mapping----
+    ">>Key mapping
     nnoremap <leader>t :TagbarToggle<CR>
     "nnoremap <leader>t :TagbarOpen f<CR>
 " }
 
 " <Command-T File Searching>-----------{
-    "----Key mapping----
+    ">>Key mapping
     "nnoremap <leader>/ :CommandT<CR>
     "nnoremap <leader>c :CommandT<CR>
     "let g:CommandTMaxDepth = 10
@@ -399,7 +410,7 @@ call plug#end()
 
 " <fzf>------------{
     if has_mac
-    "---Key Mapping---
+    ">>Key Mapping
     nnoremap <leader>/ :Files<CR>
     "nnoremap <C-e> :Buffers<CR>
     "let g:fzf_action = { 'ctrl-e': 'edit' }
@@ -463,72 +474,70 @@ call plug#end()
 
 
 
-"" Plugin Settings Nerdtree -------------------{
-"    ">> Key bindings
-"        " Nerdtree
-"            "nnoremap <leader>f :NERDTreeFocus<CR>
-"            "nnoremap <leader>f :NERDTreeToggle<CR>  
-"        " NetRW
-"            nnoremap <leader>f :Vexplore<CR>
-"        " Tabs
-"            " Shift Tabs
-"            nnoremap <C-h> gt
-"            nnoremap <C-l> gT
-"            " New Tab
-"            "nnoremap <leader>t :tabe<CR>
-"            " Close Tab
-"            "nnoremap <leader>c :tabc
-"
-"    ">> UI settings
-"        let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
-"        let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
-"        let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
-"        let NERDTreeChDirMode=2    " Change current working directory based on root directory in NERDTree
-"        let g:NERDTreeHidden=1     " 不显示隐藏文件
-"        let NERDTreeWinSize=30     " Initial NERDTree width
-"        let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
-"        "let NERDTreeShowBookmarks=0   " Show NERDTree bookmarks
-"        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']   " Hide temp files in NERDTree
-"        "let g:NERDTreeShowLineNumbers=1  " 显示菜单上行号
-"    " 打开vim时如果没有文件自动打开NERDTree
-"        "autocmd vimenter * if !argc()|NERDTree|endif
-"    " 或, 自动开启Nerdtree
-"        "autocmd vimenter * NERDTree  
-"    " 当NERDTree为剩下的唯一窗口时自动关闭
-"        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"    " 设置树的显示图标
-"        let g:NERDTreeDirArrowExpandable = '▸'
-"        let g:NERDTreeDirArrowCollapsible = '▾'
-"
-"    ">> NERDTREE-GIT
-"    let g:NERDTreeIndicatorMapCustom = {
-"        \ "Modified"  : "✹",
-"        \ "Staged"    : "✚",
-"        \ "Untracked" : "✭",
-"        \ "Renamed"   : "➜",
-"        \ "Unmerged"  : "═",
-"        \ "Deleted"   : "✖",
-"        \ "Dirty"     : "✗",
-"        \ "Clean"     : "✔︎",
-"        \ 'Ignored'   : '☒',
-"        \ "Unknown"   : "?"
-"    \ }
-"
-"    ">> NERDTree-Tabs
-"        "let g:nerdtree_tabs_open_on_console_startup=1 "设置打开vim的时候默认打开tabs
-"    ">> Nerdtree-devicons
-"        "set guifont=DroidSansMono_Nerd_Font:h11
-"    ">> Nerdtree-syntax-highlighting
-"        "let g:NERDTreeDisableFileExtensionHighlight = 1
-"        "let g:NERDTreeDisableExactMatchHighlight = 1
-"        "let g:NERDTreeDisablePatternMatchHighlight = 1
-"        "let g:NERDTreeFileExtensionHighlightFullName = 1
-"        "let g:NERDTreeExactMatchHighlightFullName = 1
-"        "let g:NERDTreePatternMatchHighlightFullName = 1
-"        "let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-"        "let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-"        "let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
-"" }
+" Plugin Settings Nerdtree -------------------{
+    ">> Key bindings
+        " Nerdtree
+            "nnoremap <leader>f :NERDTreeFocus<CR>
+            nnoremap <leader>f :NERDTreeToggle<CR>  
+        " Tabs
+            " Shift Tabs
+            "nnoremap <C-h> gt
+            "nnoremap <C-l> gT
+            " New Tab
+            "nnoremap <leader>t :tabe<CR>
+            " Close Tab
+            "nnoremap <leader>c :tabc
+
+    ">> UI settings
+        let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
+        let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
+        let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+        let NERDTreeChDirMode=2    " Change current working directory based on root directory in NERDTree
+        let g:NERDTreeHidden=1     " 不显示隐藏文件
+        let NERDTreeWinSize=30     " Initial NERDTree width
+        let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
+        "let NERDTreeShowBookmarks=0   " Show NERDTree bookmarks
+        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']   " Hide temp files in NERDTree
+        "let g:NERDTreeShowLineNumbers=1  " 显示菜单上行号
+    " 打开vim时如果没有文件自动打开NERDTree
+        "autocmd vimenter * if !argc()|NERDTree|endif
+    " 或, 自动开启Nerdtree
+        "autocmd vimenter * NERDTree  
+    " 当NERDTree为剩下的唯一窗口时自动关闭
+        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    " 设置树的显示图标
+        let g:NERDTreeDirArrowExpandable = '▸'
+        let g:NERDTreeDirArrowCollapsible = '▾'
+
+    ">> NERDTREE-GIT
+    let g:NERDTreeIndicatorMapCustom = {
+        \ "Modified"  : "✹",
+        \ "Staged"    : "✚",
+        \ "Untracked" : "✭",
+        \ "Renamed"   : "➜",
+        \ "Unmerged"  : "═",
+        \ "Deleted"   : "✖",
+        \ "Dirty"     : "✗",
+        \ "Clean"     : "✔︎",
+        \ 'Ignored'   : '☒',
+        \ "Unknown"   : "?"
+    \ }
+
+    ">> NERDTree-Tabs
+        "let g:nerdtree_tabs_open_on_console_startup=1 "设置打开vim的时候默认打开tabs
+    ">> Nerdtree-devicons
+        "set guifont=DroidSansMono_Nerd_Font:h11
+    ">> Nerdtree-syntax-highlighting
+        "let g:NERDTreeDisableFileExtensionHighlight = 1
+        "let g:NERDTreeDisableExactMatchHighlight = 1
+        "let g:NERDTreeDisablePatternMatchHighlight = 1
+        "let g:NERDTreeFileExtensionHighlightFullName = 1
+        "let g:NERDTreeExactMatchHighlightFullName = 1
+        "let g:NERDTreePatternMatchHighlightFullName = 1
+        "let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+        "let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+        "let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+" }
 
 
 

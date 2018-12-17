@@ -1,6 +1,7 @@
 " Owner: Solomon Xie
 " Email: solomonxiewise@gmail.com
 " Enviroment: MacOS Sierra / Raspbian / Ubuntu
+"
 " Preload dependencies:
 "     # [Plugins Manager: Vim-Plug]
 "       $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -8,8 +9,22 @@
 "     # [Plug  dependencies]
 "       $ brew install ctags
 "       $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+"
 " Manual commands (type in vim, sodu mode required):
 "     :PluginInstall
+"
+" Performance:
+"   vim --startuptime /tmp/vim-startup-time.log +qall && cat /tmp/vim-startup-time.log |sort -nrk 2
+
+
+
+" [   Variables  ]-----------{
+    let has_mac = has('mac')
+    let has_nvim = has('nvim')
+    let has_py2 = has('python2')
+    let has_py3 = has('python3')
+" }
+
 
 
 " [  Plugins Manager vim-plug  ]--------------------------------{
@@ -17,10 +32,12 @@ call plug#begin('~/.vim/plugged')
     " [    UI     ]
 
         "<STATUS-BAR>
-            "Plug 'itchyny/lightline.vim' "beautiful status line
-            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
-            Plug 'vim-airline/vim-airline'
-            Plug 'vim-airline/vim-airline-themes'
+            if has_mac
+                "Plug 'itchyny/lightline.vim' "beautiful status line
+                "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
+                Plug 'vim-airline/vim-airline'
+                Plug 'vim-airline/vim-airline-themes'
+            endif
 
         " <Syntax Highlighting>
             "Plug 'vim-syntastic/syntastic'
@@ -41,26 +58,26 @@ call plug#begin('~/.vim/plugged')
     " [    File Browsing   ]
 
         "<Fuzzy File Search>
-        if has('mac')
-            " <COMMAND-T>
-            "Plug 'wincent/command-t'    "VIM only (Ruby required)
-            " <fzf>
-            Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-            Plug 'junegunn/fzf.vim'
-        endif
+            if has_mac
+                " <COMMAND-T>
+                "Plug 'wincent/command-t'    "VIM only (Ruby required)
+                " <fzf>
+                Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+                Plug 'junegunn/fzf.vim'
+            endif
 
 
         "<NERDTREE>
-            Plug 'scrooloose/nerdtree'          " File tree manager
-            Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-            Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-            "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-            "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+            "Plug 'scrooloose/nerdtree'          " File tree manager
+            "Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+            "Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+            ""Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+            ""Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
 
         "<Tags>
-        if has('mac')
-            Plug 'majutsushi/tagbar'   " (ctags required)
-        endif
+            if has_mac
+                Plug 'majutsushi/tagbar'   " (ctags required)
+            endif
 
         " <Git>
             "Plug 'tpope/vim-fugitive'    " easy commands to do git
@@ -93,23 +110,27 @@ call plug#begin('~/.vim/plugged')
             "Plug 'ervandew/supertab'
             
             " <Deoplete.nvim>
-            if has('mac')
-                if has('nvim')
-                    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-                else
-                    Plug 'Shougo/deoplete.nvim'
-                    Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
-                    Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
+                if has_mac
+                    if has_nvim
+                        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+                    else
+                        Plug 'Shougo/deoplete.nvim'
+                        Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
+                        Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
+                    endif
+                    Plug 'zchee/deoplete-jedi'    " Python completion source
+                    Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
                 endif
-                Plug 'zchee/deoplete-jedi'    " Python completion source
-                Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
-            endif
 
     "<Session>
         Plug 'tpope/vim-obsession'
 
+    "<Performance>
+        Plug 'tweekmonster/startuptime.vim'   "Show VIM loading time for pluigins
+
 call plug#end()
 " }
+
 
 
 " [  General Builtin Settings  ]-----------{
@@ -312,7 +333,7 @@ call plug#end()
 " }
 
 " <Deoplete>--------------{
-    if has('mac')
+    if has_mac
     " Enable at startup
         let g:deoplete#enable_at_startup = 1
     " Set multiple options
@@ -356,7 +377,7 @@ call plug#end()
 " }
 
 " <fzf> ------------{
-    if has('mac')
+    if has_mac
     "---Key Mapping---
     nnoremap <leader>/ :Files<CR>
     "nnoremap <C-e> :Buffers<CR>

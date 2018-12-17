@@ -179,12 +179,8 @@ call plug#end()
     "nnoremap <return> za
 
     "<FileType>
-    if has_mac
-        filetype plugin on    " [Essential]
-        "filetype plugin indent on
-    else
-        filetype plugin off  "This will slow off machine
-    endif
+    filetype plugin on    " [essential]
+    "filetype plugin indent on
 
     "<Language support>
     "if ! has('vim')    "for VIM only 
@@ -302,22 +298,24 @@ call plug#end()
         nnoremap <leader><return> zM
 
     "<Filetype based Mappings>----{
-        " Get current filetype -> :echo &filetype or as variable &filetype
-        " [ Builds / Compiles / Interpretes  ]
-        "<C Compiler>
-        autocmd FileType c nnoremap <buffer> <C-i> :w<CR>:!gcc % && ./a.out <CR>
-        "<C++ Compiler>
-        autocmd FileType cpp nnoremap <buffer> <C-i> :w<CR>:!g++ % && ./a.out <CR>
-        "<Python Interpreter>
-        autocmd FileType python nnoremap <buffer> <C-i> :w<CR>:!python % <CR>
-        "<Bash Script>
-        autocmd FileType sh nnoremap <buffer> <C-i> :w<CR>:!bash % <CR>
-        "<RCs> (Configs)
-        autocmd FileType vim,tmux nnoremap <buffer> <C-i> :w<CR>:source % <CR>
-        autocmd FileType zsh nnoremap <buffer> <C-i> :w<CR>:!source % <CR>
-        "<Executable>
-        "nnoremap <buffer> <C-i> :!./% <CR>
-        "nnoremap <buffer> <C-i> :! %:p <CR>
+        if has_mac 
+            " Get current filetype -> :echo &filetype or as variable &filetype
+            " [ Builds / Compiles / Interpretes  ]
+            "<C Compiler>
+            autocmd FileType c nnoremap <buffer> <C-i> :w<CR>:!gcc % && ./a.out <CR>
+            "<C++ Compiler>
+            autocmd FileType cpp nnoremap <buffer> <C-i> :w<CR>:!g++ % && ./a.out <CR>
+            "<Python Interpreter>
+            autocmd FileType python nnoremap <buffer> <C-i> :w<CR>:!python % <CR>
+            "<Bash Script>
+            autocmd FileType sh nnoremap <buffer> <C-i> :w<CR>:!bash % <CR>
+            "<RCs> (Configs)
+            autocmd FileType vim,tmux nnoremap <buffer> <C-i> :w<CR>:source % <CR>
+            autocmd FileType zsh nnoremap <buffer> <C-i> :w<CR>:!source % <CR>
+            "<Executable>
+            "nnoremap <buffer> <C-i> :!./% <CR>
+            "nnoremap <buffer> <C-i> :! %:p <CR>
+        endif ">> autocmd will slow off old machine
     " }
 
     "<Omni-autocomplete> Vim自带的Omni自动补全
@@ -566,7 +564,3 @@ call plug#end()
 "==============================FUNCTION CALLINGS=================================
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "call Builtin_settings_general()
-"call Builtin_settings_advanced()
-"call Builtin_settings_filetype()
-"call Builtin_settings_key_mapping()
-"call Plugin_settings_NerdTree()

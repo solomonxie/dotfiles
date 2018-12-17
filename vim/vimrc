@@ -217,7 +217,7 @@ call plug#end()
 
     " <Length Marker>
         "> Warning color
-        "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+        "highlight OverLength ctermbg=red ctermfg=white
         "match OverLength /\%81v.\+/
         "> Warning Column
         "let &colorcolumn=join(range(81,999),",")

@@ -43,7 +43,7 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         " <Syntax Highlighting>
-            "Plug 'vim-syntastic/syntastic'
+            uPlug 'vim-syntastic/syntastic'
             "Plug 'vim-python/python-syntax'
             Plug 'hdima/python-syntax'   "Stable the Most
             "Plug 'vitiral/vim-python'  "Not working
@@ -61,13 +61,11 @@ call plug#begin('~/.vim/plugged')
     " [    File Browsing   ]
 
         "<Fuzzy File Search>
-            if has_mac
-                " <COMMAND-T>
-                "Plug 'wincent/command-t'    "VIM only (Ruby required)
-                " <fzf>
-                Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-                Plug 'junegunn/fzf.vim'
-            endif
+            " <COMMAND-T>
+            "Plug 'wincent/command-t'    "VIM only (Ruby required)
+            " <fzf>
+            Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+            Plug 'junegunn/fzf.vim'
 
             "<NetRW>
             "Plug 'justinmk/vim-dirvish'  "Netrw enhancement
@@ -199,9 +197,9 @@ call plug#end()
 
     " <Color Scheme>
         if has_mac
-            colorscheme gruvbox
+            colorscheme gruvbox "grubox is super slow for old machine
         else
-            colorscheme delek
+            colorscheme delek  "Builtin colorscheme
         endif
         "colorscheme base16-default-dark  "Base16-vim
 
@@ -244,14 +242,12 @@ call plug#end()
 
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
-    if has_mac
-        au FileType python setl ofu=pythoncomplete#CompletePHP
-        "au FileType php setl ofu=phpcomplete#CompletePHP
-        "au FileType ruby,eruby setl ofu=rubycomplete#Complete
-        "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-        "au FileType c setl ofu=ccomplete#CompleteCpp
-        "au FileType css setl ofu=csscomplete#CompleteCSS
-    endif  ">> autocmd will slow off old machine
+    au FileType python setl ofu=pythoncomplete#CompletePHP
+    "au FileType php setl ofu=phpcomplete#CompletePHP
+    "au FileType ruby,eruby setl ofu=rubycomplete#Complete
+    "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+    "au FileType c setl ofu=ccomplete#CompleteCpp
+    "au FileType css setl ofu=csscomplete#CompleteCSS
 " }
 
 
@@ -419,12 +415,10 @@ call plug#end()
 " }
 
 " <fzf>------------{
-    if has_mac
     ">>Key Mapping
     nnoremap <leader>/ :Files<CR>
     "nnoremap <C-e> :Buffers<CR>
     "let g:fzf_action = { 'ctrl-e': 'edit' }
-    endif
 " }
 
 " <Python-syntax>------------------{

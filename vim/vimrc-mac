@@ -198,7 +198,7 @@ call plug#end()
         if has_mac
             colorscheme gruvbox
         else
-            colorscheme monokai
+            colorscheme delek
         endif
         "colorscheme base16-default-dark  "Base16-vim
 

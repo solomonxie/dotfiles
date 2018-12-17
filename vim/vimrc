@@ -43,7 +43,7 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         " <Syntax Highlighting>
-            uPlug 'vim-syntastic/syntastic'
+            Plug 'vim-syntastic/syntastic'
             "Plug 'vim-python/python-syntax'
             Plug 'hdima/python-syntax'   "Stable the Most
             "Plug 'vitiral/vim-python'  "Not working

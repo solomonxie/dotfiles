@@ -43,15 +43,17 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         " <Syntax Highlighting>
-            "Plug 'vim-syntastic/syntastic'
-            "Plug 'vim-python/python-syntax'
-            Plug 'hdima/python-syntax'   "Stable the Most
-            "Plug 'vitiral/vim-python'  "Not working
-            "Plug 'numirias/semshi'    "Not working
-            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
-            "> More errors, too many builtin plugins
-                "Plug 'python-mode/python-mode'    "Deprecated
-                "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
+            if has_mac
+                "Plug 'vim-syntastic/syntastic'
+                "Plug 'vim-python/python-syntax'
+                Plug 'hdima/python-syntax'   "Stable the Most
+                "Plug 'vitiral/vim-python'  "Not working
+                "Plug 'numirias/semshi'    "Not working
+                "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+                "> Python-mode: (More errors, too many builtin plugins)
+                    "Plug 'python-mode/python-mode'    "Deprecated
+                    "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
+            endif
 
         " <Color Scheme>
             "Plug 'chriskempson/base16-vim'   "Ugly !!
@@ -143,7 +145,6 @@ call plug#end()
 
 " [  General Builtin Settings  ]-----------{
     set nocompatible   " be iMproved, required
-    syntax enable 
     set ignorecase "Case Insensitive
     set ignorecase   "搜索时忽略大小写
     set smartcase  "搜索时如果输大写, 就不再忽略大小写
@@ -177,7 +178,15 @@ call plug#end()
     "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
     "nnoremap <return> za
 
-    " <Language support>
+    "<FileType>
+    if has_mac
+        filetype plugin on    " [Essential]
+        "filetype plugin indent on
+    else
+        filetype plugin off  "This will slow off machine
+    endif
+
+    "<Language support>
     "if ! has('vim')    "for VIM only 
     "    "set pyxversion=2
     "    if has('python3')
@@ -201,6 +210,13 @@ call plug#end()
             colorscheme delek
         endif
         "colorscheme base16-default-dark  "Base16-vim
+
+    " <Syntax Highlighting>
+        if has_mac
+            syntax enable 
+        else
+            syntax off 
+        endif
 
     " <NetRW File Tree>
         set autochdir
@@ -238,8 +254,6 @@ call plug#end()
 
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
-    filetype plugin on    " [Essential]
-    "filetype plugin indent on
     au FileType python setl ofu=pythoncomplete#CompletePHP
     "au FileType php setl ofu=phpcomplete#CompletePHP
     "au FileType ruby,eruby setl ofu=rubycomplete#Complete

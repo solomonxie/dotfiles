@@ -37,12 +37,10 @@ call plug#begin('~/.vim/plugged')
     " [    UI     ]
 
         "<STATUS-BAR>
-            if has_mac
-                "Plug 'itchyny/lightline.vim' "beautiful status line
-                "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
-                Plug 'vim-airline/vim-airline'
-                Plug 'vim-airline/vim-airline-themes'
-            endif
+            "Plug 'itchyny/lightline.vim' "beautiful status line
+            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
+            Plug 'vim-airline/vim-airline'
+            Plug 'vim-airline/vim-airline-themes'
 
         " <Syntax Highlighting>
             "Plug 'vim-syntastic/syntastic'

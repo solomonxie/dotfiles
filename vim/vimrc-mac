@@ -195,7 +195,11 @@ call plug#end()
         set cursorline    "highlight current line with cursor on
 
     " <Color Scheme>
-        colorscheme gruvbox
+        if has_mac
+            colorscheme gruvbox
+        else
+            colorscheme monokai
+        endif
         "colorscheme base16-default-dark  "Base16-vim
 
     " <NetRW File Tree>

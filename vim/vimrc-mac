@@ -193,11 +193,16 @@ call plug#end()
 " [  Builtin UI / Color Scheme  ]---------{
     " <Builtin Settings>
         set background=dark
+        set termguicolors
         set cursorline    "highlight current line 
+        set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+        "hi! VertSplit guifg=red guibg=blue term=None
 
     " <Color Scheme>
         if has_mac
             colorscheme gruvbox "grubox is super slow for old machine
+            "let g:materialmonokai_italic=1  "Will make comment in block color
+            "colorscheme material-monokai
         else
             colorscheme delek  "Builtin colorscheme
         endif
@@ -256,56 +261,55 @@ call plug#end()
         let mapleader = ','
 
     "<Common Keys>
-        inoremap <C-c> <Esc>:nohl<CR><ESC>
-        nnoremap <C-c> <ESC>:nohl<CR><ESC>
-        inoremap <C-s> <ESC>:w<CR><ESC>
-        vnoremap <C-s> <ESC>:w<CR><ESC>
-        nnoremap <C-s> <ESC>:w<CR><ESC>
-        vnoremap <C-x> <ESC>:x<CR><ESC>
-        nnoremap <C-x> <ESC>:x<CR><ESC>
+        noremap <C-c> <Esc>:nohl<CR><ESC>
+        noremap <C-s> <ESC>:w<CR><ESC>
+        noremap <C-x> <ESC>:x<CR><ESC>
         "nnoremap <leader>qw :q<CR>
-        "vnoremap <leader>qw :q<CR>
+        noremap S :vsplit<CR>
+        noremap H <C-w>h
+        noremap L <C-w>l
+        noremap <leader>,q <C-w>q
+        noremap <leader>m <C-w>
 
     "<Vim-Plug>
-        nnoremap <leader>i :PlugInstall<CR>
+        noremap <leader>i :PlugInstall<CR>
         
 
     "<Clipboard>
         " 复制到系统剪切板
-        nnoremap <leader>y "+Y
-        vnoremap <leader>y "+y
+        noremap <leader>y "+y
         " 从系统剪切板中粘贴到当前位置
-        nnoremap <leader>p "+P
-        vnoremap <leader>p "+p
+        noremap <leader>p "+p
+        noremap <leader>r :reg<CR>
 
     "<Buffer>
-        nnoremap <leader>h :bp<CR><ESC>
-        nnoremap <leader>l :bn<CR><ESC>
-        nnoremap <leader>q :bd<CR><ESC>
-        vnoremap <leader>q :bd<CR><ESC>
+        noremap <leader>q :bd<CR><ESC>
+        noremap <leader>h :bp<CR><ESC>
+        noremap <leader>l :bn<CR><ESC>
+        noremap <leader>b :Buffers<CR>
 
     "<Folding>
-        nnoremap <space> za
-        nnoremap <leader><space> zR
-        nnoremap <leader><return> zM
+        noremap <space> za
+        noremap <leader><space> zR
+        noremap <leader><return> zM
 
     "<Filetype based Mappings>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
         "<C Compiler>
-        autocmd FileType c nnoremap <buffer> <C-i> :w<CR>:!gcc % && ./a.out <CR>
+        autocmd FileType c noremap <buffer> <C-i> :w<CR>:!gcc % && ./a.out <CR>
         "<C++ Compiler>
-        autocmd FileType cpp nnoremap <buffer> <C-i> :w<CR>:!g++ % && ./a.out <CR>
+        autocmd FileType cpp noremap <buffer> <C-i> :w<CR>:!g++ % && ./a.out <CR>
         "<Python Interpreter>
-        autocmd FileType python nnoremap <buffer> <C-i> :w<CR>:!python % <CR>
+        autocmd FileType python noremap <buffer> <C-i> :w<CR>:!python % <CR>
         "<Bash Script>
-        autocmd FileType sh nnoremap <buffer> <C-i> :w<CR>:!bash % <CR>
+        autocmd FileType sh noremap <buffer> <C-i> :w<CR>:!bash % <CR>
         "<RCs> (Configs)
-        autocmd FileType vim,tmux nnoremap <buffer> <C-i> :w<CR>:source % <CR>
-        autocmd FileType zsh nnoremap <buffer> <C-i> :w<CR>:!source % <CR>
+        autocmd FileType vim,tmux noremap <buffer> <C-i> :w<CR>:source % <CR>
+        autocmd FileType zsh noremap <buffer> <C-i> :w<CR>:!source % <CR>
         "<Executable>
-        "nnoremap <buffer> <C-i> :!./% <CR>
-        "nnoremap <buffer> <C-i> :! %:p <CR>
+        "noremap <buffer> <C-i> :!./% <CR>
+        "noremap <buffer> <C-i> :! %:p <CR>
     " }
 
     "<Omni-autocomplete> Vim自带的Omni自动补全
@@ -361,6 +365,7 @@ call plug#end()
     let g:indentLine_concealcursor = 'inc'
     "let g:indentLine_setColors = 0
     "let g:indentLine_setConceal = 0
+    autocmd Filetype json let g:indentLine_enabled = 0  ">> Huge bug for JSON input
 " }
 
 

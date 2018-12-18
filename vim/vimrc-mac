@@ -248,14 +248,12 @@ call plug#end()
 
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
-    if has_mac
-        au FileType python setl ofu=pythoncomplete#CompletePHP
-        "au FileType php setl ofu=phpcomplete#CompletePHP
-        "au FileType ruby,eruby setl ofu=rubycomplete#Complete
-        "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-        "au FileType c setl ofu=ccomplete#CompleteCpp
-        "au FileType css setl ofu=csscomplete#CompleteCSS
-    endif
+    au FileType python setl ofu=pythoncomplete#CompletePHP
+    "au FileType php setl ofu=phpcomplete#CompletePHP
+    "au FileType ruby,eruby setl ofu=rubycomplete#Complete
+    "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+    "au FileType c setl ofu=ccomplete#CompleteCpp
+    "au FileType css setl ofu=csscomplete#CompleteCSS
 " }
 
 

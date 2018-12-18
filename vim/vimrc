@@ -193,18 +193,16 @@ call plug#end()
 " [  Builtin UI / Color Scheme  ]---------{
     " <Builtin Settings>
         set background=dark
-        set cursorline    "highlight current line 
+        set cursorline    "Highlighting current line 
+        set termguicolors   ">> Not compatiple with many themes
         set fillchars+=vert:\!  "Bar character for VERTical Split Pane
         "hi! VertSplit guifg=red guibg=blue term=None
 
     " <Color Scheme>
         "colorscheme delek  "Builtin colorscheme
-        "let g:materialmonokai_italic=1  "Will make comment in block color
+        "let g:materialmonokai_italic=1  ">> Make comment in block color
         "colorscheme material-monokai
-        colorscheme gruvbox "grubox is slow for old machine
-        if has_mac
-            set termguicolors
-        endif
+        colorscheme gruvbox ">> grubox is slow for old machine
 
     " <Syntax Highlighting>
         syntax enable 

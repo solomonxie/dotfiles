@@ -193,7 +193,7 @@ call plug#end()
 
 
 " [  Builtin UI / Color Scheme  ]---------{
-    " <Color Scheme>
+    " <Color Scheme>  --> Overwriting Alert!
         if has_mac
             set termguicolors   ">> Not compatiple with many themes
             "colorscheme material-monokai ">> Super slow, has block color comment
@@ -202,6 +202,9 @@ call plug#end()
             "colorscheme delek  "Builtin colorscheme
             colorscheme monokai "Fast (sickill/vim-monokai)
         endif
+
+    " <Syntax Highlighting>  --> Overwriting Alert!
+        syntax enable 
 
     " <Color Settings>
         set t_Co=256
@@ -213,9 +216,6 @@ call plug#end()
         highlight Normal ctermbg=NONE  
         highlight nonText ctermbg=NONE
         "hi Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
-
-    " <Syntax Highlighting>
-        syntax enable 
 
     " <NetRW File Tree>
         set autochdir

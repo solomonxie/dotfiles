@@ -200,13 +200,13 @@ call plug#end()
         "hi! VertSplit guifg=red guibg=blue term=None
 
     " <Color Scheme>
-        "colorscheme delek  "Builtin colorscheme
         if has_mac
-        else
             set termguicolors   ">> Not compatiple with many themes
             "let g:materialmonokai_italic=1  ">> Make comment in block color
             "colorscheme material-monokai
             colorscheme gruvbox ">> grubox is slow for old machine
+        else
+            colorscheme delek  "Builtin colorscheme
         endif
 
     " <Syntax Highlighting>

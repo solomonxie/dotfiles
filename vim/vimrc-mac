@@ -202,8 +202,7 @@ call plug#end()
     " <Color Scheme>
         if has_mac
             set termguicolors   ">> Not compatiple with many themes
-            "let g:materialmonokai_italic=1  ">> Make comment in block color
-            "colorscheme material-monokai
+            "colorscheme material-monokai ">> Super slow, has block color comment
             colorscheme gruvbox ">> grubox is slow for old machine
         else
             colorscheme delek  "Builtin colorscheme

@@ -43,15 +43,17 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         " <Syntax Highlighting>
-            Plug 'vim-syntastic/syntastic'
-            "Plug 'vim-python/python-syntax'
-            Plug 'hdima/python-syntax'   "Stable the Most
-            "Plug 'vitiral/vim-python'  "Not working
-            "Plug 'numirias/semshi'    "Not working
-            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
-            "> Python-mode: (More errors, too many builtin plugins)
-                "Plug 'python-mode/python-mode'    "Deprecated
-                "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
+            if has_mac
+                Plug 'vim-syntastic/syntastic'
+                "Plug 'vim-python/python-syntax'
+                Plug 'hdima/python-syntax'   "Stable the Most
+                "Plug 'vitiral/vim-python'  "Not working
+                "Plug 'numirias/semshi'    "Not working
+                "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+                "> Python-mode: (More errors, too many builtin plugins)
+                    "Plug 'python-mode/python-mode'    "Deprecated
+                    "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
+            endif
 
         " <Color Scheme>
             "Plug 'chriskempson/base16-vim'   "Ugly !!
@@ -194,15 +196,18 @@ call plug#end()
     " <Builtin Settings>
         set background=dark
         set cursorline    "Highlighting current line 
-        set termguicolors   ">> Not compatiple with many themes
         set fillchars+=vert:\!  "Bar character for VERTical Split Pane
         "hi! VertSplit guifg=red guibg=blue term=None
 
     " <Color Scheme>
         "colorscheme delek  "Builtin colorscheme
-        "let g:materialmonokai_italic=1  ">> Make comment in block color
-        "colorscheme material-monokai
-        colorscheme gruvbox ">> grubox is slow for old machine
+        if has_mac
+        else
+            set termguicolors   ">> Not compatiple with many themes
+            "let g:materialmonokai_italic=1  ">> Make comment in block color
+            "colorscheme material-monokai
+            colorscheme gruvbox ">> grubox is slow for old machine
+        endif
 
     " <Syntax Highlighting>
         syntax enable 
@@ -243,12 +248,14 @@ call plug#end()
 
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
-    au FileType python setl ofu=pythoncomplete#CompletePHP
-    "au FileType php setl ofu=phpcomplete#CompletePHP
-    "au FileType ruby,eruby setl ofu=rubycomplete#Complete
-    "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-    "au FileType c setl ofu=ccomplete#CompleteCpp
-    "au FileType css setl ofu=csscomplete#CompleteCSS
+    if has_mac
+        au FileType python setl ofu=pythoncomplete#CompletePHP
+        "au FileType php setl ofu=phpcomplete#CompletePHP
+        "au FileType ruby,eruby setl ofu=rubycomplete#Complete
+        "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+        "au FileType c setl ofu=ccomplete#CompleteCpp
+        "au FileType css setl ofu=csscomplete#CompleteCSS
+    endif
 " }
 
 

@@ -205,7 +205,8 @@ call plug#end()
             "colorscheme material-monokai ">> Super slow, has block color comment
             colorscheme gruvbox ">> grubox is slow for old machine
         else
-            colorscheme delek  "Builtin colorscheme
+            "colorscheme delek  "Builtin colorscheme
+            colorscheme monokai "Fast (sickill/vim-monokai)
         endif
 
     " <Syntax Highlighting>

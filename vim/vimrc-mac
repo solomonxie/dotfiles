@@ -193,17 +193,6 @@ call plug#end()
 
 
 " [  Builtin UI / Color Scheme  ]---------{
-    " <Builtin Settings>
-        set t_Co=256
-        set background=dark
-        set cursorline  "Highlighting current line 
-        set fillchars+=vert:\!  "Bar character for VERTical Split Pane
-        "hi! VertSplit guifg=red guibg=blue term=None
-        "Remove Text background color
-        highlight Normal ctermbg=NONE  
-        highlight nonText ctermbg=NONE
-        "hi Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
-
     " <Color Scheme>
         if has_mac
             set termguicolors   ">> Not compatiple with many themes
@@ -213,6 +202,17 @@ call plug#end()
             "colorscheme delek  "Builtin colorscheme
             colorscheme monokai "Fast (sickill/vim-monokai)
         endif
+
+    " <Color Settings>
+        set t_Co=256
+        set background=dark
+        set cursorline  "Highlighting current line 
+        set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+        "hi! VertSplit guifg=red guibg=blue term=None
+        "Remove Text background color
+        highlight Normal ctermbg=NONE  
+        highlight nonText ctermbg=NONE
+        "hi Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
 
     " <Syntax Highlighting>
         syntax enable 

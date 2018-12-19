@@ -88,7 +88,7 @@ call plug#begin('~/.vim/plugged')
             endif
 
         " <Git>
-            "Plug 'tpope/vim-fugitive'    " easy commands to do git
+            Plug 'tpope/vim-fugitive'    " easy commands to do git
             "Plug 'easymotion/vim-easymotion'
 
     " [   INSERTION    ]
@@ -193,6 +193,12 @@ call plug#end()
 
 
 " [  Builtin UI / Color Scheme  ]---------{
+    " <Basic Settings>
+        set t_Co=256   ">> Overwriting Alert !!
+        set background=dark   ">> Overwriting Alert !!
+        set cursorline  "Highlighting current line 
+        set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+
     " <Color Scheme>  --> Overwriting Alert!
         if has_mac
             set termguicolors   ">> Not compatiple with many themes
@@ -206,11 +212,7 @@ call plug#end()
     " <Syntax Highlighting>  --> Overwriting Alert!
         syntax enable 
 
-    " <Color Settings>
-        set t_Co=256
-        set background=dark
-        set cursorline  "Highlighting current line 
-        set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+    " <Highlight Settings>  --> Overwriting Alert!
         "hi! VertSplit guifg=red guibg=blue term=None
         "Remove Text background color
         highlight Normal ctermbg=NONE  

@@ -90,6 +90,7 @@ call plug#begin('~/.vim/plugged')
         " <Git>
             Plug 'tpope/vim-fugitive'    " easy commands to do git
             "Plug 'easymotion/vim-easymotion'
+            Plug 'jreybert/vimagit'
 
     " [   INSERTION    ]
 
@@ -207,6 +208,9 @@ call plug#end()
         else
             "colorscheme delek  "Builtin colorscheme
             colorscheme monokai "Fast (sickill/vim-monokai)
+            "Text bg-color is not working properly with Rpi
+            highlight Normal ctermbg=NONE  
+            highlight nonText ctermbg=NONE
         endif
 
     " <Syntax Highlighting>  --> Overwriting Alert!
@@ -214,9 +218,6 @@ call plug#end()
 
     " <Highlight Settings>  --> Overwriting Alert!
         "hi! VertSplit guifg=red guibg=blue term=None
-        "Remove Text background color
-        highlight Normal ctermbg=NONE  
-        highlight nonText ctermbg=NONE
         "hi Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
 
     " <NetRW File Tree>

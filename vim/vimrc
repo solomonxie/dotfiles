@@ -384,7 +384,7 @@ call plug#end()
     " Auto record session on VIM's exit (No space between multiple files)
         "autocmd VimLeave * :Obsession /tmp/obsession.vim
         "autocmd VimLeave *.py,*.json :Obsession /tmp/obsession.vim
-        function AutoObsession()
+        function! AutoObsession()
             if bufnr('%') >= 3
                 :Obsession /tmp/obsession.vim
             endif
@@ -446,8 +446,8 @@ call plug#end()
 " <Tagbar>--------------{
     let tagbar_autofocus = 1   "Focus on tagbar window when open
     let tagbar_autoclose = 1   "Close tagbar window when select tag
-    ">>Key mapping
-    nnoremap <leader>t :TagbarToggle<CR>
+    ">>Key mapping  "*"->open all folds; "="->close all folds
+    nnoremap <leader>t :TagbarToggle<CR>=
     "nnoremap <leader>t :TagbarOpen f<CR>
 " }
 

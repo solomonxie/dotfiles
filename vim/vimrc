@@ -279,9 +279,10 @@ call plug#end()
         let mapleader = ','
 
     "<Common Keys>
-        noremap <C-c> <Esc>:nohl<CR><ESC>
-        noremap <C-s> <ESC>:w<CR><ESC>
-        noremap <C-x> <ESC>:x<CR><ESC>
+        noremap  <C-c> <Esc>:nohl<CR><ESC>
+        inoremap <C-c> <Esc>
+        noremap  <C-s> <ESC>:w<CR><ESC>
+        noremap  <C-x> <ESC>:x<CR><ESC>
         "nnoremap <leader>qw :q<CR>
         noremap S :vsplit<CR>
         noremap H <C-w>h

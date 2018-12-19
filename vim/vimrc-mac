@@ -308,8 +308,8 @@ call plug#end()
 
     "<Folding>
         noremap <space> za
-        noremap <leader><space> zR
-        noremap <leader><return> zM
+        noremap <leader><return> zR
+        noremap <leader><space> zM
 
     "<Filetype based Mappings>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
@@ -397,7 +397,7 @@ call plug#end()
 " }
 
 " <vimagit>-------------{
-    let g:magit_show_magit_mapping='g'
+    let g:magit_show_magit_mapping='G'
 " }
 
 " <Deoplete>--------------{

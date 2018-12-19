@@ -382,7 +382,7 @@ call plug#end()
     " Restore session
         noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
     " Auto record session on VIM's exit
-        autocmd VimLeave * :Obsession /tmp/obsession.vim
+        "autocmd VimLeave * :Obsession /tmp/obsession.vim
 " }
 
 " <IndentLine>--------{

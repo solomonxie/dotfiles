@@ -41,7 +41,7 @@ alias you="youtube-dl"
 # Git commands  
 alias gs="git status" 
 alias gc="git add . && git commit" 
-alias gch="git checkout" 
+alias gco="git checkout"
 alias gcp="git add . && git commit -m \"Update from $USER\" && git push -v" 
 
 # Docker

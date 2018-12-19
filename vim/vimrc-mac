@@ -22,12 +22,20 @@
 
 " [   Variables  ]-----------{
     let has_mac = has('mac')
+    let has_pc = 0
+    let has_rpi = 0
     let has_vim = has('vim')
     let has_nvim = has('nvim')
     let has_lua = has('lua')
     let has_ruby = has('ruby')
     let has_py2 = has('python2')
     let has_py3 = has('python3')
+    let arch = system("uname -m")
+    if arch == 'armv7l'
+        let has_rpi = 1
+    elseif arch == 'x86_64'
+        let has_pc = 1  "Mac / PC
+    endif
 " }
 
 
@@ -88,9 +96,14 @@ call plug#begin('~/.vim/plugged')
             endif
 
         " <Git>
-            Plug 'tpope/vim-fugitive'    " easy commands to do git
+            "Plug 'tpope/vim-fugitive'    "Commands to do Git
             "Plug 'easymotion/vim-easymotion'
-            Plug 'jreybert/vimagit'
+            Plug 'jreybert/vimagit'  "Much easier with Git
+
+        " <Markdown>
+            if has_mac
+                Plug 'JamshedVesuna/vim-markdown-preview'
+            endif
 
     " [   INSERTION    ]
 
@@ -120,22 +133,18 @@ call plug#begin('~/.vim/plugged')
             
             " <Deoplete.nvim>
                 if has_mac
-                    if has_nvim
-                        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-                    else
-                        Plug 'Shougo/deoplete.nvim'
-                        Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
-                        Plug 'roxma/vim-hug-neovim-rpc'  " Framework neovim plugins to work on vim
-                    endif
+                    Plug 'Shougo/deoplete.nvim'
+                    Plug 'roxma/vim-hug-neovim-rpc'  ">> VIM only
+                    Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
                     Plug 'zchee/deoplete-jedi'    " Python completion source
                     Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
                 endif
 
     "<Session>
-        Plug 'tpope/vim-obsession'
+        Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
 
     "<Performance>
-        Plug 'tweekmonster/startuptime.vim'   "Show VIM loading time for pluigins
+        Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
 
 call plug#end()
 " }
@@ -383,6 +392,9 @@ call plug#end()
     "let g:pydiction_menu_height = 7
 " }
 
+" <vim-markdown-preview>-------------{
+    let vim_markdown_preview_github=1
+" }
 
 " <Deoplete>--------------{
     if has_mac

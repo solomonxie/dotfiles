@@ -396,6 +396,10 @@ call plug#end()
     let vim_markdown_preview_github=1
 " }
 
+" <vimagit>-------------{
+    let g:magit_show_magit_mapping='g'
+" }
+
 " <Deoplete>--------------{
     if has_mac
     " Enable at startup

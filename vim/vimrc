@@ -376,6 +376,15 @@ call plug#end()
 
 
 
+" <Vim-Obsession>--------{
+    " Record session >> ":mksession" can't overwite
+        noremap <leader>S :Obsession /tmp/obsession.vim<CR><ESC>
+    " Restore session
+        noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
+    " Auto record session on VIM's exit
+        autocmd VimLeave * :Obsession /tmp/obsession.vim
+" }
+
 " <IndentLine>--------{
     let g:indentLine_enabled = 1
     let g:indentLine_char='│'

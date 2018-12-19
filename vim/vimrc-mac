@@ -381,8 +381,15 @@ call plug#end()
         noremap <leader>S :Obsession /tmp/obsession.vim<CR><ESC>
     " Restore session
         noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
-    " Auto record session on VIM's exit
+    " Auto record session on VIM's exit (No space between multiple files)
         "autocmd VimLeave * :Obsession /tmp/obsession.vim
+        "autocmd VimLeave *.py,*.json :Obsession /tmp/obsession.vim
+        function AutoObsession()
+            if bufnr('%') >= 3
+                :Obsession /tmp/obsession.vim
+            endif
+        endfunction
+        autocmd VimLeave * call AutoObsession()
 " }
 
 " <IndentLine>--------{

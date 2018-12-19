@@ -397,7 +397,7 @@ call plug#end()
 " }
 
 " <vimagit>-------------{
-    let g:magit_show_magit_mapping='G'
+    let g:magit_show_magit_mapping='<leader>G'
 " }
 
 " <Deoplete>--------------{

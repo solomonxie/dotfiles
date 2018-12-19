@@ -510,6 +510,9 @@ call plug#end()
 
 
 " Plugin Settings Nerdtree -------------------{
+    ">> Basic settings
+        let g:NERDTreeChDirMode = 2  "Change current folder as root
+
     ">> Key bindings
         " Nerdtree
             "nnoremap <leader>f :NERDTreeFocus<CR>

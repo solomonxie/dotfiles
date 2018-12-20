@@ -461,6 +461,7 @@ call plug#end()
     ">>Key mapping  "*"->open all folds; "="->close all folds
     "noremap <leader>t :TagbarToggle<CR>=<ESC>
     noremap <leader>t :TagbarOpen<CR>
+    noremap T :TagbarOpen<CR>
 " }
 
 " <Command-T File Searching>-----------{

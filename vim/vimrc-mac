@@ -208,6 +208,9 @@ call plug#end()
         set cursorline  "Highlighting current line 
         set fillchars+=vert:\!  "Bar character for VERTical Split Pane
 
+    " <Syntax Highlighting>  --> Overwriting Alert!
+        syntax enable 
+
     " <Color Scheme>  --> Overwriting Alert!
         if has_mac
             set termguicolors   ">> Not compatiple with many themes
@@ -220,9 +223,6 @@ call plug#end()
             highlight Normal ctermbg=NONE  
             highlight nonText ctermbg=NONE
         endif
-
-    " <Syntax Highlighting>  --> Overwriting Alert!
-        syntax enable 
 
     " <Highlight Settings>  --> Overwriting Alert!
         "hi! VertSplit guifg=red guibg=blue term=None

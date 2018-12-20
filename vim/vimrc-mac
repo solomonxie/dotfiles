@@ -21,7 +21,7 @@
 
 
 
-" [   Variables  ]-----------{
+" [  Variables  ]-----------{
     let has_mac = has('mac')
     let has_pc = 0
     let has_rpi = 0

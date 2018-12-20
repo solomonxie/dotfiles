@@ -23,20 +23,18 @@
 
 " [  Variables  ]-----------{
     let has_mac = has('mac')
-    let has_pc = 0
-    let has_rpi = 0
-    let has_vim = has('vim')
-    let has_nvim = has('nvim')
-    let has_lua = has('lua')
-    let has_ruby = has('ruby')
-    let has_py2 = has('python2')
-    let has_py3 = has('python3')
-    let arch = system("uname -m")
-    if arch == 'armv7l'
-        let has_rpi = 1
-    elseif arch == 'x86_64'
-        let has_pc = 1  "Mac / PC
-    endif
+    "let has_vim = has('vim')
+    "let has_nvim = has('nvim')
+    "let has_lua = has('lua')
+    "let has_ruby = has('ruby')
+    "let has_py2 = has('python2')
+    "let has_py3 = has('python3')
+    "let arch = system("uname -m")
+    "if arch == 'armv7l'
+    "    let has_rpi = 1
+    "elseif arch == 'x86_64'
+    "    let has_pc = 1  "Mac / PC
+    "endif
 " }
 
 
@@ -53,9 +51,9 @@ call plug#begin('~/.vim/plugged')
 
         " <Syntax Highlighting>
             if has_mac
-                Plug 'vim-syntastic/syntastic'
+                Plug 'vim-syntastic/syntastic' "Syntax checker for all languages
                 "Plug 'vim-python/python-syntax'
-                Plug 'hdima/python-syntax'   "Stable the Most
+                Plug 'hdima/python-syntax'   "Most stable highlighting
                 "Plug 'vitiral/vim-python'  "Not working
                 "Plug 'numirias/semshi'    "Not working
                 "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
@@ -103,7 +101,7 @@ call plug#begin('~/.vim/plugged')
 
         " <Markdown>
             if has_mac
-                Plug 'JamshedVesuna/vim-markdown-preview'
+                "Plug 'JamshedVesuna/vim-markdown-preview' "Not live previewing
             endif
 
     " [   INSERTION    ]
@@ -266,12 +264,14 @@ call plug#end()
 
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
-    au FileType python setl ofu=pythoncomplete#CompletePHP
-    "au FileType php setl ofu=phpcomplete#CompletePHP
-    "au FileType ruby,eruby setl ofu=rubycomplete#Complete
-    "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-    "au FileType c setl ofu=ccomplete#CompleteCpp
-    "au FileType css setl ofu=csscomplete#CompleteCSS
+    if has_mac
+        au FileType python setl ofu=pythoncomplete#CompletePHP
+        "au FileType php setl ofu=phpcomplete#CompletePHP
+        "au FileType ruby,eruby setl ofu=rubycomplete#Complete
+        "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+        "au FileType c setl ofu=ccomplete#CompleteCpp
+        "au FileType css setl ofu=csscomplete#CompleteCSS
+    endif
 " }
 
 
@@ -337,7 +337,7 @@ call plug#end()
     " }
 
     "<Omni-autocomplete> Vim自带的Omni自动补全
-        inoremap <C-d> <C-x><C-l>
+        "inoremap <C-d> <C-x><C-l>
         "inoremap ' ''<Esc>i
         "inoremap " ""<Esc>i
         "inoremap ( ()<Esc>i
@@ -483,7 +483,9 @@ call plug#end()
 " }
 
 " <Python-syntax>------------------{
-    let g:python_highlight_all = 1
+    if has_mac
+        let g:python_highlight_all = 1
+    endif
 " }
 
 " Jedi Settings ---------------------{

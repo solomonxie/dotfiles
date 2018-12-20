@@ -27,8 +27,8 @@
     "let has_nvim = has('nvim')
     "let has_lua = has('lua')
     "let has_ruby = has('ruby')
-    "let has_py2 = has('python2')
-    "let has_py3 = has('python3')
+    "let has_py2 = has('python2')  "=> Careful, super slow
+    "let has_py3 = has('python3')  "=> Careful, super slow
     "let arch = system("uname -m")
     "if arch == 'armv7l'
     "    let has_rpi = 1
@@ -152,6 +152,8 @@ call plug#end()
 
 " [  General Builtin Settings  ]-----------{
     set nocompatible   " be iMproved, required
+    "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
+    "set nospell
     set ignorecase "Case Insensitive
     set ignorecase   "搜索时忽略大小写
     set smartcase  "搜索时如果输大写, 就不再忽略大小写
@@ -212,7 +214,7 @@ call plug#end()
         syntax enable 
 
     " <Color Scheme>  --> Overwriting Alert!
-        if has_mac
+    if has_mac 
             set termguicolors   ">> Not compatiple with many themes
             "colorscheme material-monokai ">> Super slow, has block color comment
             colorscheme gruvbox ">> grubox is slow for old machine
@@ -227,6 +229,10 @@ call plug#end()
     " <Highlight Settings>  --> Overwriting Alert!
         "hi! VertSplit guifg=red guibg=blue term=None
         "hi Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
+
+    " <Spell Check>
+        autocmd BufRead,BufNewFile *.txt,*.md setlocal spell spelllang=en,en_us,cjk
+        autocmd FileType gitcommit setlocal spell spelllang=en,en_us,cjk
 
     " <NetRW File Tree>
         set autochdir
@@ -265,7 +271,7 @@ call plug#end()
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
     if has_mac
-        au FileType python setl ofu=pythoncomplete#CompletePHP
+        "au FileType python setl ofu=pythoncomplete#CompletePHP
         "au FileType php setl ofu=phpcomplete#CompletePHP
         "au FileType ruby,eruby setl ofu=rubycomplete#Complete
         "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
@@ -296,7 +302,11 @@ call plug#end()
         noremap <leader>,q <C-w>q
         noremap <leader>m <C-w>
 
-    "<Vim-Plug>
+    "<Appearence>
+        noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
+        noremap <leader>Z :setlocal nospell<CR>
+
+    "<Plugins>
         noremap <leader>i :PlugInstall<CR>
         
 

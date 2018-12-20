@@ -274,14 +274,19 @@ call plug#end()
 " }
 
 
-" [   Key Mapping   ]----------------------------{
+" [   Key Mappings / Bindings   ]----------------------------{
     "<Leader key>
         let mapleader = ','
 
     "<Common Keys>
+        "Ctrl-C
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
+        "Tab -> default set to <C-i>, but remapping not working
+        nmap <TAB> <C-w> 
+        "Ctrl-s
         noremap  <C-s> <ESC>:w<CR><ESC>
+        "Ctrl-x
         noremap  <C-x> <ESC>:x<CR><ESC>
         "nnoremap <leader>qw :q<CR>
         noremap S :vsplit<CR>
@@ -315,20 +320,19 @@ call plug#end()
     "<Filetype based Mappings>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
-        "<C Compiler>
-        autocmd FileType c noremap <buffer> <C-i> :w<CR>:!gcc % && ./a.out <CR>
-        "<C++ Compiler>
-        autocmd FileType cpp noremap <buffer> <C-i> :w<CR>:!g++ % && ./a.out <CR>
+        "<C/C++ Compiler>  -> Compile & run
+        autocmd FileType c noremap <buffer> <C-u> :w<CR>:!gcc % && ./a.out <CR>
+        autocmd FileType cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>
         "<Python Interpreter>
-        autocmd FileType python noremap <buffer> <C-i> :w<CR>:!python % <CR>
+        autocmd FileType python noremap <buffer> <C-u> :w<CR>:!python % <CR>
         "<Bash Script>
-        autocmd FileType sh noremap <buffer> <C-i> :w<CR>:!bash % <CR>
+        autocmd FileType sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
         "<RCs> (Configs)
-        autocmd FileType vim,tmux noremap <buffer> <C-i> :w<CR>:source % <CR>
-        autocmd FileType zsh noremap <buffer> <C-i> :w<CR>:!source % <CR>
-        "<Executable>
-        "noremap <buffer> <C-i> :!./% <CR>
-        "noremap <buffer> <C-i> :! %:p <CR>
+        autocmd FileType vim,tmux noremap <buffer> <C-u> :w<CR><ESC>:source % <CR>
+        autocmd FileType zsh noremap <buffer> <C-u> :w<CR>:!source % <CR>
+        "<Executable>  -> conflict with above
+        ""noremap <buffer> <C-u> :!./% <CR>
+        ""noremap <buffer> <C-u> :! %:p <CR>
     " }
 
     "<Omni-autocomplete> Vim自带的Omni自动补全

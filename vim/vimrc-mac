@@ -390,7 +390,7 @@ call plug#end()
         "autocmd VimLeave * :Obsession /tmp/obsession.vim
         "autocmd VimLeave *.py,*.json :Obsession /tmp/obsession.vim
         function! AutoObsession()
-            if bufnr('%') >= 3
+            if bufnr('%') > 3
                 :Obsession /tmp/obsession.vim
             endif
         endfunction

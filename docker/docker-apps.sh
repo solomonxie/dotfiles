@@ -57,11 +57,11 @@ docker_webav(){
     # and do `chown -R www-data:www-data /var/www/webdav`
     #
     # Image: $ docker pull solomonxie/webdav:latest
-    sudo mkdir /webdav
-    sudo chown -R $ME:www-data /webdav
-    sudo chmod -R g+s /webdav
+    sudo mkdir $HOUSE/webdav
+    sudo chown -R $ME:www-data $HOUSE/webdav
+    sudo chmod -R g+s $HOUSE/webdav
     docker run -d --name webdav --restart=always \
-        -v /webdav:/var/www/webdav \
+        -v $HOUSE/webdav:/var/www/webdav \
         -e USERNAME=$ME -e PASSWORD=123 \
         -p 8888:80 solomonxie/webdav:latest
 }

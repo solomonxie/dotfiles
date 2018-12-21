@@ -38,6 +38,9 @@ do_init_by_os(){
         mac)
             do_init_mac ;;
     esac
+    export EDITOR=$(which vim)
+    echo "[   CHANGE TIMEZONE   ]"
+    sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime > /dev/null 2>&1
 }
 
 
@@ -49,11 +52,7 @@ do_init_ubuntu(){
     #cat ~/.bashrc.utils >> ~/.bash_profile
     #source ~/.bash_profile
     #
-    # Change server timezone
-    echo "[   CHANGE TIMEZONE   ]"
-    sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime > /dev/null 2>&1
-    # Add cron job to auto update dotfiles
-    export EDITOR=$(which vim)
+    echo "[   ADD CRON JOB TO PULL DOTFILES   ]"
     #echo "$(crontab -l)*/1 * * * * git -C ~/dotfiles pull" | crontab
     echo "*/1 * * * * git -C ~/dotfiles pull" | crontab
     # Update server & install essentials
@@ -62,21 +61,22 @@ do_init_ubuntu(){
     # sudo cp ./etc/ubuntu/sources-cn.list /etc/apt/
     sudo apt-get update 
     # Get essential tools before any installation
+    echo "[   INSTALL ESSENTIAL SOFTWARES   ]"
     sudo apt-get install curl wget git bashdb -y 
     # Setup Python3
-    echo "[   SETTING UP PYTHON   ]"
+    echo "[   INSTALL PYTHON   ]"
     $SRC/python/install_python.sh
     # Setup Vim
-    echo "[   SETTING UP VIM   ]"
+    echo "[   INSTALL VIM   ]"
     $SRC/vim/install_vim.sh
     # Setup Tmux
-    echo "[   SETTING UP TMUX   ]"
+    echo "[   INSTALL TMUX   ]"
     $SRC/tmux/install_tmux.sh
     # Setup ZSH
-    echo "[   SETTING UP ZSH   ]"
+    echo "[   INSTALL ZSH   ]"
     $SRC/zsh/install_zsh.sh
     # Install common used apt packages & clean up
-    $SRC/packageManager/apt.sh
+    $SRC/pacman/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     $SRC/docker/install_docker.sh
@@ -102,19 +102,19 @@ do_init_rpi(){
     # Get essential tools before any installation
     sudo apt-get install curl wget git bashdb -y 
     # Setup Python3
-    echo "[   SETTING UP SETTING UP PYTHON3   ]"
+    echo "[   INSTALL INSTALL PYTHON3   ]"
     $SRC/python/install_python3.sh
     # Setup Vim
-    echo "[   SETTING UP SETTING UP VIM   ]"
+    echo "[   INSTALL INSTALL VIM   ]"
     $SRC/vim/install_vim.sh
     # Setup Tmux
-    echo "[   SETTING UP SETTING UP TMUX   ]"
+    echo "[   INSTALL INSTALL TMUX   ]"
     $SRC/tmux/install_tmux.sh
     # Setup ZSH
-    echo "[   SETTING UP SETTING UP ZSH   ]"
+    echo "[   INSTALL INSTALL ZSH   ]"
     $SRC/zsh/install_zsh.sh
     # Install common used apt packages & clean up
-    $SRC/packageManager/apt.sh
+    $SRC/pacman/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
     $SRC/docker/install-docker-rpi.sh
@@ -124,7 +124,7 @@ do_init_rpi(){
 do_init_mac(){
     echo "CURRENT OS: [  Mac OS X  ]. Start initializing system funtionalities..."
     # Homebrew, always the 1st setup for Mac
-    sh $SRC/packageManager/homebrew.sh
+    sh $SRC/pacman/homebrew.sh
     # Xcode
     # .... you want to install that in App Store....
     # 

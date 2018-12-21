@@ -18,13 +18,14 @@ cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
 #-------------------------------------
 
 do_install_apt_by_os(){
+    # Update
+    sudo apt-get update
     # Do different things with different OS
     case $MYOS in
         ubuntu)
             install_utils_ubuntu
             install_printer_ubuntu
             install_scanner_ubuntu
-            apt_clear_cache
             ;;
         raspbian)
             install_utils_rpi
@@ -32,6 +33,7 @@ do_install_apt_by_os(){
             install_scanner_ubuntu
             ;;
     esac
+    apt_clear_cache
 }
 
 

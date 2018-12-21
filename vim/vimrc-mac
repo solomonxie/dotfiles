@@ -300,9 +300,10 @@ call plug#end()
 
     "<Windows>
         noremap m <C-w>
-        noremap H <C-w>h
-        noremap L <C-w>l
+        "noremap H <C-w>h
+        "noremap L <C-w>l
         noremap <TAB> <C-w>w
+        "noremap <leader>o <C-w>o
         noremap <leader>q :bd<CR>
 
     "<Appearence>

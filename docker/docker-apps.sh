@@ -192,10 +192,24 @@ docker_frp(){
         -v $SRC/frp:/conf solomonxie/frp:latest \
         /frp/frps -c /conf/frps.ini
 
+    # How docker FRP works:
+    # Client(8888) -> FRP-Docker(7888) -> Server(7888) -> Browser(7888)
+    # Client(22) -> FRP-Docker(2200) -> Server(7022) -> Browser(7022)
+    # Client(5901) -> FRP-Docker(7901) -> Server(7901) -> Browser(7901)
+    #
+    #-> 7000 as entry point
+    #-> 7500 as Admin web page
+    #-> 7800 as webdav mapper
+    #-> 7901 as VNC desktop port
+    #-> 7022 as SSH port
+    #-> 4500 as VPN port
+
+    #--------------------------------------
     # Can't run a frp-client in docker ALONE
     # because it's not making any sense
     # it's only okay to run as docker service
     # to connect another container
+    #--------------------------------------
 }
 
 

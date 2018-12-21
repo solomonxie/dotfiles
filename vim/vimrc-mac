@@ -47,11 +47,13 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline'
             Plug 'vim-airline/vim-airline-themes'
 
-        " <Syntax Highlighting>
+        "<Syntax Highlighting>
             if has_mac
                 Plug 'vim-syntastic/syntastic' "Syntax checker for all languages
                 Plug 'hdima/python-syntax'   "Most stable highlighting
             endif
+
+        "<Window>
 
     " [    Browsing   ]
 
@@ -75,7 +77,7 @@ call plug#begin('~/.vim/plugged')
                 Plug 'majutsushi/tagbar'   " (ctags required)
             endif
 
-        " <Git>
+        "<Git>
             Plug 'jreybert/vimagit'  "Much easier with Git
 
     " [   INSERTION    ]
@@ -104,6 +106,8 @@ call plug#begin('~/.vim/plugged')
         Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
 
     " [  Historical Abandoned Plugins  ]
+        "Window
+            "Plug 'blueyed/vim-diminactive'  "not dim Indent lines
         "Folding
             "Plug 'tmhedberg/SimpylFold'   "improving folding
         "Completion
@@ -556,6 +560,11 @@ call plug#end()
         "let g:fzf_layout = { 'window': '10split enew' }
 " }
 
+
+" <vim-diminactive>-----------{
+    "let g:diminactive_use_colorcolumn = 2
+    "let g:diminactive_use_syntax = 0
+" }
 
 " <Status-Line>-----------{
     " @airline

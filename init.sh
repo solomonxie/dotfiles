@@ -18,7 +18,7 @@
 #   then:
 #   type "s" to execute each line, type "n" for each top-level function
 
-set -xe
+set -x
 
 # Setup env variables and shared functions
 source `dirname $0`/dotfiles.env

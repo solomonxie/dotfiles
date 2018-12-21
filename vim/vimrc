@@ -303,8 +303,7 @@ call plug#end()
         noremap H <C-w>h
         noremap L <C-w>l
         noremap <TAB> <C-w>w
-        noremap <leader>qw <C-w>q
-        noremap <leader>qb :bd<CR>
+        noremap <leader>q :bd<CR>
 
     "<Appearence>
         noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>

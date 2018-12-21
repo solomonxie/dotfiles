@@ -285,22 +285,36 @@ call plug#end()
     "<Leader key>
         let mapleader = ','
 
-    "<Common Keys>
-        "Ctrl-C
-        noremap  <C-c> <Esc>:nohl<CR><ESC>
-        inoremap <C-c> <Esc>
-        "Tab -> default set to <C-i>, but remapping not working
-        nmap <TAB> <C-w> 
+    "<Files>
         "Ctrl-s
         noremap  <C-s> <ESC>:w<CR><ESC>
         "Ctrl-x
         noremap  <C-x> <ESC>:x<CR><ESC>
-        "nnoremap <leader>qw :q<CR>
+        nnoremap <space> viw
+
+    "<Edits>
+        "nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+        "ESC
+        inoremap jj <esc>
+        "Ctrl-C
+        noremap  <C-c> <Esc>:nohl<CR><ESC>
+        inoremap <C-c> <Esc>
+        "Tab -> default set to <C-i>, but remapping not working
+
+    "<Splits>
         noremap S :vsplit<CR>
         noremap H <C-w>h
         noremap L <C-w>l
+        nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+        nnoremap <leader>vs :source $MYVIMRC<cr>
+
+    "<Windows>
+        nnoremap Q :wq
+        nnoremap m :q<CR>
+        nnoremap <TAB> <C-w> 
         noremap <leader>,q <C-w>q
         noremap <leader>m <C-w>
+        "nnoremap <leader>qw :q<CR>
 
     "<Appearence>
         noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
@@ -373,6 +387,14 @@ call plug#end()
         noremap * *:set hlsearch<cr>
     " 括号匹配自动高亮
         "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
+" }
+
+
+
+" [  Abbreviations  ]--------{
+    " Test
+        iabbrev waht what
+        iabbrev tehn then
 " }
 
 

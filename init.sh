@@ -11,7 +11,7 @@
 #   git clone https://github.com/solomonxie/dotfiles.git ~/dotfiles 
 #   ~/dotfiles/init.sh
 #   #or
-#   $ nohup ~/dotfiles/init.sh 2>&1 > /dev/null &
+#   $ nohup ~/dotfiles/init.sh > /dev/null 2>&1 &
 #
 # Debugging:
 #   $ bashdb ~/dotfiles/init.sh --os ubuntu
@@ -51,7 +51,7 @@ do_init_ubuntu(){
     #
     # Change server timezone
     echo "[   CHANGE TIMEZONE   ]"
-    sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime > /dev/null 2>&1
     # Add cron job to auto update dotfiles
     export EDITOR=$(which vim)
     #echo "$(crontab -l)*/1 * * * * git -C ~/dotfiles pull" | crontab
@@ -98,7 +98,7 @@ do_init_rpi(){
     #
     echo "[   UPDATE APT REPOSITORIES   ]"
     sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
-    sudo apt-get update 2>&1 /dev/null
+    sudo apt-get update > /dev/null 2>&1
     # Get essential tools before any installation
     sudo apt-get install curl wget git bashdb -y 
     # Setup Vim

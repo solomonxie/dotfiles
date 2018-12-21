@@ -26,6 +26,9 @@ do_init_zsh(){
             ;;
         mac)
             brew install zsh
+            # Theme: powerlevel9k
+                #git clone https://github.com/bhilburn/powerlevel9k.git $HOUSE/.oh-my-zsh/custom/themes/powerlevel9k
+                #pip install powerline-status --user
             ;;
     esac
     # Make paths for ZSH extensions

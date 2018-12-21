@@ -45,6 +45,8 @@ docker_add_permission(){
     sudo gpasswd -a $USER docker
     # Reload current group
     newgrp docker
+    # Exit from new shell just entered above
+    exit 0;
 }
 
 docker_setup(){

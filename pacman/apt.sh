@@ -8,29 +8,25 @@
 # Debug:
 #   $ bashdb ./apt.sh --os ubuntu
 
-set -ax
+set -x
 
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+# Setup env variables and shared functions
+cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+
+#-------------------------------------
+#     Installation Methods
+#-------------------------------------
 
 do_install_apt_by_os(){
-    # Get distro information
-    distro=""
-    while [ $# -gt 0 ] ;do
-        case "$1" in
-            "--os")
-                distro=$2 
-                shift 2;;
-        esac
-    done
     # Do different things with different OS
-    case $distro in
-        "ubuntu")
+    case $MYOS in
+        ubuntu)
             install_utils_ubuntu
             install_printer_ubuntu
             install_scanner_ubuntu
             apt_clear_cache
             ;;
-        "raspbian")
+        raspbian)
             install_utils_rpi
             install_printer_ubuntu
             install_scanner_ubuntu
@@ -128,5 +124,11 @@ apt_clear_cache(){
 apt_remove_lock(){
     echo ""
 }
+
+
+
+#-------------------------------------
+#          Entry points
+#-------------------------------------
 
 do_install_apt_by_os "$@"

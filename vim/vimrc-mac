@@ -285,28 +285,26 @@ call plug#end()
         "Save & Exit
         noremap  <C-x> <ESC>:x<CR><ESC>
 
-    "<Edits>
-        nnoremap <space> viw
-        "ESC
-        inoremap jj <esc>
-        "Ctrl-C
+    "<Edits> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
-        "Tab -> default set to <C-i>, but remapping not working
+        nnoremap <space> viw
+        inoremap jj <esc>
+        map q <NOP>
+        noremap <leader>r q
 
     "<Splits>
         noremap S :vsplit<CR>
-        noremap H <C-w>h
-        noremap L <C-w>l
-        nnoremap <leader>ve :vsplit $MYVIMRC<cr>
-        nnoremap <leader>vs :source $MYVIMRC<cr>
+        nnoremap <leader>ve :vsplit ~/.vimrc<cr>
+        nnoremap <leader>vs :source ~/.vimrc<cr>
 
     "<Windows>
         noremap m <C-w>
-        nnoremap Q :wq
-        nnoremap <TAB> <C-w>
-        noremap <leader>,q <C-w>q
-        "nnoremap <leader>qw :q<CR>
+        noremap H <C-w>h
+        noremap L <C-w>l
+        noremap <TAB> <C-w>l
+        noremap <leader>qw <C-w>q
+        noremap <leader>qb :bd<CR>
 
     "<Appearence>
         noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
@@ -317,7 +315,7 @@ call plug#end()
         noremap <leader>y "+y
         " 从系统剪切板中粘贴到当前位置
         noremap <leader>p "+p
-        noremap <leader>r :reg<CR>
+        noremap <leader>" :reg<CR>
 
     "<Buffer>
         noremap <leader>q :bd<CR><ESC>
@@ -340,7 +338,7 @@ call plug#end()
         noremap ? :set hlsearch<cr>?
         noremap * *:set hlsearch<cr>
 
-    "<Filetype based Mappings>----{
+    "<Builds/Compiles>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
         "<C/C++ Compiler>  -> Compile & run
@@ -393,7 +391,6 @@ call plug#end()
             nnoremap <leader>p/ :Snippets<CR>
             "nnoremap <leader>k/ :Maps<CR>
         "[Command-T File Searching]
-            ">>Key mapping
             "nnoremap <leader>/ :CommandT<CR>
             "nnoremap <leader>c :CommandT<CR>
         "[Nerdtree]

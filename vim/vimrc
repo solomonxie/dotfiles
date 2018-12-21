@@ -39,45 +39,28 @@
 
 
 
-" [  Plugins Manager vim-plug  ]--------------------------------{
+" [  Plugins Manager vim-plug  ]
 call plug#begin('~/.vim/plugged')
-    " [    UI     ]
+    " [    UI / Appearence     ]
 
         "<STATUS-BAR>
-            "Plug 'itchyny/lightline.vim' "beautiful status line
-            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
             Plug 'vim-airline/vim-airline'
             Plug 'vim-airline/vim-airline-themes'
 
         " <Syntax Highlighting>
             if has_mac
                 Plug 'vim-syntastic/syntastic' "Syntax checker for all languages
-                "Plug 'vim-python/python-syntax'
                 Plug 'hdima/python-syntax'   "Most stable highlighting
-                "Plug 'vitiral/vim-python'  "Not working
-                "Plug 'numirias/semshi'    "Not working
-                "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
-                "> Python-mode: (More errors, too many builtin plugins)
-                    "Plug 'python-mode/python-mode'    "Deprecated
-                    "Plug 'python-mode/python-mode', { 'branch': 'develop' }
             endif
 
-        " <Color Scheme>
-            "Plug 'chriskempson/base16-vim'   "Ugly !!
-            "Plug 'jpo/vim-railscasts-theme'  "Ugly !
-            "Plug 'NLKNguyen/papercolor-theme'   "No python support
-
-    " [    File Browsing   ]
+    " [    Browsing   ]
 
         "<Fuzzy File Search>
-            " <COMMAND-T>
-            "Plug 'wincent/command-t'    "VIM only (Ruby required)
             " <fzf>
             Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
             Plug 'junegunn/fzf.vim'
 
             "<NetRW>
-            "Plug 'justinmk/vim-dirvish'  "Netrw enhancement
             Plug 'tpope/vim-vinegar'      "Netrw enhancement
 
         "<NERDTREE>
@@ -85,8 +68,6 @@ call plug#begin('~/.vim/plugged')
                 Plug 'scrooloose/nerdtree'          " File tree manager
                 Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
                 Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-                "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-                "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
             endif
 
         "<Tags>
@@ -95,59 +76,78 @@ call plug#begin('~/.vim/plugged')
             endif
 
         " <Git>
-            "Plug 'tpope/vim-fugitive'    "Commands to do Git
-            "Plug 'easymotion/vim-easymotion'
             Plug 'jreybert/vimagit'  "Much easier with Git
-
-        " <Markdown>
-            if has_mac
-                "Plug 'JamshedVesuna/vim-markdown-preview' "Not live previewing
-            endif
 
     " [   INSERTION    ]
 
-        "<Snippets> (python required)
-            "Plug 'MarcWeber/vim-addon-mw-utils'
-            "Plug 'tomtom/tlib_vim'
-            "Plug 'garbas/vim-snipmate'
+        "<Autocomplete>
             "Plug 'honza/vim-snippets' "some common snippets (python required)
+            "[Deoplete]
+            if has_mac
+                Plug 'Shougo/deoplete.nvim'
+                Plug 'roxma/vim-hug-neovim-rpc'  ">> VIM only
+                Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
+                Plug 'zchee/deoplete-jedi'    " Python completion source
+                Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
+            endif
 
         "<Bracket Closing>
-            "Plug 'tpope/vim-surround'  "Barely working
-            "Plug 'Townk/vim-autoclose' "Fair, but not working for some files
             Plug 'jiangmiao/auto-pairs' "Smartest
 
         "<Indentation>
-            "Plug 'nathanaelkane/vim-indent-guides'
             Plug  'Yggdroot/indentLine'    "Beautiful indent lines
 
-        "<Folding>
-            "Plug 'tmhedberg/SimpylFold'   "improving folding
+    " [   SESSION    ]
+        Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
 
-        "<Completion>
+    " [   PERFORMANCE    ]
+        Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
+
+    " [  Historical Abandoned Plugins  ]
+        "Folding
+            "Plug 'tmhedberg/SimpylFold'   "improving folding
+        "Completion
             "Plug 'valloric/youcompleteme'    "hard to build
             "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
             "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
             "Plug 'rkulla/pydiction'   " not work as expected
             "Plug 'ervandew/supertab'
-
-            " <Deoplete.nvim>
-                if has_mac
-                    Plug 'Shougo/deoplete.nvim'
-                    Plug 'roxma/vim-hug-neovim-rpc'  ">> VIM only
-                    Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
-                    Plug 'zchee/deoplete-jedi'    " Python completion source
-                    Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
-                endif
-
-    "<Session>
-        Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
-
-    "<Performance>
-        Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
-
+        "Indentation
+            "Plug 'nathanaelkane/vim-indent-guides'
+        "Brackets
+            "Plug 'tpope/vim-surround'  "Barely working
+            "Plug 'Townk/vim-autoclose' "Fair, but not working for some files
+        "Snippets
+            "Plug 'MarcWeber/vim-addon-mw-utils'
+            "Plug 'tomtom/tlib_vim'
+            "Plug 'garbas/vim-snipmate'
+            "Plug 'honza/vim-snippets' "some common snippets (python required)
+        "Git
+            "Plug 'tpope/vim-fugitive'    "Commands to do Git
+            "Plug 'easymotion/vim-easymotion'
+        "Markdown
+            "Plug 'JamshedVesuna/vim-markdown-preview' "Not live previewing
+        "File Browsing
+            "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+            "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+            "Plug 'wincent/command-t'    "VIM only (Ruby required)
+            "Plug 'justinmk/vim-dirvish'  "Netrw enhancement
+        "Color Scheme
+            "Plug 'chriskempson/base16-vim'   "Ugly !!
+            "Plug 'jpo/vim-railscasts-theme'  "Ugly !
+            "Plug 'NLKNguyen/papercolor-theme'   "No python support
+        "Status Bar
+            "Plug 'itchyny/lightline.vim' "beautiful status line
+            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
+        "Syntax Highlighting
+            "Plug 'vim-python/python-syntax'
+            "Plug 'vitiral/vim-python'  "Not working
+            "Plug 'numirias/semshi'    "Not working
+            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+            "-> Python-mode: (More errors, too many builtin plugins)
+            "Plug 'python-mode/python-mode'    "Deprecated
+            "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 call plug#end()
-" }
 
 
 

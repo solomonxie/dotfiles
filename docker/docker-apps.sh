@@ -1,4 +1,4 @@
-#! /bin/bash 
+#! /bin/bash
 #
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Ubuntu / Rpi
@@ -52,7 +52,7 @@ docker_playground_rpi(){
 docker_webav(){
     # The folder on host MUST have the same permission
     # otherwise it'll cause permission error
-    # Permission problem: 
+    # Permission problem:
     # has to get inside container by `docker exec -it webdav sh`
     # and do `chown -R www-data:www-data /var/www/webdav`
     #
@@ -241,7 +241,7 @@ docker_emby_ubuntu(){
 
 
 docker_ftp(){
-    # Permission problem: 
+    # Permission problem:
     # Volume's owner in container is ftp:ftp
     # shouldn't change ownership from HOST
     # has to get inside container by `docker exec -it webdav sh`

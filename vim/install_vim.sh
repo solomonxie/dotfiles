@@ -40,8 +40,8 @@ do_install_vim(){
 
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    rm $HOUSE/.vim/colors
-    ln -s $HOUSE/dotfiles/vim/colors $HOUSR/.vim/colors
+    rm $HOUSE/.vim/colors /dev/null 2>&1
+    ln -s $HOUSE/dotfiles/vim/colors $HOUSE/.vim/colors
     #mkdir -p $HOUSE/.vim/colors
     #cp $SRC/vim/colors/gruvbox.vim $HOUSE/.vim/colors/gruvbox.vim
 

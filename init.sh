@@ -138,5 +138,5 @@ do_init_mac(){
 #-------------------------------------
 
 # Run initial functions by os version
-do_init_by_os "$@"
+do_init_by_os "$@" 2>/tmp/init-error.log
 

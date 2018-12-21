@@ -7,7 +7,27 @@
 
 set -x
 
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+# Setup env variables and shared functions
+cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+
+#-------------------------------------
+#     Installation Methods
+#-------------------------------------
+
+do_install_python(){
+    # Do different things with different OS
+    case $MYOS in
+        ubuntu)
+            install_tmux_ubuntu ;;
+        raspbian)
+            install_tmux_rpi ;;
+        mac)
+            install_tmux_mac ;;
+    esac
+    # Install pip / Virtualenv
+    do_install_pip
+    do_install_virtualenv
+}
 
 
 do_install_python3_ubuntu(){
@@ -25,27 +45,30 @@ do_install_python3_mac(){
 
 do_install_pip(){
     echo "----[ Installing pip ]-----"
-    sudo curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
-    yes | sudo python3 /tmp/get-pip.py
+    python3 /tmp/get-pip.py --user
 
     echo "----[ Upgrading pip ]-----"
-    yes | pip install --upgrade pip
+    pip install --upgrade pip
 
     # Change source for pip to Chinese
-    mkdir ~/.pip
-    cp ./pip.conf ~/.pip/
+    mkdir $HOUSE/.pip
+    cp $HOUSE/dotfiles/python/pip.conf ~/.pip/
 }
 
 do_install_virtualenv(){
     echo "----[ Installing virtualenv ]----"
-    yes | sudo pip install --user virtualenv
+    pip install --user virtualenv
 
     # ---- Make venvs ----
     echo "---[ Settingup virtual environments ]----"
-    virtualenv -p python3 ~/virtualenv/venv3
+    virtualenv -p python3 $HOUSE/virtualenv/venv3
 }
 
 
-do_install_python3_ubuntu
-do_install_pip
-do_install_virtualenv
+
+
+#-------------------------------------
+#          Entry points
+#-------------------------------------
+
+do_install_python "$@"

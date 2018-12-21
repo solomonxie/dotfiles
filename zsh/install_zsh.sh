@@ -47,12 +47,14 @@ do_init_zsh(){
 
 
 install_zsh_plugins(){
-    echo "-----[  INSTALLING OH-MY-ZSH   ]-----"
+    if [ -e $HOUSE/.oh-my-zsh ];then mv $HOUSE/.oh-my-zsh /tmp; fi
+    echo "-----[  INSTALLING OH-MY-ZSH   ]-k----"
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
     echo "-----[  Installing Themes for ZSH   ]-----"
     git clone https://github.com/bhilburn/powerlevel9k.git $HOUSE/.oh-my-zsh/custom/themes/powerlevel9k
-    sudo pip install powerline-status
+    pip install powerline-status --user
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
+    if [ -e $HOUSE/.zsh ];then mv $HOUSE/.zsh /tmp; fi
     git clone https://github.com/zsh-users/zsh-autosuggestions $HOUSE/.zsh/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOUSE/.zsh/zsh-syntax-highlighting
 }

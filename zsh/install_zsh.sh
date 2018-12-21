@@ -31,17 +31,17 @@ do_init_zsh(){
     # Make paths for ZSH extensions
     mkdir -p "$HOUSE/.zsh"
 
+    # Create Symlinks
+    ln -sf $SRC/zsh/zshrc $HOUSE/.zshrc
+    ln -sf $SRC/zsh/zshrc.themes $HOUSE/.zshrc.themes
+    ln -sf $SRC/zsh/zshrc.extension $HOUSE/.zshrc.extension
+
     # Install Plugins
     install_zsh_plugins
 
     # Check installment
     echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
     sudo usermod -s /bin/zsh $ME
-
-    # Create Symlinks
-    ln -sf $SRC/zsh/zshrc $HOUSE/.zshrc
-    ln -sf $SRC/zsh/zshrc.themes $HOUSE/.zshrc.themes
-    ln -sf $SRC/zsh/zshrc.extension $HOUSE/.zshrc.extension
 }
 
 

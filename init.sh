@@ -63,6 +63,9 @@ do_init_ubuntu(){
     sudo apt-get update 
     # Get essential tools before any installation
     sudo apt-get install curl wget git bashdb -y 
+    # Setup Python3
+    echo "[   SETTING UP PYTHON   ]"
+    $SRC/python/install_python.sh
     # Setup Vim
     echo "[   SETTING UP VIM   ]"
     $SRC/vim/install_vim.sh
@@ -72,9 +75,6 @@ do_init_ubuntu(){
     # Setup ZSH
     echo "[   SETTING UP ZSH   ]"
     $SRC/zsh/install_zsh.sh
-    # Setup Python3
-    echo "[   SETTING UP PYTHON   ]"
-    $SRC/python/install_python.sh
     # Install common used apt packages & clean up
     $SRC/packageManager/apt.sh
     # Install docker
@@ -101,6 +101,9 @@ do_init_rpi(){
     sudo apt-get update > /dev/null 2>&1
     # Get essential tools before any installation
     sudo apt-get install curl wget git bashdb -y 
+    # Setup Python3
+    echo "[   SETTING UP SETTING UP PYTHON3   ]"
+    $SRC/python/install_python3.sh
     # Setup Vim
     echo "[   SETTING UP SETTING UP VIM   ]"
     $SRC/vim/install_vim.sh
@@ -110,9 +113,6 @@ do_init_rpi(){
     # Setup ZSH
     echo "[   SETTING UP SETTING UP ZSH   ]"
     $SRC/zsh/install_zsh.sh
-    # Setup Python3
-    echo "[   SETTING UP SETTING UP PYTHON3   ]"
-    $SRC/python/install_python3.sh
     # Install common used apt packages & clean up
     $SRC/packageManager/apt.sh
     # Install docker

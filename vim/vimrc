@@ -299,7 +299,7 @@ call plug#end()
 
     "<Splits>
         noremap S :vsplit<CR><C-w>l
-        nnoremap <leader>ve :vsplit ~/dotfiles/vim/vimrc<CR><C-w>l
+        nnoremap <leader>ve :vsplit ~/dotfiles/vim/vimrc<CR>
 
     "<Windows>
         noremap m <C-w>

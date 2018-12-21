@@ -35,8 +35,6 @@ do_install_tmux(){
             install_tmux_mac ;;
     esac
 
-    # Make paths for tmux extensions
-    mkdir -p $HOUSE/.tmux/resurrect
     
     # Download & Install plugins
     echo "----------[  Installing TPM for Tmux   ]--------------"
@@ -47,6 +45,8 @@ do_install_tmux(){
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
 
+    # Make paths for tmux extensions
+    mkdir -p $HOUSE/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
     cp $SRC/tmux/tmux.conf $HOUSE/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
@@ -57,6 +57,8 @@ install_tmux_ubuntu(){
 install_tmux_rpi(){
     yes | sudo apt-get install tmux
 
+    # Make paths for tmux extensions
+    mkdir -p $HOUSE/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
     cp $SRC/tmux/tmux.conf $HOUSE/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
@@ -67,6 +69,8 @@ install_tmux_rpi(){
 install_tmux_mac(){
     brew install tmux  
 
+    # Make paths for tmux extensions
+    mkdir -p $HOUSE/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
     cp $SRC/tmux/tmux.conf $HOUSE/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"

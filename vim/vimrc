@@ -298,9 +298,8 @@ call plug#end()
         noremap <leader>r q
 
     "<Splits>
-        noremap S :vsplit<CR>
-        nnoremap <leader>ve :vsplit ~/.vimrc<cr>
-        nnoremap <leader>vs :source ~/.vimrc<cr>
+        noremap S :vsplit<CR><C-w>l
+        nnoremap <leader>ve :vsplit ~/dotfiles/vim/vimrc<CR><C-w>l
 
     "<Windows>
         noremap m <C-w>
@@ -325,7 +324,6 @@ call plug#end()
         noremap <leader>q :bd<CR><ESC>
         noremap <leader>h :bp<CR><ESC>
         noremap <leader>l :bn<CR><ESC>
-        noremap <leader>b :Buffers<CR>
 
     "<Folding>
         "noremap <space> za
@@ -389,10 +387,11 @@ call plug#end()
             noremap <leader>t :TagbarOpen<CR>
             noremap T :TagbarOpen<CR>
         "[fzf]
-            nnoremap <leader>/ :Files<CR>
+            nnoremap <leader>/ :Files %<CR>
             nnoremap <leader>b/ :Buffers<CR>
             nnoremap <leader>c/ :Colors<CR>
-            nnoremap <leader>p/ :Snippets<CR>
+            nnoremap <leader>n/ :Snippets<CR>
+            nnoremap <leader>p/ :Files ..
             "nnoremap <leader>k/ :Maps<CR>
         "[Command-T File Searching]
             "nnoremap <leader>/ :CommandT<CR>

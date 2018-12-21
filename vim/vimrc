@@ -59,7 +59,7 @@ call plug#begin('~/.vim/plugged')
                 "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
                 "> Python-mode: (More errors, too many builtin plugins)
                     "Plug 'python-mode/python-mode'    "Deprecated
-                    "Plug 'python-mode/python-mode', { 'branch': 'develop' }   
+                    "Plug 'python-mode/python-mode', { 'branch': 'develop' }
             endif
 
         " <Color Scheme>
@@ -79,7 +79,7 @@ call plug#begin('~/.vim/plugged')
             "<NetRW>
             "Plug 'justinmk/vim-dirvish'  "Netrw enhancement
             Plug 'tpope/vim-vinegar'      "Netrw enhancement
-            
+
         "<NERDTREE>
             if has_mac
                 Plug 'scrooloose/nerdtree'          " File tree manager
@@ -113,8 +113,9 @@ call plug#begin('~/.vim/plugged')
             "Plug 'honza/vim-snippets' "some common snippets (python required)
 
         "<Bracket Closing>
-            "Plug 'tpope/vim-surround'
-            Plug 'Townk/vim-autoclose'
+            "Plug 'tpope/vim-surround'  "Barely working
+            "Plug 'Townk/vim-autoclose' "Fair, but not working for some files
+            Plug 'jiangmiao/auto-pairs' "Smartest
 
         "<Indentation>
             "Plug 'nathanaelkane/vim-indent-guides'
@@ -129,7 +130,7 @@ call plug#begin('~/.vim/plugged')
             "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
             "Plug 'rkulla/pydiction'   " not work as expected
             "Plug 'ervandew/supertab'
-            
+
             " <Deoplete.nvim>
                 if has_mac
                     Plug 'Shougo/deoplete.nvim'
@@ -174,7 +175,7 @@ call plug#end()
 
 " [  Advanced Builtin Settings  ]-----------{
     "<Taging>
-    set tags=tags  "Plugin: Ctags  
+    set tags=tags  "Plugin: Ctags
     "<Folding>
     set foldenable              " 开始折叠
     set foldmethod=syntax       " 设置语法折叠
@@ -183,16 +184,13 @@ call plug#end()
     setlocal foldlevel=1        " 设置折叠层数
     set foldlevelstart=99       " 打开文件是默认不折叠代码
     "set foldclose=all          " 设置为自动关闭折叠
-    " 用空格键来开关折叠
-    "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-    "nnoremap <return> za
 
     "<FileType>
     filetype plugin on    " [essential]
     filetype plugin indent on
 
     "<Language support>
-    "if ! has('vim')    "for VIM only 
+    "if ! has('vim')    "for VIM only
     "    "set pyxversion=2
     "    if has('python3')
     "       set pyx=3
@@ -207,14 +205,14 @@ call plug#end()
     " <Basic Settings>
         set t_Co=256   ">> Overwriting Alert !!
         set background=dark   ">> Overwriting Alert !!
-        set cursorline  "Highlighting current line 
+        set cursorline  "Highlighting current line
         set fillchars+=vert:\!  "Bar character for VERTical Split Pane
 
     " <Syntax Highlighting>  --> Overwriting Alert!
-        syntax enable 
+        syntax enable
 
     " <Color Scheme>  --> Overwriting Alert!
-    if has_mac 
+    if has_mac
             set termguicolors   ">> Not compatiple with many themes
             "colorscheme material-monokai ">> Super slow, has block color comment
             colorscheme gruvbox ">> grubox is slow for old machine
@@ -222,7 +220,7 @@ call plug#end()
             "colorscheme delek  "Builtin colorscheme
             colorscheme monokai "Fast (sickill/vim-monokai)
             "Text bg-color is not working properly with Rpi
-            highlight Normal ctermbg=NONE  
+            highlight Normal ctermbg=NONE
             highlight nonText ctermbg=NONE
         endif
 
@@ -246,10 +244,6 @@ call plug#end()
         let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
         "autocmd FileType netrw setl bufhidden=wipe
         "autocmd FileType netrw setl bufhidden=delete
-        ">> Key mapping  (Lexplore/Vexplore/Texplore/Explore/Sexplore/edit.)
-        "nnoremap <leader>f :Lexplore<CR>
-        "nnoremap <leader>f :Explore<CR>
-        "nnoremap <leader>f :edit.<CR>
 
     " <Length Marker>
         "> Warning color
@@ -286,14 +280,13 @@ call plug#end()
         let mapleader = ','
 
     "<Files>
-        "Ctrl-s
-        noremap  <C-s> <ESC>:w<CR><ESC>
-        "Ctrl-x
+        "Save file
+        noremap  <leader>s <ESC>:w<CR><ESC>
+        "Save & Exit
         noremap  <C-x> <ESC>:x<CR><ESC>
-        nnoremap <space> viw
 
     "<Edits>
-        "nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+        nnoremap <space> viw
         "ESC
         inoremap jj <esc>
         "Ctrl-C
@@ -309,20 +302,15 @@ call plug#end()
         nnoremap <leader>vs :source $MYVIMRC<cr>
 
     "<Windows>
+        noremap m <C-w>
         nnoremap Q :wq
-        nnoremap m :q<CR>
-        nnoremap <TAB> <C-w> 
+        nnoremap <TAB> <C-w>
         noremap <leader>,q <C-w>q
-        noremap <leader>m <C-w>
         "nnoremap <leader>qw :q<CR>
 
     "<Appearence>
         noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
         noremap <leader>Z :setlocal nospell<CR>
-
-    "<Plugins>
-        noremap <leader>i :PlugInstall<CR>
-        
 
     "<Clipboard>
         " 复制到系统剪切板
@@ -338,9 +326,19 @@ call plug#end()
         noremap <leader>b :Buffers<CR>
 
     "<Folding>
-        noremap <space> za
+        "noremap <space> za
         noremap <leader><return> zR
         noremap <leader><space> zM
+        " 用空格键来开关折叠
+        "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+        "nnoremap <return> za
+
+    "<Highlights> -> 当输入查找命令时，再启用高亮
+        noremap n :set hlsearch<cr>n
+        noremap N :set hlsearch<cr>N
+        noremap / :set hlsearch<cr>/
+        noremap ? :set hlsearch<cr>?
+        noremap * *:set hlsearch<cr>
 
     "<Filetype based Mappings>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
@@ -360,13 +358,56 @@ call plug#end()
         ""noremap <buffer> <C-u> :! %:p <CR>
     " }
 
-    "<Omni-autocomplete> Vim自带的Omni自动补全
+    "<NetRW> -> (Lexplore/Vexplore/Texplore/Explore/Sexplore/edit.)
+        "nnoremap <leader>f :Lexplore<CR>
+        "nnoremap <leader>f :Explore<CR>
+        "nnoremap <leader>f :edit.<CR>
+
+    "<Omni Autocomplete> -> Vim自带的Omni自动补全
         "inoremap <C-d> <C-x><C-l>
         "inoremap ' ''<Esc>i
         "inoremap " ""<Esc>i
         "inoremap ( ()<Esc>i
         "inoremap [ []<Esc>i
         "inoremap { {}<Esc>i
+
+    "<Plugins>------------------------------------{
+        "[Plugin Manager]
+            noremap <leader>i :PlugInstall<CR>
+        "[vim-obsession]
+            " Record session >> ":mksession" can't overwite
+            noremap <leader>S :Obsession /tmp/obsession.vim<CR><ESC>
+            " Restore session
+            noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
+        "[vimagit]
+            "let g:magit_show_magit_mapping='<leader>G'
+            let g:magit_show_magit_mapping='<leader>g'
+        "[tagbar] ->  "*"->open all folds; "="->close all folds
+            "noremap <leader>t :TagbarToggle<CR>=<ESC>
+            noremap <leader>t :TagbarOpen<CR>
+            noremap T :TagbarOpen<CR>
+        "[fzf]
+            nnoremap <leader>/ :Files<CR>
+            nnoremap <leader>b/ :Buffers<CR>
+            nnoremap <leader>c/ :Colors<CR>
+            nnoremap <leader>p/ :Snippets<CR>
+            "nnoremap <leader>k/ :Maps<CR>
+        "[Command-T File Searching]
+            ">>Key mapping
+            "nnoremap <leader>/ :CommandT<CR>
+            "nnoremap <leader>c :CommandT<CR>
+        "[Nerdtree]
+            "nnoremap <leader>f :NERDTreeFocus<CR>
+            nnoremap <leader>f :NERDTreeToggle<CR>
+        "[Nerdtree Tabs]
+            " Shift Tabs
+            "nnoremap <C-h> gt
+            "nnoremap <C-l> gT
+            " New Tab
+            "nnoremap <leader>t :tabe<CR>
+            " Close Tab
+            "nnoremap <leader>c :tabc
+    " }
 " }
 
 
@@ -376,15 +417,9 @@ call plug#end()
     " >>
         highlight Search guibg='Purple' guifg='NONE'
         highlight IncSearch gui=underline,bold guifg=White guibg=Red3
-        "highlight IncSearch ctermbg=black ctermfg=yellow 
+        "highlight IncSearch ctermbg=black ctermfg=yellow
     " 鼠标无动作时取消高亮
         autocmd cursorhold * set nohlsearch
-    " 当输入查找命令时，再启用高亮
-        noremap n :set hlsearch<cr>n
-        noremap N :set hlsearch<cr>N
-        noremap / :set hlsearch<cr>/
-        noremap ? :set hlsearch<cr>?
-        noremap * *:set hlsearch<cr>
     " 括号匹配自动高亮
         "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
 " }
@@ -400,7 +435,7 @@ call plug#end()
 
 " [  Swap files  ]--------{
     set swapfile    "enable swap file
-    set directory=/tmp    "set swp file directory. 
+    set directory=/tmp    "set swp file directory.
     set updatecount=20     "save swp file every amount of characters
     " ▼ update also check cursor-holds and other functions, bit expensive one.
     set updatetime=4000   "save swap file every amount of ms
@@ -414,10 +449,6 @@ call plug#end()
 
 
 " <Vim-Obsession>--------{
-    " Record session >> ":mksession" can't overwite
-        noremap <leader>S :Obsession /tmp/obsession.vim<CR><ESC>
-    " Restore session
-        noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
     " Auto record session on VIM's exit (No space between multiple files)
         "autocmd VimLeave * :Obsession /tmp/obsession.vim
         "autocmd VimLeave *.py,*.json :Obsession /tmp/obsession.vim
@@ -448,11 +479,6 @@ call plug#end()
 
 " <vim-markdown-preview>-------------{
     let vim_markdown_preview_github=1
-" }
-
-" <vimagit>-------------{
-    "let g:magit_show_magit_mapping='<leader>G'
-    let g:magit_show_magit_mapping='<leader>g'
 " }
 
 " <Deoplete>--------------{
@@ -491,27 +517,6 @@ call plug#end()
     "let g:tagbar_compact = 1
     "let g:tagbar_indent = 1
     "let g:tagbar_show_visibility = 1
-    ">>Key mapping  "*"->open all folds; "="->close all folds
-    "noremap <leader>t :TagbarToggle<CR>=<ESC>
-    noremap <leader>t :TagbarOpen<CR>
-    noremap T :TagbarOpen<CR>
-" }
-
-" <Command-T File Searching>-----------{
-    ">>Key mapping
-    "nnoremap <leader>/ :CommandT<CR>
-    "nnoremap <leader>c :CommandT<CR>
-    "let g:CommandTMaxDepth = 10
-    "let g:CommandTMaxFiles=2000
-    "let g:CommandTSuppressMaxFilesWarning = 1
-    "set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
-" }
-
-" <fzf>------------{
-    ">>Key Mapping
-    nnoremap <leader>/ :Files<CR>
-    "nnoremap <C-e> :Buffers<CR>
-    "let g:fzf_action = { 'ctrl-e': 'edit' }
 " }
 
 " <Python-syntax>------------------{
@@ -535,11 +540,31 @@ call plug#end()
 " }
 
 
+" <Command-T fuzzy search>----------------{
+    "let g:CommandTMaxDepth = 10
+    "let g:CommandTMaxFiles=2000
+    "let g:CommandTSuppressMaxFilesWarning = 1
+    "set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
+" }
+
+" <fzf fuzzy search>-------------------------{
+    "let g:fzf_action = { 'ctrl-e': 'edit' }
+    " Default fzf layout
+        " - down / up / left / right
+        let g:fzf_layout = { 'down': '~40%' }
+    " In Neovim, you can set up fzf window using a Vim command
+    " - enew / -tabnew / 10split enew
+        "let g:fzf_layout = { 'window': 'enew' }
+        "let g:fzf_layout = { 'window': '-tabnew' }
+        "let g:fzf_layout = { 'window': '10split enew' }
+" }
+
+
 " <Status-Line>-----------{
     " @airline
         set t_Co=256      "在windows中用xshell连接打开vim可以显示色彩
         let g:airline#extensions#tabline#enabled = 1   " 是否打开tabline
-    "这个是安装字体后 必须设置此项" 
+    "这个是安装字体后 必须设置此项"
         let g:airline_powerline_fonts = 1
         set laststatus=2  "永远显示状态栏
         let g:airline_theme='bubblegum' "选择主题
@@ -554,41 +579,21 @@ call plug#end()
         "let g:airline_symbols.linenr = '¶'
         "let g:airline_symbols.branch = '⎇'
     " @lightline
-        "set laststatus=2 " startup the lightline.vim 
-        "let g:lightline = { 'colorscheme': 'powerline', } 
+        "set laststatus=2 " startup the lightline.vim
+        "let g:lightline = { 'colorscheme': 'powerline', }
         "set status-line's color scheme
     " @powerline
         "set laststatus=2
         "set t_Co=256
         "let g:Powerline_symbols= 'unicode'
         "set encoding=utf8
-" } 
-
-
-
-
-
-
-
+" }
 
 
 
 " Plugin Settings Nerdtree -------------------{
     ">> Basic settings
         let g:NERDTreeChDirMode = 2  "Change current folder as root
-
-    ">> Key bindings
-        " Nerdtree
-            "nnoremap <leader>f :NERDTreeFocus<CR>
-            nnoremap <leader>f :NERDTreeToggle<CR>  
-        " Tabs
-            " Shift Tabs
-            "nnoremap <C-h> gt
-            "nnoremap <C-l> gT
-            " New Tab
-            "nnoremap <leader>t :tabe<CR>
-            " Close Tab
-            "nnoremap <leader>c :tabc
 
     ">> UI settings
         let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
@@ -604,7 +609,7 @@ call plug#end()
     " 打开vim时如果没有文件自动打开NERDTree
         "autocmd vimenter * if !argc()|NERDTree|endif
     " 或, 自动开启Nerdtree
-        "autocmd vimenter * NERDTree  
+        "autocmd vimenter * NERDTree
     " 当NERDTree为剩下的唯一窗口时自动关闭
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     " 设置树的显示图标

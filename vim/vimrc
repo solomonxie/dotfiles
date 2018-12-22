@@ -497,7 +497,7 @@ call plug#end()
 " }
 
 " <Tagbar>--------------{
-    let g:tagbar_left = 1  "Show tagbar on left
+    let g:tagbar_left = 0  "Show tagbar on right
     let g:tagbar_autofocus = 1   "Focus on tagbar window when open
     let g:tagbar_autoclose = 1   "Close tagbar window when select tag
     "let g:tagbar_autoshowtag = 0

@@ -192,16 +192,6 @@ call plug#end()
     "<FileType>
     filetype plugin on    " [essential]
     filetype plugin indent on
-
-    "<Language support>
-    "if ! has('vim')    "for VIM only
-    "    "set pyxversion=2
-    "    if has('python3')
-    "       set pyx=3
-    "    else
-    "       set pyx=2
-    "    endif
-    "endif
 " }
 
 
@@ -268,14 +258,12 @@ call plug#end()
 
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
-    if has_mac
         "au FileType python setl ofu=pythoncomplete#CompletePHP
         "au FileType php setl ofu=phpcomplete#CompletePHP
         "au FileType ruby,eruby setl ofu=rubycomplete#Complete
         "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
         "au FileType c setl ofu=ccomplete#CompleteCpp
         "au FileType css setl ofu=csscomplete#CompleteCSS
-    endif
 " }
 
 
@@ -306,6 +294,7 @@ call plug#end()
         "noremap H <C-w>h
         "noremap L <C-w>l
         noremap <TAB> <C-w>w
+        noremap <S-TAB> <C-w>h
         "noremap <leader>o <C-w>o
         noremap <leader>q :bd<CR>
 
@@ -387,7 +376,7 @@ call plug#end()
             noremap <leader>t :TagbarOpen<CR>
             noremap T :TagbarOpen<CR>
         "[fzf]
-            nnoremap <leader>/ :Files %<CR>
+            nnoremap <leader>/ :Files %:p:h<CR>
             nnoremap <leader>b/ :Buffers<CR>
             nnoremap <leader>c/ :Colors<CR>
             nnoremap <leader>n/ :Snippets<CR>

@@ -314,6 +314,7 @@ call plug#end()
         noremap <leader>qb :bp\|bd #<CR>
         noremap <leader>h :bp<CR>
         noremap <leader>l :bn<CR>
+        noremap <leader><C-h> :browse oldfiles<CR>
 
     "<Folding>
         "noremap <space> za

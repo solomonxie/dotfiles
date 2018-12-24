@@ -191,6 +191,9 @@ call plug#end()
     set foldlevelstart=99       " 打开文件是默认不折叠代码
     "set foldclose=all          " 设置为自动关闭折叠
 
+    "<Buffer>
+        autocmd BufEnter * lcd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
+
     "<FileType>
     filetype plugin on    " [essential]
     filetype plugin indent on
@@ -397,6 +400,7 @@ call plug#end()
             nnoremap <leader>// :Files %:p:h<CR>
             nnoremap <leader>/l :Lines<CR>
             nnoremap <leader>/h :History<CR>
+            nnoremap <leader>/c :Commands<CR>
             nnoremap <leader>/n :Snippets<CR>
             "nnoremap <leader>p/ :Files ..
             "nnoremap <leader>color/ :Colors
@@ -407,7 +411,9 @@ call plug#end()
 
         "[Nerdtree]
             "nnoremap <leader>f :NERDTreeFocus<CR>
-            nnoremap <leader>f :NERDTreeToggle<CR>
+            "nnoremap <leader>f :NERDTreeToggle<CR>
+            " Add '%' for changing root accordingly
+            nnoremap <leader>f :NERDTree %<CR>
         "[Nerdtree Tabs]
             " Shift Tabs
             "nnoremap <C-h> gt

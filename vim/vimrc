@@ -207,7 +207,7 @@ call plug#end()
         set cursorline  "Highlighting current line
         set fillchars+=vert:\!  "Bar character for VERTical Split Pane
         autocmd WinEnter * set cursorline
-        autocmd WinLeave * set cursorline!
+        autocmd WinLeave * set nocursorline
 
     " <Syntax Highlighting>  --> Overwriting Alert!
         syntax enable
@@ -400,7 +400,8 @@ call plug#end()
             nnoremap <leader>// :Files %:p:h<CR>
             nnoremap <leader>/l :Lines<CR>
             nnoremap <leader>/h :History<CR>
-            nnoremap <leader>/c :Commands<CR>
+            nnoremap <leader>/c :History:<CR>
+            nnoremap <leader>/s :History/<CR>
             nnoremap <leader>/n :Snippets<CR>
             "nnoremap <leader>p/ :Files ..
             "nnoremap <leader>color/ :Colors

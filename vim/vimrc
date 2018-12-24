@@ -310,17 +310,21 @@ call plug#end()
         noremap <leader>" :reg<CR>
 
     "<Buffer>
-        "noremap <leader>bq :bd<CR><ESC>
-        noremap <leader>qb :bp\|bd #<CR>
-        noremap <leader>h :bp<CR>
-        noremap <leader>l :bn<CR>
-        noremap <leader><C-h> :browse oldfiles<CR>
+        "Close buffer
+            "noremap <leader>bq :bd<CR><ESC>
+            noremap <leader>qb :bp\|bd #<CR>
+        "Move between buffers
+            noremap <leader>h :bp<CR>
+            noremap <leader>l :bn<CR>
+        "History search
+            "noremap <leader><C-h> :browse oldfiles<CR>
+            noremap <leader><C-h> :History<CR>
 
     "<Folding>
         "noremap <space> za
         noremap <leader><return> zR
         noremap <leader><space> zM
-        " 用空格键来开关折叠
+        " >> 用空格键来开关折叠
         "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
         "nnoremap <return> za
 

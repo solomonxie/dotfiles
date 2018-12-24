@@ -283,7 +283,7 @@ call plug#end()
         nnoremap <space> viw
         inoremap jj <esc>
         map q <NOP>
-        noremap <leader>r q
+        inoremap <leader>r q
 
     "<Splits>
         noremap S :vsplit<CR><C-w>l
@@ -296,7 +296,7 @@ call plug#end()
         noremap <TAB> <C-w>w
         noremap <S-TAB> <C-w>h
         "noremap <leader>o <C-w>o
-        noremap <leader>q :bd<CR>
+        noremap <leader>qw <C-w>c
 
     "<Appearence>
         noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
@@ -310,9 +310,10 @@ call plug#end()
         noremap <leader>" :reg<CR>
 
     "<Buffer>
-        noremap <leader>q :bd<CR><ESC>
-        noremap <leader>h :bp<CR><ESC>
-        noremap <leader>l :bn<CR><ESC>
+        "noremap <leader>bq :bd<CR><ESC>
+        noremap <leader>qb :bp\|bd #<CR>
+        noremap <leader>h :bp<CR>
+        noremap <leader>l :bn<CR>
 
     "<Folding>
         "noremap <space> za
@@ -363,18 +364,26 @@ call plug#end()
     "<Plugins>------------------------------------{
         "[Plugin Manager]
             noremap <leader>i :PlugInstall<CR>
+
         "[vim-obsession]
             " Record session >> ":mksession" can't overwite
             noremap <leader>S :Obsession /tmp/obsession.vim<CR><ESC>
             " Restore session
             noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
+
         "[vimagit]
             "let g:magit_show_magit_mapping='<leader>G'
             let g:magit_show_magit_mapping='<leader>g'
+
         "[tagbar] ->  "*"->open all folds; "="->close all folds
             "noremap <leader>t :TagbarToggle<CR>=<ESC>
             noremap <leader>t :TagbarOpen<CR>
             noremap T :TagbarOpen<CR>
+
+        "[Auto-pair]
+        "imap <C-d> <Meta>
+        "imap <C-d>e <M-e>
+
         "[fzf]
             nnoremap <leader>/ :Files %:p:h<CR>
             nnoremap <leader>b/ :Buffers<CR>
@@ -385,6 +394,7 @@ call plug#end()
         "[Command-T File Searching]
             "nnoremap <leader>/ :CommandT<CR>
             "nnoremap <leader>c :CommandT<CR>
+
         "[Nerdtree]
             "nnoremap <leader>f :NERDTreeFocus<CR>
             nnoremap <leader>f :NERDTreeToggle<CR>
@@ -442,7 +452,7 @@ call plug#end()
         "autocmd VimLeave * :Obsession /tmp/obsession.vim
         "autocmd VimLeave *.py,*.json :Obsession /tmp/obsession.vim
         function! AutoObsession()
-            if bufnr('%') > 3
+            if bufnr('%') >= 3
                 :Obsession /tmp/obsession.vim
             endif
         endfunction

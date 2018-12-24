@@ -84,7 +84,7 @@ call plug#begin('~/.vim/plugged')
 
         "<Autocomplete>
             "[Snippets]  -> Python required
-                Plug 'SirVer/ultisnips'  " Track the engine.
+                Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
                 Plug 'honza/vim-snippets' " Snippets are separated from the engine.
             "[Deoplete]
             if has_mac
@@ -94,6 +94,9 @@ call plug#begin('~/.vim/plugged')
                 Plug 'zchee/deoplete-jedi'    " Python completion source
                 Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
             endif
+
+            "[Comment]
+            Plug 'scrooloose/nerdcommenter'
 
         "<Bracket Closing>
             Plug 'jiangmiao/auto-pairs' "Smartest
@@ -155,6 +158,14 @@ call plug#begin('~/.vim/plugged')
             "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 call plug#end()
 
+
+" [  Lazy Load Plugins  ]-----------{
+    "<UltiSnips>  -> Very slow
+    "augroup load_us
+    "    autocmd!
+    "    autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_us
+    "augroup END
+" }
 
 
 " [  General Builtin Settings  ]-----------{
@@ -274,7 +285,7 @@ call plug#end()
 " }
 
 
-" [   Key Mappings / Bindings   ]----------------------------{
+" [   cls.provider_name Mappings / Bindings   ]----------------------------{
     "<Leader key>
         let mapleader = ','
 
@@ -283,6 +294,7 @@ call plug#end()
         noremap  <leader>s <ESC>:w<CR><ESC>
         "Save & Exit
         noremap  <C-x> <ESC>:x<CR><ESC>
+        noremap <leader>j :jumps<CR>
 
     "<Edits> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -291,9 +303,13 @@ call plug#end()
         inoremap jj <esc>
         map q <NOP>
         inoremap <leader>r q
+        nnoremap <leader>aa :ggVG<CR>
+        nnoremap <leader>ay :%y+<CR>
+        nnoremap <leader>ad :%d+<CR>
+        nnoremap g- ''
 
     "<Splits>
-        noremap S :vsplit<CR><C-w>l
+        noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         nnoremap <leader>ve :vsplit ~/dotfiles/vim/vimrc<CR>
 
     "<Windows>
@@ -375,7 +391,7 @@ call plug#end()
 
     "<Plugins>------------------------------------{
         "[Plugin Manager]
-            noremap <leader>i :PlugInstall<CR>
+            noremap <leader>I :PlugInstall<CR>
 
         "[vim-obsession]
             " Record session >> ":mksession" can't overwite
@@ -625,6 +641,24 @@ call plug#end()
         "set encoding=utf8
 " }
 
+" <nerdcommenter>------------------{
+    "" Add spaces after comment delimiters by default
+    "let g:NERDSpaceDelims = 1
+    "" Use compact syntax for prettified multi-line comments
+    "let g:NERDCompactSexyComs = 1
+    "" Align line-wise comment delimiters flush left instead of following code indentation
+    "let g:NERDDefaultAlign = 'left'
+    "" Set a language to use its alternate delimiters by default
+    "let g:NERDAltDelims_java = 1
+    "" Add your own custom formats or override the defaults
+    "let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+    "" Allow commenting and inverting empty lines (useful when commenting a region)
+    "let g:NERDCommentEmptyLines = 1
+    "" Enable trimming of trailing whitespace when uncommenting
+    "let g:NERDTrimTrailingWhitespace = 1
+    "" Enable NERDCommenterToggle to check all selected lines is commented or not 
+    "let g:NERDToggleCheckAllLines = 1
+" }
 
 
 " Plugin Settings Nerdtree -------------------{

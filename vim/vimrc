@@ -83,7 +83,9 @@ call plug#begin('~/.vim/plugged')
     " [   INSERTION    ]
 
         "<Autocomplete>
-            "Plug 'honza/vim-snippets' "some common snippets (python required)
+            "[Snippets]  -> Python required
+                Plug 'SirVer/ultisnips'  " Track the engine.
+                Plug 'honza/vim-snippets' " Snippets are separated from the engine.
             "[Deoplete]
             if has_mac
                 Plug 'Shougo/deoplete.nvim'
@@ -201,6 +203,8 @@ call plug#end()
         set background=dark   ">> Overwriting Alert !!
         set cursorline  "Highlighting current line
         set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+        autocmd WinEnter * set cursorline
+        autocmd WinLeave * set cursorline!
 
     " <Syntax Highlighting>  --> Overwriting Alert!
         syntax enable
@@ -318,7 +322,7 @@ call plug#end()
             noremap <leader>l :bn<CR>
         "History search
             "noremap <leader><C-h> :browse oldfiles<CR>
-            noremap <leader><C-h> :History<CR>
+            "noremap <leader><C-h> :History<CR>
 
     "<Folding>
         "noremap <space> za
@@ -464,6 +468,21 @@ call plug#end()
         endfunction
         autocmd VimLeave * call AutoObsession()
 " }
+
+" <UltiSnips>--------{
+    " Trigger configuration.
+    " Do not use <tab> if you use YouCompleteMe.
+    let g:UltiSnipsExpandTrigger="<Tab>"
+    let g:UltiSnipsJumpForwardTrigger="<C-n>"
+    let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+
+    " Specify snippets locations
+    let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/ultisnips/UltiSnips","~/dotfiles/snippets"]
+" }
+
 
 " <IndentLine>--------{
     let g:indentLine_enabled = 1

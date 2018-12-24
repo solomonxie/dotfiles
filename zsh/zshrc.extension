@@ -10,12 +10,11 @@
 alias lah="ls -lah"
 
 # Config files 
-alias zshrc="vim ~/.zshrc"
-alias zshrc2="vim ~/.zshrc.extension"
-alias zshrc3="vim ~/.zshrc.themes"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias vimrc="vim ~/.vimrc"
-alias tmuxrc="vim ~/.tmux.conf"
+alias zshrc="vim ~/dotfiles/zsh/zshrc"
+alias zshrc2="vim ~/dotfiles/zsh/zshrc.extension"
+alias zshrc3="vim ~/dotfiles/zsh/zshrc.themes"
+alias vimrc="vim ~/dotfiles/vim/vimrc"
+alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf"
 alias bashrc="vim ~/.bash_profile"
 
 # Shadowsocks proxy 

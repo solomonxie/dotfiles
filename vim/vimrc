@@ -390,11 +390,12 @@ call plug#end()
         "imap <C-d>e <M-e>
 
         "[fzf]
-            nnoremap <leader>/ :Files %:p:h<CR>
-            nnoremap <leader>b/ :Buffers<CR>
-            nnoremap <leader>c/ :Colors<CR>
-            nnoremap <leader>n/ :Snippets<CR>
-            nnoremap <leader>p/ :Files ..
+            nnoremap <leader>// :Files %:p:h<CR>
+            nnoremap <leader>/l :Lines<CR>
+            nnoremap <leader>/h :History<CR>
+            nnoremap <leader>/n :Snippets<CR>
+            "nnoremap <leader>p/ :Files ..
+            "nnoremap <leader>color/ :Colors
             "nnoremap <leader>k/ :Maps<CR>
         "[Command-T File Searching]
             "nnoremap <leader>/ :CommandT<CR>

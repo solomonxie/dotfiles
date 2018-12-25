@@ -203,11 +203,11 @@ call plug#end()
     "set foldclose=all          " 设置为自动关闭折叠
 
     "<Buffer>
-        autocmd BufEnter * lcd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
+        autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
 
     "<FileType>
     filetype plugin on    " [essential]
-    filetype plugin indent on
+    filetype plugin indent off
 " }
 
 
@@ -300,7 +300,7 @@ call plug#end()
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
         nnoremap <space> viw
-        inoremap jj <esc>
+        "inoremap jj <esc>
         map q <NOP>
         inoremap <leader>r q
         nnoremap <leader>aa :ggVG<CR>
@@ -312,6 +312,17 @@ call plug#end()
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         nnoremap <leader>ve :vsplit ~/dotfiles/vim/vimrc<CR>
 
+    "<Buffer>
+        "Close buffer
+            "noremap <leader>bq :bd<CR><ESC>
+            noremap <leader>bd :bp\|bd #<CR>
+        "Move between buffers
+            noremap <leader>h :bp<CR>
+            noremap <leader>l :bn<CR>
+        "History search
+            "noremap <leader><C-h> :browse oldfiles<CR>
+            "noremap <leader><C-h> :History<CR>
+
     "<Windows>
         noremap m <C-w>
         "noremap H <C-w>h
@@ -319,7 +330,7 @@ call plug#end()
         noremap <TAB> <C-w>w
         noremap <S-TAB> <C-w>h
         "noremap <leader>o <C-w>o
-        noremap <leader>qw <C-w>c
+        "noremap <leader>qw <C-w>c
 
     "<Appearence>
         noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
@@ -331,17 +342,6 @@ call plug#end()
         " 从系统剪切板中粘贴到当前位置
         noremap <leader>p "+p
         noremap <leader>" :reg<CR>
-
-    "<Buffer>
-        "Close buffer
-            "noremap <leader>bq :bd<CR><ESC>
-            noremap <leader>qb :bp\|bd #<CR>
-        "Move between buffers
-            noremap <leader>h :bp<CR>
-            noremap <leader>l :bn<CR>
-        "History search
-            "noremap <leader><C-h> :browse oldfiles<CR>
-            "noremap <leader><C-h> :History<CR>
 
     "<Folding>
         "noremap <space> za
@@ -656,7 +656,7 @@ call plug#end()
     "let g:NERDCommentEmptyLines = 1
     "" Enable trimming of trailing whitespace when uncommenting
     "let g:NERDTrimTrailingWhitespace = 1
-    "" Enable NERDCommenterToggle to check all selected lines is commented or not 
+    "" Enable NERDCommenterToggle to check all selected lines is commented or not
     "let g:NERDToggleCheckAllLines = 1
 " }
 

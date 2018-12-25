@@ -22,25 +22,12 @@
 "   :Startuptime
 
 
-
-" [  Variables  ]-----------{
-    let has_mac = has('mac')
-    "let has_vim = has('vim')
-    "let has_nvim = has('nvim')
-    "let has_lua = has('lua')
-    "let has_ruby = has('ruby')
-    "let has_py2 = has('python2')  "=> Careful, super slow
-    "let has_py3 = has('python3')  "=> Careful, super slow
-    "let arch = system("uname -m")
-    "if arch == 'armv7l'
-    "    let has_rpi = 1
-    "elseif arch == 'x86_64'
-    "    let has_pc = 1  "Mac / PC
-    "endif
+" [  Import Modules  ]-----------{
+    source ~/dotfiles/vim/vimrc-plugins
+    source ~/dotfiles/vim/vimrc-keymappings
+    source ~/dotfiles/vim/vimrc-ui
 " }
 
-
-source ~/dotfiles/vim/vimrc-plugins
 
 
 " [  General Builtin Settings  ]-----------{
@@ -66,8 +53,6 @@ source ~/dotfiles/vim/vimrc-plugins
 
 
 " [  Advanced Builtin Settings  ]-----------{
-    "<Taging>
-    set tags=tags  "Plugin: Ctags
     "<Folding>
     set foldenable              " 开始折叠
     set foldmethod=syntax       " 设置语法折叠
@@ -79,14 +64,9 @@ source ~/dotfiles/vim/vimrc-plugins
 
     "<Buffer>
         autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
-
-    "<FileType>
-    filetype plugin on    " [essential]
-    filetype plugin indent off
 " }
 
 
-source ~/dotfiles/vim/vimrc-ui
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
         "au FileType python setl ofu=pythoncomplete#CompletePHP
@@ -98,7 +78,22 @@ source ~/dotfiles/vim/vimrc-ui
 " }
 
 
-source ~/dotfiles/vim/vimrc-keymappings
+" [  Variables  ]-----------{
+    "let has_mac = has('mac')
+    "let has_vim = has('vim')
+    "let has_nvim = has('nvim')
+    "let has_lua = has('lua')
+    "let has_ruby = has('ruby')
+    "let has_py2 = has('python2')  "=> Careful, super slow
+    "let has_py3 = has('python3')  "=> Careful, super slow
+    "let arch = system("uname -m")
+    "if arch == 'armv7l'
+    "    let has_rpi = 1
+    "elseif arch == 'x86_64'
+    "    let has_pc = 1  "Mac / PC
+    "endif
+" }
+
 
 
 " [  Abbreviations  ]--------{

@@ -10,7 +10,7 @@
 
     "<FileType>
         filetype plugin on    " [essential]
-        filetype plugin indent off
+        filetype plugin indent on
 
     " <Syntax Highlighting>  --> Overwriting Alert!
         syntax enable

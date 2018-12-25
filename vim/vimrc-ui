@@ -75,23 +75,3 @@
         "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
 " }
 
-
-" Disable parentheses matching depends on system.
-" This way we should address all cases (?)
-" set noshowmatch
-" NoMatchParen " This doesnt work as it belongs to a plugin,
-" which is only loaded _after_ all files are.
-" Trying disable MatchParen after loading all plugins
-"
-function! g:FuckThatMatchParen ()
-    if exists(":NoMatchParen")
-        if !has('mac')
-            :NoMatchParen
-        endif
-    endif
-endfunction
-
-augroup plugin_initialize
-    autocmd!
-    autocmd VimEnter * call FuckThatMatchParen()
-augroup END

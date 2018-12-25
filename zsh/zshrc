@@ -12,10 +12,10 @@
 # 
 
 # 引用不方便公开的本地配置文件
-    source ~/.zshrc.extension
+    source ~/dotfiles/zsh/zshrc.extension
 
 #  Theme settings {
-    source ~/.zshrc.themes
+    source ~/dotfiles/zsh/zshrc.themes
     #set_theme_powerlevel9k
     #set_theme_agnoster
     #set_theme_junkfood

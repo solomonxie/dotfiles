@@ -8,21 +8,21 @@
         autocmd WinEnter * set cursorline
         autocmd WinLeave * set nocursorline
 
+    "<FileType>
+        filetype plugin on    " [essential]
+        filetype plugin indent off
+
     " <Syntax Highlighting>  --> Overwriting Alert!
         syntax enable
 
     " <Color Scheme>  --> Overwriting Alert!
-        if has_mac
-            set termguicolors   ">> Not compatiple with many themes
-            "colorscheme material-monokai ">> Super slow, has block color comment
-            colorscheme gruvbox ">> grubox is slow for old machine
-        else
-            "colorscheme delek  "Builtin colorscheme
-            colorscheme monokai "Fast (sickill/vim-monokai)
-            "Text bg-color is not working properly with Rpi
-            highlight Normal ctermbg=NONE
-            highlight nonText ctermbg=NONE
-        endif
+        set termguicolors   ">> Not compatiple with many themes
+        "colorscheme material-monokai ">> Super slow, has block color comment
+        colorscheme gruvbox ">> grubox is slow for old machine
+        " -> Alternative
+            "colorscheme monokai "Fast (sickill/vim-monokai)
+            "highlight Normal ctermbg=NONE
+            "highlight nonText ctermbg=NONE
 
     " <Highlight Settings>  --> Overwriting Alert!
         "hi! VertSplit guifg=red guibg=blue term=None
@@ -75,3 +75,23 @@
         "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
 " }
 
+
+" Disable parentheses matching depends on system.
+" This way we should address all cases (?)
+" set noshowmatch
+" NoMatchParen " This doesnt work as it belongs to a plugin,
+" which is only loaded _after_ all files are.
+" Trying disable MatchParen after loading all plugins
+"
+function! g:FuckThatMatchParen ()
+    if exists(":NoMatchParen")
+        if !has('mac')
+            :NoMatchParen
+        endif
+    endif
+endfunction
+
+augroup plugin_initialize
+    autocmd!
+    autocmd VimEnter * call FuckThatMatchParen()
+augroup END

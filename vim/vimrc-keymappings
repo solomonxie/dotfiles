@@ -130,6 +130,7 @@
             nnoremap <leader>// :Files %:p:h<CR>
             nnoremap <leader>/l :Lines<CR>
             nnoremap <leader>/h :History<CR>
+            nnoremap <leader>/b :Buffers<CR>
             nnoremap <leader>/c :History:<CR>
             nnoremap <leader>/s :History/<CR>
             nnoremap <leader>/n :Snippets<CR>

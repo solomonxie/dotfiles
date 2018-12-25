@@ -26,10 +26,8 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         "<Syntax Highlighting>
-            if has_mac
-                Plug 'vim-syntastic/syntastic' "Syntax checker for all languages
-                Plug 'hdima/python-syntax'   "Most stable highlighting
-            endif
+            Plug 'vim-syntastic/syntastic' "Syntax checker for all languages
+            Plug 'hdima/python-syntax'   "Most stable highlighting
 
         "<Window>
 
@@ -44,16 +42,12 @@ call plug#begin('~/.vim/plugged')
             Plug 'tpope/vim-vinegar'      "Netrw enhancement
 
         "<NERDTREE>
-            if has_mac
-                Plug 'scrooloose/nerdtree'          " File tree manager
-                Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-                Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-            endif
+            Plug 'scrooloose/nerdtree'          " File tree manager
+            Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+            Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 
         "<Tags>
-            if has_mac
-                Plug 'majutsushi/tagbar'   " (ctags required)
-            endif
+            Plug 'majutsushi/tagbar'   " (ctags required)
 
         "<Git>
             Plug 'jreybert/vimagit'  "Much easier with Git
@@ -65,13 +59,11 @@ call plug#begin('~/.vim/plugged')
                 Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
                 Plug 'honza/vim-snippets' " Snippets are separated from the engine.
             "[Deoplete]
-            if has_mac
                 Plug 'Shougo/deoplete.nvim'
                 Plug 'roxma/vim-hug-neovim-rpc'  ">> VIM only
                 Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
                 Plug 'zchee/deoplete-jedi'    " Python completion source
                 Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
-            endif
 
             "[Comment]
             Plug 'scrooloose/nerdcommenter'
@@ -210,7 +202,6 @@ call plug#end()
 " }
 
 " <Deoplete>--------------{
-    if has_mac
     " Enable at startup
         let g:deoplete#enable_at_startup = 1
     " Set multiple options
@@ -227,7 +218,6 @@ call plug#end()
         " Change clang options
         "call deoplete#custom#var('clangx', 'default_c_options', '')
         "call deoplete#custom#var('clangx', 'default_cpp_options', '')
-    endif
 " }
 
 
@@ -236,6 +226,7 @@ call plug#end()
 " }
 
 " <Tagbar>--------------{
+    set tags=tags  "Plugin: Ctags
     let g:tagbar_left = 0  "Show tagbar on right
     let g:tagbar_autofocus = 1   "Focus on tagbar window when open
     let g:tagbar_autoclose = 1   "Close tagbar window when select tag
@@ -248,9 +239,7 @@ call plug#end()
 " }
 
 " <Python-syntax>------------------{
-    if has_mac
-        let g:python_highlight_all = 1
-    endif
+    let g:python_highlight_all = 1
 " }
 
 " Jedi Settings ---------------------{

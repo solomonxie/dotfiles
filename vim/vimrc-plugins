@@ -88,10 +88,10 @@ call plug#end()
 
 " [  Lazy Load Plugins  ]-----------{
     "<UltiSnips>  -> Very slow
-    "augroup load_us
-    "    autocmd!
-    "    autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_us
-    "augroup END
+    augroup load_us
+        autocmd!
+        autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_us
+    augroup END
 " }
 
 

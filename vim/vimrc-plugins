@@ -80,57 +80,11 @@ call plug#begin('~/.vim/plugged')
     " [   PERFORMANCE    ]
         Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
 
-    " [  Historical Abandoned Plugins  ]
-        "Window
-            "Plug 'blueyed/vim-diminactive'  "not dim Indent lines
-        "Folding
-            "Plug 'tmhedberg/SimpylFold'   "improving folding
-        "Completion
-            "Plug 'valloric/youcompleteme'    "hard to build
-            "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
-            "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
-            "Plug 'rkulla/pydiction'   " not work as expected
-            "Plug 'ervandew/supertab'
-        "Indentation
-            "Plug 'nathanaelkane/vim-indent-guides'
-        "Brackets
-            "Plug 'tpope/vim-surround'  "Barely working
-            "Plug 'Townk/vim-autoclose' "Fair, but not working for some files
-        "Snippets
-            "Plug 'MarcWeber/vim-addon-mw-utils'
-            "Plug 'tomtom/tlib_vim'
-            "Plug 'garbas/vim-snipmate'
-            "Plug 'honza/vim-snippets' "some common snippets (python required)
-        "Git
-            "Plug 'tpope/vim-fugitive'    "Commands to do Git
-            "Plug 'easymotion/vim-easymotion'
-        "Markdown
-            "Plug 'JamshedVesuna/vim-markdown-preview' "Not live previewing
-        "File Browsing
-            "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-            "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
-            "Plug 'wincent/command-t'    "VIM only (Ruby required)
-            "Plug 'justinmk/vim-dirvish'  "Netrw enhancement
-        "Color Scheme
-            "Plug 'chriskempson/base16-vim'   "Ugly !!
-            "Plug 'jpo/vim-railscasts-theme'  "Ugly !
-            "Plug 'NLKNguyen/papercolor-theme'   "No python support
-        "Status Bar
-            "Plug 'itchyny/lightline.vim' "beautiful status line
-            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
-        "Syntax Highlighting
-            "Plug 'vim-python/python-syntax'
-            "Plug 'vitiral/vim-python'  "Not working
-            "Plug 'numirias/semshi'    "Not working
-            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
-            "-> Python-mode: (More errors, too many builtin plugins)
-            "Plug 'python-mode/python-mode'    "Deprecated
-            "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 call plug#end()
 
-
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"==============================LAZY LOADING=================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " [  Lazy Load Plugins  ]-----------{
     "<UltiSnips>  -> Very slow
@@ -141,19 +95,13 @@ call plug#end()
 " }
 
 
-
-
-
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "==============================PLUGIN SETTINGS=================================
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 
-
-" <Vim-Obsession>--------{
+" <Vim Obsession>--------{
     " Auto record session on VIM's exit (No space between multiple files)
         "autocmd VimLeave * :Obsession /tmp/obsession.vim
         "autocmd VimLeave *.py,*.json :Obsession /tmp/obsession.vim
@@ -180,7 +128,7 @@ call plug#end()
 " }
 
 
-" <IndentLine>--------{
+" <Indentline>--------{
     let g:indentLine_enabled = 1
     let g:indentLine_char='│'
     let g:indentLine_conceallevel = 2
@@ -192,12 +140,12 @@ call plug#end()
 " }
 
 
-" <pydiction>-------------{
+" <PyDiction>-------------{
     "let g:pydiction_location = '$HOME/.vim/plugged/pydiction/complete-dict'
     "let g:pydiction_menu_height = 7
 " }
 
-" <vim-markdown-preview>-------------{
+" <Vim markdown preview>-------------{
     let vim_markdown_preview_github=1
 " }
 
@@ -225,6 +173,7 @@ call plug#end()
     "let g:SimpylFold_docstring_preview = 1
 " }
 
+
 " <Tagbar>--------------{
     set tags=tags  "Plugin: Ctags
     let g:tagbar_left = 0  "Show tagbar on right
@@ -238,11 +187,13 @@ call plug#end()
     "let g:tagbar_show_visibility = 1
 " }
 
-" <Python-syntax>------------------{
+
+" <Python syntax>------------------{
     let g:python_highlight_all = 1
 " }
 
-" Jedi Settings ---------------------{
+
+" <Jedi settings>---------------------{
     let g:jedi#force_py_version=2.7
 " }
 
@@ -264,7 +215,8 @@ call plug#end()
     "set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
 " }
 
-" <fzf fuzzy search>-------------------------{
+
+" <Fzf fuzzy search>-------------------------{
     "let g:fzf_action = { 'ctrl-e': 'edit' }
     " Default fzf layout
         " - down / up / left / right
@@ -277,10 +229,11 @@ call plug#end()
 " }
 
 
-" <vim-diminactive>-----------{
+" <Vim-DimInactive>-----------{
     "let g:diminactive_use_colorcolumn = 2
     "let g:diminactive_use_syntax = 0
 " }
+
 
 " <Status-Line>-----------{
     " @airline
@@ -311,7 +264,8 @@ call plug#end()
         "set encoding=utf8
 " }
 
-" <nerdcommenter>------------------{
+
+" <NerdCommenter>------------------{
     "" Add spaces after comment delimiters by default
     "let g:NERDSpaceDelims = 1
     "" Use compact syntax for prettified multi-line comments
@@ -385,3 +339,59 @@ call plug#end()
         "let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
         "let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
 " }
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=======================HISTORICAL ABANDONED LOADING===========================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"" [  Plugins Manager vim-plug  ]
+"call plug#begin('~/.vim/plugged')
+    " [  Historical Abandoned Plugins  ]
+        "Window
+            "Plug 'blueyed/vim-diminactive'  "not dim Indent lines
+        "Folding
+            "Plug 'tmhedberg/SimpylFold'   "improving folding
+        "Completion
+            "Plug 'valloric/youcompleteme'    "hard to build
+            "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
+            "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
+            "Plug 'rkulla/pydiction'   " not work as expected
+            "Plug 'ervandew/supertab'
+        "Indentation
+            "Plug 'nathanaelkane/vim-indent-guides'
+        "Brackets
+            "Plug 'tpope/vim-surround'  "Barely working
+            "Plug 'Townk/vim-autoclose' "Fair, but not working for some files
+        "Snippets
+            "Plug 'MarcWeber/vim-addon-mw-utils'
+            "Plug 'tomtom/tlib_vim'
+            "Plug 'garbas/vim-snipmate'
+            "Plug 'honza/vim-snippets' "some common snippets (python required)
+        "Git
+            "Plug 'tpope/vim-fugitive'    "Commands to do Git
+            "Plug 'easymotion/vim-easymotion'
+        "Markdown
+            "Plug 'JamshedVesuna/vim-markdown-preview' "Not live previewing
+        "File Browsing
+            "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+            "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+            "Plug 'wincent/command-t'    "VIM only (Ruby required)
+            "Plug 'justinmk/vim-dirvish'  "Netrw enhancement
+        "Color Scheme
+            "Plug 'chriskempson/base16-vim'   "Ugly !!
+            "Plug 'jpo/vim-railscasts-theme'  "Ugly !
+            "Plug 'NLKNguyen/papercolor-theme'   "No python support
+        "Status Bar
+            "Plug 'itchyny/lightline.vim' "beautiful status line
+            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
+        "Syntax Highlighting
+            "Plug 'vim-python/python-syntax'
+            "Plug 'vitiral/vim-python'  "Not working
+            "Plug 'numirias/semshi'    "Not working
+            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+            "-> Python-mode: (More errors, too many builtin plugins)
+            "Plug 'python-mode/python-mode'    "Deprecated
+            "Plug 'python-mode/python-mode', { 'branch': 'develop' }
+"call plug#end()

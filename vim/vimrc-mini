@@ -40,34 +40,6 @@
 " }
 
 
-" [  Builtin UI / Color Scheme  ]---------{
-    " <Basic Settings>
-        set t_Co=256   ">> Overwriting Alert !!
-        set background=dark   ">> Overwriting Alert !!
-        set cursorline  "Highlighting current line
-        set fillchars+=vert:\!  "Bar character for VERTical Split Pane
-        autocmd WinEnter * set cursorline
-        autocmd WinLeave * set nocursorline
-
-    " <Syntax Highlighting>  --> Overwriting Alert!
-        syntax enable
-
-    " <Color Scheme>  --> Overwriting Alert!
-        "colorscheme delek  "Builtin colorscheme
-        colorscheme monokai "Fast (sickill/vim-monokai)
-        "Text bg-color is not working properly with Rpi
-        highlight Normal ctermbg=NONE
-        highlight nonText ctermbg=NONE
-
-    " <Highlight Settings>  --> Overwriting Alert!
-        "hi! VertSplit guifg=red guibg=blue term=None
-        "hi Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
-
-    " <Spell Check>
-        autocmd BufRead,BufNewFile *.txt,*.md setlocal spell spelllang=en,en_us,cjk
-        autocmd FileType gitcommit setlocal spell spelllang=en,en_us,cjk
-
-
 
 " [   Key Mappings / Bindings   ]----------------------------{
     "<Leader key>
@@ -141,24 +113,6 @@
         noremap / :set hlsearch<cr>/
         noremap ? :set hlsearch<cr>?
         noremap * *:set hlsearch<cr>
-
-    "<Builds/Compiles>----{
-        " Get current filetype -> :echo &filetype or as variable &filetype
-        " [ Builds / Compiles / Interpretes  ]
-        "<C/C++ Compiler>  -> Compile & run
-        autocmd FileType c noremap <buffer> <C-u> :w<CR>:!gcc % && ./a.out <CR>
-        autocmd FileType cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>
-        "<Python Interpreter>
-        autocmd FileType python noremap <buffer> <C-u> :w<CR>:!python % <CR>
-        "<Bash Script>
-        autocmd FileType sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
-        "<RCs> (Configs)
-        autocmd FileType vim,tmux noremap <buffer> <C-u> :w<CR><ESC>:source % <CR>
-        autocmd FileType zsh noremap <buffer> <C-u> :w<CR>:!source % <CR>
-        "<Executable>  -> conflict with above
-        ""noremap <buffer> <C-u> :!./% <CR>
-        ""noremap <buffer> <C-u> :! %:p <CR>
-    " }
 
     "<NetRW> -> (Lexplore/Vexplore/Texplore/Explore/Sexplore/edit.)
         nnoremap <leader>f :Lexplore<CR>

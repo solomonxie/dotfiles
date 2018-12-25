@@ -1,0 +1,385 @@
+" -------------[ MINIMUM VIMRC ]---------------
+"
+" MAINTAINER: Solomon Xie <solomonxiewise@gmail>
+" Enviroment: Raspbian
+
+" [  Plugins Manager vim-plug  ]
+"call plug#begin('~/.vim/plugged')
+"    " [    UI / Appearence     ]
+"
+"        "<STATUS-BAR>
+"            Plug 'vim-airline/vim-airline'
+"            Plug 'vim-airline/vim-airline-themes'
+"
+"        "<Syntax Highlighting>
+"            Plug 'vim-syntastic/syntastic' "Syntax checker for all languages
+"            Plug 'hdima/python-syntax'   "Most stable highlighting
+"
+"        "<Window>
+"
+"    " [    Browsing   ]
+"
+"        "<Fuzzy File Search>
+"            " <fzf>
+"            Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"            Plug 'junegunn/fzf.vim'
+"
+"            "<NetRW>
+"            Plug 'tpope/vim-vinegar'      "Netrw enhancement
+"
+"        "<NERDTREE>
+"            Plug 'scrooloose/nerdtree'          " File tree manager
+"            Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+"            Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+"
+"        "<Tags>
+"            Plug 'majutsushi/tagbar'   " (ctags required)
+"
+"        "<Git>
+"            Plug 'jreybert/vimagit'  "Much easier with Git
+"
+"    " [   INSERTION    ]
+"
+"        "<Autocomplete>
+"            "[Snippets]  -> Python required
+"                Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
+"                Plug 'honza/vim-snippets' " Snippets are separated from the engine.
+"            "[Deoplete]
+"                Plug 'Shougo/deoplete.nvim'
+"                Plug 'roxma/vim-hug-neovim-rpc'  ">> VIM only
+"                Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
+"                Plug 'zchee/deoplete-jedi'    " Python completion source
+"                Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
+"
+"            "[Comment]
+"            Plug 'scrooloose/nerdcommenter'
+"
+"        "<Bracket Closing>
+"            Plug 'jiangmiao/auto-pairs' "Smartest
+"
+"        "<Indentation>
+"            Plug  'Yggdroot/indentLine'    "Beautiful indent lines
+"
+"    " [   SESSION    ]
+"        Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
+"
+"    " [   PERFORMANCE    ]
+"        Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
+"
+"    " [  Historical Abandoned Plugins  ]
+"        "Window
+"            "Plug 'blueyed/vim-diminactive'  "not dim Indent lines
+"        "Folding
+"            "Plug 'tmhedberg/SimpylFold'   "improving folding
+"        "Completion
+"            "Plug 'valloric/youcompleteme'    "hard to build
+"            "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
+"            "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
+"            "Plug 'rkulla/pydiction'   " not work as expected
+"            "Plug 'ervandew/supertab'
+"        "Indentation
+"            "Plug 'nathanaelkane/vim-indent-guides'
+"        "Brackets
+"            "Plug 'tpope/vim-surround'  "Barely working
+"            "Plug 'Townk/vim-autoclose' "Fair, but not working for some files
+"        "Snippets
+"            "Plug 'MarcWeber/vim-addon-mw-utils'
+"            "Plug 'tomtom/tlib_vim'
+"            "Plug 'garbas/vim-snipmate'
+"            "Plug 'honza/vim-snippets' "some common snippets (python required)
+"        "Git
+"            "Plug 'tpope/vim-fugitive'    "Commands to do Git
+"            "Plug 'easymotion/vim-easymotion'
+"        "Markdown
+"            "Plug 'JamshedVesuna/vim-markdown-preview' "Not live previewing
+"        "File Browsing
+"            "Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+"            "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+"            "Plug 'wincent/command-t'    "VIM only (Ruby required)
+"            "Plug 'justinmk/vim-dirvish'  "Netrw enhancement
+"        "Color Scheme
+"            "Plug 'chriskempson/base16-vim'   "Ugly !!
+"            "Plug 'jpo/vim-railscasts-theme'  "Ugly !
+"            "Plug 'NLKNguyen/papercolor-theme'   "No python support
+"        "Status Bar
+"            "Plug 'itchyny/lightline.vim' "beautiful status line
+"            "Plug 'Lokaltog/vim-powerline' "fancy status line (python required)
+"        "Syntax Highlighting
+"            "Plug 'vim-python/python-syntax'
+"            "Plug 'vitiral/vim-python'  "Not working
+"            "Plug 'numirias/semshi'    "Not working
+"            "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
+"            "-> Python-mode: (More errors, too many builtin plugins)
+"            "Plug 'python-mode/python-mode'    "Deprecated
+"            "Plug 'python-mode/python-mode', { 'branch': 'develop' }
+"call plug#end()
+
+
+" [  Lazy Load Plugins  ]-----------{
+    "<UltiSnips>  -> Very slow
+    "augroup load_us
+    "    autocmd!
+    "    autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_us
+    "augroup END
+" }
+
+
+" [  General Builtin Settings  ]-----------{
+    set nocompatible   " be iMproved, required
+    "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
+    "set nospell
+    set ignorecase "Case Insensitive
+    set ignorecase   "搜索时忽略大小写
+    set smartcase  "搜索时如果输大写, 就不再忽略大小写
+    set hidden " 设置Buffer缓冲区允许不保存时切换buffer
+    set number "show line number
+    set mouse=a  "设置鼠标滚动为All，即在tmux中的vim也能滚动 （但是选中文字自动会进入Visual模式）
+    "set paste   "设置可以直接用ctrl+c ctrl+v复制粘贴 其实没什么区别 只不过不用在insert模式而已
+    set showcmd " show keypress at right-bottom
+    set backspace=2 "backspace over everything in insert mode
+    set autoindent "换行时自动缩排 同时对应的还有其它两种模式 smartindent, cindent
+    set tabstop=4 "设定tab宽度为4个字符
+    set shiftwidth=4 "设定自动缩进为4个字符
+    set expandtab "用space替代tab的输入 取消的话 就用set noexpandtab "不用space替代tab的输入
+    set encoding=utf8  "设置默认编码
+    retab "打开文件时自动转换所有tab为空格
+" }
+
+
+" [  Advanced Builtin Settings  ]-----------{
+    "<Taging>
+    set tags=tags  "Plugin: Ctags
+    "<Folding>
+    set foldenable              " 开始折叠
+    set foldmethod=syntax       " 设置语法折叠
+    set foldnestmax=1
+    set foldcolumn=0            " 设置折叠区域的宽度
+    setlocal foldlevel=1        " 设置折叠层数
+    set foldlevelstart=99       " 打开文件是默认不折叠代码
+    "set foldclose=all          " 设置为自动关闭折叠
+
+    "<Buffer>
+        autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
+
+    "<FileType>
+    "filetype plugin on    " [essential]
+    "filetype plugin indent off
+" }
+
+
+" [  Builtin UI / Color Scheme  ]---------{
+    " <Basic Settings>
+        set t_Co=256   ">> Overwriting Alert !!
+        set background=dark   ">> Overwriting Alert !!
+        set cursorline  "Highlighting current line
+        set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+        autocmd WinEnter * set cursorline
+        autocmd WinLeave * set nocursorline
+
+    " <Syntax Highlighting>  --> Overwriting Alert!
+        syntax enable
+
+    " <Color Scheme>  --> Overwriting Alert!
+        "colorscheme delek  "Builtin colorscheme
+        colorscheme monokai "Fast (sickill/vim-monokai)
+        "Text bg-color is not working properly with Rpi
+        highlight Normal ctermbg=NONE
+        highlight nonText ctermbg=NONE
+
+    " <Highlight Settings>  --> Overwriting Alert!
+        "hi! VertSplit guifg=red guibg=blue term=None
+        "hi Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
+
+    " <Spell Check>
+        autocmd BufRead,BufNewFile *.txt,*.md setlocal spell spelllang=en,en_us,cjk
+        autocmd FileType gitcommit setlocal spell spelllang=en,en_us,cjk
+
+
+
+" [   Key Mappings / Bindings   ]----------------------------{
+    "<Leader key>
+        let mapleader = ','
+
+    "<Files>
+        "Save file
+        noremap  <leader>s <ESC>:w<CR><ESC>
+        "Save & Exit
+        noremap  <C-x> <ESC>:x<CR><ESC>
+        noremap <leader>j :jumps<CR>
+
+    "<Edits> -> <Tab> default set to <C-i>, but remap not working
+        noremap  <C-c> <Esc>:nohl<CR><ESC>
+        inoremap <C-c> <Esc>
+        nnoremap <space> viw
+        "inoremap jj <esc>
+        map q <NOP>
+        inoremap <leader>r q
+        nnoremap <leader>aa :ggVG<CR>
+        nnoremap <leader>ay :%y+<CR>
+        nnoremap <leader>ad :%d+<CR>
+        nnoremap g- ''
+
+    "<Splits>
+        noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
+        nnoremap <leader>ve :vsplit ~/dotfiles/vim/vimrc<CR>
+
+    "<Buffer>
+        "Close buffer
+            "noremap <leader>bq :bd<CR><ESC>
+            noremap <leader>bd :bp\|bd #<CR>
+        "Move between buffers
+            noremap <leader>h :bp<CR>
+            noremap <leader>l :bn<CR>
+        "History search
+            "noremap <leader><C-h> :browse oldfiles<CR>
+            "noremap <leader><C-h> :History<CR>
+
+    "<Windows>
+        noremap m <C-w>
+        "noremap H <C-w>h
+        "noremap L <C-w>l
+        noremap <TAB> <C-w>w
+        noremap <S-TAB> <C-w>h
+        "noremap <leader>o <C-w>o
+        "noremap <leader>qw <C-w>c
+
+    "<Appearence>
+        noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
+        noremap <leader>Z :setlocal nospell<CR>
+
+    "<Clipboard>
+        " 复制到系统剪切板
+        noremap <leader>y "+y
+        " 从系统剪切板中粘贴到当前位置
+        noremap <leader>p "+p
+        noremap <leader>" :reg<CR>
+
+    "<Folding>
+        "noremap <space> za
+        noremap <leader><return> zR
+        noremap <leader><space> zM
+        " >> 用空格键来开关折叠
+        "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+        "nnoremap <return> za
+
+    "<Highlights> -> 当输入查找命令时，再启用高亮
+        noremap n :set hlsearch<cr>n
+        noremap N :set hlsearch<cr>N
+        noremap / :set hlsearch<cr>/
+        noremap ? :set hlsearch<cr>?
+        noremap * *:set hlsearch<cr>
+
+    "<Builds/Compiles>----{
+        " Get current filetype -> :echo &filetype or as variable &filetype
+        " [ Builds / Compiles / Interpretes  ]
+        "<C/C++ Compiler>  -> Compile & run
+        autocmd FileType c noremap <buffer> <C-u> :w<CR>:!gcc % && ./a.out <CR>
+        autocmd FileType cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>
+        "<Python Interpreter>
+        autocmd FileType python noremap <buffer> <C-u> :w<CR>:!python % <CR>
+        "<Bash Script>
+        autocmd FileType sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
+        "<RCs> (Configs)
+        autocmd FileType vim,tmux noremap <buffer> <C-u> :w<CR><ESC>:source % <CR>
+        autocmd FileType zsh noremap <buffer> <C-u> :w<CR>:!source % <CR>
+        "<Executable>  -> conflict with above
+        ""noremap <buffer> <C-u> :!./% <CR>
+        ""noremap <buffer> <C-u> :! %:p <CR>
+    " }
+
+    "<NetRW> -> (Lexplore/Vexplore/Texplore/Explore/Sexplore/edit.)
+        "nnoremap <leader>f :Lexplore<CR>
+        "nnoremap <leader>f :Explore<CR>
+        "nnoremap <leader>f :edit.<CR>
+
+    "<Omni Autocomplete> -> Vim自带的Omni自动补全
+        "inoremap <C-d> <C-x><C-l>
+        "inoremap ' ''<Esc>i
+        "inoremap " ""<Esc>i
+        "inoremap ( ()<Esc>i
+        "inoremap [ []<Esc>i
+        "inoremap { {}<Esc>i
+
+    "<Plugins>------------------------------------{
+        "[Plugin Manager]
+            noremap <leader>I :PlugInstall<CR>
+
+        "[vim-obsession]
+            " Record session >> ":mksession" can't overwite
+            noremap <leader>S :Obsession /tmp/obsession.vim<CR><ESC>
+            " Restore session
+            noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
+
+        "[vimagit]
+            "let g:magit_show_magit_mapping='<leader>G'
+            let g:magit_show_magit_mapping='<leader>g'
+
+        "[tagbar] ->  "*"->open all folds; "="->close all folds
+            "noremap <leader>t :TagbarToggle<CR>=<ESC>
+            noremap <leader>t :TagbarOpen<CR>
+            noremap T :TagbarOpen<CR>
+
+        "[Auto-pair]
+        "imap <C-d> <Meta>
+        "imap <C-d>e <M-e>
+
+        "[fzf]
+            nnoremap <leader>// :Files %:p:h<CR>
+            nnoremap <leader>/l :Lines<CR>
+            nnoremap <leader>/h :History<CR>
+            nnoremap <leader>/c :History:<CR>
+            nnoremap <leader>/s :History/<CR>
+            nnoremap <leader>/n :Snippets<CR>
+            "nnoremap <leader>p/ :Files ..
+            "nnoremap <leader>color/ :Colors
+            "nnoremap <leader>k/ :Maps<CR>
+        "[Command-T File Searching]
+            "nnoremap <leader>/ :CommandT<CR>
+            "nnoremap <leader>c :CommandT<CR>
+
+        "[Nerdtree]
+            "nnoremap <leader>f :NERDTreeFocus<CR>
+            "nnoremap <leader>f :NERDTreeToggle<CR>
+            " Add '%' for changing root accordingly
+            nnoremap <leader>f :NERDTree %<CR>
+        "[Nerdtree Tabs]
+            " Shift Tabs
+            "nnoremap <C-h> gt
+            "nnoremap <C-l> gT
+            " New Tab
+            "nnoremap <leader>t :tabe<CR>
+            " Close Tab
+            "nnoremap <leader>c :tabc
+    " }
+" }
+
+
+
+" [  Search Highlighting  ]-----------{
+    set incsearch    "即时显示匹配结果
+    " >>
+        highlight Search guibg='Purple' guifg='NONE'
+        highlight IncSearch gui=underline,bold guifg=White guibg=Red3
+        "highlight IncSearch ctermbg=black ctermfg=yellow
+    " 鼠标无动作时取消高亮
+        autocmd cursorhold * set nohlsearch
+    " 括号匹配自动高亮
+        "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
+" }
+
+
+
+" [  Abbreviations  ]--------{
+    " Test
+        iabbrev waht what
+        iabbrev tehn then
+" }
+
+
+" [  Swap files  ]--------{
+    set swapfile    "enable swap file
+    set directory=/tmp    "set swp file directory.
+    set updatecount=20     "save swp file every amount of characters
+    " ▼ update also check cursor-holds and other functions, bit expensive one.
+    set updatetime=4000   "save swap file every amount of ms
+" }

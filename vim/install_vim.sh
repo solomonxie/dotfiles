@@ -54,9 +54,6 @@ do_install_vim(){
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
     curl -fLo $HOUSE/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall +qall
-
-    echo "-----[   Create Symlinks   ]-----"
-    ln -sf $HOUSE/dotfiles/vim/vimrc $HOUSE/.vimrc
 }
 
 install_vim_ubuntu(){
@@ -69,6 +66,8 @@ install_vim_ubuntu(){
     sudo chown -R ubuntu:ubuntu $HOUSE/.vim
     # sudo chown -R ubuntu $HOUSE/.vim >> $HOUSE/.init/log_vim.txt 1>&2
 
+    echo "-----[   Link VIMRC   ]-----"
+    ln -sf $HOUSE/dotfiles/vim/vimrc $HOUSE/.vimrc
 }
 
 install_vim_rpi(){
@@ -80,6 +79,9 @@ install_vim_rpi(){
     echo "-----[  Change permission   ]-----"
     sudo chown -R pi:pi $HOUSE/.vim
     #sudo chown -R ubuntu $HOUSE/.vim >> $HOUSE/.init/log_vim.txt 1>&2
+
+    echo "-----[   Link VIMRC   ]-----"
+    ln -sf $HOUSE/dotfiles/vim/vimrc-mini $HOUSE/.vimrc
 }
 
 install_vim_mac(){
@@ -88,6 +90,9 @@ install_vim_mac(){
     # Install plugin dependencies
     brew install ctags
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
+    echo "-----[   Link VIMRC   ]-----"
+    ln -sf $HOUSE/dotfiles/vim/vimrc $HOUSE/.vimrc
 }
 
 build_vim_pi(){

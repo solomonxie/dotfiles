@@ -1,68 +1,68 @@
-# Owner: Solomon Xie 
-# Email: solomonxiewise@gmail.com 
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail>
+#
 # Description: Additional configs for zshrc, which aren't good for public.
 #
 #
 #
-# ==== ALIAS ==== 
+# ==== ALIAS ====
 
 # Builtin Utils
 alias lah="ls -lah"
 
-# Config files 
-alias zshrc="vim ~/dotfiles/zsh/zshrc" 
+# Config files
+alias zshrc="vim ~/dotfiles/zsh/zshrc"
 alias zshrc2="vim ~/dotfiles/zsh/zshrc.extension"
 alias zshrc3="vim ~/dotfiles/zsh/zshrc.themes"
-alias ohmyzsh="vim ~/.oh-my-zsh" 
-alias vimrc="vim ~/dotfiles/vim/vimrc" 
-alias vimrc2="vim ~/dotfiles/vim/vimrc-plugins" 
-alias vimrc3="vim ~/dotfiles/vim/vimrc-keymappings" 
-alias vimrc4="vim ~/dotfiles/vim/vimrc-ui" 
-alias nvimrc="nvim ~/dotfiles/vim/init.vim" 
-alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf" 
-alias bashrc="vim ~/.bash_profile" 
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vimrc="vim ~/dotfiles/vim/vimrc"
+alias vimrc2="vim ~/dotfiles/vim/vimrc-plugins"
+alias vimrc3="vim ~/dotfiles/vim/vimrc-keymappings"
+alias vimrc4="vim ~/dotfiles/vim/vimrc-ui"
+alias nvimrc="nvim ~/dotfiles/vim/init.vim"
+alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf"
+alias bashrc="vim ~/.bash_profile"
 
 alias vim="nvim"
 #alias vi="vi --noplugin"
 
-# Shadowsocks proxy 
-alias proxy='export all_proxy=http://127.0.0.1:1080' 
-alias unproxy='unset all_proxy' 
+# Shadowsocks proxy
+alias proxy='export all_proxy=http://127.0.0.1:1080'
+alias unproxy='unset all_proxy'
 alias ip="curl https://ip.cn"
 alias hosts='sudo vim /etc/hosts'
 
-# frequent commands 
-alias ju="jupyter notebook" 
-alias repos="cd ~/Workspace/repos" 
+# frequent commands
+alias ju="jupyter notebook"
+alias repos="cd ~/Workspace/repos"
 #alias you="youtube-dl -civw --proxy "socks5://127.0.0.1:1086" -f best/mp4 --write-sub "
 alias you="youtube-dl"
 #alias fzf="~/.fzf/bin/fzf --height 40%"
 #alias vfzf="vim $(fzf)"
 #alias dfzf="cd $(sh 'find * -type d | fzf')"
 
-# Git commands  
-alias gs="git status" 
-alias gc="git add . && git commit" 
+# Git commands
+alias gs="git status"
+alias gc="git add . && git commit"
 alias gco="git checkout"
-alias gcp="git add . && git commit -m \"Update from $USER\" && git push -v" 
+alias gcp="git add . && git commit -m \"Update from $USER\" && git push -v"
 
 # Docker
 alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'
 
-# Tmux 
-#alias tmux="TERM=screen-256color-bce tmux" 
- 
-# Python Virtualenv 
-alias venv2="source ~/virtualenv/venv2/bin/activate" 
-alias venv3="source ~/virtualenv/venv3/bin/activate" 
+# Tmux
+#alias tmux="TERM=screen-256color-bce tmux"
+
+# Python Virtualenv
+alias venv2="source ~/virtualenv/venv2/bin/activate"
+alias venv3="source ~/virtualenv/venv3/bin/activate"
 alias venv-ju="source ~/virtualenv/venv-ju/bin/activate"
 alias venv-nvim="source ~/virtualenv/venv-ju/bin/activate"
- 
-# IDE 
-alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" 
-alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code" 
- 
-# Browsers 
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome" 
-alias safari="/Applications/Safari.app/Contents/MacOS/Safari" 
-alias opera="/Applications/Opera.app/Contents/MacOS/Opera" 
+
+# IDE
+alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+
+# Browsers
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias safari="/Applications/Safari.app/Contents/MacOS/Safari"
+alias opera="/Applications/Opera.app/Contents/MacOS/Opera"

@@ -1,36 +1,32 @@
 pane	0	1	:reattach-to-user-namespace	1	:*	1	:/Users/solomonxie	1	zsh	:
 pane	2	1	:reattach-to-user-namespace	1	:*	1	:/Users/solomonxie	1	zsh	:
-pane	MBA-Workspace	1	:Configs	1	:*	1	:/Users/solomonxie/.tmux/resurrect	1	zsh	:
-pane	MBA-Workspace	1	:Configs	1	:*	2	:/Users/solomonxie/Workspace/etc	0	zsh	:
-pane	MBA-Workspace	2	:Stats	0	:#	1	:/Users/solomonxie	1	htop	:htop
-pane	MBA-Workspace	2	:Stats	0	:#	2	:/Users/solomonxie/Workspace/repos/dotfiles/tldr	0	less	:less disk-utility.md
-pane	MBA-Workspace	2	:Stats	0	:#	3	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	2	:Stats	0	:#	4	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	3	:docker	0	:-	1	:/Users/solomonxie/Workspace/docker/docker-rpi	1	zsh	:
-pane	MBA-Workspace	3	:docker	0	:-	2	:/Users/solomonxie/Workspace/docker/docker-builds	0	zsh	:
-pane	MBA-Workspace	4	:Workspace	0	:#	1	:/Users/solomonxie/Workspace	0	zsh	:
-pane	MBA-Workspace	4	:Workspace	0	:#	2	:/Users/solomonxie/Workspace/repos/algorithms_and_data_structure	1	zsh	:
-pane	MBA-Workspace	4	:Workspace	0	:#	3	:/Users/solomonxie/Workspace/repos/dotfiles/tldr	0	zsh	:
-pane	MBA-Workspace	4	:Workspace	0	:#	4	:/Users/solomonxie/Workspace	0	zsh	:
-pane	MBA-Workspace	5	:Download	0	:#	1	:/Users/solomonxie	1	zsh	:
-pane	MBA-Workspace	5	:Download	0	:#	2	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	5	:Download	0	:#	3	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	5	:Download	0	:#	4	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	5	:Download	0	:#	5	:/Users/solomonxie/Movies	0	zsh	:
-pane	MBA-Workspace	6	:gitissues	0	:#	1	:/Users/solomonxie/Workspace/repos/gitissues	0	zsh	:
-pane	MBA-Workspace	6	:gitissues	0	:#	2	:/Users/solomonxie/Workspace/repos/gitissues	1	zsh	:
-pane	MBA-Workspace	6	:gitissues	0	:#	3	:/Users/solomonxie/Workspace/repos/gitissues	0	tail	:tail -f /Users/solomonxie/Workspace/autobackup/issues_blog/.local/log/last.log
-pane	MBA-Workspace	6	:gitissues	0	:#	4	:/Users/solomonxie/Workspace/autobackup/issues_blog	0	zsh	:
-pane	MBA-Workspace	7	:Remote	0	:#	1	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	7	:Remote	0	:#	2	:/Users/solomonxie	0	zsh	:
-pane	MBA-Workspace	7	:Remote	0	:#	3	:/Volumes/SD	1	zsh	:
-window	0	1	1	:*	b3fe,145x32,0,0,1
-window	2	1	1	:*	b3ff,145x32,0,0,2
-window	MBA-Workspace	1	1	:*	5975,145x32,0,0[145x16,0,0,3,145x15,0,17,4]
-window	MBA-Workspace	2	0	:#	d15a,145x32,0,0{86x32,0,0,5,58x32,87,0[58x10,87,0,6,58x15,87,11,7,58x5,87,27,8]}
-window	MBA-Workspace	3	0	:-	5986,145x32,0,0[145x15,0,0,9,145x16,0,16,10]
-window	MBA-Workspace	4	0	:#	5052,145x32,0,0{99x32,0,0[99x7,0,0,11,99x24,0,8,12],45x32,100,0[45x23,100,0,13,45x8,100,24,14]}
-window	MBA-Workspace	5	0	:#	2c2d,145x32,0,0{81x32,0,0,15,63x32,82,0[63x6,82,0,16,63x6,82,7,17,63x5,82,14,18,63x12,82,20,19]}
-window	MBA-Workspace	6	0	:#	9dab,145x32,0,0{90x32,0,0[90x7,0,0,20,90x24,0,8,21],54x32,91,0[54x19,91,0,22,54x12,91,20,23]}
-window	MBA-Workspace	7	0	:#	8a93,145x32,0,0[145x16,0,0{102x16,0,0,24,42x16,103,0,25},145x15,0,17,26]
-state	MBA-Workspace	2
+pane	6	1	:reattach-to-user-namespace	1	:*	1	:/Users/solomonxie	1	zsh	:
+pane	6	1	:reattach-to-user-namespace	1	:*	2	:/Users/solomonxie	0	htop	:htop
+pane	7	1	:reattach-to-user-namespace	1	:*	1	:/Users/solomonxie	1	zsh	:
+pane	MBA-Workspace	1	:CONFIG	1	:*	1	:/Users/solomonxie	1	zsh	:
+pane	MBA-Workspace	2	:STATS	0	:#-	1	:/Users/solomonxie	1	htop	:htop
+pane	MBA-Workspace	2	:STATS	0	:#-	2	:/Users/solomonxie	0	zsh	:
+pane	MBA-Workspace	2	:STATS	0	:#-	3	:/Users/solomonxie	0	tail	:tail -f /tmp/rsync.log
+pane	MBA-Workspace	2	:STATS	0	:#-	4	:/Users/solomonxie	0	less	:less /Users/solomonxie/Workspace/repos/dotfiles/tldr/disk-utility.md
+pane	MBA-Workspace	3	:DOCKER	0	:	1	:/Users/solomonxie/Workspace/docker/docker-rpi/init-rpi	0	zsh	:
+pane	MBA-Workspace	3	:DOCKER	0	:	2	:/Users/solomonxie/Workspace/docker/docker-builds/init-vps	1	zsh	:
+pane	MBA-Workspace	4	:VIDS	0	:	1	:/Users/solomonxie/Movies	1	zsh	:zsh
+pane	MBA-Workspace	4	:VIDS	0	:	2	:/Users/solomonxie	0	less	:less /Users/solomonxie/Workspace/repos/dotfiles/tldr/download.md
+pane	MBA-Workspace	4	:VIDS	0	:	3	:/Users/solomonxie	0	zsh	:
+pane	MBA-Workspace	4	:VIDS	0	:	4	:/Volumes/SD/Videos	0	zsh	:
+pane	MBA-Workspace	5	:W1	0	:	1	:/Users/solomonxie/Workspace/repos/gitissues	1	zsh	:
+pane	MBA-Workspace	6	:W2	0	:Z	1	:/Users/solomonxie/Workspace/repos/Spoilfy/webapi/spotify	1	zsh	:zsh
+pane	MBA-Workspace	6	:W2	0	:Z	2	:/Users/solomonxie	0	zsh	:
+pane	MBA-Workspace	7	:W3	0	:	1	:/Users/solomonxie/Workspace/repos/LeetCode	1	zsh	:
+window	0	1	1	:*	b5be,158x32,0,0,1
+window	2	1	1	:*	b5bf,158x32,0,0,2
+window	6	1	1	:*	6343,160x41,0,0{80x41,0,0,48,79x41,81,0,50}
+window	7	1	1	:*	d839,160x41,0,0,49
+window	MBA-Workspace	1	1	:*	583a,160x41,0,0,78
+window	MBA-Workspace	2	0	:#-	0c27,160x41,0,0[160x29,0,0{79x29,0,0,6,80x29,80,0,7},160x11,0,30{79x11,0,30,8,80x11,80,30,9}]
+window	MBA-Workspace	3	0	:	e19b,160x41,0,0[160x23,0,0,10,160x17,0,24,11]
+window	MBA-Workspace	4	0	:	edaf,160x41,0,0{89x41,0,0,12,70x41,90,0[70x20,90,0,13,70x7,90,21,14,70x12,90,29,15]}
+window	MBA-Workspace	5	0	:	5835,160x41,0,0,16
+window	MBA-Workspace	6	0	:Z	b92d,160x41,0,0[160x32,0,0,20,160x8,0,33,73]
+window	MBA-Workspace	7	0	:	d832,160x41,0,0,23
+state	MBA-Workspace	

@@ -16,22 +16,22 @@
 " }
 
 
-" [  Plugins Manager vim-plug  ]
-call plug#begin('~/.vim/plugged')
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-    Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
-    Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
-call plug#end()
-" [  Plugin Settings  ]-----------{
-    "<vim-obsession>
+" [  Plugins Manager vim-plug  ]-----------------------------------{
+    call plug#begin('~/.vim/plugged')
+        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        Plug 'junegunn/fzf.vim'
+        Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
+        Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
+    call plug#end()
+    "[Plugin Settings]
+        "<vim-obsession>
         function! AutoObsession()
             if bufnr('%') >= 3
                 :Obsession /tmp/obsession.vim
             endif
         endfunction
         autocmd VimLeave * call AutoObsession()
-    "<fzf>
+        "<fzf>
         let g:fzf_layout = { 'down': '~40%' }
 " }
 

@@ -93,6 +93,7 @@
     "elseif arch == 'x86_64'
     "    let has_pc = 1  "Mac / PC
     "endif
+    let file_ext = expand('%:e')
 " }
 
 

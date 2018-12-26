@@ -64,7 +64,7 @@
     set incsearch               " 即时显示匹配结果
 
     "<Buffer>
-        autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
+        "autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
 " }
 
 
@@ -93,7 +93,7 @@
     "elseif arch == 'x86_64'
     "    let has_pc = 1  "Mac / PC
     "endif
-    let file_ext = expand('%:e')
+    "let file_ext = expand('%:e')
 " }
 
 

@@ -9,14 +9,15 @@
         "Save & Exit
         noremap  <C-x> <ESC>:x<CR><ESC>
         noremap <leader>j :jumps<CR>
+        noremap <leader>oa :next *<CR>
 
     "<Edits> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
         nnoremap <space> viw
         "inoremap jj <esc>
-        map q <NOP>
-        inoremap <leader>r q
+        "map q <NOP>
+        "inoremap <leader>r q
         nnoremap <leader>aa :ggVG<CR>
         nnoremap <leader>ay :%y+<CR>
         nnoremap <leader>ad :%d+<CR>
@@ -32,7 +33,7 @@
     "<Buffer>
         "Close buffer
             "noremap <leader>bq :bd<CR><ESC>
-            noremap <leader>bd :bp\|bd #<CR>
+            noremap <leader>q :bp\|bd #<CR>
         "Move between buffers
             noremap <leader>h :bp<CR>
             noremap <leader>l :bn<CR>

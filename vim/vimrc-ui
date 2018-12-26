@@ -16,13 +16,16 @@
         syntax enable
 
     " <Color Scheme>  --> Overwriting Alert!
-        set termguicolors   ">> Not compatiple with many themes
-        "colorscheme material-monokai ">> Super slow, has block color comment
-        colorscheme gruvbox ">> grubox is slow for old machine
+        if has('mac')
+            set termguicolors   ">> Not compatiple with many themes
+            "colorscheme material-monokai ">> Super slow, has block color comment
+            colorscheme gruvbox ">> grubox is slow for old machine
+        elseif
         " -> Alternative
-            "colorscheme monokai "Fast (sickill/vim-monokai)
-            "highlight Normal ctermbg=NONE
-            "highlight nonText ctermbg=NONE
+            colorscheme monokai "Fast (sickill/vim-monokai)
+            highlight Normal ctermbg=NONE
+            highlight nonText ctermbg=NONE
+        endif
 
     " <Highlight Settings>  --> Overwriting Alert!
         "hi! VertSplit guifg=red guibg=blue term=None

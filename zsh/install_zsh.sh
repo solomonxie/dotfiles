@@ -23,9 +23,11 @@ do_init_zsh(){
     case $MYOS in
         ubuntu|raspbian)
             sudo apt-get install zsh -y
+            ln -sf $SRC/zsh/zshrc $HOUSE/.zshrc
             ;;
         mac)
             brew install zsh
+            ln -sf $SRC/zsh/zshrc-mac $HOUSE/.zshrc
             # Theme: powerlevel9k
                 #git clone https://github.com/bhilburn/powerlevel9k.git $HOUSE/.oh-my-zsh/custom/themes/powerlevel9k
                 #pip install powerline-status --user
@@ -33,11 +35,6 @@ do_init_zsh(){
     esac
     # Make paths for ZSH extensions
     mkdir -p "$HOUSE/.zsh"
-
-    # Create Symlinks
-    ln -sf $SRC/zsh/zshrc $HOUSE/.zshrc
-    ln -sf $SRC/zsh/zshrc.themes $HOUSE/.zshrc.themes
-    ln -sf $SRC/zsh/zshrc.extension $HOUSE/.zshrc.extension
 
     # Install Plugins
     install_zsh_plugins

@@ -65,6 +65,7 @@
 
     "<Buffer>
         "autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
+        set splitright  "Default split at right
 " }
 
 

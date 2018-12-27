@@ -9,21 +9,21 @@
 # Builtin Utils
 alias lah="ls -lah"
 
-# Config files
-alias zshrc="vim ~/dotfiles/zsh/zshrc"
-alias zshrc2="vim ~/dotfiles/zsh/zshrc.extension"
-alias zshrc3="vim ~/dotfiles/zsh/zshrc.themes"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias vimrc="vim ~/dotfiles/vim/vimrc"
-alias vimrc2="vim ~/dotfiles/vim/vimrc-plugins"
-alias vimrc3="vim ~/dotfiles/vim/vimrc-keymappings"
-alias vimrc4="vim ~/dotfiles/vim/vimrc-ui"
-alias nvimrc="nvim ~/dotfiles/vim/init.vim"
-alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf"
-alias bashrc="vim ~/.bash_profile"
-
+# Program replacements
 alias vim="nvim"
 #alias vi="vi --noplugin"
+
+# Config files
+alias zshrc="nvim ~/dotfiles/zsh/zshrc-mac"
+alias zshrc2="nvim ~/dotfiles/zsh/zshrc-mac.aliases"
+alias zshrc3="nvim ~/dotfiles/zsh/zshrc.themes"
+alias vimrc="nvim ~/dotfiles/vim/vimrc"
+alias vimrc2="nvim ~/dotfiles/vim/vimrc-plugins"
+alias vimrc3="nvim ~/dotfiles/vim/vimrc-keymappings"
+alias vimrc4="nvim ~/dotfiles/vim/vimrc-ui"
+alias nvimrc="nvim ~/dotfiles/vim/init.vim"
+alias tmuxrc="nvim ~/dotfiles/tmux/tmux.conf"
+alias bashrc="nvim ~/.bashrc"
 
 # Shadowsocks proxy
 alias proxy='export all_proxy=http://127.0.0.1:1080'

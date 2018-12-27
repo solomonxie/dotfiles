@@ -25,7 +25,7 @@
 
     "<Splits>
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
-        nnoremap <leader>ve :vsplit<CR><C-w>l<ESC>:e $MYVIMRC<CR>
+        nnoremap <leader>ve :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc<CR>
         nnoremap <leader>vk :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
         nnoremap <leader>vp :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
         nnoremap <leader>vu :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>

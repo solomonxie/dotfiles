@@ -10,15 +10,15 @@
 alias lah="ls -lah"
 
 # Program replacements
-alias vim="nvim"
+#alias vim="nvim"
 
 # Config files
-alias zshrc="nvim ~/dotfiles/zsh/zshrc"
-alias zshrc2="nvim ~/dotfiles/zsh/zshrc.extension"
-alias zshrc3="nvim ~/dotfiles/zsh/zshrc.themes"
-alias vimrc="nvim ~/.vimrc"
-alias tmuxrc="nvim ~/.tmux.conf"
-alias bashrc="nvim ~/.bash_profile"
+alias zshrc="vim ~/dotfiles/zsh/zshrc"
+alias zshrc2="vim ~/dotfiles/zsh/zshrc.aliases"
+alias zshrc3="vim ~/dotfiles/zsh/zshrc.themes"
+alias vimrc="vim ~/.vimrc"
+alias tmuxrc="vim ~/.tmux.conf"
+alias bashrc="vim ~/.bash_profile"
 
 # Shadowsocks proxy
 alias proxy='export ALL_PROXY=socks5://127.0.0.1:1080'

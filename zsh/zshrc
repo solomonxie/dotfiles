@@ -17,12 +17,13 @@
     set HOSTALIASES=~/hosts
 
 # Make some device-specific aliased in another file
-    source ~/dotfiles/zsh/zshrc.extension-mac
+    source ~/dotfiles/zsh/zshrc.aliases
 
 # Theme settings {
     source ~/dotfiles/zsh/zshrc.themes
     #set_theme_agnoster
-    set_theme_powerlevel9k
+    set_theme_awesomepanda
+    #set_theme_powerlevel9k
 # }
 
 # General settings {

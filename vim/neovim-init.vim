@@ -87,7 +87,7 @@ call vundle#end()
 " General Settings ==================={{{
     filetype plugin indent on    " [Essential]
     set nocompatible   " be iMproved, required
-    "colorscheme gruvbox 
+    "colorscheme gruvbox
     syntax enable 
     set ignorecase "Case Insensitive
     set smartcase  "Also detects specified case

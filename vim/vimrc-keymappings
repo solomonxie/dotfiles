@@ -25,10 +25,10 @@
 
     "<Splits>
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
-        nnoremap <leader>ve :vsplit $MYVIMRC<CR>
-        nnoremap <leader>vk :vsplit ~/dotfiles/vim/vimrc-keymappings<CR>
-        nnoremap <leader>vp :vsplit ~/dotfiles/vim/vimrc-plugins<CR>
-        nnoremap <leader>vu :vsplit ~/dotfiles/vim/vimrc-ui<CR>
+        nnoremap <leader>ve :vsplit<CR><C-w>l<ESC>:e $MYVIMRC<CR>
+        nnoremap <leader>vk :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
+        nnoremap <leader>vp :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
+        nnoremap <leader>vu :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
 
     "<Buffer>
         "Close buffer

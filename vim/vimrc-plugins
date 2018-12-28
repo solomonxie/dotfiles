@@ -31,6 +31,9 @@ call plug#begin('~/.vim/plugged')
 
         "<Window>
 
+        "<Terminal>
+            "Plug 'kassio/neoterm'
+
     " [    Browsing   ]
 
         "<Fuzzy File Search>

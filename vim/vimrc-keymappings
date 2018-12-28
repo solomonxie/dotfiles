@@ -33,7 +33,7 @@
     "<Buffer>
         "Close buffer
             noremap <leader>q :bd<CR><ESC>
-            "noremap <leader>q :bp\|bd #<CR>
+            "noremap <leader>q :bp \| bd# <CR>
         "Move between buffers
             noremap <leader>h :bp<CR>
             noremap <leader>l :bn<CR>
@@ -95,7 +95,7 @@
         "<Bash Script>
         autocmd BufReadPre *.sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
         "<RCs> (Configs)
-        autocmd BufReadPre .vimrc,vimrc*,.zshrc,zshrc* noremap <buffer> <C-u> :w<CR>:!source % <CR>
+        autocmd BufReadPre .vimrc,vimrc*,.zshrc,zshrc* noremap <buffer> <C-u> :w<CR>:source % <CR>
         "<Executable>  -> conflict with above
         ""noremap <buffer> <C-u> :!./% <CR>
         ""noremap <buffer> <C-u> :! %:p <CR>

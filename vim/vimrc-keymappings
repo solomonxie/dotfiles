@@ -32,8 +32,8 @@
 
     "<Buffer>
         "Close buffer
-            "noremap <leader>bq :bd<CR><ESC>
-            noremap <leader>q :bp\|bd #<CR>
+            noremap <leader>q :bd<CR><ESC>
+            "noremap <leader>q :bp\|bd #<CR>
         "Move between buffers
             noremap <leader>h :bp<CR>
             noremap <leader>l :bn<CR>
@@ -49,6 +49,14 @@
         noremap <S-TAB> <C-w>h
         "noremap <leader>o <C-w>o
         "noremap <leader>qw <C-w>c
+
+    "<Terminal>
+        noremap <leader>T :bot split \| resize 10 \| terminal<CR>i
+        tnoremap <ESC> <C-\><C-n>
+        tnoremap <C-c><C-c> <C-\><C-n>
+        "tnoremap <C-q> <C-c><C-u><C-k>exit 0;<CR>
+        tnoremap <C-q> <C-\><C-n>:bd!<CR>
+        "tnoremap <leader>q <C-w>:q!<CR>
 
     "<Appearence>
         noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
@@ -80,18 +88,24 @@
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
         "<C/C++ Compiler>  -> Compile & run
-        autocmd FileType c noremap <buffer> <C-u> :w<CR>:!gcc % && ./a.out <CR>
-        autocmd FileType cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>
+        autocmd BufReadPre *.c noremap <buffer> <C-u> :w<CR>:!gcc % && ./a.out <CR>
+        autocmd BufReadPre *.cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>
         "<Python Interpreter>
-        autocmd FileType python noremap <buffer> <C-u> :w<CR>:!python % <CR>
+        autocmd BufReadPre *.py noremap <buffer> <C-u> :w<CR>:!python %:p <CR>
         "<Bash Script>
-        autocmd FileType sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
+        autocmd BufReadPre *.sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
         "<RCs> (Configs)
-        autocmd FileType vim,tmux noremap <buffer> <C-u> :w<CR><ESC>:source % <CR>
-        autocmd FileType zsh noremap <buffer> <C-u> :w<CR>:!source % <CR>
+        autocmd BufReadPre .vimrc,vimrc*,.zshrc,zshrc* noremap <buffer> <C-u> :w<CR>:!source % <CR>
         "<Executable>  -> conflict with above
         ""noremap <buffer> <C-u> :!./% <CR>
         ""noremap <buffer> <C-u> :! %:p <CR>
+        ">Use FileType group
+        "autocmd FileType vim,tmux noremap <buffer> <C-u> :w<CR><ESC>:source % <CR>
+        "autocmd FileType zsh noremap <buffer> <C-u> :w<CR>:!source % <CR>
+        "autocmd FileType sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
+        "autocmd FileType python noremap <buffer> <C-u> :w<CR>:!python % <CR>
+        "autocmd FileType c noremap <buffer> <C-u> :w<CR>:!gcc % && ./a.out <CR>
+        "autocmd FileType cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>
     " }
 
     "<NetRW> -> (Lexplore/Vexplore/Texplore/Explore/Sexplore/edit.)

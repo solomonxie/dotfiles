@@ -1,4 +1,4 @@
-#! /bin/bash 
+#! /bin/bash
 #
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Ubuntu / Raspbian / MacOS Sierra
@@ -43,7 +43,7 @@ do_install_nvim(){
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $HOUSE/.vim/colors
     cp $SRC/vim/colors/gruvbox.vim $HOUSE/.vim/colors/gruvbox.vim
-    
+
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
     mkdir -p $HOUSE/.vim/syntax

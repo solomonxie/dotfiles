@@ -101,7 +101,9 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "==============================PLUGIN SETTINGS=================================
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+function PluginSettings()
+    echo ""
+endfunction
 
 
 " <Vim Obsession>--------{
@@ -113,7 +115,7 @@ call plug#end()
                 :Obsession /tmp/obsession.vim
             endif
         endfunction
-        autocmd VimLeave * call AutoObsession()
+        autocmd BufEnter * call AutoObsession()
 " }
 
 " <UltiSnips>--------{

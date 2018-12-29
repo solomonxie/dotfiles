@@ -115,7 +115,7 @@ endfunction
                 :Obsession /tmp/obsession.vim
             endif
         endfunction
-        autocmd BufEnter * silent call AutoObsession()
+        autocmd BufNew * call AutoObsession()
 " }
 
 " <UltiSnips>--------{

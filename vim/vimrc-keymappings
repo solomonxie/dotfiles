@@ -11,6 +11,14 @@
         noremap <leader>j :jumps<CR>
         noremap <leader>oa :next *<CR>
 
+    "<Navigate>
+        "{Go-next-call}
+        nnoremap gn yiw/<C-r>0<CR>
+        "{Go-definition}
+        nnoremap gd gd
+        "{Highlight all current word}
+        nnoremap * *
+
     "<Edits> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
@@ -21,13 +29,19 @@
         nnoremap <leader>aa :ggVG<CR>
         nnoremap <leader>ay :%y+<CR>
         nnoremap <leader>ad :%d+<CR>
-        nnoremap g- ''
+        "nnoremap g- ''
+        "{Replace-all}
+        nnoremap <leader>ra yiw:% s/<C-r>0//g<Left><Left>
 
     "<Splits>
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
+        "{vimrc-edit}
         nnoremap <leader>ve :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc<CR>
+        "{vimrc-keymapping}
         nnoremap <leader>vk :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
+        "{vimrc-plugin}
         nnoremap <leader>vp :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
+        "{vimrc-ui}
         nnoremap <leader>vu :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
 
     "<Buffer>

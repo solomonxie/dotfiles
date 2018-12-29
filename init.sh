@@ -128,6 +128,8 @@ do_init_mac(){
     # Xcode
     # .... you want to install that in App Store....
     # 
+    # Fonts
+    brew cask install font-hack-nerd-font
 }
 
 

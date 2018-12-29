@@ -21,6 +21,9 @@
 call plug#begin('~/.vim/plugged')
     " [    UI / Appearence     ]
 
+        "<Theme>
+            Plug 'morhetz/gruvbox'
+
         "<STATUS-BAR>
             Plug 'vim-airline/vim-airline'
             Plug 'vim-airline/vim-airline-themes'

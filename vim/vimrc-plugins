@@ -58,6 +58,9 @@ call plug#begin('~/.vim/plugged')
         "<Git>
             Plug 'jreybert/vimagit'  "Much easier with Git
 
+        "<Documentation>
+            "Plug 'powerman/vim-plugin-viewdoc' "K-preview improvement
+
     " [   INSERTION    ]
 
         "<Autocomplete>
@@ -118,8 +121,15 @@ endfunction
                 :Obsession /tmp/obsession.vim
             endif
         endfunction
-        autocmd BufNew * call AutoObsession()
+        autocmd VimLeave * call AutoObsession()
 " }
+
+
+" <Vim-auto-pairs>--------{
+    let g:AutoPairsMapCR = 0  "Bug for nested level
+    "let g:AutoPairsCenterLine = 0
+" }
+
 
 " <UltiSnips>--------{
     " Trigger configuration.
@@ -152,6 +162,12 @@ endfunction
     "let g:pydiction_location = '$HOME/.vim/plugged/pydiction/complete-dict'
     "let g:pydiction_menu_height = 7
 " }
+
+
+" <ViewDoc>-------------{
+    let g:viewdoc_open = 'belowright new' "tabnew|belowright new|topleft new
+" }
+
 
 " <Vim markdown preview>-------------{
     let vim_markdown_preview_github=1

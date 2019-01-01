@@ -36,13 +36,13 @@
     "<Splits>
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         "{vimrc-edit}
-        nnoremap <leader>ve :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc<CR>
+        nnoremap <leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
         "{vimrc-keymapping}
-        nnoremap <leader>vk :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
+        nnoremap <leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
         "{vimrc-plugin}
-        nnoremap <leader>vp :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
+        nnoremap <leader>vp :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
         "{vimrc-ui}
-        nnoremap <leader>vu :vsplit<CR><C-w>l<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
+        nnoremap <leader>vu :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
 
     "<Buffer>
         "Close buffer
@@ -106,6 +106,7 @@
             autocmd BufReadPre *.cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>
         "<Python Interpreter>
             autocmd BufReadPre *.py noremap <buffer> <C-u> :w<CR>:!python %:p <CR>
+            "autocmd BufReadPre *.py noremap <buffer> K yiw:!pydoc <C-r>0<CR>
         "<Bash Script>
             autocmd BufReadPre *.sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
         "<RCs> (Configs)

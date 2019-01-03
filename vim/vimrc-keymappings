@@ -31,7 +31,7 @@
         nnoremap <leader>ad :%d+<CR>
         "nnoremap g- ''
         "{Replace-all}
-        nnoremap <leader>ra yiw:% s/<C-r>0//g<Left><Left>
+        noremap <leader>ra y:% s/<C-r>0//g<Left><Left>
 
     "<Splits>
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
@@ -73,8 +73,8 @@
         "tnoremap <leader>q <C-w>:q!<CR>
 
     "<Appearence>
-        noremap <leader>z :setlocal spell spelllang=en,en_us,cjk<CR>
-        noremap <leader>Z :setlocal nospell<CR>
+        noremap <leader>90 :setlocal spell spelllang=en,en_us,cjk<CR>
+        noremap <leader>99 :setlocal nospell<CR>
 
     "<Clipboard>
         " 复制到系统剪切板

@@ -117,7 +117,8 @@
         "<Bash Script>
             autocmd BufReadPre *.sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
         "<RCs> (Configs)
-            autocmd BufReadPre .vimrc,vimrc*,.zshrc,zshrc* noremap <buffer> <C-u> :w<CR>:source % <CR>
+            autocmd BufReadPre .vimrc,vimrc* noremap <buffer> <C-u> :w<CR>:source % <CR>
+            autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <C-u> :w<CR>:!source % <CR>
         "<Executable>  -> conflict with above
         ""noremap <buffer> <C-u> :!./% <CR>
         ""noremap <buffer> <C-u> :! %:p <CR>

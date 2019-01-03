@@ -52,7 +52,9 @@ do_install_vim(){
 
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
-    curl -fLo $HOUSE/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    #curl -sSL https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim --create-dirs -o $HOUSE/.vim/autoload/plug.vim
+    mkdir -p $HOUSE/.vim/autoload
+    wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -o $HOUSE/.vim/autoload/
     vim +PlugInstall +qall
 }
 

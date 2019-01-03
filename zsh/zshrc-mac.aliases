@@ -12,6 +12,7 @@ alias lah="ls -lah"
 # Program replacements
 alias vim="nvim"
 #alias vi="vi --noplugin"
+alias rec="asciinema rec"
 
 # Config files
 alias zshrc="nvim ~/dotfiles/zsh/zshrc-mac"
@@ -24,6 +25,7 @@ alias vimrc4="nvim ~/dotfiles/vim/vimrc-ui"
 alias nvimrc="nvim ~/dotfiles/vim/init.vim"
 alias tmuxrc="nvim ~/dotfiles/tmux/tmux.conf"
 alias bashrc="nvim ~/.bashrc"
+alias gitrc="nvim ~/.gitconfig"
 
 # Shadowsocks proxy
 alias proxy='export all_proxy=http://127.0.0.1:1080'

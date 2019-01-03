@@ -1,3 +1,9 @@
+" -------------[ STANDARD VIMRC ]---------------
+"
+" MAINTAINER: Solomon Xie <solomonxiewise@gmail>
+" Enviroment: MacOS Sierra / Raspbian / Ubuntu
+"
+" Dependencies:
 
 " [   Key Mappings / Bindings   ]----------------------------{
     "<Leader key>
@@ -5,7 +11,7 @@
 
     "<Files>
         "Save file
-        noremap  <leader>s <ESC>:w<CR><ESC>
+        "noremap  <leader>s <ESC>:w<CR><ESC>
         "Save & Exit
         noremap  <C-x> <ESC>:x<CR><ESC>
         noremap <leader>j :jumps<CR>
@@ -19,7 +25,7 @@
         "{Highlight all current word}
         nnoremap * *
 
-    "<Edits> -> <Tab> default set to <C-i>, but remap not working
+    "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
         nnoremap <space> viw
@@ -32,8 +38,9 @@
         "nnoremap g- ''
         "{Replace-all}
         noremap <leader>ra y:% s/<C-r>0//g<Left><Left>
+        inoremap <C-v> <C-r>0
 
-    "<Splits>
+    "<Split>
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         "{vimrc-edit}
         nnoremap <leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
@@ -55,7 +62,7 @@
             "noremap <leader><C-h> :browse oldfiles<CR>
             "noremap <leader><C-h> :History<CR>
 
-    "<Windows>
+    "<Window>
         noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l

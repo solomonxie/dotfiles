@@ -19,25 +19,29 @@ cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
 #-------------------------------------
 
 do_init_zsh(){
+    # Make paths for ZSH extensions
+    mkdir -p "$HOUSE/.zsh"
+
     # Do different things with different OS
     case $MYOS in
         ubuntu|raspbian)
             sudo apt-get install zsh -y
+            # Install Plugins
+            install_zsh_plugins
+            # Link config file
             ln -sf $SRC/zsh/zshrc $HOUSE/.zshrc
             ;;
         mac)
             brew install zsh
+            # Install Plugins
+            install_zsh_plugins
+            # Link config file
             ln -sf $SRC/zsh/zshrc-mac $HOUSE/.zshrc
             # Theme: powerlevel9k
                 #git clone https://github.com/bhilburn/powerlevel9k.git $HOUSE/.oh-my-zsh/custom/themes/powerlevel9k
                 #pip install powerline-status --user
             ;;
     esac
-    # Make paths for ZSH extensions
-    mkdir -p "$HOUSE/.zsh"
-
-    # Install Plugins
-    install_zsh_plugins
 
     # Check installment
     echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"

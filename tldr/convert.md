@@ -29,3 +29,5 @@
 - PDF to JPG
 - PDF to Word
 - Word to PDF
+- Combin JPGs to PDF
+    `$ convert "*.{png,jpg,jpeg}" -monitor -quality 100 outfile.pdf`

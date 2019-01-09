@@ -53,14 +53,23 @@
 
     "<Buffer>
         "Close buffer
-            noremap <leader>q :bd<CR><ESC>
-            "noremap <leader>q :bp \| bd# <CR>
+            noremap <leader>q :bdelete<CR><ESC>
+            "noremap <leader>q :bprev \| bd# <CR>
         "Move between buffers
-            noremap <leader>h :bp<CR>
-            noremap <leader>l :bn<CR>
+            noremap <leader>h :bprev<CR>
+            noremap <leader>l :bnext<CR>
         "History search
             "noremap <leader><C-h> :browse oldfiles<CR>
             "noremap <leader><C-h> :History<CR>
+
+    "<Tab>
+        "Builtin: gt/gT
+        nnoremap tc :tabnew<CR>
+        nnoremap tq :tabclose<CR>
+        nnoremap tn :tabnext<CR>
+        nnoremap tp :tabprev<CR>
+        nnoremap th :tabfirst<CR>
+        nnoremap tl :tablast<CR>
 
     "<Window>
         noremap m <C-w>

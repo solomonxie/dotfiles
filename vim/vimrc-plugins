@@ -1,15 +1,10 @@
-" -------------[ STANDARD VIMRC ]---------------
-"
-" MAINTAINER: Solomon Xie <solomonxiewise@gmail>
-" Enviroment: MacOS Sierra / Raspbian / Ubuntu
-"
 " Dependencies:
 "     " [Plugins Manager: Vim-Plug]
-"       $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"           $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "     " [Plug  dependencies]
-"       $ brew install ctags
-"       $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+"           $ brew install ctags
+"           $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 "
 " Commands:
 "     - Install plugins: ":PlugInstall"
@@ -261,22 +256,28 @@ endfunction
 
 " <Status-Line>-----------{
     " @airline
-        set t_Co=256      "在windows中用xshell连接打开vim可以显示色彩
-        let g:airline#extensions#tabline#enabled = 1   " 是否打开tabline
-    "这个是安装字体后 必须设置此项"
-        let g:airline_powerline_fonts = 1
-        set laststatus=2  "永远显示状态栏
-        let g:airline_theme='bubblegum' "选择主题
-        let g:airline#extensions#tabline#enabled=1  "显示窗口tab和buffer
-        "let g:airline#extensions#tabline#left_sep = ' '  "separater
-        "let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
-        "let g:airline#extensions#tabline#formatter = 'default'  "formater
+        set t_Co=256 "For Windows
+        let g:airline#extensions#tabline#enabled = 1  "Enable airline
+        let g:airline_powerline_fonts=1 "Essential
+        set laststatus=2  "2:always show
         let g:airline_left_sep = '▶'
         let g:airline_left_alt_sep = '❯'
         let g:airline_right_sep = '◀'
         let g:airline_right_alt_sep = '❮'
-        "let g:airline_symbols.linenr = '¶'
-        "let g:airline_symbols.branch = '⎇'
+        " @airline-extension-theme
+            let g:airline_theme='bubblegum' "Default
+            "let g:airline_theme='gruvbox'  "grubox|deus|badwolf|solarized
+        " @airline-extension-tabline
+            let g:airline#extensions#tabline#enabled=1  "enable tabline
+            let g:airline#extensions#tabline#tab_nr_type=2 "Number range
+            let g:airline#extensions#tabline#buffer_idx_mode=1
+            let g:airline#extensions#tabline#show_buffers = 1
+            "let g:airline#extensions#tabline#buffer_idx_format={}
+            let g:airline#extensions#tabline#tabs_label = ''
+            let g:airline#extensions#tabline#show_splits = 0
+            "let g:airline#extensions#tabline#left_sep = ' '  "separater
+            "let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
+            "let g:airline#extensions#tabline#formatter = 'default'  "formater
     " @lightline
         "set laststatus=2 " startup the lightline.vim
         "let g:lightline = { 'colorscheme': 'powerline', }
@@ -319,23 +320,24 @@ endfunction
         let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
         let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
         let NERDTreeChDirMode=2    " Change current working directory based on root directory in NERDTree
-        let g:NERDTreeHidden=1     " 不显示隐藏文件
+        let g:NERDTreeHidden=1     " Don't show hidden files
         let NERDTreeWinSize=30     " Initial NERDTree width
         let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
         "let NERDTreeShowBookmarks=0   " Show NERDTree bookmarks
         let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']   " Hide temp files in NERDTree
-        "let g:NERDTreeShowLineNumbers=1  " 显示菜单上行号
-    " 打开vim时如果没有文件自动打开NERDTree
+        "let g:NERDTreeShowLineNumbers=1  " Show Line Number
+    " Open Nerdtree when there's no file opened
         "autocmd vimenter * if !argc()|NERDTree|endif
-    " 或, 自动开启Nerdtree
+    " Or, auto-open Nerdtree
         "autocmd vimenter * NERDTree
-    " 当NERDTree为剩下的唯一窗口时自动关闭
+    " Close NERDTree when there's no other windows
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    " 设置树的显示图标
+    " Customize icons on Nerdtree
         let g:NERDTreeDirArrowExpandable = '▸'
         let g:NERDTreeDirArrowCollapsible = '▾'
 
     ">> NERDTREE-GIT
+        " Special characters
     let g:NERDTreeIndicatorMapCustom = {
         \ "Modified"  : "✹",
         \ "Staged"    : "✚",
@@ -350,7 +352,7 @@ endfunction
     \ }
 
     ">> NERDTree-Tabs
-        "let g:nerdtree_tabs_open_on_console_startup=1 "设置打开vim的时候默认打开tabs
+        "let g:nerdtree_tabs_open_on_console_startup=1 "Auto-open Nerdtree-tabs on VIM enter
     ">> Nerdtree-devicons
         "set guifont=DroidSansMono_Nerd_Font:h11
     ">> Nerdtree-syntax-highlighting

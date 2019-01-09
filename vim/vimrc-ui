@@ -1,4 +1,3 @@
-
 " [  Builtin UI / Color Scheme  ]---------{
     " <Basic Settings>
         set t_Co=256   ">> Overwriting Alert !!

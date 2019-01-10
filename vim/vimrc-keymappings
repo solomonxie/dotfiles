@@ -1,10 +1,3 @@
-" -------------[ STANDARD VIMRC ]---------------
-"
-" MAINTAINER: Solomon Xie <solomonxiewise@gmail>
-" Enviroment: MacOS Sierra / Raspbian / Ubuntu
-"
-" Dependencies:
-
 " [   Key Mappings / Bindings   ]----------------------------{
     "<Leader key>
         let mapleader = ','
@@ -43,21 +36,23 @@
     "<Split>
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         "{vimrc-edit}
-        nnoremap <leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
+        "nnoremap <leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
+        nnoremap <leader>ve :source ~/dotfiles/vim/workspace.vim<CR>
+        "nnoremap <leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
         "{vimrc-keymapping}
-        nnoremap <leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
+        "nnoremap <leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
         "{vimrc-plugin}
-        nnoremap <leader>vp :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
+        "nnoremap <leader>vp :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
         "{vimrc-ui}
-        nnoremap <leader>vu :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
+        "nnoremap <leader>vu :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
 
     "<Buffer>
         "Close buffer
             noremap <leader>q :bdelete<CR><ESC>
             "noremap <leader>q :bprev \| bd# <CR>
         "Move between buffers
-            noremap <leader>bh :bprev<CR>
-            noremap <leader>bl :bnext<CR>
+            noremap Bh :bprev<CR>
+            noremap Bl :bnext<CR>
         "History search
             "noremap <leader><C-h> :browse oldfiles<CR>
             "noremap <leader><C-h> :History<CR>
@@ -65,11 +60,12 @@
     "<Tab>
         "Builtin: gt/gT
         nnoremap tc :tabnew<CR>
-        nnoremap tq :tabclose<CR>
         nnoremap tn :tabnext<CR>
         nnoremap tp :tabprev<CR>
         nnoremap tf :tabfirst<CR>
         nnoremap tl :tablast<CR>
+        nnoremap tq :windo bd<CR>
+        "nnoremap tq :tabclose<CR>
         nnoremap <leader>l :tabnext<CR>
         nnoremap <leader>h :tabprev<CR>
 
@@ -160,10 +156,11 @@
             noremap <leader>I :PlugInstall<CR>
 
         "[vim-obsession]
-            " Record session >> ":mksession" can't overwite
-            noremap <leader>S :Obsession /tmp/obsession.vim<CR><ESC>
-            " Restore session
-            noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
+            " Save session
+            noremap <leader>S :mksession! /tmp/obsession.vim<CR><ESC>
+            " Load session
+            "noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
+            noremap <leader>R :call AutoLoadSession()<CR>
 
         "[vimagit]
             "let g:magit_show_magit_mapping='<leader>G'

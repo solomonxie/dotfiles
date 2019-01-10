@@ -111,12 +111,20 @@ endfunction
     " Auto record session on VIM's exit (No space between multiple files)
         "autocmd VimLeave * :Obsession /tmp/obsession.vim
         "autocmd VimLeave *.py,*.json :Obsession /tmp/obsession.vim
-        function! AutoObsession()
+        function! AutoSaveSession()
             if bufnr('%') >= 3
                 :Obsession /tmp/obsession.vim
             endif
         endfunction
-        autocmd VimLeave * call AutoObsession()
+        function! AutoLoadSession()
+            if filereadable(expand('workspace.vim'))
+                :source workspace.vim
+            elseif filereadable(expand('/tmp/obsession.vim'))
+                :source /tmp/obsession.vim
+            endif
+        endfunction
+        autocmd VimLeave * call AutoSaveSession()
+        "autocmd VimEnter * call AutoLoadSession()
 " }
 
 
@@ -281,8 +289,8 @@ endfunction
             let g:airline#extensions#tabline#show_buffers=1
             let g:airline#extensions#tabline#buffers_label='buffers'
             let g:airline#extensions#tabline#buffer_nr_show=0
-            let g:airline#extensions#tabline#buffer_idx_mode=1
-            let g:airline#extensions#tabline#buffer_idx_format={}
+            let g:airline#extensions#tabline#buffer_idx_mode=0
+            "let g:airline#extensions#tabline#buffer_idx_format={}
         " @airline-extensions-tabline-splits
             let g:airline#extensions#tabline#show_splits=1 "show split
     " @lightline

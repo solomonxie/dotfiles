@@ -37,7 +37,7 @@
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         "{vimrc-edit}
         "nnoremap <leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
-        nnoremap <leader>ve :source ~/dotfiles/vim/workspace.vim<CR>
+        nnoremap <leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
         "nnoremap <leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
         "{vimrc-keymapping}
         "nnoremap <leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
@@ -112,23 +112,52 @@
         noremap ? :set hlsearch<cr>?
         noremap * *:set hlsearch<cr>
 
+    "[Session]----------------------------------{
+        function! AutoSaveSession()
+            if bufnr('%') >= 3
+                :mksession! /tmp/obsession.vim
+            endif
+        endfunction
+
+        function! AutoLoadSession()
+            if filereadable(expand('workspace.vim'))
+                :source workspace.vim
+            elseif filereadable(expand('/tmp/obsession.vim'))
+                :source /tmp/obsession.vim
+            endif
+        endfunction
+        autocmd VimLeave * call AutoSaveSession()
+        "autocmd VimEnter * call AutoLoadSession()
+
+        " Save session
+        noremap <leader>S :mksession! /tmp/obsession.vim<CR><ESC>
+        " Load session
+        "noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
+        noremap <leader>R :call AutoLoadSession()<CR>
+    " }
+
+
     "<Builds/Compiles>----{
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
         "<C/C++ Compiler>  -> Compile & run
             autocmd BufReadPre *.c noremap <buffer> <C-m> :w<CR>:!gcc % && ./a.out <CR>
             autocmd BufReadPre *.cpp noremap <buffer> <C-m> :w<CR>:!g++ % && ./a.out <CR>
+
         "<Python Interpreter>
             autocmd BufReadPre *.py noremap <buffer> <C-m> :w<CR>:!python %:p <CR>
             "autocmd BufReadPre *.py noremap <buffer> K yiw:!pydoc <C-r>0<CR>
         "<Bash Script>
             autocmd BufReadPre *.sh noremap <buffer> <C-m> :w<CR>:!bash % <CR>
+
         "<RCs> (Configs)
             autocmd BufReadPre .vimrc,vimrc* noremap <buffer> <C-m> :w<CR>:source % <CR>
             autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <C-m> :w<CR>:!source % <CR>
+
         "<Executable>  -> conflict with above
         ""noremap <buffer> <C-u> :!./% <CR>
         ""noremap <buffer> <C-u> :! %:p <CR>
+
         ">Use FileType group
         "autocmd FileType vim,tmux noremap <buffer> <C-u> :w<CR><ESC>:source % <CR>
         "autocmd FileType zsh noremap <buffer> <C-u> :w<CR>:!source % <CR>
@@ -154,13 +183,6 @@
     "<Plugins>------------------------------------{
         "[Plugin Manager]
             noremap <leader>I :PlugInstall<CR>
-
-        "[vim-obsession]
-            " Save session
-            noremap <leader>S :mksession! /tmp/obsession.vim<CR><ESC>
-            " Load session
-            "noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
-            noremap <leader>R :call AutoLoadSession()<CR>
 
         "[vimagit]
             "let g:magit_show_magit_mapping='<leader>G'

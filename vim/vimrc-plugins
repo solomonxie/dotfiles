@@ -267,17 +267,24 @@ endfunction
         " @airline-extension-theme
             let g:airline_theme='bubblegum' "Default
             "let g:airline_theme='gruvbox'  "grubox|deus|badwolf|solarized
-        " @airline-extension-tabline
+        " @airline-extensions-tabline-tabs
+            let g:airline#extensions#tabline#switch_buffers_and_tabs=0
             let g:airline#extensions#tabline#enabled=1  "enable tabline
-            let g:airline#extensions#tabline#tab_nr_type=2 "Number range
-            let g:airline#extensions#tabline#buffer_idx_mode=1
-            let g:airline#extensions#tabline#show_buffers = 1
-            "let g:airline#extensions#tabline#buffer_idx_format={}
-            let g:airline#extensions#tabline#tabs_label = ''
-            let g:airline#extensions#tabline#show_splits = 0
+            let g:airline#extensions#tabline#tabs_label='tabs'
+            let g:airline#extensions#tabline#show_tab_nr=0 "enable tag number
+            let g:airline#extensions#tabline#tab_nr_type=1 "Numbers shown
+            "-> default|unique_tail|unique_tail_improved
+            let g:airline#extensions#tabline#formatter='unique_tail'
             "let g:airline#extensions#tabline#left_sep = ' '  "separater
             "let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
-            "let g:airline#extensions#tabline#formatter = 'default'  "formater
+        " @airline-extension-tabline-buffers
+            let g:airline#extensions#tabline#show_buffers=1
+            let g:airline#extensions#tabline#buffers_label='buffers'
+            let g:airline#extensions#tabline#buffer_nr_show=0
+            let g:airline#extensions#tabline#buffer_idx_mode=1
+            let g:airline#extensions#tabline#buffer_idx_format={}
+        " @airline-extensions-tabline-splits
+            let g:airline#extensions#tabline#show_splits=1 "show split
     " @lightline
         "set laststatus=2 " startup the lightline.vim
         "let g:lightline = { 'colorscheme': 'powerline', }

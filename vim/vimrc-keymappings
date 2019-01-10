@@ -56,8 +56,8 @@
             noremap <leader>q :bdelete<CR><ESC>
             "noremap <leader>q :bprev \| bd# <CR>
         "Move between buffers
-            noremap <leader>h :bprev<CR>
-            noremap <leader>l :bnext<CR>
+            noremap <leader>bh :bprev<CR>
+            noremap <leader>bl :bnext<CR>
         "History search
             "noremap <leader><C-h> :browse oldfiles<CR>
             "noremap <leader><C-h> :History<CR>
@@ -68,8 +68,10 @@
         nnoremap tq :tabclose<CR>
         nnoremap tn :tabnext<CR>
         nnoremap tp :tabprev<CR>
-        nnoremap th :tabfirst<CR>
+        nnoremap tf :tabfirst<CR>
         nnoremap tl :tablast<CR>
+        nnoremap <leader>l :tabnext<CR>
+        nnoremap <leader>h :tabprev<CR>
 
     "<Window>
         noremap m <C-w>

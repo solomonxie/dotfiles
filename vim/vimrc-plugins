@@ -79,7 +79,7 @@ call plug#begin('~/.vim/plugged')
             Plug  'Yggdroot/indentLine'    "Beautiful indent lines
 
     " [   SESSION    ]
-        Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
+        "Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
 
     " [   PERFORMANCE    ]
         Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
@@ -111,20 +111,6 @@ endfunction
     " Auto record session on VIM's exit (No space between multiple files)
         "autocmd VimLeave * :Obsession /tmp/obsession.vim
         "autocmd VimLeave *.py,*.json :Obsession /tmp/obsession.vim
-        function! AutoSaveSession()
-            if bufnr('%') >= 3
-                :Obsession /tmp/obsession.vim
-            endif
-        endfunction
-        function! AutoLoadSession()
-            if filereadable(expand('workspace.vim'))
-                :source workspace.vim
-            elseif filereadable(expand('/tmp/obsession.vim'))
-                :source /tmp/obsession.vim
-            endif
-        endfunction
-        autocmd VimLeave * call AutoSaveSession()
-        "autocmd VimEnter * call AutoLoadSession()
 " }
 
 
@@ -278,7 +264,7 @@ endfunction
         " @airline-extensions-tabline-tabs
             let g:airline#extensions#tabline#switch_buffers_and_tabs=0
             let g:airline#extensions#tabline#enabled=1  "enable tabline
-            let g:airline#extensions#tabline#tabs_label='tabs'
+            let g:airline#extensions#tabline#tabs_label='TABS'
             let g:airline#extensions#tabline#show_tab_nr=0 "enable tag number
             let g:airline#extensions#tabline#tab_nr_type=1 "Numbers shown
             "-> default|unique_tail|unique_tail_improved
@@ -287,7 +273,7 @@ endfunction
             "let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
         " @airline-extension-tabline-buffers
             let g:airline#extensions#tabline#show_buffers=1
-            let g:airline#extensions#tabline#buffers_label='buffers'
+            let g:airline#extensions#tabline#buffers_label='BUFFERS'
             let g:airline#extensions#tabline#buffer_nr_show=0
             let g:airline#extensions#tabline#buffer_idx_mode=0
             "let g:airline#extensions#tabline#buffer_idx_format={}

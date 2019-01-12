@@ -59,6 +59,11 @@
     set expandtab "用space替代tab的输入 取消的话 就用set noexpandtab "不用space替代tab的输入
     set encoding=utf8  "设置默认编码
     retab "打开文件时自动转换所有tab为空格
+    "Key maps timeout
+    set timeout
+    set ttimeout
+    set timeoutlen=2000
+    set ttimeoutlen=0
 " }
 
 

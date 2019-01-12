@@ -23,21 +23,22 @@
         inoremap <C-c> <Esc>
         nnoremap <space> viw
         "inoremap jj <esc>
-        "map q <NOP>
-        "inoremap <leader>r q
+        map q <NOP>
+        noremap <leader>,r q
         nnoremap <leader>aa :ggVG<CR>
         nnoremap <leader>ay :%y+<CR>
         nnoremap <leader>ad :%d+<CR>
         "nnoremap g- ''
         "{Replace-all}
-        noremap <leader>ra y:% s/<C-r>0//g<Left><Left>
+        noremap <leader>ra y:% s/<C-r>0/<C-r>0/g<Left><Left>
         inoremap <C-v> <C-r>0
 
     "<Split>
-        noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
+        "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
+        noremap S :vsplit<CR><C-w>l
         "{vimrc-edit}
         "nnoremap <leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
-        nnoremap <leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
+        nnoremap <leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>
         "nnoremap <leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
         "{vimrc-keymapping}
         "nnoremap <leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
@@ -48,11 +49,12 @@
 
     "<Buffer>
         "Close buffer
+            "noremap <leader>q :windo bdelete<CR><ESC>
             noremap <leader>q :bdelete<CR><ESC>
             "noremap <leader>q :bprev \| bd# <CR>
         "Move between buffers
-            noremap Bh :bprev<CR>
-            noremap Bl :bnext<CR>
+            noremap <leader>bh :bprev<CR>
+            noremap <leader>bl :bnext<CR>
         "History search
             "noremap <leader><C-h> :browse oldfiles<CR>
             "noremap <leader><C-h> :History<CR>
@@ -64,7 +66,7 @@
         nnoremap tp :tabprev<CR>
         nnoremap tf :tabfirst<CR>
         nnoremap tl :tablast<CR>
-        nnoremap tq :windo bd<CR>
+        nnoremap tq :windo bdelete<CR>
         "nnoremap tq :tabclose<CR>
         nnoremap <leader>l :tabnext<CR>
         nnoremap <leader>h :tabprev<CR>
@@ -77,6 +79,7 @@
         noremap <S-TAB> <C-w>h
         "noremap <leader>o <C-w>o
         "noremap <leader>qw <C-w>c
+        noremap <leader>Q :qa<CR>
 
     "<Terminal>
         noremap <leader>T :bot split \| resize 10 \| terminal<CR>i
@@ -198,14 +201,16 @@
         "imap <C-d>e <M-e>
 
         "[fzf]
-            nnoremap <leader>F :Files %:p:h<CR>
-            nnoremap <leader>// :Files %:p:h<CR>
-            nnoremap <leader>/l :Lines<CR>
-            nnoremap <leader>/h :History<CR>
-            nnoremap <leader>/b :Buffers<CR>
-            nnoremap <leader>/c :History:<CR>
-            nnoremap <leader>/s :History/<CR>
-            nnoremap <leader>/n :Snippets<CR>
+            nnoremap <leader>,f :Files %:p:h<CR>
+            nnoremap <leader>,/ :Files %:p:h<CR>
+            "nnoremap <leader>,l :Lines<CR>
+            nnoremap <leader>,H :Helptags<CR>
+            nnoremap <leader>,h :History<CR>
+            nnoremap <leader>,c :History:<CR>
+            nnoremap <leader>,s :History/<CR>
+            nnoremap <leader>,b :Buffers<CR>
+            nnoremap <leader>,n :Snippets<CR>
+            nnoremap <leader>,C :BCommits<CR>
             "nnoremap <leader>p/ :Files ..
             "nnoremap <leader>color/ :Colors
             "nnoremap <leader>k/ :Maps<CR>

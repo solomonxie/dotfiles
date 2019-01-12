@@ -24,7 +24,7 @@ alias gitrc="vim ~/.gitconfig"
 # Shadowsocks proxy
 alias proxy='export ALL_PROXY=socks5://127.0.0.1:1080'
 alias unproxy='unset ALL_PROXY'
-alias ip='curl https://ip.cn'
+alias myip='curl https://ip.cn'
 alias hosts='sudo vim /etc/hosts'
 
 # frequent commands

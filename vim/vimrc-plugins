@@ -52,6 +52,7 @@ call plug#begin('~/.vim/plugged')
 
         "<Git>
             Plug 'jreybert/vimagit'  "Much easier with Git
+            Plug 'tpope/vim-fugitive' "Better work with fzf for :Commits
 
         "<Documentation>
             "Plug 'powerman/vim-plugin-viewdoc' "K-preview improvement

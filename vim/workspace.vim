@@ -117,7 +117,7 @@ exe '3resize ' . ((&lines * 19 + 21) / 42)
 exe 'vert 3resize ' . ((&columns * 78 + 85) / 170)
 exe '4resize ' . ((&lines * 19 + 21) / 42)
 exe 'vert 4resize ' . ((&columns * 78 + 85) / 170)
-tabnext 1
+"tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif

@@ -17,51 +17,29 @@ cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
 do_install_python(){
     # Do different things with different OS
     case $MYOS in
-        ubuntu)
+        ubuntu|raspbian)
             install_tmux_ubuntu ;;
-        raspbian)
-            install_tmux_rpi ;;
         mac)
             install_tmux_mac ;;
     esac
-    # Install pip / Virtualenv
-    do_install_pip
-    do_install_virtualenv
-}
-
-
-do_install_python3_ubuntu(){
-    sudo apt-get install python3 -y
-}
-
-do_install_python3_rpi(){
-    sudo apt-get install python3 -y
-}
-
-do_install_python3_mac(){
-    brew install python3 
-}
-
-
-do_install_pip(){
-    echo "----[ Installing pip ]-----"
-    python3 /tmp/get-pip.py --user
-
-    echo "----[ Upgrading pip ]-----"
-    pip install --upgrade pip
-
+    echo "---[ Settingup virtual environments ]----"
+    virtualenv -p python3 $HOME/virtualenv/venv3
     # Change source for pip to Chinese
     mkdir $HOME/.pip
     cp $HOME/dotfiles/python/pip.conf ~/.pip/
 }
 
-do_install_virtualenv(){
-    echo "----[ Installing virtualenv ]----"
-    pip install --user virtualenv
 
-    # ---- Make venvs ----
-    echo "---[ Settingup virtual environments ]----"
-    virtualenv -p python3 $HOME/virtualenv/venv3
+do_install_python3_deb(){
+    sudo apt-get install python3 -y
+    # Install pip2 & pip3
+    sudo apt-get install -y python-pip python3-pip
+    # Install Virtualenv
+    sudo apt-get install -y virtualenv
+}
+
+do_install_python3_mac(){
+    brew install python3 
 }
 
 

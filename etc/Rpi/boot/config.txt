@@ -41,6 +41,14 @@ config_hdmi_boost=4
 
 #uncomment to overclock the arm. 700 MHz is the default.
 #arm_freq=800
+arm_freq=1350
+core_freq=500
+gpu_freq=500
+sdram_freq=500 #uncomment to test. Works only with some boards.
+over_voltage=4
+disable_splash=1
+force_turbo=1 #Voids Warranty! (uncomment to avoid CPU scaling down to 600Mhz)
+boot_delay=1 #helps to avoid sdcard corruption when force_turbo is enabled.
 
 # Uncomment some or all of these to enable the optional hardware interfaces
 #dtparam=i2c_arm=on
@@ -54,7 +62,8 @@ config_hdmi_boost=4
 
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
-gpu_mem=16
+#gpu_mem=16
+gpu_mem=320 #overclocking
 
 
 # Enable BOOT from USB instead of SD card (Rpi Model 3+)

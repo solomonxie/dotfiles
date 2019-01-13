@@ -73,7 +73,7 @@ install_vim_ubuntu(){
 }
 
 install_vim_rpi(){
-    yes | sudo apt-get install vim
+    sudo apt-get install vim -y
 
     # Plugin dependencies
     sudo apt-get install ctags -y

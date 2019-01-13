@@ -97,7 +97,7 @@ do_init_rpi(){
     echo "*/1 * * * * git -C ~/dotfiles pull" | crontab
     #
     echo "[   UPDATE APT REPOSITORIES   ]"
-    sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
+    #sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
     sudo apt-get update > /dev/null 2>&1
     # Get essential tools before any installation
     sudo apt-get install curl wget git bashdb -y 

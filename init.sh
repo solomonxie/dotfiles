@@ -86,7 +86,7 @@ do_init_ubuntu(){
 do_init_rpi(){
     echo "CURRENT Linux Distribution: [  Raspbian  ]. Start initializing system funtionalities..."
     echo "[   Overwrite Raspberry Pi Default configs   ]"
-    sudo cp ./etc/Rpi/boot/config.txt /boot/config.txt
+    #sudo cp ./etc/Rpi/boot/config.txt /boot/config.txt
     # Enable ssh
     sudo touch /boot/ssh
     #
@@ -98,7 +98,7 @@ do_init_rpi(){
     #
     echo "[   UPDATE APT REPOSITORIES   ]"
     #sudo cp ./etc/Rpi/sources-cn.list /etc/apt/
-    sudo apt-get update > /dev/null 2>&1
+    sudo apt-get update
     # Get essential tools before any installation
     sudo apt-get install curl wget git bashdb -y 
     # Setup Python3

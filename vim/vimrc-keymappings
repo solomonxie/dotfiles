@@ -83,10 +83,10 @@
 
     "<Terminal>
         noremap <leader>T :bot split \| resize 10 \| terminal<CR>i
-        tnoremap <ESC> <C-\><C-n>
+        "tnoremap <ESC> <C-\><C-n>
         "tnoremap <C-c><C-c> <C-\><C-n>
         "tnoremap <C-q> <C-c><C-u><C-k>exit 0;<CR>
-        tnoremap <C-q> <C-\><C-n>:bd!<CR>
+        "tnoremap <C-q> <C-\><C-n>:bd!<CR>
         "tnoremap <leader>q <C-w>:q!<CR>
 
     "<Appearence>

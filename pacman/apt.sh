@@ -57,6 +57,7 @@ install_utils_ubuntu(){
 }
 
 install_utils_rpi(){
+    sudo apt-get install vim -y
     sudo apt-get install apt-utils -y
     sudo apt-get install checkinstall -y
     sudo apt-get install mosh -y

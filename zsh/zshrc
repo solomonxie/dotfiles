@@ -34,12 +34,15 @@
     #zstyle ':completion:*' menu select # select completions with arrow keys
     #zstyle ':completion:*' group-name '' # group results by category
     # enable approximate matches for completion
-    #zstyle ':completion:::::' completer _expand _complete _ignored _approximate
-    # [Conflict options]
-    #setopt auto_list # automatically list choices on ambiguous completion
-    #setopt auto_menu # automatically use menu completion
-    #setopt always_to_end # move cursor to end if word had one match
-    #setopt correct_all # autocorrect commands
+    #zstyle ':completion:::::' completer _expand _complete _ignored _approximate 
+    # [ Conflict options ]
+        #setopt auto_list # automatically list choices on ambiguous completion
+        #setopt auto_menu # automatically use menu completion
+        #setopt always_to_end # move cursor to end if word had one match
+        #setopt correct_all # autocorrect commands
+    # [ Compatible with BASH ]
+        # -> Fixing error: "zsh: no matches found"
+        setopt no_nomatch
 # }
 
 

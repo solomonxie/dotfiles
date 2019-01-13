@@ -57,11 +57,11 @@ docker_webav(){
     # and do `chown -R www-data:www-data /var/www/webdav`
     #
     # Image: $ docker pull solomonxie/webdav:latest
-    sudo mkdir $HOUSE/webdav
-    sudo chown -R $ME:www-data $HOUSE/webdav
-    sudo chmod -R g+s $HOUSE/webdav
+    sudo mkdir $HOME/webdav
+    sudo chown -R $ME:www-data $HOME/webdav
+    sudo chmod -R g+s $HOME/webdav
     docker run -d --name webdav --restart=always \
-        -v $HOUSE/webdav:/var/www/webdav \
+        -v $HOME/webdav:/var/www/webdav \
         -e USERNAME=$ME -e PASSWORD=123 \
         -p 8888:80 solomonxie/webdav:latest
 }
@@ -70,12 +70,12 @@ docker_webdav_rpi(){
     #: <Permission problem>
     # has to get inside container by `docker exec -it webdav sh`
     # and do `chown -R www-data:www-data /var/www/webdav`
-    mkdir $HOUSE/webdav
-    sudo chown -R www-data:www-data $HOUSE/webdav
+    mkdir $HOME/webdav
+    sudo chown -R www-data:www-data $HOME/webdav
     #
     # <Image>: $ docker pull solomonxie/webdav-rpi:latest
     docker run -d --name webdav --restart always \
-        -v $HOUSE/webdav:/var/www/webdav \
+        -v $HOME/webdav:/var/www/webdav \
         -e USERNAME=pi -e PASSWORD=123 \
         -p 8888:80 solomonxie/webdav-rpi:jessie
 }
@@ -83,23 +83,23 @@ docker_webdav_rpi(){
 docker_wsgidav(){
     #docker run -dt \
     #    --restart always -p 8880:8080 \
-    #    -v $HOUSE/webdav:/var/wsgidav-root mar10/wsgidav
+    #    -v $HOME/webdav:/var/wsgidav-root mar10/wsgidav
     #
     #Image: $ docker pull solomonxie/wsgidav:latest
     docker run -dt --name wsgidav --restart always \
-        -v $HOUSE/.config/wsgidav:/var/wsgidav/configs \
-        -v $HOUSE/webdav:/var/wsgidav/webdav -v $HOUSE/share:/var/wsgidav/share \
+        -v $HOME/.config/wsgidav:/var/wsgidav/configs \
+        -v $HOME/webdav:/var/wsgidav/webdav -v $HOME/share:/var/wsgidav/share \
         -p 8880:80 solomonxie/wsgidav:latest
 }
 
 docker_wsgidav_rpi(){
     #Image: $ docker pull solomonxie/wsgidav-rpi:latest
     docker run -dt --name wsgidav --restart always \
-        -v $HOUSE/.config/wsgidav:/var/wsgidav/config \
-        -v $HOUSE/webdav:/var/wsgidav/webdav -v $HOUSE/share:/var/wsgidav/share \
+        -v $HOME/.config/wsgidav:/var/wsgidav/config \
+        -v $HOME/webdav:/var/wsgidav/webdav -v $HOME/share:/var/wsgidav/share \
         -p 8880:80 solomonxie/wsgidav-rpi:latest
     # Debugging:
-    # docker run -it --rm -p 8880:80 -v $HOUSE/.config/wsgidav:/var/wsgidav/configs -v $HOUSE/webdav:/var/wsgidav/webdav -v $HOUSE/share:/var/wsgidav/share solomonxie/wsgidav-rpi
+    # docker run -it --rm -p 8880:80 -v $HOME/.config/wsgidav:/var/wsgidav/configs -v $HOME/webdav:/var/wsgidav/webdav -v $HOME/share:/var/wsgidav/share solomonxie/wsgidav-rpi
 }
 
 
@@ -148,29 +148,29 @@ docker_v2ray(){
 
 docker_vpn_ipsec(){
     # Image: $ docker pull hwdsl2/ipsec-vpn-server:latest
-    touch $HOUSE/.vpn.env
-    echo "VPN_USER=ubuntu" >> $HOUSE/.vpn.env
-    echo "VPN_PASSWORD=ipsec123" >> $HOUSE/.vpn.env
-    echo "VPN_IPSEC_PSK=pre-password123" >> $HOUSE/.vpn.env
+    touch $HOME/.vpn.env
+    echo "VPN_USER=ubuntu" >> $HOME/.vpn.env
+    echo "VPN_PASSWORD=ipsec123" >> $HOME/.vpn.env
+    echo "VPN_IPSEC_PSK=pre-password123" >> $HOME/.vpn.env
     docker run \
         --name vpn --restart always \
         -p 500:500/udp -p 4500:4500/udp \
         -v /lib/modules:/lib/modules:ro \
-        --env-file $HOUSE/.vpn.env -d --privileged \
+        --env-file $HOME/.vpn.env -d --privileged \
         hwdsl2/ipsec-vpn-server
 }
 
 docker_vpn_ipsec_rpi(){
     # Image: $ docker pull solomonxie/vpn-ipsec-rpi:latest
-    touch $HOUSE/.vpn.env
-    echo "VPN_USER=pi" >> $HOUSE/.vpn.env
-    echo "VPN_PASSWORD=ipsec123" >> $HOUSE/.vpn.env
-    echo "VPN_IPSEC_PSK=pre-password123" >> $HOUSE/.vpn.env
+    touch $HOME/.vpn.env
+    echo "VPN_USER=pi" >> $HOME/.vpn.env
+    echo "VPN_PASSWORD=ipsec123" >> $HOME/.vpn.env
+    echo "VPN_IPSEC_PSK=pre-password123" >> $HOME/.vpn.env
     docker run \
         --name vpn --restart always \
         -p 500:500/udp -p 4500:4500/udp \
         -v /lib/modules:/lib/modules:ro \
-        --env-file $HOUSE/.vpn.env -d --privileged \
+        --env-file $HOME/.vpn.env -d --privileged \
         solomonxie/vpn-ipsec-rpi
 }
 
@@ -232,8 +232,8 @@ docker_nextcloud_sqlite(){
         --name nextcloud --restart always \
         -p 8080:80 -p 8443:443\
         -e PUID=1000 -e PGID=1000 \
-        -v $HOUSE/nextcloud/config:/config \
-        -v $HOUSE/nextcloud/data:/data \
+        -v $HOME/nextcloud/config:/config \
+        -v $HOME/nextcloud/data:/data \
         linuxserver/nextcloud
 }
 
@@ -245,9 +245,9 @@ docker_nextcloud_rpi(){
 docker_emby_ubuntu(){
     # IMAGE: $ docker pull emby/embyserver:latest
     docker run -d --restart=always \
-        -v $HOUSE/emby/config:/config \
-        -v $HOUSE/emby/share1:/mnt/share1 \
-        -v $HOUSE/emby/share2:/mnt/share2 \
+        -v $HOME/emby/config:/config \
+        -v $HOME/emby/share1:/mnt/share1 \
+        -v $HOME/emby/share2:/mnt/share2 \
         -p 8096:8096 -p 8920:8920 \
         --env UID=1000 --env GID=100 --env GIDLIST=100 \
         emby/embyserver:latest
@@ -264,7 +264,7 @@ docker_ftp(){
     # Remember to connect with port 21
     #
     # IMAGE: $ docker pull fauria/vsftpd:latest
-    docker run -d -v $HOUSE/ftpshare:/home/vsftpd \
+    docker run -d -v $HOME/ftpshare:/home/vsftpd \
         -p 20:20 -p 21:21 -p 21100-21110:21100-21110 \
         -e FTP_USER=ubuntu -e FTP_PASS=123 \
         -e PASV_ADDRESS=0.0.0.0 -e PASV_MIN_PORT=21100 -e PASV_MAX_PORT=21110 \

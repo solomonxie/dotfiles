@@ -36,25 +36,25 @@ do_install_vim(){
     esac
 
     # Make paths for vim extensions
-    mkdir -p $HOUSE/.vim
+    mkdir -p $HOME/.vim
 
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    rm $HOUSE/.vim/colors /dev/null 2>&1
-    ln -s $HOUSE/dotfiles/vim/colors $HOUSE/.vim/colors
-    #mkdir -p $HOUSE/.vim/colors
-    #cp $SRC/vim/colors/gruvbox.vim $HOUSE/.vim/colors/gruvbox.vim
+    rm $HOME/.vim/colors /dev/null 2>&1
+    ln -s $HOME/dotfiles/vim/colors $HOME/.vim/colors
+    #mkdir -p $HOME/.vim/colors
+    #cp $SRC/vim/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
 
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
-    mkdir -p $HOUSE/.vim/syntax
-    cp $SRC/vim/syntax/python.vim $HOUSE/.vim/syntax/python.vim
+    mkdir -p $HOME/.vim/syntax
+    cp $SRC/vim/syntax/python.vim $HOME/.vim/syntax/python.vim
 
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
-    #curl -sSL https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim --create-dirs -o $HOUSE/.vim/autoload/plug.vim
-    mkdir -p $HOUSE/.vim/autoload
-    wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -o $HOUSE/.vim/autoload/
+    #curl -sSL https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim --create-dirs -o $HOME/.vim/autoload/plug.vim
+    mkdir -p $HOME/.vim/autoload
+    wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -P $HOME/.vim/autoload/
     vim +PlugInstall +qall
 }
 
@@ -65,11 +65,11 @@ install_vim_ubuntu(){
     sudo apt-get install ctags -y
 
     echo "-----[  Change permission   ]-----"
-    sudo chown -R ubuntu:ubuntu $HOUSE/.vim
-    # sudo chown -R ubuntu $HOUSE/.vim >> $HOUSE/.init/log_vim.txt 1>&2
+    sudo chown -R ubuntu:ubuntu $HOME/.vim
+    # sudo chown -R ubuntu $HOME/.vim >> $HOME/.init/log_vim.txt 1>&2
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOUSE/dotfiles/vim/vimrc $HOUSE/.vimrc
+    ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 }
 
 install_vim_rpi(){
@@ -79,11 +79,11 @@ install_vim_rpi(){
     sudo apt-get install ctags -y
 
     echo "-----[  Change permission   ]-----"
-    sudo chown -R pi:pi $HOUSE/.vim
-    #sudo chown -R ubuntu $HOUSE/.vim >> $HOUSE/.init/log_vim.txt 1>&2
+    sudo chown -R pi:pi $HOME/.vim
+    #sudo chown -R ubuntu $HOME/.vim >> $HOME/.init/log_vim.txt 1>&2
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOUSE/dotfiles/vim/vimrc-mini $HOUSE/.vimrc
+    ln -sf $HOME/dotfiles/vim/vimrc-mini $HOME/.vimrc
 }
 
 install_vim_mac(){
@@ -94,7 +94,7 @@ install_vim_mac(){
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOUSE/dotfiles/vim/vimrc $HOUSE/.vimrc
+    ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 }
 
 build_vim_pi(){

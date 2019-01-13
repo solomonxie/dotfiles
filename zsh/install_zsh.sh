@@ -20,7 +20,7 @@ cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
 
 do_init_zsh(){
     # Make paths for ZSH extensions
-    mkdir -p "$HOUSE/.zsh"
+    mkdir -p "$HOME/.zsh"
 
     # Do different things with different OS
     case $MYOS in
@@ -29,16 +29,16 @@ do_init_zsh(){
             # Install Plugins
             install_zsh_plugins
             # Link config file
-            ln -sf $SRC/zsh/zshrc $HOUSE/.zshrc
+            ln -sf $SRC/zsh/zshrc $HOME/.zshrc
             ;;
         mac)
             brew install zsh
             # Install Plugins
             install_zsh_plugins
             # Link config file
-            ln -sf $SRC/zsh/zshrc-mac $HOUSE/.zshrc
+            ln -sf $SRC/zsh/zshrc-mac $HOME/.zshrc
             # Theme: powerlevel9k
-                #git clone https://github.com/bhilburn/powerlevel9k.git $HOUSE/.oh-my-zsh/custom/themes/powerlevel9k
+                #git clone https://github.com/bhilburn/powerlevel9k.git $HOME/.oh-my-zsh/custom/themes/powerlevel9k
                 #pip install powerline-status --user
             ;;
     esac
@@ -51,13 +51,13 @@ do_init_zsh(){
 
 
 install_zsh_plugins(){
-    if [ -e $HOUSE/.oh-my-zsh ];then rm -rf $HOUSE/.oh-my-zsh ; fi
+    if [ -e $HOME/.oh-my-zsh ];then rm -rf $HOME/.oh-my-zsh ; fi
     echo "-----[  INSTALLING OH-MY-ZSH   ]-k----"
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
-    if [ -e $HOUSE/.zsh ];then rm -rf $HOUSE/.zsh; fi
-    git clone https://github.com/zsh-users/zsh-autosuggestions $HOUSE/.zsh/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOUSE/.zsh/zsh-syntax-highlighting
+    if [ -e $HOME/.zsh ];then rm -rf $HOME/.zsh; fi
+    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh/zsh-syntax-highlighting
 }
 
 
@@ -72,22 +72,22 @@ do_test_installment_zsh(){
     else
         echo "[  FAILED  ]:----ZSH----"
     fi
-    if [ -e $HOUSE/.oh-my-zsh/ ];then 
+    if [ -e $HOME/.oh-my-zsh/ ];then 
         echo "[  OK  ]:----Oh-My-ZSH----"
     else
         echo "[  FAILED  ]:----Oh-My-ZSH----"
     fi
-    if [ -e $HOUSE/.zsh/zsh-syntax-highlighting ];then 
+    if [ -e $HOME/.zsh/zsh-syntax-highlighting ];then 
         echo "[  OK  ]:----zsh-syntax-highlighting----"
     else
         echo "[  FAILED  ]:----zsh-syntax-highlighting----"
     fi
-    if [ -e $HOUSE/.zsh/zsh-autosuggestions ];then 
+    if [ -e $HOME/.zsh/zsh-autosuggestions ];then 
         echo "[  OK  ]:----zsh-autosuggestions----"
     else
         echo "[  FAILED  ]:----zsh-autosuggestions----"
     fi
-    if [ -e $HOUSE/.oh-my-zsh/custom/themes/powerlevel9k ];then 
+    if [ -e $HOME/.oh-my-zsh/custom/themes/powerlevel9k ];then 
         echo "[  OK  ]:----Powerlevel9k----"
     else
         echo "[  FAILED  ]:----Powerlevel9k----"

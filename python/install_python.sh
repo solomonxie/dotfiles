@@ -51,8 +51,8 @@ do_install_pip(){
     pip install --upgrade pip
 
     # Change source for pip to Chinese
-    mkdir $HOUSE/.pip
-    cp $HOUSE/dotfiles/python/pip.conf ~/.pip/
+    mkdir $HOME/.pip
+    cp $HOME/dotfiles/python/pip.conf ~/.pip/
 }
 
 do_install_virtualenv(){
@@ -61,7 +61,7 @@ do_install_virtualenv(){
 
     # ---- Make venvs ----
     echo "---[ Settingup virtual environments ]----"
-    virtualenv -p python3 $HOUSE/virtualenv/venv3
+    virtualenv -p python3 $HOME/virtualenv/venv3
 }
 
 

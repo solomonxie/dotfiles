@@ -38,44 +38,44 @@ do_install_tmux(){
     
     # Download & Install plugins
     echo "----------[  Installing TPM for Tmux   ]--------------"
-    git clone https://github.com/tmux-plugins/tpm $HOUSE/.tmux/plugins/tpm
-    $HOUSE/.tmux/plugins/tpm/bin/install_plugins
+    git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+    $HOME/.tmux/plugins/tpm/bin/install_plugins
 }
 
 install_tmux_ubuntu(){
     yes | sudo apt-get install tmux
 
     # Make paths for tmux extensions
-    mkdir -p $HOUSE/.tmux/resurrect
+    mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOUSE/.tmux.conf
+    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOUSE/.tmux/resurrect/last.txt
-    ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
+    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
+    ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
 install_tmux_rpi(){
     yes | sudo apt-get install tmux
 
     # Make paths for tmux extensions
-    mkdir -p $HOUSE/.tmux/resurrect
+    mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOUSE/.tmux.conf
+    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-rpi.txt $HOUSE/.tmux/resurrect/last.txt
-    ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
+    cp $SRC/tmux/resurrect/last-rpi.txt $HOME/.tmux/resurrect/last.txt
+    ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
 install_tmux_mac(){
     brew install tmux  
 
     # Make paths for tmux extensions
-    mkdir -p $HOUSE/.tmux/resurrect
+    mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOUSE/.tmux.conf
+    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOUSE/.tmux/resurrect/last.txt
-    ln -sf $HOUSE/.tmux/resurrect/last.txt $HOUSE/.tmux/resurrect/last
+    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
+    ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
 
@@ -86,7 +86,7 @@ install_tmux_mac(){
 #-------------------------------------
 
 do_test_installment(){
-    if [ -e $HOUSE/.tmux ];then
+    if [ -e $HOME/.tmux ];then
         echo "[  OK  ]:----TMUX----"
     else
         echo "[  FAILED  ]:----TMUX----"

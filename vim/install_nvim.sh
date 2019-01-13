@@ -36,27 +36,27 @@ do_install_nvim(){
     esac
 
     # Make paths for vim extensions
-    mkdir -p $HOUSE/.vim
-    ln -s $HOUSE/.vim $HOUSE/.config/nvim
+    mkdir -p $HOME/.vim
+    ln -s $HOME/.vim $HOME/.config/nvim
 
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
-    mkdir -p $HOUSE/.vim/colors
-    cp $SRC/vim/colors/gruvbox.vim $HOUSE/.vim/colors/gruvbox.vim
+    mkdir -p $HOME/.vim/colors
+    cp $SRC/vim/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
 
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
-    mkdir -p $HOUSE/.vim/syntax
-    cp $SRC/vim/syntax/python.vim $HOUSE/.vim/syntax/python.vim
+    mkdir -p $HOME/.vim/syntax
+    cp $SRC/vim/syntax/python.vim $HOME/.vim/syntax/python.vim
 
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
-    curl -fLo $HOUSE/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall +qall
 
     echo "-----[   Create Symlinks   ]-----"
-    ln -sf $HOUSE/dotfiles/vim/vimrc $HOUSE/.vimrc
-    ln -sf $HOUSE/dotfiles/vim/vimrc $HOUSE/.config/nvim/init.vim
+    ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
+    ln -sf $HOME/dotfiles/vim/vimrc $HOME/.config/nvim/init.vim
 }
 
 install_nvim_mac(){

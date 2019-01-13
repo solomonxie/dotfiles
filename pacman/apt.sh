@@ -77,6 +77,7 @@ install_utils_rpi(){
 
     # Remove unnecessary softwares
     sudo apt-get remove --purge wolfram-engine -y
+    sudo apt-get remove --purge libreoffice -y
 }
 
 install_printer_ubuntu(){

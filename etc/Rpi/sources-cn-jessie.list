@@ -3,6 +3,10 @@ deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free r
 # 阿里云
 deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib rpi
 deb-src http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib rpi
+# 上海大学
+deb http://mirrors.shu.edu.cn/raspbian/raspbian/ jessie main non-free contrib rpi
+# 南京大学
+deb http://mirrors.nju.edu.cn/raspbian/raspbian/ jessie main non-free contrib rpi
 
 # 树莓派官方源(Default)
 #deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi

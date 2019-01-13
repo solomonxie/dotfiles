@@ -74,6 +74,9 @@ install_utils_rpi(){
 
     #sudo echo "deb [arch=all] http://dl.bintray.com/dawidd6/neofetch jessie main" > /etc/apt/sources.list.d/neofetch.list
     #sudo apt update && sudo apt install neofetch -y
+
+    # Remove unnecessary softwares
+    sudo apt-get remove --purge wolfram-engine -y
 }
 
 install_printer_ubuntu(){
@@ -119,8 +122,8 @@ apt_add_sources(){
 
 
 apt_clear_cache(){
-    yes | sudo apt-get autoremove
-    yes | sudo apt-get autoclean
+    sudo apt-get autoremove -y
+    sudo apt-get autoclean -y
 }
 
 apt_remove_lock(){

@@ -231,6 +231,8 @@
             "nnoremap <leader>t :tabe<CR>
             " Close Tab
             "nnoremap <leader>c :tabc
+        "[NerdCommenter]
+            nmap <leader>/ <Plug>NERDCommenterToggle
     " }
 " }
 

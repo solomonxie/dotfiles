@@ -1,50 +1,53 @@
+#! /bin/bash 
+#
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
-# ENVIRONMENT: Ubuntu / Raspbian
+# Enviroment: Ubuntu / Raspbian / MacOS Sierra
+#
+# Commands:
+#   1. Get in tmux
+#   2. Install plugins: Ctrl-b + Ctrl-I
+#   3. Reload configs: Ctrl-b + r
+#   4. Resurrect: Ctrl-b + Ctrl-r
+#
+# Run:
+#   $ ./install_tmux.sh --os ubuntu
+# Debug:
+#   $ bashdb ./install_tmux.sh --os ubuntu
 
 
-set -ax
+set -x
 
-MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-SRC="$MYHOME/dotfiles"
-OS=""
+# Setup env variables and shared functions
+cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
 
+#-------------------------------------
+#     Installation Methods
+#-------------------------------------
 
 do_install_shadowsocks(){
-    if [ $# -eq 0 ]; then 
-        echo "[ Failed ] Please specify OS version with --os flag."
-        return 1; 
-    fi
-    # Get distro information
-    distro=""
-    while [ $# -gt 0 ] ;do
-        case "$1" in
-            "--os")
-                distro=$2 
-                shift 2;;
-        esac
-    done
     # Do different things with different OS
-    case $distro in
-        "ubuntu")
-            install_ss_ubuntu
-            ;;
-        "raspbian")
-            install_ss_pi
-            ;;
-        "mac")
-            echo "" ;;
+    case $MYOS in
+        ubuntu|raspbian)
+            sudo apt install shadowsocks-libev -y ;;
     esac
 }
 
-install_ss_ubuntu(){}
-install_ss_libev_ubuntu(){}
-
-install_ss_pi(){}
 
 
-install_ss_libev_pi(){
-    yes | sudo apt install shadowsocks-libev
+install_ss_ubuntu(){
+    echo ""
+}
+install_ss_libev_ubuntu(){
+    echo ""
+}
+
+install_ss_pi(){
+    echo ""
+}
+
+
+install_ss_libev_deb(){
+    echo ""
 }
 
 build_ss_libev_pi(){
@@ -79,3 +82,16 @@ build_ss_libev_pi(){
     make && sudo make install && \
     echo "[ OK ]"
 }
+
+
+
+
+
+
+
+
+#-------------------------------------
+#          Entry points
+#-------------------------------------
+
+do_install_shadowsocks "$@"

@@ -71,7 +71,7 @@ docker_webdav_rpi(){
     # has to get inside container by `docker exec -it webdav sh`
     # and do `chown -R www-data:www-data /var/www/webdav`
     mkdir $HOME/webdav
-    sudo chown -R www-data:www-data $HOME/webdav
+    sudo chown -R $ME:www-data $HOME/webdav
     #
     # <Image>: $ docker pull solomonxie/webdav-rpi:latest
     docker run -d --name webdav --restart always \

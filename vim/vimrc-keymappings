@@ -232,7 +232,7 @@
             " Close Tab
             "nnoremap <leader>c :tabc
         "[NerdCommenter]
-            nmap <leader>/ <Plug>NERDCommenterToggle
+            map <leader>/ :normal ,ci<CR>
     " }
 " }
 

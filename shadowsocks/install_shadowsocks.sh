@@ -4,15 +4,6 @@
 # Enviroment: Ubuntu / Raspbian / MacOS Sierra
 #
 # Commands:
-#   1. Get in tmux
-#   2. Install plugins: Ctrl-b + Ctrl-I
-#   3. Reload configs: Ctrl-b + r
-#   4. Resurrect: Ctrl-b + Ctrl-r
-#
-# Run:
-#   $ ./install_tmux.sh --os ubuntu
-# Debug:
-#   $ bashdb ./install_tmux.sh --os ubuntu
 
 
 set -x

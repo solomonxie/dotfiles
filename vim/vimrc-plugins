@@ -10,6 +10,11 @@
 "     - Install plugins: ":PlugInstall"
 "     - Check current filetype: ":echo &filetype"
 "     - Build current file: "Ctrl-u"
+"
+" Performance:
+"   vim --startuptime /tmp/vim-time.log +qall && cat /tmp/vim-time.log |sort -nrk 2
+"   "or
+"   :Startuptime
 
 
 " [  Plugins Manager vim-plug  ]
@@ -28,6 +33,9 @@ call plug#begin('~/.vim/plugged')
             Plug 'hdima/python-syntax'   "Most stable highlighting
 
         "<Window>
+            "Plug 'TaDaa/vimade'  "Dim inactive windows
+            Plug 'vim-scripts/ZoomWin' "Zoom In/Out (Error)
+            Plug 'dhruvasagar/vim-zoom'
 
         "<Terminal>
             "Plug 'kassio/neoterm'
@@ -47,8 +55,10 @@ call plug#begin('~/.vim/plugged')
             Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
             Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 
-        "<Tags>
-            Plug 'majutsushi/tagbar'   " (ctags required)
+        "<Tags> (ctags required)
+            Plug 'majutsushi/tagbar'   "Display
+            Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)
+            "Plug 'craigemery/vim-autotag'  "Navigate (manually gen tags)
 
         "<Git>
             Plug 'jreybert/vimagit'  "Much easier with Git
@@ -154,6 +164,14 @@ endfunction
 " }
 
 
+" <Vimade>-------------{
+    "let g:vimade.fadelevel=0.3
+    "let g:vimade.rowbufsize=30
+    "let g:vimade.colbufsize=30
+    "let g:vimade.checkinterval=500
+" }
+
+
 " <ViewDoc>-------------{
     let g:viewdoc_open = 'belowright new' "tabnew|belowright new|topleft new
 " }
@@ -166,8 +184,12 @@ endfunction
 " <Deoplete>--------------{
     " Enable at startup
         let g:deoplete#enable_at_startup = 1
+    " Max number of candidates
+        let g:deoplete#max_abbr_width = 30
+        let g:deoplete#max_menu_width = 40
     " Set multiple options
         call deoplete#custom#option({
+        \ 'candidate_marks': 10,
         \ 'auto_complete_delay': 0,
         \ 'smart_case': v:true,
         \ })
@@ -187,9 +209,32 @@ endfunction
     "let g:SimpylFold_docstring_preview = 1
 " }
 
+" <Autotag>--------------{
+    "let g:autotagTagsFile="/tmp/ctags"
+" }
+
+" <Gutentags>--------------{
+    " Searching fields (recursively searching from bottom up)
+    let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+
+    " Tag filename
+    let g:gutentags_ctags_tagfile = 'tags'
+
+    " Tag files store place, instead of project dirs
+    let s:vim_tags = expand('/tmp/tags')
+    let g:gutentags_cache_dir = s:vim_tags
+    " Create tag dir if not exists
+    if !isdirectory(s:vim_tags)
+       silent! call mkdir(s:vim_tags, 'p')
+    endif
+
+    " Ctag command flags
+    let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+    let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+    let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+" }
 
 " <Tagbar>--------------{
-    set tags=tags  "Plugin: Ctags
     let g:tagbar_left = 0  "Show tagbar on right
     let g:tagbar_autofocus = 1   "Focus on tagbar window when open
     let g:tagbar_autoclose = 1   "Close tagbar window when select tag

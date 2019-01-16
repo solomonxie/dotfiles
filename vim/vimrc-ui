@@ -33,7 +33,6 @@
         autocmd FileType gitcommit setlocal spell spelllang=en,en_us,cjk
 
     " <NetRW File Tree>
-        set autochdir
         let g:netrw_browse_split=0   "[Essential]
         let g:netrw_liststyle=3   "List Style  3:Tree listing
         let g:netrw_banner=0  "Hide banner

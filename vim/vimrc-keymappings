@@ -14,9 +14,9 @@
         "{Go-next-call}
         nnoremap gn yiw/<C-r>0<CR>
         "{Go-definition}
-        nnoremap gd gd
+        "nnoremap gd gd
         "{Highlight all current word}
-        nnoremap * *
+        "nnoremap * *
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -55,6 +55,8 @@
         "Move between buffers
             noremap <leader>bh :bprev<CR>
             noremap <leader>bl :bnext<CR>
+            noremap <leader>H :bprev<CR>
+            noremap <leader>L :bnext<CR>
         "History search
             "noremap <leader><C-h> :browse oldfiles<CR>
             "noremap <leader><C-h> :History<CR>
@@ -70,19 +72,24 @@
         "nnoremap tq :tabclose<CR>
         nnoremap <leader>l :tabnext<CR>
         nnoremap <leader>h :tabprev<CR>
+        nnoremap <leader>0 :tablast<CR>
+        nnoremap <leader>1 :tabfirst<CR>
+        nnoremap <leader>2 :tabn 2<CR>
+        nnoremap <leader>3 :tabn 3<CR>
+        nnoremap <leader>4 :tabn 4<CR>
+        nnoremap <leader>5 :tabn 5<CR>
 
     "<Window>
         noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l
         noremap <TAB> <C-w>w
-        noremap <S-TAB> <C-w>h
         "noremap <leader>o <C-w>o
         "noremap <leader>qw <C-w>c
         noremap <leader>Q :qa<CR>
 
     "<Terminal>
-        noremap <leader>T :bot split \| resize 10 \| terminal<CR>i
+        noremap <leader>ot :bot split \| resize 10 \| terminal<CR>i
         "tnoremap <ESC> <C-\><C-n>
         "tnoremap <C-c><C-c> <C-\><C-n>
         "tnoremap <C-q> <C-c><C-u><C-k>exit 0;<CR>
@@ -193,12 +200,14 @@
 
         "[tagbar] ->  "*"->open all folds; "="->close all folds
             "noremap <leader>t :TagbarToggle<CR>=<ESC>
-            noremap <leader>t :TagbarOpen<CR>
             noremap T :TagbarOpen<CR>
 
+        "[vim-zoom]
+            nmap mm <Plug>(zoom-toggle)
+
         "[Auto-pair]
-        "imap <C-d> <Meta>
-        "imap <C-d>e <M-e>
+            "imap <C-d> <Meta>
+            "imap <C-d>e <M-e>
 
         "[fzf]
             nnoremap <leader>,f :Files %:p:h<CR>
@@ -211,6 +220,8 @@
             nnoremap <leader>,b :Buffers<CR>
             nnoremap <leader>,n :Snippets<CR>
             nnoremap <leader>,C :BCommits<CR>
+            nnoremap <leader>,t :BTags<CR>
+            nnoremap <leader>,T :Tags<CR>
             "nnoremap <leader>p/ :Files ..
             "nnoremap <leader>color/ :Colors
             "nnoremap <leader>k/ :Maps<CR>

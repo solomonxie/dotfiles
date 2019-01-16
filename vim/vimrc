@@ -8,28 +8,13 @@
 "                                              "
 "                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""
-" -------------[ STANDARD VIMRC ]---------------
+"
+" -------------[ STANDARD VIMRC ]----------------
 "
 " MAINTAINER: Solomon Xie <solomonxiewise@gmail>
 " Enviroment: MacOS Sierra / Raspbian / Ubuntu
 "
-" Dependencies:
-"     " [Plugins Manager: Vim-Plug]
-"       $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"     " [Plug  dependencies]
-"       $ brew install ctags
-"       $ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-"
-" Commands:
-"     - Install plugins: ":PlugInstall"
-"     - Check current filetype: ":echo &filetype"
-"     - Build current file: "Ctrl-u"
-"
-" Performance:
-"   vim --startuptime /tmp/vim-startup-time.log +qall && cat /tmp/vim-startup-time.log |sort -nrk 2
-"   "or
-"   :Startuptime
+" -----------------------------------------------
 
 
 " [  Import Modules  ]-----------{
@@ -83,6 +68,10 @@
         "autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
         set splitright  "Default split at right
         "set splitbelow  "Default split at right
+
+    "<Tag>
+        "set tags=tags
+        set autochdir
 " }
 
 
@@ -132,3 +121,10 @@
 " }
 
 
+" [  Persistent undo  ]--------{
+    set undofile "Maintain UNDO history between sessions
+    set undodir=/tmp/undo
+    if !isdirectory(&undodir)
+       silent! call mkdir(&undodir, 'p')
+    endif
+" }

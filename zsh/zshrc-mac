@@ -62,7 +62,7 @@
     bindkey '^p' up-line-or-search # Up arrow
     bindkey '^n' down-line-or-search # Down arrow
     # [autosuggestions] (history conflict with zsh hints, not recommanded)
-    #bindkey '^i' autosuggest-accecpt # [Essential] Ctrl+i to confirm hint
+    bindkey '^e' autosuggest-accept # [Essential] Ctrl+i to confirm hint
 # }
 
 

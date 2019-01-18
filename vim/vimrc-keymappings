@@ -97,7 +97,7 @@
         "tnoremap <C-q> <C-\><C-n>:bd!<CR>
         "tnoremap <leader>q <C-w>:q!<CR>
 
-    "<Appearence>
+    "<Spelling>
         noremap <leader>90 :setlocal spell spelllang=en,en_us,cjk<CR>
         noremap <leader>99 :setlocal nospell<CR>
 

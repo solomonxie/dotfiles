@@ -128,4 +128,3 @@
        silent! call mkdir(&undodir, 'p')
     endif
 " }
-

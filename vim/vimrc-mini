@@ -74,6 +74,38 @@
 " }
 
 
+" [  Builtin UI / Color Scheme  ]---------{
+    " <Basic Settings>
+        set t_Co=256   ">> Overwriting Alert !!
+        set background=dark   ">> Overwriting Alert !!
+        set cursorline  "Highlighting current line
+        set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+        autocmd WinEnter * set cursorline
+        autocmd WinLeave * set nocursorline
+
+    " <Line Number>
+        " turn hybrid line numbers on
+        set number relativenumber
+        set nu rnu
+        " Automatic toggling between line number modes
+        augroup numbertoggle
+          autocmd!
+          autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+          autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+        augroup END
+" }
+
+" [  Search Highlighting  ]-----------{
+    " >>
+        highlight Search guibg='Purple' guifg='NONE'
+        highlight IncSearch gui=underline,bold guifg=White guibg=Red3
+        "highlight IncSearch ctermbg=black ctermfg=yellow
+    " 鼠标无动作时取消高亮
+        autocmd cursorhold * set nohlsearch
+    " 括号匹配自动高亮
+        "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
+" }
+
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
         "au FileType python setl ofu=pythoncomplete#CompletePHP
@@ -90,16 +122,6 @@
         iabbrev waht what
         iabbrev tehn then
 " }
-
-
-" [  Swap files  ]--------{
-    set swapfile    "enable swap file
-    set directory=/tmp    "set swp file directory.
-    set updatecount=20     "save swp file every amount of characters
-    " ▼ update also check cursor-holds and other functions, bit expensive one.
-    set updatetime=4000   "save swap file every amount of ms
-" }
-
 
 " [  Variables  ]-----------{
     "let has_mac = has('mac')
@@ -136,3 +158,21 @@ augroup plugin_initialize
     autocmd!
     autocmd VimEnter * call FuckThatMatchParen()
 augroup END
+
+" [  Swap files  ]--------{
+    set swapfile    "enable swap file
+    set directory=/tmp    "set swp file directory.
+    set updatecount=20     "save swp file every amount of characters
+    " ▼ update also check cursor-holds and other functions, bit expensive one.
+    set updatetime=4000   "save swap file every amount of ms
+" }
+
+
+" [  Persistent undo  ]--------{
+    set undofile "Maintain UNDO history between sessions
+    set undodir=/tmp/undo
+    if !isdirectory(&undodir)
+       silent! call mkdir(&undodir, 'p')
+    endif
+" }
+

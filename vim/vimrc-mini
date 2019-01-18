@@ -102,6 +102,9 @@
         highlight nonText ctermbg=NONE
 
     " [  Search Highlighting  ]-----------{
+        "
+            set incsearch
+            set hlsearch
         " >>
             highlight Search guibg='Purple' guifg='NONE'
             highlight IncSearch gui=underline,bold guifg=White guibg=Red3

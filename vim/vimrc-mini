@@ -95,8 +95,9 @@
         augroup END
 
     " <Color Scheme>  --> Overwriting Alert!
-        set termguicolors   ">> Not compatiple with many themes
-        "colorscheme monokai "Fast (sickill/vim-monokai)
+        "set termguicolors   " -> !! NOT WORKING in Tmux through SSH
+        set term=screen-256color
+        colorscheme monokai "Fast (sickill/vim-monokai)
         highlight Normal ctermbg=NONE
         highlight nonText ctermbg=NONE
 

@@ -280,11 +280,25 @@ endfunction
 
 
 " <Fzf fuzzy search>-------------------------{
-    "let g:fzf_action = { 'ctrl-e': 'edit' }
+    "let g:fzf_action = {  }
+    " This is the default extra key bindings
+    let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit' ,
+      \ 'ctrl-e': 'edit' }
+
     " Default fzf layout
-        " - down / up / left / right
+        " down | up | left | right
         let g:fzf_layout = { 'down': '~40%' }
-    " In Neovim, you can set up fzf window using a Vim command
+    " [Buffers] Jump to the existing window if possible
+        "let g:fzf_buffers_jump = 1
+    " [[B]Commits] Customize the options used by 'git log':
+        let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+    " [Tags] Command to generate tags file
+        let g:fzf_tags_command = 'ctags -R'
+    " [History] -> will block Ctrl-n & Ctrl-p keys
+        "let g:fzf_history_dir = '/tmp/fzf-history'
     " - enew / -tabnew / 10split enew
         "let g:fzf_layout = { 'window': 'enew' }
         "let g:fzf_layout = { 'window': '-tabnew' }

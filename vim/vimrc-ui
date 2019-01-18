@@ -7,6 +7,17 @@
         autocmd WinEnter * set cursorline
         autocmd WinLeave * set nocursorline
 
+    " <Line Number>
+        " turn hybrid line numbers on
+        set number relativenumber
+        set nu rnu
+        " Automatic toggling between line number modes
+        augroup numbertoggle
+          autocmd!
+          autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+          autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+        augroup END
+
     "<FileType>
         filetype plugin on    " [essential]
         filetype plugin indent on

@@ -30,7 +30,8 @@
         nnoremap <leader>ad :%d+<CR>
         "nnoremap g- ''
         "{Replace-all}
-        noremap <leader>ra y:% s/<C-r>0/<C-r>0/g<Left><Left>
+        noremap <leader>ra y:% s/<C-r>0/<C-r>0/gc<Left><Left><Left>
+        "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
 
     "<Split>
@@ -55,8 +56,8 @@
         "Move between buffers
             noremap <leader>bh :bprev<CR>
             noremap <leader>bl :bnext<CR>
-            noremap <leader>H :bprev<CR>
-            noremap <leader>L :bnext<CR>
+            noremap <leader>h :bprev<CR>
+            noremap <leader>l :bnext<CR>
         "History search
             "noremap <leader><C-h> :browse oldfiles<CR>
             "noremap <leader><C-h> :History<CR>
@@ -70,8 +71,8 @@
         nnoremap tl :tablast<CR>
         nnoremap tq :windo bdelete<CR>
         "nnoremap tq :tabclose<CR>
-        nnoremap <leader>l :tabnext<CR>
-        nnoremap <leader>h :tabprev<CR>
+        nnoremap <C-l> :tabnext<CR>
+        nnoremap <C-h> :tabprev<CR>
         nnoremap <leader>0 :tablast<CR>
         nnoremap <leader>1 :tabfirst<CR>
         nnoremap <leader>2 :tabn 2<CR>

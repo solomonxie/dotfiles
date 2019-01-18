@@ -74,7 +74,7 @@
 " }
 
 
-" [  Builtin UI / Color Scheme  ]---------{
+" [  UI / Color Scheme  ]---------{
     " <Basic Settings>
         set t_Co=256   ">> Overwriting Alert !!
         set background=dark   ">> Overwriting Alert !!
@@ -93,17 +93,23 @@
           autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
           autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         augroup END
-" }
 
-" [  Search Highlighting  ]-----------{
-    " >>
-        highlight Search guibg='Purple' guifg='NONE'
-        highlight IncSearch gui=underline,bold guifg=White guibg=Red3
-        "highlight IncSearch ctermbg=black ctermfg=yellow
-    " 鼠标无动作时取消高亮
-        autocmd cursorhold * set nohlsearch
-    " 括号匹配自动高亮
-        "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
+    " <Color Scheme>  --> Overwriting Alert!
+        set termguicolors   ">> Not compatiple with many themes
+        colorscheme monokai "Fast (sickill/vim-monokai)
+        highlight Normal ctermbg=NONE
+        highlight nonText ctermbg=NONE
+
+    " [  Search Highlighting  ]-----------{
+        " >>
+            highlight Search guibg='Purple' guifg='NONE'
+            highlight IncSearch gui=underline,bold guifg=White guibg=Red3
+            "highlight IncSearch ctermbg=black ctermfg=yellow
+        " 鼠标无动作时取消高亮
+            autocmd cursorhold * set nohlsearch
+        " 括号匹配自动高亮
+            "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
+    " }
 " }
 
 

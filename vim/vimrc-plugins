@@ -34,7 +34,7 @@ call plug#begin('~/.vim/plugged')
 
         "<Window>
             "Plug 'TaDaa/vimade'  "Dim inactive windows
-            Plug 'vim-scripts/ZoomWin' "Zoom In/Out (Error)
+            "Plug 'vim-scripts/ZoomWin' "Zoom In/Out (Error)
             Plug 'dhruvasagar/vim-zoom'
 
         "<Terminal>

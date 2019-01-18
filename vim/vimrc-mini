@@ -96,7 +96,7 @@
 
     " <Color Scheme>  --> Overwriting Alert!
         set termguicolors   ">> Not compatiple with many themes
-        colorscheme monokai "Fast (sickill/vim-monokai)
+        "colorscheme monokai "Fast (sickill/vim-monokai)
         highlight Normal ctermbg=NONE
         highlight nonText ctermbg=NONE
 

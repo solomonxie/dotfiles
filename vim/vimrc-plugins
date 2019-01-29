@@ -67,7 +67,7 @@ call plug#begin('~/.vim/plugged')
         "<Documentation>
             "Plug 'powerman/vim-plugin-viewdoc' "K-preview improvement
 
-    " [   INSERTION    ]
+    " [   EDIT    ]
 
         "<Autocomplete>
             "[Snippets]  -> Python required
@@ -88,6 +88,9 @@ call plug#begin('~/.vim/plugged')
 
         "<Indentation>
             Plug  'Yggdroot/indentLine'    "Beautiful indent lines
+
+        "<Trailing Whitespace>
+            Plug 'bronson/vim-trailing-whitespace'
 
     " [   SESSION    ]
         "Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions

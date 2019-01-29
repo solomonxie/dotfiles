@@ -1,6 +1,6 @@
-# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com> 
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 #
-# Preload dependencies: 
+# Preload dependencies:
 #     # Plugin: Syntax-highlighting
 #     $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 #     # Plugin: zsh-autosuggestions
@@ -10,8 +10,8 @@
 #     # Theme: Powerlevel9k
 #     $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 #
-# Commands: 
-# 
+# Commands:
+#
 
 # User-specified hosts (not working at the moment)
     set HOSTALIASES=~/hosts
@@ -34,7 +34,7 @@
     #zstyle ':completion:*' menu select # select completions with arrow keys
     #zstyle ':completion:*' group-name '' # group results by category
     # enable approximate matches for completion
-    #zstyle ':completion:::::' completer _expand _complete _ignored _approximate 
+    #zstyle ':completion:::::' completer _expand _complete _ignored _approximate
     # [ Conflict options ]
         #setopt auto_list # automatically list choices on ambiguous completion
         #setopt auto_menu # automatically use menu completion
@@ -67,9 +67,9 @@
 
 
 # Setting up Oh-my-zsh {
-    export ZSH=~/.oh-my-zsh 
-    plugins=( 
-      git, 
+    export ZSH=~/.oh-my-zsh
+    plugins=(
+      git,
       #history-substring-search,
       colored-man-pages,
       dircycle
@@ -80,8 +80,8 @@
     ZSH_DISABLE_COMPFIX=true
     # Fix color for ls command
     LS_COLORS=$LS_COLORS:'ow=37;42:'
-    # Manually update oh-my-zsh: $ upgrade_oh_my_zsh 
-    source $ZSH/oh-my-zsh.sh 
+    # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
+    source $ZSH/oh-my-zsh.sh
 # }
 
 
@@ -113,9 +113,9 @@
 # Some would be imported here by other programms automatically
 # etc., cat 'expot path=...' > ~/.zshrc
 
-export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来 
-export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
-export EDITOR=vim 
+export PATH="/usr/local/sbin:$PATH"  # 有些软件安装到了这个位置 需要这个环境变量加入进来
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export EDITOR=vim
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export OCTAVE_EXECUTABLE=/usr/local/bin/octave
 

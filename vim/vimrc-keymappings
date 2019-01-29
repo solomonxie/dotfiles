@@ -81,7 +81,7 @@
         nnoremap <leader>5 :tabn 5<CR>
 
     "<Window>
-        noremap m <C-w>
+        "noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l
         noremap <TAB> <C-w>w
@@ -204,7 +204,7 @@
             noremap T :TagbarOpen<CR>
 
         "[vim-zoom]
-            nmap mm <Plug>(zoom-toggle)
+            "nmap mm <Plug>(zoom-toggle)
 
         "[Auto-pair]
             "imap <C-d> <Meta>
@@ -212,14 +212,13 @@
 
         "[fzf]
             nnoremap <leader>,f :Files %:p:h<CR>
-            nnoremap <leader>,/ :Files %:p:h<CR>
             "nnoremap <leader>,l :Lines<CR>
             nnoremap <leader>,H :Helptags<CR>
             nnoremap <leader>,h :History<CR>
             nnoremap <leader>,c :History:<CR>
-            nnoremap <leader>,s :History/<CR>
+            nnoremap <leader>,/ :History/<CR>
             nnoremap <leader>,b :Buffers<CR>
-            nnoremap <leader>,n :Snippets<CR>
+            nnoremap <leader>,s :Snippets<CR>
             nnoremap <leader>,C :BCommits<CR>
             nnoremap <leader>,t :BTags<CR>
             nnoremap <leader>,T :Tags<CR>

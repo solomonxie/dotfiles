@@ -1,7 +1,6 @@
-#! /bin/bash 
+#! /usr/bin/env bash
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Environment: Ubuntu / Raspbian
 #
 

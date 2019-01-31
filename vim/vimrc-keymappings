@@ -23,8 +23,8 @@
         inoremap <C-c> <Esc>
         nnoremap <space> viw
         "inoremap jj <esc>
-        map q <NOP>
-        noremap <leader>,r q
+        "map q <NOP>
+        "noremap <leader>,r q
         nnoremap <leader>aa :ggVG<CR>
         nnoremap <leader>ay :%y+<CR>
         nnoremap <leader>ad :%d+<CR>

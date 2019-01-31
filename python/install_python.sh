@@ -24,6 +24,7 @@ do_install_python(){
     esac
     echo "---[ Settingup virtual environments ]----"
     virtualenv -p python3 $HOME/virtualenv/venv3
+    virtualenv -p python2 $HOME/virtualenv/venv2
     # Change source for pip to Chinese
     mkdir $HOME/.pip
     cp $HOME/dotfiles/python/pip.conf ~/.pip/

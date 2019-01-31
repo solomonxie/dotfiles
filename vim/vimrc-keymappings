@@ -152,8 +152,8 @@
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
         "<C/C++ Compiler>  -> Compile & run
-            autocmd BufReadPre *.c noremap <buffer> <C-m> :w<CR>:!gcc % && ./a.out <CR>
-            autocmd BufReadPre *.cpp noremap <buffer> <C-m> :w<CR>:!g++ % && ./a.out <CR>
+            autocmd BufReadPre *.c noremap <buffer> <C-m> :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
+            autocmd BufReadPre *.cpp noremap <buffer> <C-m> :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
 
         "<Python Interpreter>
             autocmd BufReadPre *.py noremap <buffer> <C-m> :w<CR>:!python %:p <CR>

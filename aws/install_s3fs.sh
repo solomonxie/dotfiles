@@ -1,4 +1,4 @@
-#! /bin/bash 
+#! /usr/bin/env bash
 #
 # MAINTINAER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: 

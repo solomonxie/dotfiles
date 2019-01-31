@@ -1,4 +1,4 @@
-#! /bin/bash 
+#! /usr/bin/env bash
 #
 # Owner: Solomon Xie
 # Email: solomonxiewise@gmail.com

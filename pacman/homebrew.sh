@@ -26,7 +26,10 @@ do_setup_homebrew(){
 
 install_homebrew(){
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
 
+uninstall_homebrew(){
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 }
 
 install_utils_mac(){

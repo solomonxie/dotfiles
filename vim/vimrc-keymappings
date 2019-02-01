@@ -98,8 +98,8 @@
         "tnoremap <leader>q <C-w>:q!<CR>
 
     "<Spelling>
-        noremap <leader>90 :setlocal spell spelllang=en,en_us,cjk<CR>
-        noremap <leader>99 :setlocal nospell<CR>
+        noremap <leader>; :setlocal spell spelllang=en,en_us,cjk<CR>
+        noremap <leader>,; :setlocal nospell<CR>
 
     "<Clipboard>
         " 复制到系统剪切板
@@ -202,6 +202,10 @@
         "[tagbar] ->  "*"->open all folds; "="->close all folds
             "noremap <leader>t :TagbarToggle<CR>=<ESC>
             noremap T :TagbarOpen<CR>
+
+        "[ranger]
+            let g:ranger_map_keys = 0
+            nnoremap <leader>r :Ranger<CR>
 
         "[vim-zoom]
             "nmap mm <Plug>(zoom-toggle)

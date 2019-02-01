@@ -14,7 +14,7 @@ alias vim="nvim"
 #alias vi="vi --noplugin"
 alias rec="asciinema rec"
 
-# Config files
+# RCs, Config files
 alias zshrc="nvim ~/dotfiles/zsh/zshrc-mac"
 alias zshrc2="nvim ~/dotfiles/zsh/zshrc-mac.aliases"
 alias zshrc3="nvim ~/dotfiles/zsh/zshrc.themes"
@@ -28,6 +28,7 @@ alias nvimrc="nvim -S ~/dotfiles/vim/workspace.vim"
 alias tmuxrc="nvim ~/dotfiles/tmux/tmux.conf"
 alias bashrc="nvim ~/.bashrc"
 alias gitrc="nvim ~/.gitconfig"
+alias rangerrc="nvim ~/.config/ranger/rc.conf"
 
 # Shadowsocks proxy
 alias proxy='export all_proxy=http://127.0.0.1:1080'

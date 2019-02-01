@@ -55,6 +55,12 @@ call plug#begin('~/.vim/plugged')
             Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
             Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 
+        "<Ranger>
+            Plug 'francoiscabrol/ranger.vim'
+            if has('nvim')
+                Plug 'rbgrouleff/bclose.vim'
+            endif
+
         "<Tags> (ctags required)
             Plug 'majutsushi/tagbar'   "Display
             Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)

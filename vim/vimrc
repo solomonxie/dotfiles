@@ -47,6 +47,8 @@
     set ttimeout
     set timeoutlen=2000
     set ttimeoutlen=0
+    "Word recognizing
+    set iskeyword-=_
 " }
 
 

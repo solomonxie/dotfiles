@@ -67,8 +67,9 @@ call plug#begin('~/.vim/plugged')
             "Plug 'craigemery/vim-autotag'  "Navigate (manually gen tags)
 
         "<Git>
-            Plug 'jreybert/vimagit'  "Much easier with Git
-            Plug 'tpope/vim-fugitive' "Better work with fzf for :Commits
+            "Plug 'jreybert/vimagit'  "Much easier with Git
+            "Plug 'tpope/vim-fugitive' "work with fzf for :Commits
+            Plug 'iberianpig/tig-explorer.vim' "faster/prettier (tig required)
 
         "<Documentation>
             "Plug 'powerman/vim-plugin-viewdoc' "K-preview improvement

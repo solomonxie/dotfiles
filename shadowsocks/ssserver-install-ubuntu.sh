@@ -1,15 +1,19 @@
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
-# Enviroment: Ubuntu
-# How to run this script:
-#    $ curl -L $REPO_URL//shadowsocks/ssserver-setup-ubuntu.sh | sudo sh
+#! /usr/bin/env bash
 #
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
+# Enviroment: Ubuntu / Raspbian / MacOS Sierra
 #
-# ---SETING UP SHADOWSOCKS SERVER ---
+# Commands:
+
 
 set -x
 
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+# Setup env variables and shared functions
+cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+
+#-------------------------------------
+#     Installation Methods
+#-------------------------------------
 
 
 do_install_ssserver_manually(){
@@ -19,7 +23,7 @@ do_install_ssserver_manually(){
 
     # Create config file
     echo "-----[  CREAT SHADOWSOCK'S CONFIG   ]-----"
-    sudo wget $REPO_URL/shadowsocks/ssserver.json -O /etc/ssserver.json
+    sudo wget $SRC/shadowsocks/ssserver.json -O /etc/ssserver.json
 
     echo "-----[  STARTING SHADOWSOCKS SERVER   ]-----"
     sudo ssserver -c /etc/ssserver.json -d start

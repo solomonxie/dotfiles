@@ -22,7 +22,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/sbin/ss-local -c /etc/shadowsocks-libev/config.json
+ExecStart=/usr/sbin/ss-local -c /etc/shadowsocks-libev/ss-local.json
 Restart= always
 RestartSec=1min
 ExecStop=/usr/bin/killall ss-local

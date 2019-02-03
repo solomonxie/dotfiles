@@ -11,6 +11,9 @@ REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
 
 do_setup_homebrew(){
     install_homebrew
+    # Recover programs
+    recover_homebrew
+    # Change source
     while [ $# -gt 0 ] ;do
         case "$1" in
             "--geo")
@@ -36,7 +39,14 @@ install_utils_mac(){
     # Debugging for bash script
     brew install bashdb
     brew install watch
+    # Fonts
+    brew cask install font-hack-nerd-font
 }
+
+recover_homebrew(){
+    brew bundle --file $SRC
+}
+
 
 update_gnu_utils_mac(){
     # Install GNU core utilities (those that come with OS X are outdated)

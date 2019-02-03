@@ -53,7 +53,7 @@ update_gnu_utils_mac(){
     # Install pcregrep. Learn it, live it, love it.
     brew install pcre
 
-    # Add PATH to ~/.bash_profile, so that we can type commands directly 
+    # Add PATH to ~/.bash_profile, so that we can type commands directly
     cat <<-EOF >> ~/.bash_profile
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -88,5 +88,8 @@ change_source_default(){
 }
 
 
-# Entry point
+#-------------------------------------
+#          Entry points
+#-------------------------------------
+
 do_setup_homebrew

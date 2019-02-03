@@ -312,7 +312,7 @@ call plug#end()
 
     "<Splits>
         noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
-        nnoremap <leader>ve :vsplit ~/dotfiles/vim/vimrc<CR>
+        nnoremap <leader>ve :vsplit ~/dotfiles/Vim/vimrc<CR>
 
     "<Buffer>
         "Close buffer

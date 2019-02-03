@@ -35,7 +35,7 @@ do_install_tmux(){
             install_tmux_mac ;;
     esac
 
-    
+
     # Download & Install plugins
     echo "----------[  Installing TPM for Tmux   ]--------------"
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
@@ -48,9 +48,9 @@ install_tmux_ubuntu(){
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
+    cp $SRC/Tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
+    cp $SRC/Tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
@@ -60,21 +60,21 @@ install_tmux_rpi(){
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
+    cp $SRC/Tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-rpi.txt $HOME/.tmux/resurrect/last.txt
+    cp $SRC/Tmux/resurrect/last-rpi.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
 install_tmux_mac(){
-    brew install tmux  
+    brew install tmux
 
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
+    cp $SRC/Tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
+    cp $SRC/Tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 

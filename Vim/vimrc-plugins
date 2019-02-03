@@ -55,6 +55,9 @@ call plug#begin('~/.vim/plugged')
             Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
             Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 
+        "<nnn>
+            Plug 'mcchrish/nnn.vim'
+
         "<Ranger>
             Plug 'francoiscabrol/ranger.vim'
             if has('nvim')
@@ -212,6 +215,14 @@ endfunction
         " Change clang options
         "call deoplete#custom#var('clangx', 'default_c_options', '')
         "call deoplete#custom#var('clangx', 'default_cpp_options', '')
+" }
+
+
+" <nnn>------------{
+    "layout
+    let g:nnn#layout = { 'left': '~20%' }
+    "disable
+    let g:nnn#command = 'DISABLE_FILE_OPEN_ON_NAV=1 nnn -l'
 " }
 
 

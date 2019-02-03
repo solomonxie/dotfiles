@@ -18,28 +18,25 @@ cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
 do_install_shadowsocks(){
     # Do different things with different OS
     case $MYOS in
-        ubuntu|raspbian)
+        ubuntu)
             sudo apt install shadowsocks-libev -y ;;
+        raspbian)
+            sudo apt install shadowsocks-libev -y
+            set_sslocal_service_pi ;;
     esac
 }
 
 
-
-install_ss_ubuntu(){
+set_sslocal_service_pi(){
     echo ""
-}
-install_ss_libev_ubuntu(){
-    echo ""
-}
-
-install_ss_pi(){
-    echo ""
+    sudo cp $SRC/shadowsocks/sslocal.json /etc/shadowsocks-libev/ss-local.json
+    sudo cp $SRC/shadowsocks/ss-local.service /etc/systemd/system/ss-local.service
+    sudo ln -sf /usr/bin/ss-local /usr/sbin/ss-local
+    sudo systemctl enable ss-local.service
+    sudo systemctl start ss-local.service
+    sudo systemctl status ss-local.service
 }
 
-
-install_ss_libev_deb(){
-    echo ""
-}
 
 build_ss_libev_pi(){
     # Dependencies

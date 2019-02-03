@@ -59,7 +59,7 @@ docker_webav(){
     # Image: $ docker pull solomonxie/webdav:latest
     sudo mkdir $HOME/webdav
     sudo chown -R $USER:www-data $HOME/webdav
-    sudo chmod -R g+s $HOME/webdav
+    #sudo chmod -R g+s $HOME/webdav
     docker run -d --name webdav --restart=always \
         -v $HOME/webdav:/var/www/webdav \
         -e USERNAME=$USER -e PASSWORD=123 \
@@ -72,6 +72,7 @@ docker_webdav_rpi(){
     # and do `chown -R www-data:www-data /var/www/webdav`
     mkdir $HOME/webdav
     sudo chown -R $USER:www-data $HOME/webdav
+    #sudo chmod -R g+s $HOME/webdav
     #
     # <Image>: $ docker pull solomonxie/webdav-rpi:latest
     docker run -dt --name webdav --restart=always \

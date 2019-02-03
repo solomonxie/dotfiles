@@ -16,9 +16,9 @@
 
 
 " [  Import Modules  ]-----------{
-    source ~/dotfiles/vim/vimrc-plugins
-    source ~/dotfiles/vim/vimrc-keymappings
-    source ~/dotfiles/vim/vimrc-ui
+    source ~/dotfiles/Vim/vimrc-plugins
+    source ~/dotfiles/Vim/vimrc-keymappings
+    source ~/dotfiles/Vim/vimrc-ui
 " }
 
 

@@ -88,7 +88,7 @@ call vundle#end()
     filetype plugin indent on    " [Essential]
     set nocompatible   " be iMproved, required
     "colorscheme gruvbox
-    syntax enable 
+    syntax enable
     set ignorecase "Case Insensitive
     set smartcase  "Also detects specified case
     set background=dark
@@ -110,7 +110,7 @@ call vundle#end()
 
 " Advanced Settings ========================{{{
     "<Taging>
-    set tags=tags  "Plugin: Ctags  
+    set tags=tags  "Plugin: Ctags
     "<Folding>
     set foldenable              " 开始折叠
     set foldmethod=syntax       " 设置语法折叠
@@ -187,12 +187,12 @@ call vundle#end()
         "inoremap ( ()<Esc>i
         "inoremap [ []<Esc>i
         "inoremap { {}<Esc>i
-    
+
     "--Nerdtree--
     " 将焦点放在树上（无论何种情况）
         nnoremap <leader>f :NERDTreeFocus<CR>
     " 开/关文件菜单
-        nnoremap <C-f> :NERDTreeToggle<CR>  
+        nnoremap <C-f> :NERDTreeToggle<CR>
     " 向右向左切换tab
         "nnoremap <leader>l gt
         "nnoremap <leader>h gT
@@ -208,7 +208,7 @@ call vundle#end()
     " >>
         highlight Search guibg='Purple' guifg='NONE'
         highlight IncSearch gui=underline,bold guifg=White guibg=Red3
-        "highlight IncSearch ctermbg=black ctermfg=yellow 
+        "highlight IncSearch ctermbg=black ctermfg=yellow
     " 鼠标无动作时取消高亮
         autocmd cursorhold * set nohlsearch
     " 当输入查找命令时，再启用高亮
@@ -224,7 +224,7 @@ call vundle#end()
 
 " Swap files (for recovery) --------{{{
     set swapfile    "enable swap file
-    set directory=/tmp    "set swp file directory. 
+    set directory=/tmp    "set swp file directory.
     set updatecount=20     "save swp file every amount of characters
     " ▼ update also check cursor-holds and other functions, bit expensive one.
     set updatetime=4000   "save swap file every amount of ms
@@ -278,7 +278,7 @@ call vundle#end()
     " @airline
         set t_Co=256      "在windows中用xshell连接打开vim可以显示色彩
         let g:airline#extensions#tabline#enabled = 1   " 是否打开tabline
-    "这个是安装字体后 必须设置此项" 
+    "这个是安装字体后 必须设置此项"
         let g:airline_powerline_fonts = 1
         set laststatus=2  "永远显示状态栏
         let g:airline_theme='bubblegum' "选择主题
@@ -293,15 +293,15 @@ call vundle#end()
         "let g:airline_symbols.linenr = '¶'
         "let g:airline_symbols.branch = '⎇'
     " @lightline
-        "set laststatus=2 " startup the lightline.vim 
-        "let g:lightline = { 'colorscheme': 'powerline', } 
+        "set laststatus=2 " startup the lightline.vim
+        "let g:lightline = { 'colorscheme': 'powerline', }
         "set status-line's color scheme
     " @powerline
         "set laststatus=2
         "set t_Co=256
         "let g:Powerline_symbols= 'unicode'
         "set encoding=utf8
-" } 
+" }
 
 
 " <Nerdtree>-----------------------------------{
@@ -309,7 +309,7 @@ call vundle#end()
         "let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
         "let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
     " 自动开启Nerdtree
-        "autocmd vimenter * NERDTree  
+        "autocmd vimenter * NERDTree
     " 从nerdtree上打开文件后菜单自动关闭
         let NERDTreeQuitOnOpen=1
     "打开vim时如果没有文件自动打开NERDTree
@@ -319,7 +319,7 @@ call vundle#end()
     " 不显示隐藏文件
         let g:NERDTreeHidden=1
     " 过滤: 所有.pyc文件不显示
-        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__']  
+        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__']
     " 美化菜单 不显示多余的东西
         let NERDTreeMinimalUI = 1
         let NERDTreeDirArrows = 1

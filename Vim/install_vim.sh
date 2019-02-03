@@ -41,7 +41,7 @@ do_install_vim(){
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     rm $HOME/.vim/colors /dev/null 2>&1
-    ln -s $HOME/dotfiles/vim/colors $HOME/.vim/colors
+    ln -s $HOME/dotfiles/Vim/colors $HOME/.vim/colors
     #mkdir -p $HOME/.vim/colors
     #cp $SRC/vim/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
 
@@ -69,7 +69,7 @@ install_vim_ubuntu(){
     # sudo chown -R ubuntu $HOME/.vim >> $HOME/.init/log_vim.txt 1>&2
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
+    ln -sf $HOME/dotfiles/Vim/vimrc $HOME/.vimrc
 }
 
 install_vim_rpi(){
@@ -83,7 +83,7 @@ install_vim_rpi(){
     #sudo chown -R ubuntu $HOME/.vim >> $HOME/.init/log_vim.txt 1>&2
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOME/dotfiles/vim/vimrc-mini $HOME/.vimrc
+    ln -sf $HOME/dotfiles/Vim/vimrc-mini $HOME/.vimrc
 }
 
 install_vim_mac(){
@@ -94,7 +94,7 @@ install_vim_mac(){
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
+    ln -sf $HOME/dotfiles/Vim/vimrc $HOME/.vimrc
 }
 
 build_vim_pi(){

@@ -74,7 +74,7 @@ docker_webdav_rpi(){
     sudo chown -R $USER:www-data $HOME/webdav
     #
     # <Image>: $ docker pull solomonxie/webdav-rpi:latest
-    docker run -it --name webdav --rm \
+    docker run -dt --name webdav --restart=always \
         -v $HOME/docker-rpi/:/config \
         -v $HOME/webdav:/var/www/webdav \
         -e USERNAME=$USER -e PASSWORD=123 \

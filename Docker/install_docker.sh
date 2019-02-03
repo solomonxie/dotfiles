@@ -99,6 +99,9 @@ install_docker_rpi(){
     sudo apt-get install docker-ce
     sudo apt install docker-compose
 
+    # Change source
+    sudo ln -sf $HOME/dotfiles/Docker/daemon.json /etc/docker/daemon.json
+
     # Hello-world
     sudo docker run hello-world
 }

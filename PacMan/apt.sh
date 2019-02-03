@@ -40,14 +40,11 @@ do_install_apt_by_os(){
 install_utils_ubuntu(){
     sudo apt-get install apt-utils -y
     sudo apt-get install checkinstall -y
-    sudo apt-get install mosh -y
-    sudo apt-get install tree -y
-    sudo apt-get install unzip -y
+    sudo apt-get install mosh tree unzip htop ifstat bashdb -y
+    sudo apt-get install ranger nnn w3m tig axel -y
+    sudo apt-get install rg fd -y
     sudo apt-get install ntfs-3g -y
-    sudo apt-get install htop -y
     sudo apt-get install speedtest-cli -y
-    sudo apt-get install ifstat -y
-    sudo apt-get install bashdb -y
     sudo apt-get install unar -y
     #sudo apt-get install fortune cowsay cmatrix -y
     pip install --user youtube-dl tldr ffmpeg
@@ -60,15 +57,13 @@ install_utils_rpi(){
     sudo apt-get install vim -y
     sudo apt-get install apt-utils -y
     sudo apt-get install checkinstall -y
-    sudo apt-get install mosh -y
-    sudo apt-get install tree -y
+    sudo apt-get install mosh tree unzip htop ifstat bashdb -y
+    sudo apt-get install ranger w3m tig axel -y
+    sudo apt-get install rg fd -y
     sudo apt-get install ntfs-3g -y
     sudo apt-get install tightvncserver -y
-    sudo apt-get install htop -y
     sudo apt-get install speedtest-cli -y
-    sudo apt-get install ifstat -y
     sudo apt-get install lsof -y
-    sudo apt-get install bashdb -y
     sudo apt-get install unar -y
     #sudo apt-get install fortune cowsay cmatrix -y
     pip install --user youtube-dl tldr ffmpeg

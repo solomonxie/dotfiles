@@ -127,9 +127,6 @@ init_mac(){
     sh $SRC/PacMan/homebrew.sh
     # Xcode
     # .... you want to install that in App Store....
-    #
-    # Fonts
-    brew cask install font-hack-nerd-font
 }
 
 

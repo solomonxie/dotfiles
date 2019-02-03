@@ -34,7 +34,7 @@
     #zstyle ':completion:*' menu select # select completions with arrow keys
     #zstyle ':completion:*' group-name '' # group results by category
     # enable approximate matches for completion
-    #zstyle ':completion:::::' completer _expand _complete _ignored _approximate 
+    #zstyle ':completion:::::' completer _expand _complete _ignored _approximate
     # [ Conflict options ]
         #setopt auto_list # automatically list choices on ambiguous completion
         #setopt auto_menu # automatically use menu completion
@@ -120,3 +120,5 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export OCTAVE_EXECUTABLE=/usr/local/bin/octave
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"

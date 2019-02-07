@@ -70,8 +70,9 @@ docker_webdav_rpi(){
     #: <Permission problem>
     # has to get inside container by `docker exec -it webdav sh`
     # and do `chown -R www-data:www-data /var/www/webdav`
-    mkdir $HOME/webdav
-    sudo chown -R $USER:www-data $HOME/webdav
+    sudo mkdir /var/webdav
+    ln -sf /var/webdav $HOME/webdav
+    sudo chown -R $USER:www-data /var/webdav
     #sudo chmod -R g+s $HOME/webdav
     #
     # <Image>: $ docker pull solomonxie/webdav-rpi:latest

@@ -81,20 +81,24 @@ call plug#begin('~/.vim/plugged')
 
         "<Autocomplete>
             "[Snippets]  -> Python required
-                Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
+                "Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
                 Plug 'honza/vim-snippets' " Snippets are separated from the engine.
             "[Deoplete]
                 Plug 'Shougo/deoplete.nvim'
-                Plug 'roxma/vim-hug-neovim-rpc'  ">> VIM only
-                Plug 'roxma/nvim-yarp'    " Yet Another Remote Plugin Framework for Neovim
                 Plug 'zchee/deoplete-jedi'    " Python completion source
                 Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
+                if !has('nvim') ">> For vim only
+                    Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework
+                    Plug 'roxma/vim-hug-neovim-rpc'  ">> to work with Vim8
+                endif
+                let g:deoplete#enable_at_startup = 1
+                let g:deoplete#num_processes = 1
 
             "[Comment]
             Plug 'scrooloose/nerdcommenter'
 
         "<Bracket Closing>
-            Plug 'jiangmiao/auto-pairs' "Smartest
+            "Plug 'jiangmiao/auto-pairs' "Smartest
 
         "<Indentation>
             Plug  'Yggdroot/indentLine'    "Beautiful indent lines
@@ -116,10 +120,10 @@ call plug#end()
 
 " [  Lazy Load Plugins  ]-----------{
     "<UltiSnips>  -> Very slow
-    augroup load_us
-        autocmd!
-        autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_us
-    augroup END
+    "augroup load_us
+        "autocmd!
+        "autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_us
+    "augroup END
 " }
 
 
@@ -139,7 +143,7 @@ endfunction
 
 
 " <Vim-auto-pairs>--------{
-    let g:AutoPairsMapCR = 0  "Bug for nested level
+    "let g:AutoPairsMapCR = 0  "Bug for nested level
     "let g:AutoPairsCenterLine = 0
 " }
 
@@ -195,20 +199,21 @@ endfunction
 " }
 
 " <Deoplete>--------------{
-    " Enable at startup
-        let g:deoplete#enable_at_startup = 1
+    " Environment
+    "set pyxversion=3  "[error]
+    "let g:python3_host_prog = "/usr/local/bin/python3"
     " Max number of candidates
-        let g:deoplete#max_abbr_width = 30
-        let g:deoplete#max_menu_width = 40
+        "let g:deoplete#max_abbr_width = 30
+        "let g:deoplete#max_menu_width = 40
     " Set multiple options
-        call deoplete#custom#option({
-        \ 'candidate_marks': 10,
-        \ 'auto_complete_delay': 0,
-        \ 'smart_case': v:true,
-        \ })
+        "call deoplete#custom#option({
+        "\ 'candidate_marks': 10,
+        "\ 'auto_complete_delay': 0,
+        "\ 'smart_case': v:true,
+        "\ })
     " Deoplete-jedi
-        let g:deoplete#sources#jedi#enable_typeinfo = 0
-        let g:deoplete#sources#jedi#show_docstring = 0
+        "let g:deoplete#sources#jedi#enable_typeinfo = 0
+        "let g:deoplete#sources#jedi#show_docstring = 0
     " deoplete-clangx
         " Change clang binary path
         "call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
@@ -468,10 +473,11 @@ endfunction
             "Plug 'tmhedberg/SimpylFold'   "improving folding
         "Completion
             "Plug 'valloric/youcompleteme'    "hard to build
-            "Plug 'davidhalter/jedi-vim'      "complicated, need to work with others
             "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}   "not working
             "Plug 'rkulla/pydiction'   " not work as expected
             "Plug 'ervandew/supertab'
+            "Plug 'davidhalter/jedi-vim'  "complicated
+            "Plug 'lifepillar/vim-mucomplete'  "tab. sources complicated
         "Indentation
             "Plug 'nathanaelkane/vim-indent-guides'
         "Brackets

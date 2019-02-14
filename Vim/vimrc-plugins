@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         "<Syntax Highlighting>
-            Plug 'vim-syntastic/syntastic' "Syntax checker for all languages
+            "Plug 'vim-syntastic/syntastic' "Syntax checker for all languages
             Plug 'hdima/python-syntax'   "Most stable highlighting
 
         "<Window>
@@ -81,8 +81,8 @@ call plug#begin('~/.vim/plugged')
 
         "<Autocomplete>
             "[Snippets]  -> Python required
-                Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
-                Plug 'honza/vim-snippets' " Snippets are separated from the engine.
+                "Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
+                "Plug 'honza/vim-snippets' " Snippets are separated from the engine.
             "[Deoplete]
                 Plug 'Shougo/deoplete.nvim'
                 Plug 'zchee/deoplete-jedi'    " Python completion source
@@ -151,15 +151,15 @@ endfunction
 " <UltiSnips>--------{
     " Trigger configuration.
     " Do not use <tab> if you use YouCompleteMe.
-    let g:UltiSnipsExpandTrigger="<Tab>"
-    let g:UltiSnipsJumpForwardTrigger="<C-n>"
-    let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+    "let g:UltiSnipsExpandTrigger="<Tab>"
+    "let g:UltiSnipsJumpForwardTrigger="<C-n>"
+    "let g:UltiSnipsJumpBackwardTrigger="<C-p>"
 
     " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
+    "let g:UltiSnipsEditSplit="vertical"
 
     " Specify snippets locations
-    let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/ultisnips/UltiSnips", "~/dotfiles/snippets"]
+    "let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/ultisnips/UltiSnips", "~/dotfiles/snippets"]
 " }
 
 
@@ -203,8 +203,8 @@ endfunction
     "set pyxversion=3  "[error]
     "let g:python3_host_prog = "/usr/local/bin/python3"
     " Max number of candidates
-        "let g:deoplete#max_abbr_width = 30
-        "let g:deoplete#max_menu_width = 40
+        let g:deoplete#max_abbr_width = 30
+        let g:deoplete#max_menu_width = 40
     " Set multiple options
         "call deoplete#custom#option({
         "\ 'candidate_marks': 10,

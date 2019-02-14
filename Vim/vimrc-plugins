@@ -81,7 +81,7 @@ call plug#begin('~/.vim/plugged')
 
         "<Autocomplete>
             "[Snippets]  -> Python required
-                "Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
+                Plug 'SirVer/ultisnips', {'on':['InsertEnter']} " Track the engine.
                 Plug 'honza/vim-snippets' " Snippets are separated from the engine.
             "[Deoplete]
                 Plug 'Shougo/deoplete.nvim'
@@ -94,11 +94,11 @@ call plug#begin('~/.vim/plugged')
                 let g:deoplete#enable_at_startup = 1
                 let g:deoplete#num_processes = 1
 
-            "[Comment]
+        "[Comment]
             Plug 'scrooloose/nerdcommenter'
 
         "<Bracket Closing>
-            "Plug 'jiangmiao/auto-pairs' "Smartest
+            Plug 'jiangmiao/auto-pairs' "Smartest
 
         "<Indentation>
             Plug  'Yggdroot/indentLine'    "Beautiful indent lines
@@ -159,7 +159,7 @@ endfunction
     let g:UltiSnipsEditSplit="vertical"
 
     " Specify snippets locations
-    let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/ultisnips/UltiSnips","~/dotfiles/snippets"]
+    let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/ultisnips/UltiSnips", "~/dotfiles/snippets"]
 " }
 
 

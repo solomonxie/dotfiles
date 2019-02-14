@@ -29,6 +29,7 @@ alias tmuxrc="vim ~/dotfiles/Tmux/tmux.conf"
 alias bashrc="vim ~/.bashrc"
 alias gitrc="vim ~/.gitconfig"
 alias rangerrc="vim ~/.config/ranger/rc.conf"
+alias muttrc="vim -S ~/Workspace/etc/Mac/mutt/workspace.vim"
 
 # Shadowsocks proxy
 alias proxy='export all_proxy=http://127.0.0.1:1080'

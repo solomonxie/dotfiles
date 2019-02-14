@@ -1,6 +1,7 @@
 " [   Key Mappings / Bindings   ]----------------------------{
     "<Leader key>
-        let mapleader = ','
+        let mapleader = ","
+        let maplocalleader = "\\"
 
     "<Files>
         "Save file
@@ -193,11 +194,11 @@
 
     "<Plugins>------------------------------------{
         "[Plugin Manager]
-            noremap <leader>I :PlugInstall<CR>
+            noremap <localleader>i :PlugInstall<CR>
 
         "[tig-explorer]
-            nnoremap <leader>g :Tig<CR>
-            nnoremap <leader>G :TigOpenCurrentFile<CR>
+            nnoremap <localleader>g :Tig<CR>
+            nnoremap <localleader>G :TigOpenCurrentFile<CR>
         "[vimagit]
             "let g:magit_show_magit_mapping='<leader>G'
             "let g:magit_show_magit_mapping='<leader>g'
@@ -206,9 +207,11 @@
             "noremap <leader>t :TagbarToggle<CR>=<ESC>
             noremap T :TagbarOpen<CR>
 
+        "[nnn]
+            nnoremap <localleader>F :NnnPicker<CR>
         "[ranger]
             let g:ranger_map_keys = 0
-            nnoremap <leader>F :Ranger<CR>
+            "nnoremap <leader>F :Ranger<CR>
 
         "[vim-zoom]
             "nmap mm <Plug>(zoom-toggle)
@@ -218,23 +221,23 @@
             "imap <C-d>e <M-e>
 
         "[fzf]
-            nnoremap <leader>,f :Files %:p:h<CR>
-            "nnoremap <leader>,l :Lines<CR>
-            nnoremap <leader>,H :Helptags<CR>
-            nnoremap <leader>,h :History<CR>
-            nnoremap <leader>,c :History:<CR>
-            nnoremap <leader>,/ :History/<CR>
-            nnoremap <leader>,b :Buffers<CR>
-            nnoremap <leader>,s :Snippets<CR>
-            nnoremap <leader>,C :BCommits<CR>
-            nnoremap <leader>,t :BTags<CR>
-            nnoremap <leader>,T :Tags<CR>
-            "nnoremap <leader>p/ :Files ..
-            "nnoremap <leader>color/ :Colors
-            "nnoremap <leader>k/ :Maps<CR>
+            nnoremap <localleader>f :Files %:p:h<CR>
+            "nnoremap <localleader>l :Lines<CR>
+            nnoremap <localleader>H :Helptags<CR>
+            nnoremap <localleader>h :History<CR>
+            nnoremap <localleader>c :History:<CR>
+            nnoremap <localleader>/ :History/<CR>
+            nnoremap <localleader>b :Buffers<CR>
+            nnoremap <localleader>s :Snippets<CR>
+            nnoremap <localleader>C :BCommits<CR>
+            nnoremap <localleader>t :BTags<CR>
+            nnoremap <localleader>T :Tags<CR>
+            "nnoremap <localleader>p/ :Files ..
+            "nnoremap <localleader>color/ :Colors
+            "nnoremap <localleader>k/ :Maps<CR>
         "[Command-T File Searching]
-            "nnoremap <leader>/ :CommandT<CR>
-            "nnoremap <leader>c :CommandT<CR>
+            "nnoremap <localleader>/ :CommandT<CR>
+            "nnoremap <localleader>c :CommandT<CR>
 
         "[Nerdtree]
             "nnoremap <leader>f :NERDTreeFocus<CR>

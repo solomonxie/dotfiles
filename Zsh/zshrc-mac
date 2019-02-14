@@ -36,7 +36,10 @@
 # }
 
 # General settings {
-    MAILCHECK=0   # Get rid of "you have a mail" from crontab
+    # Important: Locale
+    export LANG=en_US.UTF-8
+    # Get rid of "you have a mail" from crontab
+    MAILCHECK=0
 # }
 
 # Builtin behaviors {

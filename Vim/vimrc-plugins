@@ -98,7 +98,7 @@ call plug#begin('~/.vim/plugged')
             Plug 'scrooloose/nerdcommenter'
 
         "<Bracket Closing>
-            Plug 'jiangmiao/auto-pairs' "Smartest
+            Plug 'jiangmiao/auto-pairs' "Smartest (bug:)
 
         "<Indentation>
             Plug  'Yggdroot/indentLine'    "Beautiful indent lines
@@ -143,8 +143,16 @@ endfunction
 
 
 " <Vim-auto-pairs>--------{
-    "let g:AutoPairsMapCR = 0  "Bug for nested level
-    "let g:AutoPairsCenterLine = 0
+    let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+    "Fly mode
+    let g:AutoPairsFlyMode = 0
+    "Options
+    let g:AutoPairsMultilineClose = 0 "Solve bug of deleting pair
+    let g:AutoPairsMapBS = 0
+    let g:AutoPairsMapCh = 0
+    let g:AutoPairsMapCR = 0  "Has bug for nested level
+    let g:AutoPairsCenterLine = 0
+    let g:AutoPairsMapSpace = 0
 " }
 
 

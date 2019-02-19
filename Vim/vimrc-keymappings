@@ -22,7 +22,10 @@
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
-        nnoremap <space> viw
+        "nnoremap <space> viw
+        nnoremap <Space> V
+        nnoremap <C-return> vip
+        "
         "inoremap jj <esc>
         "map q <NOP>
         "noremap <leader>,r q

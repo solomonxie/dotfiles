@@ -29,7 +29,7 @@
         set termguicolors   ">> Not compatiple with many themes
         "colorscheme material-monokai ">> Super slow, has block color comment
         colorscheme gruvbox ">> grubox is slow for old machine
-        let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
+        "let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
         " -> Alternative
             "colorscheme monokai "Fast (sickill/vim-monokai)
             "highlight Normal ctermbg=NONE

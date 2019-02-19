@@ -11,7 +11,7 @@ alias lah="ls -lah"
 
 # Program replacements
 alias vim="nvim"
-#alias vi="vi --noplugin"
+alias vi="vi --noplugin"
 alias rec="asciinema rec"
 
 # RCs, Config files

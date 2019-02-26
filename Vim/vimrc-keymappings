@@ -256,7 +256,9 @@
             " Close Tab
             "nnoremap <leader>c :tabc
         "[NerdCommenter]
-            map <leader>/ :normal ,ci<CR>
+            map <leader>/ :normal ,cc<CR>
+            "map <leader>/ :normal ,cu<CR>
+            "map <leader>/ :normal ,ci<CR>
     " }
 " }
 

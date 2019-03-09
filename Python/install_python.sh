@@ -17,7 +17,7 @@ do_install_python(){
     # Do different things with different OS
     case $MYOS in
         ubuntu|raspbian)
-            install_tmux_ubuntu ;;
+            install_tmux_deb ;;
         mac)
             install_tmux_mac ;;
     esac
@@ -32,6 +32,7 @@ do_install_python(){
 
 do_install_python3_deb(){
     sudo apt-get install python3 -y
+    sudo apt-get install virtualenv -y
     # Install pip2 & pip3
     sudo apt-get install -y python-pip python3-pip
     # Install Virtualenv
@@ -40,6 +41,7 @@ do_install_python3_deb(){
 
 do_install_python3_mac(){
     brew install python3
+    brew install virtualenv
     # Install pip3 & pip3
     curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
     sudo python2 /tmp/get-pip.py

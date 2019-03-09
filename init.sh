@@ -65,22 +65,22 @@ init_ubuntu(){
     sudo apt-get install curl wget git bashdb -y
     # Setup Python3
     echo "[   INSTALL PYTHON   ]"
-    $SRC/Python/install_python.sh
+    $SRC/python/install_python.sh
     # Setup Vim
     echo "[   INSTALL VIM   ]"
-    $SRC/Vim/install_vim.sh
+    $SRC/vim/install_vim.sh
     # Setup Tmux
     echo "[   INSTALL TMUX   ]"
-    $SRC/Tmux/install_tmux.sh
+    $SRC/tmux/install_tmux.sh
     # Setup ZSH
     echo "[   INSTALL ZSH   ]"
-    $SRC/Zsh/install_zsh.sh
+    $SRC/zsh/install_zsh.sh
     # Install common used apt packages & clean up
-    $SRC/PacMan/apt.sh
+    $SRC/pacMan/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    $SRC/Docker/install_docker.sh
-    $SRC/Docker/docker-apps.sh
+    $SRC/docker/install_docker.sh
+    $SRC/docker/docker-apps.sh
 }
 
 init_rpi(){
@@ -103,28 +103,28 @@ init_rpi(){
     sudo apt-get install curl wget git bashdb -y
     # Setup Python3
     echo "[   INSTALL INSTALL PYTHON3   ]"
-    $SRC/Python/install_python3.sh
+    $SRC/python/install_python3.sh
     # Setup Vim
     echo "[   INSTALL INSTALL VIM   ]"
-    $SRC/Vim/install_vim.sh
+    $SRC/vim/install_vim.sh
     # Setup Tmux
     echo "[   INSTALL INSTALL TMUX   ]"
-    $SRC/Tmux/install_tmux.sh
+    $SRC/tmux/install_tmux.sh
     # Setup ZSH
     echo "[   INSTALL INSTALL ZSH   ]"
-    $SRC/Zsh/install_zsh.sh
+    $SRC/zsh/install_zsh.sh
     # Install common used apt packages & clean up
-    $SRC/PacMan/apt.sh
+    $SRC/pacman/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    $SRC/Docker/install-docker-rpi.sh
-    $SRC/Docker/docker-apps.sh
+    $SRC/docker/install-docker-rpi.sh
+    $SRC/docker/docker-apps.sh
 }
 
 init_mac(){
     echo "CURRENT OS: [  Mac OS X  ]. Start initializing system funtionalities..."
     # Homebrew, always the 1st setup for Mac
-    sh $SRC/PacMan/homebrew.sh
+    sh $SRC/pacMan/homebrew.sh
     # Xcode
     # .... you want to install that in App Store....
 }

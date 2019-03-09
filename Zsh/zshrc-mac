@@ -82,7 +82,7 @@
     export ZSH=~/.oh-my-zsh
     plugins=(
       git,
-      #history-substring-search,
+      history-substring-search,
       colored-man-pages,
       dircycle
     )

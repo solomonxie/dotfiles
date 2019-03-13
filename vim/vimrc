@@ -17,8 +17,6 @@
     source ~/dotfiles/Vim/vimrc-ui
 " }
 
-
-
 " [  General Builtin Settings  ]-----------{
     set nocompatible   " be iMproved, required
     "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
@@ -99,16 +97,29 @@
     "let file_ext = expand('%:e')
 " }
 
-
 " [  Abbreviations  ]--------{
     " Test
         iabbrev waht what
         iabbrev tehn then
 " }
 
+" [  Backup Files  ]--------{
+    set backupdir=~/.vim/.backup
+    " Force backups to be copied from original, not renamed
+    set backupcopy=yes
+    " Create folder if not exists
+    if !isdirectory(&backupdir)
+       silent! call mkdir(&backupdir, 'p')
+    endif
+" }
+
 " [  Swap files  ]--------{
     set swapfile    "enable swap file
-    set directory="/Users/xiaoboxie/.vim/swap"    "set swp file directory.
+    set directory=~/.vim/swap    "set swp file directory.
+    " Create folder if not exists
+    if !isdirectory(&directory)
+       silent! call mkdir(&directory, 'p')
+    endif
     set updatecount=20     "save swp file every amount of characters
     " ▼ update also check cursor-holds and other functions, bit expensive one.
     set updatetime=4000   "save swap file every amount of ms
@@ -116,7 +127,8 @@
 
 " [  Persistent undo  ]--------{
     set undofile "Maintain UNDO history between sessions
-    set undodir="/Users/xiaoboxie/.vim/undo"
+    set undodir=~/.vim/undo
+    " Create folder if not exists
     if !isdirectory(&undodir)
        silent! call mkdir(&undodir, 'p')
     endif

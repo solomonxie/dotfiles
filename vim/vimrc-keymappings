@@ -130,24 +130,24 @@
     "[Session]----------------------------------{
         function! AutoSaveSession()
             if bufnr('%') >= 3
-                :mksession! /tmp/obsession.vim
+                :mksession! ~/.vim/obsession.vim
             endif
         endfunction
 
         function! AutoLoadSession()
             if filereadable(expand('workspace.vim'))
                 :source workspace.vim
-            elseif filereadable(expand('/tmp/obsession.vim'))
-                :source /tmp/obsession.vim
+            elseif filereadable(expand('~/.vim/obsession.vim'))
+                :source ~/.vim/obsession.vim
             endif
         endfunction
         autocmd VimLeave * call AutoSaveSession()
         "autocmd VimEnter * call AutoLoadSession()
 
         " Save session
-        noremap <leader>S :mksession! /tmp/obsession.vim<CR><ESC>
+        noremap <leader>S :mksession! ~/.vim/obsession.vim<CR><ESC>
         " Load session
-        "noremap <leader>R :source /tmp/obsession.vim<CR><ESC>
+        "noremap <leader>R :source ~/.vim/obsession.vim<CR><ESC>
         noremap <leader>R :call AutoLoadSession()<CR>
     " }
 

@@ -247,7 +247,7 @@ endfunction
 " }
 
 " <Autotag>--------------{
-    "let g:autotagTagsFile="/tmp/ctags"
+    "let g:autotagTagsFile="~/.vim/ctagfiles"
 " }
 
 " <Gutentags>--------------{
@@ -258,7 +258,7 @@ endfunction
     let g:gutentags_ctags_tagfile = 'tags'
 
     " Tag files store place, instead of project dirs
-    let s:vim_tags = expand('/tmp/tags')
+    let s:vim_tags = expand('~/.vim/tags')
     let g:gutentags_cache_dir = s:vim_tags
     " Create tag dir if not exists
     if !isdirectory(s:vim_tags)
@@ -335,7 +335,7 @@ endfunction
     " [Tags] Command to generate tags file
         let g:fzf_tags_command = 'ctags -R'
     " [History] -> will block Ctrl-n & Ctrl-p keys
-        "let g:fzf_history_dir = '/tmp/fzf-history'
+        "let g:fzf_history_dir = '~/.vim/fzf-history'
     " - enew / -tabnew / 10split enew
         "let g:fzf_layout = { 'window': 'enew' }
         "let g:fzf_layout = { 'window': '-tabnew' }

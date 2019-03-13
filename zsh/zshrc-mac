@@ -97,7 +97,6 @@
     source $ZSH/oh-my-zsh.sh
 # }
 
-
 # Setup fzf Searching tool {
     # Import binary execution to PATH
     if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
@@ -120,6 +119,7 @@
         #
     fi
 # }
+
 
 export OCTAVE_EXECUTABLE=
 export PATH="/Users/xiaoboxie/Library/Python/3.7/bin:$PATH"

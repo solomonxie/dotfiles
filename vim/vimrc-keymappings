@@ -222,21 +222,22 @@
         "[Syntastic]
             nnoremap <C-n> :lnext<cr>
             nnoremap <C-p> :lprevious<cr>
-            nnoremap <localleader>S :SyntasticCheck<cr>
+            nnoremap <localleader>s :SyntasticCheck<cr>
 
         "[Auto-pair]
             "imap <C-d> <Meta>
             "imap <C-d>e <M-e>
 
         "[fzf]
-            nnoremap <localleader>f :Files %:p:h<CR>
-            "nnoremap <localleader>l :Lines<CR>
+            nnoremap <C-f> :Lines<CR>
+            "nnoremap <localleader>f :Files %:p:h<CR>
+            nnoremap <localleader>f :Files<CR>
             nnoremap <localleader>H :Helptags<CR>
             nnoremap <localleader>h :History<CR>
             nnoremap <localleader>c :History:<CR>
             nnoremap <localleader>/ :History/<CR>
             nnoremap <localleader>b :Buffers<CR>
-            nnoremap <localleader>s :Snippets<CR>
+            nnoremap <localleader>p :Snippets<CR>
             nnoremap <localleader>C :BCommits<CR>
             nnoremap <localleader>t :BTags<CR>
             nnoremap <localleader>T :Tags<CR>
@@ -251,7 +252,8 @@
             "nnoremap <leader>f :NERDTreeFocus<CR>
             "nnoremap <leader>f :NERDTreeToggle<CR>
             " Add '%' for changing root accordingly
-            nnoremap <leader>f :NERDTree %:p:h<CR>
+            "nnoremap <leader>f :NERDTree %:p:h<CR>
+            nnoremap <leader>f :NERDTree<CR>
         "[Nerdtree Tabs]
             " Shift Tabs
             "nnoremap <C-h> gt

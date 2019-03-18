@@ -436,7 +436,7 @@ endfunction
 " <Nerdtree>-------------------{
     ">> Basic settings
         let g:NERDTreeChDirMode = 2  "Change current folder as root
-        autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
+        "autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
 
     ">> UI settings
         let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened

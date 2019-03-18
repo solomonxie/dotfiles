@@ -200,8 +200,8 @@
             noremap <localleader>i :PlugInstall<CR>
 
         "[tig-explorer]
-            nnoremap <localleader>g :Tig<CR>
-            nnoremap <localleader>G :TigOpenCurrentFile<CR>
+            "nnoremap <localleader>g :Tig<CR>
+            "nnoremap <localleader>G :TigOpenCurrentFile<CR>
         "[vimagit]
             "let g:magit_show_magit_mapping='<leader>G'
             "let g:magit_show_magit_mapping='<leader>g'
@@ -218,6 +218,11 @@
 
         "[vim-zoom]
             "nmap mm <Plug>(zoom-toggle)
+
+        "[Syntastic]
+            nnoremap <C-n> :lnext<cr>
+            nnoremap <C-p> :lprevious<cr>
+            nnoremap <localleader>S :SyntasticCheck<cr>
 
         "[Auto-pair]
             "imap <C-d> <Meta>

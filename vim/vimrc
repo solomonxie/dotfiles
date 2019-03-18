@@ -65,7 +65,7 @@
 
     "<Tag>
         "set tags=tags
-        set autochdir
+        "set autochdir " Automatically change current directory
 " }
 
 

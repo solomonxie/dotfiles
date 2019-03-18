@@ -119,8 +119,3 @@
         #
     fi
 # }
-
-
-export OCTAVE_EXECUTABLE=
-export PATH="/Users/xiaoboxie/Library/Python/3.7/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"

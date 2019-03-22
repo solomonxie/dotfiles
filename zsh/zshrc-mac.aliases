@@ -15,21 +15,22 @@ alias vi="vi --noplugin"
 alias rec="asciinema rec"
 
 # RCs, Config files
-alias zshrc="vim ~/dotfiles/Zsh/zshrc-mac"
-alias zshrc2="vim ~/dotfiles/Zsh/zshrc-mac.aliases"
-alias zshrc3="vim ~/dotfiles/Zsh/zshrc.themes"
-alias vimrc="vim -S ~/dotfiles/Vim/workspace.vim"
+alias zshrc="vim ~/.zshrc"
+alias zshrc2="vim ~/dotfiles/zsh/zshrc-mac.aliases"
+alias zshrc3="vim ~/dotfiles/zsh/zshrc.themes"
+alias vimrc="vim -S ~/dotfiles/vim/workspace.vim"
 #alias vimrc="vim ~/dotfiles/Vim/vimrc"
 #alias vimrc2="vim ~/dotfiles/Vim/vimrc-plugins"
 #alias vimrc3="vim ~/dotfiles/Vim/vimrc-keymappings"
 #alias vimrc4="vim ~/dotfiles/Vim/vimrc-ui"
 #alias nvimrc="vim ~/dotfiles/Vim/init.vim"
-alias nvimrc="vim -S ~/dotfiles/Vim/workspace.vim"
-alias tmuxrc="vim ~/dotfiles/Tmux/tmux.conf"
+alias nvimrc="vim -S ~/dotfiles/vim/workspace.vim"
+alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf"
 alias bashrc="vim ~/.bashrc"
 alias gitrc="vim ~/.gitconfig"
 alias rangerrc="vim ~/.config/ranger/rc.conf"
 alias muttrc="vim -S ~/Workspace/etc/Mac/mutt/workspace.vim"
+alias tigrc="vim ~/.tigrc"
 
 # Shadowsocks proxy
 alias proxy='export all_proxy=http://127.0.0.1:1080'

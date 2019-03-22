@@ -17,6 +17,7 @@
     source ~/dotfiles/Vim/vimrc-ui
 " }
 
+
 " [  General Builtin Settings  ]-----------{
     set nocompatible   " be iMproved, required
     "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
@@ -69,7 +70,6 @@
 " }
 
 
-
 " [  Builtin Autocomplete (omnifunc) ] ----{
         "au FileType python setl ofu=pythoncomplete#CompletePHP
         "au FileType php setl ofu=phpcomplete#CompletePHP
@@ -97,6 +97,7 @@
     "let file_ext = expand('%:e')
 " }
 
+
 " [  Abbreviations  ]--------{
     " Test
         iabbrev waht what
@@ -104,7 +105,7 @@
 " }
 
 " [  Backup Files  ]--------{
-    set backupdir=~/.vim/.backup
+    set backupdir=~/.vim/backup//
     " Force backups to be copied from original, not renamed
     set backupcopy=yes
     " Create folder if not exists
@@ -113,9 +114,10 @@
     endif
 " }
 
+
 " [  Swap files  ]--------{
     set swapfile    "enable swap file
-    set directory=~/.vim/swap    "set swp file directory.
+    set directory=~/.vim/swap//    "set swp file directory.
     " Create folder if not exists
     if !isdirectory(&directory)
        silent! call mkdir(&directory, 'p')
@@ -125,9 +127,10 @@
     set updatetime=4000   "save swap file every amount of ms
 " }
 
+
 " [  Persistent undo  ]--------{
     set undofile "Maintain UNDO history between sessions
-    set undodir=~/.vim/undo
+    set undodir=~/.vim/undo//
     " Create folder if not exists
     if !isdirectory(&undodir)
        silent! call mkdir(&undodir, 'p')

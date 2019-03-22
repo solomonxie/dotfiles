@@ -93,11 +93,12 @@ call plug#begin('~/.vim/plugged')
                 let g:deoplete#enable_at_startup = 1
                 let g:deoplete#num_processes = 1
 
-        "[Comment]
+        "<Comment>
             Plug 'scrooloose/nerdcommenter'
 
-        "[Code Check]
+        "<Code Check>
             Plug 'vim-syntastic/syntastic' "Static Code Check
+
         "<Bracket Closing>
             Plug 'jiangmiao/auto-pairs' "Smartest (bug:)
 
@@ -106,6 +107,9 @@ call plug#begin('~/.vim/plugged')
 
         "<Trailing Whitespace>
             Plug 'bronson/vim-trailing-whitespace'
+
+        "<Undo>
+            Plug 'mbbill/undotree'
 
     " [   SESSION    ]
         "Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions

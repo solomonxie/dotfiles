@@ -129,10 +129,12 @@
 
 
 " [  Persistent undo  ]--------{
-    set undofile "Maintain UNDO history between sessions
-    set undodir=~/.vim/undo//
-    " Create folder if not exists
-    if !isdirectory(&undodir)
-       silent! call mkdir(&undodir, 'p')
+    if has("persistent_undo")
+        set undofile "Maintain UNDO history between sessions
+        set undodir=~/.vim/undo//
+        " Create folder if not exists
+        if !isdirectory(&undodir)
+           silent! call mkdir(&undodir, 'p')
+        endif
     endif
 " }

@@ -211,7 +211,7 @@
             noremap T :TagbarOpen<CR>
 
         "[nnn]
-            nnoremap <localleader>F :NnnPicker<CR>
+            nnoremap <LocalLeader>F :NnnPicker<CR>
         "[ranger]
             let g:ranger_map_keys = 0
             "nnoremap <leader>F :Ranger<CR>
@@ -220,9 +220,12 @@
             "nmap mm <Plug>(zoom-toggle)
 
         "[Syntastic]
-            nnoremap <C-n> :lnext<cr>
-            nnoremap <C-p> :lprevious<cr>
-            nnoremap <localleader>s :SyntasticCheck<cr>
+            nnoremap <C-n> :lnext<CR>
+            nnoremap <C-p> :lprevious<CR>
+            nnoremap <LocalLeader>s :SyntasticCheck<CR>
+
+        "[Undotree]
+            nnoremap <Leader>u :UndotreeToggle<CR>:UndotreeFocus<CR>
 
         "[Auto-pair]
             "imap <C-d> <Meta>

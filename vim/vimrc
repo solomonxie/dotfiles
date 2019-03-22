@@ -19,24 +19,24 @@
 
 
 " [  General Builtin Settings  ]-----------{
-    set nocompatible   " be iMproved, required
+    set nocompatible
+    set encoding=utf8
     "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
     "set nospell
     set ignorecase "Case Insensitive
-    set ignorecase   "搜索时忽略大小写
-    set smartcase  "搜索时如果输大写, 就不再忽略大小写
-    set hidden " 设置Buffer缓冲区允许不保存时切换buffer
+    set smartcase  "Case sensitive when there's upper case in search
+    set hidden "Enable to switch buffer without saving
     set number "show line number
-    set mouse=a  "设置鼠标滚动为All，即在tmux中的vim也能滚动 （但是选中文字自动会进入Visual模式）
-    "set paste   "设置可以直接用ctrl+c ctrl+v复制粘贴 其实没什么区别 只不过不用在insert模式而已
+    set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger visual mode)
+    "set paste
     set showcmd " show keypress at right-bottom
     set backspace=2 "backspace over everything in insert mode
-    set autoindent "换行时自动缩排 同时对应的还有其它两种模式 smartindent, cindent
-    set tabstop=4 "设定tab宽度为4个字符
-    set shiftwidth=4 "设定自动缩进为4个字符
-    set expandtab "用space替代tab的输入 取消的话 就用set noexpandtab "不用space替代tab的输入
-    set encoding=utf8  "设置默认编码
-    retab "打开文件时自动转换所有tab为空格
+    set tabstop=4 "Set a tab=4spaces
+    set autoindent "auto indent when hit RETURN. could be: smartindent, cindent
+    set shiftwidth=4 "Set auto-indent to 4 spaces
+    set expandtab "Expand tab to spaces
+    "set noexpandtab
+    retab "Replace all tabs to spaces on file opened
     "Key maps timeout
     set timeout
     set ttimeout
@@ -49,18 +49,20 @@
 
 " [  Advanced Builtin Settings  ]-----------{
     "<Folding>
-    set foldenable              " 开始折叠
-    set foldmethod=syntax       " 设置语法折叠
+    set foldenable
+    set foldmethod=syntax
     set foldnestmax=1
-    set foldcolumn=0            " 设置折叠区域的宽度
-    setlocal foldlevel=1        " 设置折叠层数
-    set foldlevelstart=99       " 打开文件是默认不折叠代码
-    "set foldclose=all          " 设置为自动关闭折叠
-    set incsearch               " 开启即时高亮搜索结果
-    set hlsearch                " 开启所有搜索替换的高亮
+    set foldcolumn=0
+    setlocal foldlevel=1
+    set foldlevelstart=99 "No folding on file open
+    "set foldclose=all "Auto-close folding
+
+    "Search Highlighting
+    set incsearch "Enable instant search Highlighting
+    set hlsearch " Enable Highlighting all matches
 
     "<Buffer>
-        "autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
+        "autocmd BufEnter * cd %:p:h  "Auto change 'pwd' to current folder when enter a buffer
         set splitright  "Default split at right
         "set splitbelow  "Default split at right
 

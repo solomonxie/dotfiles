@@ -14,7 +14,7 @@
 
 
 # [ Key bindings ] -----{
-    bind status P !git push origin
+    bind status P !git push origin $(git rev-parse --abbrev-ref HEAD)
 # }
 
 

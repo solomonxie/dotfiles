@@ -106,9 +106,9 @@
         noremap <leader>,; :setlocal nospell<CR>
 
     "<Clipboard>
-        " 复制到系统剪切板
+        "Copy current register to system clipboard
         noremap <leader>y "+y
-        " 从系统剪切板中粘贴到当前位置
+        "Copy system clipboard to current register
         noremap <leader>p "+p
         noremap <leader>" :reg<CR>
 
@@ -116,11 +116,11 @@
         "noremap <space> za
         noremap <leader><return> zR
         noremap <leader><space> zM
-        " >> 用空格键来开关折叠
+        "Press space to toggle folding
         "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
         "nnoremap <return> za
 
-    "<Highlights> -> 当输入查找命令时，再启用高亮
+    "<Highlights> -> Highlight when typing commands
         noremap n :set hlsearch<cr>n
         noremap N :set hlsearch<cr>N
         noremap / :set hlsearch<cr>/

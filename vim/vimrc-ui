@@ -79,9 +79,9 @@
         highlight Search guibg='Purple' guifg='NONE'
         highlight IncSearch gui=underline,bold guifg=White guibg=Red3
         "highlight IncSearch ctermbg=black ctermfg=yellow
-    " 鼠标无动作时取消高亮
+    "Cancel Highlighting when mouse on idle
         autocmd cursorhold * set nohlsearch
-    " 括号匹配自动高亮
+    "Highlight on paired braket
         "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
 " }
 

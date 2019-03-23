@@ -2,22 +2,22 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/dotfiles/Vim
+cd ~/dotfiles/vim
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 ~/dotfiles/Vim/vimrc
-badd +12 ~/dotfiles/Vim/vimrc-ui
-badd +1 ~/dotfiles/Vim/vimrc-keymappings
-badd +32 ~/dotfiles/Vim/vimrc-plugins
+badd +1 ~/dotfiles/vim/vimrc
+badd +12 ~/dotfiles/vim/vimrc-ui
+badd +1 ~/dotfiles/vim/vimrc-keymappings
+badd +32 ~/dotfiles/vim/vimrc-plugins
 argglobal
 silent! argdel *
 $argadd vimrc
 $argadd vimrc-keymappings
 $argadd vimrc-plugins
 $argadd vimrc-ui
-edit ~/dotfiles/Vim/vimrc
+edit ~/dotfiles/vim/vimrc
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -62,7 +62,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists('~/dotfiles/Vim/vimrc-plugins') | buffer ~/dotfiles/Vim/vimrc-plugins | else | edit ~/dotfiles/Vim/vimrc-plugins | endif
+if bufexists('~/dotfiles/vim/vimrc-plugins') | buffer ~/dotfiles/vim/vimrc-plugins | else | edit ~/dotfiles/vim/vimrc-plugins | endif
 setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -79,7 +79,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists('~/dotfiles/Vim/vimrc-ui') | buffer ~/dotfiles/Vim/vimrc-ui | else | edit ~/dotfiles/Vim/vimrc-ui | endif
+if bufexists('~/dotfiles/vim/vimrc-ui') | buffer ~/dotfiles/vim/vimrc-ui | else | edit ~/dotfiles/vim/vimrc-ui | endif
 setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -96,7 +96,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists('~/dotfiles/Vim/vimrc-keymappings') | buffer ~/dotfiles/Vim/vimrc-keymappings | else | edit ~/dotfiles/Vim/vimrc-keymappings | endif
+if bufexists('~/dotfiles/vim/vimrc-keymappings') | buffer ~/dotfiles/vim/vimrc-keymappings | else | edit ~/dotfiles/vim/vimrc-keymappings | endif
 setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}

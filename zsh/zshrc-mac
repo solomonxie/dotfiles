@@ -38,6 +38,8 @@
 # General settings {
     # Important: Locale
     export LANG=en_US.UTF-8
+    # ls colors
+    export LSCOLORS=GxFxCxDxBxegedabagaced
     # Get rid of "you have a mail" from crontab
     MAILCHECK=0
 # }

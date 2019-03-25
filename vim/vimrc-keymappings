@@ -5,11 +5,12 @@
 
     "<Files>
         "Save file
-        "noremap  <leader>s <ESC>:w<CR><ESC>
+        "noremap  <Leader>s <ESC>:w<CR><ESC>
         "Save & Exit
         noremap  <C-x> <ESC>:x<CR><ESC>
-        noremap <leader>j :jumps<CR>
-        noremap <leader>oa :next *<CR>
+        noremap <Leader>j :jumps<CR>
+        noremap <LocalLeader>o :next *<CR>
+        noremap <Leader>O :silent exec "!open %"<CR>
 
     "<Navigate>
         "{Go-next-call}
@@ -28,13 +29,13 @@
         "
         "inoremap jj <esc>
         "map q <NOP>
-        "noremap <leader>,r q
-        nnoremap <leader>aa :ggVG<CR>
-        nnoremap <leader>ay :%y+<CR>
-        nnoremap <leader>ad :%d+<CR>
+        "noremap <Leader>,r q
+        nnoremap <Leader>aa :ggVG<CR>
+        nnoremap <Leader>ay :%y+<CR>
+        nnoremap <Leader>ad :%d+<CR>
         "nnoremap g- ''
         "{Replace-all}
-        noremap <leader>ra y:% s/<C-r>0/<C-r>0/gc<Left><Left><Left>
+        noremap <Leader>ra y:% s/<C-r>0/<C-r>0/gc<Left><Left><Left>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
 
@@ -42,29 +43,29 @@
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         noremap S :vsplit<CR><C-w>l
         "{vimrc-edit}
-        "nnoremap <leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
-        nnoremap <leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>
-        "nnoremap <leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
+        "nnoremap <Leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
+        nnoremap <Leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>
+        "nnoremap <Leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
         "{vimrc-keymapping}
-        "nnoremap <leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
+        "nnoremap <Leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
         "{vimrc-plugin}
-        "nnoremap <leader>vp :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
+        "nnoremap <Leader>vp :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-plugins<CR>
         "{vimrc-ui}
-        "nnoremap <leader>vu :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
+        "nnoremap <Leader>vu :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
 
     "<Buffer>
         "Close buffer
-            "noremap <leader>q :windo bdelete<CR><ESC>
-            noremap <leader>q :bdelete<CR><ESC>
-            "noremap <leader>q :bprev \| bd# <CR>
+            "noremap <Leader>q :windo bdelete<CR><ESC>
+            noremap <Leader>q :bdelete<CR><ESC>
+            "noremap <Leader>q :bprev \| bd# <CR>
         "Move between buffers
-            noremap <leader>bh :bprev<CR>
-            noremap <leader>bl :bnext<CR>
-            noremap <leader>h :bprev<CR>
-            noremap <leader>l :bnext<CR>
+            noremap <Leader>bh :bprev<CR>
+            noremap <Leader>bl :bnext<CR>
+            noremap <Leader>h :bprev<CR>
+            noremap <Leader>l :bnext<CR>
         "History search
-            "noremap <leader><C-h> :browse oldfiles<CR>
-            "noremap <leader><C-h> :History<CR>
+            "noremap <Leader><C-h> :browse oldfiles<CR>
+            "noremap <Leader><C-h> :History<CR>
 
     "<Tab>
         "Builtin: gt/gT
@@ -77,45 +78,45 @@
         "nnoremap tq :tabclose<CR>
         nnoremap <C-l> :tabnext<CR>
         nnoremap <C-h> :tabprev<CR>
-        nnoremap <leader>0 :tablast<CR>
-        nnoremap <leader>1 :tabfirst<CR>
-        nnoremap <leader>2 :tabn 2<CR>
-        nnoremap <leader>3 :tabn 3<CR>
-        nnoremap <leader>4 :tabn 4<CR>
-        nnoremap <leader>5 :tabn 5<CR>
+        nnoremap <Leader>0 :tablast<CR>
+        nnoremap <Leader>1 :tabfirst<CR>
+        nnoremap <Leader>2 :tabn 2<CR>
+        nnoremap <Leader>3 :tabn 3<CR>
+        nnoremap <Leader>4 :tabn 4<CR>
+        nnoremap <Leader>5 :tabn 5<CR>
 
     "<Window>
         "noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l
         noremap <TAB> <C-w>w
-        "noremap <leader>o <C-w>o
-        "noremap <leader>qw <C-w>c
-        noremap <leader>Q :qa<CR>
+        "noremap <Leader>o <C-w>o
+        "noremap <Leader>qw <C-w>c
+        noremap <Leader>Q :qa<CR>
 
     "<Terminal>
-        noremap <leader>ot :bot split \| resize 10 \| terminal<CR>i
+        noremap <Leader>ot :bot split \| resize 10 \| terminal<CR>i
         "tnoremap <ESC> <C-\><C-n>
         "tnoremap <C-c><C-c> <C-\><C-n>
         "tnoremap <C-q> <C-c><C-u><C-k>exit 0;<CR>
         "tnoremap <C-q> <C-\><C-n>:bd!<CR>
-        "tnoremap <leader>q <C-w>:q!<CR>
+        "tnoremap <Leader>q <C-w>:q!<CR>
 
     "<Spelling>
-        noremap <leader>; :setlocal spell spelllang=en,en_us,cjk<CR>
-        noremap <leader>,; :setlocal nospell<CR>
+        noremap <Leader>; :setlocal spell spelllang=en,en_us,cjk<CR>
+        noremap <Leader>,; :setlocal nospell<CR>
 
     "<Clipboard>
         "Copy current register to system clipboard
-        noremap <leader>y "+y
+        noremap <Leader>y "+y
         "Copy system clipboard to current register
-        noremap <leader>p "+p
-        noremap <leader>" :reg<CR>
+        noremap <Leader>p "+p
+        noremap <Leader>" :reg<CR>
 
     "<Folding>
         "noremap <space> za
-        noremap <leader><return> zR
-        noremap <leader><space> zM
+        noremap <Leader><return> zR
+        noremap <Leader><space> zM
         "Press space to toggle folding
         "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
         "nnoremap <return> za
@@ -145,10 +146,10 @@
         "autocmd VimEnter * call AutoLoadSession()
 
         " Save session
-        noremap <leader>S :mksession! ~/.vim/obsession.vim<CR><ESC>
+        noremap <Leader>S :mksession! ~/.vim/obsession.vim<CR><ESC>
         " Load session
-        "noremap <leader>R :source ~/.vim/obsession.vim<CR><ESC>
-        noremap <leader>R :call AutoLoadSession()<CR>
+        "noremap <Leader>R :source ~/.vim/obsession.vim<CR><ESC>
+        noremap <Leader>R :call AutoLoadSession()<CR>
     " }
 
 
@@ -183,9 +184,9 @@
     " }
 
     "<NetRW> -> (Lexplore/Vexplore/Texplore/Explore/Sexplore/edit.)
-        "nnoremap <leader>f :Lexplore<CR>
-        "nnoremap <leader>f :Explore<CR>
-        "nnoremap <leader>f :edit.<CR>
+        "nnoremap <Leader>f :Lexplore<CR>
+        "nnoremap <Leader>f :Explore<CR>
+        "nnoremap <Leader>f :edit.<CR>
 
     "<Omni Autocomplete> -> Vim自带的Omni自动补全
         "inoremap <C-d> <C-x><C-l>
@@ -203,18 +204,18 @@
             "nnoremap <localleader>g :Tig<CR>
             "nnoremap <localleader>G :TigOpenCurrentFile<CR>
         "[vimagit]
-            "let g:magit_show_magit_mapping='<leader>G'
-            "let g:magit_show_magit_mapping='<leader>g'
+            "let g:magit_show_magit_mapping='<Leader>G'
+            "let g:magit_show_magit_mapping='<Leader>g'
 
         "[tagbar] ->  "*"->open all folds; "="->close all folds
-            "noremap <leader>t :TagbarToggle<CR>=<ESC>
+            "noremap <Leader>t :TagbarToggle<CR>=<ESC>
             noremap T :TagbarOpen<CR>
 
         "[nnn]
             nnoremap <LocalLeader>F :NnnPicker<CR>
         "[ranger]
             let g:ranger_map_keys = 0
-            "nnoremap <leader>F :Ranger<CR>
+            "nnoremap <Leader>F :Ranger<CR>
 
         "[vim-zoom]
             "nmap mm <Plug>(zoom-toggle)
@@ -252,23 +253,23 @@
             "nnoremap <localleader>c :CommandT<CR>
 
         "[Nerdtree]
-            "nnoremap <leader>f :NERDTreeFocus<CR>
-            "nnoremap <leader>f :NERDTreeToggle<CR>
+            "nnoremap <Leader>f :NERDTreeFocus<CR>
+            "nnoremap <Leader>f :NERDTreeToggle<CR>
             " Add '%' for changing root accordingly
-            "nnoremap <leader>f :NERDTree %:p:h<CR>
-            nnoremap <leader>f :NERDTree<CR>
+            "nnoremap <Leader>f :NERDTree %:p:h<CR>
+            nnoremap <Leader>f :NERDTree<CR>
         "[Nerdtree Tabs]
             " Shift Tabs
             "nnoremap <C-h> gt
             "nnoremap <C-l> gT
             " New Tab
-            "nnoremap <leader>t :tabe<CR>
+            "nnoremap <Leader>t :tabe<CR>
             " Close Tab
-            "nnoremap <leader>c :tabc
+            "nnoremap <Leader>c :tabc
         "[NerdCommenter]
-            map <leader>/ :normal ,cc<CR>
-            "map <leader>/ :normal ,cu<CR>
-            "map <leader>/ :normal ,ci<CR>
+            map <Leader>/ :normal ,cc<CR>
+            "map <Leader>/ :normal ,cu<CR>
+            "map <Leader>/ :normal ,ci<CR>
     " }
 " }
 

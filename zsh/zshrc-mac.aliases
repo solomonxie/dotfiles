@@ -13,6 +13,7 @@ alias lah="ls -lah"
 alias vim="nvim"
 alias vi="vi --noplugin"
 alias rec="asciinema rec"
+alias m="macdown"
 
 # RCs, Config files
 alias zshrc="vim ~/.zshrc"

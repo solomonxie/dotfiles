@@ -37,13 +37,16 @@
     set expandtab "Expand tab to spaces
     "set noexpandtab
     retab "Replace all tabs to spaces on file opened
-    "Key maps timeout
+    "[Key maps timeout]
     set timeout
     set ttimeout
     set timeoutlen=2000
     set ttimeoutlen=0
     "Word recognizing
     "set iskeyword-=_
+    "[Auto reload current file]
+    set autoread
+    au FocusGained,BufEnter * :checktime
 " }
 
 
@@ -118,7 +121,8 @@
 
 
 " [  Swap files  ]--------{
-    set swapfile    "enable swap file
+    set noswapfile    "Autoread & checktime can solve conflict
+    "set swapfile    "enable swap file
     set directory=~/.vim/swap//    "set swp file directory.
     " Create folder if not exists
     if !isdirectory(&directory)

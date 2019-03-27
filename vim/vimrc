@@ -27,7 +27,11 @@
     set smartcase  "Case sensitive when there's upper case in search
     set hidden "Enable to switch buffer without saving
     set number "show line number
-    set mouse-=a  "a -> all, enbles mouse in Tmux (but text selection will trigger visual mode)
+    "set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger visual mode)
+    " Disable mouse selection into visual mode
+    set mouse=nicr
+    "noremap <LeftDrag> <LeftMouse>
+    "noremap! <LeftDrag> <LeftMouse>
     "set paste
     set showcmd " show keypress at right-bottom
     set backspace=2 "backspace over everything in insert mode

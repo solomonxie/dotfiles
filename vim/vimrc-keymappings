@@ -16,9 +16,10 @@
         "{Go-next-call}
         nnoremap gn yiw/<C-r>0<CR>
         "{Go-definition}
-        "nnoremap gd gd
+        nnoremap gd gd
+        vnoremap <Leader>gd y/<C-r>0<CR>
         "{Highlight all current word}
-        "nnoremap * *
+        nnoremap * *
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -226,7 +227,7 @@
             nnoremap <LocalLeader>s :SyntasticCheck<CR>
 
         "[Undotree]
-            "nnoremap <Leader>u :UndotreeToggle<CR>:UndotreeFocus<CR>
+            nnoremap <LocalLeader>d :UndotreeToggle<CR>:UndotreeFocus<CR>
 
         "[Auto-pair]
             "imap <C-d> <Meta>

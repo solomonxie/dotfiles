@@ -80,7 +80,7 @@
         highlight IncSearch gui=underline,bold guifg=White guibg=Red3
         "highlight IncSearch ctermbg=black ctermfg=yellow
     "Cancel Highlighting when mouse on idle
-        autocmd cursorhold * set nohlsearch
+        "autocmd cursorhold * set nohlsearch
     "Highlight on paired braket
         "highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE"
 " }

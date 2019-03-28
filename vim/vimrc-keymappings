@@ -246,6 +246,7 @@
             nnoremap <localleader>C :BCommits<CR>
             nnoremap <localleader>t :BTags<CR>
             nnoremap <localleader>T :Tags<CR>
+            nnoremap <localleader>a :Ag<CR>
             "nnoremap <localleader>p/ :Files ..
             "nnoremap <localleader>color/ :Colors
             "nnoremap <localleader>k/ :Maps<CR>

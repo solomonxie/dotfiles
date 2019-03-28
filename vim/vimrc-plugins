@@ -54,6 +54,9 @@ call plug#begin('~/.vim/plugged')
             Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
             Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 
+        "<Bookmarks>
+            Plug 'MattesGroeger/vim-bookmarks'
+
         "<nnn>
             Plug 'mcchrish/nnn.vim'
 

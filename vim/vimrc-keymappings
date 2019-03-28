@@ -14,7 +14,7 @@
 
     "<Navigate>
         "{Go-next-call}
-        nnoremap gn yiw/<C-r>0<CR>
+        "nnoremap m yiw/<C-r>0<CR>
         "{Go-definition}
         nnoremap gd gd
         vnoremap <Leader>gd y/<C-r>0<CR>
@@ -247,6 +247,7 @@
             nnoremap <localleader>t :BTags<CR>
             nnoremap <localleader>T :Tags<CR>
             nnoremap <localleader>a :Ag<CR>
+            nnoremap <localleader>m :Marks<CR>
             "nnoremap <localleader>p/ :Files ..
             "nnoremap <localleader>color/ :Colors
             "nnoremap <localleader>k/ :Maps<CR>

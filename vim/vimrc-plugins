@@ -55,7 +55,7 @@ call plug#begin('~/.vim/plugged')
             Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 
         "<Bookmarks>
-            Plug 'MattesGroeger/vim-bookmarks'  "Manage bookmarks
+            "Plug 'MattesGroeger/vim-bookmarks'  "Manage bookmarks
 
         "<nnn>
             Plug 'mcchrish/nnn.vim'

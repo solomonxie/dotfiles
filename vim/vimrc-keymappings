@@ -20,6 +20,10 @@
         vnoremap <Leader>gd y/<C-r>0<CR>
         "{Highlight all current word}
         nnoremap * *
+        " Jump to parent bracket/level
+        nnoremap <C-[> [{
+        nnoremap <C-o> <C-o>
+        nnoremap <C-i> <C-i>
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -67,6 +71,8 @@
         "History search
             "noremap <Leader><C-h> :browse oldfiles<CR>
             "noremap <Leader><C-h> :History<CR>
+        "Change pwd/Current Directory to be same with buffer
+            nnoremap <Leader>c :cd %:p:h<CR>
 
     "<Tab>
         "Builtin: gt/gT
@@ -90,10 +96,10 @@
         "noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l
-        noremap <TAB> <C-w>w
+        "noremap <TAB> <C-w>w
         "noremap <Leader>o <C-w>o
         "noremap <Leader>qw <C-w>c
-        noremap <Leader>Q :qa<CR>
+        "noremap <Leader>Q :qa<CR>
 
     "<Terminal>
         noremap <Leader>ot :bot split \| resize 10 \| terminal<CR>i
@@ -261,6 +267,7 @@
             " Add '%' for changing root accordingly
             "nnoremap <Leader>f :NERDTree %:p:h<CR>
             nnoremap <Leader>f :NERDTree<CR>
+            nnoremap <Leader>F :NERDTree %:p:h<CR>
         "[Nerdtree Tabs]
             " Shift Tabs
             "nnoremap <C-h> gt

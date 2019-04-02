@@ -27,9 +27,9 @@
     set smartcase  "Case sensitive when there's upper case in search
     set hidden "Enable to switch buffer without saving
     set number "show line number
-    "set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger visual mode)
+    set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger visual mode)
     " Disable mouse selection into visual mode
-    set mouse=nicr
+    "set mouse=nicr
     "noremap <LeftDrag> <LeftMouse>
     "noremap! <LeftDrag> <LeftMouse>
     "set paste
@@ -69,13 +69,14 @@
     set hlsearch " Enable Highlighting all matches
 
     "<Buffer>
+        "Change pwd/current-dir
+        "set autochdir " Automatically change current directory
         "autocmd BufEnter * cd %:p:h  "Auto change 'pwd' to current folder when enter a buffer
         set splitright  "Default split at right
         "set splitbelow  "Default split at right
 
     "<Tag>
         "set tags=tags
-        set autochdir " Automatically change current directory
 " }
 
 

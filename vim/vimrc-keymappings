@@ -110,20 +110,20 @@
         "tnoremap <Leader>q <C-w>:q!<CR>
 
     "<Spelling>
-        noremap <Leader>; :setlocal spell spelllang=en,en_us,cjk<CR>
-        noremap <Leader>,; :setlocal nospell<CR>
+        noremap <LocalLeader>! :setlocal spell spelllang=en,en_us,cjk<CR>
+        noremap <LocalLeader>@ :setlocal nospell<CR>
 
     "<Clipboard>
         "Copy current register to system clipboard
         noremap <Leader>y "+y
         "Copy system clipboard to current register
         noremap <Leader>p "+p
-        noremap <Leader>" :reg<CR>
+        "noremap <Leader>" :reg<CR>
 
     "<Folding>
-        "noremap <space> za
-        noremap <Leader><return> zR
-        noremap <Leader><space> zM
+        noremap <space> za
+        "noremap <Leader><return> zR
+        "noremap <Leader><space> zM
         "Press space to toggle folding
         "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
         "nnoremap <return> za
@@ -205,7 +205,7 @@
 
     "<Plugins>------------------------------------{
         "[Plugin Manager]
-            noremap <localleader>i :PlugInstall<CR>
+            "noremap <localleader>i :PlugInstall<CR>
 
         "[tig-explorer]
             "nnoremap <localleader>g :Tig<CR>
@@ -219,7 +219,7 @@
             noremap T :TagbarOpen<CR>
 
         "[nnn]
-            nnoremap <LocalLeader>F :NnnPicker<CR>
+            "nnoremap <LocalLeader>F :NnnPicker<CR>
         "[ranger]
             let g:ranger_map_keys = 0
             "nnoremap <Leader>F :Ranger<CR>
@@ -233,7 +233,7 @@
             nnoremap <LocalLeader>s :SyntasticCheck<CR>
 
         "[Undotree]
-            nnoremap <LocalLeader>d :UndotreeToggle<CR>:UndotreeFocus<CR>
+            "nnoremap <LocalLeader>d :UndotreeToggle<CR>:UndotreeFocus<CR>
 
         "[Auto-pair]
             "imap <C-d> <Meta>

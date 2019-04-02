@@ -29,7 +29,7 @@
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
         "nnoremap <space> viw
-        nnoremap <Space> V
+        "nnoremap <Space> V
         nnoremap <C-return> vip
         "
         "inoremap jj <esc>
@@ -96,7 +96,7 @@
         "noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l
-        "noremap <TAB> <C-w>w
+        noremap <Space> <C-w>w
         "noremap <Leader>o <C-w>o
         "noremap <Leader>qw <C-w>c
         "noremap <Leader>Q :qa<CR>
@@ -122,7 +122,7 @@
         "noremap <Leader>" :reg<CR>
 
     "<Folding>
-        noremap <space> za
+        "noremap <space> za
         "noremap <Leader><return> zR
         "noremap <Leader><space> zM
         "Press space to toggle folding

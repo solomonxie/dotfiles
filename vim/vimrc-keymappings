@@ -115,7 +115,8 @@
 
     "<Clipboard>
         "Copy current register to system clipboard
-        noremap <Leader>y "+y
+        vnoremap <Leader>y "+y
+        vnoremap ; "+y
         "Copy system clipboard to current register
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>

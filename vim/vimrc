@@ -32,7 +32,7 @@
     "set mouse=nicr
     "noremap <LeftDrag> <LeftMouse>
     "noremap! <LeftDrag> <LeftMouse>
-    "set paste
+    set nopaste
     set showcmd " show keypress at right-bottom
     set backspace=2 "backspace over everything in insert mode
     set tabstop=4 "Set a tab=4spaces

@@ -96,7 +96,7 @@
         "noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l
-        noremap <Space> <C-w>w
+        nnoremap <Tab> <C-w>w
         "noremap <Leader>o <C-w>o
         "noremap <Leader>qw <C-w>c
         "noremap <Leader>Q :qa<CR>

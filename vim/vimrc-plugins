@@ -21,6 +21,9 @@
 call plug#begin('~/.vim/plugged')
     " [    UI / Appearence     ]
 
+        "<Start>
+            Plug 'mhinz/vim-startify'
+
         "<Theme>
             Plug 'morhetz/gruvbox'
 

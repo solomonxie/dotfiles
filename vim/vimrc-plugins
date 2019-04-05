@@ -70,6 +70,9 @@ call plug#begin('~/.vim/plugged')
                 Plug 'rbgrouleff/bclose.vim'
             endif
 
+        "<History>
+            "Plug 'yegappan/mru'
+
         "<Tags> (ctags required)
             Plug 'majutsushi/tagbar'   "Display
             Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)

@@ -169,18 +169,18 @@
         " Get current filetype -> :echo &filetype or as variable &filetype
         " [ Builds / Compiles / Interpretes  ]
         "<C/C++ Compiler>  -> Compile & run
-            autocmd BufReadPre *.c noremap <buffer> <Leader>b :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
-            autocmd BufReadPre *.cpp noremap <buffer> <Leader>b :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
+            autocmd BufReadPre *.c noremap <buffer> <M-b> :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
+            autocmd BufReadPre *.cpp noremap <buffer> <M-b> :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
 
         "<Python Interpreter>
-            autocmd BufReadPre *.py noremap <buffer> <Leader>b :w<CR>:!python "%:p" <CR>
+            autocmd BufReadPre *.py noremap <buffer> <M-b> :w<CR>:!python "%:p" <CR>
             "autocmd BufReadPre *.py noremap <buffer> K yiw:!pydoc <C-r>0<CR>
         "<Bash Script>
-            autocmd BufReadPre *.sh noremap <buffer> <Leader>b :w<CR>:!bash % <CR>
+            autocmd BufReadPre *.sh noremap <buffer> <M-b> :w<CR>:!bash % <CR>
 
         "<RCs> (Configs)
-            autocmd BufReadPre .vimrc,vimrc* noremap <buffer> <Leader>b :w<CR>:source % <CR>
-            autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <Leader>b :w<CR>:!source % <CR>
+            autocmd BufReadPre .vimrc,vimrc* noremap <buffer> <M-b> :w<CR>:source % <CR>
+            autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <M-b> :w<CR>:!source % <CR>
 
         "<Executable>  -> conflict with above
         ""noremap <buffer> <C-u> :!./% <CR>

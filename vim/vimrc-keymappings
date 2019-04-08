@@ -12,14 +12,15 @@
         noremap <LocalLeader>o :next *<CR>
         noremap <Leader>O :silent exec "!open %"<CR>
 
-    "<Navigate>
+    "<Navigation>
         "{Go-next-call}
         "nnoremap m yiw/<C-r>0<CR>
         "{Go-definition}
         nnoremap gd gd
         vnoremap <Leader>gd y/<C-r>0<CR>
         "{Highlight all current word}
-        nnoremap * *
+        "nnoremap * #
+        "nnoremap # *
         " Jump to parent bracket/level
         nnoremap <C-[> [{
         nnoremap <C-o> <C-o>

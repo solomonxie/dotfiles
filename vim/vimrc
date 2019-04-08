@@ -141,7 +141,7 @@
 
 " [  Persistent undo  ]--------{
     if has("persistent_undo")
-        set undofile "Maintain UNDO history between sessions
+        set undofile "Save UNDO history to local files
         set undodir=~/.vim/undo//
         " Create folder if not exists
         if !isdirectory(&undodir)

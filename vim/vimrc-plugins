@@ -290,6 +290,9 @@ endfunction
 
 " <Autotag>--------------{
     "let g:autotagTagsFile="~/.vim/ctagfiles"
+    if !isdirectory("~/.vim/ctagfiles")
+       silent! call mkdir(s:vim_tags, 'p')
+    endif
 " }
 
 " <Gutentags>--------------{

@@ -98,10 +98,10 @@
         "noremap H <C-w>h
         "noremap L <C-w>l
         "nnoremap <Tab> <C-w>w
-        nnoremap <M-h> <C-w>h
-        nnoremap <M-l> <C-w>l
-        nnoremap <M-j> <C-w>j
-        nnoremap <M-k> <C-w>k
+        noremap <M-h> <C-w>h
+        noremap <M-l> <C-w>l
+        noremap <M-j> <C-w>j
+        noremap <M-k> <C-w>k
         "noremap <Leader>o <C-w>o
         "noremap <Leader>qw <C-w>c
         "noremap <Leader>Q :qa<CR>

@@ -1,0 +1,48 @@
+# This is Git's per-user configuration file.
+[user]
+    name = Solomon Xie
+    email = xiaoboxie@appannie.com
+[core]
+    editor = nvim
+[color]
+    ui = true
+[credential]
+    helper = cache
+[commit]
+    template = ~/dotfiles/etc/git/git-message
+[alias]
+    # Shortening aliases
+    ci = commit
+    co = checkout
+    br = branch
+    up = push
+    dn = pull
+
+    # Feature improving aliases
+    st = status -sb
+    a = add -p
+    type = cat-file -t
+    dump = cat-file -p
+
+    # Working with branches
+    bchname = "!git rev-parse --abbrev-ref HEAD"
+    # Push the current branch to the remote
+    pub = "!git push origin $(git bchname)"
+    pusho = "!git push origin $(git bchname)"
+    # Pull from the origin
+    sync = "!git pull origin $(git bchname)"
+    pullo = "!git pull origin $(git bchname)"
+    # Fetch all remote branches
+    # fetchall = "!git branch -r | grep -v '\->' | while read remote; do git branch --track \"${remote#origin/}\" \"$remote\"; done"
+
+    # Composite functionalities
+    unstage = reset HEAD --
+    unset = reset --hard
+    last = log -1 HEAD
+    rank = shortlog -sn --no-merges
+    bdm = "!git branch --merged | grep -v '*' | xargs -n 1 git branch -d"
+
+    # UI Improvements
+    logc = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    logp = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+    logt = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative

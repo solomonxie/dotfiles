@@ -14,7 +14,8 @@
 
 
 # [ Key bindings ] -----{
-    bind status P !git push origin
+    bind main P !?git push origin $(git bchname)
+    bind main a !?git commit --amend
 # }
 
 

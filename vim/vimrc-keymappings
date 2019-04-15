@@ -144,24 +144,34 @@
     "[Session]----------------------------------{
         function! AutoSaveSession()
             if bufnr('%') >= 3
-                :mksession! ~/.vim/obsession.vim
+                if isdirectory('.git')
+                    :mksession! .git/workspace.vim
+                elseif isdirectory('../.git')
+                    :mksession! ../.git/workspace.vim
+                elseif isdirectory(expand('~/.vim'))
+                    :mksession! ~/.vim/session.vim
+                endif
             endif
         endfunction
 
         function! AutoLoadSession()
             if filereadable(expand('workspace.vim'))
                 :source workspace.vim
-            elseif filereadable(expand('~/.vim/obsession.vim'))
-                :source ~/.vim/obsession.vim
+            elseif filereadable(expand('.git/workspace.vim'))
+                :source .git/workspace.vim
+            elseif filereadable(expand('../.git/workspace.vim'))
+                :source ../.git/workspace.vim
+            elseif filereadable(expand('~/.vim/session.vim'))
+                :source ~/.vim/session.vim
             endif
         endfunction
         autocmd VimLeave * call AutoSaveSession()
         "autocmd VimEnter * call AutoLoadSession()
 
         " Save session
-        noremap <Leader>S :mksession! ~/.vim/obsession.vim<CR><ESC>
+        noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
         " Load session
-        "noremap <Leader>R :source ~/.vim/obsession.vim<CR><ESC>
+        "noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
         noremap <Leader>R :call AutoLoadSession()<CR>
     " }
 

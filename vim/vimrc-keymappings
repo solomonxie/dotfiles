@@ -143,14 +143,15 @@
 
     "[Session]----------------------------------{
         function! AutoSaveSession()
-            if bufnr('%') >= 3
-                if isdirectory('.git')
-                    :mksession! .git/workspace.vim
-                elseif isdirectory('../.git')
-                    :mksession! ../.git/workspace.vim
-                elseif isdirectory(expand('~/.vim'))
-                    :mksession! ~/.vim/session.vim
-                endif
+            if bufnr('%') < 4
+                return
+            endif
+            if isdirectory('.git')
+                :mksession! .git/workspace.vim
+            elseif isdirectory('../.git')
+                :mksession! ../.git/workspace.vim
+            elseif isdirectory(expand('~/.vim'))
+                :mksession! ~/.vim/session.vim
             endif
         endfunction
 

@@ -20,7 +20,7 @@
 # [ UI ] -----{
     set main-view = line-number:no,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
     set refs-view = line-number:no id:yes date:default author:full ref commit-title
-    set tree-view = line-number:no,interval=5 mode author:full file-size date:default id:yes file-n
+    #set tree-view = line-number:no,interval=5 mode author:full file-size date:default id:yes file-n
     set status-view = line-number:no,interval=5 status:short file-name
     set blame-view = id:yes,color file-name:auto author:full date:default line-number:yes,interval=1 text
     set stash-view = line-number:no,interval=5 id:no date:default author:full commit-title
@@ -33,14 +33,14 @@
     set diff-view = line-number:no,interval=5 text:yes,commit-title-overflow=no
     # UI display settings
     set show-changes = yes  # Show changes commits in the main view?
-    set show-untracked = yes  # Show also untracked changes?
+    #set show-untracked = yes  # Show also untracked changes?
     set wrap-lines  = no  # Wrap long lines in pager views?
     set tab-size  = 8  # Number of spaces to use when expanding tabs
     set line-graphics = default # Enum: ascii, default, utf-8
     set truncation-delimiter = ~  # Character drawn for truncations, or "utf-8"
     # UI display settings
     set show-changes  = yes  # Show changes commits in the main view?
-    set show-untracked  = yes  # Show also untracked changes?
+    #set show-untracked  = yes  # Show also untracked changes?
     set wrap-lines   = no  # Wrap long lines in pager views?
     set tab-size   = 8  # Number of spaces to use when expanding tabs
     set line-graphics  = default # Enum: ascii, default, utf-8

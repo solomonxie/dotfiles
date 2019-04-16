@@ -3,6 +3,10 @@
         let mapleader = ","
         let maplocalleader = "\\"
 
+    "<Undefined>
+        noremap - <Nop>
+        noremap = <Nop>
+
     "<Files>
         "Save file
         "noremap  <Leader>s <ESC>:w<CR><ESC>
@@ -148,22 +152,29 @@
             endif
             if isdirectory('.git')
                 :mksession! .git/workspace.vim
+                ":echo 'Save session to .git/workspace.vim'
             elseif isdirectory('../.git')
                 :mksession! ../.git/workspace.vim
+                ":echo 'Save session to ../.git/workspace.vim'
             elseif isdirectory(expand('~/.vim'))
                 :mksession! ~/.vim/session.vim
+                ":echo 'Save session to ~/.vim/session.vim'
             endif
         endfunction
 
         function! AutoLoadSession()
             if filereadable(expand('workspace.vim'))
                 :source workspace.vim
+                ":echo 'Load session from workspace.vim'
             elseif filereadable(expand('.git/workspace.vim'))
                 :source .git/workspace.vim
+                ":echo 'Load session from .git/workspace.vim'
             elseif filereadable(expand('../.git/workspace.vim'))
                 :source ../.git/workspace.vim
+                ":echo 'Load session from ../.git/workspace.vim'
             elseif filereadable(expand('~/.vim/session.vim'))
                 :source ~/.vim/session.vim
+                ":echo 'Load session from ~/.vim/session.vim'
             endif
         endfunction
         autocmd VimLeave * call AutoSaveSession()

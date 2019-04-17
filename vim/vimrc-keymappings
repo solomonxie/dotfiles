@@ -111,7 +111,8 @@
         "noremap <Leader>Q :qa<CR>
 
     "<Terminal>
-        noremap <Leader>ot :bot split \| resize 10 \| terminal<CR>i
+        command! TerminalOpenAtBottom :bot split \| resize 10 \| terminal
+        "noremap <Leader>ot :bot split \| resize 10 \| terminal<CR>i
         "tnoremap <ESC> <C-\><C-n>
         "tnoremap <C-c><C-c> <C-\><C-n>
         "tnoremap <C-q> <C-c><C-u><C-k>exit 0;<CR>
@@ -119,16 +120,19 @@
         "tnoremap <Leader>q <C-w>:q!<CR>
 
     "<Spelling>
-        noremap <LocalLeader>! :setlocal spell spelllang=en,en_us,cjk<CR>
-        noremap <LocalLeader>@ :setlocal nospell<CR>
+        command! SpellCheckOn  setlocal spell spelllang=en,en_us,cjk
+        command! SpellCheckOff setlocal nospell
+        "noremap <LocalLeader>! :setlocal spell spelllang=en,en_us,cjk<CR>
+        "noremap <LocalLeader>@ :setlocal nospell<CR>
 
     "<Clipboard>
-        "Copy current register to system clipboard
+        "Copy current REGISTER to system clipboard
         vnoremap <Leader>y "+y
         vnoremap ; "+y
         "Copy system clipboard to current register
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
+        command! CopyPath let @+ = expand('%:p') | echo 'Current file path is copied to clipboard.'
 
     "<Folding>
         "noremap <space> za
@@ -182,9 +186,11 @@
 
         " Save session
         noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
+        command! SessionSave AutoSaveSession()
         " Load session
         "noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
         noremap <Leader>R :call AutoLoadSession()<CR>
+        command! SessionLoad AutoLoadSession()
     " }
 
 

@@ -104,7 +104,7 @@ set mouse-wheel-cursor  = no  # Prefer moving the cursor to scrolling the view?
     bind main a !?git commit --amend
     bind main G @bash -c "open 'https://'$(git remote -v | grep -Eo 'github.com[:/][^.]+' | head -1 | tr : / | cut -d' ' -f1)'/commit/%(commit)'"
     bind main T !bash -c 'TAG="%(prompt Enter new tag name: )"; git tag "${TAG}" %(commit) || { read -n 1 -p "Force [y/n]? " X; test "$X" = "y" && git tag "${TAG}" %(commit) -f; }'
-    bind main R !?git rebase --onto HEAD mark "%(commit)" -i
+    #bind main R !?git rebase --onto HEAD mark "%(commit)" -i
     bind main B !bash -xc 'B="%(prompt Enter new branch name: )"; test -z "$B" && exit 1; git branch "$B" "%(commit)" || { read -n 1 -p "Exists already. Force [y/n]? " X; test "$X" != "y" && exit 1; git branch -D "$B" && git branch -f -vv "$B" "%(commit)"; }'
     bind main P ?git cherry-pick "%(commit)"
     bind main L !bash -c "git reflog --pretty=raw | tig --pretty=raw"

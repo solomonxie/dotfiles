@@ -45,7 +45,8 @@
         nnoremap <Leader>ad :%d+<CR>
         "nnoremap g- ''
         "{Replace-all}
-        noremap <Leader>ra y:% s/<C-r>0/<C-r>0/gc<Left><Left><Left>
+        noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
+        vnoremap f "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
 
@@ -143,11 +144,13 @@
         "nnoremap <return> za
 
     "<Highlights> -> Highlight when typing commands
-        noremap n :set hlsearch<cr>n
-        noremap N :set hlsearch<cr>N
-        noremap / :set hlsearch<cr>/
-        noremap ? :set hlsearch<cr>?
-        noremap * *:set hlsearch<cr>
+        noremap  n :set hlsearch<cr>n
+        noremap  N :set hlsearch<cr>N
+        noremap  / :set hlsearch<cr>/
+        noremap  ? :set hlsearch<cr>?
+        noremap  * *:set hlsearch<cr>
+        noremap  # #:set hlsearch<cr>
+        vnoremap / "1y/<C-r>1<CR>
 
     "[Session]----------------------------------{
         function! AutoSaveSession()

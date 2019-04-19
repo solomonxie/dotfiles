@@ -70,10 +70,11 @@ set_theme_powerlevel9k(){
         # os_icon ram root_indicator status swap
         # time user vi_mode ssh
         #左侧栏目
-        POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon virtualenv context dir vcs)
+        POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon virtualenv context dir vcs status)
         #右侧栏目
         #POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
-        POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
+        #POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
+        POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
         #右侧状态栏不和目录在一行，而是和命令在同一行
         #POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
     # }

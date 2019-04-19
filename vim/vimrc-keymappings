@@ -45,7 +45,7 @@
         nnoremap <Leader>ad :%d+<CR>
         "nnoremap g- ''
         "{Replace-all}
-        noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
+        "noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
         vnoremap f "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
@@ -150,7 +150,8 @@
         noremap  ? :set hlsearch<cr>?
         noremap  * *:set hlsearch<cr>
         noremap  # #:set hlsearch<cr>
-        vnoremap / "1y/<C-r>1<CR>
+        vnoremap * "1y/<C-r>1<CR>
+        vnoremap # "1y?<C-r>1<CR>
 
     "[Session]----------------------------------{
         function! AutoSaveSession()

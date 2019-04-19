@@ -148,10 +148,10 @@
         noremap  N :set hlsearch<cr>N
         noremap  / :set hlsearch<cr>/
         noremap  ? :set hlsearch<cr>?
-        noremap  * *:set hlsearch<cr>
-        noremap  # #:set hlsearch<cr>
-        vnoremap * "1y/<C-r>1<CR>
-        vnoremap # "1y?<C-r>1<CR>
+        noremap  * #:set hlsearch<cr>
+        noremap  # *:set hlsearch<cr>
+        vnoremap # "1y/<C-r>1<CR>
+        vnoremap * "1y?<C-r>1<CR>
 
     "[Session]----------------------------------{
         function! AutoSaveSession()

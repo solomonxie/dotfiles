@@ -12,9 +12,11 @@
         "noremap  <Leader>s <ESC>:w<CR><ESC>
         "Save & Exit
         noremap  <C-x> <ESC>:x<CR><ESC>
-        noremap <Leader>j :jumps<CR>
-        noremap <LocalLeader>o :next *<CR>
+        "noremap <Leader>j :jumps<CR>
         noremap <Leader>O :silent exec "!open %"<CR>
+        command! OpenAllInThisDir :next *
+        "Change pwd/Current Directory to be same with buffer
+        command! CWDToCurrentDir :cd %:p:h
 
     "<Navigation>
         "{Go-next-call}
@@ -77,8 +79,6 @@
         "History search
             "noremap <Leader><C-h> :browse oldfiles<CR>
             "noremap <Leader><C-h> :History<CR>
-        "Change pwd/Current Directory to be same with buffer
-            nnoremap <Leader>c :cd %:p:h<CR>
 
     "<Tab>
         "Builtin: gt/gT
@@ -235,6 +235,8 @@
 
     "<Omni Autocomplete> -> Vim自带的Omni自动补全
         "inoremap <C-d> <C-x><C-l>
+
+    "<Pair-completion>
         "inoremap ' ''<Esc>i
         "inoremap " ""<Esc>i
         "inoremap ( ()<Esc>i

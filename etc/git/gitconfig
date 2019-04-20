@@ -46,3 +46,4 @@
     logc = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     logp = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
     logt = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+    commits = log --pretty=oneline

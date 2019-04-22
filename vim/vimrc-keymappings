@@ -51,6 +51,13 @@
         vnoremap f "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
+        "{Leave Unchanged}
+        "capitalize
+        vnoremap U U
+        "lowercase
+        vnoremap u u
+        "switch case
+        vnoremap ~ ~
 
     "<Split>
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>

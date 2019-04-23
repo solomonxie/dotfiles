@@ -51,12 +51,13 @@
         vnoremap f "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
-        "{Leave Unchanged}
-        "capitalize
+        "Select from current to the end
+        nnoremap <Leader>V v$h
+        "Capitalize
         vnoremap U U
-        "lowercase
+        "Lowercase
         vnoremap u u
-        "switch case
+        "Switch case
         vnoremap ~ ~
 
     "<Split>
@@ -197,11 +198,11 @@
 
         " Save session
         noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
-        command! SessionSave AutoSaveSession()
+        command! SessionSave :call AutoSaveSession()
         " Load session
         "noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
         noremap <Leader>R :call AutoLoadSession()<CR>
-        command! SessionLoad AutoLoadSession()
+        command! SessionLoad :call AutoLoadSession()
     " }
 
 

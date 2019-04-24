@@ -51,8 +51,8 @@
         vnoremap f "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
-        "Select from current to the end
-        nnoremap <Leader>V v$h
+        "Select from cursor to the end
+        nnoremap <Leader>v v$h
         "Capitalize
         vnoremap U U
         "Lowercase
@@ -65,7 +65,12 @@
         noremap S :vsplit<CR><C-w>l
         "{vimrc-edit}
         "nnoremap <Leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
-        nnoremap <Leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>
+        function! LoadVimrc()
+            :tabnew
+            :source ~/dotfiles/vim/workspace.vim
+        endfunction
+        "nnoremap <Leader>ve :call LoadVimrc()<CR>
+        command! Vimrc :call LoadVimrc()
         "nnoremap <Leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
         "{vimrc-keymapping}
         "nnoremap <Leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
@@ -163,46 +168,46 @@
 
     "[Session]----------------------------------{
         function! AutoSaveSession()
-            if bufnr('%') < 4
+            if bufnr('%') < 3
                 return
             endif
             if isdirectory('.git')
                 :mksession! .git/workspace.vim
-                ":echo 'Save session to .git/workspace.vim'
+                :echo 'Save session to .git/workspace.vim'
             elseif isdirectory('../.git')
                 :mksession! ../.git/workspace.vim
-                ":echo 'Save session to ../.git/workspace.vim'
+                :echo 'Save session to ../.git/workspace.vim'
             elseif isdirectory(expand('~/.vim'))
                 :mksession! ~/.vim/session.vim
-                ":echo 'Save session to ~/.vim/session.vim'
+                :echo 'Save session to ~/.vim/session.vim'
             endif
         endfunction
 
         function! AutoLoadSession()
             if filereadable(expand('workspace.vim'))
                 :source workspace.vim
-                ":echo 'Load session from workspace.vim'
+                :echo 'Load session from workspace.vim'
             elseif filereadable(expand('.git/workspace.vim'))
                 :source .git/workspace.vim
-                ":echo 'Load session from .git/workspace.vim'
+                :echo 'Load session from .git/workspace.vim'
             elseif filereadable(expand('../.git/workspace.vim'))
                 :source ../.git/workspace.vim
-                ":echo 'Load session from ../.git/workspace.vim'
+                :echo 'Load session from ../.git/workspace.vim'
             elseif filereadable(expand('~/.vim/session.vim'))
                 :source ~/.vim/session.vim
-                ":echo 'Load session from ~/.vim/session.vim'
+                :echo 'Load session from ~/.vim/session.vim'
             endif
         endfunction
         autocmd VimLeave * call AutoSaveSession()
         "autocmd VimEnter * call AutoLoadSession()
 
         " Save session
-        noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
-        command! SessionSave :call AutoSaveSession()
+        "noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
+        command! SaveSession :call AutoSaveSession()
         " Load session
         "noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
-        noremap <Leader>R :call AutoLoadSession()<CR>
-        command! SessionLoad :call AutoLoadSession()
+        "noremap <Leader>R :call AutoLoadSession()<CR>
+        command! LoadSession :call AutoLoadSession()
     " }
 
 

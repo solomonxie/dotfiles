@@ -53,6 +53,7 @@
         inoremap <C-v> <C-r>0
         "Select from cursor to the end
         nnoremap <Leader>v v$h
+        nnoremap <Leader>0 v^
         "Capitalize
         vnoremap U U
         "Lowercase
@@ -104,12 +105,12 @@
         "nnoremap tq :tabclose<CR>
         nnoremap <C-l> :tabnext<CR>
         nnoremap <C-h> :tabprev<CR>
-        nnoremap <Leader>0 :tablast<CR>
-        nnoremap <Leader>1 :tabfirst<CR>
-        nnoremap <Leader>2 :tabn 2<CR>
-        nnoremap <Leader>3 :tabn 3<CR>
-        nnoremap <Leader>4 :tabn 4<CR>
-        nnoremap <Leader>5 :tabn 5<CR>
+        "nnoremap <Leader>0 :tablast<CR>
+        "nnoremap <Leader>1 :tabfirst<CR>
+        "nnoremap <Leader>2 :tabn 2<CR>
+        "nnoremap <Leader>3 :tabn 3<CR>
+        "nnoremap <Leader>4 :tabn 4<CR>
+        "nnoremap <Leader>5 :tabn 5<CR>
 
     "<Window>
         "noremap m <C-w>

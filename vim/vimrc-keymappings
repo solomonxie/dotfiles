@@ -37,14 +37,18 @@
             nnoremap <Space> :bnext<CR>
             nnoremap <Return> :bprev<CR>
         "{Move between Windows}
-            noremap <M-h> <C-w>h
-            noremap <M-l> <C-w>l
-            noremap <M-j> <C-w>j
-            noremap <M-k> <C-w>k
-            nnoremap <Leader>h <C-w>h
-            nnoremap <Leader>l <C-w>l
-            nnoremap <Leader>j <C-w>j
-            nnoremap <Leader>k <C-w>k
+            nnoremap <Left> <C-w>h
+            nnoremap <Right> <C-w>l
+            nnoremap <Up> <C-w>k
+            nnoremap <Down> <C-w>j
+            "noremap <M-h> <C-w>h
+            "noremap <M-l> <C-w>l
+            "noremap <M-j> <C-w>j
+            "noremap <M-k> <C-w>k
+            "nnoremap <Leader>h <C-w>h
+            "nnoremap <Leader>l <C-w>l
+            "nnoremap <Leader>j <C-w>j
+            "nnoremap <Leader>k <C-w>k
             nnoremap <Leader>, <C-w>w
         "{Move between Tabs}
             nnoremap <Leader>tn :tabnext<CR>

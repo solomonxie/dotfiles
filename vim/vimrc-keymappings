@@ -22,17 +22,20 @@
 
     "<Navigation>
         "{Go-next-call}
-        "nnoremap m yiw/<C-r>0<CR>
+            "nnoremap m yiw/<C-r>0<CR>
         "{Go-definition}
-        nnoremap gd gd
-        vnoremap <Leader>gd y/<C-r>0<CR>
+            nnoremap gd gd
+            vnoremap <Leader>gd y/<C-r>0<CR>
         "{Highlight all current word}
-        "nnoremap * #
-        "nnoremap # *
+            "nnoremap * #
+            "nnoremap # *
         "{Jump to parent bracket/level}
-        nnoremap <C-[> [{
-        nnoremap - :bprev<CR>
-        nnoremap = :bnext<CR>
+            nnoremap <C-[> [{
+        "{Move between buffers}
+            nnoremap - :bprev<CR>
+            nnoremap = :bnext<CR>
+            noremap <Leader>h :bprev<CR>
+            noremap <Leader>l :bnext<CR>
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -87,11 +90,6 @@
             "noremap <Leader>q :windo bdelete<CR><ESC>
             noremap <Leader>q :bdelete<CR><ESC>
             "noremap <Leader>q :bprev \| bd# <CR>
-        "{Move between buffers}
-            noremap <Leader>bh :bprev<CR>
-            noremap <Leader>bl :bnext<CR>
-            noremap <Leader>h :bprev<CR>
-            noremap <Leader>l :bnext<CR>
         "{History search}
             "noremap <Leader><C-h> :browse oldfiles<CR>
             "noremap <Leader><C-h> :History<CR>

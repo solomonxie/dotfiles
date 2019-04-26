@@ -4,18 +4,20 @@
         let maplocalleader = "\\"
 
     "<Undefined>
-        noremap - <Nop>
-        noremap = <Nop>
+        "noremap - <Nop>
+        "noremap = <Nop>
+        nnoremap <C-o> <C-o>
+        nnoremap <C-i> <C-i>
 
     "<Files>
-        "Save file
+        "{Save file}
         "noremap  <Leader>s <ESC>:w<CR><ESC>
-        "Save & Exit
+        "{Save & Exit}
         noremap  <C-x> <ESC>:x<CR><ESC>
         "noremap <Leader>j :jumps<CR>
         noremap <Leader>O :silent exec "!open %"<CR>
         command! OpenAllInThisDir :next *
-        "Change pwd/Current Directory to be same with buffer
+        "{Change pwd/Current Directory to be same with buffer}
         command! CWDToCurrentDir :cd %:p:h
 
     "<Navigation>
@@ -27,10 +29,10 @@
         "{Highlight all current word}
         "nnoremap * #
         "nnoremap # *
-        " Jump to parent bracket/level
+        "{Jump to parent bracket/level}
         nnoremap <C-[> [{
-        nnoremap <C-o> <C-o>
-        nnoremap <C-i> <C-i>
+        nnoremap - :bprev<CR>
+        nnoremap = :bnext<CR>
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -51,14 +53,14 @@
         vnoremap f "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
-        "Select from cursor to the end
+        "{Select from cursor to the end}
         nnoremap <Leader>v v$h
         nnoremap <Leader>0 v^
-        "Capitalize
+        "{Capitalize}
         vnoremap U U
-        "Lowercase
+        "{Lowercase}
         vnoremap u u
-        "Switch case
+        "{Switch case}
         vnoremap ~ ~
 
     "<Split>
@@ -81,30 +83,30 @@
         "nnoremap <Leader>vu :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-ui<CR>
 
     "<Buffer>
-        "Close buffer
+        "{Close buffer}
             "noremap <Leader>q :windo bdelete<CR><ESC>
             noremap <Leader>q :bdelete<CR><ESC>
             "noremap <Leader>q :bprev \| bd# <CR>
-        "Move between buffers
+        "{Move between buffers}
             noremap <Leader>bh :bprev<CR>
             noremap <Leader>bl :bnext<CR>
             noremap <Leader>h :bprev<CR>
             noremap <Leader>l :bnext<CR>
-        "History search
+        "{History search}
             "noremap <Leader><C-h> :browse oldfiles<CR>
             "noremap <Leader><C-h> :History<CR>
 
     "<Tab>
         "Builtin: gt/gT
-        nnoremap tc :tabnew<CR>
-        nnoremap tn :tabnext<CR>
-        nnoremap tp :tabprev<CR>
-        nnoremap tf :tabfirst<CR>
-        nnoremap tl :tablast<CR>
-        nnoremap tq :windo bdelete<CR>
+        nnoremap <Leader>tc :tabnew<CR>
+        nnoremap <Leader>tn :tabnext<CR>
+        nnoremap <Leader>tp :tabprev<CR>
+        nnoremap <Leader>tf :tabfirst<CR>
+        nnoremap <Leader>tl :tablast<CR>
+        nnoremap <Leader>tq :windo bdelete<CR>
         "nnoremap tq :tabclose<CR>
-        nnoremap <C-l> :tabnext<CR>
-        nnoremap <C-h> :tabprev<CR>
+        "nnoremap <C-l> :tabnext<CR>
+        "nnoremap <C-h> :tabprev<CR>
         "nnoremap <Leader>0 :tablast<CR>
         "nnoremap <Leader>1 :tabfirst<CR>
         "nnoremap <Leader>2 :tabn 2<CR>
@@ -141,10 +143,10 @@
         "noremap <LocalLeader>@ :setlocal nospell<CR>
 
     "<Clipboard>
-        "Copy current REGISTER to system clipboard
+        "{Copy current REGISTER to system clipboard}
         vnoremap <Leader>y "+y
         vnoremap ; "+y
-        "Copy system clipboard to current register
+        "{Copy system clipboard to current register}
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
         command! CopyFilePath let @+ = expand('%:p') | echo 'Current file path is copied to clipboard.'
@@ -154,7 +156,7 @@
         "noremap <space> za
         "noremap <Leader><return> zR
         "noremap <Leader><space> zM
-        "Press space to toggle folding
+        "{Press space to toggle folding}
         "nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
         "nnoremap <return> za
 
@@ -203,10 +205,10 @@
         autocmd VimLeave * call AutoSaveSession()
         "autocmd VimEnter * call AutoLoadSession()
 
-        " Save session
+        "{Save session}
         "noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
         command! SaveSession :call AutoSaveSession()
-        " Load session
+        "{Load session}
         "noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
         "noremap <Leader>R :call AutoLoadSession()<CR>
         command! LoadSession :call AutoLoadSession()
@@ -332,7 +334,9 @@
             " Close Tab
             "nnoremap <Leader>c :tabc
         "[NerdCommenter]
-            map <Leader>/ :normal ,cc<CR>
+            "map <Leader>/ :normal ,cc<CR>
+            map ` :normal ,cc<CR>
+            map ~ :normal ,ci<CR>
             "map <Leader>/ :normal ,cu<CR>
             "map <Leader>/ :normal ,ci<CR>
     " }

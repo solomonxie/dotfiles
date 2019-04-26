@@ -4,8 +4,8 @@
         let maplocalleader = "\\"
 
     "<Undefined>
-        "noremap - <Nop>
-        "noremap = <Nop>
+        noremap - <Nop>
+        noremap = <Nop>
         nnoremap <C-o> <C-o>
         nnoremap <C-i> <C-i>
 
@@ -31,12 +31,12 @@
             "nnoremap # *
         "{Jump to parent bracket/level}
             nnoremap <C-[> [{
-        "{Move between buffers}
-            nnoremap - :bprev<CR>
-            nnoremap = :bnext<CR>
-            "noremap <Leader>h :bprev<CR>
-            "noremap <Leader>l :bnext<CR>
-        "{Move between windows}
+        "{Move between Buffers}
+            "nnoremap <Leader>h :bprev<CR>
+            "nnoremap <Leader>l :bnext<CR>
+            nnoremap <Space> :bnext<CR>
+            nnoremap <Return> :bprev<CR>
+        "{Move between Windows}
             noremap <M-h> <C-w>h
             noremap <M-l> <C-w>l
             noremap <M-j> <C-w>j
@@ -46,6 +46,11 @@
             nnoremap <Leader>j <C-w>j
             nnoremap <Leader>k <C-w>k
             nnoremap <Leader>, <C-w>w
+        "{Move between Tabs}
+            nnoremap <Leader>tn :tabnext<CR>
+            nnoremap <Leader>tp :tabprev<CR>
+            nnoremap <Leader>tf :tabfirst<CR>
+            nnoremap <Leader>tl :tablast<CR>
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -107,10 +112,6 @@
     "<Tab>
         "Builtin: gt/gT
         nnoremap <Leader>tc :tabnew<CR>
-        nnoremap <Leader>tn :tabnext<CR>
-        nnoremap <Leader>tp :tabprev<CR>
-        nnoremap <Leader>tf :tabfirst<CR>
-        nnoremap <Leader>tl :tablast<CR>
         nnoremap <Leader>tq :windo bdelete<CR>
         "nnoremap tq :tabclose<CR>
         "nnoremap <C-l> :tabnext<CR>
@@ -339,8 +340,8 @@
             "nnoremap <Leader>c :tabc
         "[NerdCommenter]
             "map <Leader>/ :normal ,cc<CR>
-            map ` :normal ,cc<CR>
-            map ~ :normal ,ci<CR>
+            "nnoremap ` :normal ,cc<CR>
+            "nnoremap ~ :normal ,ci<CR>
             "map <Leader>/ :normal ,cu<CR>
             "map <Leader>/ :normal ,ci<CR>
     " }

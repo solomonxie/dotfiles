@@ -34,8 +34,8 @@
         "{Move between buffers}
             nnoremap - :bprev<CR>
             nnoremap = :bnext<CR>
-            noremap <Leader>h :bprev<CR>
-            noremap <Leader>l :bnext<CR>
+            "noremap <Leader>h :bprev<CR>
+            "noremap <Leader>l :bnext<CR>
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>

@@ -147,7 +147,8 @@
         "Copy system clipboard to current register
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
-        command! CopyPath let @+ = expand('%:p') | echo 'Current file path is copied to clipboard.'
+        command! CopyFilePath let @+ = expand('%:p') | echo 'Current file path is copied to clipboard.'
+        command! CopyFolderPath let @+ = expand('%:p:h') | echo 'Current file path is copied to clipboard.'
 
     "<Folding>
         "noremap <space> za

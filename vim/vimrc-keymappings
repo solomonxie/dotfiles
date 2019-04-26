@@ -4,8 +4,9 @@
         let maplocalleader = "\\"
 
     "<Undefined>
-        noremap - <Nop>
-        noremap = <Nop>
+        nnoremap <Return> <NOP>
+        noremap - <NOP>
+        noremap = <NOP>
         nnoremap <C-o> <C-o>
         nnoremap <C-i> <C-i>
 
@@ -31,24 +32,18 @@
             "nnoremap # *
         "{Jump to parent bracket/level}
             nnoremap <C-[> [{
-        "{Move between Buffers}
-            "nnoremap <Leader>h :bprev<CR>
-            "nnoremap <Leader>l :bnext<CR>
             nnoremap <Space> :bnext<CR>
-            nnoremap <Return> :bprev<CR>
+            nnoremap <Leader>h :bprev<CR>
+            nnoremap <Leader>l :bnext<CR>
         "{Move between Windows}
             nnoremap <Left> <C-w>h
             nnoremap <Right> <C-w>l
             nnoremap <Up> <C-w>k
             nnoremap <Down> <C-w>j
-            "noremap <M-h> <C-w>h
-            "noremap <M-l> <C-w>l
-            "noremap <M-j> <C-w>j
-            "noremap <M-k> <C-w>k
-            "nnoremap <Leader>h <C-w>h
-            "nnoremap <Leader>l <C-w>l
-            "nnoremap <Leader>j <C-w>j
-            "nnoremap <Leader>k <C-w>k
+            noremap <M-h> <C-w>h
+            noremap <M-l> <C-w>l
+            noremap <M-j> <C-w>j
+            noremap <M-k> <C-w>k
             nnoremap <Leader>, <C-w>w
         "{Move between Tabs}
             nnoremap <Leader>tn :tabnext<CR>

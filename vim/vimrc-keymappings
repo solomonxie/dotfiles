@@ -36,6 +36,16 @@
             nnoremap = :bnext<CR>
             "noremap <Leader>h :bprev<CR>
             "noremap <Leader>l :bnext<CR>
+        "{Move between windows}
+            noremap <M-h> <C-w>h
+            noremap <M-l> <C-w>l
+            noremap <M-j> <C-w>j
+            noremap <M-k> <C-w>k
+            nnoremap <Leader>h <C-w>h
+            nnoremap <Leader>l <C-w>l
+            nnoremap <Leader>j <C-w>j
+            nnoremap <Leader>k <C-w>k
+            nnoremap <Leader>, <C-w>w
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -117,10 +127,6 @@
         "noremap H <C-w>h
         "noremap L <C-w>l
         "nnoremap <Tab> <C-w>w
-        noremap <M-h> <C-w>h
-        noremap <M-l> <C-w>l
-        noremap <M-j> <C-w>j
-        noremap <M-k> <C-w>k
         "noremap <Leader>o <C-w>o
         "noremap <Leader>qw <C-w>c
         "noremap <Leader>Q :qa<CR>
@@ -204,11 +210,11 @@
         "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}
-        "noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
+        noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
         command! SaveSession :call AutoSaveSession()
         "{Load session}
         "noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
-        "noremap <Leader>R :call AutoLoadSession()<CR>
+        noremap <Leader>R :call AutoLoadSession()<CR>
         command! LoadSession :call AutoLoadSession()
     " }
 

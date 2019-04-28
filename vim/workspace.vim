@@ -7,7 +7,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 vimrc
+badd +5 vimrc
 badd +12 vimrc-ui
 badd +50 vimrc-keymappings
 badd +32 vimrc-plugins
@@ -37,14 +37,14 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 40 + 39) / 78)
-exe 'vert 1resize ' . ((&columns * 160 + 159) / 318)
-exe '2resize ' . ((&lines * 34 + 39) / 78)
-exe 'vert 2resize ' . ((&columns * 160 + 159) / 318)
-exe '3resize ' . ((&lines * 40 + 39) / 78)
-exe 'vert 3resize ' . ((&columns * 157 + 159) / 318)
-exe '4resize ' . ((&lines * 34 + 39) / 78)
-exe 'vert 4resize ' . ((&columns * 157 + 159) / 318)
+exe '1resize ' . ((&lines * 48 + 46) / 93)
+exe 'vert 1resize ' . ((&columns * 183 + 182) / 364)
+exe '2resize ' . ((&lines * 41 + 46) / 93)
+exe 'vert 2resize ' . ((&columns * 183 + 182) / 364)
+exe '3resize ' . ((&lines * 48 + 46) / 93)
+exe 'vert 3resize ' . ((&columns * 180 + 182) / 364)
+exe '4resize ' . ((&lines * 41 + 46) / 93)
+exe 'vert 4resize ' . ((&columns * 180 + 182) / 364)
 argglobal
 setlocal fdm=syntax
 setlocal fde=0
@@ -54,7 +54,7 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 4 - ((3 * winheight(0) + 20) / 40)
+let s:l = 4 - ((3 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -71,7 +71,7 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 17) / 34)
+let s:l = 1 - ((0 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -88,7 +88,7 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 32 - ((19 * winheight(0) + 20) / 40)
+let s:l = 32 - ((23 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -105,21 +105,22 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 12 - ((11 * winheight(0) + 17) / 34)
+let s:l = 12 - ((11 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 12
 normal! 0
 wincmd w
-exe '1resize ' . ((&lines * 40 + 39) / 78)
-exe 'vert 1resize ' . ((&columns * 160 + 159) / 318)
-exe '2resize ' . ((&lines * 34 + 39) / 78)
-exe 'vert 2resize ' . ((&columns * 160 + 159) / 318)
-exe '3resize ' . ((&lines * 40 + 39) / 78)
-exe 'vert 3resize ' . ((&columns * 157 + 159) / 318)
-exe '4resize ' . ((&lines * 34 + 39) / 78)
-exe 'vert 4resize ' . ((&columns * 157 + 159) / 318)
+exe '1resize ' . ((&lines * 48 + 46) / 93)
+exe 'vert 1resize ' . ((&columns * 183 + 182) / 364)
+exe '2resize ' . ((&lines * 41 + 46) / 93)
+exe 'vert 2resize ' . ((&columns * 183 + 182) / 364)
+exe '3resize ' . ((&lines * 48 + 46) / 93)
+exe 'vert 3resize ' . ((&columns * 180 + 182) / 364)
+exe '4resize ' . ((&lines * 41 + 46) / 93)
+exe 'vert 4resize ' . ((&columns * 180 + 182) / 364)
+"tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif

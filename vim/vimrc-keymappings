@@ -228,7 +228,7 @@
         noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
         command! SaveSession :call AutoSaveSession()
         "{Load session}
-        "noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
+        noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
         noremap <Leader>R :call AutoLoadSession()<CR>
         command! LoadSession :call AutoLoadSession()
     " }

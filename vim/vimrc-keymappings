@@ -1,3 +1,12 @@
+"-----------------------------------------------------------------
+"        __     ___             ____  _             _            -
+"        \ \   / (_)_ __ ___   |  _ \| |_   _  __ _(_)_ __       -
+"         \ \ / /| | '_ ` _ \  | |_) | | | | |/ _` | | '_ \      -
+"          \ V / | | | | | | | |  __/| | |_| | (_| | | | | |     -
+"           \_/  |_|_| |_| |_| |_|   |_|\__,_|\__, |_|_| |_|     -
+"                                             |___/              -
+"----------------------------GENERATED-BY-FIGLET------------------
+
 " [   Key Mappings / Bindings   ]----------------------------{
     "<Leader key>
         let mapleader = ","
@@ -5,8 +14,8 @@
 
     "<Undefined>
         nnoremap <Return> <NOP>
-        noremap - <NOP>
-        noremap = <NOP>
+        "noremap - <NOP>
+        "noremap = <NOP>
         nnoremap <C-o> <C-o>
         nnoremap <C-i> <C-i>
 
@@ -32,9 +41,12 @@
             "nnoremap # *
         "{Jump to parent bracket/level}
             nnoremap <C-[> [{
-            nnoremap <Space> :bnext<CR>
+        "{Move between Buffers}
+            "nnoremap <Space> :bnext<CR>
             nnoremap <Leader>h :bprev<CR>
             nnoremap <Leader>l :bnext<CR>
+            nnoremap - :bprev<CR>
+            nnoremap = :bnext<CR>
         "{Move between Windows}
             nnoremap <Left> <C-w>h
             nnoremap <Right> <C-w>l
@@ -79,6 +91,9 @@
         vnoremap u u
         "{Switch case}
         vnoremap ~ ~
+        "{Register}
+        noremap <Space> "
+        noremap <Leader><Space> :registers<CR>
 
     "<Split>
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>

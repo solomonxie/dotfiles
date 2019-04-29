@@ -223,7 +223,8 @@
                 ":echo 'Load session from ~/.vim/session.vim'
             endif
         endfunction
-        autocmd VimLeave,QuitPre,FocusLost * call AutoSaveSession()
+        "autocmd VimLeave,QuitPre,FocusLost * call AutoSaveSession()
+        autocmd VimLeavePre * call AutoSaveSession()
         "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}

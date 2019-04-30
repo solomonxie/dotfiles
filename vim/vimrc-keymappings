@@ -156,8 +156,8 @@
         "tnoremap <Leader>q <C-w>:q!<CR>
 
     "<Spelling>
-        command! SpellCheckOn  setlocal spell spelllang=en,en_us,cjk
-        command! SpellCheckOff setlocal nospell
+        command! SpellCheck01On  setlocal spell spelllang=en,en_us,cjk
+        command! SpellCheck02Off setlocal nospell
         "noremap <LocalLeader>! :setlocal spell spelllang=en,en_us,cjk<CR>
         "noremap <LocalLeader>@ :setlocal nospell<CR>
 
@@ -168,10 +168,10 @@
         "{Copy system clipboard to current register}
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
-        command! CopyFileRelativePath let @+ = expand('%') | echo 'Copied: ' @+
-        command! CopyFileAbsolutePath let @+ = expand('%:p') | echo 'Copied: ' @+
-        command! CopyFolderRelativePath let @+ = expand('%:h') | echo 'Copied: ' @+
-        command! CopyFolderAbsolutePath let @+ = expand('%:p:h') | echo 'Copied: ' @+
+        command! Copy01FileRelativePath let @+ = expand('%') | echo 'Copied: ' @+
+        command! Copy02FileFullPath let @+ = expand('%:p') | echo 'Copied: ' @+
+        "command! CopyFolderRelativePath let @+ = expand('%:h') | echo 'Copied: ' @+
+        "command! CopyFolderAbsolutePath let @+ = expand('%:p:h') | echo 'Copied: ' @+
 
     "<Folding>
         "noremap <space> za
@@ -193,9 +193,7 @@
 
     "[Session]----------------------------------{
         function! AutoSaveSession()
-            if bufnr('%') < 3
-                return
-            endif
+            if bufnr('%') < 3 | return | endif
             if isdirectory('.git')
                 :mksession! .git/workspace.vim
                 :echo 'Saved session to .git/workspace.vim'
@@ -205,6 +203,9 @@
             elseif isdirectory(expand('~/.vim'))
                 :mksession! ~/.vim/session.vim
                 :echo 'Saved session to ~/.vim/session.vim'
+            else
+                :mksession! /tmp/session.vim
+                :echo 'Saved session to /tmp/session.vim'
             endif
         endfunction
 
@@ -221,10 +222,11 @@
             elseif filereadable(expand('~/.vim/session.vim'))
                 :source ~/.vim/session.vim
                 ":echo 'Load session from ~/.vim/session.vim'
+            else
+                :echo 'No session found.'
             endif
         endfunction
-        "autocmd VimLeave,QuitPre,FocusLost * call AutoSaveSession()
-        autocmd VimLeavePre * call AutoSaveSession()
+        autocmd VimLeavePre,QuitPre,FocusLost * call AutoSaveSession()
         "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}

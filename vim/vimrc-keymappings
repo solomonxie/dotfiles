@@ -119,6 +119,7 @@
             "noremap <Leader>q :windo bdelete<CR><ESC>
             noremap <Leader>q :bdelete<CR><ESC>
             "noremap <Leader>q :bprev \| bd# <CR>
+            command! CloseAllBuffers :normal :bufdo bd<CR>
         "{History search}
             "noremap <Leader><C-h> :browse oldfiles<CR>
             "noremap <Leader><C-h> :History<CR>

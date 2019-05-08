@@ -311,9 +311,9 @@
         "[vim-zoom]
             "nmap mm <Plug>(zoom-toggle)
 
-        "[Syntastic]
-            nnoremap <C-n> :lnext<CR>
-            nnoremap <C-p> :lprevious<CR>
+        "[Syntastic] (Static Code Check)
+            nnoremap <A-n> :lnext<CR>
+            nnoremap <A-p> :lprevious<CR>
             nnoremap <LocalLeader>s :SyntasticCheck<CR>
 
         "[Undotree]

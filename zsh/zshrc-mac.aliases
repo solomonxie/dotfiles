@@ -55,7 +55,7 @@ alias gs="git status"
 alias gc="git commit -a"
 alias gd="git diff"
 alias gco="git checkout"
-alias gcp="git commit -am \"Update from $USER\" && git push -v"
+alias gcp="git add . && git commit -am \"Update from $USER\" && git push -v"
 
 # Docker
 alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'

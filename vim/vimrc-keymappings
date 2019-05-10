@@ -141,7 +141,7 @@
         "nnoremap <Leader>5 :tabn 5<CR>
 
     "<Window>
-        noremap <A-c> <C-w>c
+        noremap <Leader>c <C-w>c
         "noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l

@@ -28,7 +28,7 @@
         noremap <Leader>O :silent exec "!open %"<CR>
         command! OpenAllInThisDir :next *
         "{Change pwd/Current Directory to be same with buffer}
-        command! CWDToCurrentDir :cd %:p:h
+        command! CDToCurrentDir :cd %:p:h
 
     "<Navigation>
         "{Go-next-call}
@@ -120,7 +120,7 @@
             noremap <Leader>q :bdelete<CR><ESC>
             "noremap <Leader>q :bprev \| bd# <CR>
             command! CloseAllBuffers :normal :bufdo bd<CR>
-            command! Pwd :echo expand('%')
+            command! Cwd :echo expand('%')
             "command! CloseAllBuffers :% bd|e#
         "{History search}
             "noremap <Leader><C-h> :browse oldfiles<CR>
@@ -172,7 +172,7 @@
         "{Copy system clipboard to current register}
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
-        command! PwdCopyRelative let @+ = expand('%') | echo 'Copied: ' @+
+        command! CwdCopy let @+ = expand('%') | echo 'Copied: ' @+
         command! PwdCopy let @+ = expand('%:p') | echo 'Copied: ' @+
         "command! CopyFolderRelativePath let @+ = expand('%:h') | echo 'Copied: ' @+
         "command! CopyFolderAbsolutePath let @+ = expand('%:p:h') | echo 'Copied: ' @+

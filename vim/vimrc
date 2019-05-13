@@ -79,7 +79,7 @@
         "set splitbelow  "Default split at right
 
     "<Tag>
-        "set tags=tags
+        set tags=./tags;,tags;./.git/tags;,../.git/tags
 " }
 
 

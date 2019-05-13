@@ -178,6 +178,7 @@ endfunction
     let g:AutoPairsMapCR = 0  "Has bug for nested level
     "let g:AutoPairsCenterLine = 0
     "let g:AutoPairsMapSpace = 0
+    let g:AutoPairsShortcutToggle = '<M-i>'  " Default to <M-p>
 " }
 
 

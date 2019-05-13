@@ -86,6 +86,8 @@
 
 " [  Search Highlighting  ]-----------{
     " >>
+        set showmatch
+        set matchtime=3
         highlight Search guibg='Purple' guifg='NONE'
         highlight IncSearch gui=underline,bold guifg=White guibg=Red3
         "highlight IncSearch ctermbg=black ctermfg=yellow

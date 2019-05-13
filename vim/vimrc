@@ -56,6 +56,8 @@
 
 
 " [  Advanced Builtin Settings  ]-----------{
+    set wildmenu
+    set wildmode=longest:full,full
     "<Folding>
     set foldenable
     set foldmethod=syntax

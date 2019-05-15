@@ -25,7 +25,8 @@
         "{Save & Exit}
         noremap  <C-x> <ESC>:x<CR><ESC>
         "noremap <Leader>j :jumps<CR>
-        noremap <Leader>O :silent exec "!open %"<CR>
+        noremap <Leader>o :browse oldfiles<CR>
+        command! OpenThisOnMac :silent exec "!open %"<CR>
         command! OpenAllInThisDir :next *
         "{Change pwd/Current Directory to be same with buffer}
         command! CDToCurrentDir :cd %:p:h
@@ -40,7 +41,7 @@
             "nnoremap * #
             "nnoremap # *
         "{Jump to parent bracket/level}
-            nnoremap <C-[> [{
+            "nnoremap <C-[> [{
         "{Move between Buffers}
             "nnoremap <Space> :bnext<CR>
             nnoremap <Leader>h :bprev<CR>
@@ -58,10 +59,14 @@
             noremap <M-k> <C-w>k
             nnoremap <Leader>, <C-w>w
         "{Move between Tabs}
-            nnoremap <Leader>tn :tabnext<CR>
-            nnoremap <Leader>tp :tabprev<CR>
-            nnoremap <Leader>tf :tabfirst<CR>
-            nnoremap <Leader>tl :tablast<CR>
+            nnoremap ( :tabnext<CR>
+            nnoremap ) :tabprev<CR>
+            "nnoremap g9 :tabfirst<CR>
+            "nnoremap g0 :tablast<CR>
+        "{Move between Tags}
+            "nnoremap <C-]> <C-]>
+            "nnoremap <C-[> <C-t>
+            nnoremap <Leader>tt g]
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -168,7 +173,7 @@
     "<Clipboard>
         "{Copy current REGISTER to system clipboard}
         vnoremap <Leader>y "+y
-        vnoremap ; "+y
+        vnoremap <CR> "+y
         "{Copy system clipboard to current register}
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
@@ -325,9 +330,10 @@
             "imap <C-d>e <M-e>
 
         "[fzf]
-            nnoremap <C-f> :Lines<CR>
             "nnoremap <localleader>f :Files %:p:h<CR>
-            nnoremap <localleader>f :Files<CR>
+            nnoremap <M-CR> :Lines<CR>
+            nnoremap <M-f> :Files<CR>
+            nnoremap <Leader>f :Files<CR>
             nnoremap <localleader>H :Helptags<CR>
             nnoremap <localleader>h :History<CR>
             nnoremap <localleader>c :History:<CR>
@@ -335,9 +341,9 @@
             nnoremap <localleader>b :Buffers<CR>
             nnoremap <localleader>p :Snippets<CR>
             nnoremap <localleader>C :BCommits<CR>
-            nnoremap <localleader>t :BTags<CR>
-            nnoremap <localleader>T :Tags<CR>
-            nnoremap <localleader>a :Ag<CR>
+            nnoremap <localleader>tb :BTags<CR>
+            nnoremap <localleader>ta :Tags<CR>
+            nnoremap <LocalLeader>a :Ag<CR>
             nnoremap <localleader>m :Marks<CR>
             "nnoremap <localleader>p/ :Files ..
             "nnoremap <localleader>color/ :Colors
@@ -351,8 +357,9 @@
             "nnoremap <Leader>f :NERDTreeToggle<CR>
             " Add '%' for changing root accordingly
             "nnoremap <Leader>f :NERDTree %:p:h<CR>
-            nnoremap <Leader>f :NERDTree<CR>
-            nnoremap <Leader>F :NERDTree %:p:h<CR>
+            nnoremap <CR> :NERDTree<CR>
+            nnoremap <LocalLeader>f :NERDTree<CR>
+            nnoremap <LocalLeader>F :NERDTree %:p:h<CR>
         "[Nerdtree Tabs]
             " Shift Tabs
             "nnoremap <C-h> gt

@@ -56,8 +56,8 @@
 
 
 " [  Advanced Builtin Settings  ]-----------{
-    set wildmenu
-    set wildmode=longest:full,full
+    "set wildmenu
+    "set wildmode=longest:full,full
     "<Folding>
     set foldenable
     set foldmethod=syntax
@@ -80,6 +80,9 @@
 
     "<Tag>
         set tags=./tags;,tags;./.git/tags;,../.git/tags
+
+    "{Omnicomplete}
+    autocmd FileType python set omnifunc=python3complete#Complete
 " }
 
 

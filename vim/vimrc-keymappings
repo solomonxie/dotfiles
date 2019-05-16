@@ -71,9 +71,8 @@
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
-        "nnoremap <Space> viw
-        "nnoremap <Space> V
-        "nnoremap <Return> vip
+        nnoremap <Space> viw
+        nnoremap <M-Space> vip
         "
         "inoremap jj <esc>
         "map q <NOP>
@@ -97,7 +96,7 @@
         "{Switch case}
         vnoremap ~ ~
         "{Register}
-        noremap <Space> "
+        "noremap <Space> "
         noremap <Leader><Space> :registers<CR>
 
     "<Split>
@@ -331,9 +330,8 @@
 
         "[fzf]
             "nnoremap <localleader>f :Files %:p:h<CR>
-            nnoremap <M-CR> :Lines<CR>
             nnoremap <M-f> :Files<CR>
-            nnoremap <Leader>f :Files<CR>
+            nnoremap <LocalLeader>f :Files<CR>
             nnoremap <localleader>H :Helptags<CR>
             nnoremap <localleader>h :History<CR>
             nnoremap <localleader>c :History:<CR>
@@ -358,8 +356,9 @@
             " Add '%' for changing root accordingly
             "nnoremap <Leader>f :NERDTree %:p:h<CR>
             nnoremap <CR> :NERDTree<CR>
-            nnoremap <LocalLeader>f :NERDTree<CR>
-            nnoremap <LocalLeader>F :NERDTree %:p:h<CR>
+            nnoremap <M-CR> :NERDTree %:p:h<CR>
+            nnoremap <Leader>f :NERDTree<CR>
+            nnoremap <Leader>F :NERDTree %:p:h<CR>
         "[Nerdtree Tabs]
             " Shift Tabs
             "nnoremap <C-h> gt

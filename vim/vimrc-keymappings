@@ -13,7 +13,6 @@
         let maplocalleader = "\\"
 
     "<Undefined>
-        nnoremap <Return> <NOP>
         "noremap - <NOP>
         "noremap = <NOP>
         nnoremap <C-o> <C-o>
@@ -97,7 +96,7 @@
         vnoremap ~ ~
         "{Register}
         "noremap <Space> "
-        noremap <Leader><Space> :registers<CR>
+        "noremap <Leader><Space> :registers<CR>
 
     "<Split>
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
@@ -355,8 +354,6 @@
             "nnoremap <Leader>f :NERDTreeToggle<CR>
             " Add '%' for changing root accordingly
             "nnoremap <Leader>f :NERDTree %:p:h<CR>
-            nnoremap <CR> :NERDTree<CR>
-            nnoremap <M-CR> :NERDTree %:p:h<CR>
             nnoremap <Leader>f :NERDTree<CR>
             nnoremap <Leader>F :NERDTree %:p:h<CR>
         "[Nerdtree Tabs]

@@ -20,4 +20,6 @@
 #
 # m h  dom mon dow   command
 
-#*/1 * * * * date >> test.txt
+#*/1**** date >> test.txt
+#*/1 * * * * git -C ~/dotfiles pull origin master
+#*/1 * * * * cd ~/Gitissues && python3 issues.py > ~/Gitissues/.gitissues.log 2>&1

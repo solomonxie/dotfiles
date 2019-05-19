@@ -100,7 +100,7 @@ init_rpi(){
     #sudo cp ./etc/Rpi/sources-cn-jessie.list /etc/apt/
     sudo apt-get update
     # Get essential tools before any installation
-    sudo apt-get install curl wget git bashdb -y
+    sudo apt-get install curl wget git -y
     # Setup Python3
     echo "[   INSTALL INSTALL PYTHON3   ]"
     $SRC/python/install_python3.sh

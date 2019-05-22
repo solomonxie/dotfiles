@@ -85,10 +85,10 @@
 # Setting up Oh-my-zsh {
     export ZSH=~/.oh-my-zsh
     plugins=(
-      git,
-      history-substring-search,
-      colored-man-pages,
-      dircycle
+      # git,
+      # history-substring-search,
+      # colored-man-pages,
+      # dircycle
     )
     # Disable update checks:
     DISABLE_UPDATE_PROMPT=true

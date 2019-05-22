@@ -90,8 +90,6 @@
       docker
       gitfast
       git-extras
-      pip
-      python
     )
     # Disable update checks:
     DISABLE_UPDATE_PROMPT=true

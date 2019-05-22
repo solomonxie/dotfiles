@@ -25,16 +25,6 @@
 # User-specified hosts (not working at the moment)
     set HOSTALIASES=~/hosts
 
-# Make some device-specific aliased in another file
-    source ~/dotfiles/zsh/zshrc-mac.aliases
-
-# Theme settings {
-    source ~/dotfiles/zsh/zshrc.themes
-    #set_theme_agnoster
-    #set_theme_awesomepanda
-    set_theme_powerlevel9k
-# }
-
 # General settings {
     # Important: Locale
     export LANG=en_US.UTF-8
@@ -83,18 +73,23 @@
 
 
 # Setting up Oh-my-zsh {
-    export ZSH=~/.oh-my-zsh
-    plugins=(
-      # git,
-      # history-substring-search,
-      # colored-man-pages,
-      # dircycle
+    plugins=(  # DO NOT USE , COMMA TO SEPARATE PLUGINS
+      git
+      history-substring-search
+      colored-man-pages
+      dircycle
+      docker
+      gitfast
+      git-extras
+      pip
+      python
     )
     # Disable update checks:
     DISABLE_UPDATE_PROMPT=true
     DISABLE_AUTO_UPDATE=true
     ZSH_DISABLE_COMPFIX=true
     # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
+    export ZSH=~/.oh-my-zsh
     source $ZSH/oh-my-zsh.sh
 # }
 
@@ -124,7 +119,16 @@
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
 
+# Make some device-specific aliased in another file
+    source ~/dotfiles/zsh/zshrc-mac.aliases
+
+# Theme settings {
+    source ~/dotfiles/zsh/zshrc.themes
+    #set_theme_agnoster
+    #set_theme_awesomepanda
+    set_theme_powerlevel9k
+# }
+
 # Environment Variables settings {
     source ~/dotfiles/zsh/mac.env
 # }
-export OCTAVE_EXECUTABLE=

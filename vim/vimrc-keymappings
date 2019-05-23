@@ -200,7 +200,6 @@
 
     "[Session]----------------------------------{
         function! AutoSaveSession()
-            if bufnr('%') < 3 | return | endif
             if isdirectory('.git')
                 :mksession! .git/workspace.vim
                 :echo 'Saved session to .git/workspace.vim'
@@ -233,7 +232,7 @@
                 :echo 'No session found.'
             endif
         endfunction
-        autocmd VimLeavePre,QuitPre,FocusLost * call AutoSaveSession()
+        autocmd VimLeavePre,QuitPre,FocusLost * if bufnr('%') < 4 | call AutoSaveSession() | endif
         "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}

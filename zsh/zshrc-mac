@@ -129,4 +129,3 @@ complete -o nospace -C /usr/local/bin/mc mc
 # Environment Variables settings {
     source ~/dotfiles/zsh/mac.env
 # }
-export OCTAVE_EXECUTABLE=

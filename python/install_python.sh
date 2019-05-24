@@ -41,7 +41,7 @@ do_install_python3_deb(){
 
 do_install_python3_mac(){
     brew install python3
-    brew install virtualenv
+    pip install virtualenv --user
     # Install pip3 & pip3
     curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
     sudo python2 /tmp/get-pip.py

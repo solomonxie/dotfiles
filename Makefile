@@ -2,9 +2,7 @@
 
 DOTFILES ?= ~/dotfiles
 
-build:
-	$(DOTFILES)/init.sh
-	@echo "OK."
+build: python tmux zsh vim
 
 install:
 	# VIM
@@ -19,16 +17,26 @@ install:
 	@echo "OK."
 
 install_ubuntu:
+	# VIM
+	ln -sf $(DOTFILES)/vim ~/.vim
 	ln -sf $(DOTFILES)/vim/vimrc-mini ~/.vimrc
+	# ZSH
 	ln -sf $(DOTFILES)/zsh/linux.env ~/.zshrc
-	ln -sf $(DOTFILES)/tmux/tmux.conf ~/.tmux.conf
+	# TMUX
+	ln -sf $(DOTFILES)/tmux ~/.tmux
+	ln -sf $(DOTFILES)/tmux/tmux ~/.tmux.conf
 	ln -sf $(HOME)/.tmux/resurrect/last-ubuntu.txt $(HOME)/.tmux/resurrect/last
 	@echo "OK."
 
 install_rpi:
+	# VIM
+	ln -sf $(DOTFILES)/vim ~/.vim
 	ln -sf $(DOTFILES)/vim/vimrc-mini ~/.vimrc
+	# ZSH
 	ln -sf $(DOTFILES)/zsh/linux.env ~/.zshrc
-	ln -sf $(DOTFILES)/tmux/tmux.conf ~/.tmux.conf
+	# TMUX
+	ln -sf $(DOTFILES)/tmux ~/.tmux
+	ln -sf $(DOTFILES)/tmux/tmux ~/.tmux.conf
 	ln -sf $(HOME)/.tmux/resurrect/last-rpi.txt $(HOME)/.tmux/resurrect/last
 	@echo "OK."
 

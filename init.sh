@@ -20,8 +20,14 @@
 
 set -x
 
-# Setup env variables and shared functions
-source `dirname $0`/dotfiles.env
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 
 #-------------------------------------
@@ -65,22 +71,22 @@ init_ubuntu(){
     sudo apt-get install curl wget git bashdb -y
     # Setup Python3
     echo "[   INSTALL PYTHON   ]"
-    $SRC/python/install_python.sh
+    $HOME/dotfiles//python/install_python.sh
     # Setup Vim
     echo "[   INSTALL VIM   ]"
-    $SRC/vim/install_vim.sh
+    $HOME/dotfiles/vim/install_vim.sh
     # Setup Tmux
     echo "[   INSTALL TMUX   ]"
-    $SRC/tmux/install_tmux.sh
+    $HOME/dotfiles/tmux/install_tmux.sh
     # Setup ZSH
     echo "[   INSTALL ZSH   ]"
-    $SRC/zsh/install_zsh.sh
+    $HOME/dotfiles/zsh/install_zsh.sh
     # Install common used apt packages & clean up
-    $SRC/pacMan/apt.sh
+    $HOME/dotfiles/pacMan/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    $SRC/docker/install_docker.sh
-    $SRC/docker/docker-apps.sh
+    $HOME/dotfiles/docker/install_docker.sh
+    $HOME/dotfiles/docker/docker-apps.sh
 }
 
 init_rpi(){
@@ -103,30 +109,33 @@ init_rpi(){
     sudo apt-get install curl wget git -y
     # Setup Python3
     echo "[   INSTALL INSTALL PYTHON3   ]"
-    $SRC/python/install_python3.sh
+    $HOME/dotfiles/python/install_python.sh
     # Setup Vim
     echo "[   INSTALL INSTALL VIM   ]"
-    $SRC/vim/install_vim.sh
+    $HOME/dotfiles/vim/install_vim.sh
     # Setup Tmux
     echo "[   INSTALL INSTALL TMUX   ]"
-    $SRC/tmux/install_tmux.sh
+    $HOME/dotfiles/tmux/install_tmux.sh
     # Setup ZSH
     echo "[   INSTALL INSTALL ZSH   ]"
-    $SRC/zsh/install_zsh.sh
+    $HOME/dotfiles/zsh/install_zsh.sh
     # Install common used apt packages & clean up
-    $SRC/pacman/apt.sh
+    $HOME/dotfiles/pacman/apt.sh
     # Install docker
     echo "[    SCRIPT FOR DOCKER   ]"
-    $SRC/docker/install-docker-rpi.sh
-    $SRC/docker/docker-apps.sh
+    $HOME/dotfiles/docker/install-docker-rpi.sh
+    $HOME/dotfiles/docker/docker-apps.sh
 }
 
 init_mac(){
     echo "CURRENT OS: [  Mac OS X  ]. Start initializing system funtionalities..."
     # Homebrew, always the 1st setup for Mac
-    sh $SRC/pacMan/homebrew.sh
-    # Xcode
-    # .... you want to install that in App Store....
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # Install bundles
+    cd $HOME/dotfiles/pacman
+    brew bundle install
+    # Install Pip packages
+    pip install --user -r $HOME/dotfiles/python/requirements-mac.txt
 }
 
 
@@ -137,5 +146,4 @@ init_mac(){
 #-------------------------------------
 
 # Run initial functions by os version
-do_init_by_os "$@" 2>/tmp/init-error.log
-
+do_init_by_os "$@"  # 2>/tmp/init-error.log

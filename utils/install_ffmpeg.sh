@@ -4,12 +4,16 @@
 # Enviroment: Raspbian
 #
 
-set -ax
+set -x
 
-MYHOME=`getent passwd ${SUDO_UID:-$(id -u)} | cut -d: -f 6`
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
-SRC="$MYHOME/dotfiles"
-OS=""
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 mkdir -p ~/ffmpeg_sources -p ~/bin
 cd ~/ffmpeg_sources

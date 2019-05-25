@@ -6,8 +6,14 @@
 
 set -x
 
-# Setup env variables and shared functions
-cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 #-------------------------------------
 #     Installation Methods

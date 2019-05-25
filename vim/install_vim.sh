@@ -17,8 +17,14 @@
 
 set -x
 
-# Setup env variables and shared functions
-cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 #-------------------------------------
 #     Installation Methods
@@ -43,12 +49,12 @@ do_install_vim(){
     rm $HOME/.vim/colors /dev/null 2>&1
     ln -s $HOME/dotfiles/vim/colors $HOME/.vim/colors
     #mkdir -p $HOME/.vim/colors
-    #cp $SRC/vim/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
+    #cp $HOME/dotfiles/vim/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
 
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
     mkdir -p $HOME/.vim/syntax
-    cp $SRC/vim/syntax/python.vim $HOME/.vim/syntax/python.vim
+    cp $HOME/dotfiles/vim/syntax/python.vim $HOME/.vim/syntax/python.vim
 
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
@@ -69,7 +75,7 @@ install_vim_ubuntu(){
     # sudo chown -R ubuntu $HOME/.vim >> $HOME/.init/log_vim.txt 1>&2
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOME/dotfiles/Vim/vimrc $HOME/.vimrc
+    ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 }
 
 install_vim_rpi(){
@@ -83,7 +89,7 @@ install_vim_rpi(){
     #sudo chown -R ubuntu $HOME/.vim >> $HOME/.init/log_vim.txt 1>&2
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOME/dotfiles/Vim/vimrc-mini $HOME/.vimrc
+    ln -sf $HOME/dotfiles/vim/vimrc-mini $HOME/.vimrc
 }
 
 install_vim_mac(){
@@ -94,7 +100,7 @@ install_vim_mac(){
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
     echo "-----[   Link VIMRC   ]-----"
-    ln -sf $HOME/dotfiles/Vim/vimrc $HOME/.vimrc
+    ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 }
 
 build_vim_pi(){

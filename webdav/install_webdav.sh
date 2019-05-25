@@ -2,7 +2,7 @@
 #
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Ubuntu
-# Notice: 
+# Notice:
 
 set -x
 

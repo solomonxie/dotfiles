@@ -11,8 +11,14 @@
 
 set -x
 
-# Setup env variables and shared functions
-cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 #-------------------------------------
 #     Installation Methods
@@ -29,14 +35,14 @@ do_init_zsh(){
             # Install Plugins
             install_zsh_plugins
             # Link config file
-            ln -sf $SRC/zsh/zshrc $HOME/.zshrc
+            ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
             ;;
         mac)
             brew install zsh
             # Install Plugins
             install_zsh_plugins
             # Link config file
-            ln -sf $SRC/zsh/zshrc-mac $HOME/.zshrc
+            ln -sf $HOME/dotfiles/zsh/zshrc-mac $HOME/.zshrc
             # Theme: powerlevel9k
                 #git clone https://github.com/bhilburn/powerlevel9k.git $HOME/.oh-my-zsh/custom/themes/powerlevel9k
                 #pip install powerline-status --user
@@ -67,27 +73,27 @@ install_zsh_plugins(){
 #-------------------------------------
 
 do_test_installment_zsh(){
-    if [ -e /bin/zsh ];then 
+    if [ -e /bin/zsh ];then
         echo "[  OK  ]:----ZSH----"
     else
         echo "[  FAILED  ]:----ZSH----"
     fi
-    if [ -e $HOME/.oh-my-zsh/ ];then 
+    if [ -e $HOME/.oh-my-zsh/ ];then
         echo "[  OK  ]:----Oh-My-ZSH----"
     else
         echo "[  FAILED  ]:----Oh-My-ZSH----"
     fi
-    if [ -e $HOME/.zsh/zsh-syntax-highlighting ];then 
+    if [ -e $HOME/.zsh/zsh-syntax-highlighting ];then
         echo "[  OK  ]:----zsh-syntax-highlighting----"
     else
         echo "[  FAILED  ]:----zsh-syntax-highlighting----"
     fi
-    if [ -e $HOME/.zsh/zsh-autosuggestions ];then 
+    if [ -e $HOME/.zsh/zsh-autosuggestions ];then
         echo "[  OK  ]:----zsh-autosuggestions----"
     else
         echo "[  FAILED  ]:----zsh-autosuggestions----"
     fi
-    if [ -e $HOME/.oh-my-zsh/custom/themes/powerlevel9k ];then 
+    if [ -e $HOME/.oh-my-zsh/custom/themes/powerlevel9k ];then
         echo "[  OK  ]:----Powerlevel9k----"
     else
         echo "[  FAILED  ]:----Powerlevel9k----"

@@ -2,3 +2,8 @@
 .*
 *.pyo
 *.pyc
+vim/backup/*
+vim/undo/*
+vim/sessions/*
+vim/swap/*
+vim/tags/*

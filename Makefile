@@ -24,7 +24,7 @@ install_ubuntu:
 	ln -sf $(DOTFILES)/zsh/linux.env ~/.zshrc
 	# TMUX
 	ln -sf $(DOTFILES)/tmux ~/.tmux
-	ln -sf $(DOTFILES)/tmux/tmux ~/.tmux.conf
+	ln -sf $(DOTFILES)/tmux/tmux/tmux.conf ~/.tmux.conf
 	ln -sf $(HOME)/.tmux/resurrect/last-ubuntu.txt $(HOME)/.tmux/resurrect/last
 	@echo "OK."
 
@@ -36,7 +36,7 @@ install_rpi:
 	ln -sf $(DOTFILES)/zsh/linux.env ~/.zshrc
 	# TMUX
 	ln -sf $(DOTFILES)/tmux ~/.tmux
-	ln -sf $(DOTFILES)/tmux/tmux ~/.tmux.conf
+	ln -sf $(DOTFILES)/tmux/tmux/tmux.conf ~/.tmux.conf
 	ln -sf $(HOME)/.tmux/resurrect/last-rpi.txt $(HOME)/.tmux/resurrect/last
 	@echo "OK."
 

@@ -7,3 +7,4 @@ vim/undo/*
 vim/sessions/*
 vim/swap/*
 vim/tags/*
+tmux/resurrect/last

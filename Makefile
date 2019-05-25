@@ -5,12 +5,12 @@ MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 DT ?= `date +%Y%m%d%s`
 
-configure:
+configure-it:
 	@configure
 
 build: python-in tmux-in zsh-in vim-in install
 
-install: configure
+install: configure-it
 	@echo "Installing for [$(MYOS)] now...."
 	@echo "make install_$(MYOS)" | sh
 	@echo "OK."
@@ -78,5 +78,5 @@ install_raspbian: clean
 	# TMUX
 	ln -s $(DOTFILES)/tmux ~/.tmux
 	ln -sf $(DOTFILES)/tmux/tmux.conf ~/.tmux.conf
-	ln -sf $(HOME)/.tmux/resurrect/last-rpi.txt $(HOME)/.tmux/resurrect/last
+	ln -sf $(HOME)/.tmux/resurrect/last-raspbian.txt $(HOME)/.tmux/resurrect/last
 	@echo "OK."

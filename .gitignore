@@ -11,6 +11,6 @@ vim/plugged/*
 tmux/plugins/*
 !tmux/plugins/README.md
 tmux/resurrect/*.txt
-!tmux/resurrect/last*
+tmux/resurrect/last
 zsh/plugins/*
 !zsh/plugins/README.md

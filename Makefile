@@ -15,6 +15,9 @@ install: configure
 	@echo "make install_$(MYOS)" | sh
 	@echo "OK."
 
+save:
+	#mv $(DOTFILES)/tmux/resurrect/tmux_resurrect_20190525T173225.txt $(DOTFILES)/tmux/resurrect/last
+
 python-in:
 	echo "make $(MYOS) -f $(DOTFILES)/python/Makefile" | sh
 	@echo "OK."

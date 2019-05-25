@@ -9,8 +9,8 @@ ohmyzsh:
 
 plugins: ohmyzsh
 	mkdir -p $(HOME)/.zsh
-	git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.zsh/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.zsh/plugins/zsh-syntax-highlighting
 
 changeshell:
 	sudo usermod -s /bin/zsh $ME

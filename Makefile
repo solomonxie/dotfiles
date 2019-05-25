@@ -9,6 +9,7 @@ install:
 	ln -sf $(DOTFILES)/vim ~/.vim
 	ln -sf $(DOTFILES)/vim/vimrc ~/.vimrc
 	# ZSH
+	ln -sf $(DOTFILES)/zsh ~/.zsh
 	ln -sf $(DOTFILES)/zsh/mac.env ~/.zshrc
 	# TMUX
 	ln -sf $(DOTFILES)/tmux ~/.tmux
@@ -21,6 +22,7 @@ install_ubuntu:
 	ln -sf $(DOTFILES)/vim ~/.vim
 	ln -sf $(DOTFILES)/vim/vimrc-mini ~/.vimrc
 	# ZSH
+	ln -sf $(DOTFILES)/zsh ~/.zsh
 	ln -sf $(DOTFILES)/zsh/linux.env ~/.zshrc
 	# TMUX
 	ln -sf $(DOTFILES)/tmux ~/.tmux
@@ -33,6 +35,7 @@ install_rpi:
 	ln -sf $(DOTFILES)/vim ~/.vim
 	ln -sf $(DOTFILES)/vim/vimrc-mini ~/.vimrc
 	# ZSH
+	ln -sf $(DOTFILES)/zsh ~/.zsh
 	ln -sf $(DOTFILES)/zsh/linux.env ~/.zshrc
 	# TMUX
 	ln -sf $(DOTFILES)/tmux ~/.tmux

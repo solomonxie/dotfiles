@@ -1,12 +1,20 @@
 #! /usr/bin/env bash
 #
 # MAINTINAER: Solomon Xie <solomonxiewise@gmail.com>
-# Enviroment: 
+# Enviroment:
 # Description:
 
 
 set -x
 
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 do_install_s3fs(){
     if [ "$1" = "--os" ];then

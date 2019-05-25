@@ -5,7 +5,14 @@
 # Preload:
 # Commands:
 
-set -ax
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 do_install_jupyter_notebook(){
     virtualenv -p python3 ~/virtualenv/venv-ju

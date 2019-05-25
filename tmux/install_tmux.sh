@@ -17,8 +17,14 @@
 
 set -x
 
-# Setup env variables and shared functions
-cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 #-------------------------------------
 #     Installation Methods
@@ -48,9 +54,9 @@ install_tmux_ubuntu(){
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
+    cp $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
+    cp $HOME/dotfiles/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
@@ -60,9 +66,9 @@ install_tmux_rpi(){
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
+    cp $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-rpi.txt $HOME/.tmux/resurrect/last.txt
+    cp $HOME/dotfiles/tmux/resurrect/last-rpi.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
@@ -72,9 +78,9 @@ install_tmux_mac(){
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $SRC/tmux/tmux.conf $HOME/.tmux.conf
+    cp $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $SRC/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
+    cp $HOME/dotfiles/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 

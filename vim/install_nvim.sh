@@ -17,8 +17,14 @@
 
 set -x
 
-# Setup env variables and shared functions
-cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+# Read environment variables
+if [ ! -e /tmp/env-os -a -e /tmp/env-user ]; then
+    echo "Please run './configure' before installment."
+    exit 1;
+else
+    export MYOS=`cat /tmp/env-os`
+    export USER=`cat /tmp/env-user`
+fi
 
 #-------------------------------------
 #     Installation Methods
@@ -28,11 +34,14 @@ do_install_nvim(){
     # Do different things with different OS
     case $MYOS in
         ubuntu)
-            install_vim_ubuntu ;;
+            install_nvim_ubuntu ;;
         raspbian)
-            build_nvim_pi ;;
+            build_nvim_pi
+            ;;
         mac)
-            install_vim_mac ;;
+            # build_nvim_mac
+            brew install neovim
+            ;;
     esac
 
     # Make paths for vim extensions
@@ -42,12 +51,12 @@ do_install_nvim(){
     # Color Scheme
     echo "-----[  INSTALLING VIM COLOR SCHEME   ]-----"
     mkdir -p $HOME/.vim/colors
-    cp $SRC/vim/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
+    cp $HOME/dotfiles/vim/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
 
     # Syntax files
     echo "-----[  INSTALLING VIM SYNTAX  ]-----"
     mkdir -p $HOME/.vim/syntax
-    cp $SRC/vim/syntax/python.vim $HOME/.vim/syntax/python.vim
+    cp $HOME/dotfiles/vim/syntax/python.vim $HOME/.vim/syntax/python.vim
 
     # Download Vundle & Install plugins
     echo "-----[  DOWNLOADING VIM PLUGIN MANAGER   ]-----"
@@ -59,7 +68,7 @@ do_install_nvim(){
     ln -sf $HOME/dotfiles/vim/vimrc $HOME/.config/nvim/init.vim
 }
 
-install_nvim_mac(){
+build_nvim_mac(){
     cd /tmp/
     curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
     tar xzf nvim-macos.tar.gz

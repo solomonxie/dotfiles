@@ -113,7 +113,7 @@ apt_add_sources(){
     # Default sources
     #sudo wget $REPO_URL//etc/ubuntu/sources-default.list -O /etc/apt/sources.list
     # China sources
-    sudo wget $REPO_URL//etc/ubuntu/sources-cn.list -O /etc/apt/sources.list
+    sudo wget $REPO_URL/etc/ubuntu/sources-cn.list -O /etc/apt/sources.list
     # US sources
     #sudo wget $REPO_URL//etc/ubuntu/sources-us.list -O /etc/apt/sources.list
 }

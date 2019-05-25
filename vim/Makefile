@@ -2,6 +2,10 @@ DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
+install:
+	@echo "make $(MYOS)" | sh
+	vim +PlugInstall +qall
+
 checkhealth:
 	python -V
 	python3 -V

@@ -2,11 +2,11 @@ DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
+install:
+	@echo "make $(MYOS)" | sh
+
 checkhealth_mac:
 	brew --version
-	curl --version
-	python3 -V
-	pip -V
 
 checkhealth_debian:
 	apt-get --version
@@ -28,28 +28,29 @@ ubuntu: debian
 raspbian: debian
 
 
-checkhealth_virtualenv:
-	pip --version
-	virtualenv --version
-
-virtualenv: checkhealth_virtualenv
-	virtualenv -p python3 $(HOME)/virtualenv/venv3
-	virtualenv -p python2 $(HOME)/virtualenv/venv2
-	virtualenv -p python3 ~/virtualenv/venv-ju
-
-checkhealth_jupyter:
+checkhealth_python:
+	python3 -V
 	pip --version
 	virtualenv --version
 	test -e ~/virtualenv/venv-ju
+	curl --version
+
+utils: checkhealth_python
+	pip install --user youtube-dl tldr ffmpeg
 
 
-jupyter_notebook: checkhealth_jupyter
+virtualenv: checkhealth_python
+	virtualenv -p python3 $(HOME)/virtualenv/venv3
+	virtualenv -p python3 ~/virtualenv/venv-ju
+	virtualenv -p python2 $(HOME)/virtualenv/venv2
+
+jupyter_notebook: checkhealth_python
 	source ~/virtualenv/venv-ju/bin/activate && \
 	pip install jupyter && \
 	pip install ipykernel && \
 	deactivate
 
-jupyter_kernel_octave:
+jupyter_kernel_octave: checkhealth_python
 	# Octave Kernel
 	source ~/virtualenv/venv-ju/bin/activate && \
 	python -m octave_kernel install && \
@@ -62,7 +63,7 @@ jupyter_kernel_r:
 jupyter_kernel_c:
 jupyter_kernel_cpp:
 
-jupyter_extension: checkhealth_jupyter
+jupyter_extension: checkhealth_python
 	source ~/virtualenv/venv-ju/bin/activate && \
 	pip install jupyter_nbextensions_configurator && \
 	jupyter nbextensions_configurator enable && \
@@ -71,7 +72,7 @@ jupyter_extension: checkhealth_jupyter
 	pip install jupyterthemes && \
 	deactivate
 
-jupyter_ML: checkhealth_jupyter
+jupyter_ML: checkhealth_python
 	source ~/virtualenv/venv-ju/bin/activate && \
 	pip install scikit-learn && \
 	pip install numpy && \
@@ -81,7 +82,7 @@ jupyter_ML: checkhealth_jupyter
 	pip install xgboost
 	deactivate
 
-jupyter_lab: checkhealth_jupyter
+jupyter_lab: checkhealth_python
 	source ~/virtualenv/venv-ju/bin/activate && \
 	pip install jupyterlab && \
 	jupyter labextension install @jupyterlab/toc && \

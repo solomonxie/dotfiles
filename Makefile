@@ -64,7 +64,7 @@ install_ubuntu: clean
 	ln -sf $(DOTFILES)/zsh/linux.env ~/.zshrc
 	# TMU
 	ln -s $(DOTFILES)/tmux ~/.tmux
-	ln -sf $(DOTFILES)/tmux/tmux/tmux.conf ~/.tmux.conf
+	ln -sf $(DOTFILES)/tmux/tmux.conf ~/.tmux.conf
 	ln -sf $(HOME)/.tmux/resurrect/last-ubuntu.txt $(HOME)/.tmux/resurrect/last
 	@echo "OK."
 
@@ -77,6 +77,6 @@ install_raspbian: clean
 	ln -sf $(DOTFILES)/zsh/linux.env ~/.zshrc
 	# TMUX
 	ln -s $(DOTFILES)/tmux ~/.tmux
-	ln -sf $(DOTFILES)/tmux/tmux/tmux.conf ~/.tmux.conf
+	ln -sf $(DOTFILES)/tmux/tmux.conf ~/.tmux.conf
 	ln -sf $(HOME)/.tmux/resurrect/last-rpi.txt $(HOME)/.tmux/resurrect/last
 	@echo "OK."

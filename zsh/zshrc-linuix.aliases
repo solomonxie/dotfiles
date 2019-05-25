@@ -13,8 +13,8 @@ alias lah="ls -lah"
 #alias vim="nvim"
 
 # Config files
-alias zshrc="vim ~/dotfiles/zsh/zshrc"
-alias zshrc2="vim ~/dotfiles/zsh/zshrc.aliases"
+alias zshrc="vim ~/dotfiles/zsh/zshrc-linux"
+alias zshrc2="vim ~/dotfiles/zsh/zshrc-linux.aliases"
 alias zshrc3="vim ~/dotfiles/zsh/zshrc.themes"
 alias vimrc="vim ~/.vimrc"
 alias vimrc2="vim ~/dotfiles/vim/vimrc-keymappings.vim"

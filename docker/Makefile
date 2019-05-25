@@ -4,6 +4,7 @@ USER ?= `cat /tmp/env-user`
 
 install:
 	curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
+	#sudo sh ${HOME}/dotfiles/docker/get-docker.sh
 
 install_debian: checkhealth_debian
 	# Setup SSL for downloading through HTTPS

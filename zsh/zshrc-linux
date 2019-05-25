@@ -107,8 +107,3 @@
         #
     fi
 # }
-
-
-# Environment Variables settings {
-    source ~/dotfiles/zsh/mac.env
-# }

@@ -1,10 +1,33 @@
 .PHONY: build
 
 DOTFILES ?= ~/dotfiles
+MYOS ?= `cat /tmp/env-os`
+USER ?= `cat /tmp/env-user`
 
-build: python tmux zsh vim
+build: python tmux zsh vim install
 
 install:
+	@echo "Installing for [$(MYOS)] now...."
+	@echo "make install_$(MYOS)" | sh
+	@echo "OK."
+
+python:
+	echo "make $(MYOS) -f $(DOTFILES)/python/Makefile" | sh
+	@echo "OK."
+
+tmux:
+	make tmux -f $(DOTFILES)/tmux/Makefile
+	@echo "OK."
+
+zsh:
+	make zsh -f $(DOTFILES)/zsh/Makefile
+	@echo "OK."
+
+vim:
+	make vim -f $(DOTFILES)/vim/Makefile
+	@echo "OK."
+
+install_mac:
 	# VIM
 	ln -sf $(DOTFILES)/vim ~/.vim
 	ln -sf $(DOTFILES)/vim/vimrc ~/.vimrc
@@ -30,7 +53,7 @@ install_ubuntu:
 	ln -sf $(HOME)/.tmux/resurrect/last-ubuntu.txt $(HOME)/.tmux/resurrect/last
 	@echo "OK."
 
-install_rpi:
+install_raspbian:
 	# VIM
 	ln -sf $(DOTFILES)/vim ~/.vim
 	ln -sf $(DOTFILES)/vim/vimrc-mini ~/.vimrc
@@ -44,18 +67,3 @@ install_rpi:
 	@echo "OK."
 
 
-python:
-	make python -f $(DOTFILES)/python/Makefile
-	@echo "OK."
-
-tmux:
-	make tmux -f $(DOTFILES)/tmux/Makefile
-	@echo "OK."
-
-zsh:
-	make zsh -f $(DOTFILES)/zsh/Makefile
-	@echo "OK."
-
-vim:
-	make vim -f $(DOTFILES)/vim/Makefile
-	@echo "OK."

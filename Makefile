@@ -48,4 +48,3 @@ zsh:
 vim:
 	make vim -f $(DOTFILES)/vim/Makefile
 	@echo "OK."
-

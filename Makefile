@@ -8,31 +8,28 @@ DT ?= `date +%Y%m%d%s`
 configure:
 	@configure
 
-build: python tmux zsh vim install
+build: python-in tmux-in zsh-in vim-in install
 
 install: configure
 	@echo "Installing for [$(MYOS)] now...."
 	@echo "make install_$(MYOS)" | sh
 	@echo "OK."
 
-python:
+python-in:
 	echo "make $(MYOS) -f $(DOTFILES)/python/Makefile" | sh
 	@echo "OK."
 
-tmux:
-	make tmux -f $(DOTFILES)/tmux/Makefile
+tmux-in:
+	echo "make $(MYOS) -f $(DOTFILES)/tmux/Makefile" | sh
 	@echo "OK."
 
-zsh:
-	make zsh -f $(DOTFILES)/zsh/Makefile
+zsh-in:
+	echo "make $(MYOS) -f $(DOTFILES)/zsh/Makefile" | sh
 	@echo "OK."
 
-vim:
-	make vim -f $(DOTFILES)/vim/Makefile
+vim-in:
+	echo "make $(MYOS) -f $(DOTFILES)/vim/Makefile" | sh
 	@echo "OK."
-
-xx:
-	@echo `echo $(RANDOM)`
 
 clean:
 	mv ~/.vim /tmp/vim-$(DT)

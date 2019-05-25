@@ -32,3 +32,6 @@ plugins: checkhealth
 	fi
 	$(HOME)/.tmux/plugins/tpm/bin/install_plugins
 	@echo "OK."
+
+install:
+	@echo "make $(MYOS); make plugins" | sh

@@ -2,20 +2,6 @@ DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
-ohmyzsh:
-	if [ -e $(HOME)/.oh-my-zsh ]; then \
-		echo `curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh`; \
-    fi
-	test -e $(HOME)/.oh-my-zsh
-
-plugins: ohmyzsh
-	mkdir -p $(HOME)/.zsh/plugins
-	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.zsh/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.zsh/plugins/zsh-syntax-highlighting
-
-changeshell:
-	sudo usermod -s /bin/zsh $(USER)
-
 mac:
 	brew install zsh
 
@@ -26,3 +12,21 @@ debian:
 
 ubuntu: debian
 raspbian: debian
+
+changeshell:
+	sudo usermod -s /bin/zsh $(USER)
+
+plugins: ohmyzsh
+	mkdir -p $(HOME)/.zsh/plugins
+	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.zsh/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.zsh/plugins/zsh-syntax-highlighting
+
+ohmyzsh:
+	if [ -e $(HOME)/.oh-my-zsh ]; then \
+		echo `curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh`; \
+    fi
+	test -e $(HOME)/.oh-my-zsh
+
+
+install:
+	@echo "make $(MYOS) plugins" | sh

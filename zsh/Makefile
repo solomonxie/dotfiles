@@ -3,7 +3,7 @@ MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
 install:
-	@echo "make $(MYOS) plugins" | sh
+	@echo "make ${MYOS} plugins" | sh
 
 mac:
 	brew install zsh
@@ -11,21 +11,21 @@ mac:
 debian:
 	sudo apt-get install zsh -y
 	@echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
-	sudo usermod -s /bin/zsh $(USER)
+	sudo usermod -s /bin/zsh ${USER}
 
 ubuntu: debian
 raspbian: debian
 
 changeshell:
-	sudo usermod -s /bin/zsh $(USER)
+	sudo usermod -s /bin/zsh ${USER}
 
 plugins: ohmyzsh
-	mkdir -p $(HOME)/.zsh/plugins
-	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.zsh/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.zsh/plugins/zsh-syntax-highlighting
+	mkdir -p ${HOME}/.zsh/plugins
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${HOME}/.zsh/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.zsh/plugins/zsh-syntax-highlighting
 
 ohmyzsh:
-	if [ -e $(HOME)/.oh-my-zsh ]; then \
+	if [ -e ${HOME}/.oh-my-zsh ]; then \
 		echo `curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh`; \
     fi
-	test -e $(HOME)/.oh-my-zsh
+	test -e ${HOME}/.oh-my-zsh

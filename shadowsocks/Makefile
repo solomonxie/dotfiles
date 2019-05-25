@@ -10,7 +10,7 @@ install_debian:
 
 install_server:
 	pip install --user shadowsocks
-	sudo wget $(DOTFILES)/shadowsocks/ssserver.json -O /etc/ssserver.json
+	sudo wget ${DOTFILES}/shadowsocks/ssserver.json -O /etc/ssserver.json
 
 install_raspbian: checkhealth_raspbian install_debian install_local_service_raspbian
 
@@ -19,8 +19,8 @@ install_ubuntu: checkhealth_ubuntu install_debian
 	sudo ssserver -c /etc/ssserver.json -d start
 
 install_local_service_raspbian:
-	sudo cp $(DOTFILES)/shadowsocks/sslocal.json /etc/shadowsocks-libev/ss-local.json
-	sudo cp $(DOTFILES)/shadowsocks/ss-local.service /etc/systemd/system/ss-local.service
+	sudo cp ${DOTFILES}/shadowsocks/sslocal.json /etc/shadowsocks-libev/ss-local.json
+	sudo cp ${DOTFILES}/shadowsocks/ss-local.service /etc/systemd/system/ss-local.service
 	sudo ln -sf /usr/bin/ss-local /usr/sbin/ss-local
 	sudo systemctl enable ss-local.service
 	sudo systemctl start ss-local.service

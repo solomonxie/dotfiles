@@ -3,7 +3,7 @@ MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
 install:
-	@echo "make $(MYOS) plugins" | sh
+	@echo "make ${MYOS} plugins" | sh
 
 checkhealth_mac:
 	brew --version
@@ -29,9 +29,9 @@ checkhealth:
 
 plugins: checkhealth
 	@echo "----------[  Installing TPM for Tmux   ]--------------"
-	@if [ ! -e $(HOME)/.tmux/plugins/tpm ]; then \
-		mkdir -p $(HOME)/.tmux/plugins; \
-		git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm; \
+	@if [ ! -e ${HOME}/.tmux/plugins/tpm ]; then \
+		mkdir -p ${HOME}/.tmux/plugins; \
+		git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm; \
 	fi
-	$(HOME)/.tmux/plugins/tpm/bin/install_plugins
+	${HOME}/.tmux/plugins/tpm/bin/install_plugins
 	@echo "OK."

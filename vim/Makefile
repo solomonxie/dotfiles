@@ -3,7 +3,7 @@ MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
 install:
-	@echo "make $(MYOS)" | sh
+	@echo "make ${MYOS}" | sh
 	vim +PlugInstall +qall
 
 checkhealth:

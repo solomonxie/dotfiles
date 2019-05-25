@@ -3,7 +3,7 @@ MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
 install:
-	@echo "make $(MYOS)" | sh
+	@echo "make ${MYOS}" | sh
 
 checkhealth_mac:
 	brew --version
@@ -40,9 +40,9 @@ utils: checkhealth_python
 
 
 virtualenv: checkhealth_python
-	virtualenv -p python3 $(HOME)/virtualenv/venv3
+	virtualenv -p python3 ${HOME}/virtualenv/venv3
 	virtualenv -p python3 ~/virtualenv/venv-ju
-	virtualenv -p python2 $(HOME)/virtualenv/venv2
+	virtualenv -p python2 ${HOME}/virtualenv/venv2
 
 jupyter_notebook: checkhealth_python
 	source ~/virtualenv/venv-ju/bin/activate && \

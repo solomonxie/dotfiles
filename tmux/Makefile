@@ -21,9 +21,13 @@ debian: checkhealth_debian
 ubuntu: debian
 raspbian: debian
 
-plugins:
+checkhealth:
+	tmux -V
+
+plugins: checkhealth
 	@echo "----------[  Installing TPM for Tmux   ]--------------"
 	@if [ ! -e $(HOME)/.tmux/plugins/tpm ]; then \
+		mkdir -p $(HOME)/.tmux/plugins
 		git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm ; \
 	fi
 	$(HOME)/.tmux/plugins/tpm/bin/install_plugins

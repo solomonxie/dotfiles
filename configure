@@ -1,0 +1,139 @@
+#! /bin/bash
+#
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
+# ENVIRONMENT: Ubuntu / Raspbian / MacOS
+#
+# Description: Additional configs for zshrc, which aren't good for public.
+#
+# Env Variables, paths
+# Some would be imported here by other programms automatically
+# etc., cat 'expot path=...' > ~/.zshrc
+#
+#
+
+
+#------------------------------------------------------
+#           Shared Custom Functions
+#------------------------------------------------------
+
+get_flags(){
+    # Set variables from flag passed to this function
+    while [ $# -gt 0 ] ;do
+        case "$1" in
+            --os)
+                as_os=$2
+                shift 2;;
+            --as | --user | -U)
+                as_user=$2
+                shift 2;;
+            --password | -p)
+                with_password=$2
+                shift 2;;
+        esac
+    done
+}
+
+
+get_os(){
+    if [ -e /tmp/env-os ]; then # Preset
+        result=$(cat /tmp/env-os)
+    elif [ -x "$(command -v lsb_release)" ]; then #Linux
+        result=$(lsb_release -si)
+    elif [ -x "$(command -v sw_vers)" ]; then #MacOS
+        result=$(sw_vers -productName)
+    elif [ -e /etc/os-release ]; then #Linux (not docker)
+        result=$(cat /etc/os-release |grep NAME)
+    elif [ -x "$(command -v uname)" ]; then #Linux, docker & Others
+        result=$(uname -a)
+    fi
+    case "$(echo $result | tr '[:upper:]' '[:lower:]')" in
+        *mac*) OS="mac" ;;
+        *raspbian* | *raspberrypi*) OS="raspbian" ;;
+        *ubuntu*) OS="ubuntu" ;;
+    esac
+    echo $OS > /tmp/env-os
+    echo $OS
+}
+
+
+# do_by_os(){
+#     case $(get_os) in
+#         ubuntu)
+#             echo "CURRENT Linux Distribution: [  Ubuntu  ].";;
+#         raspbian)
+#             echo "CURRENT Linux Distribution: [  Raspbian  ].";;
+#         mac)
+#             echo "CURRENT OS: [  Mac OS X  ].";;
+#     esac
+# }
+
+
+get_current_user(){
+    USER=${SUDO_USER:-$(id -un)}
+    if [ $USER = "root" ];then
+        read -p "Do you want to add a new user account instead of Root? (Y/N)" ANSWER
+        if [ "$ANSWER" = "Y" ]; then
+            add_admin
+            echo "[ NEW USER <$USER> HAS SUCCESSFULLY ADDED, ]"
+            echo "[ PLEASE RE-RUN THIS SCRIPT AGAIN WITH NEW USER. ]"
+            exit 0;
+        fi
+    fi
+    echo $USER
+    echo $USER > /tmp/env-user
+}
+
+
+add_admin(){
+    as_user=${as_user:-$MYOS}
+    password=${with_password:-"${MYOS}123"}
+    if [ ! "$as_user" = "$(cat /etc/passwd |cut -d':' -f1)" ]; then
+        useradd -s /bin/bash $as_user && \
+        usermod -aG sudo $as_user && \
+        echo -e "${password}\n${password}" | passwd $as_user && \
+        USER="$as_user"
+
+        # Make Home directory
+        mkdir -p /home/$as_user
+        cp -r /root/dotfiles /home/$as_user/
+        chown -R $as_user:$as_user /home/$as_user
+
+        # Setup SSH for Admin login
+        sudo -u $as_user mkdir -p /home/$as_user/.ssh
+        cp /root/.ssh/authorized_keys /home/$as_user/.ssh/
+        chown -R $as_user:$as_user /home/$as_user/.ssh
+    fi
+    #su - $as_user && echo '[ OK ]'
+}
+
+
+
+#------------------------------------------------------
+#           Export Custom Env Variables
+#------------------------------------------------------
+
+get_flags "$@"
+
+export MYOS=${as_os:-$(get_os)}
+export USER=${as_user:-$(get_current_user)}
+
+# Not working on MacOS
+# HOME="`cat /etc/passwd |grep ^${USER}: | cut -d: -f 6`"
+#HOME="`cat /etc/passwd |awk -F ':' "/$USER/" '{print $(NF-1)}'`"
+# export HOME=${HOME:-$HOME}
+
+export SRC="$HOME/dotfiles"
+export DOTFILES="$HOME/dotfiles"
+
+# Download Repo if not exists
+# if [ ! -e $HOME/dotfiles ]; then
+#     git clone "git@github.com:solomonxie/dotfiles.git" $HOME/dotfiles
+# fi
+# cd $HOME/dotfiles
+
+echo "Current OS: [$MYOS]"
+echo "Current User: [$USER]"
+echo "[  OK  ] Environment configuration done."
+
+# Prompt to ask for sudo password
+# sudo echo "Me: please input password of Superuser for further installment"

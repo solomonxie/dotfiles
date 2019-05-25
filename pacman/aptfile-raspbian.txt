@@ -1,0 +1,11 @@
+vim
+apt-utils
+checkinstall
+mosh tree unzip htop ifstat bashdb
+ranger w3m tig axel
+rg fd
+ntfs-3g
+tightvncserver
+speedtest-cli
+lsof
+unar

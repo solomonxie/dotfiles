@@ -5,36 +5,46 @@ MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 DT ?= `date +%Y%m%d%s`
 
-configure-it:
-	@configure
-
-build: python-in tmux-in zsh-in vim-in install
-
 install: configure-it
 	@echo "Installing for [$(MYOS)] now...."
 	@echo "make install_$(MYOS)" | sh
 	@echo "OK."
 
+configure-it:
+	@configure
+
+build: python-it tmux-it zsh-it vim-it install
+
 save:
 	#mv $(DOTFILES)/tmux/resurrect/tmux_resurrect_20190525T173225.txt $(DOTFILES)/tmux/resurrect/last
 
-python-in:
-	echo "make $(MYOS) -f $(DOTFILES)/python/Makefile" | sh
+python-it:
+	echo "make install $(MYOS) -f $(DOTFILES)/python/Makefile" | sh
 	@echo "OK."
 
-tmux-in:
-	echo "make $(MYOS) -f $(DOTFILES)/tmux/Makefile" | sh
+tmux-it:
+	echo "make install $(MYOS) -f $(DOTFILES)/tmux/Makefile" | sh
 	@echo "OK."
 
-zsh-in:
-	echo "make $(MYOS) -f $(DOTFILES)/zsh/Makefile" | sh
+zsh-it:
+	echo "make install $(MYOS) -f $(DOTFILES)/zsh/Makefile" | sh
 	@echo "OK."
 
-vim-in:
-	echo "make $(MYOS) -f $(DOTFILES)/vim/Makefile" | sh
+vim-it:
+	echo "make install $(MYOS) -f $(DOTFILES)/vim/Makefile" | sh
 	@echo "OK."
 
-clean:
+
+checkhealth:
+	ls ~/.vim
+	ls ~/.vimrc
+	ls ~/.tmux
+	ls ~/.tmux.conf
+	ls ~/.zsh
+	ls ~/.zshrc
+	ls ~/.tmux/resurrect/last
+
+clean: checkhealth
 	mv ~/.vim /tmp/vim-$(DT)
 	mv ~/.vimrc /tmp/vimrc-$(DT)
 	mv ~/.tmux /tmp/tmux-$(DT)

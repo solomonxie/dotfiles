@@ -2,6 +2,9 @@ DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
+install:
+	@echo "make $(MYOS) plugins" | sh
+
 mac:
 	brew install zsh
 
@@ -26,7 +29,3 @@ ohmyzsh:
 		echo `curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh`; \
     fi
 	test -e $(HOME)/.oh-my-zsh
-
-
-install:
-	@echo "make $(MYOS) plugins" | sh

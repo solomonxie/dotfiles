@@ -106,7 +106,7 @@ call plug#begin('~/.vim/plugged')
                 Plug 'Shougo/deoplete.nvim'
                 Plug 'zchee/deoplete-jedi'    " Python completion source
                 Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
-                if !has('nvim') ">> For vim only
+                if has('vim') ">> For vim only
                     Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework
                     Plug 'roxma/vim-hug-neovim-rpc'  ">> to work with Vim8
                 endif

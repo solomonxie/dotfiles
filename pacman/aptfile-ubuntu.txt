@@ -1,0 +1,9 @@
+apt-utils
+checkinstall
+mosh tree unzip htop ifstat bashdb
+ranger nnn w3m tig axel
+rg fd
+ntfs-3g
+speedtest-cli
+unar
+

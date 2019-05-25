@@ -2,6 +2,9 @@ DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
+install:
+	@echo "make $(MYOS) plugins" | sh
+
 checkhealth_mac:
 	brew --version
 	git --version
@@ -32,6 +35,3 @@ plugins: checkhealth
 	fi
 	$(HOME)/.tmux/plugins/tpm/bin/install_plugins
 	@echo "OK."
-
-install:
-	@echo "make $(MYOS); make plugins" | sh

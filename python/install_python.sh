@@ -23,9 +23,9 @@ do_install_python(){
     # Do different things with different OS
     case $MYOS in
         ubuntu|raspbian)
-            install_tmux_deb ;;
+            do_install_python3_deb ;;
         mac)
-            install_tmux_mac ;;
+            do_install_python3_mac ;;
     esac
     echo "---[ Settingup virtual environments ]----"
     virtualenv -p python3 $HOME/virtualenv/venv3
@@ -41,8 +41,6 @@ do_install_python3_deb(){
     sudo apt-get install virtualenv -y
     # Install pip2 & pip3
     sudo apt-get install -y python-pip python3-pip
-    # Install Virtualenv
-    sudo apt-get install -y virtualenv
 }
 
 do_install_python3_mac(){

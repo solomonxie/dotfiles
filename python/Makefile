@@ -44,54 +44,51 @@ checkhealth_jupyter:
 
 
 jupyter_notebook: checkhealth_jupyter
-	source ~/virtualenv/venv-ju/bin/activate
-	# ipython kernel
-	pip install jupyter
-	pip install ipykernel
-	# Octave Kernel
-	pip install metakernel
-	pip install octave_kernel
-	python -m octave_kernel install
-	echo export OCTAVE_EXECUTABLE=$(which octave) >> ~/.zshrc
-	# R Kernel
-	# has to isntall from R-shell
+	source ~/virtualenv/venv-ju/bin/activate && \
+	pip install jupyter && \
+	pip install ipykernel && \
 	deactivate
 
+jupyter_kernel_octave:
+	# Octave Kernel
+	source ~/virtualenv/venv-ju/bin/activate && \
+	python -m octave_kernel install && \
+	pip install metakernel && \
+	pip install octave_kernel && \
+	echo export OCTAVE_EXECUTABLE=$(which octave) >> ~/.zshrc && \
+	deactivate
+
+jupyter_kernel_r:
+jupyter_kernel_c:
+jupyter_kernel_cpp:
+
 jupyter_extension: checkhealth_jupyter
-	source ~/virtualenv/venv-ju/bin/activate
-	# Configurator
-	pip install jupyter_nbextensions_configurator
-	jupyter nbextensions_configurator enable
-	# Extensions pack
-	pip install jupyter_contrib_nbextensions
-	jupyter contrib nbextension install
-	# Themes for jupyter notebook
-	pip install jupyterthemes
+	source ~/virtualenv/venv-ju/bin/activate && \
+	pip install jupyter_nbextensions_configurator && \
+	jupyter nbextensions_configurator enable && \
+	pip install jupyter_contrib_nbextensions && \
+	jupyter contrib nbextension install && \
+	pip install jupyterthemes && \
 	deactivate
 
 jupyter_ML: checkhealth_jupyter
-	source ~/virtualenv/venv-ju/bin/activate
-	pip install scikit-learn
-	pip install numpy
-	pip install pandas
-	pip install matplotlib
-	pip install seaborn scipy
+	source ~/virtualenv/venv-ju/bin/activate && \
+	pip install scikit-learn && \
+	pip install numpy && \
+	pip install pandas && \
+	pip install matplotlib && \
+	pip install seaborn scipy && \
 	pip install xgboost
 	deactivate
 
 jupyter_lab: checkhealth_jupyter
-	source ~/virtualenv/venv-ju/bin/activate
-	pip install jupyterlab
-	# Install extensions
-	# 目录结构显示
-	jupyter labextension install @jupyterlab/toc
-	# Voyager 数据优化浏览
-	jupyter labextension install jupyterlab_voyager
-	# Drawio 画流程图
-	jupyter labextension install jupyterlab-drawio
-	# Lantern数据绘图加强
-	jupyter labextension install pylantern
-	jupyter serverextension enable --py lantern
+	source ~/virtualenv/venv-ju/bin/activate && \
+	pip install jupyterlab && \
+	jupyter labextension install @jupyterlab/toc && \
+	jupyter labextension install jupyterlab_voyager && \
+	jupyter labextension install jupyterlab-drawio && \
+	jupyter labextension install pylantern && \
+	jupyter serverextension enable --py lantern && \
 	deactivate
 
 jupyter: jupyter_notebook jupyter_extension

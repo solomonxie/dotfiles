@@ -17,7 +17,7 @@
     set HOSTALIASES=~/hosts
 
 # Make some device-specific aliased in another file
-    source ~/dotfiles/zsh/zshrc-linuix.aliases
+    source ~/dotfiles/zsh/zshrc-linux.aliases
 
 # Theme settings {
     source ~/dotfiles/zsh/zshrc.themes

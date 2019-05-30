@@ -25,7 +25,7 @@ plugins: ohmyzsh
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.zsh/plugins/zsh-syntax-highlighting
 
 ohmyzsh:
-	if [ -e ${HOME}/.oh-my-zsh ]; then \
+	if [ ! -e ${HOME}/.oh-my-zsh ]; then \
 		echo `curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh`; \
     fi
 	test -e ${HOME}/.oh-my-zsh

@@ -21,6 +21,17 @@ install_debian: checkhealth_debian
 	# Hello-world
 	sudo docker run hello-world
 
+install_ubuntu: install
+	sudo apt-get install docker-compose -y
+	#Add Permission
+	sudo groupadd docker
+	sudo gpasswd -a ${USER} docker
+	newgrp docker
+	/bin/bash
+
+
+###################### APPs ##########################
+
 
 install_apps_mac:
 

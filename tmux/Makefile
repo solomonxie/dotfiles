@@ -29,6 +29,7 @@ checkhealth:
 
 plugins: checkhealth
 	@echo "----------[  Installing TPM for Tmux   ]--------------"
+	export TMUX_PLUGIN_MANAGER_PATH='~/.tmux/plugins'
 	@if [ ! -e ${HOME}/.tmux/plugins/tpm ]; then \
 		mkdir -p ${HOME}/.tmux/plugins; \
 		git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm; \

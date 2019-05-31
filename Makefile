@@ -1,37 +1,50 @@
-.PHONY: build
+.PHONY: configure-it python-it tmux-it zsh-it vim-it docker-it install
 
 DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 DT ?= `date +%Y%m%d%s`
 
-install: configure-it
+install:
 	@echo "Installing for [${MYOS}] now...."
 	@echo "make install_${MYOS}" | sh
 	@echo "OK."
 
 configure-it:
-	@./configure
-
-build: python-it tmux-it zsh-it vim-it install
+	./configure
 
 save:
 	#mv ${DOTFILES}/tmux/resurrect/tmux_resurrect_20190525T173225.txt ${DOTFILES}/tmux/resurrect/last
 
 python-it:
-	echo "make install ${MYOS} -f ${DOTFILES}/python/Makefile" | sh
+	@cd python/
+	echo "make ${MYOS}" | sh
+	@cd ..
 	@echo "OK."
 
 tmux-it:
-	echo "make install ${MYOS} -f ${DOTFILES}/tmux/Makefile" | sh
+	@cd tmux/
+	echo "make ${MYOS}" | sh
+	@cd ..
 	@echo "OK."
 
 zsh-it:
-	echo "make install ${MYOS} -f ${DOTFILES}/zsh/Makefile" | sh
+	@cd zsh/
+	echo "make ${MYOS}" | sh
+	@cd ..
 	@echo "OK."
 
 vim-it:
-	echo "make install ${MYOS} -f ${DOTFILES}/vim/Makefile" | sh
+	@cd vim/
+	echo "make ${MYOS}" | sh
+	@cd ..
+	@echo "OK."
+
+docker-it:
+	@cd docker/
+	echo "make ${MYOS}" | sh
+	echo "make apps_${MYOS}" | sh
+	@cd ..
 	@echo "OK."
 
 

@@ -6,7 +6,7 @@ install:
 	curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
 	#sudo sh ${HOME}/dotfiles/docker/get-docker.sh
 
-install_debian: checkhealth_debian
+debian: checkhealth_debian
 	# Setup SSL for downloading through HTTPS
 	sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
 	# Add GPG key for docker
@@ -21,7 +21,7 @@ install_debian: checkhealth_debian
 	# Hello-world
 	sudo docker run hello-world
 
-install_ubuntu: install
+ubuntu: install
 	sudo apt-get install docker-compose -y
 	#Add Permission
 	sudo groupadd docker
@@ -33,11 +33,11 @@ install_ubuntu: install
 ###################### APPs ##########################
 
 
-install_apps_mac:
+apps_mac:
 
-install_apps_raspbian: install_webav_raspbian install_playground_raspbian
+apps_raspbian: webav_raspbian playground_raspbian
 
-install_apps_ubuntu: install_shadowsocks install_shadowsocks_old install_webdav install_frp install_vpn_ipsec install_playground_ubuntu
+apps_ubuntu: shadowsocks shadowsocks_old webdav frp vpn_ipsec playground_ubuntu
 
 checkhealth_debian:
 	apt-get --version
@@ -55,7 +55,7 @@ checkhealth_raspbian: checkhealth_docker
 checkhealth_ubuntu:
 
 
-install_shadowsocks: checkhealth_docker
+shadowsocks: checkhealth_docker
 	# Image: $ docker pull mritd/shadowsocks PORT=6000
 	docker run -dt --name ssserver --restart always \
 		-p 6000:6000 -p 6000:6000/udp mritd/shadowsocks -m "ss-server" \
@@ -63,25 +63,25 @@ install_shadowsocks: checkhealth_docker
 	    -x -e "kcpserver" \
 	    -k "-t 127.0.0.1:6000 -l 6000 -mode fast2 -key kcp123 -crypt aes-128"
 
-install_shadowsocks_old: checkhealth_docker
+shadowsocks_old: checkhealth_docker
 	# Image: $ docker pull mritd/shadowsocks
 	docker run -dt --name ssserver-old --restart always \
 		-p 1988:1988 -p 1988:1988/udp mritd/shadowsocks -m "ss-server" \
 	    -s "-s 0.0.0.0 -p 1988 -m aes-256-cfb -k shadow123 --fast-open" \
 	    -x -e "kcpserver" -k "-t 127.0.0.1:1988 -l 1988 -mode fast2 -key kcp123 -crypt aes-128"
 
-install_shadowsocks_libev_local: checkhealth_docker
+shadowsocks_libev_local: checkhealth_docker
 	docker run -dt -e PASSWORD=shadow123 \
 		-p 6000:6000 -p 6000:6000/udp \
 	    shadowsocks/shadowsocks-libev
 
-install_v2ray: checkhealth_docker
+v2ray: checkhealth_docker
 	# Image: $ docker pull solomonxie/v2ray:latest
 	docker run -dt --restart always \
 	    --name v2ray -p 12345:23456 solomonxie/v2ray:latest \
 	    /usr/bin/v2ray/v2ray -config=/etc/v2ray/config.json
 
-install_webdav: checkhealth_docker
+webdav: checkhealth_docker
 	# The folder on host MUST have the same permission
 	# otherwise it'll cause permission error
 	# Permission problem:
@@ -97,7 +97,7 @@ install_webdav: checkhealth_docker
 	    -e USERNAME=$(USER) -e PASSWORD=123 \
 	    -p 8888:80 solomonxie/webdav:latest
 
-install_webav_raspbian: checkhealth_docker
+webav_raspbian: checkhealth_docker
 	#: <Permission problem>
 	# has to get inside container by `docker exec -it webdav sh`
 	# and do `chown -R www-data:www-data /var/www/webdav`
@@ -113,7 +113,7 @@ install_webav_raspbian: checkhealth_docker
 	    -e USERNAME=${USER} -e PASSWORD=123 \
 	    -p 8888:80 solomonxie/webdav-rpi:jessie
 
-install_frp: checkhealth_docker
+frp: checkhealth_docker
 	#frp-server
 	#Image: $ docker pull solomonxie/frp:latest
 	docker run -dt --name frps \
@@ -138,7 +138,7 @@ install_frp: checkhealth_docker
 	# to connect another container
 	#--------------------------------------
 
-install_vpn_ipsec: checkhealth_docker
+vpn_ipsec: checkhealth_docker
 	# Image: $ docker pull hwdsl2/ipsec-vpn-server:latest
 	mkdir -p ${HOME}/.config
 	touch ${HOME}/.config/vpn.env
@@ -152,7 +152,7 @@ install_vpn_ipsec: checkhealth_docker
 	    --env-file ${HOME}/.config/vpn.env -d --privileged \
 	    hwdsl2/ipsec-vpn-server
 
-install_vpn_ipsec_raspbian: checkhealth_docker
+vpn_ipsec_raspbian: checkhealth_docker
 	# Image: $ docker pull solomonxie/vpn-ipsec-rpi:latest
 	mkdir -p ${HOME}/.config
 	touch ${HOME}/.config/vpn.env
@@ -166,8 +166,8 @@ install_vpn_ipsec_raspbian: checkhealth_docker
 	    --env-file ${HOME}/.config/vpn.env -d --privileged \
 	    solomonxie/vpn-ipsec-rpi
 
-install_playground_raspbian: checkhealth_docker
+playground_raspbian: checkhealth_docker
 	docker run -it --name ubuntu solomonxie/rpi-init:jessie bash
 
-install_playground_ubuntu: checkhealth_docker
+playground_ubuntu: checkhealth_docker
 	docker run -it --name ubuntu solomonxie/lightsail:ubuntu-1604 bash

@@ -17,34 +17,24 @@ save:
 	#mv ${DOTFILES}/tmux/resurrect/tmux_resurrect_20190525T173225.txt ${DOTFILES}/tmux/resurrect/last
 
 python-it:
-	@cd python/
-	echo "make ${MYOS}" | sh
-	@cd ..
+	echo "make ${MYOS} -f python/Makefile" | sh
 	@echo "OK."
 
 tmux-it:
-	@cd tmux/
-	echo "make ${MYOS}" | sh
-	@cd ..
+	echo "make ${MYOS} -f tmux/Makefile" | sh
 	@echo "OK."
 
 zsh-it:
-	@cd zsh/
-	echo "make ${MYOS}" | sh
-	@cd ..
+	echo "make ${MYOS} -f zsh/Makefile" | sh
 	@echo "OK."
 
 vim-it:
-	@cd vim/
-	echo "make ${MYOS}" | sh
-	@cd ..
+	echo "make ${MYOS} -f vim/Makefile" | sh
 	@echo "OK."
 
 docker-it:
-	@cd docker/
-	echo "make ${MYOS}" | sh
-	echo "make apps_${MYOS}" | sh
-	@cd ..
+	echo "make ${MYOS} -f docker/Makefile" | sh
+	echo "make apps_${MYOS} -f docker/Makefile" | sh
 	@echo "OK."
 
 

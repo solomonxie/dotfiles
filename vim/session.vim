@@ -36,12 +36,12 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 34 - ((33 * winheight(0) + 34) / 69)
+let s:l = 15 - ((14 * winheight(0) + 34) / 69)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-34
-normal! 0
+15
+normal! 05|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

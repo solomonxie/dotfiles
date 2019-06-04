@@ -13,8 +13,13 @@ install:
 configure-it:
 	./configure
 
+mac:
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 save:
 	#mv ${DOTFILES}/tmux/resurrect/tmux_resurrect_20190525T173225.txt ${DOTFILES}/tmux/resurrect/last
+	zip -r /tmp/mydotfiles.zip ~/
+	mv /tmp/mydotfiles.zip ~/
 
 python-it:
 	echo "make ${MYOS} -f python/Makefile" | sh
@@ -22,14 +27,17 @@ python-it:
 
 tmux-it:
 	echo "make ${MYOS} -f tmux/Makefile" | sh
+	echo "make plugins -f zsh/Makefile" | sh
 	@echo "OK."
 
 zsh-it:
 	echo "make ${MYOS} -f zsh/Makefile" | sh
+	echo "make plugins -f zsh/Makefile" | sh
 	@echo "OK."
 
 vim-it:
 	echo "make ${MYOS} -f vim/Makefile" | sh
+	vim +PlugInstall +qall
 	@echo "OK."
 
 docker-it:

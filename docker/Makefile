@@ -2,7 +2,12 @@ DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 
+
+# This recipe is for solo-installment, not for "parent" Makefile
 install:
+	@echo "make ${MYOS} apps_${MYOS}" | sh
+
+quick:
 	curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
 	#sudo sh ${HOME}/dotfiles/docker/get-docker.sh
 
@@ -21,7 +26,7 @@ debian: checkhealth_debian
 	# Hello-world
 	sudo docker run hello-world
 
-ubuntu: install
+ubuntu: quick
 	sudo apt-get install docker-compose -y
 	#Add Permission
 	sudo groupadd docker

@@ -2,23 +2,17 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/workspace/playground/bash-play
+cd ~/workspace/appannie/aa-bulk-grabber/webanalytics/tasks/bulk_grabber
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +6 main.sh
-badd +3 sub1.sh
-badd +1 sub2.sh
-badd +2 env.sh
-badd +3 Makefile
+badd +62 app_info_grabber.py
+badd +25 constant.py
+badd +1 task_param_generator.py
 argglobal
 silent! argdel *
-$argadd env.sh
-$argadd main.sh
-$argadd sub1.sh
-$argadd sub2.sh
-edit Makefile
+edit app_info_grabber.py
 set splitbelow splitright
 set nosplitbelow
 wincmd t
@@ -27,7 +21,6 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-if bufexists('Makefile') | buffer Makefile | else | edit Makefile | endif
 setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -36,12 +29,12 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 15 - ((14 * winheight(0) + 34) / 69)
+let s:l = 62 - ((47 * winheight(0) + 48) / 96)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-15
-normal! 05|
+62
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

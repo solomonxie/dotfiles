@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
 
         "<Theme>
             Plug 'morhetz/gruvbox'
+            " Plug 'Rigellute/shades-of-purple.vim'
 
         "<STATUS-BAR>
             Plug 'vim-airline/vim-airline'

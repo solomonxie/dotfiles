@@ -418,8 +418,10 @@ endfunction
         let g:airline_right_sep = '◀'
         let g:airline_right_alt_sep = '❮'
         " @airline-extension-theme
-            let g:airline_theme='bubblegum' "Default
             "let g:airline_theme='gruvbox'  "grubox|deus|badwolf|solarized
+            let g:airline_theme='bubblegum' "Default
+            " let g:shades_of_purple_airline = 1
+            " let g:airline_theme='shades_of_purple'
         " @airline-extensions-tabline-tabs
             let g:airline#extensions#tabline#switch_buffers_and_tabs=0
             let g:airline#extensions#tabline#enabled=1  "enable tabline

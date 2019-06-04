@@ -25,15 +25,15 @@ setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=99
+setlocal fdl=1
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 62 - ((47 * winheight(0) + 48) / 96)
+let s:l = 89 - ((74 * winheight(0) + 48) / 96)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-62
+89
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

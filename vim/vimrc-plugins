@@ -43,7 +43,11 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         "<Syntax Highlighting>
-            Plug 'hdima/python-syntax'   "Most stable highlighting
+            if has('nvim') && has('python')
+                Plug 'numirias/semshi'  "The Best for python-syntax (pynvim required)
+            endif
+            "Plug 'hdima/python-syntax'  "Stable. (missing color for arguments)
+            " Plug 'sheerun/vim-polyglot'  "Ordinary, full support for most language
 
         "<Window>
             "Plug 'TaDaa/vimade'  "Dim inactive windows
@@ -85,14 +89,20 @@ call plug#begin('~/.vim/plugged')
             "Plug 'yegappan/mru'
 
         "<Tags> (ctags required)
-            Plug 'majutsushi/tagbar'   "Display
-            Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)
-            "Plug 'craigemery/vim-autotag'  "Navigate (manually gen tags)
+            if executable('ctags')
+                Plug 'majutsushi/tagbar'   "Display
+                Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)
+                "Plug 'craigemery/vim-autotag'  "Navigate (manually gen tags)
+            endif
 
         "<Git>
-            "Plug 'jreybert/vimagit'  "Much easier with Git
-            "Plug 'tpope/vim-fugitive' "work with fzf for :Commits
-            Plug 'iberianpig/tig-explorer.vim' "faster/prettier (tig required)
+            if executable('git')
+                "Plug 'jreybert/vimagit'  "Much easier with Git
+                "Plug 'tpope/vim-fugitive' "work with fzf for :Commits
+            endif
+            if executable('git') && executable('tig')
+                Plug 'iberianpig/tig-explorer.vim' "faster/prettier (tig required)
+            endif
 
         "<Documentation>
             "Plug 'powerman/vim-plugin-viewdoc' "K-preview improvement
@@ -100,19 +110,23 @@ call plug#begin('~/.vim/plugged')
     " [   EDIT    ]
 
         "<Autocomplete>
-            "[Snippets]  -> Python required
-                Plug 'SirVer/ultisnips'  " Track the engine.
-                Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
-            "[Deoplete]
-                Plug 'Shougo/deoplete.nvim'
-                Plug 'zchee/deoplete-jedi'    " Python completion source
-                Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
-                if has('vim') ">> For vim only
-                    Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework
-                    Plug 'roxma/vim-hug-neovim-rpc'  ">> to work with Vim8
+            "[Snippets]
+                if has('python')
+                    Plug 'SirVer/ultisnips'  " Track the engine.
+                    Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
                 endif
-                let g:deoplete#enable_at_startup = 1
-                let g:deoplete#num_processes = 1
+            "[Deoplete]
+                if has('python')
+                    Plug 'Shougo/deoplete.nvim'
+                    Plug 'zchee/deoplete-jedi'    " Python completion source
+                    Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
+                    if has('vim') ">> For vim only
+                        Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework
+                        Plug 'roxma/vim-hug-neovim-rpc'  ">> to work with Vim8
+                    endif
+                    let g:deoplete#enable_at_startup = 1
+                    let g:deoplete#num_processes = 1
+                endif
 
         "<Comment>
             Plug 'tomtom/tcomment_vim'
@@ -169,44 +183,48 @@ endfunction
 
 
 " <Vim-auto-pairs>--------{
-    let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
-    "Fly mode
-    let g:AutoPairsFlyMode = 0
-    "Options
-    let g:AutoPairsMultilineClose = 0 "Solve bug of deleting pair
-    "let g:AutoPairsMapBS = 0
-    "let g:AutoPairsMapCh = 0
-    let g:AutoPairsMapCR = 0  "Has bug for nested level
-    "let g:AutoPairsCenterLine = 0
-    "let g:AutoPairsMapSpace = 0
-    let g:AutoPairsShortcutToggle = '<M-i>'  " Default to <M-p>
+    if &runtimepath =~ 'auto-pairs'
+        let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+        "Fly mode
+        let g:AutoPairsFlyMode = 0
+        "Options
+        let g:AutoPairsMultilineClose = 0 "Solve bug of deleting pair
+        "let g:AutoPairsMapBS = 0
+        "let g:AutoPairsMapCh = 0
+        let g:AutoPairsMapCR = 0  "Has bug for nested level
+        "let g:AutoPairsCenterLine = 0
+        "let g:AutoPairsMapSpace = 0
+        let g:AutoPairsShortcutToggle = '<M-i>'  " Default to <M-p>
+    endif
 " }
 
 
 " <UltiSnips>--------{
-    " Trigger configuration.
-    " Do not use <tab> if you use YouCompleteMe.
-    let g:UltiSnipsExpandTrigger="<Tab>"
-    let g:UltiSnipsJumpForwardTrigger="<C-n>"
-    let g:UltiSnipsJumpBackwardTrigger="<C-p>"
-
-    " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
-
-    " Specify snippets locations
-    let g:UltiSnipsSnippetDirectories=["~/dotfiles/snippets", "~/.vim/plugged/vim-snippets/snippets", "~/.vim/plugged/vim-snippets/UltiSnips"]
+    if &runtimepath =~ 'ultisnips'
+        " Trigger configuration.
+        " Do not use <tab> if you use YouCompleteMe.
+        let g:UltiSnipsExpandTrigger="<Tab>"
+        let g:UltiSnipsJumpForwardTrigger="<C-n>"
+        let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+        " If you want :UltiSnipsEdit to split your window.
+        let g:UltiSnipsEditSplit="vertical"
+        " Specify snippets locations
+        let g:UltiSnipsSnippetDirectories=["~/dotfiles/snippets", "~/.vim/plugged/vim-snippets/snippets", "~/.vim/plugged/vim-snippets/UltiSnips"]
+    endif
 " }
 
 
 " <Indentline>--------{
-    let g:indentLine_enabled = 1
-    let g:indentLine_char='│'
-    let g:indentLine_conceallevel = 2
-    let g:indentLine_color_term = 239
-    let g:indentLine_concealcursor = 'inc'
-    "let g:indentLine_setColors = 0
-    "let g:indentLine_setConceal = 0
-    autocmd Filetype json let g:indentLine_enabled = 0  ">> Huge bug for JSON input
+    if &runtimepath =~ 'indentline'
+        let g:indentLine_enabled = 1
+        let g:indentLine_char='│'
+        let g:indentLine_conceallevel = 2
+        let g:indentLine_color_term = 239
+        let g:indentLine_concealcursor = 'inc'
+        "let g:indentLine_setColors = 0
+        "let g:indentLine_setConceal = 0
+        autocmd Filetype json let g:indentLine_enabled = 0  ">> Huge bug for JSON input
+    endif
 " }
 
 
@@ -225,31 +243,35 @@ endfunction
 
 
 " <Goyo - focus mode>-------------{
-    let g:goyo_width = 120
-    let g:goyo_height = '85%'
-    let g:goyo_linenr = 0
+    if &runtimepath =~ 'goyo'
+        let g:goyo_width = 120
+        let g:goyo_height = '85%'
+        let g:goyo_linenr = 0
+    endif
 " }
 
 
 " <Syntastic>-------------{
-    let g:syntastic_enable_signs = 1
-    let g:syntastic_error_symbol='✗'
-    let g:syntastic_warning_symbol='⚠'
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 0
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_loc_list_height = 5
-    highlight SyntasticErrorSign guifg=white guibg=black
-    "let g:syntastic_check_on_wq = 0
-    " [CHECKERS]
-        " Python (pyflakes is faster than pylint)
-        let g:syntastic_python_checkers=['flake8']
-        " Clang
-        let g:syntastic_cpp_checkers = ['gcc']
-        let g:syntastic_cpp_compiler = 'gcc'
+    if &runtimepath =~ 'syntastic'
+        let g:syntastic_enable_signs = 1
+        let g:syntastic_error_symbol='✗'
+        let g:syntastic_warning_symbol='⚠'
+        set statusline+=%#warningmsg#
+        set statusline+=%{SyntasticStatuslineFlag()}
+        set statusline+=%*
+        let g:syntastic_always_populate_loc_list = 1
+        let g:syntastic_auto_loc_list = 0
+        let g:syntastic_check_on_open = 1
+        let g:syntastic_loc_list_height = 5
+        highlight SyntasticErrorSign guifg=white guibg=black
+        "let g:syntastic_check_on_wq = 0
+        " [CHECKERS]
+            " Python (pyflakes is faster than pylint)
+            let g:syntastic_python_checkers=['flake8']
+            " Clang
+            let g:syntastic_cpp_checkers = ['gcc']
+            let g:syntastic_cpp_compiler = 'gcc'
+    endif
 " }
 
 " <ViewDoc>-------------{
@@ -262,37 +284,43 @@ endfunction
 " }
 
 " <Deoplete>--------------{
-    " Environment
-    "set pyxversion=3  "[error]
-    "let g:python3_host_prog = "/usr/local/bin/python3"
-    " Close preview window after completion
-        autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-    " Max number of candidates
-        let g:deoplete#max_abbr_width = 30
-        let g:deoplete#max_menu_width = 40
-    " Set multiple options
-        "call deoplete#custom#option({
-        "\ 'candidate_marks': 10,
-        "\ 'auto_complete_delay': 0,
-        "\ 'smart_case': v:true,
-        "\ })
-    " Deoplete-jedi
-        "let g:deoplete#sources#jedi#enable_typeinfo = 0
-        "let g:deoplete#sources#jedi#show_docstring = 0
-    " deoplete-clangx
-        " Change clang binary path
-        "call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
-        " Change clang options
-        "call deoplete#custom#var('clangx', 'default_c_options', '')
-        "call deoplete#custom#var('clangx', 'default_cpp_options', '')
+    if &runtimepath =~ 'deoplete'
+        " Environment
+        "set pyxversion=3  "[error]
+        "let g:python3_host_prog = "/usr/local/bin/python3"
+        " Close preview window after completion
+            autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+        "Delay time
+        let g:deoplete#auto_complete_delay = 100
+        " Max number of candidates
+            let g:deoplete#max_abbr_width = 30
+            let g:deoplete#max_menu_width = 40
+        " Set multiple options
+            "call deoplete#custom#option({
+            "\ 'candidate_marks': 10,
+            "\ 'auto_complete_delay': 0,
+            "\ 'smart_case': v:true,
+            "\ })
+        " Deoplete-jedi
+            "let g:deoplete#sources#jedi#enable_typeinfo = 0
+            "let g:deoplete#sources#jedi#show_docstring = 0
+        " deoplete-clangx
+            " Change clang binary path
+            "call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+            " Change clang options
+            "call deoplete#custom#var('clangx', 'default_c_options', '')
+            "call deoplete#custom#var('clangx', 'default_cpp_options', '')
+    endif
 " }
 
 
 " <nnn>------------{
-    "layout
-    let g:nnn#layout = { 'left': '~20%' }
-    "disable
-    let g:nnn#command = 'DISABLE_FILE_OPEN_ON_NAV=1 nnn -l'
+    if &runtimepath =~ 'nnn'
+        "layout
+        let g:nnn#layout = { 'left': '~20%' }
+        "disable
+        let g:nnn#command = 'DISABLE_FILE_OPEN_ON_NAV=1 nnn -l'
+    endif
 " }
 
 
@@ -308,51 +336,83 @@ endfunction
 " }
 
 " <Gutentags>--------------{
-    " Searching fields (recursively searching from bottom up)
-    let g:gutentags_project_root = ['Makefile', '.git', '.root', '.svn', '.project']
-
-    " Tag filename
-    let g:gutentags_ctags_tagfile = 'tags'
-
-    " Tag files store place, instead of project dirs
-    let s:vim_tags = expand('~/.vim/tags')
-    let g:gutentags_cache_dir = s:vim_tags
-    " Create tag dir if not exists
-    if !isdirectory(s:vim_tags)
-       silent! call mkdir(s:vim_tags, 'p')
+    if &runtimepath =~ 'gutentags'
+        " Searching fields (recursively searching from bottom up)
+        let g:gutentags_project_root = ['Makefile', '.git', '.root', '.svn', '.project']
+        " Tag filename
+        let g:gutentags_ctags_tagfile = 'tags'
+        " Tag files store place, instead of project dirs
+        let s:vim_tags = expand('~/.vim/tags')
+        let g:gutentags_cache_dir = s:vim_tags
+        " Create tag dir if not exists
+        if !isdirectory(s:vim_tags)
+           silent! call mkdir(s:vim_tags, 'p')
+        endif
+        " Ctag command flags
+        let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+        let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+        let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+        let g:gutentags_ctags_extra_args += ['--python-kinds=-i']
     endif
-
-    " Ctag command flags
-    let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-    let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
-    let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-    let g:gutentags_ctags_extra_args += ['--python-kinds=-i']
 " }
 
 " <Tagbar>--------------{
-    let g:tagbar_left = 0  "Show tagbar on right
-    let g:tagbar_autofocus = 1   "Focus on tagbar window when open
-    let g:tagbar_autoclose = 1   "Close tagbar window when select tag
-    "let g:tagbar_autoshowtag = 0
-    let g:tagbar_sort = 0
-    let g:tagbar_expand = 0
-    let g:tagbar_vertical = 20
-    "let g:tagbar_singleclick = 1
-    let g:tagbar_compact = 1
-    "let g:tagbar_autopreview = 1
-    "let g:tagbar_previewwin_pos = 'rightbelow'
-    "let g:tagbar_indent = 1
-    "let g:tagbar_show_visibility = 1
+    if &runtimepath =~ 'tagbar'
+        let g:tagbar_left = 0  "Show tagbar on right
+        let g:tagbar_autofocus = 1   "Focus on tagbar window when open
+        let g:tagbar_autoclose = 1   "Close tagbar window when select tag
+        "let g:tagbar_autoshowtag = 0
+        let g:tagbar_sort = 0
+        let g:tagbar_expand = 0
+        let g:tagbar_vertical = 20
+        "let g:tagbar_singleclick = 1
+        let g:tagbar_compact = 1
+        "let g:tagbar_autopreview = 1
+        "let g:tagbar_previewwin_pos = 'rightbelow'
+        "let g:tagbar_indent = 1
+        "let g:tagbar_show_visibility = 1
+    endif
 " }
 
 
 " <Python syntax>------------------{
-    let g:python_highlight_all = 1
+    if &runtimepath =~ 'python-syntax'
+        let g:python_highlight_all = 1
+    endif
+" }
+
+" <Semshi python syntax>------------------{
+    hi semshiLocal           ctermfg=209 guifg=#ff875f
+    hi semshiGlobal          ctermfg=214 guifg=#ffaf00
+    hi semshiImported        ctermfg=214 guifg=#ffaf00 cterm=bold gui=bold
+    hi semshiParameter       ctermfg=75  guifg=#5fafff
+    hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
+    hi semshiFree            ctermfg=218 guifg=#ffafd7
+    hi semshiBuiltin         ctermfg=207 guifg=#ff5fff
+    hi semshiAttribute       ctermfg=49  guifg=#00ffaf
+    hi semshiSelf            ctermfg=249 guifg=#b2b2b2
+    hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
+    hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=161 guibg=#d7005f
+    hi semshiErrorSign       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
+    hi semshiErrorChar       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
+    sign define semshiError text=E> texthl=semshiErrorSign
+
+    if &runtimepath =~ 'semshi'
+        "Set syntax Highlighting for python
+        function! MyCustomHighlights()
+            hi semshiGlobal      ctermfg=red guifg=#ff0000
+        endfunction
+        autocmd FileType python call MyCustomHighlights()
+        "Add Highlight Groups to persist across colorscheme switches
+        autocmd ColorScheme * call MyCustomHighlights()
+    endif
 " }
 
 
 " <Jedi settings>---------------------{
-    let g:jedi#force_py_version=2.7
+    if &runtimepath =~ 'jedi'
+        let g:jedi#force_py_version=2.7
+    endif
 " }
 
 
@@ -367,200 +427,62 @@ endfunction
 
 
 " <Command-T fuzzy search>----------------{
-    "let g:CommandTMaxDepth = 10
-    "let g:CommandTMaxFiles=2000
-    "let g:CommandTSuppressMaxFilesWarning = 1
-    "set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
+    if &runtimepath =~ 'command-t'
+        let g:CommandTMaxDepth = 10
+        let g:CommandTMaxFiles=2000
+        let g:CommandTSuppressMaxFilesWarning = 1
+        set wildignore+=".*, *.dat, *.o, *.pyc, */.git, *.pdf, *.app, *.jpg, *.png, *.gif, *.doc, *.docx"
+    endif
 " }
 
 
 " <Fzf fuzzy search>-------------------------{
-    "let g:fzf_action = {  }
-    " This is the default extra key bindings
-    let g:fzf_action = {
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-x': 'split',
-      \ 'ctrl-v': 'vsplit' ,
-      \ 'ctrl-e': 'edit' }
-
-    " Default fzf layout
-        " down | up | left | right
-        let g:fzf_layout = { 'down': '~40%' }
-    " [Buffers] Jump to the existing window if possible
-        "let g:fzf_buffers_jump = 1
-    " [[B]Commits] Customize the options used by 'git log':
-        let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-    " [Tags] Command to generate tags file
-        let g:fzf_tags_command = 'ctags -R'
-    " [History] -> will block Ctrl-n & Ctrl-p keys
-        "let g:fzf_history_dir = '~/.vim/fzf-history'
-    " - enew / -tabnew / 10split enew
-        "let g:fzf_layout = { 'window': 'enew' }
-        "let g:fzf_layout = { 'window': '-tabnew' }
-        "let g:fzf_layout = { 'window': '10split enew' }
-" }
-
-
-" <Vim-DimInactive>-----------{
-    "let g:diminactive_use_colorcolumn = 2
-    "let g:diminactive_use_syntax = 0
-" }
-
-
-" <Status-Line>-----------{
-    " @airline
-        set t_Co=256 "For Windows
-        let g:airline#extensions#tabline#enabled = 1  "Enable airline
-        let g:airline_powerline_fonts=1 "Essential
-        set laststatus=2  "2:always show
-        let g:airline_left_sep = '▶'
-        let g:airline_left_alt_sep = '❯'
-        let g:airline_right_sep = '◀'
-        let g:airline_right_alt_sep = '❮'
-        " @airline-extension-theme
-            "let g:airline_theme='gruvbox'  "grubox|deus|badwolf|solarized
-            let g:airline_theme='bubblegum' "Default
-            " let g:shades_of_purple_airline = 1
-            " let g:airline_theme='shades_of_purple'
-        " @airline-extensions-tabline-tabs
-            let g:airline#extensions#tabline#switch_buffers_and_tabs=0
-            let g:airline#extensions#tabline#enabled=1  "enable tabline
-            let g:airline#extensions#tabline#tabs_label='TABS'
-            let g:airline#extensions#tabline#show_tab_nr=0 "enable tag number
-            let g:airline#extensions#tabline#tab_nr_type=1 "Numbers shown
-            "-> default|unique_tail|unique_tail_improved
-            let g:airline#extensions#tabline#formatter='unique_tail'
-            "let g:airline#extensions#tabline#left_sep = ' '  "separater
-            "let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
-        " @airline-extension-tabline-buffers
-            let g:airline#extensions#tabline#show_buffers=1
-            let g:airline#extensions#tabline#buffers_label='BUFFERS'
-            let g:airline#extensions#tabline#buffer_nr_show=0
-            let g:airline#extensions#tabline#buffer_idx_mode=0
-            "let g:airline#extensions#tabline#buffer_idx_format={}
-        " @airline-extensions-tabline-splits
-            let g:airline#extensions#tabline#show_splits=1 "show split
-    " @lightline
-        "set laststatus=2 " startup the lightline.vim
-        "let g:lightline = { 'colorscheme': 'powerline', }
-        "set status-line's color scheme
-    " @powerline
-        "set laststatus=2
-        "set t_Co=256
-        "let g:Powerline_symbols= 'unicode'
-        "set encoding=utf8
-    " @crystalline
-        " function! StatusLine(current, width)
-        "     let l:s = ''
-        "     if a:current
-        "     let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
-        "     else
-        "     let l:s .= '%#CrystallineInactive#'
-        "     endif
-        "     let l:s .= ' %f%h%w%m%r '
-        "     if a:current
-        "     let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
-        "     endif
-        "     let l:s .= '%='
-        "     if a:current
-        "     let l:s .= crystalline#left_sep('', 'Fill') . ' %{&paste ?"PASTE ":""}%{&spell?"SPELL ":""}'
-        "     let l:s .= crystalline#left_mode_sep('')
-        "     endif
-        "     if a:width > 80
-        "     let l:s .= ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %c%V %P '
-        "     else
-        "     let l:s .= ' '
-        "     endif
-        "     return l:s
-        " endfunction
-        " function! TabLine()
-        "     let l:vimlabel = has('nvim') ?  ' NVIM ' : ' VIM '
-        "     return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
-        " endfunction
-        " let g:crystalline_enable_sep = 1
-        " let g:crystalline_statusline_fn = 'StatusLine'
-        " let g:crystalline_tabline_fn = 'TabLine'
-        " let g:crystalline_theme = 'default'
-        " set showtabline=2
-        " set guioptions-=e
-        " set laststatus=2
+    if &runtimepath =~ 'fzf'
+        "let g:fzf_action = {  }
+        " This is the default extra key bindings
+        let g:fzf_action = {
+          \ 'ctrl-t': 'tab split',
+          \ 'ctrl-x': 'split',
+          \ 'ctrl-v': 'vsplit' ,
+          \ 'ctrl-e': 'edit' }
+        " Default fzf layout
+            " down | up | left | right
+            let g:fzf_layout = { 'down': '~40%' }
+        " [Buffers] Jump to the existing window if possible
+            "let g:fzf_buffers_jump = 1
+        " [[B]Commits] Customize the options used by 'git log':
+            let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+        " [Tags] Command to generate tags file
+            let g:fzf_tags_command = 'ctags -R'
+        " [History] -> will block Ctrl-n & Ctrl-p keys
+            "let g:fzf_history_dir = '~/.vim/fzf-history'
+        " - enew / -tabnew / 10split enew
+            "let g:fzf_layout = { 'window': 'enew' }
+            "let g:fzf_layout = { 'window': '-tabnew' }
+            "let g:fzf_layout = { 'window': '10split enew' }
+    endif
 " }
 
 
 " <NerdCommenter>------------------{
-    "" Add spaces after comment delimiters by default
-    "let g:NERDSpaceDelims = 1
-    "" Use compact syntax for prettified multi-line comments
-    "let g:NERDCompactSexyComs = 1
-    "" Align line-wise comment delimiters flush left instead of following code indentation
-    "let g:NERDDefaultAlign = 'left'
-    "" Set a language to use its alternate delimiters by default
-    "let g:NERDAltDelims_java = 1
-    "" Add your own custom formats or override the defaults
-    "let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-    "" Allow commenting and inverting empty lines (useful when commenting a region)
-    "let g:NERDCommentEmptyLines = 1
-    "" Enable trimming of trailing whitespace when uncommenting
-    "let g:NERDTrimTrailingWhitespace = 1
-    "" Enable NERDCommenterToggle to check all selected lines is commented or not
-    "let g:NERDToggleCheckAllLines = 1
-" }
-
-
-" <Nerdtree>-------------------{
-    ">> Basic settings
-        "autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
-
-    ">> UI settings
-        let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
-        let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
-        let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
-        "let NERDTreeChDirMode=2    " Change current working directory based on root directory in NERDTree
-        let g:NERDTreeHidden=1     " Don't show hidden files
-        let NERDTreeWinSize=40     " Initial NERDTree width
-        let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
-        "let NERDTreeShowBookmarks=0   " Show NERDTree bookmarks
-        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']   " Hide temp files in NERDTree
-        "let g:NERDTreeShowLineNumbers=1  " Show Line Number
-    " Open Nerdtree when there's no file opened
-        "autocmd vimenter * if !argc()|NERDTree|endif
-    " Or, auto-open Nerdtree
-        "autocmd vimenter * NERDTree
-    " Close NERDTree when there's no other windows
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    " Customize icons on Nerdtree
-        let g:NERDTreeDirArrowExpandable = '▸'
-        let g:NERDTreeDirArrowCollapsible = '▾'
-
-    ">> NERDTREE-GIT
-    " Special characters
-    let g:NERDTreeIndicatorMapCustom = {
-        \ "Modified"  : "✹",
-        \ "Staged"    : "✚",
-        \ "Untracked" : "✭",
-        \ "Renamed"   : "➜",
-        \ "Unmerged"  : "═",
-        \ "Deleted"   : "✖",
-        \ "Dirty"     : "✗",
-        \ "Clean"     : "✔︎",
-        \ 'Ignored'   : '☒',
-        \ "Unknown"   : "?"
-    \ }
-
-    ">> NERDTree-Tabs
-        "let g:nerdtree_tabs_open_on_console_startup=1 "Auto-open Nerdtree-tabs on VIM enter
-    ">> Nerdtree-devicons
-        "set guifont=DroidSansMono_Nerd_Font:h11
-    ">> Nerdtree-syntax-highlighting
-        "let g:NERDTreeDisableFileExtensionHighlight = 1
-        "let g:NERDTreeDisableExactMatchHighlight = 1
-        "let g:NERDTreeDisablePatternMatchHighlight = 1
-        "let g:NERDTreeFileExtensionHighlightFullName = 1
-        "let g:NERDTreeExactMatchHighlightFullName = 1
-        "let g:NERDTreePatternMatchHighlightFullName = 1
-        "let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-        "let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-        "let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+    if &runtimepath =~ 'nerdcommenter'
+        "" Add spaces after comment delimiters by default
+        "let g:NERDSpaceDelims = 1
+        "" Use compact syntax for prettified multi-line comments
+        "let g:NERDCompactSexyComs = 1
+        "" Align line-wise comment delimiters flush left instead of following code indentation
+        "let g:NERDDefaultAlign = 'left'
+        "" Set a language to use its alternate delimiters by default
+        "let g:NERDAltDelims_java = 1
+        "" Add your own custom formats or override the defaults
+        "let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+        "" Allow commenting and inverting empty lines (useful when commenting a region)
+        "let g:NERDCommentEmptyLines = 1
+        "" Enable trimming of trailing whitespace when uncommenting
+        "let g:NERDTrimTrailingWhitespace = 1
+        "" Enable NERDCommenterToggle to check all selected lines is commented or not
+        "let g:NERDToggleCheckAllLines = 1
+    endif
 " }
 
 
@@ -615,7 +537,6 @@ endfunction
     "Syntax Highlighting
         "Plug 'vim-python/python-syntax'
         "Plug 'vitiral/vim-python'  "Not working
-        "Plug 'numirias/semshi'    "Not working
         "Plug 'pfdevilliers/Pretty-Vim-Python'   "not working
         "-> Python-mode: (More errors, too many builtin plugins)
         "Plug 'python-mode/python-mode'    "Deprecated

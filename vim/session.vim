@@ -7,9 +7,15 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +62 app_info_grabber.py
-badd +25 constant.py
-badd +1 task_param_generator.py
+badd +1 app_info_grabber.py
+badd +66 metric_info_grabber.py
+badd +93 metric_info_merger.py
+badd +65 dimension_info_grabber.py
+badd +8 data_grabbing_conf/cross_app_usage_product_level.py
+badd +13 ~/workspace/appannie/aa-bulk-grabber/task_queue_config_local.py
+badd +157 data_grabbing_conf/store_product_level.py
+badd +153 data_grabbing_conf/usage_product_level_base.py
+badd +6 data_grabbing_conf/usage_product_level_professional.py
 argglobal
 silent! argdel *
 edit app_info_grabber.py
@@ -25,16 +31,17 @@ setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=1
+setlocal fdl=99
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 89 - ((74 * winheight(0) + 48) / 96)
+let s:l = 208 - ((66 * winheight(0) + 34) / 69)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-89
+208
 normal! 0
+lcd ~/workspace/appannie/aa-bulk-grabber/webanalytics/tasks/bulk_grabber
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -296,29 +296,39 @@
             "noremap <localleader>i :PlugInstall<CR>
 
         "[tig-explorer]
-            "nnoremap <localleader>g :Tig<CR>
-            "nnoremap <localleader>G :TigOpenCurrentFile<CR>
+            if &runtimepath =~ 'tig-explorer'
+                "nnoremap <localleader>g :Tig<CR>
+                "nnoremap <localleader>G :TigOpenCurrentFile<CR>
+            endif
         "[vimagit]
-            "let g:magit_show_magit_mapping='<Leader>G'
-            "let g:magit_show_magit_mapping='<Leader>g'
+            if &runtimepath =~ 'tig-explorer'
+                "let g:magit_show_magit_mapping='<Leader>G'
+                "let g:magit_show_magit_mapping='<Leader>g'
+            endif
 
         "[tagbar] ->  "*"->open all folds; "="->close all folds
-            "noremap <Leader>t :TagbarToggle<CR>=<ESC>
-            noremap T :TagbarOpen<CR>
+            if &runtimepath =~ 'tagbar'
+                "noremap <Leader>t :TagbarToggle<CR>=<ESC>
+                noremap T :TagbarOpen<CR>
+            endif
 
         "[nnn]
             "nnoremap <LocalLeader>F :NnnPicker<CR>
         "[ranger]
-            let g:ranger_map_keys = 0
-            "nnoremap <Leader>F :Ranger<CR>
+            if &runtimepath =~ 'ranger'
+                let g:ranger_map_keys = 0
+                "nnoremap <Leader>F :Ranger<CR>
+            endif
 
         "[vim-zoom]
             "nmap mm <Plug>(zoom-toggle)
 
         "[Syntastic] (Static Code Check)
-            nnoremap <C-n> :lnext<CR>
-            nnoremap <C-p> :lprevious<CR>
-            nnoremap <LocalLeader>s :SyntasticCheck<CR>
+            if &runtimepath =~ 'syntastic'
+                nnoremap <C-n> :lnext<CR>
+                nnoremap <C-p> :lprevious<CR>
+                nnoremap <LocalLeader>s :SyntasticCheck<CR>
+            endif
 
         "[Undotree]
             "nnoremap <LocalLeader>d :UndotreeToggle<CR>:UndotreeFocus<CR>
@@ -328,48 +338,56 @@
             "imap <C-d>e <M-e>
 
         "[fzf]
-            "nnoremap <localleader>f :Files %:p:h<CR>
-            nnoremap <M-f> :Files<CR>
-            nnoremap <LocalLeader>f :Files<CR>
-            nnoremap <localleader>H :Helptags<CR>
-            nnoremap <localleader>h :History<CR>
-            nnoremap <localleader>c :History:<CR>
-            nnoremap <localleader>/ :History/<CR>
-            nnoremap <localleader>b :Buffers<CR>
-            nnoremap <localleader>p :Snippets<CR>
-            nnoremap <localleader>C :BCommits<CR>
-            nnoremap <localleader>tb :BTags<CR>
-            nnoremap <localleader>ta :Tags<CR>
-            nnoremap <LocalLeader>a :Ag<CR>
-            nnoremap <localleader>m :Marks<CR>
-            "nnoremap <localleader>p/ :Files ..
-            "nnoremap <localleader>color/ :Colors
-            "nnoremap <localleader>k/ :Maps<CR>
+            if &runtimepath =~ 'fzf'
+                "nnoremap <localleader>f :Files %:p:h<CR>
+                nnoremap <M-f> :Files<CR>
+                nnoremap <LocalLeader>f :Files<CR>
+                nnoremap <localleader>H :Helptags<CR>
+                nnoremap <localleader>h :History<CR>
+                nnoremap <localleader>c :History:<CR>
+                nnoremap <localleader>/ :History/<CR>
+                nnoremap <localleader>b :Buffers<CR>
+                nnoremap <localleader>p :Snippets<CR>
+                nnoremap <localleader>C :BCommits<CR>
+                nnoremap <localleader>tb :BTags<CR>
+                nnoremap <localleader>ta :Tags<CR>
+                nnoremap <LocalLeader>a :Ag<CR>
+                nnoremap <localleader>m :Marks<CR>
+                "nnoremap <localleader>p/ :Files ..
+                "nnoremap <localleader>color/ :Colors
+                "nnoremap <localleader>k/ :Maps<CR>
+            endif
         "[Command-T File Searching]
             "nnoremap <localleader>/ :CommandT<CR>
             "nnoremap <localleader>c :CommandT<CR>
 
         "[Nerdtree]
-            "nnoremap <Leader>f :NERDTreeFocus<CR>
-            "nnoremap <Leader>f :NERDTreeToggle<CR>
-            " Add '%' for changing root accordingly
-            "nnoremap <Leader>f :NERDTree %:p:h<CR>
-            nnoremap <Leader>f :NERDTree<CR>
-            nnoremap <Leader>F :NERDTree %:p:h<CR>
+            if &runtimepath =~ 'nerdtree'
+                "nnoremap <Leader>f :NERDTreeFocus<CR>
+                "nnoremap <Leader>f :NERDTreeToggle<CR>
+                " Add '%' for changing root accordingly
+                "nnoremap <Leader>f :NERDTree %:p:h<CR>
+                nnoremap <Leader>f :NERDTree<CR>
+                nnoremap <Leader>F :NERDTree %:p:h<CR>
+            endif
         "[Nerdtree Tabs]
-            " Shift Tabs
-            "nnoremap <C-h> gt
-            "nnoremap <C-l> gT
-            " New Tab
-            "nnoremap <Leader>t :tabe<CR>
-            " Close Tab
-            "nnoremap <Leader>c :tabc
+            if &runtimepath =~ 'nerdtree-tabs'
+                " Shift Tabs
+                "nnoremap <C-h> gt
+                "nnoremap <C-l> gT
+                " New Tab
+                "nnoremap <Leader>t :tabe<CR>
+                " Close Tab
+                "nnoremap <Leader>c :tabc
+            endif
         "[NerdCommenter]
-            "map <Leader>/ :normal ,cc<CR>
-            "nnoremap ` :normal ,cc<CR>
-            "nnoremap ~ :normal ,ci<CR>
-            "map <Leader>/ :normal ,cu<CR>
-            "map <Leader>/ :normal ,ci<CR>
+            if &runtimepath =~ 'nerdcommenter'
+                "map <Leader>/ :normal ,cc<CR>
+                "nnoremap ` :normal ,cc<CR>
+                "nnoremap ~ :normal ,ci<CR>
+                "map <Leader>/ :normal ,cu<CR>
+                "map <Leader>/ :normal ,ci<CR>
+            endif
     " }
 " }
 

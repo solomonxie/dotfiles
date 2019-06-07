@@ -495,6 +495,7 @@ endfunction
 "call plug#begin('~/.vim/plugged')
     "Edit
         "Plug 'scrooloose/nerdcommenter'
+        "Plug 'brooth/far.vim'
     "Window
         "Plug 'blueyed/vim-diminactive'  "not dim Indent lines
     "Folding
@@ -506,6 +507,10 @@ endfunction
         "Plug 'ervandew/supertab'
         "Plug 'davidhalter/jedi-vim'  "complicated
         "Plug 'lifepillar/vim-mucomplete'  "tab. sources complicated
+            " set completeopt-=preview
+            " set completeopt+=longest,menuone,noselect
+            " let g:jedi#popup_on_dot = 0  " It may be 1 as well
+            " let g:mucomplete#enable_auto_at_startup = 1
     "Indentation
         "Plug 'nathanaelkane/vim-indent-guides'
     "Brackets

@@ -207,12 +207,12 @@
             elseif isdirectory('../.git')
                 :mksession! ../.git/workspace.vim
                 :echo 'Saved session to ../.git/workspace.vim'
-            elseif isdirectory(expand('~/.vim'))
-                :mksession! ~/.vim/session.vim
-                :echo 'Saved session to ~/.vim/session.vim'
+            " elseif isdirectory(expand('~/.vim'))
+            "     :mksession! ~/.vim/session.vim
+            "     :echo 'Saved session to ~/.vim/session.vim'
             else
-                :mksession! /tmp/session.vim
-                :echo 'Saved session to /tmp/session.vim'
+                :mksession! ~/vim-session.vim
+                :echo 'Saved session to ~/vim-session.vim'
             endif
         endfunction
 
@@ -226,8 +226,8 @@
             elseif filereadable(expand('../.git/workspace.vim'))
                 :source ../.git/workspace.vim
                 ":echo 'Load session from ../.git/workspace.vim'
-            elseif filereadable(expand('~/.vim/session.vim'))
-                :source ~/.vim/session.vim
+            elseif filereadable(expand('~/vim-session.vim'))
+                :source ~/.vim/vim-session.vim
                 ":echo 'Load session from ~/.vim/session.vim'
             else
                 :echo 'No session found.'
@@ -258,6 +258,7 @@
             "autocmd BufReadPre *.py noremap <buffer> K yiw:!pydoc <C-r>0<CR>
         "<Bash Script>
             autocmd BufReadPre *.sh noremap <buffer> <M-b> :w<CR>:!bash % <CR>
+            autocmd BufReadPre Makefile noremap <buffer> <M-b> :w<CR>:!make <CR>
 
         "<RCs> (Configs)
             autocmd BufReadPre .vimrc,vimrc* noremap <buffer> <M-b> :w<CR>:source % <CR>
@@ -271,6 +272,7 @@
         "autocmd FileType vim,tmux noremap <buffer> <C-u> :w<CR><ESC>:source % <CR>
         "autocmd FileType zsh noremap <buffer> <C-u> :w<CR>:!source % <CR>
         "autocmd FileType sh noremap <buffer> <C-u> :w<CR>:!bash % <CR>
+        "autocmd FileType make noremap <buffer> <C-u> :w<CR>:!make <CR>
         "autocmd FileType python noremap <buffer> <C-u> :w<CR>:!python % <CR>
         "autocmd FileType c noremap <buffer> <C-u> :w<CR>:!gcc % && ./a.out <CR>
         "autocmd FileType cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>

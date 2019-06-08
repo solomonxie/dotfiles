@@ -5,7 +5,7 @@ USER ?= `cat /tmp/env-user`
 
 # This recipe is for solo-installment, not for "parent" Makefile
 install:
-	@echo "make ${MYOS} apps_${MYOS}" | sh
+	$(MAKE) ${MYOS} apps_${MYOS}
 
 quick:
 	curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh

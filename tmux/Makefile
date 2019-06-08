@@ -4,7 +4,7 @@ USER ?= `cat /tmp/env-user`
 
 # This recipe is for solo-installment, not for "parent" Makefile
 install:
-	@echo "make ${MYOS} plugins" | sh
+	$(MAKE) ${MYOS} plugins
 
 checkhealth_mac:
 	brew --version

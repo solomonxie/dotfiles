@@ -4,7 +4,7 @@ USER ?= `cat /tmp/env-user`
 
 # This recipe is for solo-installment, not for "parent" Makefile
 install:
-	@echo "make ${MYOS}" | sh
+	$(MAKE) ${MYOS}
 
 checkhealth_mac:
 	brew --version

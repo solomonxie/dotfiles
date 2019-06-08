@@ -22,27 +22,27 @@ save:
 	mv /tmp/mydotfiles.zip ~/
 
 python-it:
-	echo "make ${MYOS} -f python/Makefile" | sh
+	@cd python && $(MAKE) ${MYOS}
 	@echo "OK."
 
 tmux-it:
-	echo "make ${MYOS} -f tmux/Makefile" | sh
-	echo "make plugins -f zsh/Makefile" | sh
+	@cd tmux && $(MAKE) ${MYOS}
+	@cd tmux && $(MAKE) plugins
 	@echo "OK."
 
 zsh-it:
-	echo "make ${MYOS} -f zsh/Makefile" | sh
-	echo "make plugins -f zsh/Makefile" | sh
+	@cd zsh && $(MAKE) ${MYOS}
+	@cd zsh && $(MAKE) plugins
 	@echo "OK."
 
 vim-it:
-	echo "make ${MYOS} -f vim/Makefile" | sh
+	@cd vim && $(MAKE) ${MYOS}
 	vim +PlugInstall +qall
 	@echo "OK."
 
 docker-it:
-	echo "make ${MYOS} -f docker/Makefile" | sh
-	echo "make apps_${MYOS} -f docker/Makefile" | sh
+	@cd docker && $(MAKE) ${MYOS}
+	@cd docker && $(MAKE) apps_${MYOS}
 	@echo "OK."
 
 

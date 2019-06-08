@@ -36,4 +36,6 @@ plugins: checkhealth
 		git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm; \
 	fi
 	${HOME}/.tmux/plugins/tpm/bin/install_plugins
+	#Restore tmux session
+	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS} ${HOME}/.tmux/resurrect/last
 	@echo "OK."

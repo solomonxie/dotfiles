@@ -48,6 +48,7 @@ call plug#begin('~/.vim/plugged')
             endif
             "Plug 'hdima/python-syntax'  "Stable. (missing color for arguments)
             " Plug 'sheerun/vim-polyglot'  "Ordinary, full support for most language
+            Plug 'junegunn/rainbow_parentheses.vim'
 
         "<Window>
             "Plug 'TaDaa/vimade'  "Dim inactive windows
@@ -93,6 +94,9 @@ call plug#begin('~/.vim/plugged')
                 Plug 'majutsushi/tagbar'   "Display
                 Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)
                 "Plug 'craigemery/vim-autotag'  "Navigate (manually gen tags)
+            endif
+            if executable('ctags')
+                Plug 'liuchengxu/vista.vim'  "More friendly tagbar
             endif
 
         "<Git>
@@ -335,6 +339,18 @@ endfunction
     endif
 " }
 
+" <Rainbow-parentasis>--------------{
+    if &runtimepath =~ 'rainbow_parentheses'
+        let g:rainbow#max_level = 16
+        let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+        " Activation based on file type
+        augroup rainbow_lisp
+          autocmd!
+          autocmd FileType lisp,clojure,scheme,python,json,vim RainbowParentheses
+        augroup END
+    endif
+" }
+
 " <Gutentags>--------------{
     if &runtimepath =~ 'gutentags'
         " Searching fields (recursively searching from bottom up)
@@ -374,6 +390,18 @@ endfunction
     endif
 " }
 
+" <Vista-tagbar>--------------{
+    if &runtimepath =~ 'python-syntax'
+        let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+        let g:vista_default_executive = 'ctags'
+        let g:vista_fzf_preview = ['down:40%']
+        let g:vista#renderer#enable_icon = 1
+        let g:vista#renderer#icons = {
+        \   "function": "\uf794",
+        \   "variable": "\uf71b",
+        \  }
+    endif
+" }
 
 " <Python syntax>------------------{
     if &runtimepath =~ 'python-syntax'
@@ -398,6 +426,8 @@ endfunction
     sign define semshiError text=E> texthl=semshiErrorSign
 
     if &runtimepath =~ 'semshi'
+        " Don't show a sign by the line-no if a syntax error occurred
+        let g:semshi#error_sign = v:false
         "Set syntax Highlighting for python
         function! MyCustomHighlights()
             hi semshiGlobal      ctermfg=red guifg=#ff0000

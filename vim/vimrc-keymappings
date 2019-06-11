@@ -22,7 +22,7 @@
         "{Save file}
         "noremap  <Leader>s <ESC>:w<CR><ESC>
         "{Save & Exit}
-        noremap  <C-x> <ESC>:x<CR><ESC>
+        " noremap  <C-x> <ESC>:x<CR><ESC>
         "noremap <Leader>j :jumps<CR>
         noremap <Leader>o :browse oldfiles<CR>
         command! OpenThisOnMac :silent exec "!open %"<CR>
@@ -155,7 +155,7 @@
         "noremap <Leader>Q :qa<CR>
 
     "<Terminal>
-        command! TerminalOpenAtBottom :bot split \| resize 10 \| terminal
+        command! TerminalOpenAtBottom :bot split \| resize 10 \| terminal<CR>i
         "noremap <Leader>ot :bot split \| resize 10 \| terminal<CR>i
         "tnoremap <ESC> <C-\><C-n>
         "tnoremap <C-c><C-c> <C-\><C-n>
@@ -227,8 +227,8 @@
                 :source ../.git/workspace.vim
                 ":echo 'Load session from ../.git/workspace.vim'
             elseif filereadable(expand('~/vim-session.vim'))
-                :source ~/.vim/vim-session.vim
-                ":echo 'Load session from ~/.vim/session.vim'
+                :source ~/vim-session.vim
+                ":echo 'Load session from ~/vim-session.vim'
             else
                 :echo 'No session found.'
             endif
@@ -237,10 +237,10 @@
         "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}
-        noremap <Leader>S :mksession! ~/.vim/session.vim<CR><ESC>
+        noremap <Leader>S :mksession! ~/vim-session.vim<CR><ESC>
         command! SaveSession :call AutoSaveSession()
         "{Load session}
-        noremap <Leader>R :source ~/.vim/session.vim<CR><ESC>
+        noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
         noremap <Leader>R :call AutoLoadSession()<CR>
         command! LoadSession :call AutoLoadSession()
     " }

@@ -426,8 +426,10 @@ endfunction
     sign define semshiError text=E> texthl=semshiErrorSign
 
     if &runtimepath =~ 'semshi'
-        " Don't show a sign by the line-no if a syntax error occurred
+        "Don't show a sign by the line-no if a syntax error occurred
         let g:semshi#error_sign = v:false
+        "Tolerate some minor syntax errors to update highlights
+        let g:semshi#tolerate_syntax_errors = v:true
         "Set syntax Highlighting for python
         function! MyCustomHighlights()
             hi semshiGlobal      ctermfg=red guifg=#ff0000

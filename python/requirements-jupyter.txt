@@ -41,7 +41,6 @@ numpy==1.16.3
 octave-kernel==0.30.3
 pandas==0.24.2
 pandocfilters==1.4.2
-parso==0.4.0
 pexpect==4.7.0
 pickleshare==0.7.5
 ply==3.11

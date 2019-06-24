@@ -142,7 +142,9 @@ call plug#begin('~/.vim/plugged')
             Plug 'jiangmiao/auto-pairs' "Smartest (bug:)
 
         "<Indentation>
+            " ---> BUGS FOR JSON FORMAT: It hdies/conceals quotes for JSON !!!
             Plug  'Yggdroot/indentLine'    "Beautiful indent lines
+            " Plug 'elzr/vim-json'  "Fix for JSON rendering
 
         "<Trailing Whitespace>
             Plug 'bronson/vim-trailing-whitespace'
@@ -224,10 +226,20 @@ endfunction
         let g:indentLine_char='│'
         let g:indentLine_conceallevel = 2
         let g:indentLine_color_term = 239
-        let g:indentLine_concealcursor = 'inc'
+        let g:indentLine_concealcursor = ''
         "let g:indentLine_setColors = 0
         "let g:indentLine_setConceal = 0
-        autocmd Filetype json let g:indentLine_enabled = 0  ">> Huge bug for JSON input
+
+        " BUGS FOR JSON FORMAT --> It hdie/conceal quotes for JSON !!!
+        " autocmd FileType json set conceallevel = 0  "Manually
+        let g:vim_json_syntax_conceal=0
+        autocmd FileType json let g:indentLine_enabled=0
+        autocmd FileType json let g:indentLine_setConceal=0
+        " If none is working, make sure there's no other JSON plugins,
+        " then edit the `json.vim` --->
+        " :e $VIMRUNTIME/syntax/json.vim
+        " :g/if has('conceal')/s//& \&\& 0/
+        " :wq
     endif
 " }
 

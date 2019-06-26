@@ -88,8 +88,8 @@
       colored-man-pages
       dircycle
       docker
-      gitfast
-      git-extras
+      # gitfast
+      # git-extras
     )
     # Disable update checks:
     DISABLE_UPDATE_PROMPT=true

@@ -311,7 +311,7 @@
         "[tagbar]
             if &runtimepath =~ 'tagbar' " hit * ->open all folds; = ->close all folds
                 "noremap <Leader>t :TagbarToggle<CR>=<ESC>
-                noremap T :TagbarOpen<CR>
+                noremap T :TagbarToggle<CR>
             endif
             if &runtimepath =~ 'vista' " hit * ->open all folds; = ->close all folds
                 "noremap <Leader>t :TagbarToggle<CR>=<ESC>

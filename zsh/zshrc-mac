@@ -33,6 +33,7 @@
     #set_theme_agnoster
     #set_theme_awesomepanda
     set_theme_powerlevel9k
+    # set_theme_spaceship
 # }
 
 # General settings {
@@ -88,6 +89,7 @@
       colored-man-pages
       dircycle
       docker
+      jsontools
       # gitfast
       # git-extras
     )

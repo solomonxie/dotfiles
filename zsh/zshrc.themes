@@ -47,6 +47,10 @@ set_theme_agnoster(){
     # }
 }
 
+set_theme_spaceship(){
+    export ZSH_THEME="spaceship"
+}
+
 # [ PowerLevel9k ]
 set_theme_powerlevel9k(){
     # Preload dependencies:

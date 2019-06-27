@@ -151,6 +151,9 @@
 
     "<Window>
         noremap <A-c> <C-w>c
+        if &runtimepath =~ 'goyo'
+            nnoremap mo :Goyo<CR>
+        endif
         "noremap m <C-w>
         "noremap H <C-w>h
         "noremap L <C-w>l
@@ -238,7 +241,7 @@
                 :echo 'No session found.'
             endif
         endfunction
-        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=3 | call AutoSaveSession() | endif
+        autocmd FocusLost * if len(getbufinfo({'buflisted':1}))>=3 | call AutoSaveSession() | endif
         "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}
@@ -381,7 +384,7 @@
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
                 nnoremap tf :NERDTreeToggle<CR>
                 nnoremap tF :NERDTree %:p:h<CR>
-                nnoremap <Leader>f :NERDTree<CR>
+                nnoremap <Leader>f :NERDTreeToggle<CR>
                 nnoremap <Leader>F :NERDTree %:p:h<CR>
             endif
         "[Nerdtree Tabs]

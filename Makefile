@@ -49,6 +49,7 @@ docker-it:
 checkhealth:
 	ls ~/.vim
 	ls ~/.vimrc
+	ls ~/.config/nvim/init.vim
 	ls ~/.tmux
 	ls ~/.tmux.conf
 	ls ~/.zsh
@@ -58,6 +59,7 @@ checkhealth:
 clean: checkhealth
 	mv ~/.vim /tmp/vim-$(DT)
 	mv ~/.vimrc /tmp/vimrc-$(DT)
+	mv ~/.config/nvim/init.vim /tmp/init.vim-$(DT)
 	mv ~/.tmux /tmp/tmux-$(DT)
 	mv ~/.tmux.conf /tmp/tmux-$(DT).conf
 	mv ~/.zsh /tmp/zsh-$(DT)
@@ -66,7 +68,8 @@ clean: checkhealth
 install_mac: clean
 	# VIM
 	ln -s ${DOTFILES}/vim ~/.vim
-	ln -sf ${DOTFILES}/vim/vimrc ~/.vimrc
+	ln -sf ${DOTFILES}/vim/vimrc.vim ~/.vimrc
+	ln -sf $(DOTFILES)/vim/init.vim ~/.config/nvim/init.vim
 	# ZSH
 	ln -s ${DOTFILES}/zsh ~/.zsh
 	ln -sf ${DOTFILES}/zsh/mac.env ~/.zshrc
@@ -79,7 +82,8 @@ install_mac: clean
 install_ubuntu: clean
 	# VIM
 	ln -s ${DOTFILES}/vim ~/.vim
-	ln -sf ${DOTFILES}/vim/vimrc-mini ~/.vimrc
+	ln -sf ${DOTFILES}/vim/vimrc-mini.vim ~/.vimrc
+	ln -sf ${DOTFILES}/vim/vimrc-mini.vim ~/.config/nvim/init.vim
 	# ZSH
 	ln -s ${DOTFILES}/zsh ~/.zsh
 	ln -sf ${DOTFILES}/zsh/linux.env ~/.zshrc
@@ -92,7 +96,8 @@ install_ubuntu: clean
 install_raspbian: clean
 	# VIM
 	ln -s ${DOTFILES}/vim ~/.vim
-	ln -sf ${DOTFILES}/vim/vimrc-mini ~/.vimrc
+	ln -sf ${DOTFILES}/vim/vimrc-mini.vim ~/.vimrc
+	ln -sf ${DOTFILES}/vim/vimrc-mini.vim ~/.config/nvim/init.vim
 	# ZSH
 	ln -s ${DOTFILES}/zsh ~/.zsh
 	ln -sf ${DOTFILES}/zsh/linux.env ~/.zshrc

@@ -97,7 +97,7 @@
     ZSH_DISABLE_COMPFIX=true
     # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
     export ZSH=~/.oh-my-zsh
-    source $ZSH/oh-my-zsh.sh
+    # source $ZSH/oh-my-zsh.sh
 # }
 
 # Setup fzf Searching tool {

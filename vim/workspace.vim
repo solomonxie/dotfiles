@@ -6,17 +6,17 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 ~/dotfiles/vim/vimrc
-badd +12 ~/dotfiles/vim/vimrc-ui
-badd +6 ~/dotfiles/vim/vimrc-keymappings
-badd +1 ~/dotfiles/vim/vimrc-plugins
+badd +1 ~/dotfiles/vim/vimrc.vim
+badd +12 ~/dotfiles/vim/vimrc-ui.vim
+badd +6 ~/dotfiles/vim/vimrc-keymappings.vim
+badd +1 ~/dotfiles/vim/vimrc-plugins.vim
 argglobal
 silent! argdel *
-$argadd ~/dotfiles/vim/vimrc
-$argadd ~/dotfiles/vim/vimrc-keymappings
-$argadd ~/dotfiles/vim/vimrc-plugins
-$argadd ~/dotfiles/vim/vimrc-ui
-edit vimrc
+$argadd ~/dotfiles/vim/vimrc.vim
+$argadd ~/dotfiles/vim/vimrc-keymappings.vim
+$argadd ~/dotfiles/vim/vimrc-plugins.vim
+$argadd ~/dotfiles/vim/vimrc-ui.vim
+edit vimrc.vim
 set splitbelow splitright
 set nosplitbelow
 wincmd t

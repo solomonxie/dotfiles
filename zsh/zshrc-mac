@@ -32,8 +32,8 @@
     source ~/dotfiles/zsh/zshrc.themes
     #set_theme_agnoster
     #set_theme_awesomepanda
-    set_theme_powerlevel9k
-    # set_theme_spaceship
+    # set_theme_powerlevel9k
+    set_theme_spaceship
 # }
 
 # General settings {
@@ -99,7 +99,7 @@
     ZSH_DISABLE_COMPFIX=true
     # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
     export ZSH=~/.oh-my-zsh
-    # source $ZSH/oh-my-zsh.sh
+    source $ZSH/oh-my-zsh.sh
 # }
 
 # Setup fzf Searching tool {

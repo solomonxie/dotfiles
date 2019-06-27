@@ -2,21 +2,20 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/dotfiles/vim
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 vimrc
-badd +12 vimrc-ui
-badd +6 vimrc-keymappings
-badd +1 vimrc-plugins
+badd +1 ~/dotfiles/vim/vimrc
+badd +12 ~/dotfiles/vim/vimrc-ui
+badd +6 ~/dotfiles/vim/vimrc-keymappings
+badd +1 ~/dotfiles/vim/vimrc-plugins
 argglobal
 silent! argdel *
-$argadd vimrc
-$argadd vimrc-keymappings
-$argadd vimrc-plugins
-$argadd vimrc-ui
+$argadd ~/dotfiles/vim/vimrc
+$argadd ~/dotfiles/vim/vimrc-keymappings
+$argadd ~/dotfiles/vim/vimrc-plugins
+$argadd ~/dotfiles/vim/vimrc-ui
 edit vimrc
 set splitbelow splitright
 set nosplitbelow

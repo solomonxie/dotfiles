@@ -308,11 +308,16 @@
                 "let g:magit_show_magit_mapping='<Leader>g'
             endif
 
-        "[tagbar] ->  "*"->open all folds; "="->close all folds
-            if &runtimepath =~ 'tagbar'
+        "[tagbar]
+            if &runtimepath =~ 'tagbar' " hit * ->open all folds; = ->close all folds
                 "noremap <Leader>t :TagbarToggle<CR>=<ESC>
                 noremap T :TagbarOpen<CR>
             endif
+            if &runtimepath =~ 'vista' " hit * ->open all folds; = ->close all folds
+                "noremap <Leader>t :TagbarToggle<CR>=<ESC>
+                noremap tt :Vista!!<CR>
+            endif
+
 
         "[nnn]
             "nnoremap <LocalLeader>F :NnnPicker<CR>
@@ -369,6 +374,8 @@
                 "nnoremap <Leader>f :NERDTreeToggle<CR>
                 " Add '%' for changing root accordingly
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
+                nnoremap tf :NERDTree<CR>
+                nnoremap tF :NERDTree %:p:h<CR>
                 nnoremap <Leader>f :NERDTree<CR>
                 nnoremap <Leader>F :NERDTree %:p:h<CR>
             endif

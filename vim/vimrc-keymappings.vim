@@ -41,9 +41,13 @@
         "{Go-definition}
             nnoremap gd gd
             vnoremap <Leader>gd y/<C-r>0<CR>
-        "{Highlight all current word}
+        "{Search & Highlight}
             "nnoremap * #
             "nnoremap # *
+            vnoremap # "1y/<C-r>1<CR>
+            vnoremap * "1y?<C-r>1<CR>
+            vnoremap <Leader>/ "1y:%s/<C-r>1//n<CR>
+            nnoremap <Leader>/ #<C-O>:%s///gn<CR>
         "{Jump to parent bracket/level}
             "nnoremap <C-[> [{
         "{Move between Buffers}
@@ -150,7 +154,7 @@
         "nnoremap <Leader>5 :tabn 5<CR>
 
     "<Window>
-        noremap <A-c> <C-w>c
+        noremap <A-q> <C-w>c
         if &runtimepath =~ 'goyo'
             nnoremap mo :Goyo<CR>
         endif
@@ -180,6 +184,7 @@
     "<Clipboard>
         "{Copy current REGISTER to system clipboard}
         vnoremap <Leader>y "+y
+        vnoremap <A-c> "+y
         vnoremap <CR> "+y
         "{Copy system clipboard to current register}
         noremap <Leader>p "+p
@@ -204,8 +209,6 @@
         noremap  ? :set hlsearch<cr>?
         noremap  * #:set hlsearch<cr>
         noremap  # *:set hlsearch<cr>
-        vnoremap # "1y/<C-r>1<CR>
-        vnoremap * "1y?<C-r>1<CR>
 
     "[Session]----------------------------------{
         function! AutoSaveSession()

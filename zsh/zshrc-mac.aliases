@@ -55,7 +55,7 @@ alias yourc="vim ~/.config/youtube-dl/config"
 # Git commands
 alias gs="git status"
 alias gc="git add . && git commit"
-alias gd="git diff"
+alias gd="git diff --word-diff=plain"
 alias gco="git checkout"
 alias gcp="git add . && git commit -m \"Update from $USER\" && git push -v"
 

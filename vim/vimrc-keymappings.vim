@@ -385,9 +385,9 @@
                 "nnoremap <Leader>f :NERDTreeToggle<CR>
                 " Add '%' for changing root accordingly
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
-                nnoremap tf :NERDTreeToggle<CR>
+                nnoremap tf :NERDTree<CR>
                 nnoremap tF :NERDTree %:p:h<CR>
-                nnoremap <Leader>f :NERDTreeToggle<CR>
+                nnoremap <Leader>f :NERDTree<CR>
                 nnoremap <Leader>F :NERDTree %:p:h<CR>
             endif
         "[Nerdtree Tabs]

@@ -22,11 +22,13 @@ changeshell:
 
 plugins: ohmyzsh
 	mkdir -p ${HOME}/.zsh/plugins
+	mv ${HOME}/.zsh/plugins/zsh-autosuggestions /tmp/ || echo
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${HOME}/.zsh/plugins/zsh-autosuggestions
+	mv ${HOME}/.zsh/plugins/zsh-syntax-highlighting /tmp/ || echo
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.zsh/plugins/zsh-syntax-highlighting
 
 ohmyzsh:
 	if [ ! -e ${HOME}/.oh-my-zsh ]; then \
 		echo `curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh`; \
-    fi
+	fi
 	test -e ${HOME}/.oh-my-zsh

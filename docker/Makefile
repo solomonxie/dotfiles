@@ -7,11 +7,15 @@ USER ?= `cat /tmp/env-user`
 install:
 	$(MAKE) ${MYOS} apps_${MYOS}
 
-quick:
+ubuntu: quick_build add_permission docker_compose
+mac:
+	@echo "Mac: has to install from GUI"
+
+quick_build:
 	curl -fsSL get.docker.com -o /tmp/get-docker.sh && sudo sh /tmp/get-docker.sh
 	#sudo sh ${HOME}/dotfiles/docker/get-docker.sh
 
-debian: checkhealth_debian
+debian_build: checkhealth_debian
 	# Setup SSL for downloading through HTTPS
 	sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
 	# Add GPG key for docker
@@ -26,13 +30,15 @@ debian: checkhealth_debian
 	# Hello-world
 	sudo docker run hello-world
 
-ubuntu: quick
-	sudo apt-get install docker-compose -y
+add_permission:
 	#Add Permission
 	sudo groupadd docker
 	sudo gpasswd -a ${USER} docker
 	newgrp docker
 	/bin/bash
+
+docker_compose:
+	sudo apt-get install docker-compose -y
 
 
 ###################### APPs ##########################
@@ -40,9 +46,9 @@ ubuntu: quick
 
 apps_mac:
 
-apps_raspbian: webav_raspbian playground_raspbian
+apps_raspbian: webav_raspbian
 
-apps_ubuntu: shadowsocks shadowsocks_old webdav frp vpn_ipsec playground_ubuntu
+apps_ubuntu: shadowsocks shadowsocks_old webdav frp
 
 checkhealth_debian:
 	apt-get --version

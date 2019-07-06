@@ -10,9 +10,9 @@
 
 
 " [  Import Modules  ]-----------{
-    "source ~/dotfiles/vim/vimrc-plugins
-    source ~/dotfiles/vim/vimrc-keymappings
-    "source ~/dotfiles/vim/vimrc-ui
+    "source ~/dotfiles/vim/vimrc-plugins.vim
+    source ~/dotfiles/vim/vimrc-keymappings.vim
+    "source ~/dotfiles/vim/vimrc-ui.vim
 " }
 
 

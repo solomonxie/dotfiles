@@ -60,13 +60,13 @@ checkdependencies:
 	ls ~/.tmux
 
 clean:
-	mv ~/.vim /tmp/vim-$(DT) || 1
-	mv ~/.vimrc /tmp/vimrc-$(DT) || 1
-	mv ~/.config/nvim/init.vim /tmp/init.vim-$(DT) || 1
-	mv ~/.tmux /tmp/tmux-$(DT) || 1
-	mv ~/.tmux.conf /tmp/tmux-$(DT).conf || 1
-	mv ~/.zsh /tmp/zsh-$(DT) || 1
-	mv ~/.zshrc /tmp/zshrc-$(DT) || 1
+	mv ~/.vim /tmp/vim-$(DT) || echo
+	mv ~/.vimrc /tmp/vimrc-$(DT) || echo
+	mv ~/.config/nvim/init.vim /tmp/init.vim-$(DT) || echo
+	mv ~/.tmux /tmp/tmux-$(DT) || echo
+	mv ~/.tmux.conf /tmp/tmux-$(DT).conf || echo
+	mv ~/.zsh /tmp/zsh-$(DT) || echo
+	mv ~/.zshrc /tmp/zshrc-$(DT) || echo
 
 install_mac: clean
 	# VIM

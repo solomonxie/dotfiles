@@ -1,1 +1,0 @@
-/Users/xiaoboxie/dotfiles/vim/vimrc.vim

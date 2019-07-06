@@ -49,14 +49,17 @@ docker-it:
 checkhealth:
 	ls ~/.vim
 	ls ~/.vimrc
-	ls ~/.config/nvim/init.vim
 	ls ~/.tmux
 	ls ~/.tmux.conf
 	ls ~/.zsh
 	ls ~/.zshrc
 	ls ~/.tmux/resurrect/last
 
-clean: checkhealth
+checkdependencies:
+	ls ~/.vim
+	ls ~/.tmux
+
+clean:
 	mv ~/.vim /tmp/vim-$(DT)
 	mv ~/.vimrc /tmp/vimrc-$(DT)
 	mv ~/.config/nvim/init.vim /tmp/init.vim-$(DT)
@@ -69,7 +72,9 @@ install_mac: clean
 	# VIM
 	ln -s ${DOTFILES}/vim ~/.vim
 	ln -sf ${DOTFILES}/vim/vimrc.vim ~/.vimrc
-	ln -sf $(DOTFILES)/vim/init.vim ~/.config/nvim/init.vim
+	mkdir -p ~/.config/nvim/ ~/.nvim/
+	ln -sf $(DOTFILES)/vim/vimrc.vim ~/.config/nvim/init.vim
+	ln -sf $(DOTFILES)/vim/vimrc.vim ~/.nvim/init.vim
 	# ZSH
 	ln -s ${DOTFILES}/zsh ~/.zsh
 	ln -sf ${DOTFILES}/zsh/mac.env ~/.zshrc

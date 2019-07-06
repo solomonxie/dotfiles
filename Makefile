@@ -88,6 +88,7 @@ install_ubuntu: clean
 	# VIM
 	ln -s ${DOTFILES}/vim ~/.vim
 	ln -sf ${DOTFILES}/vim/vimrc-mini.vim ~/.vimrc
+	mkdir -p ~/.config/nvim/ ~/.nvim/
 	ln -sf ${DOTFILES}/vim/vimrc-mini.vim ~/.config/nvim/init.vim
 	# ZSH
 	ln -s ${DOTFILES}/zsh ~/.zsh
@@ -102,6 +103,7 @@ install_raspbian: clean
 	# VIM
 	ln -s ${DOTFILES}/vim ~/.vim
 	ln -sf ${DOTFILES}/vim/vimrc-mini.vim ~/.vimrc
+	mkdir -p ~/.config/nvim/ ~/.nvim/
 	ln -sf ${DOTFILES}/vim/vimrc-mini.vim ~/.config/nvim/init.vim
 	# ZSH
 	ln -s ${DOTFILES}/zsh ~/.zsh

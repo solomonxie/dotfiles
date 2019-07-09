@@ -1,1 +1,1 @@
-/Users/xiaoboxie/dotfiles/vim/vimrc.vim
+/Users/solomonxie/dotfiles/vim/vimrc.vim

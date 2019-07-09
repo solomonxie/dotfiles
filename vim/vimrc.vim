@@ -121,19 +121,20 @@
 " }
 
 " [  Backup Files  ]--------{
-    set backupdir=~/.vim/backup//
-    " Force backups to be copied from original, not renamed
-    set backupcopy=yes
+    set backup
+    set writebackup
+    " set backupcopy=yes  " Force backups to be copied from original, not renamed
     " Create folder if not exists
     if !isdirectory(&backupdir)
        silent! call mkdir(&backupdir, 'p')
     endif
+    set backupdir=~/.vim/backup//
 " }
 
 
 " [  Swap files  ]--------{
-    set noswapfile    "Autoread & checktime can solve conflict
-    "set swapfile    "enable swap file
+    set noswapfile  "Disable Swap files
+    "set swapfile  "Enable swap file
     set directory=~/.vim/swap//    "set swp file directory.
     " Create folder if not exists
     if !isdirectory(&directory)

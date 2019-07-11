@@ -96,6 +96,9 @@ install_symlinks_tmux:
 	ln -sf ${DOTFILES}/tmux/tmux.conf ~/.tmux.conf
 	ln -sf ${HOME}/.tmux/resurrect/last-mac.txt ${HOME}/.tmux/resurrect/last
 
+install_symlinks_git:
+	ln -sf $(DOTFILES)/etc/gitconfig ~/.gitconfig
+
 
 # Stage-4: Backup
 save:

@@ -59,7 +59,7 @@ call plug#begin('~/.vim/plugged')
         "<Terminal>
             "Plug 'kassio/neoterm'
 
-    " [    Browsing   ]
+    " [    NAVIGATION   ]
 
         "<Fuzzy File Search>
             " <fzf>
@@ -108,6 +108,9 @@ call plug#begin('~/.vim/plugged')
                 Plug 'iberianpig/tig-explorer.vim' "faster/prettier (tig required)
             endif
 
+        "<Search>
+            Plug 'bronson/vim-visual-star-search'
+
         "<Documentation>
             "Plug 'powerman/vim-plugin-viewdoc' "K-preview improvement
 
@@ -131,6 +134,8 @@ call plug#begin('~/.vim/plugged')
                     let g:deoplete#enable_at_startup = 1
                     let g:deoplete#num_processes = 1
                 endif
+        "<Register>
+            Plug 'junegunn/vim-peekaboo'
 
         "<Comment>
             Plug 'tomtom/tcomment_vim'
@@ -367,6 +372,8 @@ endfunction
     if &runtimepath =~ 'gutentags'
         " Searching fields (recursively searching from bottom up)
         let g:gutentags_project_root = ['Makefile', '.git', '.root', '.svn', '.project']
+        " Ignore some specifi projects
+        " let g:gutentags_exclude_project_root = ['~/workspace/']
         " Tag filename
         let g:gutentags_ctags_tagfile = 'tags'
         " Tag files store place, instead of project dirs

@@ -44,8 +44,8 @@
         "{Search & Highlight}
             "nnoremap * #
             "nnoremap # *
-            vnoremap # "1y/<C-r>1<CR>
-            vnoremap * "1y?<C-r>1<CR>
+            " vnoremap # "1y/<C-r>1<CR>
+            " vnoremap * "1y?<C-r>1<CR>
             vnoremap <Leader>/ "1y:%s/<C-r>1//n<CR>
             nnoremap <Leader>/ #<C-O>:%s///gn<CR>
         "{Jump to parent bracket/level}
@@ -154,7 +154,7 @@
         "nnoremap <Leader>5 :tabn 5<CR>
 
     "<Window>
-        noremap <A-q> <C-w>c
+        noremap <A-c> <C-w>c
         if &runtimepath =~ 'goyo'
             nnoremap mo :Goyo<CR>
         endif
@@ -184,7 +184,7 @@
     "<Clipboard>
         "{Copy current REGISTER to system clipboard}
         vnoremap <Leader>y "+y
-        vnoremap <A-c> "+y
+        " vnoremap <A-c> "+y
         vnoremap <CR> "+y
         "{Copy system clipboard to current register}
         noremap <Leader>p "+p
@@ -244,7 +244,7 @@
                 :echo 'No session found.'
             endif
         endfunction
-        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=3 | call AutoSaveSession() | endif
+        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=0 | call AutoSaveSession() | endif
         "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}

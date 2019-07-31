@@ -134,6 +134,9 @@ call plug#begin('~/.vim/plugged')
                     let g:deoplete#enable_at_startup = 1
                     let g:deoplete#num_processes = 1
                 endif
+            "[Tabnine]  (Based on YouCompleteMe)
+                " Plug 'zxqfl/tabnine-vim'
+
         "<Register>
             Plug 'junegunn/vim-peekaboo'
 

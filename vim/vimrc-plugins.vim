@@ -143,6 +143,9 @@ call plug#begin('~/.vim/plugged')
         "<Comment>
             Plug 'tomtom/tcomment_vim'
 
+        "<Selection>
+            " Plug 'michaeljsmith/vim-indent-object'
+
         "<Code Check>
             Plug 'vim-syntastic/syntastic' "Static Code Check
 

@@ -148,6 +148,7 @@ call plug#begin('~/.vim/plugged')
 
         "<Code Check>
             Plug 'vim-syntastic/syntastic' "Static Code Check
+            " Plug 'mgedmin/coverage-highlight.vim'
 
         "<Bracket Closing>
             Plug 'jiangmiao/auto-pairs' "Smartest (bug:)

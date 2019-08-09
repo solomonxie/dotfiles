@@ -356,13 +356,6 @@ endfunction
     "let g:SimpylFold_docstring_preview = 1
 " }
 
-" <Autotag>--------------{
-    "let g:autotagTagsFile="~/.vim/ctagfiles"
-    if !isdirectory("~/.vim/ctagfiles")
-       silent! call mkdir(s:vim_tags, 'p')
-    endif
-" }
-
 " <Rainbow-parentasis>--------------{
     if &runtimepath =~ 'rainbow_parentheses'
         let g:rainbow#max_level = 16
@@ -375,6 +368,13 @@ endfunction
     endif
 " }
 
+" <Autotag>--------------{
+    "let g:autotagTagsFile="~/.vim/tags"
+    " if !isdirectory("~/.vim/tags")
+    "    silent! call mkdir(s:vim_tags, 'p')
+    " endif
+" }
+
 " <Gutentags>--------------{
     if &runtimepath =~ 'gutentags'
         " Searching fields (recursively searching from bottom up)
@@ -384,7 +384,8 @@ endfunction
         " Tag filename
         let g:gutentags_ctags_tagfile = 'tags'
         " Tag files store place, instead of project dirs
-        let s:vim_tags = expand('~/.vim/tags')
+        " let s:vim_tags = expand('~/.vim/tags')
+        let s:vim_tags = '.git/ctags'
         let g:gutentags_cache_dir = s:vim_tags
         " Create tag dir if not exists
         if !isdirectory(s:vim_tags)

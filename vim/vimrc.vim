@@ -16,6 +16,9 @@
     source ~/dotfiles/vim/vimrc-plugins.vim
     source ~/dotfiles/vim/vimrc-keymappings.vim
     source ~/dotfiles/vim/vimrc-ui.vim
+    if filereadable(expand('~/vimrc-local.vim'))
+        source ~/vimrc-local.vim
+    endif
 " }
 
 

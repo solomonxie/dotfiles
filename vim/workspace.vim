@@ -2,21 +2,23 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
+cd ~/dotfiles
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 ~/dotfiles/vim/vimrc.vim
-badd +12 ~/dotfiles/vim/vimrc-ui.vim
-badd +6 ~/dotfiles/vim/vimrc-keymappings.vim
-badd +1 ~/dotfiles/vim/vimrc-plugins.vim
+badd +21 vim/vimrc.vim
+badd +12 vim/vimrc-ui.vim
+badd +6 vim/vimrc-keymappings.vim
+badd +1 vim/vimrc-plugins.vim
+badd +1 ~/vimrc-local.vim
 argglobal
 silent! argdel *
-$argadd ~/dotfiles/vim/vimrc.vim
-$argadd ~/dotfiles/vim/vimrc-keymappings.vim
-$argadd ~/dotfiles/vim/vimrc-plugins.vim
-$argadd ~/dotfiles/vim/vimrc-ui.vim
-edit vimrc.vim
+$argadd vim/vimrc.vim
+$argadd vim/vimrc-keymappings.vim
+$argadd vim/vimrc-plugins.vim
+$argadd vim/vimrc-ui.vim
+edit vim/vimrc.vim
 set splitbelow splitright
 set nosplitbelow
 wincmd t
@@ -33,11 +35,11 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=1
 setlocal fen
-let s:l = 4 - ((3 * winheight(0) + 45) / 90)
+let s:l = 21 - ((20 * winheight(0) + 48) / 96)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
+21
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

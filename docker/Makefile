@@ -32,7 +32,7 @@ debian_build: checkhealth_debian
 
 add_permission:
 	#Add Permission
-	sudo groupadd docker
+	sudo groupadd docker || echo
 	sudo gpasswd -a ${USER} docker
 	newgrp docker
 	/bin/bash

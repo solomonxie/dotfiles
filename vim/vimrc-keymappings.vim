@@ -133,7 +133,6 @@
             noremap <Leader>q :bdelete<CR><ESC>
             "noremap <Leader>q :bprev \| bd# <CR>
             command! CloseAllBuffers :normal :bufdo bd<CR>
-            command! Cwd :echo expand('%')
             "command! CloseAllBuffers :% bd|e#
         "{History search}
             "noremap <Leader><C-h> :browse oldfiles<CR>
@@ -189,8 +188,10 @@
         "{Copy system clipboard to current register}
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
+        command! Cwd :echo expand('%')
         command! CwdCopy let @+ = expand('%') | echo 'Copied: ' @+
         command! PwdCopy let @+ = expand('%:p') | echo 'Copied: ' @+
+        command! FilenameCopy let @+ = expand('%:t') | echo 'Copied: ' @+
         "command! CopyFolderRelativePath let @+ = expand('%:h') | echo 'Copied: ' @+
         "command! CopyFolderAbsolutePath let @+ = expand('%:p:h') | echo 'Copied: ' @+
 

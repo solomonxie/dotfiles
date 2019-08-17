@@ -8,6 +8,7 @@
 
 # Builtin Utils
 alias lah="ls -lah"
+alias please="sudo"
 
 # Program replacements
 alias vim="nvim"

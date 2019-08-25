@@ -1,3 +1,12 @@
+#########################################################
+#             ____             _                        #
+#            |  _ \  ___   ___| | _____ _ __            #
+#            | | | |/ _ \ / __| |/ / _ \ '__|           #
+#            | |_| | (_) | (__|   <  __/ |              #
+#            |____/ \___/ \___|_|\_\___|_|              #
+#                                                       #
+#########################################################
+
 DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
@@ -41,8 +50,18 @@ docker_compose:
 	sudo apt-get install docker-compose -y
 
 
-###################### APPs ##########################
 
+
+###############################################################
+#                                                             #
+#  ____             _                  _                      #
+# |  _ \  ___   ___| | _____ _ __     / \   _ __  _ __  ___   #
+# | | | |/ _ \ / __| |/ / _ \ '__|   / _ \ | '_ \| '_ \/ __|  #
+# | |_| | (_) | (__|   <  __/ |     / ___ \| |_) | |_) \__ \  #
+# |____/ \___/ \___|_|\_\___|_|    /_/   \_\ .__/| .__/|___/  #
+#                                          |_|   |_|          #
+#                                                             #
+###############################################################
 
 apps_mac:
 
@@ -100,7 +119,7 @@ webdav: checkhealth_docker
 	# and do `chown -R www-data:www-data /var/www/webdav`
 	#
 	# Image: $ docker pull solomonxie/webdav:latest
-	sudo mkdir $(HOME)/webdav
+	sudo mkdir $(HOME)/webdav | echo
 	sudo chown -R $(USER):www-data $(HOME)/webdav
 	#sudo chmod -R g+s ${HOME}/webdav
 	docker run -d --name webdav --restart=always \
@@ -112,7 +131,7 @@ webav_raspbian: checkhealth_docker
 	#: <Permission problem>
 	# has to get inside container by `docker exec -it webdav sh`
 	# and do `chown -R www-data:www-data /var/www/webdav`
-	sudo mkdir /var/webdav
+	sudo mkdir /var/webdav | echo
 	ln -sf /var/webdav $(HOME)/webdav
 	sudo chown -R $(USER):www-data /var/webdav
 	#sudo chmod -R g+s ${HOME}/webdav

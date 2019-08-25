@@ -13,7 +13,7 @@
 #
 
 # User-specified hosts (not working at the moment)
-    set HOSTALIASES=~/hosts
+    # set HOSTALIASES=~/hosts
 
 # Make some device-specific aliased in another file
     source ~/dotfiles/zsh/zshrc-mac.aliases
@@ -119,3 +119,9 @@
         #
     fi
 # }
+
+
+# Overwite with local zshrc
+if [ -e ~/.zshrc-local ]; then
+    source ~/.zshrc-local
+fi

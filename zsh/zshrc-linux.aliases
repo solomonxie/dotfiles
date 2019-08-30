@@ -36,8 +36,10 @@ alias you="youtube-dl"
 
 # Git commands
 alias gs="git status"
-alias gc="git add . && git commit"
-alias gcp="git add . && git commit -m \"Update from $USER\" && git push"
+alias gc="git add .; git commit"
+alias gd="git diff"
+alias gco="git checkout"
+alias gcp="git add .; git commit -m \"Update from $USER\"; git remote | xargs -L1 git push --all"
 
 # Tmux
 #alias tmux="TERM=screen-256color-bce tmux"

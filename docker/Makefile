@@ -16,7 +16,7 @@ USER ?= `cat /tmp/env-user`
 install:
 	$(MAKE) ${MYOS} apps_${MYOS}
 
-ubuntu: quick_build add_permission docker_compose
+ubuntu: quick_build docker_compose add_permission
 mac:
 	@echo "Mac: has to install from GUI"
 
@@ -44,7 +44,6 @@ add_permission:
 	sudo groupadd docker || echo
 	sudo gpasswd -a ${USER} docker
 	newgrp docker
-	# /bin/bash
 
 docker_compose:
 	sudo apt-get install docker-compose -y

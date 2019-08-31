@@ -72,7 +72,10 @@ clean:
 install:
 	echo "make install_symlinks_${MYOS}" | sh
 	echo "OK."
+
 install_symlinks_mac: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
+	ln -sf ${DOTFILES}/zsh/mac.env ~/.zshrc
+	ln -sf ${HOME}/.tmux/resurrect/last-mac.txt ${HOME}/.tmux/resurrect/last
 	@echo "OK."
 
 install_symlinks_ubuntu: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
@@ -84,20 +87,20 @@ install_symlinks_raspbian: clean install_symlinks_vim install_symlinks_zsh insta
 install_symlinks_vim:
 	ln -s ${DOTFILES}/vim ~/.vim
 	ln -sf ${DOTFILES}/vim/vimrc.vim ~/.vimrc
+	mkdir -p ~/.config/nvim || echo
 	ln -sf $(DOTFILES)/vim/ ~/.config/nvim/
+	mkdir -p ~/.nvim || echo
 	ln -sf $(DOTFILES)/vim/vimrc.vim ~/.nvim/init.vim
 
 install_symlinks_zsh:
 	ln -s ${DOTFILES}/zsh ~/.zsh
-	ln -sf ${DOTFILES}/zsh/mac.env ~/.zshrc
 
 install_symlinks_tmux:
 	ln -s ${DOTFILES}/tmux ~/.tmux
 	ln -sf ${DOTFILES}/tmux/tmux.conf ~/.tmux.conf
-	ln -sf ${HOME}/.tmux/resurrect/last-mac.txt ${HOME}/.tmux/resurrect/last
 
 install_symlinks_git:
-	ln -sf $(DOTFILES)/etc/gitconfig ~/.gitconfig
+	ln -sf $(DOTFILES)/etc/gitconfig.ini ~/.gitconfig
 
 
 # Stage-4: Backup

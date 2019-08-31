@@ -11,17 +11,16 @@ configure-it:
 	./configure
 
 # Step-2: Build
-install: configure-it
-	echo "make install_${MYOS}" | sh
-	echo "make install_symlinks_${MYOS}" | sh
-	echo "OK."
+build: configure-it
+	echo "make build_${MYOS}" | sh
+	echo "Build Done. Please proceed to: $ make install."
 
-install_mac: configure-it build-python build-vim build-zsh build-tmux
+build_mac: configure-it build-python build-vim build-zsh build-tmux
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	@echo "OK."
-install_ubuntu: configure-it build-python build-vim build-zsh build-tmux build-docker
+build_ubuntu: build-python build-vim build-zsh build-tmux build-docker
 	@echo "OK."
-install_raspbian: configure-it build-python build-vim build-zsh build-tmux build-docker
+build_raspbian: build-python build-vim build-zsh build-tmux build-docker
 	@echo "OK."
 
 build-python:
@@ -68,15 +67,18 @@ clean:
 	mv ~/.zsh /tmp/zsh-$(DT) || echo
 	mv ~/.zshrc /tmp/zshrc-$(DT) || echo
 
-#
-# Stage-3: Install Symlinks
-install_symlinks_mac: checkhealth clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux
+
+# Step-3: Install symlinks
+install:
+	echo "make install_symlinks_${MYOS}" | sh
+	echo "OK."
+install_symlinks_mac: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
 	@echo "OK."
 
-install_symlinks_ubuntu: checkhealth clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux
+install_symlinks_ubuntu: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
 	@echo "OK."
 
-install_symlinks_raspbian: checkhealth clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux
+install_symlinks_raspbian: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
 	@echo "OK."
 
 install_symlinks_vim:

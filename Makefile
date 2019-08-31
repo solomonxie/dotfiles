@@ -6,16 +6,15 @@ USER ?= `cat /tmp/env-user`
 DT ?= `date +%Y%m%d%s`
 
 
-# Stage-1: Entrance & Configure
-install:
-	echo "make install_${MYOS}" | sh
-	echo "OK."
-
+# Stage-1: Configure
 configure-it:
 	./configure
 
-
-# Stage-2: Install each softwares
+# Step-2: Build
+install: configure-it
+	echo "make install_${MYOS}" | sh
+	echo "make install_symlinks_${MYOS}" | sh
+	echo "OK."
 
 install_mac: configure-it build-python build-vim build-zsh build-tmux
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -50,9 +49,6 @@ build-docker:
 	echo "OK."
 
 
-
-# Stage-3: Install Symlinks
-
 checkhealth:
 	ls ~/.vim
 	ls ~/.config/nvim
@@ -72,6 +68,8 @@ clean:
 	mv ~/.zsh /tmp/zsh-$(DT) || echo
 	mv ~/.zshrc /tmp/zshrc-$(DT) || echo
 
+#
+# Stage-3: Install Symlinks
 install_symlinks_mac: checkhealth clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux
 	@echo "OK."
 

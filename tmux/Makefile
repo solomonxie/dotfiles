@@ -20,6 +20,7 @@ mac: checkhealth_mac
 
 debian: checkhealth_debian
 	sudo apt-get install tmux -y
+	ln -sf ${DOTFILES}/tmux/tmux.conf ~/.tmux.conf
 	@echo "OK."
 
 ubuntu: debian

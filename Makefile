@@ -43,8 +43,7 @@ build-vim:
 	echo "OK."
 
 build-docker:
-	cd docker && $(MAKE) ${MYOS}
-	cd docker && $(MAKE) apps_${MYOS}
+	cd docker && $(MAKE) install
 	echo "OK."
 
 

@@ -44,7 +44,7 @@ add_permission:
 	sudo groupadd docker || echo
 	sudo gpasswd -a ${USER} docker
 	newgrp docker
-	/bin/bash
+	# /bin/bash
 
 docker_compose:
 	sudo apt-get install docker-compose -y

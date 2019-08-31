@@ -74,7 +74,6 @@ install:
 	echo "OK."
 
 install_symlinks_mac: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
-	ln -sf ${DOTFILES}/zsh/mac.env ~/.zshrc
 	ln -sf ${HOME}/.tmux/resurrect/last-mac.txt ${HOME}/.tmux/resurrect/last
 	@echo "OK."
 
@@ -94,6 +93,7 @@ install_symlinks_vim:
 
 install_symlinks_zsh:
 	ln -s ${DOTFILES}/zsh ~/.zsh
+	ln -sf ${DOTFILES}/zsh/${MYOS}.env ~/.zshrc
 
 install_symlinks_tmux:
 	ln -s ${DOTFILES}/tmux ~/.tmux

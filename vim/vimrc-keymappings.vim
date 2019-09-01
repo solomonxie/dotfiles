@@ -80,6 +80,7 @@
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         inoremap <C-c> <Esc>
         nnoremap <Space> viw
+        nnoremap <LEADER><Space> viW
         nnoremap <M-Space> vip
         "
         "inoremap jj <esc>

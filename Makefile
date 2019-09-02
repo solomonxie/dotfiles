@@ -65,6 +65,7 @@ clean:
 	mv ~/.tmux.conf /tmp/tmux-$(DT).conf || echo
 	mv ~/.zsh /tmp/zsh-$(DT) || echo
 	mv ~/.zshrc /tmp/zshrc-$(DT) || echo
+	mv ~/.gitconfig /tmp/gitconfig-$(DT) || echo
 
 
 # Step-3: Install symlinks
@@ -72,13 +73,13 @@ install:
 	echo "make install_symlinks_${MYOS}" | sh
 	echo "OK."
 
-install_symlinks_mac: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
+install_symlinks_mac: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux install_symlinks_git checkhealth
 	@echo "OK."
 
-install_symlinks_ubuntu: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
+install_symlinks_ubuntu: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux install_symlinks_git checkhealth
 	@echo "OK."
 
-install_symlinks_raspbian: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux checkhealth
+install_symlinks_raspbian: clean install_symlinks_vim install_symlinks_zsh install_symlinks_tmux install_symlinks_git checkhealth
 	@echo "OK."
 
 install_symlinks_vim:
@@ -99,7 +100,8 @@ install_symlinks_tmux:
 	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS}.txt ${HOME}/.tmux/resurrect/last
 
 install_symlinks_git:
-	ln -sf $(DOTFILES)/etc/gitconfig.ini ~/.gitconfig
+	echo "[include]\n    path = ~/dotfiles/etc/git/gitconfig.ini" ~/.gitconfig
+
 
 
 # Stage-4: Backup

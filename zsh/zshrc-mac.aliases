@@ -31,6 +31,8 @@ alias nvimrc="vim -S ~/dotfiles/vim/workspace.vim"
 alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf"
 alias bashrc="vim ~/.bashrc"
 alias gitrc="vim ~/.gitconfig"
+alias gitrc0="vim ~/dotfiles/etc/git/gitconfig.ini"
+alias gitrc_="vim ./.git/config"
 alias rangerrc="vim ~/.config/ranger/rc.conf"
 #alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias muttrc="vim -S ~/Workspace/etc/Mac/mutt/workspace.vim"

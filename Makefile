@@ -100,7 +100,7 @@ install_symlinks_tmux:
 	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS}.txt ${HOME}/.tmux/resurrect/last
 
 install_symlinks_git:
-	echo "[include]\n    path = ~/dotfiles/etc/git/gitconfig.ini" ~/.gitconfig
+	echo "[include]\n    path = ~/dotfiles/etc/git/gitconfig.ini" > ~/.gitconfig
 
 
 

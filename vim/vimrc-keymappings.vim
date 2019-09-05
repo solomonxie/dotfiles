@@ -193,8 +193,23 @@
         command! CwdCopy let @+ = expand('%') | echo 'Copied: ' @+
         command! PwdCopy let @+ = expand('%:p') | echo 'Copied: ' @+
         command! FilenameCopy let @+ = expand('%:t') | echo 'Copied: ' @+
+        command! RemoteGitFileReference call GetGitRemoteCodeReferenceLink()
         "command! CopyFolderRelativePath let @+ = expand('%:h') | echo 'Copied: ' @+
         "command! CopyFolderAbsolutePath let @+ = expand('%:p:h') | echo 'Copied: ' @+
+
+        function! GetGitRemoteCodeReferenceLink()
+            "Expected URL
+                "https://git.appannie.org/appannie/aa-bulk-grabber/blob/master/webanalytics/tasks/bulk_grabber/dimension_info_merger.py#L13"
+            "Formatted string
+                "https://${REPO}/blob/${BRANCH}/${FILEPATH}#{LINE-NUMBER}"
+            let repo = trim(system("git remote get-url origin | sed 's/^git@//; s/\.git$//'"))
+            let branch = trim(system("git rev-parse --abbrev-ref HEAD"))
+            let cwd = expand('%')
+            let lineno = line(".")
+            let url = "https://".repo."/blob/".branch."/".cwd."#L".lineno
+            let @+ = url
+            echo 'Copied: ' url
+        endfunction
 
     "<Folding>
         "noremap <space> za

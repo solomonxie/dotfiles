@@ -106,6 +106,10 @@ add_admin(){
     #su - $as_user && echo '[ OK ]'
 }
 
+get_python_site_packages(){
+    dir_path = $(python -m site --user-site)
+}
+
 
 
 #------------------------------------------------------

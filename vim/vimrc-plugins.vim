@@ -383,6 +383,16 @@ endfunction
         " let g:gutentags_exclude_project_root = ['~/workspace/']
         " Tag filename
         let g:gutentags_ctags_tagfile = 'tags'
+
+        if executable('rg')
+            let g:gutentags_file_list_command = 'rg --files'
+        elseif executable('ag')
+            let g:gutentags_file_list_command = 'ag -l'
+        else
+            let g:gutentags_file_list_command = 'find . -type f'
+        endif
+        let g:gutentags_exclude_filetypes = ['json', 'csv', 'txt', 'xml']
+        let g:gutentags_ctags_exclude = ['.git']
         " Tag files store place, instead of project dirs
         " let s:vim_tags = expand('~/.vim/tags')
         let s:vim_tags = '.git/ctags'

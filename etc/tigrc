@@ -85,9 +85,9 @@ set focus-child   = yes  # Move focus to child view when opened?
 set send-child-enter  = yes  # Propagate "enter" keypresses to child views?
 set horizontal-scroll  = 50%  # Number of columns to scroll as % of width
 set split-view-height  = 67%  # Height of the bottom view for horizontal splits
-set vertical-split  = auto  # Enum: horizontal, vertical, auto; Use auto to
+set vertical-split  = horizontal  # Enum: horizontal, vertical, auto; Use auto to
       # switch to horizontal split when width allows it
-set split-view-width  = 50%  # Width of right-most view for vertical splits
+set split-view-width  = 75%  # Width of right-most view for vertical splits
 set editor-line-number  = yes  # Automatically pass line number to editor? Used
       # for opening file at specific line e.g. from a diff
 set history-size  = 500  # Size of persistent history, 0 to disable

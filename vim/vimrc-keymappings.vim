@@ -79,9 +79,9 @@
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <ESC> <Esc>:nohl<CR><ESC>
-        inoremap ,, <Esc>:nohl<CR><ESC>
-        vnoremap ,, <Esc>:nohl<CR><ESC>
-        noremap ,, <Esc>:nohl<CR><ESC>
+        inoremap ,. <Esc>:nohl<CR><ESC>
+        vnoremap ,. <Esc>:nohl<CR><ESC>
+        noremap ,. <Esc>:nohl<CR><ESC>
         nnoremap <Space> viw
         nnoremap <LEADER><Space> viW
         nnoremap <M-Space> vip

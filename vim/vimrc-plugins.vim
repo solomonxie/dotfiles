@@ -393,7 +393,7 @@ endfunction
         else
             let g:gutentags_file_list_command = 'find . -type f'
         endif
-        let g:gutentags_exclude_filetypes = ['json', 'csv', 'txt', 'xml']
+        let g:gutentags_exclude_filetypes = ['json', 'csv', 'txt', 'xml', 'html', 'gz', 'xls', 'doc']
         let g:gutentags_ctags_exclude = ['.git']
         " Tag files store place, instead of project dirs
         " let s:vim_tags = expand('~/.vim/tags')

@@ -88,16 +88,13 @@ shadowsocks: checkhealth_docker
 	# Image: $ docker pull mritd/shadowsocks PORT=6000
 	docker run -dt --name ssserver --restart always \
 		-p 6000:6000 -p 6000:6000/udp mritd/shadowsocks -m "ss-server" \
-	    -s "-s 0.0.0.0 -p 6000 -m aes-256-gcm -k shadow123 --fast-open" \
-	    -x -e "kcpserver" \
-	    -k "-t 127.0.0.1:6000 -l 6000 -mode fast2 -key kcp123 -crypt aes-128"
+	    -s "-s 0.0.0.0 -p 6000 -m aes-256-gcm -k shadow123 --fast-open"
 
 shadowsocks_old: checkhealth_docker
 	# Image: $ docker pull mritd/shadowsocks
 	docker run -dt --name ssserver-old --restart always \
 		-p 1988:1988 -p 1988:1988/udp mritd/shadowsocks -m "ss-server" \
-	    -s "-s 0.0.0.0 -p 1988 -m aes-256-cfb -k shadow123 --fast-open" \
-	    -x -e "kcpserver" -k "-t 127.0.0.1:1988 -l 1988 -mode fast2 -key kcp123 -crypt aes-128"
+	    -s "-s 0.0.0.0 -p 1988 -m aes-256-cfb -k shadow123 --fast-open"
 
 shadowsocks_libev_local: checkhealth_docker
 	docker run -dt -e PASSWORD=shadow123 \

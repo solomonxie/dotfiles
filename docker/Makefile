@@ -66,7 +66,7 @@ apps_mac:
 
 apps_raspbian: webav_raspbian
 
-apps_ubuntu: shadowsocks shadowsocks_cfb webdav frp
+apps_ubuntu: shadowsocks webdav frp
 
 checkhealth_debian:
 	apt-get --version
@@ -85,27 +85,36 @@ checkhealth_ubuntu:
 
 
 shadowsocks: checkhealth_docker
-	# Image: $ docker pull mritd/shadowsocks PORT=6000
-	docker run -dt --name ssserver --restart always \
-		-p 6000:6000 -p 6000:6000/udp mritd/shadowsocks -m "ss-server" \
-	    -s "-s 0.0.0.0 -p 6000 -m aes-256-gcm -k shadow123 --fast-open"
-	docker run -dt --name ssserver2 --restart always \
-		-p 16000:16000 -p 16000:16000/udp mritd/shadowsocks -m "ss-server" \
-	    -s "-s 0.0.0.0 -p 16000 -m aes-256-gcm -k shadow123 --fast-open"
-	docker run -dt --name ssserver3 --restart always \
-		-p 16100:16100 -p 16100:16100/udp mritd/shadowsocks -m "ss-server" \
-	    -s "-s 0.0.0.0 -p 16100 -m aes-128-gcm -k shadow123 --fast-open"
-
-shadowsocks_cfb: checkhealth_docker
-	# Image: $ docker pull mritd/shadowsocks
-	docker run -dt --name ssserver4 --restart always \
-		-p 17000:17000 -p 17000:17000/udp mritd/shadowsocks -m "ss-server" \
-	    -s "-s 0.0.0.0 -p 17000 -m aes-256-cfb -k shadow123 --fast-open"
-
-shadowsocks_libev_local: checkhealth_docker
-	docker run -dt -e PASSWORD=shadow123 \
-		-p 6000:6000 -p 6000:6000/udp \
-	    shadowsocks/shadowsocks-libev
+	# Stable
+	docker run -d -p 1988:8388 -e METHOD=aes-256-cfb \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 6000:8388 -e METHOD=aes-256-gcm \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 16000:8388 -e METHOD=aes-256-gcm \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 16001:8388 -e METHOD=aes-256-gcm \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 16002:8388 -e METHOD=aes-256-gcm \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	# Experimental
+	docker run -d -p 17001:8388 -e METHOD=aes-128-gcm \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 17002:8388 -e METHOD=aes-256-ctr \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 17003:8388 -e METHOD=camellia-256-cfb \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 17004:8388 -e METHOD=chacha20 \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 17005:8388 -e METHOD=rc4-md5 \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 17006:8388 -e METHOD=salsa20 \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 17007:8388 -e METHOD=bf-cfb \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 17008:8388 -e METHOD=chacha20-ietf-poly1305 \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run -d -p 17009:8388 -e METHOD=camellia-128-cfb \
+		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 
 v2ray: checkhealth_docker
 	# Image: $ docker pull solomonxie/v2ray:latest

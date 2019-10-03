@@ -84,7 +84,8 @@ checkhealth_raspbian: checkhealth_docker
 checkhealth_ubuntu:
 
 
-shadowsocks: checkhealth_docker
+shadowsocks: ss
+ss: checkhealth_docker
 	# Stable
 	docker run -d -p 1988:8388 -e METHOD=aes-256-cfb \
 		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev

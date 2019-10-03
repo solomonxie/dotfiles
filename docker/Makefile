@@ -66,7 +66,7 @@ apps_mac:
 
 apps_raspbian: webav_raspbian
 
-apps_ubuntu: shadowsocks shadowsocks2 shadowsocks3 webdav frp
+apps_ubuntu: shadowsocks shadowsocks_cfb webdav frp
 
 checkhealth_debian:
 	apt-get --version
@@ -89,16 +89,16 @@ shadowsocks: checkhealth_docker
 	docker run -dt --name ssserver --restart always \
 		-p 6000:6000 -p 6000:6000/udp mritd/shadowsocks -m "ss-server" \
 	    -s "-s 0.0.0.0 -p 6000 -m aes-256-gcm -k shadow123 --fast-open"
-
-shadowsocks2: checkhealth_docker
-	# Image: $ docker pull mritd/shadowsocks PORT=6000
 	docker run -dt --name ssserver2 --restart always \
 		-p 16000:16000 -p 16000:16000/udp mritd/shadowsocks -m "ss-server" \
-	    -s "-s 0.0.0.0 -p 16000 -m aes-128-gcm -k shadow123 --fast-open"
-
-shadowsocks3: checkhealth_docker
-	# Image: $ docker pull mritd/shadowsocks
+	    -s "-s 0.0.0.0 -p 16000 -m aes-256-gcm -k shadow123 --fast-open"
 	docker run -dt --name ssserver3 --restart always \
+		-p 16100:16100 -p 16100:16100/udp mritd/shadowsocks -m "ss-server" \
+	    -s "-s 0.0.0.0 -p 16100 -m aes-128-gcm -k shadow123 --fast-open"
+
+shadowsocks_cfb: checkhealth_docker
+	# Image: $ docker pull mritd/shadowsocks
+	docker run -dt --name ssserver4 --restart always \
 		-p 17000:17000 -p 17000:17000/udp mritd/shadowsocks -m "ss-server" \
 	    -s "-s 0.0.0.0 -p 17000 -m aes-256-cfb -k shadow123 --fast-open"
 

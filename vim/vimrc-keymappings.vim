@@ -387,8 +387,8 @@
                 nnoremap <localleader>b :Buffers<CR>
                 nnoremap <localleader>p :Snippets<CR>
                 nnoremap <localleader>C :BCommits<CR>
-                nnoremap <localleader>tb :BTags<CR>
-                nnoremap <localleader>ta :Tags<CR>
+                nnoremap <localleader>b :BTags<CR>
+                nnoremap <localleader>t :Tags<CR>
                 nnoremap <LocalLeader>a :Ag<CR>
                 nnoremap <localleader>m :Marks<CR>
                 "nnoremap <localleader>p/ :Files ..

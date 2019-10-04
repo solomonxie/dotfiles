@@ -12,7 +12,7 @@ mac:
 debian:
 	sudo apt-get install zsh -y
 	@echo "-----[  CHANGE DEFAULT SHELL FOR THIS USER   ]-----"
-	sudo usermod -s /bin/zsh ${USER}
+	# sudo usermod -s /bin/zsh ${USER}
 
 ubuntu: debian
 raspbian: debian

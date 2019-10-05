@@ -20,11 +20,18 @@
 
 # Theme settings {
     source ~/dotfiles/zsh/themes.sh
-    #set_theme_agnoster
-    set_theme_awesomepanda
-    # set_theme_junkfood
+
+    # Light Themes
+    export ZSH_THEME="awesomepanda"  # export TERM="xterm-256color"
+    # export ZSH_THEME="kardan"  # export TERM="xterm-256color"
+    # export ZSH_THEME="junkfood"  # export TERM="xterm-256color"
+
+    # Heavy Themes
     # set_theme_powerlevel9k  # WAY TOO HEAVY EVEN FOR 16GB RAM MACBOOK PRO
+    # set_theme_agnoster
     # set_theme_spaceship
+
+    # Customer (Overwrite) Theme settings
 # }
 
 # General settings {

@@ -18,21 +18,13 @@
 
 " [  Plugins Manager vim-plug  ]-----------------------------------{
     call plug#begin('~/.vim/plugged')
-        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-        Plug 'junegunn/fzf.vim'
-        Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
-        Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
+        " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        " Plug 'junegunn/fzf.vim'
+        " Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
+        " Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
     call plug#end()
     "[Plugin Settings]
-        "<vim-obsession>
-        function! AutoObsession()
-            if bufnr('%') >= 3
-                :Obsession /tmp/obsession.vim
-            endif
-        endfunction
-        autocmd VimLeave * call AutoObsession()
-        "<fzf>
-        let g:fzf_layout = { 'down': '~40%' }
+    "...
 " }
 
 
@@ -40,14 +32,14 @@
 " [  General Builtin Settings  ]-----------{
     set nocompatible   " be iMproved, required
     "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
-    "set nospell
+    set nospell
     set ignorecase "Case Insensitive
     set ignorecase   "搜索时忽略大小写
     set smartcase  "搜索时如果输大写, 就不再忽略大小写
     set hidden " 设置Buffer缓冲区允许不保存时切换buffer
     set number "show line number
     set mouse=a  "设置鼠标滚动为All，即在tmux中的vim也能滚动 （但是选中文字自动会进入Visual模式）
-    "set paste   "设置可以直接用ctrl+c ctrl+v复制粘贴 其实没什么区别 只不过不用在insert模式而已
+    set paste   "Avoid pasting chaos
     set showcmd " show keypress at right-bottom
     set backspace=2 "backspace over everything in insert mode
     set autoindent "换行时自动缩排 同时对应的还有其它两种模式 smartindent, cindent

@@ -189,18 +189,13 @@ vpn_ipsec: checkhealth_docker
 		-e "VPN_PASSWORD=ipsec123" -e "VPN_IPSEC_PSK=psk123" \
 	    hwdsl2/ipsec-vpn-server
 
-vpn_ipsec_raspbian: checkhealth_docker
+vpn_ipsec_pi: checkhealth_docker
 	# Image: $ docker pull solomonxie/vpn-ipsec-rpi:latest
-	mkdir -p ${HOME}/.config
-	touch ${HOME}/.config/vpn.env
-	@echo "VPN_USER=ubuntu" >> ${HOME}/.config/vpn.env
-	@echo "VPN_PASSWORD=ipsec123" >> ${HOME}/.config/vpn.env
-	@echo "VPN_IPSEC_PSK=pre-password123" >> ${HOME}/.config/vpn.env
-	docker run \
-	    --name vpn --restart always \
+	docker run --name ipsec_server --restart always \
 	    -p 500:500/udp -p 4500:4500/udp \
 	    -v /lib/modules:/lib/modules:ro \
-	    --env-file ${HOME}/.config/vpn.env -d --privileged \
+		-d --privileged -e "VPN_USER=ipsec" \
+		-e "VPN_PASSWORD=ipsec123" -e "VPN_IPSEC_PSK=psk123" \
 	    solomonxie/vpn-ipsec-rpi
 
 playground_raspbian: checkhealth_docker

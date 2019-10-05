@@ -66,7 +66,7 @@ apps_mac:
 
 apps_raspbian: webav_raspbian
 
-apps_ubuntu: shadowsocks webdav frp
+apps_ubuntu: vpn_ipsec shadowsocks webdav frp
 
 checkhealth_debian:
 	apt-get --version
@@ -182,16 +182,11 @@ frp: checkhealth_docker
 
 vpn_ipsec: checkhealth_docker
 	# Image: $ docker pull hwdsl2/ipsec-vpn-server:latest
-	mkdir -p ${HOME}/.config
-	touch ${HOME}/.config/vpn.env
-	@echo "VPN_USER=ubuntu" >> ${HOME}/.config/vpn.env
-	@echo "VPN_PASSWORD=ipsec123" >> ${HOME}/.config/vpn.env
-	@echo "VPN_IPSEC_PSK=pre-password123" >> ${HOME}/.config/vpn.env
-	docker run \
-	    --name vpn --restart always \
+	docker run --name ipsec_server --restart always \
 	    -p 500:500/udp -p 4500:4500/udp \
 	    -v /lib/modules:/lib/modules:ro \
-	    --env-file ${HOME}/.config/vpn.env -d --privileged \
+		-d --privileged -e "VPN_USER=ipsec" \
+		-e "VPN_PASSWORD=ipsec123" -e "VPN_IPSEC_PSK=psk123" \
 	    hwdsl2/ipsec-vpn-server
 
 vpn_ipsec_raspbian: checkhealth_docker

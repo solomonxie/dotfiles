@@ -1,4 +1,4 @@
-.PHONY: configure-it build-python build-tmux build-zsh build-vim build-docker install
+.PHONY: config build_python build_tmux build_zsh build_vim build_docker install
 
 DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
@@ -7,42 +7,42 @@ DT ?= `date +%Y%m%d%s`
 
 
 # Stage-1: Configure
-configure-it:
+config:
 	./configure
 
 # Step-2: Build
-build: configure-it
+build: config
 	echo "make build_${MYOS}" | sh
 	echo "Build Done. Please proceed to: $ make install."
 
-build_mac: configure-it build-python build-vim build-zsh build-tmux
+build_mac: config build_python build_vim build_zsh build_tmux
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	@echo "OK."
-build_ubuntu: build-python build-vim build-zsh build-tmux build-docker
+build_ubuntu: build_python build_tmux build_docker
 	@echo "OK."
-build_raspbian: build-python build-vim build-zsh build-tmux build-docker
+build_raspbian: build_python build_vim build_zsh build_tmux build_docker
 	@echo "OK."
 
-build-python:
+build_python:
 	cd python && $(MAKE) ${MYOS}
 	echo "OK."
 
-build-tmux:
+build_tmux:
 	cd tmux && $(MAKE) ${MYOS}
 	cd tmux && $(MAKE) plugins
 	echo "OK."
 
-build-zsh:
+build_zsh:
 	cd zsh && $(MAKE) ${MYOS}
 	cd zsh && $(MAKE) plugins
 	echo "OK."
 
-build-vim:
+build_vim:
 	cd vim && $(MAKE) ${MYOS}
 	vim +PlugInstall +qall
 	echo "OK."
 
-build-docker:
+build_docker:
 	cd docker && $(MAKE) install
 	echo "OK."
 

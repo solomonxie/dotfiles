@@ -92,7 +92,7 @@ install_symlinks_vim:
 
 install_symlinks_zsh:
 	ln -s ${DOTFILES}/zsh ~/.zsh
-	ln -sf ${DOTFILES}/zsh/${MYOS}.env ~/.zshrc
+	ln -sf ${DOTFILES}/zsh/env-${MYOS}.sh ~/.zshrc
 
 install_symlinks_tmux:
 	ln -s ${DOTFILES}/tmux ~/.tmux

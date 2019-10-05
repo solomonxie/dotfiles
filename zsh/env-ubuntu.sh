@@ -1,4 +1,4 @@
-source ~/dotfiles/zsh/zshrc-linux
+source ~/dotfiles/zsh/zshrc-mini.sh
 
 export LC_ALL=C
 

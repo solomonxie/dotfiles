@@ -1,36 +1,33 @@
-#""""""""""""""""""""""""""""""""""""
-#         _________  _   _          "
-#        |__  / ___|| | | |         "
-#          / /\___ \| |_| |         "
-#         / /_ ___) |  _  |         "
-#        /____|____/|_| |_|         "
-#                                   "
-#""""""""GENERATED-BY-FIGLET"""""""""
-#
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
+#
+# Preload dependencies:
+#     # Plugin: Syntax-highlighting
+#     $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+#     # Plugin: zsh-autosuggestions
+#     $ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+#     # Theme: Agnoster
+#     $ wget https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -P ~/.oh-my-zsh/themes/
+#     # Theme: Powerlevel9k
+#     $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 #
 # Commands:
 #
 
 # User-specified hosts (not working at the moment)
-    # set HOSTALIASES=~/hosts
+    set HOSTALIASES=~/hosts
 
 # Make some device-specific aliased in another file
-    source ~/dotfiles/zsh/zshrc-mac.aliases
+    source ~/dotfiles/zsh/alias-mini.sh
 
 # Theme settings {
-    source ~/dotfiles/zsh/zshrc.themes
+    source ~/dotfiles/zsh/themes.sh
     #set_theme_agnoster
-    #set_theme_awesomepanda
-    set_theme_powerlevel9k
-    # set_theme_spaceship
+    set_theme_awesomepanda
+    #set_theme_powerlevel9k
 # }
 
 # General settings {
-    # Important: Locale
-    export LANG=en_US.UTF-8
-    # Get rid of "you have a mail" from crontab
-    MAILCHECK=0
+    MAILCHECK=0   # Get rid of "you have a mail" from crontab
 # }
 
 # Builtin behaviors {
@@ -48,38 +45,10 @@
         setopt no_nomatch
 # }
 
-# Setting up Oh-my-zsh {
-    export ZSH=~/.oh-my-zsh
-    export ZSH_CUSTOM=~/.oh-my-zsh/custom
-    plugins=(  # DO NOT USE , COMMA TO SEPARATE PLUGINS
-      history-substring-search
-      colored-man-pages
-      dircycle
-      docker
-      jsontools
-      # gitfast
-      # git-extras
-    )
-    # Disable update checks:
-    DISABLE_UPDATE_PROMPT=true
-    DISABLE_AUTO_UPDATE=true
-    ZSH_DISABLE_COMPFIX=true
-    # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
-    source $ZSH/oh-my-zsh.sh
-# }
-
 
 # Plugins {
     # Fish-like commandline suggestions (not working with oh-my-zsh)
-    if [ ! -e ~/.zsh/plugins/zsh-autosuggestions ]; then
-        git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
-    fi
     source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-    # Syntax highlighting
-    if [ ! -e ~/.zsh/plugins/zsh-syntax-highlighting ]; then
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
-    fi
     source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     # Setups for plugins {
         # [zsh-autosuggestions]
@@ -93,9 +62,28 @@
     bindkey '^p' up-line-or-search # Up arrow
     bindkey '^n' down-line-or-search # Down arrow
     # [autosuggestions] (history conflict with zsh hints, not recommanded)
-    #bindkey '^e' autosuggest-accept # [Essential] Ctrl+i to confirm hint
-    #bindkey -e
+    #bindkey '^i' autosuggest-accecpt # [Essential] Ctrl+i to confirm hint
 # }
+
+
+# Setting up Oh-my-zsh {
+    export ZSH=~/.oh-my-zsh
+    plugins=(
+      git,
+      #history-substring-search,
+      colored-man-pages
+    )
+    # Disable update checks:
+    DISABLE_UPDATE_PROMPT=true
+    DISABLE_AUTO_UPDATE=true
+    ZSH_DISABLE_COMPFIX=true
+    # Fix color for ls command
+    LS_COLORS=$LS_COLORS:'ow=37;42:'
+    # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
+    # Use oh-my-zsh
+    source $ZSH/oh-my-zsh.sh
+# }
+
 
 # Setup fzf Searching tool {
     # Import binary execution to PATH
@@ -119,9 +107,3 @@
         #
     fi
 # }
-
-
-# Overwite with local zshrc
-if [ -e ~/.zshrc-local ]; then
-    source ~/.zshrc-local
-fi

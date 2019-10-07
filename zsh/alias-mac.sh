@@ -17,10 +17,10 @@ alias rec="asciinema rec"
 alias m="macdown"
 
 # RCs, Config files
-alias zshrc="vim ~/dotfiles/zsh/zshrc-mac"
+alias zshrc="vim ~/dotfiles/zsh/zshrc-mac.sh"
 alias zshrc0="vim ~/.zshrc"
-alias zshrc2="vim ~/dotfiles/zsh/zshrc-mac.aliases"
-alias zshrc3="vim ~/dotfiles/zsh/zshrc.themes"
+alias zshrc2="vim ~/dotfiles/zsh/aliases-mac.sh"
+alias zshrc3="vim ~/dotfiles/zsh/themes.sh"
 alias vimrc="vim -S ~/dotfiles/vim/workspace.vim"
 #alias vimrc="vim ~/dotfiles/vim/vimrc"
 #alias vimrc2="vim ~/dotfiles/vim/vimrc-plugins"

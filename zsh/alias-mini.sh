@@ -13,9 +13,9 @@ alias lah="ls -lah"
 #alias vim="nvim"
 
 # Config files
-alias zshrc="vim ~/dotfiles/zsh/zshrc-linux"
-alias zshrc2="vim ~/dotfiles/zsh/zshrc-linux.aliases"
-alias zshrc3="vim ~/dotfiles/zsh/zshrc.themes"
+alias zshrc="vim ~/dotfiles/zsh/zshrc-mini.sh"
+alias zshrc2="vim ~/dotfiles/zsh/aliases-mini.sh"
+alias zshrc3="vim ~/dotfiles/zsh/themes.sh"
 alias vimrc="vim ~/.vimrc"
 alias vimrc2="vim ~/dotfiles/vim/vimrc-keymappings.vim"
 alias vimrc3="vim ~/dotfiles/vim/vimrc-plugins.vim"

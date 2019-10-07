@@ -22,7 +22,11 @@
     source ~/dotfiles/zsh/themes.sh
 
     # Light Themes
-    export ZSH_THEME="awesomepanda"  # export TERM="xterm-256color"
+    # export ZSH_THEME="awesomepanda"  # export TERM="xterm-256color"
+    export ZSH_THEME="aussiegeek"  # export TERM="xterm-256color"
+    # export ZSH_THEME="crunch"  # export TERM="xterm-256color"
+    # export ZSH_THEME="eastwood"  # export TERM="xterm-256color"
+    # export ZSH_THEME="minimal"  # export TERM="xterm-256color"
     # export ZSH_THEME="kardan"  # export TERM="xterm-256color"
     # export ZSH_THEME="junkfood"  # export TERM="xterm-256color"
 

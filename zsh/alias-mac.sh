@@ -19,7 +19,7 @@ alias m="macdown"
 # RCs, Config files
 alias zshrc="vim ~/dotfiles/zsh/zshrc-mac.sh"
 alias zshrc0="vim ~/.zshrc"
-alias zshrc2="vim ~/dotfiles/zsh/aliases-mac.sh"
+alias zshrc2="vim ~/dotfiles/zsh/alias-mac.sh"
 alias zshrc3="vim ~/dotfiles/zsh/themes.sh"
 alias vimrc="vim -S ~/dotfiles/vim/workspace.vim"
 #alias vimrc="vim ~/dotfiles/vim/vimrc"

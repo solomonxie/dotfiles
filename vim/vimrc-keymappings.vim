@@ -309,6 +309,13 @@
         "autocmd FileType cpp noremap <buffer> <C-u> :w<CR>:!g++ % && ./a.out <CR>
     " }
 
+    "<Language Specific>-----{
+        " <Python>
+            " (Could use [m and ]m instead)
+            " autocmd FileType python nnoremap <buffer> [[ ?^class\\|^\s*def<CR>
+            " autocmd FileType python nnoremap <buffer> ]] /^class\\|^\s*def<CR>
+    "}
+
     "<NetRW> -> (Lexplore/Vexplore/Texplore/Explore/Sexplore/edit.)
         "nnoremap <Leader>f :Lexplore<CR>
         "nnoremap <Leader>f :Explore<CR>

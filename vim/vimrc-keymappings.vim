@@ -264,7 +264,7 @@
                 :echo 'No session found.'
             endif
         endfunction
-        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=3 | call AutoSaveSession() | endif
+        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
         "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}

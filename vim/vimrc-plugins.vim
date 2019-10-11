@@ -44,11 +44,12 @@ call plug#begin('~/.vim/plugged')
 
         "<Syntax Highlighting>
             if has('nvim') && (has('python') || has('python3'))
-                Plug 'numirias/semshi'  "The Best for python-syntax (pynvim required)
+                "The Best for python-syntax (pynvim required)
+                Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
             endif
             "Plug 'hdima/python-syntax'  "Stable. (missing color for arguments)
             " Plug 'sheerun/vim-polyglot'  "Ordinary, full support for most language
-            Plug 'junegunn/rainbow_parentheses.vim'
+            " Plug 'junegunn/rainbow_parentheses.vim'
 
         "<Window>
             "Plug 'TaDaa/vimade'  "Dim inactive windows
@@ -469,6 +470,10 @@ endfunction
     sign define semshiError text=E> texthl=semshiErrorSign
 
     if &runtimepath =~ 'semshi'
+        let g:semshi#active = v:true
+        let g:semshi#excluded_hl_groups = ['local']
+        let g:semshi#simplify_markup = v:true
+        let g:semshi#always_update_all_highlights = v:true
         "Don't show a sign by the line-no if a syntax error occurred
         let g:semshi#error_sign = v:false
         "Tolerate some minor syntax errors to update highlights

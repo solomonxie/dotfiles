@@ -87,8 +87,8 @@ checkhealth_ubuntu:
 shadowsocks: ss
 ss: checkhealth_docker
 	# Stable
-	docker run -d -p 1988:8388 -e METHOD=aes-256-cfb --name "ss1988" \
-		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	# docker run -d -p 1988:8388 -e METHOD=aes-256-cfb --name "ss1988" \
+	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	docker run -d -p 6000:8388 -e METHOD=aes-256-gcm --name "ss6000" \
 		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# docker run -d -p 16000:8388 -e METHOD=aes-256-gcm --name "ss1600" \
@@ -98,9 +98,9 @@ ss: checkhealth_docker
 	# docker run -d -p 16002:8388 -e METHOD=aes-256-gcm --name "ss16002" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# Experimental
-	docker run -d -p 17008:8388 -e METHOD=chacha20-ietf-poly1305 --name "ss17001" \
+	docker run -d -p 17001:8388 -e METHOD=chacha20-ietf-poly1305 --name "ss17001" \
 		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
-	# docker run -d -p 17001:8388 -e METHOD=aes-128-gcm --name "ss17002" \
+	# docker run -d -p 17002:8388 -e METHOD=aes-128-gcm --name "ss17002" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# docker run -d -p 17003:8388 -e METHOD=camellia-256-cfb --name "ss17003" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
@@ -112,7 +112,7 @@ ss: checkhealth_docker
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# docker run -d -p 17007:8388 -e METHOD=bf-cfb --name "ss17007" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
-	# docker run -d -p 17002:8388 -e METHOD=aes-256-ctr --name "ss17008" \
+	# docker run -d -p 17008:8388 -e METHOD=aes-256-ctr --name "ss17008" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# docker run -d -p 17009:8388 -e METHOD=camellia-128-cfb --name "ss17009" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev

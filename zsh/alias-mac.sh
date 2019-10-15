@@ -61,7 +61,10 @@ alias gc="git add .; git commit"
 # alias gd="git diff --word-diff=plain"
 alias gd="git diff"
 alias gco="git checkout"
-alias gcp="git add .; git commit -m \"Update from $USER\"; git pub"
+alias gcp="git add .; git commit -m 'Update from $USER'; git push origin `git rev-parse --abbrev-ref HEAD`"
+alias gsc="git pull origin `git rev-parse --abbrev-ref HEAD`"
+alias gpush="git push origin `git rev-parse --abbrev-ref HEAD`"
+alias gpull="git push origin `git rev-parse --abbrev-ref HEAD`"
 
 # Docker
 alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'

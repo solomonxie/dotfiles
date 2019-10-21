@@ -79,6 +79,7 @@
     DISABLE_UPDATE_PROMPT=true
     DISABLE_AUTO_UPDATE=true
     ZSH_DISABLE_COMPFIX=true
+    DISABLE_MAGIC_FUNCTIONS=true  # Autocompletion has bug on pasting URL
     # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
     source $ZSH/oh-my-zsh.sh
 # }

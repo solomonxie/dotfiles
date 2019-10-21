@@ -119,7 +119,7 @@ call plug#begin('~/.vim/plugged')
 
         "<Autocomplete>
             "[Snippets]
-                if has('python')
+                if has('python') || has('python3')
                     Plug 'SirVer/ultisnips'  " Track the engine.
                     Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
                 endif

@@ -228,7 +228,8 @@ endfunction
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit="vertical"
         " Specify snippets locations
-        let g:UltiSnipsSnippetDirectories=["~/dotfiles/vim/plugged/vim-snippets/UltiSnips", "~/dotfiles/vim/plugged/vim-snippets/snippets", "~/dotfiles/snippets"]
+        let g:UltiSnipsSnippetsDir="~/dotfiles/snippets"
+        " let g:UltiSnipsSnippetDirectories=['~/dotfiles/vim/plugged/vim-snippets/UltiSnips', '~/dotfiles/vim/plugged/vim-snippets/snippets', '~/dotfiles/snippets']
         " Could be buggy if not specifying the Python version
         if has('python')
             let g:UltiSnipsUsePythonVersion=2

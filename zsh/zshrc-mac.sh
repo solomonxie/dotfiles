@@ -72,6 +72,7 @@
       dircycle
       docker
       jsontools
+      aws
       # gitfast
       # git-extras
     )

@@ -1,0 +1,21 @@
+
+# [DEBUGGING]-------------------------------{
+snippet pp
+	__import__('pprint').pprint(${1})
+snippet pprint
+	__import__('pprint').pprint(${1})
+snippet pdb
+	__import__('pdb').set_trace()
+# bpython debugger (bpdb)
+snippet bpdb
+	__import__('bpdb').set_trace()
+# ipython debugger (ipdb)
+snippet ipdb
+	__import__('ipdb').set_trace()
+# -------------------------------------------}
+
+
+snippet def
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+		"""${3:docstring for $1}"""
+		${0}

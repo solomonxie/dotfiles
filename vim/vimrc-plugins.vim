@@ -230,7 +230,11 @@ endfunction
         " Specify snippets locations
         let g:UltiSnipsSnippetDirectories=["~/dotfiles/vim/plugged/vim-snippets/UltiSnips", "~/dotfiles/vim/plugged/vim-snippets/snippets", "~/dotfiles/snippets"]
         " Could be buggy if not specifying the Python version
-        let g:UltiSnipsUsePythonVersion=3
+        if has('python')
+            let g:UltiSnipsUsePythonVersion=2
+        elseif has('python3')
+            let g:UltiSnipsUsePythonVersion=3
+        endif
     endif
 " }
 

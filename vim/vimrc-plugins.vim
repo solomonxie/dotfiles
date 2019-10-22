@@ -228,7 +228,7 @@ endfunction
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit="vertical"
         " Specify snippets locations
-        let g:UltiSnipsSnippetDirectories=["~/dotfiles/snippets", "~/.vim/plugged/vim-snippets/snippets", "~/.vim/plugged/vim-snippets/UltiSnips"]
+        let g:UltiSnipsSnippetDirectories=["~/dotfiles/vim/plugged/vim-snippets/UltiSnips", "~/dotfiles/vim/plugged/vim-snippets/snippets", "~/dotfiles/snippets"]
     endif
 " }
 

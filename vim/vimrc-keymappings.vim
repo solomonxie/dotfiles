@@ -75,6 +75,18 @@
             "nnoremap <C-]> <C-]>
             "nnoremap <C-[> <C-t>
             nnoremap <Leader>tt g]
+        "{Jump the file under the cursor}
+            function! OpenFileInPrevWindow()
+                let cfile = expand("<cfile>")
+                if filereadable(cfile)
+                    wincmd p
+                    execute "edit " . cfile
+                endif
+            endfunction
+
+            nnoremap <C-y> :call OpenFileInPrevWindow()<CR>
+            "./vim/vimrc-keymappings.vim
+            "~/.vim/autoload/plug.vim
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>

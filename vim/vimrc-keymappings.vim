@@ -77,6 +77,7 @@
             nnoremap <Leader>tt g]
         "{Jump the file under the cursor}
             function! OpenFileInPrevWindow()
+                "Refer: https://unix.stackexchange.com/questions/74571
                 let cfile = expand("<cfile>")
                 if filereadable(cfile)
                     wincmd p

@@ -229,7 +229,7 @@ endfunction
         let g:UltiSnipsEditSplit="vertical"
         " Specify snippets locations
         let g:UltiSnipsSnippetsDir="~/dotfiles/snippets"
-        " let g:UltiSnipsSnippetDirectories=['~/dotfiles/vim/plugged/vim-snippets/UltiSnips', '~/dotfiles/vim/plugged/vim-snippets/snippets', '~/dotfiles/snippets']
+        let g:UltiSnipsSnippetDirectories=['~/dotfiles/vim/plugged/vim-snippets/UltiSnips', '~/dotfiles/vim/plugged/vim-snippets/snippets', '~/dotfiles/snippets']
         " Could be buggy if not specifying the Python version
         if has('python')
             let g:UltiSnipsUsePythonVersion=2
@@ -441,8 +441,8 @@ endfunction
     if &runtimepath =~ 'vista'
         let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
         let g:vista_default_executive = 'ctags'
-        " let g:vista_sidebar_position = 'botright'  "botright | topleft
-        let g:vista_sidebar_width = 60
+        let g:vista_sidebar_position = 'vertical botright'  "botright | topleft
+        let g:vista_sidebar_width = 30
         let g:vista_sidebar_position = 1
         let g:vista_fzf_preview = ['right:30%']
         " let g:vista_default_executive = 1 "Close vista after jump to a link

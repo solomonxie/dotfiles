@@ -1,12 +1,6 @@
-# [DEBUGGING]-------------------------------{
-snippet pp
-	__import__('pprint').pprint(${1})
-endsnippet
-
-snippet pprint
-	__import__('pprint').pprint(${1})
-endsnippet
-
+#######################################################################
+#                              DEBUGGING                              #
+#######################################################################
 snippet pdb
 	__import__('pdb').set_trace()
 # bpython debugger (bpdb)
@@ -20,10 +14,125 @@ endsnippet
 snippet ipdb
 	__import__('ipdb').set_trace()
 endsnippet
-# -------------------------------------------}
 
-snippet def
-	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
-		"""${3:docstring for $1}"""
-		${0}
+snippet pp
+	__import__('pprint').pprint(${1})
+endsnippet
+
+snippet pprint
+	__import__('pprint').pprint(${1})
+endsnippet
+
+
+#######################################################################
+#                              UTILITIES                              #
+#######################################################################
+snippet chunks
+def chunks(l, size):
+	for i in range(0, len(l), size):
+		yield l[i:i+size]
+endsnippet
+
+
+snippet meminfo
+import psutil
+def mem_info():
+	used = format(psutil.virtual_memory().used / 1024 / 1024 / 1024, '.2f')
+	total = format(psutil.virtual_memory().total / 1024 / 1024 / 1024, '.2f')
+	percent = psutil.virtual_memory().percent
+	logger.info('*'*15 + f'Current memory usage ({percent}%): [{used}GB / {total}GB]' + '*'*15)
+	return percent
+endsnippet
+
+snippet oscheck
+import psutil
+def os_check(wait=2, timeout=60*60, mem_use=10, cpu_use=70, disk_free=5):
+	"""
+	:mem: Memory Usage (GB)
+	:cpu: CPU Usage percentage
+	:disk: Disk free size (GB)
+	"""
+	begin = time()
+	mem, cpu, disk = get_os_usage()
+	# mem_rank, cpu_rank = get_top_os_usage_processes()
+
+	# while mem > mem_use or cpu > cpu_use or disk < disk_free:
+	while mem > mem_use:
+		if time() - begin > timeout:
+			logger.critical('_'*15 + 'Memory usage is high for too long. Now quit waiting' + '_'*15)
+			break  # Quit looping if it's waiting too long
+		if mem > mem_use:
+			gc.collect()
+		if cpu > cpu_use:
+			logger.info('#'*10 + f'CPU USAGE: {cpu}%.' + '#'*10)
+		if disk < disk_free:
+			logger.info('$'*10 + f'DISK FREE: {disk}GB' + '$'*10)
+		sleep(wait)
+		mem, cpu, disk = get_os_usage()  # Refresh current info
+endsnippet
+
+snippet osusage
+import psutil
+def get_os_usage():
+	mem = psutil.virtual_memory().used / 1024 / 1024 / 1024  # GB
+	cpu = mean(psutil.cpu_percent(interval=0.01, percpu=True))
+	disk = psutil.disk_usage('/').free / 1024 / 1024 / 1024  # GB
+	return mem, cpu, disk
+endsnippet
+
+snippet osusagetopprocesses
+def get_top_os_usage_processes(top=1):
+	top_mem_use, top_cpu_use = [], []
+	# Iterate over all running process
+	for proc in psutil.process_iter():
+		try:
+			pname = proc.name()
+			mem_use = round(proc.memory_info().vms / 1024 / 1024, 2)  # MB
+			# cpu_use = round(proc.cpu_percent() / psutil.cpu_count(), 2)
+			cpu_use = max([proc.cpu_percent(interval=0.001) for i in range(1, 5)])
+			top_mem_use.append(', '.join((pname, f'{mem_use} MB')))
+			top_cpu_use.append(', '.join((pname, f'{cpu_use}%')))
+		except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+			continue
+	mem_rank = sorted(top_mem_use, reverse=True, key=lambda x: x[1])
+	cpu_rank = sorted(top_cpu_use, reverse=True, key=lambda x: x[1])
+	return mem_rank[:top], cpu_rank[:top]
+endsnippet
+
+snippet daterange
+def get_date_range(granularity, start_date):
+	"""
+	get start_date and end_date from start_date and granularity
+	:param granularity:
+	:param start_date:
+	:return:
+	"""
+	if granularity == 'daily':
+		# run current day
+		return start_date, start_date
+
+	elif granularity == 'weekly':
+		# run current week
+		# sunday is first day
+		target_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
+		week_begin_date = target_date_obj - timedelta(days=(target_date_obj.isoweekday() % 7))
+		week_end_date = week_begin_date + timedelta(days=6)
+
+		return str(week_begin_date.date()), str(week_end_date.date())
+
+	elif granularity == 'monthly':
+		# run current month
+		month_begin_date = datetime.strptime(start_date, '%Y-%m-%d').replace(day=1)
+		next_month_date = datetime.strptime(start_date, '%Y-%m-%d').replace(day=28) + timedelta(days=4)
+		month_end_date = next_month_date - timedelta(days=next_month_date.day)
+		return str(month_begin_date.date()), str(month_end_date.date())
+
+	else:
+		raise Exception(f'Unknown granularity: {granularity}')
+endsnippet
+
+snippet xx
+endsnippet
+
+snippet xx
 endsnippet

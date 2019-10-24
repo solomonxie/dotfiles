@@ -47,6 +47,7 @@
             " vnoremap # "1y/<C-r>1<CR>
             " vnoremap * "1y?<C-r>1<CR>
             vnoremap <Leader>/ "1y:%s/<C-r>1//n<CR>
+            " Refer: https://stackoverflow.com/questions/4668623/show-count-of-matches-in-vim
             nnoremap <Leader>/ #<C-O>:%s///gn<CR>
         "{Jump to parent bracket/level}
             "nnoremap <C-[> [{

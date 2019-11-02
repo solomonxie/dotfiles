@@ -38,5 +38,6 @@ plugins: checkhealth
 	fi
 	${HOME}/.tmux/plugins/tpm/bin/install_plugins
 	#Restore tmux session
+	mkdir -p ${HOME}/.tmux/resurrect/ || echo
 	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS} ${HOME}/.tmux/resurrect/last
 	@echo "OK."

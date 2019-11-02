@@ -278,16 +278,18 @@
                 :echo 'No session found.'
             endif
         endfunction
-        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
-        "autocmd VimEnter * call AutoLoadSession()
 
         "{Save session}
-        noremap <Leader>S :mksession! ~/vim-session.vim<CR><ESC>
-        command! SaveSession :call AutoSaveSession()
-        "{Load session}
-        noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
-        noremap <Leader>R :call AutoLoadSession()<CR>
-        command! LoadSession :call AutoLoadSession()
+        if v:version > 800
+            noremap <Leader>S :mksession! ~/vim-session.vim<CR><ESC>
+            command! SaveSession :call AutoSaveSession()
+            "{Load session}
+            noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
+            noremap <Leader>R :call AutoLoadSession()<CR>
+            command! LoadSession :call AutoLoadSession()
+            "autocmd VimEnter * call AutoLoadSession()
+            autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
+        endif
     " }
 
 
@@ -296,7 +298,7 @@
         " [ Builds / Compiles / Interpretes  ]
         "<C/C++ Compiler>  -> Compile & run
             autocmd BufReadPre *.c noremap <buffer> <M-b> :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
-            autocmd BufReadPre *.cpp noremap <buffer> <M-b> :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
+            autocmd BufReadPre *.cpp,*.cc noremap <buffer> <M-b> :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
 
         "<Python Interpreter>
             autocmd BufReadPre *.py noremap <buffer> <M-b> :w<CR>:!python "%:p" <CR>

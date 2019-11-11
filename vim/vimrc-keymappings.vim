@@ -284,7 +284,6 @@
             noremap <Leader>S :mksession! ~/vim-session.vim<CR><ESC>
             command! SaveSession :call AutoSaveSession()
             "{Load session}
-            noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
             noremap <Leader>R :call AutoLoadSession()<CR>
             command! LoadSession :call AutoLoadSession()
             "autocmd VimEnter * call AutoLoadSession()
@@ -430,8 +429,8 @@
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
                 nnoremap tf :NERDTree<CR>
                 nnoremap tF :NERDTree %:p:h<CR>
-                nnoremap <Leader>f :NERDTree<CR>
-                nnoremap <Leader>F :NERDTree %:p:h<CR>
+                nnoremap fF :NERDTree<CR>
+                nnoremap ff :NERDTree %:p:h<CR>
             endif
         "[Nerdtree Tabs]
             if &runtimepath =~ 'nerdtree-tabs'

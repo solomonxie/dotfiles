@@ -14,7 +14,8 @@ USER ?= `cat /tmp/env-user`
 
 # This recipe is for solo-installment, not for "parent" Makefile
 install:
-	$(MAKE) ${MYOS} apps_${MYOS}
+	$(MAKE) ${MYOS}
+	$(MAKE) apps_${MYOS}
 
 ubuntu: quick_build docker_compose add_permission
 mac:

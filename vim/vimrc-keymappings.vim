@@ -128,7 +128,7 @@
 
     "<Split>
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
-        noremap S :vsplit<CR><C-w>l
+        noremap <leader>s :vsplit<CR><C-w>l
         "{vimrc-edit}
         "nnoremap <Leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
         function! LoadVimrc()
@@ -280,15 +280,17 @@
         endfunction
 
         "{Save session}
-        if v:version > 800
-            noremap <Leader>S :mksession! ~/vim-session.vim<CR><ESC>
-            command! SaveSession :call AutoSaveSession()
-            "{Load session}
-            noremap <Leader>R :call AutoLoadSession()<CR>
-            command! LoadSession :call AutoLoadSession()
-            "autocmd VimEnter * call AutoLoadSession()
-            autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
-        endif
+        noremap S :mksession! ~/vim-session.vim<CR><ESC>
+        command! SaveSession :call AutoSaveSession()
+        "{Load session}
+        " noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
+        noremap <Leader>R :call AutoLoadSession()<CR><ESC>
+        noremap R :call AutoLoadSession()<CR><ESC>
+        command! LoadSession :call AutoLoadSession()
+        "autocmd VimEnter * call AutoLoadSession()
+        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
+        " if v:version > 800
+        " endif
     " }
 
 
@@ -423,8 +425,8 @@
 
         "[Nerdtree]
             if &runtimepath =~ 'nerdtree'
-                "nnoremap <Leader>f :NERDTreeFocus<CR>
-                "nnoremap <Leader>f :NERDTreeToggle<CR>
+                nnoremap <Leader>f :NERDTreeFocus<CR>
+                nnoremap <Leader>f :NERDTreeToggle<CR>
                 " Add '%' for changing root accordingly
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
                 nnoremap tf :NERDTree<CR>

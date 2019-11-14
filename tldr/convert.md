@@ -35,6 +35,9 @@
     $ ffmpeg -i "${FILE}" -vn -ab 128k -ar 44100 -y "${FILE%.webm}.mp3";
 - mp4 to m4a
 - mp3 to m4a
+- Join/concatenate multiple audios to one
+    $ for fn in ./*.m4a; do echo "file '$fn'" >> playlist.txt; done
+    # ffmpeg -f concat -safe 0 -i playlist.txt -c copy output.m4a
 
 ## PDF Operations
 - Extract Page 1-15 to a file

@@ -37,7 +37,7 @@ alias you="youtube-dl"
 # Git commands
 alias gs="git status"
 alias gc="git add .; git commit"
-alias gd="git diff"
+alias gd="git diff HEAD"
 alias gco="git checkout"
 alias gcp="git add .; git commit -m \"Update from $USER\"; git remote | xargs -L1 git push --all"
 

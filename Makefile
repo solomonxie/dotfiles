@@ -18,9 +18,9 @@ build: config
 build_mac: config build_python build_vim build_zsh build_tmux
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	@echo "OK."
-build_ubuntu: build_python build_tmux build_docker
+build_ubuntu: build_python build_tmux build_docker build_docker_apps
 	@echo "OK."
-build_raspbian: build_python build_vim build_zsh build_tmux build_docker
+build_raspbian: build_python build_vim build_zsh build_tmux build_docker build_docker_apps
 	@echo "OK."
 
 build_python:
@@ -44,9 +44,11 @@ build_vim:
 
 build_docker:
 	cd docker && $(MAKE) ${MYOS}
-	cd docker && $(MAKE) apps_${MYOS}
 	echo "OK."
 
+build_docker_apps:
+	cd docker && $(MAKE) apps_${MYOS}
+	echo "OK."
 
 checkhealth:
 	ls ~/.vim

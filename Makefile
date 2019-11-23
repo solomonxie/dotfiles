@@ -1,3 +1,4 @@
+# git clone https://github.com/solomonxie/dotfiles
 .PHONY: config build_python build_tmux build_zsh build_vim build_docker install
 
 DOTFILES ?= ~/dotfiles

@@ -99,7 +99,7 @@ ss: checkhealth_docker
 	# docker run -d --restart always -p 16002:8388 -e METHOD=aes-256-gcm --name "ss16002" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# Experimental
-	docker run -d -p 17001:8388 -e METHOD=chacha20-ietf-poly1305 --name "ss17001" \
+	docker run -d --restart always -p 17001:8388 -e METHOD=chacha20-ietf-poly1305 --name "ss17001" \
 		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# docker run -d --restart always -p 17002:8388 -e METHOD=aes-128-gcm --name "ss17002" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev

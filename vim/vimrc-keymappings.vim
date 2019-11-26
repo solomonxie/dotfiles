@@ -473,7 +473,6 @@
                 nnoremap <localleader>h :History<CR>
                 nnoremap <localleader>c :History:<CR>
                 nnoremap <localleader>/ :History/<CR>
-                nnoremap <localleader>b :Buffers<CR>
                 nnoremap <localleader>p :Snippets<CR>
                 nnoremap <localleader>C :BCommits<CR>
                 nnoremap <localleader>b :Buffers<CR>
@@ -483,6 +482,12 @@
                 "nnoremap <localleader>p/ :Files ..
                 "nnoremap <localleader>color/ :Colors
                 "nnoremap <localleader>k/ :Maps<CR>
+                nnoremap fv :Files<CR>
+                nnoremap fb :Buffers<CR>
+                nnoremap ft :Tags<CR>
+                nnoremap fc :History:<CR>
+                nnoremap fh :History<CR>
+                nnoremap fa :Ag<CR>
             endif
         "[Command-T File Searching]
             "nnoremap <localleader>/ :CommandT<CR>

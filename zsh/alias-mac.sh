@@ -59,10 +59,10 @@ alias yourc="vim ~/.config/youtube-dl/config"
 alias gs="git status"
 alias gc="git add .; git commit"
 # alias gd="git diff --word-diff=plain"
-alias gd="git diff HEAD"
+alias gd="git diff"
 alias gco="git checkout"
-alias gcp="git add .; git commit -m 'Update from $USER'; git pub"
 alias gsc="git sync"
+alias gcp="git add .; git quickcommit; git pub"
 
 # Docker
 alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'

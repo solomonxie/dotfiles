@@ -498,7 +498,7 @@
                 nnoremap <Leader>f :NERDTree<CR>
                 " Add '%' for changing root accordingly
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
-                nnoremap fD :NERDTree<CR>
+                nnoremap FD :NERDTree<CR>
                 nnoremap fd :NERDTree %:p:h<CR>
             endif
         "[Nerdtree Tabs]

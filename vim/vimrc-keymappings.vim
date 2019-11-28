@@ -345,13 +345,12 @@
         endfunction
 
         "{Save session}
-        noremap S :mksession! ~/vim-session.vim<CR><ESC>
-        command! SaveSession :call AutoSaveSession()
+        noremap S :call AutoSaveSession()<CR><ESC>
+        command! SessionSave :call AutoSaveSession()
         "{Load session}
         " noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
-        noremap <Leader>R :call AutoLoadSession()<CR><ESC>
         noremap R :call AutoLoadSession()<CR><ESC>
-        command! LoadSession :call AutoLoadSession()
+        command! SessionLoad :call AutoLoadSession()
         "autocmd VimEnter * call AutoLoadSession()
         autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
         " if v:version > 800
@@ -488,6 +487,9 @@
                 nnoremap fc :History:<CR>
                 nnoremap fh :History<CR>
                 nnoremap fa :Ag<CR>
+                nnoremap fs :Snippets<CR>
+                nnoremap fS :History/<CR>
+                nnoremap fm :Marks<CR>
             endif
         "[Command-T File Searching]
             "nnoremap <localleader>/ :CommandT<CR>

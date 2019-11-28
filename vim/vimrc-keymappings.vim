@@ -495,7 +495,8 @@
 
         "[Nerdtree]
             if &runtimepath =~ 'nerdtree'
-                nnoremap <Leader>f :NERDTree<CR>
+                nnoremap <Leader>f :NERDTree %:p:h<CR>
+                nnoremap <Leader>F :NERDTree<CR>
                 " Add '%' for changing root accordingly
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
                 nnoremap FD :NERDTree<CR>

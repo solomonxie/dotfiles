@@ -481,7 +481,7 @@
                 "nnoremap <localleader>p/ :Files ..
                 "nnoremap <localleader>color/ :Colors
                 "nnoremap <localleader>k/ :Maps<CR>
-                nnoremap ff :Files<CR>
+                nnoremap fd :Files<CR>
                 nnoremap fb :Buffers<CR>
                 nnoremap ft :Tags<CR>
                 nnoremap fc :History:<CR>
@@ -501,8 +501,8 @@
                 nnoremap <Leader>F :NERDTree<CR>
                 " Add '%' for changing root accordingly
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
-                nnoremap FD :NERDTree<CR>
-                nnoremap fd :NERDTree %:p:h<CR>
+                nnoremap FF :NERDTree<CR>
+                nnoremap ff :NERDTree %:p:h<CR>
             endif
         "[Nerdtree Tabs]
             if &runtimepath =~ 'nerdtree-tabs'

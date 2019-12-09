@@ -63,6 +63,7 @@ alias gd="git diff"
 alias gco="git checkout"
 alias gsc="git sync"
 alias gcp="git add .; git quickcommit; git pub"
+alias gcl="git clone"
 
 # Docker
 alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'

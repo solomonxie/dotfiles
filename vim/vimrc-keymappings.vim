@@ -528,7 +528,7 @@
             nnoremap <C-j>g :Clap grep<CR>
             nnoremap <C-j>f :Clap gfiles<CR>
             nnoremap <C-j>h :Clap history<CR>
-            nnoremap <C-j>t :Clap buffers<CR>
+            nnoremap <C-j>b :Clap buffers<CR>
         endif
     " }
 " }

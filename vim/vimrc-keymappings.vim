@@ -481,15 +481,15 @@
                 "nnoremap <localleader>p/ :Files ..
                 "nnoremap <localleader>color/ :Colors
                 "nnoremap <localleader>k/ :Maps<CR>
-                nnoremap fd :Files<CR>
+                nnoremap fd :GFiles<CR>
                 nnoremap fb :Buffers<CR>
-                nnoremap ft :Tags<CR>
-                nnoremap fc :History:<CR>
-                nnoremap fh :History<CR>
-                nnoremap fa :Ag<CR>
+                " nnoremap ft :Tags<CR>
+                " nnoremap fc :History:<CR>
+                " nnoremap fh :History<CR>
+                " nnoremap fa :Ag<CR>
                 nnoremap fs :Snippets<CR>
-                nnoremap fS :History/<CR>
-                nnoremap fm :Marks<CR>
+                " nnoremap fS :History/<CR>
+                " nnoremap fm :Marks<CR>
             endif
         "[Command-T File Searching]
             "nnoremap <localleader>/ :CommandT<CR>
@@ -526,9 +526,8 @@
         "[Vim-Clap]
         if &runtimepath =~ 'clap'
             nnoremap <C-j>g :Clap grep<CR>
-            nnoremap <C-j>j :Clap gfiles<CR>
+            nnoremap <C-j>f :Clap gfiles<CR>
             nnoremap <C-j>h :Clap history<CR>
-            nnoremap <C-j>b :Clap buffers<CR>
             nnoremap <C-j>t :Clap buffers<CR>
         endif
     " }

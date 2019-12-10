@@ -522,6 +522,15 @@
                 "map <Leader>/ :normal ,cu<CR>
                 "map <Leader>/ :normal ,ci<CR>
             endif
+
+        "[Vim-Clap]
+        if &runtimepath =~ 'clap'
+            nnoremap <C-j>g :Clap grep<CR>
+            nnoremap <C-j>j :Clap gfiles<CR>
+            nnoremap <C-j>h :Clap history<CR>
+            nnoremap <C-j>b :Clap buffers<CR>
+            nnoremap <C-j>t :Clap buffers<CR>
+        endif
     " }
 " }
 

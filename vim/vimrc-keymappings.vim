@@ -483,10 +483,10 @@
                 "nnoremap <localleader>k/ :Maps<CR>
                 nnoremap fd :GFiles<CR>
                 nnoremap fb :Buffers<CR>
-                " nnoremap ft :Tags<CR>
-                " nnoremap fc :History:<CR>
-                " nnoremap fh :History<CR>
-                " nnoremap fa :Ag<CR>
+                nnoremap ft :Tags<CR>
+                nnoremap fc :History:<CR>
+                nnoremap fh :History<CR>
+                nnoremap fa :Ag<CR>
                 nnoremap fs :Snippets<CR>
                 " nnoremap fS :History/<CR>
                 " nnoremap fm :Marks<CR>

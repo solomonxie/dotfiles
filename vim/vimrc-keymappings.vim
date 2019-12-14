@@ -46,9 +46,9 @@
             "nnoremap # *
             " vnoremap # "1y/<C-r>1<CR>
             " vnoremap * "1y?<C-r>1<CR>
-            vnoremap <Leader>/ "1y:%s/<C-r>1//n<CR>
+            vnoremap g* "1y:%s/<C-r>1//n<CR>
             " Refer: https://vim.fandom.com/wiki/Count_number_of_matches_of_a_pattern
-            nnoremap <Leader>/ #<C-O>:%s///gn<CR>
+            nnoremap g* #<C-O>:%s///gn<CR>
         "{Jump to parent bracket/level}
             "nnoremap <C-[> [{
         "{Move between Buffers}

@@ -93,7 +93,7 @@ call plug#begin('~/.vim/plugged')
             endif
 
         "<History>
-            "Plug 'yegappan/mru'
+            Plug 'yegappan/mru'
 
         "<Tags> (ctags required)
             if executable('ctags')

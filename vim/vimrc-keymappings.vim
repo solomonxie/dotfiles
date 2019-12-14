@@ -73,8 +73,8 @@
             "nnoremap g9 :tabfirst<CR>
             "nnoremap g0 :tablast<CR>
         "{Move between Tags}
-            "nnoremap <C-]> <C-]>
-            "nnoremap <C-[> <C-t>
+            nnoremap <C-]> g<C-]>
+            " nnoremap <C-[> <C-i>
             nnoremap <Leader>tt g]
         "{Jump the file under the cursor}
             function! OpenFileInPrevWindow()

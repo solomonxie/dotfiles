@@ -279,6 +279,11 @@
         "command! CopyFolderRelativePath let @+ = expand('%:h') | echo 'Copied: ' @+
         "command! CopyFolderAbsolutePath let @+ = expand('%:p:h') | echo 'Copied: ' @+
 
+        nnoremap tf :Cwd<CR>
+        nnoremap tc :CwdCopy<CR>
+        nnoremap tp :PwdCopy<CR>
+        nnoremap td :FilenameCopy<CR>
+
         function! GetGitRemoteCodeReferenceLink()
             "Expected URL
                 "https://git.appannie.org/appannie/aa-bulk-grabber/blob/master/webanalytics/tasks/bulk_grabber/dimension_info_merger.py#L13"

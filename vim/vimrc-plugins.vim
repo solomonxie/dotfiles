@@ -124,12 +124,14 @@ call plug#begin('~/.vim/plugged')
 
         "<Autocomplete>
             "[Snippets]
-                if has('python') || has('python3')
+                if has('python3')
                     Plug 'SirVer/ultisnips'  " Track the engine.
                     Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
+                else
+                    echo 'Ultisnips not loaded because Python3 not found'
                 endif
             "[Deoplete]
-                if has('python') || has('python3')
+                if has('python3')
                     Plug 'Shougo/deoplete.nvim'
                     Plug 'zchee/deoplete-jedi'    " Python completion source
                     Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
@@ -139,6 +141,8 @@ call plug#begin('~/.vim/plugged')
                     endif
                     let g:deoplete#enable_at_startup = 1
                     let g:deoplete#num_processes = 1
+                else
+                    echo 'Ultisnips not loaded because Python3 not found'
                 endif
             "[Tabnine]  (Based on YouCompleteMe)
                 " Plug 'zxqfl/tabnine-vim'

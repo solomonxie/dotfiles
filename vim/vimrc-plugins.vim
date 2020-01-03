@@ -290,6 +290,7 @@ endfunction
 
 
 " <Goyo - focus mode>-------------{
+" https://github.com/junegunn/goyo.vim
     if &runtimepath =~ 'goyo'
         let g:goyo_width = 120
         let g:goyo_height = '85%'
@@ -299,6 +300,7 @@ endfunction
 
 
 " <Syntastic>-------------{
+" https://github.com/vim-syntastic/syntastic
     if &runtimepath =~ 'syntastic'
         let g:syntastic_enable_signs = 1
         let g:syntastic_error_symbol='✗'
@@ -331,6 +333,7 @@ endfunction
 " }
 
 " <Deoplete>--------------{
+" https://github.com/Shougo/deoplete.nvim
     if &runtimepath =~ 'deoplete'
         " Environment
         "set pyxversion=3  "[error]

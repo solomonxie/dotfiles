@@ -2,7 +2,7 @@
 .*
 *.pyo
 *.pyc
-vim/autoload/
+!vim/autoload/plug.vim
 vim/backup/*
 vim/undo/*
 vim/sessions/*

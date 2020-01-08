@@ -495,7 +495,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 nnoremap ft :Tags<CR>
                 nnoremap fc :History:<CR>
                 nnoremap fh :History<CR>
-                nnoremap fa :Ag<CR>
+                " nnoremap fa :Ag<CR>
+                nnoremap fa :call fzf#vim#ag('', fzf#vim#with_preview('right'))<CR>
                 nnoremap fs :Snippets<CR>
                 " nnoremap fS :History/<CR>
                 " nnoremap fm :Marks<CR>

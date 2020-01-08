@@ -33,6 +33,18 @@ def chunks(l, size):
 		yield l[i:i+size]
 endsnippet
 
+snippet ichunks
+def ichunks(generator, size):
+	"""
+	GOOD TO SPLIT A GENERATOR TO CHUNKS WITHOUT WALK THROUGH EVERY ITEM
+	"""
+	iterable_generator = iter(generator)
+	while True:
+		items = list(islice(iterable_generator, size))
+		if not items:
+		break
+		yield items
+endsnippet
 
 snippet meminfo
 import psutil
@@ -129,10 +141,4 @@ def get_date_range(granularity, start_date):
 
 	else:
 		raise Exception(f'Unknown granularity: {granularity}')
-endsnippet
-
-snippet xx
-endsnippet
-
-snippet xx
 endsnippet

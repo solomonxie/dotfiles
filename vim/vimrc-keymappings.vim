@@ -7,6 +7,10 @@
 "                                           |___/                -
 "----------------------------GENERATED-BY-FIGLET------------------
 
+" Get Full path of ~, e.g., /home/ubuntu
+let $HOME = expand('~')
+let $DOTFILES = expand('~') . '/dotfiles'
+
 " [   Key Mappings / Bindings   ]----------------------------{
     "<Leader key>
         let mapleader = ","

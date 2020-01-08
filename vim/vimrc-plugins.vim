@@ -26,6 +26,9 @@
 "   "or
 "   :Startuptime
 
+" Get Full path of ~, e.g., /home/ubuntu
+let $HOME = expand('~')
+let $DOTFILES = expand('~') . '/dotfiles'
 
 " [  Plugins Manager vim-plug  ]
 call plug#begin('~/.vim/plugged')
@@ -188,10 +191,10 @@ call plug#end()
 
 " [  Lazy Load Plugins  ]-----------{
     "<UltiSnips>  -> Very slow
-    "augroup load_us
-        "autocmd!
-        "autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_us
-    "augroup END
+    " augroup load_us
+    "     autocmd!
+    "     autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_us
+    " augroup END
 " }
 
 
@@ -238,12 +241,11 @@ endfunction
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit="vertical"
         " Specify snippets locations
-        let g:UltiSnipsSnippetsDir="~/dotfiles/snippets"
-        let g:UltiSnipsSnippetDirectories=['~/dotfiles/vim/plugged/vim-snippets/UltiSnips', '~/dotfiles/vim/plugged/vim-snippets/snippets', '~/dotfiles/snippets']
+        " !! MUST BE FULL PATH (~ DOESN'T WORK) !!
+        let g:UltiSnipsSnippetsDir = $HOME."~/.vim/mysnippets"
+        let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/mysnippets']
         " Could be buggy if not specifying the Python version
-        if has('python')
-            let g:UltiSnipsUsePythonVersion=2
-        elseif has('python3')
+        if has('python3')
             let g:UltiSnipsUsePythonVersion=3
         endif
     endif

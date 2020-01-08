@@ -12,6 +12,10 @@
 " Enviroment: MacOS Sierra / Raspbian / Ubuntu
 " -----------------------------------------------
 
+" Get Full path of ~, e.g., /home/ubuntu
+let $HOME = expand('~')
+let $DOTFILES = expand('~') . '/dotfiles'
+
 " [  Import Modules  ]-----------{
     source ~/dotfiles/vim/vimrc-plugins.vim
     source ~/dotfiles/vim/vimrc-keymappings.vim

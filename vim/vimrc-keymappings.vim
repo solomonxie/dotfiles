@@ -57,10 +57,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nnoremap <C-[> [{
         "{Move between Buffers}
             "nnoremap <Space> :bnext<CR>
-            nnoremap <Leader>h :bprev<CR>
-            nnoremap <Leader>l :bnext<CR>
-            nnoremap - :bprev<CR>
-            nnoremap = :bnext<CR>
+            nnoremap - :bprev<CR>:echo expand('%')<CR>
+            nnoremap = :bnext<CR>:echo expand('%')<CR>
         "{Move between Windows}
             nnoremap <Left> <C-w>h
             nnoremap <Right> <C-w>l

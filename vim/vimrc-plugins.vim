@@ -265,9 +265,9 @@ endfunction
 
         " BUGS FOR JSON FORMAT --> It hdie/conceal quotes for JSON !!!
         " autocmd FileType json set conceallevel = 0  "Manually
+        " autocmd FileType json let g:indentLine_enabled=0
         let g:vim_json_syntax_conceal=0
-        autocmd FileType json let g:indentLine_enabled=0
-        autocmd FileType json let g:indentLine_setConceal=0
+        let g:indentLine_setConceal=0
         " If none is working, make sure there's no other JSON plugins,
         " then edit the `json.vim` --->
         " :e $VIMRUNTIME/syntax/json.vim

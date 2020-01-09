@@ -166,29 +166,35 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap <Space> viw
         nnoremap <LEADER><Space> viW
         nnoremap <M-Space> vip
-        "
+        "{Macro}
+        nnoremap 2 q
+
         "inoremap jj <esc>
         "map q <NOP>
         "noremap <Leader>,r q
         nnoremap <Leader>aa :ggVG<CR>
         nnoremap <Leader>ay :%y+<CR>
         nnoremap <Leader>ad :%d+<CR>
-        nnoremap Y yiw
-        "nnoremap g- ''
+
         "{Replace-all}
         "noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
+
         vnoremap f "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
         "{Select from cursor to the end}
         nnoremap <Leader>v v$h
         nnoremap <Leader>0 v^
+        nnoremap Y yiw
+        "nnoremap g- ''
+
         "{Capitalize}
         vnoremap U U
         "{Lowercase}
         vnoremap u u
         "{Switch case}
         vnoremap ~ ~
+
         "{Register}
         "noremap <Space> "
         "noremap <Leader><Space> :registers<CR>

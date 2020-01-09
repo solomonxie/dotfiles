@@ -275,7 +275,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "{Copy system clipboard to current register}
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
-        command! Cwd :echo expand('%')
+        command! Cwd echo echo expand('%')
+        command! C echo expand('%')
+        command! Pwd echo expand('%:p')
+        command! P echo expand('%:p')
+
         command! CwdCopy let @+ = expand('%') | echo 'Copied: ' @+
         command! PwdCopy let @+ = expand('%:p') | echo 'Copied: ' @+
         command! FilenameCopy let @+ = expand('%:t') | echo 'Copied: ' @+

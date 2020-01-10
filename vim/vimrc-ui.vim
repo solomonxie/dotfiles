@@ -112,6 +112,7 @@
 
 " <Status-Line>-----------{
     " @airline
+    " https://github.com/vim-airline/vim-airline
     if &runtimepath =~ 'airline'
         set t_Co=256 "For Windows
         let g:airline#extensions#tabline#enabled = 1  "Enable airline
@@ -127,13 +128,13 @@
             " let g:shades_of_purple_airline = 1
             " let g:airline_theme='shades_of_purple'
         " @airline-extensions-tabline-tabs
+            "   -> Options default|jsformatter|unique_tail|unique_tail_improved|short_path
+            let g:airline#extensions#tabline#formatter='jsformatter'
             let g:airline#extensions#tabline#switch_buffers_and_tabs=0
             let g:airline#extensions#tabline#enabled=1  "enable tabline
             let g:airline#extensions#tabline#tabs_label='TABS'
             let g:airline#extensions#tabline#show_tab_nr=0 "enable tag number
             let g:airline#extensions#tabline#tab_nr_type=1 "Numbers shown
-            "-> default|unique_tail|unique_tail_improved
-            let g:airline#extensions#tabline#formatter='unique_tail'
             "let g:airline#extensions#tabline#left_sep = ' '  "separater
             "let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
         " @airline-extension-tabline-buffers

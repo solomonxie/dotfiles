@@ -435,12 +435,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "noremap <localleader>i :PlugInstall<CR>
 
         "[tig-explorer]
-            if &runtimepath =~ 'tig-explorer'
+            if &runtimepath =~ 'tig-explorer' && executable('tig')
                 "nnoremap <localleader>g :Tig<CR>
                 "nnoremap <localleader>G :TigOpenCurrentFile<CR>
             endif
         "[vimagit]
-            if &runtimepath =~ 'tig-explorer'
+            if &runtimepath =~ 'tig-explorer' && executable('tig')
                 "let g:magit_show_magit_mapping='<Leader>G'
                 "let g:magit_show_magit_mapping='<Leader>g'
             endif
@@ -459,7 +459,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "[nnn]
             "nnoremap <LocalLeader>F :NnnPicker<CR>
         "[ranger]
-            if &runtimepath =~ 'ranger'
+            if &runtimepath =~ 'ranger' && executable('ranger')
                 let g:ranger_map_keys = 0
                 "nnoremap <Leader>F :Ranger<CR>
             endif
@@ -481,8 +481,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "imap <C-d> <Meta>
             "imap <C-d>e <M-e>
 
-        "[fzf]
-            if &runtimepath =~ 'fzf'
+        "[fzf] Fuzzy General Searching
+            if &runtimepath =~ 'fzf' && executable('fzf')
                 "nnoremap <localleader>f :Files %:p:h<CR>
                 nnoremap <M-f> :Files<CR>
                 nnoremap <LocalLeader>f :Files<CR>
@@ -510,9 +510,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 " nnoremap fS :History/<CR>
                 " nnoremap fm :Marks<CR>
             endif
-        "[Command-T File Searching]
+        "[Command-T] Fuzzy Searching
             "nnoremap <localleader>/ :CommandT<CR>
             "nnoremap <localleader>c :CommandT<CR>
+
+        "[Fzy] Fuzzy Searching
+        "...
 
         "[Nerdtree]
             if &runtimepath =~ 'nerdtree'

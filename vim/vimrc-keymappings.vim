@@ -320,12 +320,15 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "nnoremap <return> za
 
     "<Highlights> -> Highlight when typing commands
-        noremap  n :set hlsearch<cr>n
-        noremap  N :set hlsearch<cr>N
-        noremap  / :set hlsearch<cr>/
-        noremap  ? :set hlsearch<cr>?
-        noremap  * #:set hlsearch<cr>
-        noremap  # *:set hlsearch<cr>
+        nnoremap  n :set hlsearch<cr>n
+        nnoremap  N :set hlsearch<cr>N
+        nnoremap  / :set hlsearch<cr>/
+        nnoremap  ? :set hlsearch<cr>?
+        "Reverse the matching direction
+        nnoremap  * #:set hlsearch<cr>
+        nnoremap  # *:set hlsearch<cr>
+        "Search words from the clipboard
+        nnoremap  <Leader># /<C-r>"<CR>
 
     "[Session]----------------------------------{
         function! AutoSaveSession()

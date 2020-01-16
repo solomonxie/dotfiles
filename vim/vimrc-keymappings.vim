@@ -328,7 +328,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap  * #:set hlsearch<cr>
         nnoremap  # *:set hlsearch<cr>
         "Search words from the clipboard
-        nnoremap  <Leader># /<C-r>"<CR>
+        nnoremap  !! /<C-r>+<CR>
 
     "[Session]----------------------------------{
         function! AutoSaveSession()
@@ -338,11 +338,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             elseif isdirectory('../.git')
                 :mksession! ../.git/workspace.vim
                 :echo 'Saved session to ../.git/workspace.vim'
-            " elseif isdirectory(expand('~/.vim'))
-            "     :mksession! ~/.vim/session.vim
-            "     :echo 'Saved session to ~/.vim/session.vim'
             else
-                :mksession! ~/vim-session.vim
+                :mksession! "~/vim-session.vim"
                 :echo 'Saved session to ~/vim-session.vim'
             endif
         endfunction
@@ -358,7 +355,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 :source ../.git/workspace.vim
                 ":echo 'Load session from ../.git/workspace.vim'
             elseif filereadable(expand('~/vim-session.vim'))
-                :source ~/vim-session.vim
+                :source "~/vim-session.vim"
                 ":echo 'Load session from ~/vim-session.vim'
             else
                 :echo 'No session found.'
@@ -503,7 +500,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 "nnoremap <localleader>color/ :Colors
                 "nnoremap <localleader>k/ :Maps<CR>
                 nnoremap fd :GFiles<CR>
-                nnoremap fb :Buffers<CR>
+                nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
                 nnoremap ft :Tags<CR>
                 nnoremap fc :History:<CR>
                 nnoremap fh :History<CR>
@@ -550,10 +547,10 @@ let $DOTFILES = expand('~') . '/dotfiles'
 
         "[Vim-Clap]
         if &runtimepath =~ 'clap'
-            nnoremap <C-j>g :Clap grep<CR>
-            nnoremap <C-j>f :Clap gfiles<CR>
-            nnoremap <C-j>h :Clap history<CR>
-            nnoremap <C-j>b :Clap buffers<CR>
+            nnoremap fgg :Clap grep<CR>
+            nnoremap fgf :Clap gfiles<CR>
+            nnoremap fgh :Clap history<CR>
+            nnoremap fgb :Clap buffers<CR>
         endif
     " }
 " }

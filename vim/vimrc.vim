@@ -59,6 +59,10 @@ let $DOTFILES = expand('~') . '/dotfiles'
     "[Auto reload current file]
     set autoread
     au FocusGained,BufEnter * :checktime
+
+    " Automatically set view in the center when jump to the matches
+    " https://vim.fandom.com/wiki/Make_search_results_appear_in_the_middle_of_the_screen
+    set scrolloff=5  "Set 99 to make it center
 " }
 
 

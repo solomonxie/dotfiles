@@ -129,7 +129,7 @@
             " let g:airline_theme='shades_of_purple'
         " @airline-extensions-tabline-tabs
             "   -> Options default|jsformatter|unique_tail|unique_tail_improved|short_path
-            let g:airline#extensions#tabline#formatter='jsformatter'
+            let g:airline#extensions#tabline#formatter='unique_tail'
             let g:airline#extensions#tabline#switch_buffers_and_tabs=0
             let g:airline#extensions#tabline#enabled=1  "enable tabline
             let g:airline#extensions#tabline#tabs_label='TABS'

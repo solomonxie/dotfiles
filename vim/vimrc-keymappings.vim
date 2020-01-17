@@ -295,7 +295,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap tf :Cwd<CR>
         nnoremap tc :CwdCopy<CR>
         nnoremap tp :PwdCopy<CR>
-        nnoremap td :FilenameCopy<CR>
+        nnoremap tn :FilenameCopy<CR>
 
         function! GetGitRemoteCodeReferenceLink()
             "Expected URL

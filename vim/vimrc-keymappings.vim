@@ -75,7 +75,10 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nnoremap g9 :tabfirst<CR>
             "nnoremap g0 :tablast<CR>
         "{Move between Tags}
-            nnoremap <Leader><C-]> <C-]>
+            " nnoremap <Leader><C-]> <C-]>
+            if &runtimepath =~ 'ped' && executable('ped')
+                nnoremap <Leader><C-]> viW"1y:Ped<Space><C-r>1
+            endif
             " Pops selection list for ambiguous tags
             nnoremap <C-]> g<C-]>
             " nnoremap <C-[> <C-i>

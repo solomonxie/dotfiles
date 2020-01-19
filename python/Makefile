@@ -94,3 +94,4 @@ jupyter_lab: checkhealth_python
 	deactivate
 
 jupyter: jupyter_notebook jupyter_extension
+	@echo 'OK.'

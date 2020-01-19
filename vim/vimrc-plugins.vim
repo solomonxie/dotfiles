@@ -103,18 +103,31 @@ call plug#begin('~/.vim/plugged')
                 Plug 'majutsushi/tagbar'   "Display
                 Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)
                 "Plug 'craigemery/vim-autotag'  "Navigate (manually gen tags)
+            else
+                echomsg 'Plugin [ctags] not loaded because command not exists'
             endif
             if executable('ctags')
                 Plug 'liuchengxu/vista.vim'  "More friendly tagbar
+            else
+                echomsg 'Plugin [vista] not loaded because command [ctags] not exists'
+            endif
+            if executable('ped')
+                Plug 'sloria/vim-ped'  "(Python) Jump to 3rd party modules
+            else
+                echomsg 'Plugin [vim-ped] not loaded because command not exists'
             endif
 
         "<Git>
             if executable('git')
                 "Plug 'jreybert/vimagit'  "Much easier with Git
                 "Plug 'tpope/vim-fugitive' "work with fzf for :Commits
+            " else
+            "     echomsg 'Plugin [vimagit, vim-fugitive] not loaded because git not exists'
             endif
             if executable('git') && executable('tig')
                 Plug 'iberianpig/tig-explorer.vim' "faster/prettier (tig required)
+            else
+                echomsg 'Plugin [tig-explorer] not loaded because commands not exists'
             endif
 
         "<Search>
@@ -131,7 +144,7 @@ call plug#begin('~/.vim/plugged')
                     Plug 'SirVer/ultisnips'  " Track the engine.
                     Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
                 else
-                    echo 'Ultisnips not loaded because Python3 not found'
+                    echomsg 'Ultisnips not loaded because Python3 not found'
                 endif
             "[Deoplete]
                 if has('python3')
@@ -145,7 +158,7 @@ call plug#begin('~/.vim/plugged')
                     let g:deoplete#enable_at_startup = 1
                     let g:deoplete#num_processes = 1
                 else
-                    echo 'Ultisnips not loaded because Python3 not found'
+                    echomsg 'Ultisnips not loaded because Python3 not found'
                 endif
             "[Tabnine]  (Based on YouCompleteMe)
                 " Plug 'zxqfl/tabnine-vim'
@@ -202,7 +215,7 @@ call plug#end()
 "==============================PLUGIN SETTINGS=================================
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! PluginSettings()
-    echo ""
+    echomsg ""
 endfunction
 
 

@@ -75,6 +75,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nnoremap g9 :tabfirst<CR>
             "nnoremap g0 :tablast<CR>
         "{Move between Tags}
+            nnoremap <Leader><C-]> <C-]>
+            " Pops selection list for ambiguous tags
             nnoremap <C-]> g<C-]>
             " nnoremap <C-[> <C-i>
             nnoremap <Leader>tt g]

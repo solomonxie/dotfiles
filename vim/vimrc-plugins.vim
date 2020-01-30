@@ -164,7 +164,7 @@ call plug#begin('~/.vim/plugged')
                 " Plug 'zxqfl/tabnine-vim'
 
         "<Register>
-            Plug 'junegunn/vim-peekaboo'
+            " Plug 'junegunn/vim-peekaboo'
 
         "<Comment>
             Plug 'tomtom/tcomment_vim'

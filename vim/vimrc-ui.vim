@@ -46,7 +46,7 @@
             "colorscheme shades_of_purple ">> Require the plugin
         "Colorscheme based on filetype --{
             "autocmd FileType python colorscheme gruvbox
-            autocmd FileType vim,tmux,sh,make,dockerfile colorscheme badwolf
+            autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
         " }
 
     " <Highlight Settings>  --> Overwriting Alert!

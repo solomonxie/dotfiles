@@ -61,9 +61,6 @@
     " setlocal foldlevel=1        " 设置折叠层数
     " set foldlevelstart=99       " 打开文件是默认不折叠代码
     "set foldclose=all          " 设置为自动关闭折叠
-
-    "<Buffer>
-        autocmd BufEnter * cd %:p:h  "进入Buffer后自动把pwd改为文件所在目录
 " }
 
 

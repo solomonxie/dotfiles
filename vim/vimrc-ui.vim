@@ -37,23 +37,27 @@
         syntax enable
 
     " <Color Scheme>  --> Overwriting Alert!
-        "{True Color Support: Vim-specific sequences for RGB colors}
+        "{THEME}
+        colorscheme gruvbox ">> grubox is slow for old machine
+        "let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
+        " -> Alternative
+            "colorscheme monokai ">> Super slow, has block color comment
+            "colorscheme monokai "Fast (sickill/vim-monokai)
+            "colorscheme shades_of_purple ">> Require the plugin
+        "Colorscheme based on filetype --{
+            "autocmd FileType python colorscheme gruvbox
+            autocmd FileType vim,tmux,sh,make,dockerfile colorscheme badwolf
+        " }
+
+    " <Highlight Settings>  --> Overwriting Alert!
+        "{True Color Support} Vim-specific sequences for RGB colors
         set termguicolors   ">> Not compatiple with many themes
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-        "{THEME}
-        "colorscheme material-monokai ">> Super slow, has block color comment
-        colorscheme gruvbox ">> grubox is slow for old machine
-        " colorscheme shades_of_purple ">> Require the plugin
-        "let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
-        " -> Alternative
-            "colorscheme monokai "Fast (sickill/vim-monokai)
-            "highlight Normal ctermbg=NONE
-            "highlight nonText ctermbg=NONE
-
-    " <Highlight Settings>  --> Overwriting Alert!
-        "hi! VertSplit guifg=red guibg=blue term=None
-        "hi Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
+        "highlight! Normal ctermbg=NONE
+        "highlight! nonText ctermbg=NONE
+        "highlight! VertSplit guifg=red guibg=blue term=None
+        "highlight! Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
 
     " <Spell Check>
         autocmd BufRead,BufNewFile *.txt,*.md setlocal spell spelllang=en,en_us,cjk

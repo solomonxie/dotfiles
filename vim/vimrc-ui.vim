@@ -38,7 +38,8 @@
 
     " <Color Scheme>  --> Overwriting Alert!
         "{THEME}
-        colorscheme gruvbox ">> grubox is slow for old machine
+        " colorscheme gruvbox ">> grubox is slow for old machine
+        colorscheme badwolf
         "let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
         " -> Alternative
             "colorscheme monokai ">> Super slow, has block color comment
@@ -49,9 +50,10 @@
             autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
         " }
 
+        "[CAREFUL!!!] >> Ugly when working with other themes & syntax highlighting plugins
+        " set termguicolors  "{True Color Support} Vim-specific sequences for RGB colors
+
     " <Highlight Settings>  --> Overwriting Alert!
-        "{True Color Support} Vim-specific sequences for RGB colors
-        set termguicolors   ">> Not compatiple with many themes
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
         "highlight! Normal ctermbg=NONE

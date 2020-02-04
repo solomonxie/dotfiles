@@ -286,9 +286,9 @@ let $DOTFILES = expand('~') . '/dotfiles'
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
         command! Cwd echo expand('%')
-        command! C echo expand('%')
+        command! C let @+ = expand('%') | echo 'Copied: ' @+
         command! Pwd echo expand('%:p')
-        command! P echo expand('%:p')
+        command! P let @+ = expand('%:p') | echo 'Copied: ' @+
 
         command! CwdCopy let @+ = expand('%') | echo 'Copied: ' @+
         command! PwdCopy let @+ = expand('%:p') | echo 'Copied: ' @+

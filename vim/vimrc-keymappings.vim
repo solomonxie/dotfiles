@@ -86,14 +86,15 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "{Jump the file under the cursor}
             function! OpenFileInPrevWindow()
                 "Refer: https://unix.stackexchange.com/questions/74571
-                let cfile = expand("<cfile>")
+                let cfile = expand(expand("<cfile>"))
                 if filereadable(cfile)
                     wincmd p
                     execute "edit " . cfile
                 endif
             endfunction
 
-            nnoremap <C-y> :call OpenFileInPrevWindow()<CR>
+            " Actually directly using built-in 'gf' will do the trick
+            " nnoremap gf :call OpenFileInPrevWindow()<CR>
             "./vim/vimrc-keymappings.vim
             "~/.vim/autoload/plug.vim
 

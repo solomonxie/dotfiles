@@ -12,8 +12,14 @@
     " <Basic Settings>
         set t_Co=256   ">> Overwriting Alert !!
         set background=dark   ">> Overwriting Alert !!
+
+        "[CAREFUL!!!] >> Ugly when working with other themes & syntax highlighting plugins
+        " set termguicolors  "{True Color Support} Vim-specific sequences for RGB colors
+        set notermguicolors  "Turn off -> when on, bg-color will affect the whole look
+
         set cursorline  "Highlighting current line
         set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+
         autocmd WinEnter * set cursorline
         autocmd WinLeave * set nocursorline
 
@@ -50,16 +56,15 @@
             autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
         " }
 
-        "[CAREFUL!!!] >> Ugly when working with other themes & syntax highlighting plugins
-        " set termguicolors  "{True Color Support} Vim-specific sequences for RGB colors
-
     " <Highlight Settings>  --> Overwriting Alert!
+    "   -----> Has to be after loading colorscheme
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
         "highlight! Normal ctermbg=NONE
         "highlight! nonText ctermbg=NONE
         "highlight! VertSplit guifg=red guibg=blue term=None
         "highlight! Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
+        " highlight! Normal ctermfg=grey ctermbg=black  "Set background color
 
     " <Spell Check>
         autocmd BufRead,BufNewFile *.txt,*.md setlocal spell spelllang=en,en_us,cjk

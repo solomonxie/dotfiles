@@ -9,6 +9,13 @@
 
 
 " [  Builtin UI / Color Scheme  ]---------{
+    " <Syntax Highlighting>  Better to be in the front
+        syntax enable
+
+    "<FileType>
+        filetype plugin on    " [essential]
+        filetype plugin indent on
+
     " <Basic Settings>
         set t_Co=256   ">> Overwriting Alert !!
         set background=dark   ">> Overwriting Alert !!
@@ -35,12 +42,6 @@
           "autocmd FocusLost,InsertEnter   * set norelativenumber
         "augroup END
 
-    "<FileType>
-        filetype plugin on    " [essential]
-        filetype plugin indent on
-
-    " <Syntax Highlighting>  --> Overwriting Alert!
-        syntax enable
 
     " <Color Scheme>  --> Overwriting Alert!
         "{THEME}
@@ -57,9 +58,7 @@
         " }
 
     " <Highlight Settings>  --> Overwriting Alert!
-    "   -----> Has to be after loading colorscheme
-        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+        "-----> Has to be after loading colorscheme
         "highlight! Normal ctermbg=NONE
         "highlight! nonText ctermbg=NONE
         "highlight! VertSplit guifg=red guibg=blue term=None
@@ -210,4 +209,3 @@
         set laststatus=2
     endif
 " }
-

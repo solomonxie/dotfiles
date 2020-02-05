@@ -127,8 +127,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
 
 " [  Abbreviations  ]--------{
     " Test
-        iabbrev waht what
-        iabbrev tehn then
+        " iabbrev waht what
+        " iabbrev tehn then
 " }
 
 " [  Backup Files  ]--------{

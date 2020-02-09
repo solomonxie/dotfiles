@@ -53,6 +53,8 @@ call plug#begin('~/.vim/plugged')
             "Plug 'hdima/python-syntax'  "Stable. (missing color for arguments)
             " Plug 'sheerun/vim-polyglot'  "Ordinary, full support for most language
             " Plug 'junegunn/rainbow_parentheses.vim'
+            " Plug 'jiangmiao/auto-pairs' "Smartest (bug:)
+
 
         "<Window>
             "Plug 'TaDaa/vimade'  "Dim inactive windows
@@ -175,9 +177,6 @@ call plug#begin('~/.vim/plugged')
         "<Code Check>
             Plug 'vim-syntastic/syntastic' "Static Code Check
             " Plug 'mgedmin/coverage-highlight.vim'
-
-        "<Bracket Closing>
-            Plug 'jiangmiao/auto-pairs' "Smartest (bug:)
 
         "<Indentation>
             " ---> BUGS FOR JSON FORMAT: It hdies/conceals quotes for JSON !!!

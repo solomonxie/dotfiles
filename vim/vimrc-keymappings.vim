@@ -33,11 +33,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
         command! OpenAllInThisDir :next *
         "{Change pwd/Current Directory to be same with buffer}
         command! CDToCurrentDir :cd %:p:h
-        "{Open with other applications}
-        if has('mac')
-            command! OpenWithVSCode :silent !/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code %
-            command! OpenWithSublime :silent !/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl %
-        endif
 
     "<Navigation>
         "{Go-next-call}

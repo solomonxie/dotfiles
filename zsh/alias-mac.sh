@@ -64,6 +64,7 @@ alias gco="git checkout"
 alias gsc="git sync"
 alias gcp="git add .; git quickcommit; git pub"
 alias gcl="git clone"
+alias gchanges="vim $(git status --porcelain | awk '{print $2}')"
 
 # Docker
 alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'

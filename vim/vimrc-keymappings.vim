@@ -445,6 +445,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 "let g:magit_show_magit_mapping='<Leader>G'
                 "let g:magit_show_magit_mapping='<Leader>g'
             endif
+        "[vim-gitgutter]
+            if &runtimepath =~ 'gitgutter' && executable('git')
+                nnoremap gn :GitGutterNextHunk<CR>
+                nnoremap gp :GitGutterPrevHunk<CR>
+            endif
 
         "[tagbar]
             if &runtimepath =~ 'tagbar' " hit * ->open all folds; = ->close all folds

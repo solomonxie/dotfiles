@@ -42,6 +42,9 @@
           "autocmd FocusLost,InsertEnter   * set norelativenumber
         "augroup END
 
+        "MUST GO BEFORE `colorscheme` and after `autocmd`
+        " autocmd ColorScheme * highlight Normal ctermbg=None
+        " autocmd ColorScheme * highlight NonText ctermbg=None
 
     " <Color Scheme>  --> Overwriting Alert!
         "{THEME}
@@ -54,12 +57,12 @@
             "colorscheme shades_of_purple ">> Require the plugin
         "Colorscheme based on filetype --{
             "autocmd FileType python colorscheme gruvbox
-            autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
+            " autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
         " }
 
     " <Highlight Settings>  --> Overwriting Alert!
         "-----> Has to be after loading colorscheme
-        "highlight! Normal ctermbg=NONE
+        " highlight! Normal ctermbg=NONE
         "highlight! nonText ctermbg=NONE
         "highlight! VertSplit guifg=red guibg=blue term=None
         "highlight! Normal ctermbg=White ctermfg=Black guifg=Black guibg=White

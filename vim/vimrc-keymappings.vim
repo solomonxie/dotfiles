@@ -163,7 +163,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap <ESC> <Esc>:nohl<CR><ESC>
         inoremap ,. <Esc>:nohl<CR><ESC>
         vnoremap ,. <Esc>:nohl<CR><ESC>
-        noremap ,. <Esc>:nohl<CR><ESC>
+        nnoremap ,. <Esc>:nohl<CR><ESC>
         nnoremap <Space> viw
         nnoremap <LEADER><Space> viW
         nnoremap <M-Space> vip

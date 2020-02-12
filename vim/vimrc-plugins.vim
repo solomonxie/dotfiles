@@ -73,9 +73,9 @@ call plug#begin('~/.vim/plugged')
             Plug 'junegunn/fzf.vim'
 
             "vim-Clap (Pop window search)
-            if has('nvim-0.4') || has('patch-8.1.2114')
-                Plug 'liuchengxu/vim-clap'
-            endif
+            " if has('nvim-0.4') || has('patch-8.1.2114')
+            "     Plug 'liuchengxu/vim-clap'  "Slow & stupid
+            " endif
 
             "<NetRW>
             Plug 'tpope/vim-vinegar'      "Netrw enhancement
@@ -106,17 +106,19 @@ call plug#begin('~/.vim/plugged')
                 Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)
                 "Plug 'craigemery/vim-autotag'  "Navigate (manually gen tags)
             else
-                echomsg 'Plugin [ctags] not loaded because command not exists'
+                echomsg 'Missing dependency: brew install ctags'
             endif
             if executable('ctags')
                 Plug 'liuchengxu/vista.vim'  "More friendly tagbar
             else
-                echomsg 'Plugin [vista] not loaded because command [ctags] not exists'
+                echomsg 'Missing dependency: brew install ctags'
             endif
-            if executable('ped')
-                Plug 'sloria/vim-ped'  "(Python) Jump to 3rd party modules
-            else
-                echomsg 'Plugin [vim-ped] not loaded because command not exists'
+            if &filetype == 'python'
+                if executable('ped')
+                    Plug 'sloria/vim-ped'  "(Python) Jump to 3rd party modules
+                else
+                    echomsg 'Missing dependency: pip isntall ped --user'
+                endif
             endif
 
         "<Git>
@@ -126,11 +128,11 @@ call plug#begin('~/.vim/plugged')
                 Plug 'airblade/vim-gitgutter'  "Shwo diff inline
             " else
             "     echomsg 'Plugin [vimagit, vim-fugitive] not loaded because git not exists'
-            endif
-            if executable('git') && executable('tig')
-                Plug 'iberianpig/tig-explorer.vim' "faster/prettier (tig required)
-            else
-                echomsg 'Plugin [tig-explorer] not loaded because commands not exists'
+                if executable('tig')
+                    Plug 'iberianpig/tig-explorer.vim' "faster/prettier (tig required)
+                else
+                    echomsg 'Plugin [tig-explorer] not loaded because commands not exists'
+                endif
             endif
 
         "<Search>
@@ -147,7 +149,7 @@ call plug#begin('~/.vim/plugged')
                     Plug 'SirVer/ultisnips'  " Track the engine.
                     Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
                 else
-                    echomsg 'Ultisnips not loaded because Python3 not found'
+                    echomsg 'Missing dependency: brew install python3'
                 endif
             "[Deoplete]
                 if has('python3')
@@ -161,7 +163,7 @@ call plug#begin('~/.vim/plugged')
                     let g:deoplete#enable_at_startup = 1
                     let g:deoplete#num_processes = 1
                 else
-                    echomsg 'Ultisnips not loaded because Python3 not found'
+                    echomsg 'Missing dependency: brew install python3'
                 endif
             "[Tabnine]  (Based on YouCompleteMe)
                 " Plug 'zxqfl/tabnine-vim'
@@ -176,8 +178,10 @@ call plug#begin('~/.vim/plugged')
             " Plug 'michaeljsmith/vim-indent-object'
 
         "<Code Check>
-            Plug 'vim-syntastic/syntastic' "Static Code Check
-            " Plug 'mgedmin/coverage-highlight.vim'
+            if has('python')
+                Plug 'vim-syntastic/syntastic' "Static Code Check
+                " Plug 'mgedmin/coverage-highlight.vim'
+            endif
 
         "<Indentation>
             " ---> BUGS FOR JSON FORMAT: It hdies/conceals quotes for JSON !!!
@@ -666,6 +670,13 @@ endfunction
         let g:gitgutter_highlight_linenrs = 1
         let g:gitgutter_preview_win_floating = 1
         let g:gitgutter_use_location_list = 1
+        if executable('ag')
+            let g:gitgutter_grep = 'ag'
+        elseif executable('rg')
+            let g:gitgutter_grep = 'rg'
+        endif
+        let g:gitgutter_async = 1
+        set updatetime=100
     endif
 " }
 

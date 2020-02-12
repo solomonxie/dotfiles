@@ -447,9 +447,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
             endif
         "[vim-gitgutter]
             if &runtimepath =~ 'gitgutter' && executable('git')
+                " nnoremap ]h :GitGutterNextHunk<CR>
+                " nnoremap [h :GitGutterPrevHunk<CR>
                 nnoremap gn :GitGutterNextHunk<CR>
                 nnoremap gp :GitGutterPrevHunk<CR>
                 nnoremap gF :GitGutterFold<CR>
+                nnoremap gP :GitGutterPreviewHunk<CR>
             endif
 
         "[tagbar]

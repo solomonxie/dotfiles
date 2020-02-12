@@ -659,6 +659,15 @@ endfunction
     endif
 " }
 
+" <vim-gitgutter>-------------------------{
+    if &runtimepath =~ 'gitgutter' && executable('git')
+        let g:gitgutter_highlight_lines = 1
+        let g:gitgutter_signs = 1
+        let g:gitgutter_highlight_linenrs = 1
+        let g:gitgutter_preview_win_floating = 1
+        let g:gitgutter_use_location_list = 1
+    endif
+" }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

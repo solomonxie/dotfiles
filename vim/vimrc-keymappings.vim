@@ -449,6 +449,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
             if &runtimepath =~ 'gitgutter' && executable('git')
                 nnoremap gn :GitGutterNextHunk<CR>
                 nnoremap gp :GitGutterPrevHunk<CR>
+                nnoremap gF :GitGutterFold<CR>
             endif
 
         "[tagbar]
@@ -508,7 +509,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 nnoremap fd :GFiles<CR>
                 nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
                 nnoremap ft :Tags<CR>
-                nnoremap fc :History:<CR>
+                nnoremap fc :Commands<CR>
+                nnoremap f: :History:<CR>
                 nnoremap fh :History<CR>
                 " nnoremap fa :Ag<CR>
                 nnoremap fa :call fzf#vim#ag('', fzf#vim#with_preview('right'))<CR>

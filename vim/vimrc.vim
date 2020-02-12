@@ -153,7 +153,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
     endif
     set updatecount=20     "save swp file every amount of characters
     " ▼ update also check cursor-holds and other functions, bit expensive one.
-    set updatetime=4000   "save swap file every amount of ms
+    set updatetime=500   "save swap file every amount of ms
 " }
 
 

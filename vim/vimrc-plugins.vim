@@ -667,7 +667,9 @@ endfunction
     if &runtimepath =~ 'gitgutter' && executable('git')
         let g:gitgutter_enabled = 1
         let g:gitgutter_highlight_lines = 1
-        " let g:gitgutter_signs = 1
+        " let g:gitgutter_diff_args = '-w'  "Too slow
+        let g:gitgutter_map_keys = 0
+        " let g:gitgutter_signs = 1  "Will 'hide' the deleted lines
         " let g:gitgutter_highlight_linenrs = 1
         " let g:gitgutter_preview_win_floating = 1
         " let g:gitgutter_use_location_list = 1

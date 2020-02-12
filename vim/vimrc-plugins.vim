@@ -673,6 +673,7 @@ endfunction
         let g:gitgutter_enabled = 1
         " let g:gitgutter_highlight_lines = 1  "Will hide removed line (annoying)
         let g:gitgutter_highlight_linenrs = 1  "highlight line number only
+        let g:gitgutter_preview_win_floating = 1  "for vim compatible
         let g:gitgutter_map_keys = 0
         if executable('ag')
             let g:gitgutter_grep = 'ag'

@@ -665,18 +665,22 @@ endfunction
 
 " <vim-gitgutter>-------------------------{
     if &runtimepath =~ 'gitgutter' && executable('git')
+        let g:gitgutter_enabled = 1
         let g:gitgutter_highlight_lines = 1
-        let g:gitgutter_signs = 1
-        let g:gitgutter_highlight_linenrs = 1
-        let g:gitgutter_preview_win_floating = 1
-        let g:gitgutter_use_location_list = 1
+        " let g:gitgutter_signs = 1
+        " let g:gitgutter_highlight_linenrs = 1
+        " let g:gitgutter_preview_win_floating = 1
+        " let g:gitgutter_use_location_list = 1
         if executable('ag')
             let g:gitgutter_grep = 'ag'
         elseif executable('rg')
             let g:gitgutter_grep = 'rg'
         endif
         let g:gitgutter_async = 1
-        set updatetime=100
+        set updatetime=500
+        highlight GitGutterAdd    guifg=#009900 guibg=<X> ctermfg=2
+        highlight GitGutterChange guifg=#bbbb00 guibg=<X> ctermfg=3
+        highlight GitGutterDelete guifg=#ff2222 guibg=<X> ctermfg=1
     endif
 " }
 

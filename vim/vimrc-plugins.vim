@@ -126,6 +126,11 @@ call plug#begin('~/.vim/plugged')
                 "Plug 'jreybert/vimagit'  "Much easier with Git
                 "Plug 'tpope/vim-fugitive' "Work with fzf for :Commits
                 Plug 'airblade/vim-gitgutter'  "Shwo diff inline
+                " if has('nvim') || has('patch-8.0.902')
+                "     Plug 'mhinz/vim-signify'
+                " else
+                "     Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+                " endif
             " else
             "     echomsg 'Plugin [vimagit, vim-fugitive] not loaded because git not exists'
                 if executable('tig')
@@ -666,13 +671,9 @@ endfunction
 " <vim-gitgutter>-------------------------{
     if &runtimepath =~ 'gitgutter' && executable('git')
         let g:gitgutter_enabled = 1
-        let g:gitgutter_highlight_lines = 1
-        " let g:gitgutter_diff_args = '-w'  "Too slow
+        " let g:gitgutter_highlight_lines = 1  "Will hide removed line (annoying)
+        let g:gitgutter_highlight_linenrs = 1  "highlight line number only
         let g:gitgutter_map_keys = 0
-        " let g:gitgutter_signs = 1  "Will 'hide' the deleted lines
-        " let g:gitgutter_highlight_linenrs = 1
-        " let g:gitgutter_preview_win_floating = 1
-        " let g:gitgutter_use_location_list = 1
         if executable('ag')
             let g:gitgutter_grep = 'ag'
         elseif executable('rg')

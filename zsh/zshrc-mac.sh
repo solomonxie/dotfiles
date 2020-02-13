@@ -125,8 +125,11 @@
     # Setup appearence (Highlighting, scale, preview...)
     export FZF_DEFAULT_OPTS="--height 40% --layout=reverse \
         --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+
     # Setup default searching tool (to replace "find")
-    if [ -x $(command -v fd) ]; then
+    if [ -x $(command -v ag) ]; then
+        export FZF_DEFAULT_COMMAND='ag -g ""'
+    elif [ -x $(command -v fd) ]; then
         export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
         #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
     elif [ -x $(command -v rg) ]; then

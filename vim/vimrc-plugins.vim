@@ -585,6 +585,7 @@ endfunction
             "let g:fzf_layout = { 'window': 'enew' }
             "let g:fzf_layout = { 'window': '-tabnew' }
             "let g:fzf_layout = { 'window': '10split enew' }
+        " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--path-to-ignore ~/.ignore --hidden', <bang>0)
     endif
 " }
 

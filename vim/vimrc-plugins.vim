@@ -677,6 +677,8 @@ endfunction
         let g:gitgutter_highlight_linenrs = 1  "highlight line number only
         let g:gitgutter_preview_win_floating = 1  "for vim compatible
         let g:gitgutter_terminal_reports_focus = 0
+        let g:gitgutter_diff_base = 'HEAD'
+        " let g:gitgutter_diff_relative_to = 'working_tree'
         if executable('ag')
             let g:gitgutter_grep = 'ag'
         elseif executable('rg')

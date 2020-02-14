@@ -94,6 +94,9 @@ let $DOTFILES = expand('~') . '/dotfiles'
 
     "{Omnicomplete}
     autocmd FileType python set omnifunc=python3complete#Complete
+
+    "Set syntax
+    autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 " }
 
 

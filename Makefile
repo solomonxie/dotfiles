@@ -1,5 +1,5 @@
 # git clone https://github.com/solomonxie/dotfiles
-.PHONY: config build_python build_tmux build_zsh build_vim build_docker install
+.PHONY: config build install
 
 DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
@@ -94,6 +94,14 @@ build_raspbian:
 	sudo apt-get autoremove -y
 	sudo apt-get autoclean -y
 
+###########################################################
+#     ______   ____  __ _     ___ _   _ _  ______         #
+#    / ___\ \ / /  \/  | |   |_ _| \ | | |/ / ___|        #
+#    \___ \\ V /| |\/| | |    | ||  \| | ' /\___ \        #
+#     ___) || | | |  | | |___ | || |\  | . \ ___) |       #
+#    |____/ |_| |_|  |_|_____|___|_| \_|_|\_\____/        #
+#                                                         #
+###########################################################
 checkhealth:
 	ls ~/.vim
 	ls ~/.config/nvim

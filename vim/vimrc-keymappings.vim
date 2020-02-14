@@ -72,7 +72,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "{Move between Tags}
             " nnoremap <Leader><C-]> <C-]>
             if &runtimepath =~ 'ped' && executable('ped')
-                nnoremap <Leader><C-]> viW"1y:Ped<Space><C-r>1
+                vnoremap <Leader>gd "1y:Ped<Space><C-r>1
             endif
             " Pops selection list for ambiguous tags
             nnoremap <C-]> g<C-]>

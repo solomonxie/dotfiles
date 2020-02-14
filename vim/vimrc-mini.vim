@@ -87,6 +87,9 @@
             highlight Search guibg='Purple' guifg='NONE'
             highlight IncSearch gui=underline,bold guifg=White guibg=Red3
     " }
+
+    "Set syntax
+    autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 " }
 
 

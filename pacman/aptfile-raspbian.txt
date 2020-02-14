@@ -2,5 +2,3 @@ htop
 tree
 unzip
 ifstat
-rg
-fd

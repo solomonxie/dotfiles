@@ -3,6 +3,4 @@ bc
 tree
 unzip
 ifstat
-rg
-fd
 unar

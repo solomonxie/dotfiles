@@ -117,7 +117,7 @@ install_raspbian: install_tmux
 
 install_vim: config
 	# Archive(Backup)
-	sudo mv -a ~/.vim{,_$(date +%F)}
+	sudo cp -a ~/.vim{,_$(date +%F)}
 	# Remove existing (if exists)
 	sudo rm -rf ~/.vim || echo
 	# Install symlinks
@@ -130,8 +130,8 @@ install_vim: config
 
 install_zsh: config
 	# Archive(Backup)
-	sudo mv -a ~/.zshrc{,_$(date +%F)}
-	sudo mv -a ~/.zsh{,_$(date +%F)}
+	sudo cp -a ~/.zshrc{,_$(date +%F)}
+	sudo cp -a ~/.zsh{,_$(date +%F)}
 	# Remove existing (if exists)
 	sudo rm -rf ~/.zshrc || echo
 	sudo rm -rf ~/.zsh || echo
@@ -141,8 +141,8 @@ install_zsh: config
 
 install_tmux: config
 	# Archive(Backup)
-	sudo mv -a ~/.tmux{,_$(date +%F)}
-	sudo mv -a ~/.tmux.conf{,_$(date +%F)}
+	sudo cp -a ~/.tmux{,_$(date +%F)}
+	sudo cp -a ~/.tmux.conf{,_$(date +%F)}
 	# Remove existing (if exists)
 	sudo rm -rf ~/.tmux || echo
 	sudo rm -rf ~/.tmux.conf || echo

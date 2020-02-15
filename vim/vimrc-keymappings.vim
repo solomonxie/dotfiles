@@ -267,7 +267,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap  !! /<C-r>+<CR>
 
     "[Session]----------------------------------{
-    " if v:version >= 800
+    if v:version >= 800
         function! AutoSaveSession()
             if isdirectory('.git')
                 :mksession! .git/workspace.vim
@@ -308,7 +308,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         command! SessionLoad :call AutoLoadSession()
         "autocmd VimEnter * call AutoLoadSession()
         autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
-    " endif
+    endif
     " }
 
 

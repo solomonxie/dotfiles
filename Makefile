@@ -117,9 +117,8 @@ install_raspbian: install_tmux
 
 install_vim: config
 	# Archive(Backup)
-	sudo cp -a ~/.vim{,_$(date +%F)}
-	# Remove existing (if exists)
-	sudo rm -rf ~/.vim || echo
+	# sudo cp -a ~/.vim{,_$(date +%F)}  # Does not support this in makefile
+	mv ~/.vim ~/.vim_`date +%F` || echo
 	# Install symlinks
 	ln -s ${DOTFILES}/vim ~/.vim
 	ln -sf ${DOTFILES}/vim/vimrc.vim ~/.vimrc
@@ -130,22 +129,16 @@ install_vim: config
 
 install_zsh: config
 	# Archive(Backup)
-	sudo cp -a ~/.zshrc{,_$(date +%F)}
-	sudo cp -a ~/.zsh{,_$(date +%F)}
-	# Remove existing (if exists)
-	sudo rm -rf ~/.zshrc || echo
-	sudo rm -rf ~/.zsh || echo
+	mv ~/.zshrc ~/.zshrc_`date +%F` || echo
+	mv ~/.zsh ~/.zsh_`date +%F` || echo
 	# Install symlinks
 	ln -s ${DOTFILES}/zsh ~/.zsh
 	ln -sf ${DOTFILES}/zsh/env-${MYOS}.sh ~/.zshrc
 
 install_tmux: config
 	# Archive(Backup)
-	sudo cp -a ~/.tmux{,_$(date +%F)}
-	sudo cp -a ~/.tmux.conf{,_$(date +%F)}
-	# Remove existing (if exists)
-	sudo rm -rf ~/.tmux || echo
-	sudo rm -rf ~/.tmux.conf || echo
+	mv ~/.tmux ~/.tmux_`date +%F` || echo
+	mv ~/.tmux.conf ~/.tmux.conf_`date +%F` || echo
 	# Install symlinks
 	ln -s ${DOTFILES}/tmux ~/.tmux
 	ln -sf ${DOTFILES}/tmux/tmux.conf ~/.tmux.conf

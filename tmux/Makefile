@@ -32,12 +32,11 @@ checkhealth:
 plugins: checkhealth
 	@echo "----------[  Installing TPM for Tmux   ]--------------"
 	export TMUX_PLUGIN_MANAGER_PATH='~/.tmux/plugins'
-	@if [ ! -e ${HOME}/.tmux/plugins/tpm ]; then \
-		mkdir -p ${HOME}/.tmux/plugins; \
-		git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm; \
-	fi
-	${HOME}/.tmux/plugins/tpm/bin/install_plugins
+	mv ~/.tmux/plugins ~/.tmux/plugins`date +%F` ||echo
+	mkdir -p ${HOME}/.tmux/plugins ||echo
+	git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
+	~/.tmux/plugins/tpm/bin/install_plugins
 	#Restore tmux session
-	mkdir -p ${HOME}/.tmux/resurrect/ || echo
+	mkdir -p ${HOME}/.tmux/resurrect/ ||echo
 	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS} ${HOME}/.tmux/resurrect/last
 	@echo "OK."

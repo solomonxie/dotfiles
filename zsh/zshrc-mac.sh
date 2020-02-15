@@ -1,16 +1,12 @@
-#""""""""""""""""""""""""""""""""""""
-#         _________  _   _          "
-#        |__  / ___|| | | |         "
-#          / /\___ \| |_| |         "
-#         / /_ ___) |  _  |         "
-#        /____|____/|_| |_|         "
-#                                   "
-#""""""""GENERATED-BY-FIGLET"""""""""
-#
-# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
-#
-# Commands:
-#
+######################################################
+#                  _________  _   _                  #
+#                 |__  / ___|| | | |                 #
+#                   / /\___ \| |_| |                 #
+#                  / /_ ___) |  _  |                 #
+#                 /____|____/|_| |_|                 #
+#                                                    #
+# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com> #
+######################################################
 
 # User-specified hosts (not working at the moment)
     # set HOSTALIASES=~/hosts

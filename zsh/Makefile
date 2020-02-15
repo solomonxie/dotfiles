@@ -24,7 +24,7 @@ changeshell:
 
 ohmyzsh:
 	# Archive(Backup)
-	mv ${HOME}/.oh-my-zsh /tmp/.oh-my-zsh-bak$(date +%F) || echo
+	mv ~/.oh-my-zsh ~/.oh-my-zsh_`date +%F`  || echo
 	# Install
 	git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 	test -e ${HOME}/.oh-my-zsh

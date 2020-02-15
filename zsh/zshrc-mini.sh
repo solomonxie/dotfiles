@@ -58,11 +58,11 @@
 
 # Plugins {
     # Fish-like commandline suggestions (not working with oh-my-zsh)
-    source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     # Setups for plugins {
         # [zsh-autosuggestions]
-        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6' # [Essential]
+        # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6' # [Essential]
         # [zsh-history-substring-search]
     # }
 # }
@@ -79,9 +79,9 @@
 # Setting up Oh-my-zsh {
     export ZSH=~/.oh-my-zsh
     plugins=(
-      git,
+      # git,
       #history-substring-search,
-      colored-man-pages
+      # colored-man-pages
     )
     # Disable update checks:
     DISABLE_UPDATE_PROMPT=true
@@ -92,30 +92,4 @@
     # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
     # Use oh-my-zsh
     source $ZSH/oh-my-zsh.sh
-# }
-
-
-# Setup fzf Searching tool {
-if [ -x $(command -v fzf) ]; then
-    # Import binary execution to PATH
-    if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
-    # Import key bindings for auto completion
-    [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
-    # Import specific key bindings
-    source "$HOME/.fzf/shell/key-bindings.zsh"
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-    # Setup appearence (Highlighting, scale, preview...)
-    export FZF_DEFAULT_OPTS="--height 40% --layout=reverse \
-        --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
-    # Setup default searching tool (to replace "find")
-    if [ -x $(command -v fd) ]; then
-        export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
-        #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-    elif [ -x $(command -v rg) ]; then
-        export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden \
-            --follow --glob "!{.git,node_modules}/*" 2> /dev/null'
-    #elif [ -x $(command -v ag) ]; then
-        #
-    fi
-fi
 # }

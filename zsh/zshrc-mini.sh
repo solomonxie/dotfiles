@@ -96,6 +96,7 @@
 
 
 # Setup fzf Searching tool {
+if [ -x $(command -v fzf) ]; then
     # Import binary execution to PATH
     if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
     # Import key bindings for auto completion
@@ -116,4 +117,5 @@
     #elif [ -x $(command -v ag) ]; then
         #
     fi
+fi
 # }

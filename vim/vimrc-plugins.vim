@@ -46,7 +46,7 @@ call plug#begin('~/.vim/plugged')
             Plug 'vim-airline/vim-airline-themes'
 
         "<Syntax Highlighting>
-            if has('nvim') && (has('python') || has('python3'))
+            if has('nvim') && ((has('python') || has('python3')))
                 "The Best for python-syntax (pynvim required)
                 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
             endif

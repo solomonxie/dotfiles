@@ -183,7 +183,7 @@ call plug#begin('~/.vim/plugged')
             " Plug 'michaeljsmith/vim-indent-object'
 
         "<Code Check>
-            if has('python')
+            if has('python') || has('python3')
                 Plug 'vim-syntastic/syntastic' "Static Code Check
                 " Plug 'mgedmin/coverage-highlight.vim'
             endif

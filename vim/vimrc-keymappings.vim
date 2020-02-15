@@ -267,48 +267,48 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap  !! /<C-r>+<CR>
 
     "[Session]----------------------------------{
-        if v:version > 800
-            function! AutoSaveSession()
-                if isdirectory('.git')
-                    :mksession! .git/workspace.vim
-                    :echo 'Saved session to .git/workspace.vim'
-                elseif isdirectory('../.git')
-                    :mksession! ../.git/workspace.vim
-                    :echo 'Saved session to ../.git/workspace.vim'
-                else
-                    :mksession! "~/vim-session.vim"
-                    :echo 'Saved session to ~/vim-session.vim'
-                endif
-            endfunction
+    " if v:version >= 800
+        function! AutoSaveSession()
+            if isdirectory('.git')
+                :mksession! .git/workspace.vim
+                :echo 'Saved session to .git/workspace.vim'
+            elseif isdirectory('../.git')
+                :mksession! ../.git/workspace.vim
+                :echo 'Saved session to ../.git/workspace.vim'
+            else
+                :mksession! "~/vim-session.vim"
+                :echo 'Saved session to ~/vim-session.vim'
+            endif
+        endfunction
 
-            function! AutoLoadSession()
-                if filereadable(expand('workspace.vim'))
-                    :source workspace.vim
-                    ":echo 'Load session from workspace.vim'
-                elseif filereadable(expand('.git/workspace.vim'))
-                    :source .git/workspace.vim
-                    ":echo 'Load session from .git/workspace.vim'
-                elseif filereadable(expand('../.git/workspace.vim'))
-                    :source ../.git/workspace.vim
-                    ":echo 'Load session from ../.git/workspace.vim'
-                elseif filereadable(expand('~/vim-session.vim'))
-                    :source "~/vim-session.vim"
-                    ":echo 'Load session from ~/vim-session.vim'
-                else
-                    :echo 'No session found.'
-                endif
-            endfunction
+        function! AutoLoadSession()
+            if filereadable(expand('workspace.vim'))
+                :source workspace.vim
+                ":echo 'Load session from workspace.vim'
+            elseif filereadable(expand('.git/workspace.vim'))
+                :source .git/workspace.vim
+                ":echo 'Load session from .git/workspace.vim'
+            elseif filereadable(expand('../.git/workspace.vim'))
+                :source ../.git/workspace.vim
+                ":echo 'Load session from ../.git/workspace.vim'
+            elseif filereadable(expand('~/vim-session.vim'))
+                :source "~/vim-session.vim"
+                ":echo 'Load session from ~/vim-session.vim'
+            else
+                :echo 'No session found.'
+            endif
+        endfunction
 
-            "{Save session}
-            noremap S :call AutoSaveSession()<CR><ESC>
-            command! SessionSave :call AutoSaveSession()
-            "{Load session}
-            " noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
-            noremap R :call AutoLoadSession()<CR><ESC>
-            command! SessionLoad :call AutoLoadSession()
-            "autocmd VimEnter * call AutoLoadSession()
-            autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
-        endif
+        "{Save session}
+        noremap S :call AutoSaveSession()<CR><ESC>
+        command! SessionSave :call AutoSaveSession()
+        "{Load session}
+        " noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
+        noremap R :call AutoLoadSession()<CR><ESC>
+        command! SessionLoad :call AutoLoadSession()
+        "autocmd VimEnter * call AutoLoadSession()
+        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
+    " endif
     " }
 
 

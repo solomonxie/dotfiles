@@ -172,6 +172,8 @@ call plug#begin('~/.vim/plugged')
                 endif
             "[Tabnine]  (Based on YouCompleteMe)
                 " Plug 'zxqfl/tabnine-vim'
+            "[Auto-pair]  (Bracket Closing)
+                Plug 'jiangmiao/auto-pairs' "Smartest (:buggy)
 
         "<Register>
             " Plug 'junegunn/vim-peekaboo'

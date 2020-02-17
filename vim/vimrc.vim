@@ -72,11 +72,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
     "<Folding>
     set foldmethod=manual  "manual|syntax
     set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
+    set foldlevel=1
+    set foldlevelstart=99  "No folding on file open
+    set foldclose=all  "Auto-close folding
     " set foldnestmax=1
     " set foldcolumn=0
-    " setlocal foldlevel=1
-    " set foldlevelstart=99 "No folding on file open
-    "set foldclose=all "Auto-close folding
 
     "Search Highlighting
     set incsearch "Enable instant search Highlighting

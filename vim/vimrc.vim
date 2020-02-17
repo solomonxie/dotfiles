@@ -70,12 +70,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
     "set wildmenu
     "set wildmode=longest:full,full
     "<Folding>
-    set foldenable
-    set foldmethod=syntax
-    set foldnestmax=1
-    set foldcolumn=0
-    setlocal foldlevel=1
-    set foldlevelstart=99 "No folding on file open
+    set foldmethod=manual  "manual|syntax
+    set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
+    " set foldnestmax=1
+    " set foldcolumn=0
+    " setlocal foldlevel=1
+    " set foldlevelstart=99 "No folding on file open
     "set foldclose=all "Auto-close folding
 
     "Search Highlighting

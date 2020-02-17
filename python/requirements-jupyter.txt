@@ -49,7 +49,7 @@ greenlet==0.4.15
 grip==4.5.2
 gunicorn==19.7.1
 hexdump==3.3
-httpie==1.0.2
+httpie==1.0.3
 humanize==0.5.1
 identify==1.4.3
 idna==2.5

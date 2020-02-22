@@ -37,7 +37,7 @@ alias rangerrc="vim ~/.config/ranger/rc.conf"
 #alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias muttrc="vim -S ~/Workspace/etc/Mac/mutt/workspace.vim"
 alias tigrc="vim ~/.tigrc"
-alias vimchanges="vim $(git status --porcelain | awk '{print $2}')"
+# alias vimchanges="vim $(git status --porcelain | awk '{print $2}')"
 
 # Shadowsocks proxy
 alias proxy='export all_proxy=http://127.0.0.1:1080'

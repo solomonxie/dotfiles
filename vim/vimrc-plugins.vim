@@ -61,6 +61,9 @@ call plug#begin('~/.vim/plugged')
             "Plug 'vim-scripts/ZoomWin' "Zoom In/Out (Error)
             Plug 'dhruvasagar/vim-zoom'
             Plug 'junegunn/goyo.vim'  "Focus Mode
+            if has('nvim')
+                Plug 'rbgrouleff/bclose.vim'
+            endif
 
         "<Terminal>
             "Plug 'kassio/neoterm'
@@ -89,13 +92,10 @@ call plug#begin('~/.vim/plugged')
             "Plug 'MattesGroeger/vim-bookmarks'  "Manage bookmarks
 
         "<nnn>
-            Plug 'mcchrish/nnn.vim'
+            " Plug 'mcchrish/nnn.vim'
 
         "<Ranger>
-            Plug 'francoiscabrol/ranger.vim'
-            if has('nvim')
-                Plug 'rbgrouleff/bclose.vim'
-            endif
+            " Plug 'francoiscabrol/ranger.vim'
 
         "<History>
             Plug 'yegappan/mru'
@@ -185,10 +185,13 @@ call plug#begin('~/.vim/plugged')
             " Plug 'michaeljsmith/vim-indent-object'
 
         "<Code Check>
-            if has('python') || has('python3')
-                Plug 'vim-syntastic/syntastic' "Static Code Check
-                " Plug 'mgedmin/coverage-highlight.vim'
-            endif
+            "[Syntastic]
+                " if has('python') || has('python3')
+                "     Plug 'vim-syntastic/syntastic' "Static Code Check
+                "     " Plug 'mgedmin/coverage-highlight.vim'
+                " endif
+            "[ALE]
+                Plug 'dense-analysis/ale'
 
         "<Indentation>
             " ---> BUGS FOR JSON FORMAT: It hdies/conceals quotes for JSON !!!
@@ -348,6 +351,30 @@ endfunction
             let g:syntastic_cpp_compiler = 'gcc'
     endif
 " }
+
+
+" <ALE>-------------{
+" https://github.com/dense-analysis/ale
+    if &runtimepath =~ 'ale'
+        let g:ale_fix_on_save = 0
+        let b:ale_warn_about_trailing_whitespace = 0
+        let g:ale_sign_error = 'E'
+        let g:ale_sign_warning = 'W'
+        let b:ale_linters = {'python': ['flake8']}
+        let b:ale_fixers = {
+        \   'python': ['autopep8', 'yapf'],
+        \   'c++': ['clang', 'gcc']
+        \}
+
+        if !executable('flake8')
+            echomsg 'ALE: flake8 executable not found.'
+        endif
+        if !executable('autopep8') || !executable('yapf')
+            echomsg 'ALE: autopep8 && yapf executable not found.'
+        endif
+    endif
+" }
+
 
 " <ViewDoc>-------------{
     let g:viewdoc_open = 'belowright new' "tabnew|belowright new|topleft new

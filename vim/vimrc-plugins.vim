@@ -186,12 +186,12 @@ call plug#begin('~/.vim/plugged')
 
         "<Code Check>
             "[Syntastic]
-                " if has('python') || has('python3')
-                "     Plug 'vim-syntastic/syntastic' "Static Code Check
-                "     " Plug 'mgedmin/coverage-highlight.vim'
-                " endif
+                if has('python') || has('python3')
+                    Plug 'vim-syntastic/syntastic' "Static Code Check
+                    " Plug 'mgedmin/coverage-highlight.vim'
+                endif
             "[ALE]
-                Plug 'dense-analysis/ale'
+                " Plug 'dense-analysis/ale'
 
         "<Indentation>
             " ---> BUGS FOR JSON FORMAT: It hdies/conceals quotes for JSON !!!
@@ -360,18 +360,11 @@ endfunction
         let b:ale_warn_about_trailing_whitespace = 0
         let g:ale_sign_error = 'E'
         let g:ale_sign_warning = 'W'
-        let b:ale_linters = {'python': ['flake8']}
-        let b:ale_fixers = {
-        \   'python': ['autopep8', 'yapf'],
-        \   'c++': ['clang', 'gcc']
-        \}
-
-        if !executable('flake8')
-            echomsg 'ALE: flake8 executable not found.'
-        endif
-        if !executable('autopep8') || !executable('yapf')
-            echomsg 'ALE: autopep8 && yapf executable not found.'
-        endif
+        " let b:ale_linters = {'python': ['bandit']}
+        " let b:ale_fixers = {
+        " \   'python': ['autopep8'],
+        " \   'c++': ['clang', 'gcc']
+        " \}
     endif
 " }
 

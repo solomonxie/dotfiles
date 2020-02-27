@@ -35,20 +35,24 @@ alias gitrc="vim ~/dotfiles/etc/git/gitconfig.ini"
 alias gitrc_="vim ./.git/config"
 alias rangerrc="vim ~/.config/ranger/rc.conf"
 #alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias muttrc="vim -S ~/Workspace/etc/Mac/mutt/workspace.vim"
+alias muttrc="vim -S ~/workspace/etc/Mac/mutt/workspace.vim"
 alias tigrc="vim ~/.tigrc"
 # alias vimchanges="vim $(git status --porcelain | awk '{print $2}')"
 
 # Shadowsocks proxy
-alias proxy='export all_proxy=http://127.0.0.1:1080'
+alias proxy='export all_proxy=http://127.0.0.1:1060'
 alias unproxy='unset all_proxy'
 alias myip="curl https://ip.cn"
 alias hosts='sudo vim /etc/hosts'
+function sslo() {
+    pkill ss-local
+    nohup ss-local -c $1 -v 1> /tmp/ssclient.log 2> /tmp/ssclient-err.log &
+}
 
 # frequent commands
 alias ju="jupyter notebook"
 alias ipy="ipython"
-alias repos="cd ~/Workspace/repos"
+alias repos="cd ~/workspace/repos"
 #alias you="youtube-dl -civw --proxy "socks5://127.0.0.1:1086" -f best/mp4 --write-sub "
 alias you="youtube-dl"
 alias yourc="vim ~/.config/youtube-dl/config"

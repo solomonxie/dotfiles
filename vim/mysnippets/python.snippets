@@ -21,6 +21,11 @@ snippet sleep
 __import__('time').sleep(${1})
 endsnippet
 
+snippet snoop
+with __import__('pysnooper').snoop():
+    ${0:put_code_under_here_for_snooping}
+endsnippet
+
 
 #######################################################################
 #                              UTILITIES                              #

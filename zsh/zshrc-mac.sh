@@ -13,6 +13,9 @@
 
 # Make some device-specific aliased in another file
     source ~/dotfiles/zsh/alias-mac.sh
+    if [ -e ~/alias-local.sh ];then
+        source ~/alias-local.sh
+    fi
 
 # Theme settings {
     source ~/dotfiles/zsh/themes.sh

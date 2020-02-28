@@ -71,7 +71,7 @@ alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:400
 
 # Tmux
 #alias tmux="TERM=screen-256color-bce tmux"
-alias panetitle="printf '\033]2;%s\033\\'"
+alias title="printf '\033]2;%s\033\\'"  # Set Tmux Pane title
 
 # Python Virtualenv
 alias venv2="source ~/virtualenv/venv2/bin/activate"

@@ -125,41 +125,6 @@ set hlsearch " Enable Highlighting all matches
 autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 
 
-" [  Builtin Autocomplete (omnifunc) ] ----{
-    autocmd FileType python set omnifunc=python3complete#Complete
-    "autocmd FileType python setl ofu=pythoncomplete#CompletePHP
-    "autocmd FileType php setl ofu=phpcomplete#CompletePHP
-    "autocmd FileType ruby,eruby setl ofu=rubycomplete#Complete
-    "autocmd FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-    "autocmd FileType c setl ofu=ccomplete#CompleteCpp
-    "autocmd FileType css setl ofu=csscomplete#CompleteCSS
-" }
-
-
-" [  Variables  ]-----------{
-    "let has_mac = has('mac')
-    "let has_vim = has('vim')
-    "let has_nvim = has('nvim')
-    "let has_lua = has('lua')
-    "let has_ruby = has('ruby')
-    "let has_py2 = has('python2')  "=> Careful, super slow
-    "let has_py3 = has('python3')  "=> Careful, super slow
-    "let arch = system("uname -m")
-    "if arch == 'armv7l'
-    "    let has_rpi = 1
-    "elseif arch == 'x86_64'
-    "    let has_pc = 1  "Mac / PC
-    "endif
-    "let file_ext = expand('%:e')
-" }
-
-
-" [  Abbreviations  ]--------{
-    " Test
-        " iabbrev waht what
-        " iabbrev tehn then
-" }
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          PERSISTENT FILE SETTINGS                          "
@@ -201,3 +166,46 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
         endif
     endif
 " }
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               MISC SETTINGS                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" [  Builtin Autocomplete (omnifunc) ] ----{
+    autocmd FileType python set omnifunc=python3complete#Complete
+    "autocmd FileType python setl ofu=pythoncomplete#CompletePHP
+    "autocmd FileType php setl ofu=phpcomplete#CompletePHP
+    "autocmd FileType ruby,eruby setl ofu=rubycomplete#Complete
+    "autocmd FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+    "autocmd FileType c setl ofu=ccomplete#CompleteCpp
+    "autocmd FileType css setl ofu=csscomplete#CompleteCSS
+" }
+
+
+" [  Variables  ]-----------{
+    "let has_mac = has('mac')
+    "let has_vim = has('vim')
+    "let has_nvim = has('nvim')
+    "let has_lua = has('lua')
+    "let has_ruby = has('ruby')
+    "let has_py2 = has('python2')  "=> Careful, super slow
+    "let has_py3 = has('python3')  "=> Careful, super slow
+    "let arch = system("uname -m")
+    "if arch == 'armv7l'
+    "    let has_rpi = 1
+    "elseif arch == 'x86_64'
+    "    let has_pc = 1  "Mac / PC
+    "endif
+    "let file_ext = expand('%:e')
+" }
+
+
+" [  Abbreviations  ]--------{
+    " Test
+        " iabbrev waht what
+        " iabbrev tehn then
+" }
+
+

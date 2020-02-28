@@ -1,11 +1,8 @@
 " https://github.com/vim-syntastic/syntastic
-
+"Static Code Check
 if has('python') || has('python3')
-    Plug 'vim-syntastic/syntastic' "Static Code Check
-    " Plug 'mgedmin/coverage-highlight.vim'
-endif
+    Plug 'vim-syntastic/syntastic'
 
-if &runtimepath =~ 'syntastic'
     let g:syntastic_enable_signs = 1
     let g:syntastic_error_symbol='✗'
     let g:syntastic_warning_symbol='⚠'

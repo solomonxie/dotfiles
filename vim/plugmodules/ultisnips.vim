@@ -1,9 +1,7 @@
 if has('python3')
     Plug 'SirVer/ultisnips'  " Track the engine.
     Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
-endif
 
-if &runtimepath =~ 'ultisnips'
     " Trigger configuration.
     " Do not use <tab> if you use YouCompleteMe.
     let g:UltiSnipsExpandTrigger="<Tab>"
@@ -22,8 +20,8 @@ if &runtimepath =~ 'ultisnips'
 endif
 
 " [  Lazy Load Plugins  ]-----------{
-    augroup load_ultisnips
-        autocmd!
-        autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_ultisnips
-    augroup END
+    " augroup load_ultisnips
+    "     autocmd!
+    "     autocmd InsertEnter * call plug#load('ultisnips') | autocmd! load_ultisnips
+    " augroup END
 " }

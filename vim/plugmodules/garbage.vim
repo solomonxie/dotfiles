@@ -90,3 +90,5 @@ Plug 'python-mode/python-mode'    "Deprecated
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 Plug 'tpope/vim-obsession'  "For Tmux to restore VIM sessions
+
+Plug 'mgedmin/coverage-highlight.vim'

@@ -1,13 +1,7 @@
 if executable('ctags')
     Plug 'majutsushi/tagbar'   "Display
     Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)
-endif
 
-if executable('ctags')
-    Plug 'liuchengxu/vista.vim'  "More friendly tagbar
-endif
-
-if executable('ctags') && &runtimepath =~ 'gutentags'
     " Searching fields (recursively searching from bottom up)
     let g:gutentags_project_root = ['Makefile', '.git', '.root', '.svn', '.project']
     " Ignore some specifi projects
@@ -39,4 +33,5 @@ if executable('ctags') && &runtimepath =~ 'gutentags'
     let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
     let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
     let g:gutentags_ctags_extra_args += ['--python-kinds=-i']
+
 endif

@@ -1,6 +1,6 @@
-Plug 'liuchengxu/vista.vim'  "More friendly tagbar
+if executable('ctags')
+    Plug 'liuchengxu/vista.vim'  "More friendly tagbar
 
-if &runtimepath =~ 'vista'
     let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
     let g:vista_default_executive = 'ctags'
     let g:vista_sidebar_width = 40

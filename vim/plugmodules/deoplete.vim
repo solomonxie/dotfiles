@@ -1,5 +1,4 @@
 " https://github.com/Shougo/deoplete.nvim
-
 if has('python3')
     Plug 'Shougo/deoplete.nvim'
     Plug 'zchee/deoplete-jedi'    " Python completion source
@@ -8,11 +7,10 @@ if has('python3')
         Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework
         Plug 'roxma/vim-hug-neovim-rpc'  ">> to work with Vim8
     endif
+    " Must be here right after the loading
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#num_processes = 1
-endif
 
-if &runtimepath =~ 'deoplete'
     " Environment
     "set pyxversion=3  "[error]
     "let g:python3_host_prog = "/usr/local/bin/python3"

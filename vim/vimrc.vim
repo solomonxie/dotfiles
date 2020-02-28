@@ -16,97 +16,122 @@
 let $HOME = expand('~')
 let $DOTFILES = expand('~') . '/dotfiles'
 
-" [  Import Modules  ]-----------{
-    source ~/dotfiles/vim/vimrc-plugins.vim
-    source ~/dotfiles/vim/vimrc-keymappings.vim
-    source ~/dotfiles/vim/vimrc-ui.vim
-    if filereadable(expand('~/vimrc-local.vim'))
-        source ~/vimrc-local.vim
-    endif
-" }
+" [  Plugins Manager vim-plug  ]
+call plug#begin('~/.vim/plugged')
+    source ~/dotfiles/vim/plugmodules/basic.vim
+    source ~/dotfiles/vim/plugmodules/misc.vim
+    source ~/dotfiles/vim/plugmodules/nerdtree.vim
+    source ~/dotfiles/vim/plugmodules/airline.vim
+    source ~/dotfiles/vim/plugmodules/semshi.vim
+    source ~/dotfiles/vim/plugmodules/ctags.vim
+    source ~/dotfiles/vim/plugmodules/vista.vim
+    source ~/dotfiles/vim/plugmodules/ped.vim
+    source ~/dotfiles/vim/plugmodules/gitgutter.vim
+    source ~/dotfiles/vim/plugmodules/tig.vim
+    source ~/dotfiles/vim/plugmodules/ultisnips.vim
+    source ~/dotfiles/vim/plugmodules/deoplete.vim
+    source ~/dotfiles/vim/plugmodules/autopairs.vim
+    source ~/dotfiles/vim/plugmodules/syntastic.vim
+    source ~/dotfiles/vim/plugmodules/indent-line.vim
+    " source <sfile>:h/plugmodules/airline.vim
+call plug#end()
 
 
-" [  General Builtin Settings  ]-----------{
-    set nocompatible
-    set encoding=utf8
-    "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
-    "set nospell
-    set ignorecase "Case Insensitive
-    set smartcase  "Case sensitive when there's upper case in search
-    set hidden "Enable to switch buffer without saving
-    set number "show line number
-    set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger visual mode)
-    " Disable mouse selection into visual mode
-    "set mouse=nicr
-    "noremap <LeftDrag> <LeftMouse>
-    "noremap! <LeftDrag> <LeftMouse>
-    set nopaste  "IMPORTANT: If it's on, vim will auto indent (messed up) on your paste
-    set showcmd " show keypress at right-bottom
-    set backspace=2 "backspace over everything in insert mode
-    set tabstop=4 "Set a tab=4spaces
-    set autoindent "auto indent when hit RETURN. could be: smartindent, cindent
-    set shiftwidth=4 "Set auto-indent to 4 spaces
-    set expandtab "Expand tab to spaces
-    "set noexpandtab
-    retab "Replace all tabs to spaces on file opened
-    "[Key maps timeout]
-    set timeout
-    set ttimeout
-    set timeoutlen=2000
-    set ttimeoutlen=0
-    "Word recognizing
-    "set iskeyword-=_
-    "[Auto reload current file]
-    set autoread
-    au FocusGained,BufEnter * :checktime
-
-    " Automatically set view in the center when jump to the matches
-    " https://vim.fandom.com/wiki/Make_search_results_appear_in_the_middle_of_the_screen
-    set scrolloff=5  "Set 99 to make it center
-" }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               IMPORT MODULES                               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MUST BE LOADED AFTER PLUGINS
+" source ~/dotfiles/vim/vimrc-plugins.vim
+source ~/dotfiles/vim/vimrc-keymappings.vim
+source ~/dotfiles/vim/vimrc-ui.vim
+if filereadable(expand('~/vimrc-local.vim'))
+    source ~/vimrc-local.vim
+endif
 
 
-" [  Advanced Builtin Settings  ]-----------{
-    "set wildmenu
-    "set wildmode=longest:full,full
-    "<Folding>
-    set foldmethod=manual  "manual|syntax
-    set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
-    set foldlevel=1
-    set foldlevelstart=99  "No folding on file open
-    set foldclose=all  "Auto-close folding
-    " set foldnestmax=1
-    " set foldcolumn=0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         GENERAL BUILT-IN SETTINGS                          "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+set encoding=utf8
+"set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
+"set nospell
+set ignorecase "Case Insensitive
+set smartcase  "Case sensitive when there's upper case in search
+set hidden "Enable to switch buffer without saving
+set number "show line number
+set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger visual mode)
+" Disable mouse selection into visual mode
+"set mouse=nicr
+"noremap <LeftDrag> <LeftMouse>
+"noremap! <LeftDrag> <LeftMouse>
+set nopaste  "IMPORTANT: If it's on, vim will auto indent (messed up) on your paste
+set showcmd " show keypress at right-bottom
+set backspace=2 "backspace over everything in insert mode
+set tabstop=4 "Set a tab=4spaces
+set autoindent "auto indent when hit RETURN. could be: smartindent, cindent
+set shiftwidth=4 "Set auto-indent to 4 spaces
+set expandtab "Expand tab to spaces
+"set noexpandtab
+retab "Replace all tabs to spaces on file opened
+"[Key maps timeout]
+set timeout
+set ttimeout
+set timeoutlen=2000
+set ttimeoutlen=0
+"Word recognizing
+"set iskeyword-=_
+"[Auto reload current file]
+set autoread
+au FocusGained,BufEnter * :checktime
 
-    "Search Highlighting
-    set incsearch "Enable instant search Highlighting
-    set hlsearch " Enable Highlighting all matches
+" Automatically set view in the center when jump to the matches
+" https://vim.fandom.com/wiki/Make_search_results_appear_in_the_middle_of_the_screen
+set scrolloff=5  "Set 99 to make it center
 
-    "<Buffer>
-        "Change pwd/current-dir
-        "set autochdir " Automatically change current directory
-        "autocmd BufEnter * cd %:p:h  "Auto change 'pwd' to current folder when enter a buffer
-        set splitright  "Default split at right
-        "set splitbelow  "Default split at right
 
-    "<Tag>
-        set tags=./tags;,tags;./.git/tags;,../.git/tags
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         ADVANCED BUILT-IN SETTINGS                         "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-    "{Omnicomplete}
-    autocmd FileType python set omnifunc=python3complete#Complete
+"set wildmenu
+"set wildmode=longest:full,full
+"<Folding>
+set foldmethod=manual  "manual|syntax
+set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
+set foldlevel=1
+set foldlevelstart=99  "No folding on file open
+set foldclose=all  "Auto-close folding
+" set foldnestmax=1
+" set foldcolumn=0
 
-    "Set syntax
-    autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
-" }
+"Search Highlighting
+set incsearch "Enable instant search Highlighting
+set hlsearch " Enable Highlighting all matches
+
+"<Buffer>
+    "Change pwd/current-dir
+    "set autochdir " Automatically change current directory
+    "autocmd BufEnter * cd %:p:h  "Auto change 'pwd' to current folder when enter a buffer
+    set splitright  "Default split at right
+    "set splitbelow  "Default split at right
+
+"<Tag>
+    set tags=./tags;,tags;./.git/tags;,../.git/tags
+
+
+"Set syntax
+autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 
 
 " [  Builtin Autocomplete (omnifunc) ] ----{
-        "au FileType python setl ofu=pythoncomplete#CompletePHP
-        "au FileType php setl ofu=phpcomplete#CompletePHP
-        "au FileType ruby,eruby setl ofu=rubycomplete#Complete
-        "au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-        "au FileType c setl ofu=ccomplete#CompleteCpp
-        "au FileType css setl ofu=csscomplete#CompleteCSS
+    autocmd FileType python set omnifunc=python3complete#Complete
+    "autocmd FileType python setl ofu=pythoncomplete#CompletePHP
+    "autocmd FileType php setl ofu=phpcomplete#CompletePHP
+    "autocmd FileType ruby,eruby setl ofu=rubycomplete#Complete
+    "autocmd FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+    "autocmd FileType c setl ofu=ccomplete#CompleteCpp
+    "autocmd FileType css setl ofu=csscomplete#CompleteCSS
 " }
 
 
@@ -133,6 +158,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
         " iabbrev waht what
         " iabbrev tehn then
 " }
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                          PERSISTENT FILE SETTINGS                          "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " [  Backup Files  ]--------{
     set backup

@@ -38,7 +38,7 @@ call plug#begin('~/.vim/plugged')
             Plug 'mhinz/vim-startify'
 
         "<Theme>
-            Plug 'morhetz/gruvbox'
+            " Plug 'morhetz/gruvbox'
             " Plug 'Rigellute/shades-of-purple.vim'
 
         "<STATUS-BAR>

@@ -1,8 +1,5 @@
 if executable('git')
     Plug 'airblade/vim-gitgutter'  "Shwo diff inline
-endif
-
-if &runtimepath =~ 'gitgutter' && executable('git')
     let g:gitgutter_enabled = 1
     let g:gitgutter_map_keys = 0  "Cancel pre-set mapping
     " let g:gitgutter_highlight_lines = 1  "Will hide removed line (annoying)

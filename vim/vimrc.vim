@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/ped.vim
     source ~/dotfiles/vim/plugmodules/gitgutter.vim
     source ~/dotfiles/vim/plugmodules/tig.vim
+    source ~/dotfiles/vim/plugmodules/fzf.vim
     source ~/dotfiles/vim/plugmodules/ultisnips.vim
     source ~/dotfiles/vim/plugmodules/deoplete.vim
     source ~/dotfiles/vim/plugmodules/autopairs.vim
@@ -35,13 +36,13 @@ call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/indent-line.vim
     " source <sfile>:h/plugmodules/airline.vim
 call plug#end()
+" source ~/dotfiles/vim/vimrc-plugins.vim
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               IMPORT MODULES                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MUST BE LOADED AFTER PLUGINS
-" source ~/dotfiles/vim/vimrc-plugins.vim
 source ~/dotfiles/vim/vimrc-keymappings.vim
 source ~/dotfiles/vim/vimrc-ui.vim
 if filereadable(expand('~/vimrc-local.vim'))

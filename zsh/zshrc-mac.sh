@@ -45,6 +45,8 @@
     export LANG=en_US.UTF-8
     # Get rid of "you have a mail" from crontab
     MAILCHECK=0
+    # Set Default Title (Useful for Tmux pane-border title)
+    printf "\033]0;%s\a" "TITLE"
 # }
 
 # Builtin behaviors {

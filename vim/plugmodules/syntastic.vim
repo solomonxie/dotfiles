@@ -15,10 +15,11 @@ if has('python') || has('python3')
     let g:syntastic_loc_list_height = 5
     highlight SyntasticErrorSign guifg=white guibg=black
     "let g:syntastic_check_on_wq = 0
+
     " [CHECKERS]
-        " Python (pyflakes is faster than pylint)
-        let g:syntastic_python_checkers=['flake8']
-        " Clang
-        let g:syntastic_cpp_checkers = ['gcc']
-        let g:syntastic_cpp_compiler = 'gcc'
+    " Python (pyflakes is faster than pylint)
+    let g:syntastic_python_checkers=['flake8']
+    " Clang
+    let g:syntastic_cpp_checkers = ['gcc']
+    let g:syntastic_cpp_compiler = 'gcc'
 endif

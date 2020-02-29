@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/deoplete.vim
     source ~/dotfiles/vim/plugmodules/autopairs.vim
     source ~/dotfiles/vim/plugmodules/syntastic.vim
+    " source ~/dotfiles/vim/plugmodules/ale.vim
     source ~/dotfiles/vim/plugmodules/indent-line.vim
     " source <sfile>:h/plugmodules/airline.vim
 call plug#end()

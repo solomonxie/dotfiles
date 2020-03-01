@@ -1,6 +1,4 @@
 if executable('fzf')
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
     "let g:fzf_action = {  }
     " This is the default extra key bindings
     let g:fzf_action = {
@@ -25,4 +23,7 @@ if executable('fzf')
         "let g:fzf_layout = { 'window': '10split enew' }
     " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--path-to-ignore ~/.ignore --hidden', <bang>0)
 
+    " MUST BE PLACED AFTER SETTINGS
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
 endif

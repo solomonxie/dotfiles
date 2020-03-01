@@ -6,7 +6,7 @@ if &runtimepath =~ 'ale'
     let b:ale_warn_about_trailing_whitespace = 0
     let g:ale_sign_error = 'E'
     let g:ale_sign_warning = 'W'
-    " let b:ale_linters = {'python': ['bandit']}
+    let b:ale_linters = {'python': ['flake8']}
     " let b:ale_fixers = {
     " \   'python': ['autopep8'],
     " \   'c++': ['clang', 'gcc']

@@ -384,10 +384,13 @@ let $DOTFILES = expand('~') . '/dotfiles'
             if &runtimepath =~ 'gitgutter' && executable('git')
                 " nnoremap ]h :GitGutterNextHunk<CR>
                 " nnoremap [h :GitGutterPrevHunk<CR>
-                nnoremap gn :GitGutterNextHunk<CR>
-                nnoremap gp :GitGutterPrevHunk<CR>
+                " Changed Hunks
+                nnoremap ghn :GitGutterNextHunk<CR>
+                nnoremap ghp :GitGutterPrevHunk<CR>
+                nnoremap ghP :GitGutterPreviewHunk<CR>
+                " Toggle/fold changed lines
                 nnoremap gF :GitGutterFold<CR>
-                nnoremap gP :GitGutterPreviewHunk<CR>
+                " Diff
                 nnoremap gD :let g:gitgutter_diff_base = 'master'
             endif
 
@@ -413,11 +416,15 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "[vim-zoom]
             "nmap mm <Plug>(zoom-toggle)
 
-        "[Syntastic] (Static Code Check)
-            if &runtimepath =~ 'syntastic'
-                nnoremap <C-n> :lnext<CR>
-                nnoremap <C-p> :lprevious<CR>
-                nnoremap <LocalLeader>s :SyntasticCheck<CR>
+        "[Linter] (Static Code Check)
+            if &runtimepath =~ 'syntastic' || &runtimepath =~ 'ale'
+                " nnoremap <C-n> :lnext<CR>
+                " nnoremap <C-p> :lprevious<CR>
+                " Go Error Next
+                nnoremap gen :lnext<CR>
+                " Go Error Previous
+                nnoremap gep :lprevious<CR>
+                " nnoremap <LocalLeader>s :SyntasticCheck<CR>
             endif
 
         "[Undotree]

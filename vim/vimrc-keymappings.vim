@@ -307,7 +307,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         noremap R :call AutoLoadSession()<CR><ESC>
         command! SessionLoad :call AutoLoadSession()
         "autocmd VimEnter * call AutoLoadSession()
-        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=1 | call AutoSaveSession() | endif
+        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
     endif
     " }
 

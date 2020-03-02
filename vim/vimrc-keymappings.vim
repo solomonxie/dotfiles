@@ -54,6 +54,13 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nnoremap <Space> :bnext<CR>
             nnoremap - :bprev<CR>:echo expand('%')<CR>
             nnoremap = :bnext<CR>:echo expand('%')<CR>
+            nnoremap gb :call JumpToBuffer()<CR>
+            function! JumpToBuffer()
+                let my_grouped_opts = input ( "1.- Search one\n2.- Search two\n3.- Search three\n" )
+                let my_list_opts = split( my_grouped_opts, '.\zs' )
+                for opt in my_list_opts
+                echo "Option number " opt " selected"
+            endfunction
         "{Move between Windows}
             nnoremap <Left> <C-w>h
             nnoremap <Right> <C-w>l

@@ -59,7 +59,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 let my_grouped_opts = input ( "1.- Search one\n2.- Search two\n3.- Search three\n" )
                 let my_list_opts = split( my_grouped_opts, '.\zs' )
                 for opt in my_list_opts
-                echo "Option number " opt " selected"
+                    echo "\nOption number " opt " selected"
+                endfor
             endfunction
         "{Move between Windows}
             nnoremap <Left> <C-w>h
@@ -392,9 +393,9 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 " nnoremap ]h :GitGutterNextHunk<CR>
                 " nnoremap [h :GitGutterPrevHunk<CR>
                 " Changed Hunks
-                nnoremap ghn :GitGutterNextHunk<CR>
-                nnoremap ghp :GitGutterPrevHunk<CR>
-                nnoremap ghP :GitGutterPreviewHunk<CR>
+                nnoremap gn :GitGutterNextHunk<CR>
+                nnoremap gp :GitGutterPrevHunk<CR>
+                nnoremap gP :GitGutterPreviewHunk<CR>
                 " Toggle/fold changed lines
                 nnoremap gF :GitGutterFold<CR>
                 " Diff

@@ -58,10 +58,18 @@ let $DOTFILES = expand('~') . '/dotfiles'
             function! JumpToBuffer()
                 let my_grouped_opts = input ( "1.- Search one\n2.- Search two\n3.- Search three\n" )
                 let my_list_opts = split( my_grouped_opts, '.\zs' )
-                for opt in my_list_opts
-                    echo "\nOption number " opt " selected"
+                for selection in my_list_opts
+                    echo "\nOption number " selection " selected"
                 endfor
             endfunction
+            function! EditChangedFiles()
+                let fnames = split(system('git diff --name-only'), '\n')
+                for fn in fnames
+                    " execute 'argadd ' fn
+                    execute 'next ' fn
+                endfor
+            endfunction
+            command! OpenChangedFiles :call EditChangedFiles()<CR>
         "{Move between Windows}
             nnoremap <Left> <C-w>h
             nnoremap <Right> <C-w>l

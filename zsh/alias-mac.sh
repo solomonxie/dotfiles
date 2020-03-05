@@ -92,3 +92,8 @@ alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/cod
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias safari="/Applications/Safari.app/Contents/MacOS/Safari"
 alias opera="/Applications/Opera.app/Contents/MacOS/Opera"
+
+# Clients
+if [ -x /Applications/Postgres.app/Contents/Versions/latest/bin/psql ];then
+    alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
+fi

@@ -49,6 +49,12 @@ def ichunks(generator, size):
 		yield items
 endsnippet
 
+snippet islice
+def islice(maximum, chunk_size):
+	for i in range(0, maximum - maximum % chunk_size + chunk_size, chunk_size):
+		yield slice(i, min(i + chunk_size, maximum))
+endsnippet
+
 snippet meminfo
 import psutil
 def mem_info():

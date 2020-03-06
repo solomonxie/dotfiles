@@ -94,6 +94,8 @@ alias safari="/Applications/Safari.app/Contents/MacOS/Safari"
 alias opera="/Applications/Opera.app/Contents/MacOS/Opera"
 
 # Clients
-if [ -x /Applications/Postgres.app/Contents/Versions/latest/bin/psql ];then
+if [ -x $(command -v pgcli) ]; then
+    alias psql="$(command -v pgcli)"
+elif [ -x /Applications/Postgres.app/Contents/Versions/latest/bin/psql ];then
     alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
 fi

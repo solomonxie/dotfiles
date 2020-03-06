@@ -118,31 +118,31 @@ install_raspbian: install_tmux
 install_vim: config
 	# Archive(Backup)
 	# sudo cp -a ~/.vim{,_$(date +%F)}  # Does not support this in makefile
-	mv ~/.vim ~/.vim_`date +%F` || echo
+	mv ~/.vim ~/.vim_`date +%F` || True
 	# Install symlinks
 	ln -s ${DOTFILES}/vim ~/.vim
 	ln -sf ${DOTFILES}/vim/vimrc.vim ~/.vimrc
-	mkdir -p ~/.config/nvim || echo
+	mkdir -p ~/.config/nvim || True
 	ln -sf $(DOTFILES)/vim/ ~/.config/nvim/
-	mkdir -p ~/.nvim || echo
+	mkdir -p ~/.nvim || True
 	ln -sf $(DOTFILES)/vim/vimrc.vim ~/.nvim/init.vim
 
 install_zsh: config
 	# Archive(Backup)
-	mv ~/.zshrc ~/.zshrc_`date +%F` || echo
-	mv ~/.zsh ~/.zsh_`date +%F` || echo
+	mv ~/.zshrc ~/.zshrc_`date +%F` || True
+	mv ~/.zsh ~/.zsh_`date +%F` || True
 	# Install symlinks
 	ln -s ${DOTFILES}/zsh ~/.zsh
 	ln -sf ${DOTFILES}/zsh/env-${MYOS}.sh ~/.zshrc
 
 install_tmux: config
 	# Archive(Backup)
-	mv ~/.tmux ~/.tmux_`date +%F` || echo
-	mv ~/.tmux.conf ~/.tmux.conf_`date +%F` || echo
+	mv ~/.tmux ~/.tmux_`date +%F` || True
+	mv ~/.tmux.conf ~/.tmux.conf_`date +%F` || True
 	# Install symlinks
 	ln -s ${DOTFILES}/tmux ~/.tmux
 	ln -sf ${DOTFILES}/tmux/tmux.conf ~/.tmux.conf
-	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS}.txt ${HOME}/.tmux/resurrect/last || echo
+	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS}.txt ${HOME}/.tmux/resurrect/last || True
 
 install_git: config
 	echo "[include]\n    path = ~/dotfiles/etc/git/gitconfig.ini" > ~/.gitconfig

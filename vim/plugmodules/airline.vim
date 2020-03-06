@@ -46,21 +46,21 @@ let g:airline_right_alt_sep = '❮'
 
 " [TABS]
 " @airline-extensions-tabline-tabs
+    let g:airline#extensions#tabline#enabled=1  "enable tabline
     "   -> Options default|jsformatter|unique_tail|unique_tail_improved|short_path
     let g:airline#extensions#tabline#formatter='unique_tail'
     let g:airline#extensions#tabline#switch_buffers_and_tabs=0
-    let g:airline#extensions#tabline#enabled=1  "enable tabline
     let g:airline#extensions#tabline#tabs_label='TABS'
-    let g:airline#extensions#tabline#show_tab_nr=0 "enable tag number
-    let g:airline#extensions#tabline#tab_nr_type=1 "Numbers shown
+    let g:airline#extensions#tabline#show_tab_nr=1
+    let g:airline#extensions#tabline#tab_nr_type=0
     "let g:airline#extensions#tabline#left_sep = ' '  "separater
     "let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
 
 " [BUFFERS]
 " @airline-extension-tabline-buffers
-    let g:airline#extensions#tabline#show_buffers=1
-    let g:airline#extensions#tabline#buffer_nr_show=1  "Show buffer index (real index)
-    let g:airline#extensions#tabline#buffer_idx_mode=0  "Show buffer index (order index)
+    let g:airline#extensions#tabline#show_buffers=1  "Enable buffers display
+    let g:airline#extensions#tabline#buffer_nr_show=0  "Show buffer index (real index)
+    let g:airline#extensions#tabline#buffer_idx_mode=1  "Show buffer index (order index)
     let g:airline#extensions#tabline#buffers_label='BUFFERS'
     "let g:airline#extensions#tabline#buffer_idx_format={}
 

@@ -420,6 +420,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 noremap tt :Vista!!<CR>
             endif
 
+        "[AnyJump]
+        if &runtimepath =~ 'any-jump'
+            nnoremap <C-j> :AnyJump<CR>
+        endif
+        nnoremap K :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
 
         "[nnn]
             "nnoremap <LocalLeader>F :NnnPicker<CR>

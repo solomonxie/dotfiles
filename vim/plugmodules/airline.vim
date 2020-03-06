@@ -1,3 +1,25 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           AIRLINE CONFIGURATIONS                           "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                 https://github.com/vim-airline/vim-airline
+"+-----------------------------------------------------------------------------+
+"|~                                                                            |
+"|~                                                                            |
+"|~                     VIM - Vi IMproved                                      |
+"|~                                                                            |
+"|~                       version 8.2                                          |
+"|~                    by Bram Moolenaar et al.                                |
+"|~           Vim is open source and freely distributable                      |
+"|~                                                                            |
+"|~           type :h :q<Enter>          to exit                               |
+"|~           type :help<Enter> or <F1>  for on-line help                      |
+"|~           type :help version8<Enter> for version info                      |
+"|~                                                                            |
+"|~                                                                            |
+"+-----------------------------------------------------------------------------+
+"| A | B |                     C                            X | Y | Z |  [...] |
+"+-----------------------------------------------------------------------------+
+
 set t_Co=256 "For Windows
 let g:airline#extensions#tabline#enabled = 1  "Enable airline
 let g:airline_powerline_fonts=1 "Essential
@@ -13,6 +35,14 @@ let g:airline_right_alt_sep = '❮'
     let g:airline_theme='wombat' "bubblegum|wombat|owo|qwq
     " let g:shades_of_purple_airline = 1
     " let g:airline_theme='shades_of_purple'
+
+" [STATUS-LINE]
+    " Remove the 'utf-8[unix]' in statusline
+    let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+    " Customize Section-C (File Path)
+    " let g:airline_section_c = '%t'  "Relative file path
+    " let g:airline_section_c = airline#section#create(['%{getcwd()}'])
+    " let g:airline_section_c = airline#section#create([expand('%:h')])
 
 " [TABS]
 " @airline-extensions-tabline-tabs
@@ -43,5 +73,5 @@ let g:airline_right_alt_sep = '❮'
 " https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline'
 
-" Preview: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+" Preview themes at: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plug 'vim-airline/vim-airline-themes'

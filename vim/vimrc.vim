@@ -32,6 +32,8 @@ call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/fzf.vim
     source ~/dotfiles/vim/plugmodules/ultisnips.vim
     source ~/dotfiles/vim/plugmodules/deoplete.vim
+    source ~/dotfiles/vim/plugmodules/any-jump.vim
+    " source ~/dotfiles/vim/plugmodules/jedi.vim
     " source ~/dotfiles/vim/plugmodules/coc.vim
     " source ~/dotfiles/vim/plugmodules/ncm2.vim
     source ~/dotfiles/vim/plugmodules/autopairs.vim

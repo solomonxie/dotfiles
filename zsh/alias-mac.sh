@@ -27,7 +27,7 @@ alias vimrc="vim -S ~/dotfiles/vim/workspace.vim"
 #alias vimrc3="vim ~/dotfiles/vim/vimrc-keymappings"
 #alias vimrc4="vim ~/dotfiles/vim/vimrc-ui"
 #alias nvimrc="vim ~/dotfiles/vim/init.vim"
-alias nvimrc="vim -S ~/dotfiles/vim/workspace.vim"
+alias nvimrc="vim -S ~/dotfiles/vim/sessions/vimrc.vim"
 alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf"
 alias bashrc="vim ~/.bashrc"
 alias gitrc0="vim ~/.gitconfig"
@@ -35,9 +35,10 @@ alias gitrc="vim ~/dotfiles/etc/git/gitconfig.ini"
 alias gitrc_="vim ./.git/config"
 alias rangerrc="vim ~/.config/ranger/rc.conf"
 #alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias muttrc="vim -S ~/workspace/etc/Mac/mutt/workspace.vim"
+alias muttrc="vim -S ~/dotfiles/vim/sessions/muttrc.vim"
 alias tigrc="vim ~/.tigrc"
 # alias vimchanges="vim $(git status --porcelain | awk '{print $2}')"
+alias snippets="vim -S ~/dotfiles/vim/sessions/snippets.vim "
 
 # Shadowsocks proxy
 alias proxy='export all_proxy=http://127.0.0.1:1060'

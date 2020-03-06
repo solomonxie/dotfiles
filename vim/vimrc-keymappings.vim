@@ -56,12 +56,16 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap = :bnext<CR>:echo expand('%')<CR>
             nnoremap gb :call JumpToBuffer()<CR>
             function! JumpToBuffer()
+            endfunction
+            function! Hello_word()
                 let my_grouped_opts = input ( "1.- Search one\n2.- Search two\n3.- Search three\n" )
                 let my_list_opts = split( my_grouped_opts, '.\zs' )
                 for selection in my_list_opts
                     echo "\nOption number " selection " selected"
                 endfor
             endfunction
+
+            " Open git changed files
             function! EditChangedFiles()
                 let fnames = split(system('git diff --name-only'), '\n')
                 for fn in fnames

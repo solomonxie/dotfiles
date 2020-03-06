@@ -24,14 +24,14 @@ changeshell:
 
 ohmyzsh:
 	# Archive(Backup)
-	mv ~/.oh-my-zsh ~/.oh-my-zsh_`date +%F`  || echo
+	mv ~/.oh-my-zsh ~/.oh-my-zsh_`date +%F`  || True
 	# Install
 	git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 	test -e ${HOME}/.oh-my-zsh
 
 plugins:
-	mkdir -p ${HOME}/.zsh/plugins || echo
-	mv ${HOME}/.zsh/plugins/zsh-autosuggestions /tmp/ || echo
+	mkdir -p ${HOME}/.zsh/plugins || True
+	mv ${HOME}/.zsh/plugins/zsh-autosuggestions /tmp/ || True
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${HOME}/.zsh/plugins/zsh-autosuggestions
-	mv ${HOME}/.zsh/plugins/zsh-syntax-highlighting /tmp/ || echo
+	mv ${HOME}/.zsh/plugins/zsh-syntax-highlighting /tmp/ || True
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.zsh/plugins/zsh-syntax-highlighting

@@ -56,6 +56,14 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap = :bnext<CR>:echo expand('%')<CR>
             nnoremap gb :call JumpToBuffer()<CR>
             function! JumpToBuffer()
+                let buffer_list = filter(range(1, bufnr('$')), 'bufexists(v:val)')
+                echo buffer_list
+                let choice = input('Please input buffer number:')
+                echo '\nYou select buffer: ' . buffer_list[choice]
+                " for i in range(0, len(buffer_list))
+                "     echo buffer_list[i]
+                "     " silent :b &c<CR>
+                " endfor
             endfunction
             function! Hello_word()
                 let my_grouped_opts = input ( "1.- Search one\n2.- Search two\n3.- Search three\n" )

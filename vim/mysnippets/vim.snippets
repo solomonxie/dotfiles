@@ -6,18 +6,18 @@ endsnippet
 
 snippet ifexist
 if filereadable(expand('${1:path_of_file}'))
-	${2:do_something}
+	do_something $1
 endif
 endsnippet
 
 snippet ifplugin
 if &runtimepath =~ '${1:plugin_name}'
-	${2: do_something}
+	do_something $1
 endif
 endsnippet
 
 snippet mkdir
 if !isdirectory('${1:path_of_dir}')
-	silent! call mkdir('${1}', 'p')
+	silent! call mkdir('$1', 'p')
 endif
 endsnippet

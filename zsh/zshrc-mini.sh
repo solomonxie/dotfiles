@@ -36,22 +36,3 @@
     bindkey '^p' up-line-or-search # Up arrow
     bindkey '^n' down-line-or-search # Down arrow
 # }
-
-
-# Setting up Oh-my-zsh {
-    export ZSH=~/.oh-my-zsh
-    plugins=(
-      # git,
-      #history-substring-search,
-      # colored-man-pages
-    )
-    # Disable update checks:
-    DISABLE_UPDATE_PROMPT=true
-    DISABLE_AUTO_UPDATE=true
-    ZSH_DISABLE_COMPFIX=true
-    # Fix color for ls command
-    LS_COLORS=$LS_COLORS:'ow=37;42:'
-    # Manually update oh-my-zsh: $ upgrade_oh_my_zsh
-    # Use oh-my-zsh
-    source $ZSH/oh-my-zsh.sh
-# }

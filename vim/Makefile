@@ -5,7 +5,6 @@ USER ?= `cat /tmp/env-user`
 # This recipe is for solo-installment, not for "parent" Makefile
 install:
 	$(MAKE) ${MYOS}
-	vim +PlugInstall +qall
 
 checkhealth:
 	python -V
@@ -19,7 +18,7 @@ checkhealth_mac:
 checkhealth_debian:
 	apt-get --version
 
-mac: checkhealth_mac plugin_deoplete
+mac: checkhealth_mac
 	brew install vim
 	brew install ctags
 	brew install --HEAD universal-ctags/universal-ctags/universal-ctags
@@ -30,7 +29,3 @@ debian: checkhealth_debian
 
 ubuntu: debian
 raspbian: debian
-
-plugin_deoplete: checkhealth
-	pip3 install --user pynvim
-	pip3 install --user neovim

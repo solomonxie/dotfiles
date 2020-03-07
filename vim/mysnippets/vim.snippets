@@ -1,0 +1,23 @@
+snippet ifhas
+if has('${1:anything}')
+	${2:do_something}
+endif
+endsnippet
+
+snippet ifexist
+if filereadable(expand('${1:path_of_file}'))
+	${2:do_something}
+endif
+endsnippet
+
+snippet ifplugin
+if &runtimepath =~ '${1:plugin_name}'
+	${2: do_something}
+endif
+endsnippet
+
+snippet mkdir
+if !isdirectory('${1:path_of_dir}')
+	silent! call mkdir('${1}', 'p')
+endif
+endsnippet

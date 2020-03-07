@@ -16,7 +16,17 @@
 let $HOME = expand('~')
 let $DOTFILES = expand('~') . '/dotfiles'
 
-" [  Plugins Manager vim-plug  ]
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                        VIM-PLUG MANAGER FOR PLUGINS                        "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" https://github.com/junegunn/vim-plug
+if !filereadable(expand('~/.vim/autoload/plug.vim'))
+    echo 'Downlading vim-plug manager...'
+    let url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs ' . url)
+    echo 'Done.'
+endif
 call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/basic.vim
     source ~/dotfiles/vim/plugmodules/misc.vim
@@ -99,7 +109,6 @@ set scrolloff=5  "Set 99 to make it center
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         ADVANCED BUILT-IN SETTINGS                         "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 "set wildmenu
 "set wildmode=longest:full,full
 "<Folding>
@@ -134,7 +143,6 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          PERSISTENT FILE SETTINGS                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " [  Backup Files  ]--------{
     set backup
     set writebackup
@@ -177,7 +185,6 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               MISC SETTINGS                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " [  Builtin Autocomplete (omnifunc) ] ----{
     autocmd FileType python set omnifunc=python3complete#Complete
     "autocmd FileType python setl ofu=pythoncomplete#CompletePHP

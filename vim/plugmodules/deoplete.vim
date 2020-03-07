@@ -1,7 +1,12 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                    DEOPLETE - AUTOCOMPLETION (PYTHON3)                     "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Dependencies
+"   - python3 -m pip install --user pynvim neovim
 " https://github.com/Shougo/deoplete.nvim
 if has('python3')
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'zchee/deoplete-jedi'    " Python completion source
+    Plug 'Shougo/deoplete.nvim', {'do': 'python3 -m pip install --user pynvim neovim' }
+    Plug 'zchee/deoplete-jedi', {'do': 'python3 -m pip install jedi --user'}
     Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
     if has('vim') ">> For vim only
         Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework

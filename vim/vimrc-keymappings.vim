@@ -478,6 +478,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 "nnoremap <localleader>color/ :Colors
                 "nnoremap <localleader>k/ :Maps<CR>
                 nnoremap fd :GFiles<CR>
+                nnoremap <Leader>fd :Files<CR>
                 nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
                 nnoremap ft :Tags<CR>
                 nnoremap fc :Commands<CR>

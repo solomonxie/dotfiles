@@ -8,18 +8,16 @@
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com> #
 ######################################################
 
-# Make some device-specific aliased in another file
-    source ~/dotfiles/zsh/alias-mac.sh
-    if [ -e ~/alias-local.sh ];then
-        source ~/alias-local.sh
-    fi
-
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
-source ~/dotfiles/zsh/fzf-settings.sh
-source ~/dotfiles/zsh/pluging-settings.sh
+source ~/dotfiles/zsh/plugin-settings.sh
 source ~/dotfiles/zsh/ohmyzsh-settings.sh
+# source ~/dotfiles/zsh/fzf-settings.sh
+source ~/dotfiles/zsh/alias-mac.sh
+if [ -f ~/alias-local.sh ];then
+    source ~/alias-local.sh
+fi
 
 #######################################################################
 #                             UI - THEMES                             #

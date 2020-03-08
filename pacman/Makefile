@@ -64,7 +64,7 @@ checkhealth_mac:
 
 install_printer_debian: checkhealth_debian
 	sudo apt-get install cups -y
-	sudo usermod -aG lpadmin $(USER)
+	sudo usermod -aG lpadmin ${USER}
 	sudo cupsctl --remote-any # Process to this url to manage printers:
 	# https://ServerIP:631/
 

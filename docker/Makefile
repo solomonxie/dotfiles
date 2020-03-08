@@ -132,12 +132,12 @@ webdav: checkhealth_docker
 	# and do `chown -R www-data:www-data /var/www/webdav`
 	#
 	# Image: $ docker pull solomonxie/webdav:latest
-	sudo mkdir $(HOME)/webdav | echo
-	sudo chown -R $(USER):www-data $(HOME)/webdav
+	sudo mkdir ${HOME}/webdav | echo
+	sudo chown -R ${USER}:www-data ${HOME}/webdav
 	#sudo chmod -R g+s ${HOME}/webdav
 	docker run -d --name webdav --restart=always \
-	    -v $(HOME)/webdav:/var/www/webdav \
-	    -e USERNAME=$(USER) -e PASSWORD=123 \
+	    -v ${HOME}/webdav:/var/www/webdav \
+	    -e USERNAME=${USER} -e PASSWORD=123 \
 	    -p 8888:80 solomonxie/webdav:latest
 
 webav_raspbian: checkhealth_docker
@@ -145,8 +145,8 @@ webav_raspbian: checkhealth_docker
 	# has to get inside container by `docker exec -it webdav sh`
 	# and do `chown -R www-data:www-data /var/www/webdav`
 	sudo mkdir /var/webdav | echo
-	ln -sf /var/webdav $(HOME)/webdav
-	sudo chown -R $(USER):www-data /var/webdav
+	ln -sf /var/webdav ${HOME}/webdav
+	sudo chown -R ${USER}:www-data /var/webdav
 	#sudo chmod -R g+s ${HOME}/webdav
 	#
 	# <Image>: $ docker pull solomonxie/webdav-rpi:latest

@@ -24,4 +24,3 @@ elif [ -x $(command -v rg) ]; then
 #elif [ -x $(command -v ag) ]; then
     #
 fi
-

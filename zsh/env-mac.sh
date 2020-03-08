@@ -25,8 +25,10 @@ complete -o nospace -C /usr/local/bin/mc mc
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/Library/Python/3.7/bin:$HOME/Library/Python/3.7/lib/bin:$PATH"  # pip executables are here
-export PATH="/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages:$PATH"  # pip executables are here
+
+# Python executables
+export PATH="$PATH:`python -m site --user-base`/bin"  # pip executables are here
+
 export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version
 
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -43,6 +45,3 @@ export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

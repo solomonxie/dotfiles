@@ -6,6 +6,7 @@ Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
     let NERDTreeQuitOnOpen=1   " Open|Close NERDtree when files was opened
     let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
     let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+    let NERDTreeHighlightCursorline = 1
     "let NERDTreeChDirMode=2    " Change current working directory based on root directory in NERDTree
     let g:NERDTreeHidden=1     " Don't show hidden files
     let NERDTreeWinSize=40     " Initial NERDTree width

@@ -508,11 +508,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "[Nerdtree]
             if &runtimepath =~ 'nerdtree'
                 nnoremap <Leader>f :NERDTree<CR>
-                nnoremap <Leader>F :NERDTree %:p:h<CR>
+                " nnoremap <Leader>F :NERDTree %:p:h<CR>
+                nnoremap <Leader>F :NERDTreeFind<CR>
                 " Add '%' for changing root accordingly
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
                 nnoremap FF :NERDTree<CR>
-                nnoremap ff :NERDTree %:p:h<CR>
+                nnoremap ff :NERDTreeFind<CR>
             endif
         "[Nerdtree Tabs]
             if &runtimepath =~ 'nerdtree-tabs'

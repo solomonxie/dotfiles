@@ -92,6 +92,9 @@ ss: checkhealth_docker
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	docker run -d --restart always -p 6000:8388 -e METHOD=aes-256-gcm --name "ss6000" \
 		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run --name kcptun -p 6000:6500/udp -d --restart=always xtaci/kcptun server \
+		-t "$(hostname -i):6000" -l ":6500" -key "kcptun123" -crypt aes \
+		-datashard 10 -parityshard 3 -mtu 1350 -sndwnd 512 -rcvwnd 512 -dscp 0 -mode fast2
 	# docker run -d --restart always -p 16000:8388 -e METHOD=aes-256-gcm --name "ss1600" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# docker run -d --restart always -p 16001:8388 -e METHOD=aes-256-gcm --name "ss16001" \
@@ -101,6 +104,9 @@ ss: checkhealth_docker
 	# Experimental
 	docker run -d --restart always -p 17001:8388 -e METHOD=chacha20-ietf-poly1305 --name "ss17001" \
 		-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
+	docker run --name kcptun -p 17001:6500/udp -d --restart=always xtaci/kcptun server \
+		-t "$(hostname -i):17001" -l ":6500" -key "kcptun123" -crypt aes \
+		-datashard 10 -parityshard 3 -mtu 1350 -sndwnd 512 -rcvwnd 512 -dscp 0 -mode fast2
 	# docker run -d --restart always -p 17002:8388 -e METHOD=aes-128-gcm --name "ss17002" \
 	# 	-e PASSWORD=shadow123 shadowsocks/shadowsocks-libev
 	# docker run -d --restart always -p 17003:8388 -e METHOD=camellia-256-cfb --name "ss17003" \

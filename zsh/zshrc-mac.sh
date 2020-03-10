@@ -12,29 +12,14 @@
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
 source ~/dotfiles/zsh/plugin-settings.sh
-source ~/dotfiles/zsh/ohmyzsh-settings.sh
+source ~/dotfiles/zsh/themes.sh
+source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
 source ~/dotfiles/zsh/fzf-settings.sh
 source ~/dotfiles/zsh/alias-mac.sh
 if [ -f ~/alias-local.sh ];then
     source ~/alias-local.sh
 fi
 
-#######################################################################
-#                             UI - THEMES                             #
-#######################################################################
-source ~/dotfiles/zsh/themes.sh
-
-# Light Themes
-export ZSH_THEME="awesomepanda"  # export TERM="xterm-256color"
-# export ZSH_THEME="aussiegeek"  # export TERM="xterm-256color"
-# export ZSH_THEME="crunch"  # export TERM="xterm-256color"
-# export ZSH_THEME="eastwood"  # export TERM="xterm-256color"
-# export ZSH_THEME="minimal"  # export TERM="xterm-256color"
-# export ZSH_THEME="fwalch"  # export TERM="xterm-256color"
-# export ZSH_THEME="gallois"  # export TERM="xterm-256color"
-# export ZSH_THEME="jonathan"  # export TERM="xterm-256color"
-# export ZSH_THEME="kardan"  # export TERM="xterm-256color"
-# export ZSH_THEME="junkfood"  # export TERM="xterm-256color"
 
 #######################################################################
 #                          GENERAL SETTINGS                           #
@@ -57,9 +42,6 @@ MAILCHECK=0
 printf "\033]0;%s\a" "TITLE"
 
 
-#######################################################################
-#                         BUILT-IN BEHAVIORS                          #
-#######################################################################
 #zstyle ':completion:*' menu select # select completions with arrow keys
 #zstyle ':completion:*' group-name '' # group results by category
 # enable approximate matches for completion

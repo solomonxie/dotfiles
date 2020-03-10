@@ -13,7 +13,7 @@
 #######################################################################
 source ~/dotfiles/zsh/plugin-settings.sh
 source ~/dotfiles/zsh/ohmyzsh-settings.sh
-# source ~/dotfiles/zsh/fzf-settings.sh
+source ~/dotfiles/zsh/fzf-settings.sh
 source ~/dotfiles/zsh/alias-mac.sh
 if [ -f ~/alias-local.sh ];then
     source ~/alias-local.sh
@@ -41,6 +41,11 @@ export ZSH_THEME="awesomepanda"  # export TERM="xterm-256color"
 #######################################################################
 # Important: Locale
 export LANG=en_US.UTF-8
+
+# Vi mode
+# set editing-mode vi
+# export EDITOR=vim
+# set -o vi
 
 # Get rid of "you have a mail" from crontab
 MAILCHECK=0

@@ -86,8 +86,11 @@ alias venv-ju="source ~/virtualenv/venv-ju/bin/activate"
 alias venv-nvim="source ~/virtualenv/venv-ju/bin/activate"
 
 # IDE
-alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+# alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+# alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+alias sub="open -a 'Sublime Text'"
+alias code="open -a 'Visual Studio Code'"
+alias typora="open -a 'Typora'"
 
 # Browsers
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"

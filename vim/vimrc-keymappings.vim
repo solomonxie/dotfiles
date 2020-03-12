@@ -434,7 +434,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
 
         "[AnyJump]
         if &runtimepath =~ 'any-jump'
-            nnoremap <C-j> :AnyJump<CR>
+            " nnoremap <C-j> :AnyJump<CR>
+            nnoremap fj :AnyJump<CR>
         endif
         nnoremap K :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
 
@@ -485,8 +486,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 "nnoremap <localleader>p/ :Files ..
                 "nnoremap <localleader>color/ :Colors
                 "nnoremap <localleader>k/ :Maps<CR>
-                nnoremap fd :GFiles<CR>
-                nnoremap <Leader>fd :Files<CR>
+                nnoremap fg :GFiles<CR>
+                nnoremap fd :Files<CR>
                 nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
                 nnoremap ft :Tags<CR>
                 nnoremap fc :Commands<CR>

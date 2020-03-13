@@ -89,6 +89,7 @@ build_mac:
 
 build_ubuntu:
 	sudo apt-get update
+	touch ~/.bashrc && echo "export LC_ALL=C" >> ~/.bashrc
 	cat $(DOTFILES)/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get autoremove -y

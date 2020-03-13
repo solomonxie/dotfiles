@@ -28,8 +28,53 @@ endsnippet
 
 
 #######################################################################
+#                           TEST FRAMEWORK                            #
+#######################################################################
+snippet mock_constant
+patch('${1:module.module.constant_name}', '${2:mocked_value}').start()
+endsnippet
+
+snippet mock_method
+patch('${1:module.module.method}', MagicMock(return_value=${2:mocked_value})).start()
+endsnippet
+
+snippet mock_property
+patch(${1:module.module.class_name}, '${2:property_name}', ${3:expected_value}).start()
+endsnippet
+
+snippet mock_exception
+patch('${1:module.module.method_name}', MagicMock(side_effect=Exception('${2:err_msg}'))).start()
+endsnippet
+
+
+#######################################################################
+#                     SQLAlchemy - DB OPERATIONS                      #
+#######################################################################
+
+
+
+#######################################################################
+#                         Pandas - DATAFRAME                          #
+#######################################################################
+
+
+
+#######################################################################
+#                        Numpy - DATA SCIENCE                         #
+#######################################################################
+
+
+
+#######################################################################
 #                              UTILITIES                              #
 #######################################################################
+snippet url_change_port
+import urllib
+obj = urllib.parse.urlparse(url)
+url = obj._replace(netloc=f'{obj.hostname}:${1:expected_port}').geturl()
+endsnippet
+
+
 snippet chunks
 def chunks(l, size):
 	for i in range(0, len(l), size):

@@ -435,8 +435,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
 
         "[AnyJump]
         if &runtimepath =~ 'any-jump'
-            " nnoremap <C-j> :AnyJump<CR>
-            nnoremap fj :AnyJump<CR>
+            ">>>Find usages
+            nnoremap fu :AnyJump<CR>
         endif
         nnoremap K :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
 

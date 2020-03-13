@@ -144,6 +144,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
 
         vnoremap f "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
+        nnoremap fw /<C-r>+<CR>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
         "{Select from cursor to the end}
@@ -510,11 +511,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
             if &runtimepath =~ 'nerdtree'
                 nnoremap <Leader>f :NERDTree<CR>
                 " nnoremap <Leader>F :NERDTree %:p:h<CR>
-                nnoremap <Leader>F :NERDTreeFind<CR>
+                nnoremap <Leader>F :NERDTreeFind<CR>zz
                 " Add '%' for changing root accordingly
                 "nnoremap <Leader>f :NERDTree %:p:h<CR>
                 nnoremap FF :NERDTree<CR>
-                nnoremap ff :NERDTreeFind<CR>
+                nnoremap ff :NERDTreeFind<CR>zz
             endif
         "[Nerdtree Tabs]
             if &runtimepath =~ 'nerdtree-tabs'

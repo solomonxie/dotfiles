@@ -4,11 +4,27 @@ if [[ -e ${1:file_path} ]];then
 fi
 endsnippet
 
+
+snippet if_empty_variable
+if  [[ "\$${1:variable}" == "" ]]; then
+	echo OK.
+fi
+endsnippet
+
+
+snippet if_multi_expression
+if  [[ "\$${1:variable}" != "" ] && [ "\$${2:variable}" != "" ]]; then
+	echo OK.
+fi
+endsnippet
+
+
 snippet if_command_exists
 if  [[ -x "$(command -v ${1:command})" ]]; then
 	echo OK.
 fi
 endsnippet
+
 
 snippet if_is_a_file
 if [[ -f ${1:condition} ]];then
@@ -16,11 +32,13 @@ if [[ -f ${1:condition} ]];then
 fi
 endsnippet
 
+
 snippet for
 for fn in $(ls); do
 	echo fn
 done
 endsnippet
+
 
 snippet while
 while [ ${1:variable} -gt 0 ]; do
@@ -29,11 +47,13 @@ while [ ${1:variable} -gt 0 ]; do
 done
 endsnippet
 
+
 snippet function
 ${1:function_name}(){
 	${2:echo Ok.}
 }
 endsnippet
+
 
 snippet switch
 case ${1:$Variable} in
@@ -46,10 +66,26 @@ case ${1:$Variable} in
 esac
 endsnippet
 
+
 snippet path
 export PATH="${1:new_path}:$PATH"
 endsnippet
 
+
 snippet findfile
 	find . -type f -name "*"
+endsnippet
+
+
+snippet echo_multi_lines
+cat <<- EOF
+	${1:some words}
+EOF
+endsnippet
+
+
+snippet write_multi_lines
+cat <<- EOF > ${1:file_path}
+	${2:some_words}
+EOF
 endsnippet

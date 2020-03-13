@@ -4,7 +4,7 @@
 "https://github.com/scrooloose/nerdtree
 
 Plug 'scrooloose/nerdtree'          " File tree manager
-Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+" Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
 Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "Slow down vim significantly
 

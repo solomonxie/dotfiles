@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          NERDTREE - FILE BROWSER                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"https://github.com/scrooloose/nerdtree
 
 Plug 'scrooloose/nerdtree'          " File tree manager
 Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
@@ -50,22 +51,23 @@ let g:NERDTreeIndicatorMapCustom = {
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                        VIM-DEVICONS - ICONS FOR NERDTREE                   "
+"                        Vim-Devicons - ICONS FOR NERDTREE                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"https://github.com/ryanoasis/vim-devicons/wiki/Extra-Configuration
 if &runtimepath =~ 'vim-devicons'
+    let g:webdevicons_enable = 1  "Enable plugin
+    let g:webdevicons_enable_nerdtree = 1
+    let g:webdevicons_enable_airline_tabline = 0
+    let g:webdevicons_enable_airline_statusline = 0
     set guifont=DroidSansMono_Nerd_Font:h11
 endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                         NERDTREE SYNTAX HIGHLIGHT                          "
+"                         Nerdtree Syntax Highlight                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-">> Nerdtree-syntax-highlight
+"https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 if &runtimepath =~ 'nerdtree-syntax-highlight'
-    let g:NERDTreeDisableFileExtensionHighlight = 1
-    let g:NERDTreeDisableExactMatchHighlight = 1
-    let g:NERDTreeDisablePatternMatchHighlight = 1
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
@@ -73,4 +75,8 @@ if &runtimepath =~ 'nerdtree-syntax-highlight'
     let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
     let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
     let g:NERDTreeLimitedSyntax = 1  "Disable uncommon file extensions highlighting
+    " Disable
+    " let g:NERDTreeDisableFileExtensionHighlight = 1
+    " let g:NERDTreeDisableExactMatchHighlight = 1
+    " let g:NERDTreeDisablePatternMatchHighlight = 1
 endif

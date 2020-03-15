@@ -34,7 +34,7 @@ pexpect==4.7.0
 pickleshare==0.7.5
 pre-commit==1.17.0
 prompt-toolkit==1.0.16
-psutil==5.6.3
+psutil==5.6.6
 ptyprocess==0.6.0
 pyarrow==0.13.0
 Pygments==2.4.2

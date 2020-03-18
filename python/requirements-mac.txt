@@ -153,7 +153,7 @@ thefuck==3.28
 thrift==0.13.0
 tornado==5.1.1
 traitlets==4.3.2
-Twisted==18.9.0
+Twisted==19.7.0
 ujson==1.35
 urllib3==1.24.1
 urwid==2.1.0

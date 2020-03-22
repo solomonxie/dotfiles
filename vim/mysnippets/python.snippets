@@ -1,4 +1,30 @@
 #######################################################################
+#                               COMMON                                #
+#######################################################################
+snippet ifmain
+def main():
+	${1:${VISUAL:pass}}
+
+
+if __name__ == '__main__':
+	main()
+endsnippet
+
+
+snippet jsonload
+import json
+with open('${1:${VISUAL:path}}', 'r') as f:
+	content = json.loads(f.read())
+endsnippet
+
+snippet jsondump
+import json
+with open('${1:${VISUAL:path}}', 'w') adump
+	f.write(json.dumps(${2:${VISUAL:content}}))
+endsnippet
+
+
+#######################################################################
 #                              DEBUGGING                              #
 #######################################################################
 snippet pdb
@@ -46,6 +72,27 @@ snippet mock_exception
 patch('${1:module.module.method_name}', MagicMock(side_effect=Exception('${2:err_msg}'))).start()
 endsnippet
 
+
+snippet testcase
+from unittest import TestCase
+
+class TestA(TestCase):
+	def setUp(self):
+		pass
+
+	def tearDown(self):
+		pass
+
+	def test_function_a(self):
+		self.assertEqual(1, 1)
+endsnippet
+
+
+snippet patch
+from unittest.mock import patch, MagicMock
+@patch('${1:${VISUAL:module_path}}',
+		MagicMock(return_value=${2:${VISUAL:mock_data}}))
+endsnippet
 
 #######################################################################
 #                     SQLAlchemy - DB OPERATIONS                      #

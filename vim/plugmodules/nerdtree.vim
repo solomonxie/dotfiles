@@ -51,6 +51,23 @@ let g:NERDTreeIndicatorMapCustom = {
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                      Customized Abilities on Nerdtree                      "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" call NERDTreeAddKeyMap({
+"         \ 'key': 'E',
+"         \ 'callback': 'MyNerdtreeFunc',
+"         \ 'quickhelpText': 'put full path of current node into the default register' })
+"
+" function! MyNerdtreeFunc()
+"     let n = g:NERDTreeFileNode.GetSelected()
+"     if n != {}
+"         call setreg('"', n.path.str())
+"     endif
+" endfunction
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        Vim-Devicons - ICONS FOR NERDTREE                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "https://github.com/ryanoasis/vim-devicons/wiki/Extra-Configuration

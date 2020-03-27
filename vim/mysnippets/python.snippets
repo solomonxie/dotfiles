@@ -24,6 +24,17 @@ with open('${1:${VISUAL:path}}', 'w') adump
 endsnippet
 
 
+snippet parse-url
+import urllib
+urlobj = urllib.parse.urlparse(url)
+endsnippet
+
+snippet parse-url-params
+import urllib
+urlobj = urllib.parse.urlparse(url)
+params = urllib.parse.parse_qs(urlobj.query)
+endsnippet
+
 #######################################################################
 #                              DEBUGGING                              #
 #######################################################################

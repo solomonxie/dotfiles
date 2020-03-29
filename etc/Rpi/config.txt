@@ -25,8 +25,10 @@
 hdmi_force_hotplug=1
 
 # uncomment to force a specific HDMI mode (this will force VGA)
-#hdmi_group=1
-#hdmi_mode=1
+hdmi_group=1
+hdmi_mode=22
+display_rotate=3
+lcd_rotate = 0
 
 # uncomment to force a HDMI mode rather than DVI. This can make audio work in
 # DMT (computer monitor) modes
@@ -49,7 +51,7 @@ arm_freq=800
 #disable_splash=1
 #force_turbo=1 #Voids Warranty! (uncomment to avoid CPU scaling down to 600Mhz)
 #boot_delay=1 #helps to avoid sdcard corruption when force_turbo is enabled.
-gpu_mem=8
+gpu_mem=16
 #gpu_mem=320 #overclocking
 
 # Uncomment some or all of these to enable the optional hardware interfaces

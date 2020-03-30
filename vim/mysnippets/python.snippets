@@ -87,14 +87,15 @@ endsnippet
 snippet testcase
 from unittest import TestCase
 
-class TestA(TestCase):
+
+class Test${1:${VISUAL:Name}}(TestCase):
 	def setUp(self):
 		pass
 
 	def tearDown(self):
 		pass
 
-	def test_function_a(self):
+	def test_${2:${VISUAL:case_name}}(self):
 		self.assertEqual(1, 1)
 endsnippet
 
@@ -121,6 +122,9 @@ endsnippet
 #                        Numpy - DATA SCIENCE                         #
 #######################################################################
 
+snippet random_matrix
+
+endsnippet
 
 
 #######################################################################

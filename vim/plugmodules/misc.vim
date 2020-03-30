@@ -17,3 +17,5 @@ Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
 if has('nvim')
     Plug 'rbgrouleff/bclose.vim'
 endif
+
+" Plug 'machakann/vim-swap'

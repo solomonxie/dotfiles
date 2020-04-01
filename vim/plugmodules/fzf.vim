@@ -26,4 +26,7 @@ if executable('fzf')
     " MUST BE PLACED AFTER SETTINGS
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
+    if has('nvim')
+        Plug 'yuki-ycino/fzf-preview.vim'
+    endif
 endif

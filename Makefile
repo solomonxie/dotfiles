@@ -124,6 +124,7 @@ install_mac: install_bash install_zsh install_tmux install_vim
 	@echo "OK."
 
 install_ubuntu: install_bash install_tmux
+	echo "1 * * * * git -C /home/ubuntu/dotfiles/ pull origin master" |crontab ||true
 	@echo "OK."
 
 install_raspbian: install_bash install_tmux

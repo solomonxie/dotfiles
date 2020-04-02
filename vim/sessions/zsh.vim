@@ -8,7 +8,8 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 zsh/zshrc-mac.sh
-badd +1 zsh/alias-mac.sh
+badd +1 zsh/bash-alias.sh
+badd +1 zsh/bash-functions.sh
 badd +1 zsh/env-mac.sh
 badd +20 zsh/ohmyzsh-settings.sh
 argglobal

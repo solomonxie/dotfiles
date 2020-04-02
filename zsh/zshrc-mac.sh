@@ -16,9 +16,9 @@ source ~/dotfiles/zsh/themes.sh
 source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
 source ~/dotfiles/zsh/fzf-settings.sh
 source ~/dotfiles/zsh/alias-mac.sh
-if [ -f ~/alias-local.sh ];then
-    source ~/alias-local.sh
-fi
+source ~/dotfiles/zsh/bash-functions.sh
+[[ ! -f ~/.bashrc-local.sh ]] && touch ~/.bashrc-local.sh
+source ~/.bashrc-local.sh
 
 
 #######################################################################

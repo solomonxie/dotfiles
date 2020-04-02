@@ -21,12 +21,23 @@ if executable('fzf')
         "let g:fzf_layout = { 'window': 'enew' }
         "let g:fzf_layout = { 'window': '-tabnew' }
         "let g:fzf_layout = { 'window': '10split enew' }
-    " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--path-to-ignore ~/.ignore --hidden', <bang>0)
+
+    " [Rg] Set preview window
+    " command! -bang -nargs=* Rg
+    "   \ call fzf#vim#grep(
+    "   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+    "   \   fzf#vim#with_preview(), <bang>0)
+    " [Rg] disable matching file path
+    command! -bang -nargs=* Rg
+        \ call fzf#vim#grep(
+        \   "rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1,
+        \   {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+    " [Ag] disable matching file path
+    command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
     " MUST BE PLACED AFTER SETTINGS
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    if has('nvim')
-        Plug 'yuki-ycino/fzf-preview.vim'
-    endif
+    " Plug 'chengzeyi/fzf-preview.vim'
 endif

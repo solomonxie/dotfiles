@@ -494,20 +494,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap fc :Commands<CR>
             nnoremap fH :History:<CR>
             nnoremap fh :History<CR>
-            " nnoremap fa :Ag<CR>
-            nnoremap fa :call fzf#vim#ag('', fzf#vim#with_preview('right'))<CR>
+            nnoremap fa :Rg<CR>
+            " nnoremap fa :call fzf#vim#ag('', fzf#vim#with_preview('right'))<CR>
             nnoremap fs :Snippets<CR>
             " nnoremap fS :History/<CR>
             " nnoremap fm :Marks<CR>
-        elseif &runtimepath =~ 'fzf-preview'
-            nnoremap fg :GFiles<CR>
-            nnoremap fd :FzfPreviewProjectFiles<CR>
-            nnoremap fb :FzfPreviewBuffers<CR>
-            nnoremap ft :Tags<CR>
-            nnoremap fc :Commands<CR>
-            nnoremap fH :History:<CR>
-            nnoremap fh :FzfPreviewProjectOldFiles<CR>
-            " nnoremap fa :FzfPreviewProjectGrep window<CR>
         endif
         "[Command-T] Fuzzy Searching
             "nnoremap <localleader>/ :CommandT<CR>

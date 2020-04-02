@@ -134,12 +134,10 @@ install_vim: config
 	# sudo cp -a ~/.vim{,_$(date +%F)}  # Does not support this in makefile
 	mv ~/.vim ~/.vim_`date +%F` || True
 	# Install symlinks
-	ln -s ~/dotfiles/vim ~/.vim
+	ln -sf ~/dotfiles/vim/ ~/.vim/
 	ln -sf ~/dotfiles/vim/vimrc.vim ~/.vimrc
-	mkdir -p ~/.config/nvim || True
-	ln -sf ~/dotfiles/vim/ ~/.config/nvim/
-	mkdir -p ~/.nvim || True
-	ln -sf ~/dotfiles/vim/vimrc.vim ~/.nvim/init.vim
+	mkdir -p ~/.config/nvim || ln -sf ~/dotfiles/vim/ ~/.config/nvim/
+	mkdir -p ~/.nvim || ln -sf ~/dotfiles/vim/vimrc.vim ~/.nvim/init.vim
 
 install_zsh: config
 	# Archive(Backup)

@@ -59,10 +59,6 @@ alias proxy='export all_proxy=http://127.0.0.1:1060'
 alias unproxy='unset all_proxy'
 alias myip="curl https://ip.cn"
 alias hosts='sudo vim /etc/hosts'
-function sslo() {
-    pkill ss-local
-    nohup ss-local -c $1 -v 1> /tmp/ssclient.log 2> /tmp/ssclient-err.log &
-}
 
 #alias you="youtube-dl -civw --proxy "socks5://127.0.0.1:1086" -f best/mp4 --write-sub "
 alias you="youtube-dl"

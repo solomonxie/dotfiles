@@ -11,12 +11,14 @@
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
-source ~/dotfiles/zsh/plugin-settings.sh
-source ~/dotfiles/zsh/themes.sh
-source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
-source ~/dotfiles/zsh/fzf-settings.sh
-source ~/dotfiles/zsh/alias-mac.sh
+if [[ -z "$ZSH" ]]; then
+    source ~/dotfiles/zsh/plugin-settings.sh
+    source ~/dotfiles/zsh/themes.sh
+    source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
+fi
+source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
+source ~/dotfiles/zsh/fzf-settings.sh
 [[ ! -f ~/.bashrc-local.sh ]] && touch ~/.bashrc-local.sh
 source ~/.bashrc-local.sh
 
@@ -59,10 +61,10 @@ printf "\033]0;%s\a" "TITLE"
 #######################################################################
 #                       KEY BINDINGS / MAPPINGS                       #
 #######################################################################
-# Key Bindings / Mappings {
+if [[ -z "$ZSH" ]]; then
     bindkey '^p' up-line-or-search # Up arrow
     bindkey '^n' down-line-or-search # Down arrow
     # [autosuggestions] (history conflict with zsh hints, not recommanded)
     #bindkey '^e' autosuggest-accept # [Essential] Ctrl+i to confirm hint
     #bindkey -e
-# }
+fi

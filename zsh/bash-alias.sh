@@ -25,18 +25,25 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -I --preserve-root'
+
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+
 
 #######################################################################
 #                                 Vim                                 #
 #######################################################################
 alias vim="nvim"
 alias vi="vi --noplugin"
-alias rec="asciinema rec"
-alias m="macdown"
 
 
 #######################################################################
-#                             Bulk Edits                              #
+#                           CONFIG PROJECTS                           #
 #######################################################################
 alias zshrc="vim -S ~/dotfiles/vim/sessions/zsh.vim"
 # alias zshrc0="vim ~/.zshrc"
@@ -111,14 +118,16 @@ alias ipy="ipython"
 #######################################################################
 #                          MAC APPLICATIONS                           #
 #######################################################################
-# alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-# alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
-alias sub="open -a 'Sublime Text'"
-alias code="open -a 'Visual Studio Code'"
-alias typora="open -a 'Typora'"
-alias chrome="open -a Google\ Chrome"
-alias safari="open -a Safari"
-# alias brew="HOMEBREW_NO_AUTO_UPDATE=1 brew"
+if [[ $(uname) == "Darwin" ]]; then
+    # alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+    # alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+    alias sub="open -a 'Sublime Text'"
+    alias code="open -a 'Visual Studio Code'"
+    alias typora="open -a 'Typora'"
+    alias chrome="open -a Google\ Chrome"
+    alias safari="open -a Safari"
+    # alias brew="HOMEBREW_NO_AUTO_UPDATE=1 brew"
+fi
 
 
 #######################################################################
@@ -131,7 +140,9 @@ elif [ -x /Applications/Postgres.app/Contents/Versions/latest/bin/psql ];then
     alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
 fi
 
-# Tmux
+#######################################################################
+#                            TMUX RELATED                             #
+#######################################################################
+alias ptitle="printf '\033]2;%s\033\\'"  # Set Tmux Pane title
 #alias tmux="TERM=screen-256color-bce tmux"
-alias pname="printf '\033]2;%s\033\\'"  # Set Tmux Pane title
 # Please do not Overwite the `title` command/function

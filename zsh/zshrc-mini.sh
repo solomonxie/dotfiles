@@ -4,7 +4,7 @@
     set HOSTALIASES=~/hosts
 
 # Make some device-specific aliased in another file
-    source ~/dotfiles/zsh/alias-mini.sh
+    source ~/dotfiles/zsh/bash-alias.sh
 
 # Theme settings {
     # Light Themes

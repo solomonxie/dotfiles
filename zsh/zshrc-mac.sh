@@ -66,11 +66,3 @@ printf "\033]0;%s\a" "TITLE"
     #bindkey '^e' autosuggest-accept # [Essential] Ctrl+i to confirm hint
     #bindkey -e
 # }
-
-
-#######################################################################
-#               LOCAL SETTINGS (NOT EXPOSED ON PUBLIC)                #
-#######################################################################
-if [ -e ~/.zshrc-local ]; then
-    source ~/.zshrc-local
-fi

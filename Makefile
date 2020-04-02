@@ -91,16 +91,16 @@ build_mac:
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update
 	brew bundle
-	brew bundle install --file $(DOTFILES)/pacman/Brewfile
+	brew bundle install --file ~/dotfiles/pacman/Brewfile
 
 build_ubuntu: set_locale
-	cat $(DOTFILES)/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
+	cat ~/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get autoremove -y
 	sudo apt-get autoclean -y
 
 build_raspbian: set_locale
-	cat $(DOTFILES)/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
+	cat ~/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get remove --purge wolfram-engine -y
 	sudo apt-get remove --purge libreoffice* -y
@@ -120,13 +120,13 @@ install: config
 	echo "make install_${MYOS}" | sh
 	echo "OK."
 
-install_mac: install_zsh install_tmux install_vim
+install_mac: install_bash install_zsh install_tmux install_vim
 	@echo "OK."
 
-install_ubuntu: install_tmux
+install_ubuntu: install_bash install_tmux
 	@echo "OK."
 
-install_raspbian: install_tmux
+install_raspbian: install_bash install_tmux
 	@echo "OK."
 
 install_vim: config
@@ -134,28 +134,33 @@ install_vim: config
 	# sudo cp -a ~/.vim{,_$(date +%F)}  # Does not support this in makefile
 	mv ~/.vim ~/.vim_`date +%F` || True
 	# Install symlinks
-	ln -s ${DOTFILES}/vim ~/.vim
-	ln -sf ${DOTFILES}/vim/vimrc.vim ~/.vimrc
+	ln -s ~/dotfiles/vim ~/.vim
+	ln -sf ~/dotfiles/vim/vimrc.vim ~/.vimrc
 	mkdir -p ~/.config/nvim || True
-	ln -sf $(DOTFILES)/vim/ ~/.config/nvim/
+	ln -sf ~/dotfiles/vim/ ~/.config/nvim/
 	mkdir -p ~/.nvim || True
-	ln -sf $(DOTFILES)/vim/vimrc.vim ~/.nvim/init.vim
+	ln -sf ~/dotfiles/vim/vimrc.vim ~/.nvim/init.vim
 
 install_zsh: config
 	# Archive(Backup)
 	mv ~/.zshrc ~/.zshrc_`date +%F` || True
 	mv ~/.zsh ~/.zsh_`date +%F` || True
 	# Install symlinks
-	ln -s ${DOTFILES}/zsh ~/.zsh
-	ln -sf ${DOTFILES}/zsh/env-${MYOS}.sh ~/.zshrc
+	ln -s ~/dotfiles/zsh ~/.zsh
+	ln -sf ~/dotfiles/zsh/env-${MYOS}.sh ~/.zshrc
+
+install_bash: config
+	ln -sf ~/dotfiles/zsh/bashrc.sh ~/.bashrc
+	# touch ~/.bashrc && echo "source ~/dotfiles/zsh/bashrc.sh" >> ~/.bashrc
+
 
 install_tmux: config
 	# Archive(Backup)
 	mv ~/.tmux ~/.tmux_`date +%F` || True
 	mv ~/.tmux.conf ~/.tmux.conf_`date +%F` || True
 	# Install symlinks
-	ln -s ${DOTFILES}/tmux ~/.tmux
-	ln -sf ${DOTFILES}/tmux/tmux.conf ~/.tmux.conf
+	ln -s ~/dotfiles/tmux ~/.tmux
+	ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS}.txt ${HOME}/.tmux/resurrect/last || True
 
 install_git: config
@@ -165,7 +170,7 @@ install_git: config
 
 # Stage-4: Backup
 save:
-	#mv ${DOTFILES}/tmux/resurrect/tmux_resurrect_20190525T173225.txt ${DOTFILES}/tmux/resurrect/last
+	#mv ~/dotfiles/tmux/resurrect/tmux_resurrect_20190525T173225.txt ~/dotfiles/tmux/resurrect/last
 	zip -r /tmp/mydotfiles.zip ~/
 	mv /tmp/mydotfiles.zip ~/
 

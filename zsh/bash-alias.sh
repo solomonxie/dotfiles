@@ -58,9 +58,6 @@ alias vimrc="vim -S ~/dotfiles/vim/sessions/vimrc.vim"
 # alias nvimrc="vim -S ~/dotfiles/vim/sessions/vimrc.vim"
 alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf"
 alias bashrc="vim ~/.bashrc"
-alias gitrc0="vim ~/.gitconfig"
-alias gitrc="vim ~/dotfiles/etc/git/gitconfig.ini"
-alias gitrc_="vim ./.git/config"
 alias rangerrc="vim ~/.config/ranger/rc.conf"
 #alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias muttrc="vim -S ~/dotfiles/vim/sessions/muttrc.vim"
@@ -92,11 +89,16 @@ alias gs="git status"
 alias gc="git add .; git commit"
 # alias gd="git diff --word-diff=plain"
 alias gd="git diff"
+alias gsh="git stash"
 alias gco="git checkout"
 alias gsc="git sync"
 alias gcp="git add .; git quickcommit; git pub"
 alias gcl="git clone"
 alias diff=vimdiff
+
+alias gitrc0="vim ~/.gitconfig"
+alias gitrc="vim ~/dotfiles/etc/git/gitconfig.ini"
+alias gitrc_="vim ./.git/config"
 
 
 #######################################################################

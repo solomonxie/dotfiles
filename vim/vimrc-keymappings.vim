@@ -245,13 +245,16 @@ let $DOTFILES = expand('~') . '/dotfiles'
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
         command! Cwd echo expand('%')
+        command! CwdCopy let @+ = expand('%') | echo 'Copied: ' @+
         command! C let @+ = expand('%') | echo 'Copied: ' @+
+
         command! Pwd echo expand('%:p')
+        command! PwdCopy let @+ = expand('%:p') | echo 'Copied: ' @+
         command! P let @+ = expand('%:p') | echo 'Copied: ' @+
 
-        command! CwdCopy let @+ = expand('%') | echo 'Copied: ' @+
-        command! PwdCopy let @+ = expand('%:p') | echo 'Copied: ' @+
         command! FilenameCopy let @+ = expand('%:t') | echo 'Copied: ' @+
+        command! F let @+ = expand('%:t') | echo 'Copied: ' @+
+
         command! RemoteGitFileReference call GetGitRemoteCodeReferenceLink()
         "command! CopyFolderRelativePath let @+ = expand('%:h') | echo 'Copied: ' @+
         "command! CopyFolderAbsolutePath let @+ = expand('%:p:h') | echo 'Copied: ' @+

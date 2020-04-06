@@ -11,11 +11,9 @@
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
-if [[ ! -z "$ZSH" ]]; then
-    source ~/dotfiles/zsh/plugin-settings.sh
-    source ~/dotfiles/zsh/themes.sh
-    source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
-fi
+source ~/dotfiles/zsh/plugin-settings.sh
+source ~/dotfiles/zsh/themes.sh
+source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
 source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
 source ~/dotfiles/zsh/fzf-settings.sh

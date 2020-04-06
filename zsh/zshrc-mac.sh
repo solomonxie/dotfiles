@@ -11,9 +11,11 @@
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
-source ~/dotfiles/zsh/plugin-settings.sh
-source ~/dotfiles/zsh/themes.sh
-source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
+if [[ "$0" =~ "zsh" ]]; then
+    source ~/dotfiles/zsh/zsh-plugins.sh
+    source ~/dotfiles/zsh/themes.sh
+    source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
+fi
 source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
 source ~/dotfiles/zsh/fzf-settings.sh
@@ -59,7 +61,7 @@ printf "\033]0;%s\a" "TITLE"
 #######################################################################
 #                       KEY BINDINGS / MAPPINGS                       #
 #######################################################################
-if [[ -z "$ZSH" ]]; then
+if [[ "$0" =~ "zsh" ]]; then
     bindkey '^p' up-line-or-search # Up arrow
     bindkey '^n' down-line-or-search # Down arrow
     # [autosuggestions] (history conflict with zsh hints, not recommanded)

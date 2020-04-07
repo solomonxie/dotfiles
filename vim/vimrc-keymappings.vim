@@ -304,30 +304,30 @@ let $DOTFILES = expand('~') . '/dotfiles'
         if isdirectory(gitroot)
             let session_path = gitroot . "/.git/workspace.vim"
         else
-            let session_path = "~/dotfiles/vim/sessions/non-repo.vim"
+            let session_path = "~/dotfiles/vim/sessions/non-repo-session.vim"
         endif
         return session_path
     endfunction
     if v:version >= 800
         function! SaveSession()
             let session_path = GetSessionPath()
-            :mksession! session_path
-            :echo "Saved session to: " . session_path
+            execute "mksession! " . session_path
+            echo "Saved session to: " . session_path
         endfunction
 
         function! LoadSession()
             let session_path = GetSessionPath()
-            :source session_path
+            execute "source " . session_path
             ":echo 'Load session from workspace.vim'
         endfunction
 
         "{Save session}
         nnoremap S :call SaveSession()<CR><ESC>
-        command! SaveSession :call SaveSession()
+        command! SaveSessionCmd :call SaveSession()
         "{Load session}
         " noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
         nnoremap R :call LoadSession()<CR><ESC>
-        command! LoadSession :call LoadSession()
+        command! LoadSessionCmd :call LoadSession()
         "autocmd VimEnter * call LoadSession()
         autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
     endif

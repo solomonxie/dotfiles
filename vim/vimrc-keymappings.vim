@@ -299,47 +299,37 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap  !! /<C-r>+<CR>
 
     "[Session]----------------------------------{
+    function! GetSessionPath()
+        let gitroot = trim(system("git rev-parse --show-toplevel"))
+        if isdirectory(gitroot)
+            let session_path = gitroot . "/.git/workspace.vim"
+        else
+            let session_path = "~/dotfiles/vim/sessions/non-repo.vim"
+        endif
+        return session_path
+    endfunction
     if v:version >= 800
-        function! AutoSaveSession()
-            if isdirectory('.git')
-                :mksession! .git/workspace.vim
-                :echo 'Saved session to .git/workspace.vim'
-            elseif isdirectory('../.git')
-                :mksession! ../.git/workspace.vim
-                :echo 'Saved session to ../.git/workspace.vim'
-            else
-                :mksession! "~/vim-session.vim"
-                :echo 'Saved session to ~/vim-session.vim'
-            endif
+        function! SaveSession()
+            let session_path = GetSessionPath()
+            :mksession! session_path
+            :echo "Saved session to: " . session_path
         endfunction
 
-        function! AutoLoadSession()
-            if filereadable(expand('workspace.vim'))
-                :source workspace.vim
-                ":echo 'Load session from workspace.vim'
-            elseif filereadable(expand('.git/workspace.vim'))
-                :source .git/workspace.vim
-                ":echo 'Load session from .git/workspace.vim'
-            elseif filereadable(expand('../.git/workspace.vim'))
-                :source ../.git/workspace.vim
-                ":echo 'Load session from ../.git/workspace.vim'
-            elseif filereadable(expand('~/vim-session.vim'))
-                :source "~/vim-session.vim"
-                ":echo 'Load session from ~/vim-session.vim'
-            else
-                :echo 'No session found.'
-            endif
+        function! LoadSession()
+            let session_path = GetSessionPath()
+            :source session_path
+            ":echo 'Load session from workspace.vim'
         endfunction
 
         "{Save session}
-        noremap S :call AutoSaveSession()<CR><ESC>
-        command! SessionSave :call AutoSaveSession()
+        nnoremap S :call SaveSession()<CR><ESC>
+        command! SaveSession :call SaveSession()
         "{Load session}
         " noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
-        noremap R :call AutoLoadSession()<CR><ESC>
-        command! SessionLoad :call AutoLoadSession()
-        "autocmd VimEnter * call AutoLoadSession()
-        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call AutoSaveSession() | endif
+        nnoremap R :call LoadSession()<CR><ESC>
+        command! LoadSession :call LoadSession()
+        "autocmd VimEnter * call LoadSession()
+        autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
     endif
     " }
 

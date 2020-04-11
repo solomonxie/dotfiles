@@ -49,7 +49,7 @@ extract_pdf() {
 }
 
 # Extracts any archive(s) (if unp isn't installed)
-untar() {
+decompress () {
     for archive in $*; do
         if [ -f $archive ] ; then
             case $archive in

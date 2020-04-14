@@ -433,6 +433,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
         endif
         nnoremap K :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
 
+        "[Jedi-vim]
+        if &runtimepath =~ 'jedi-vim'
+            " nnoremap <Leader>d :call jedi#goto_definitions()<CR>
+            nnoremap <Leader>d :call jedi#goto()<CR>
+        endif
+
         "[nnn]
             "nnoremap <LocalLeader>F :NnnPicker<CR>
         "[ranger]

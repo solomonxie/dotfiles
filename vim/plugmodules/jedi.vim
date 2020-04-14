@@ -10,7 +10,7 @@ if &runtimepath =~ 'jedi'
     let g:jedi#auto_initialization = 0
     let g:jedi#auto_vim_configuration = 0
 
-    " let g:jedi#goto_command = "<leader>d"
+    let g:jedi#goto_command = "<leader>d"
     " let g:jedi#goto_assignments_command = "<leader>g"
     " let g:jedi#goto_stubs_command = "<leader>s"
     " let g:jedi#goto_definitions_command = ""

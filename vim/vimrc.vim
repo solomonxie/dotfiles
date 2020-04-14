@@ -27,6 +27,7 @@ if !filereadable(expand('~/.vim/autoload/plug.vim'))
     call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs ' . url)
     echo 'Done.'
 endif
+" source ~/dotfiles/vim/plugmodules/provider.vim
 call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/basic.vim
     source ~/dotfiles/vim/plugmodules/misc.vim
@@ -41,10 +42,10 @@ call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/tig.vim
     source ~/dotfiles/vim/plugmodules/fzf.vim
     source ~/dotfiles/vim/plugmodules/ultisnips.vim
+    source ~/dotfiles/vim/plugmodules/jedi.vim
     source ~/dotfiles/vim/plugmodules/deoplete.vim
     " source ~/dotfiles/vim/plugmodules/YCM.vim
     source ~/dotfiles/vim/plugmodules/any-jump.vim
-    source ~/dotfiles/vim/plugmodules/jedi.vim
     " source ~/dotfiles/vim/plugmodules/coc.vim
     " source ~/dotfiles/vim/plugmodules/ncm2.vim
     source ~/dotfiles/vim/plugmodules/autopairs.vim

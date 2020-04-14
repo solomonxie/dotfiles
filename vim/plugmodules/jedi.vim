@@ -5,10 +5,11 @@ Plug 'davidhalter/jedi-vim'
 if &runtimepath =~ 'jedi'
     " let g:jedi#force_py_version=3.7
 
-    " Disable completion
+    " DISABLE [completion] but keep other functionalities
     let g:jedi#completions_enabled = 0
-
+    " Disable loading automatically
     let g:jedi#auto_initialization = 0
+    " Disable config auto initialized
     let g:jedi#auto_vim_configuration = 0
 
     let g:jedi#goto_command = "<leader>d"

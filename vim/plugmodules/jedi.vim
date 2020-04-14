@@ -1,16 +1,6 @@
 "https://github.com/davidhalter/jedi-vim
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', {'do': 'python3 -m pip install --user pynvim neovim jedi' }
 " ^ Will auto install jedi dependencies
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                             PYTHON INTERPRETER                             "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:jedi#force_py_version=3.7
-"
-" Specify Python Interpreter location
-" let g:python3_host_prog = glob('/usr/local/bin/python2')
-let g:python3_host_prog = glob('~/virtualenv/venv3/bin/python3.7')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                LAZY LOADING                                "

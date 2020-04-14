@@ -17,11 +17,6 @@ if has('python3')
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#num_processes = 1
 
-    " Python Environment
-    "set pyxversion=3  "[error]
-    " let g:python3_host_prog = '/usr/local/bin/python3'
-    " let g:python3_host_prog = system('which python3')
-
     " Close preview window after completion
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 

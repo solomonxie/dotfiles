@@ -35,6 +35,11 @@ urlobj = urllib.parse.urlparse(url)
 params = urllib.parse.parse_qs(urlobj.query)
 endsnippet
 
+
+snippet	shuffle_list
+shuffled_list = sorted(${1:${VISUAL:target_list}}, key=lambda _: random.random())
+endsnippet
+
 #######################################################################
 #                              DEBUGGING                              #
 #######################################################################

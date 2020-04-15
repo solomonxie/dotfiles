@@ -21,3 +21,9 @@ if !isdirectory('${1:path_of_dir}')
 	silent! call mkdir('$1', 'p')
 endif
 endsnippet
+
+
+snippet system
+let ${2:${VISUAL:v}} = systemlist("${1:${VISUAL:which python}}")[0]
+endsnippet
+

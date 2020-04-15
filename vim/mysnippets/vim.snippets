@@ -24,6 +24,6 @@ endsnippet
 
 
 snippet system
-let ${2:${VISUAL:v}} = systemlist("${1:${VISUAL:which python}}")[0]
+let ${2:${VISUAL:v}} = trim(system("${1:${VISUAL:which python}}"))
 endsnippet
 

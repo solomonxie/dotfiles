@@ -71,3 +71,17 @@ decompress () {
         fi
     done
 }
+
+
+# Make a virtualenv
+make_venv() {
+    requirements_path="$1"
+    [[ $requirements_path == "" ]] && requirements_path="$(realpath ./requirements.txt)"
+    [[ ! -e "$requirements_path" ]] && echo "No requirements.txt found"; exit 1;
+    [[ ! -e ".git" ]] && echo "Not in a git repo"; exit 1;
+    mkdir -p ~/virtualenv/ ||true
+    python3 -m venv ~/virtualenv/venv4
+    py_exe="$(realpath ~/virtualenv/venv4/bin/python)"
+    $py_exe -m pip install -r $requirements_path
+    ln -sf $py_exe .git/python3_symblink
+}

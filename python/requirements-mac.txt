@@ -2,7 +2,6 @@
 #-
 #-re-commit
 
-aasoautils3
 aiohttp
 aplus
 astropy

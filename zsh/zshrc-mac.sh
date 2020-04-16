@@ -31,7 +31,9 @@ export LANG=en_US.UTF-8
 
 # Vi mode
 # set editing-mode vi
-# export EDITOR=vim
+
+# Default Editor
+[[ -e $(command -v nvim) ]] && export EDITOR=nvim || export EDITOR=vim
 # set -o vi
 
 # Get rid of "you have a mail" from crontab

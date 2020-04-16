@@ -413,7 +413,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 " Toggle/fold changed lines
                 nnoremap gF :GitGutterFold<CR>
                 " Diff
-                nnoremap gD :let g:gitgutter_diff_base = 'master'
+                command! ChangeGitDiffBase let g:gitgutter_diff_base = 'master'
             endif
 
         "[tagbar]

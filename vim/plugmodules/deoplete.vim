@@ -6,12 +6,14 @@
 " https://github.com/Shougo/deoplete.nvim
 if has('python3')
     Plug 'Shougo/deoplete.nvim', {'do': 'python3 -m pip install --user pynvim neovim' }
+    " Completion sources
+    " https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
     Plug 'zchee/deoplete-jedi', {'do': 'python3 -m pip install jedi --user'}
     Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
-    if has('vim') ">> For vim only
-        Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework
-        Plug 'roxma/vim-hug-neovim-rpc'  ">> to work with Vim8
-    endif
+    " if ! has('vim') ">> For vim only
+    Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework
+    Plug 'roxma/vim-hug-neovim-rpc'  ">> to work with Vim8
+    " endif
 
     " Must be right after the loading
     let g:deoplete#enable_at_startup = 1

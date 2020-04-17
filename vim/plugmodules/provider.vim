@@ -2,6 +2,11 @@
 "                              NEOVIM PROVIDERS                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+":checkhealth provider
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   PYTHON                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Py2
 let g:loaded_python_provider = 0  "Disable Py2 provider
 " let g:python_host_prog = trim(system("which python2"))

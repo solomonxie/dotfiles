@@ -16,10 +16,19 @@ if has('python') || has('python3')
     highlight SyntasticErrorSign guifg=white guibg=black
     "let g:syntastic_check_on_wq = 0
 
-    " [CHECKERS]
-    " Python (pyflakes is faster than pylint)
+    " CHECKERS
+    " :help syntastic-checkers
+    " Format: let g:syntastic_<filetype>_checkers = ['<checker-name>']
+    "
+    " [Python]
     let g:syntastic_python_checkers=['flake8']
-    " Clang
-    let g:syntastic_cpp_checkers = ['gcc']
-    let g:syntastic_cpp_compiler = 'gcc'
+    " [Clang]
+    " let g:syntastic_cpp_checkers = ['gcc']
+    " let g:syntastic_cpp_compiler = 'gcc'
+    " [SH]
+    " let g:syntastic_sh_checkers = ['shellCheck', 'bashate']
+    " [Make]
+    " let g:syntastic_cmake_checkers = ['cmakelint']
+    " [Dockerfile]
+    " let g:syntastic_dockerfile_checkers = ['dockerfile-lint']
 endif

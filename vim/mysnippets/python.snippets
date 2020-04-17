@@ -12,15 +12,13 @@ endsnippet
 
 
 snippet jsonload
-import json
 with open('${1:${VISUAL:path}}', 'r') as f:
-	content = json.loads(f.read())
+	${2:${VISUAL:data}} = json.loads(f.read())
 endsnippet
 
 snippet jsondump
-import json
-with open('${1:${VISUAL:path}}', 'w') adump
-	f.write(json.dumps(${2:${VISUAL:content}}))
+with open('${1:${VISUAL:path}}', 'w') as f:
+	f.write(json.dumps(${2:${VISUAL:data}}))
 endsnippet
 
 

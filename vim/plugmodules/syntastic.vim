@@ -1,3 +1,6 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                             LINTER: Syntastic                              "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/vim-syntastic/syntastic
 "Static Code Check
 if has('python') || has('python3')

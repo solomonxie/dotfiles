@@ -26,7 +26,7 @@ if has('python') || has('python3')
     " let g:syntastic_cpp_checkers = ['gcc']
     " let g:syntastic_cpp_compiler = 'gcc'
     " [SH]
-    " let g:syntastic_sh_checkers = ['shellCheck', 'bashate']
+    " let g:syntastic_sh_checkers = ['shell']
     " [Make]
     " let g:syntastic_cmake_checkers = ['cmakelint']
     " [Dockerfile]

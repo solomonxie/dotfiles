@@ -333,6 +333,10 @@ let $DOTFILES = expand('~') . '/dotfiles'
     endif
     " }
 
+    "[Prettify/Formatting]--------------------------{
+    command! PrettifyJson :% !python -m json.tool
+    " }
+
 
     "<Builds/Compiles>----{
         " Get current filetype -> :echo &filetype or as variable &filetype

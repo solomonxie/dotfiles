@@ -19,7 +19,7 @@ let g:ale_lint_on_text_changed = 'always'  "never|always
 
 " Quickfix (:copen to open quickfix list)
 let g:ale_set_quickfix = 1
-let g:ale_open_list = 1  "Enable auto-open quickfix when error occurs
+let g:ale_open_list = 0  "Disable auto-open quickfix when error occurs
 let g:ale_keep_list_window_open = 0  "Auto-close quickfix when no error
 let g:ale_list_window_size = 5
 let g:ale_set_loclist = 0

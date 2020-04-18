@@ -33,6 +33,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         command! OpenAllInThisDir :next *
         "{Change pwd/Current Directory to be same with buffer}
         command! CDToCurrentDir :cd %:p:h
+        command! R :source ~/.vimrc
 
     "<Navigation>
         "{Go-next-call}

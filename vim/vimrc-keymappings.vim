@@ -134,6 +134,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "{Macro}
         nnoremap 2 q
 
+        "{Yank/Paste}
+        "Copy to a dedicated register
+        " vnoremap Y "Yy
+        "Paste from the dedicated register
+        " nnoremap P "Yp
+
         "inoremap jj <esc>
         "map q <NOP>
         "noremap <Leader>,r q

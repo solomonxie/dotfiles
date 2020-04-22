@@ -6,7 +6,7 @@
 !vim/snippets/*
 vim/backup/*
 vim/undo/*
-!vim/sessions/*
+vim/sessions/*
 vim/swap/*
 vim/tags/*
 vim/plugged/*

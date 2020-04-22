@@ -27,10 +27,10 @@ if !filereadable(expand('~/.vim/autoload/plug.vim'))
     call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs ' . url)
     echo 'Done.'
 endif
-source ~/dotfiles/vim/plugmodules/provider.vim
 call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/basic.vim
     source ~/dotfiles/vim/plugmodules/misc.vim
+    source ~/dotfiles/vim/plugmodules/provider.vim
     source ~/dotfiles/vim/plugmodules/nerdtree.vim
     source ~/dotfiles/vim/plugmodules/airline.vim
     source ~/dotfiles/vim/plugmodules/semshi.vim

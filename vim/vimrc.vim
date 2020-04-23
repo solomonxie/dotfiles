@@ -107,6 +107,11 @@ au FocusGained,BufEnter * :checktime
 " https://vim.fandom.com/wiki/Make_search_results_appear_in_the_middle_of_the_screen
 set scrolloff=5  "Set 99 to make it center
 
+" Neovim feature of :%s/a/b/
+if has('nvim')
+    set inccommand=split
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         ADVANCED BUILT-IN SETTINGS                         "

@@ -34,7 +34,7 @@ let g:ale_linters_explicit = 1  "Only run linters when I specify
 " Make it 'g:' to only run linters I specified
 let g:ale_linters = {
 \   'sh': ['shell'],
-\   'python': ['flake8'],
+\   'python': ['flake8', 'mypy'],
 \   'make': ['checkmake'],
 \   'vim': ['vint'],
 \   'dockerfile': ['dockerfile_lint'],
@@ -49,3 +49,12 @@ let g:ale_linters = {
 "                                   FIXERS                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                DEPENDENCIES                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if ! executable('mypy')
+    echo "MyPy not installed for ALE linters: $ python3 -m pip install -U mypy"
+endif

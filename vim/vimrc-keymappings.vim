@@ -311,7 +311,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         if isdirectory(gitroot)
             let session_path = gitroot . "/.git/workspace.vim"
         else
-            let session_path = "~/dotfiles/vim/sessions/non-repo-session.vim"
+            let session_path = "~/.non-repo-session.vim"
         endif
         return session_path
     endfunction

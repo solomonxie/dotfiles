@@ -44,6 +44,10 @@ let g:ale_linters = {
 " \   'c++': ['clang', 'gcc']
 " \}
 
+" Custom args to linters / fixers
+let g:ale_python_mypy_options = '--ignore-missing-imports'
+" let g:ale_python_mypy_options = '--follow-imports skip'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   FIXERS                                   "

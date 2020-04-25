@@ -6,7 +6,10 @@
 #            |____/ \___/ \___|_|\_\___|_|              #
 #                                                       #
 #########################################################
-
+#
+# docker-run ==> docker-compose:
+# 	https://composerize.com/
+#
 DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`

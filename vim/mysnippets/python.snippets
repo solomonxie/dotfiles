@@ -3,7 +3,7 @@
 #######################################################################
 snippet ifmain
 def main():
-	${1:${VISUAL:pass}}
+	pass
 
 
 if __name__ == '__main__':
@@ -38,6 +38,10 @@ snippet	shuffle_list
 shuffled_list = sorted(${1:${VISUAL:target_list}}, key=lambda _: random.random())
 endsnippet
 
+snippet retry "from retry import retry"
+@retry((KeyError, RuntimeError), tries=5, delay=2, jitter=5)
+endsnippet
+
 #######################################################################
 #                              DEBUGGING                              #
 #######################################################################
@@ -70,6 +74,56 @@ endsnippet
 snippet logger
 from logging import getLogger
 logger = getLogger(__name__)
+endsnippet
+
+
+#######################################################################
+#                             DATE / TIME                             #
+#######################################################################
+snippet now
+from datetime import datetime, timedelta
+datetime.now().strftime('%Y%m%d%H%M%S')
+endsnippet
+
+snippet date-range
+from datetime import datetime, timedelta
+def get_dates_from_range(granularity, start_date, end_date):
+	"""
+		print(get_dates_from_range('monthly', '2019-01-01', '2019-10-20'), '\n\n')
+		print(get_dates_from_range('weekly', '2019-01-01', '2019-10-20'), '\n\n')
+		print(get_dates_from_range('daily', '2019-01-01', '2019-01-20'), '\n\n')
+		[('2018-12-30', 'weekly'), ('2019-01-06', 'weekly'), ('2019-01-01', 'daily')....]
+	"""
+	start, end = datetime.strptime(start_date, '%Y-%m-%d'), datetime.strptime(end_date, '%Y-%m-%d')
+	daily_dates = [start + timedelta(days=i) for i in range((end - start).days + 1)]
+
+	target_dates = []
+	if granularity == 'daily':
+		target_dates = daily_dates
+	elif granularity == 'weekly':
+		# Start from Monday: weeday_index = day.weekday()
+		# Start from Sunday: weeday_index = (day.weekday() + 1) % 7
+		target_dates = sorted(set([day - timedelta(days=(day.weekday() + 1) % 7) for day in daily_dates]))  # Sundays
+	elif granularity == 'monthly':
+		target_dates = sorted(set([day.replace(day=1) for day in daily_dates]))
+
+	combos = [(day.strftime('%Y-%m-%d'), granularity) for day in target_dates]
+	return combos
+endsnippet
+
+snippet date-to-start-end-date
+def get_start_end_date(target_date, granularity):
+	target = datetime.strptime(target_date, '%Y-%m-%d') if isinstance(target_date, str) else target_date
+	if granularity == 'daily':
+		start = end = target
+	elif granularity == 'weekly':
+		start = target
+		end = target + timedelta(days=6)
+	elif granularity == 'monthly':
+		start = target.replace(day=1)
+		any_day_in_next_month = target.replace(day=28) + timedelta(days=4)
+		end = any_day_in_next_month - timedelta(days=any_day_in_next_month.day)
+	return start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d')
 endsnippet
 
 
@@ -371,34 +425,47 @@ def get_top_os_usage_processes(top=1):
 	return mem_rank[:top], cpu_rank[:top]
 endsnippet
 
-snippet daterange
-def get_date_range(granularity, start_date):
+snippet threadpool
+from multiprocessing.pool import ThreadPool
+pool = ThreadPool(concurrency)
+responses = [pool.apply_async(${1:${VISUAL:func}}, args=(${2:${VISUAL:a}},)) for i in range(3)]
+_ = [pool.close(), pool.join()]
+results = [r.get() for r in responses]
+endsnippet
+
+snippet process-pool
+responses = []
+with ProcessPoolExecutor(max_workers=concurrency) as pool:
+	responses = [pool.submit(${1:${VISUAL:func}}, *(arg1, arg2))]
+results = [r.result() for r in responses]
+endsnippet
+
+
+snippet args-from-cli
+import sys
+import argparse
+def get_sys_args():
 	"""
-	get start_date and end_date from start_date and granularity
-	:param granularity:
-	:param start_date:
-	:return:
+	Refer: https://stackoverflow.com/a/15753721
+		- CLI arguments: '--granularity daily weekly --dates 2019-01-01 2019-01-02_2019-01-31'
 	"""
-	if granularity == 'daily':
-		# run current day
-		return start_date, start_date
+	parser = argparse.ArgumentParser()
 
-	elif granularity == 'weekly':
-		# run current week
-		# sunday is first day
-		target_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
-		week_begin_date = target_date_obj - timedelta(days=(target_date_obj.isoweekday() % 7))
-		week_end_date = week_begin_date + timedelta(days=6)
+	# Common args for all modes
+	parser.add_argument('--choices', '-M', default='a', choices=['a', 'b', 'c'])
+	parser.add_argument('--int', '-C', type=int, default=5)
+	parser.add_argument('--bool', action='store_true', default=False)
+	parser.add_argument('--str', type=str)
+	parser.add_argument('--list-of-int', nargs='*', type=int, default=[])
+	parser.add_argument('--list-of-str', nargs='*', type=int, default=[])
+	parser.add_argument('--list-of-any', nargs='*', default=[])
 
-		return str(week_begin_date.date()), str(week_end_date.date())
+	# Either from ENV or CLI args
+	input_args = CI_PARAMS.get('CLI_ARGS', '').split() or sys.argv[1:]
+	args = parser.parse_args(input_args)
 
-	elif granularity == 'monthly':
-		# run current month
-		month_begin_date = datetime.strptime(start_date, '%Y-%m-%d').replace(day=1)
-		next_month_date = datetime.strptime(start_date, '%Y-%m-%d').replace(day=28) + timedelta(days=4)
-		month_end_date = next_month_date - timedelta(days=next_month_date.day)
-		return str(month_begin_date.date()), str(month_end_date.date())
+	return args
 
-	else:
-		raise Exception(f'Unknown granularity: {granularity}')
+sysargs = get_sys_args()
+print(sysargs.choices)
 endsnippet

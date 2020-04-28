@@ -47,6 +47,7 @@ let g:ale_linters = {
 " Custom args to linters / fixers
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 " let g:ale_python_mypy_options = '--follow-imports skip'
+let g:ale_python_pylint_options = '--rcfile=~/dotfiles/etc/config/pylint/pylintrc.ini'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

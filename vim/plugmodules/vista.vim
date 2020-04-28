@@ -3,7 +3,7 @@ if executable('ctags')
 
     let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
     let g:vista_default_executive = 'ctags'
-    let g:vista_sidebar_width = 40
+    let g:vista_sidebar_width = 60
     " let g:vista_sidebar_position = 'vertical botright'  "botright | topleft
     " let g:vista_sidebar_position = 1  # Any value will make it to the top possition
     " let g:vista_fzf_preview = ['right:30%']

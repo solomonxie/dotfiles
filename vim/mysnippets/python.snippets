@@ -10,7 +10,6 @@ if __name__ == '__main__':
 	main()
 endsnippet
 
-
 snippet jsonload
 with open('${1:${VISUAL:path}}', 'r') as f:
 	${2:${VISUAL:data}} = json.loads(f.read())
@@ -20,7 +19,6 @@ snippet jsondump
 with open('${1:${VISUAL:path}}', 'w') as f:
 	f.write(json.dumps(${2:${VISUAL:data}}))
 endsnippet
-
 
 snippet parse-url
 import urllib
@@ -33,13 +31,20 @@ urlobj = urllib.parse.urlparse(url)
 params = urllib.parse.parse_qs(urlobj.query)
 endsnippet
 
-
 snippet	shuffle_list
 shuffled_list = sorted(${1:${VISUAL:target_list}}, key=lambda _: random.random())
 endsnippet
 
 snippet retry "from retry import retry"
 @retry((KeyError, RuntimeError), tries=5, delay=2, jitter=5)
+endsnippet
+
+snippet deepcopy
+from copy import deepcopy
+endsnippet
+
+snippet product
+from itertools import product
 endsnippet
 
 #######################################################################
@@ -131,7 +136,10 @@ endsnippet
 #                              FILE I/O                               #
 #######################################################################
 snippet csv_reader
-reader
+with open('path', 'r') as f:
+	reader = __import__('csv').DictWriter(f, fieldnames=cols)
+	for row_dict in reader:
+		print(row_dict)
 endsnippet
 
 snippet csv_writer

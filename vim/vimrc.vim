@@ -118,15 +118,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set wildmenu
 "set wildmode=longest:full,full
-"<Folding>
-set foldmethod=manual  "manual|syntax
-set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
-set foldlevel=1
-set foldlevelstart=99  "No folding on file open
-set foldclose=all  "Auto-close folding
-" set foldnestmax=1
-" set foldcolumn=0
-
 "Search Highlighting
 set incsearch "Enable instant search Highlighting
 set hlsearch " Enable Highlighting all matches
@@ -187,6 +178,24 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
     endif
 " }
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                    FOLD                                    "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=manual  "manual|syntax
+set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
+set foldlevelstart=99  "No folding on file open
+set foldlevel=1
+set foldclose=all  "Auto-close folding
+" set foldnestmax=1
+" set foldcolumn=0
+
+" Persistent Folding
+" augroup AutoSaveFolds
+"   autocmd!
+"   autocmd BufWinLeave * mkview 1
+"   autocmd BufWinEnter * silent! loadview 1
+" augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

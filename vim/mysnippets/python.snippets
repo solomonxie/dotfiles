@@ -74,6 +74,43 @@ endsnippet
 
 
 #######################################################################
+#                              FILE I/O                               #
+#######################################################################
+snippet csv_reader
+reader
+endsnippet
+
+snippet csv_writer
+cols = ['col1', 'col2']
+buff = __import__('io').StringIO()
+writer = __import__('csv').DictWriter(buff, fieldnames=cols)
+writer.writeheader()
+writer.writerow({'name': ['psycho1', 'psycho2'], 'age': [10, 20]})
+writer.writerows([{'name': 'jason', 'age': 18}, {'name': 'tom', 'age': 20}])
+print(buff.getvalue())
+endsnippet
+
+snippet string_io
+buff = __import__('io').StringIO()
+buff.write('hello')
+print(buffer.getvalue())
+endsnippet
+
+snippet buffer_io
+buff = __import__('io').BytesIO()
+buff.write(b'hello')
+print(buffer.getvalue())
+endsnippet
+
+snippet file_io
+endsnippet
+
+snippet gzip_compress
+content = __import__('gzip').compress(b'${1:${VISUAL:hello}}', compresslevel=9)
+endsnippet
+
+
+#######################################################################
 #                           TEST FRAMEWORK                            #
 #######################################################################
 snippet mock_constant
@@ -124,6 +161,104 @@ endsnippet
 #######################################################################
 #                         Pandas - DATAFRAME                          #
 #######################################################################
+
+
+
+#######################################################################
+#                              AWS - S3                               #
+#######################################################################
+
+snippet s3_client
+import boto3
+def get_s3_client():
+	return boto3.client(
+		's3',
+		aws_access_key_id='${1:{VISUAL:key_id}}',
+		aws_secret_access_key='${2:{VISUAL:secret}}',
+		# config=boto3.session.Config(signature_version='s3v4'),
+		# endpoint_url='http://your-own-endpoint',
+		# region_name='your-region',
+	)
+endsnippet
+
+snippet s3_resource
+import boto3
+def get_s3_resource():
+	return boto3.resource(
+		's3',
+		aws_access_key_id='${1:{VISUAL:key_id}}',
+		aws_secret_access_key='${2:{VISUAL:secret}}',
+		# config=boto3.session.Config(signature_version='s3v4'),
+		# endpoint_url='http://your-own-endpoint',
+		# region_name='your-region',
+	)
+endsnippet
+
+
+snippet s3_create_bucket_if_not_exist
+def create_bucket_if_not_exists(bucket):
+	s3 = get_s3_resource()
+	if not s3.Bucket(bucket).creation_date:
+		info = s3.create_bucket(Bucket=bucket)
+		print('Created bucket:', info)
+	return s3.Bucket(bucket).creation_date
+endsnippet
+
+
+
+snippet s3_delete_bucket
+def delete_bucket(bucket_name):
+	s3 = get_s3_resource()
+	bucket = s3.Bucket(bucket_name)
+	if bucket.creation_date:
+		_ = [key.delete() for key in bucket.objects.all()]
+		bucket.delete()
+endsnippet
+
+
+snippet s3_upload_resource
+def upload_resource(path, bucket, object_name=None):
+	if not os.path.exists(path):
+		return None
+	s3 = get_s3_resource()
+	object_name = object_name or os.path.basename(path)
+	s3.Bucket(bucket).upload_file(path, object_name)
+endsnippet
+
+
+snippet s3_upload
+def upload(filepath, bucket, object_name=None):
+	if not os.path.exists(path):
+		return None
+	object_name = object_name or os.path.basename(path)
+	s3 = get_s3_client()
+	s3.upload_file(filepath, bucket, object_name)
+endsnippet
+
+
+snippet s3_get_signed_url
+def get_signed_url(bucket, object_name):
+	s3 = get_s3_client()
+	url = s3.generate_presigned_url(
+		ClientMethod='get_object',
+		Params={
+			'Bucket': bucket,
+			'Key': object_name,
+		},
+		ExpiresIn=None,
+		HttpMethod=None,
+	)
+	return url
+endsnippet
+
+
+snippet s3_upload_from_buffer
+def upload_from_buffer(client, bucket, path):
+	buff = __import__('io').StringIO()
+	buff.write('haha')
+	resp = client.put_object(Body=buff.getvalue(), Bucket=bucket, Key=path)
+
+endsnippet
 
 
 

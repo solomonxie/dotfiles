@@ -45,3 +45,5 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/mc mc
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

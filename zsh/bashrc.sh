@@ -19,3 +19,5 @@ source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
 [[ ! -f ~/.bashrc-local.sh ]] && touch ~/.bashrc-local.sh
 source ~/.bashrc-local.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

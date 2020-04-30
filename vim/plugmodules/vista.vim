@@ -13,9 +13,9 @@ if executable('ctags')
     \   "function": "\uf794",
     \   "variable": "\uf71b",
     \  }
-    let g:vista_executive_for = {
-    \   'cpp': 'vim_lsp',
-    \   'python': 'vim_lsp',
-    \ }
+    " let g:vista_executive_for = {
+    " \   'cpp': 'vim_lsp',
+    " \   'python': 'vim_lsp',
+    " \ }
     let g:vista_ignore_kinds = ['Variable']
 endif

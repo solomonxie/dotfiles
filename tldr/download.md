@@ -33,3 +33,9 @@
 - List video formats: -i
 - With cookies: --cookies cookies.txt <URL>
 
+
+
+## ffmpeg
+
+- Download from playlist
+    $ ffmpeg -i "http://example.com/video_url.m3u8" -c copy "output.mp4"

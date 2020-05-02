@@ -17,13 +17,12 @@ if has('python3')
 
     " Must be right after the loading
     let g:deoplete#enable_at_startup = 1
-    let g:deoplete#num_processes = 1
 
     " Close preview window after completion
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
     "Delay time
-    let g:deoplete#auto_complete_delay = 100
+    let deoplete#custom#option = 100
 
     " Max number of candidates
         let g:deoplete#max_abbr_width = 30

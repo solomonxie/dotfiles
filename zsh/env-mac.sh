@@ -46,4 +46,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/mc mc
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Fzf
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+# Autojump
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh

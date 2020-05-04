@@ -7,7 +7,7 @@ if executable('ctags')
     let g:vista_blink = [2, 100]
     let g:vista_close_on_jump = 1
     let g:vista_echo_cursor = 1
-    let g:vista_cursor_delay = 10  "Important
+    let g:vista_cursor_delay = 0  "Important
     let g:vista_default_executive = 'ctags'
     let g:vista_executive_for = {'vim': 'ctags', 'cpp': 'coc', 'python': 'ctags'}
     let g:vista_find_absolute_nearest_method_or_function = 0

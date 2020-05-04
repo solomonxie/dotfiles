@@ -7,8 +7,8 @@
 
 ## youtube-dl
 - Common use:
-    $ youtube-dl -civw --write-sub -f best/mp4 <URL> 
-    $ youtube-dl -civw --write-sub -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 <URL> 
+    $ youtube-dl -civw --write-sub -f best/mp4 <URL>
+    $ youtube-dl -civw --write-sub -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 <URL>
 - Proxy: --proxy "localhost:1080"
 - List video formats: -F or --list-format
 - Force overwrite: --no-continue

@@ -1,0 +1,40 @@
+version: '3.3'
+services:
+    ss6000:
+        container_name: ss6000
+        restart: always
+        ports:
+            - '6000:8388'
+        environment:
+            - METHOD=aes-256-gcm
+            - PASSWORD=shadow123
+        image: shadowsocks/shadowsocks-libev
+    kcptun6000:
+        container_name: kcptun6000
+        restart: always
+        ports:
+            - '6000:6500/udp'
+        environment:
+            - true
+            - fast2
+        volumes:
+            - 'true'
+        image: xtaci/kcptun
+        command: server -t "$(hostname -i):6000" -l ":6500" -key "kcptun123" -crypt aes \
+                    -datashard 10 -parityshard 3 -mtu 1350 -sndwnd 512 -rcvwnd 512 -dscp 0 -mode fast2
+    ss17001:
+        container_name: ss17001
+        restart: always
+        ports:
+            - '17001:8388'
+        environment:
+            - METHOD=chacha20-ietf-poly1305
+            - PASSWORD=shadow123
+        image: shadowsocks/shadowsocks-libev
+    v2ray:
+        container_name: v2ray
+        restart: always
+        ports:
+            - '12345:23456'
+        image: solomonxie/v2ray:latest
+        command: /usr/bin/v2ray/v2ray -config=/etc/v2ray/config.json

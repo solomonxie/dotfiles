@@ -14,9 +14,9 @@
 - Multi-threads (custom CPU usage)
     $ ffmpeg -i FILE –threads 2 OUTPUT
 - Split video (without conversion)
-    $ ffmpeg -i FILE -ss START -t DURATION -vcodec copy -acodec copy OUTPUT
+    $ ffmpeg -i FILE -ss mm:ss -to mm:ss -vcodec copy -acodec copy OUTPUT
 - Split video
-    $ ffmpeg -i FILE -ss START -t DURATION OUTPUT
+    $ ffmpeg -i FILE -ss mm:ss -to mm:ss OUTPUT
 - rmvb to mp4
     $ ffmpeg -i FILE.rmvb -c:a copy OUTPUT.mp4
 - mp4 to flv

@@ -5,12 +5,17 @@ Plug 'davidhalter/jedi-vim', {'do': 'python3 -m pip install --user pynvim neovim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                LAZY LOADING                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DISABLE [completion] but keep other functionalities
+" Disable [completion] but keep other functionalities
 let g:jedi#completions_enabled = 0
+
 " Disable loading automatically
 let g:jedi#auto_initialization = 0
+
 " Disable config auto initialized
 let g:jedi#auto_vim_configuration = 0
+
+" Display function call signatures/parameters in insert mode in real-time
+let g:jedi#show_call_signatures = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                KEY BINDINGS                                "

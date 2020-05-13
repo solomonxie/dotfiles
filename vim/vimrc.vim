@@ -108,9 +108,9 @@ au FocusGained,BufEnter * :checktime
 set scrolloff=5  "Set 99 to make it center
 
 " Neovim feature of :%s/a/b/
-if has('nvim')
-    set inccommand=split
-endif
+" if has('nvim')
+"     set inccommand=split
+" endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

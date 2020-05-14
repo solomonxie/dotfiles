@@ -31,3 +31,11 @@ services:
       - $PWD/media:/data
       # - $PWD/tv:v
       # - $PWD/movies:/movies
+  plex-rpi:
+    container_name: plex_rpi
+    image: jaymoulin/plex
+    restart: always
+    network_mode: host
+    volumes:
+        - '/home/pi/plex/media:/media'
+        - '/home/pi/plex/Library:/root/Library'

@@ -142,7 +142,7 @@ elif [ -x /Applications/Postgres.app/Contents/Versions/latest/bin/psql ];then
     alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
 fi
 
-[[ -x $(command -v autojump) ]] && alias c="autojump"
+[[ -x $(command -v autojump) ]] && alias cdj="autojump"
 
 #######################################################################
 #                            TMUX RELATED                             #

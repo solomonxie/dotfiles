@@ -37,7 +37,7 @@ call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/ctags.vim
     source ~/dotfiles/vim/plugmodules/vista.vim
     source ~/dotfiles/vim/plugmodules/tagbar.vim
-    " source ~/dotfiles/vim/plugmodules/markbar.vim
+    source ~/dotfiles/vim/plugmodules/markbar.vim
     " source ~/dotfiles/vim/plugmodules/ped.vim
     source ~/dotfiles/vim/plugmodules/gitgutter.vim
     source ~/dotfiles/vim/plugmodules/tig.vim

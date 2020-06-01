@@ -51,3 +51,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+
+# Broot
+# source /Users/xiaoboxie/Library/Preferences/org.dystroy.broot/launcher/bash/br

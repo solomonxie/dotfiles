@@ -107,6 +107,10 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap <C-]> g<C-]>
             " nnoremap <C-[> <C-i>
             nnoremap <Leader>tt g]
+        "{Move between Marks}
+            if &runtimepath =~ 'vim-markbar'
+                nmap fm <Plug>OpenMarkbar
+            endif
         "{Jump the file under the cursor}
             function! OpenFileInPrevWindow()
                 "Refer: https://unix.stackexchange.com/questions/74571

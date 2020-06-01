@@ -132,7 +132,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap <LEADER><Space> viW
         nnoremap <M-Space> vip
         "{Macro}
-        nnoremap 2 q
+        " nnoremap 2 q
 
         "{Yank/Paste}
         "Copy to a dedicated register

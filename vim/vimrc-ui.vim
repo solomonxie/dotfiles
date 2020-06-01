@@ -32,15 +32,15 @@
 
     " <Line Number>
         " turn hybrid line numbers on
-        "set number relativenumber
+        set number relativenumber
         "set nu rnu
         set nu
         " Automatic toggling between line number modes
-        "augroup numbertoggle
-          "autocmd!
-          "autocmd FocusGained,InsertLeave * set relativenumber
-          "autocmd FocusLost,InsertEnter   * set norelativenumber
-        "augroup END
+        augroup numbertoggle
+          autocmd!
+          autocmd FocusGained,InsertLeave * set relativenumber
+          autocmd FocusLost,InsertEnter   * set norelativenumber
+        augroup END
 
         "MUST GO BEFORE `colorscheme` and after `autocmd`
         " autocmd ColorScheme * highlight Normal ctermbg=None

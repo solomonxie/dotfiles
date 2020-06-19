@@ -126,6 +126,16 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "./vim/vimrc-keymappings.vim
             "~/.vim/autoload/plug.vim
 
+        "{Toggle Relative Line Number}
+        function! ToggleRelativeNumber()
+            if &relativenumber == 0
+                set number relativenumber
+            else
+                set number norelativenumber
+            endif
+        endfunction
+        nnoremap <leader>r :call ToggleRelativeNumber()<CR>
+
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <ESC> <Esc>:nohl<CR><ESC>

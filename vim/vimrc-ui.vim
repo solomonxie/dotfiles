@@ -32,11 +32,10 @@
 
     " <Line Number>
         " turn hybrid line numbers on
-        set number relativenumber
-        "set nu rnu
-        set nu
+        " set number relativenumber
+        set number norelativenumber
         " Automatic toggling between line number modes
-        augroup numbertoggle
+        augroup AutoToggleRelativeNumber
           autocmd!
           autocmd FocusGained,InsertLeave * set relativenumber
           autocmd FocusLost,InsertEnter   * set norelativenumber

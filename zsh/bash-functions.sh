@@ -29,6 +29,12 @@ targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
 # extra .tar.gz
 untargz() { tar -zxvf $1; rm -r $1; }
 
+extension() {
+    # https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+    INPUT=$1
+    EXTENSION="${INPUT##*.}"
+    echo $EXTENSION
+}
 
 split_video() {
     # Split video (without conversion)

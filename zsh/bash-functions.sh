@@ -29,17 +29,28 @@ targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
 # extra .tar.gz
 untargz() { tar -zxvf $1; rm -r $1; }
 
+
 split_video() {
     # Split video (without conversion)
-    #    $ ffmpeg -i FILE -ss START -t DURATION -vcodec copy -acodec copy OUTPUT
-    file=$1
-    start=$2
-    duration=$3
+    #    $ ffmpeg -i INPUTT -ss mm:ss -to mm:ss -vcodec copy -acodec copy OUTPUT
+    INPUT=$1
+    START=$2
+    END=$3
+    FILENAME="${$(basename $INPUT)%.*}"
+    FILEPATH="${INPUT%.*}"
+    EXTENSION="${INPUT##*.}"
+    ffmpeg -i $INPUT -ss $START -to $END -vcodec copy -acodec copy "${FILEPATH}__clip_${START/:/-}_${END/:/-}.${EXTENSION}"
 }
 
 mp4_to_mp3() {
     # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
-    file=$1
+    INPUT=$1
+    ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp3"
+}
+
+mkv_to_mp4() {
+    INPUT=$1
+    ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
 }
 
 extract_pdf() {

@@ -35,11 +35,11 @@
         " set number relativenumber
         set number norelativenumber
         " Automatic toggling between line number modes
-        augroup AutoToggleRelativeNumber
-          autocmd!
-          autocmd FocusGained,InsertLeave * set relativenumber
-          autocmd FocusLost,InsertEnter   * set norelativenumber
-        augroup END
+        " augroup AutoToggleRelativeNumber
+        "   autocmd!
+        "   autocmd FocusGained,InsertLeave * set relativenumber
+        "   autocmd FocusLost,InsertEnter   * set norelativenumber
+        " augroup END
 
         "MUST GO BEFORE `colorscheme` and after `autocmd`
         " autocmd ColorScheme * highlight Normal ctermbg=None

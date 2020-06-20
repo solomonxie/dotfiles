@@ -134,7 +134,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 set number norelativenumber
             endif
         endfunction
-        nnoremap <leader>r :call ToggleRelativeNumber()<CR>
+        nnoremap <leader>l :call ToggleRelativeNumber()<CR>
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>

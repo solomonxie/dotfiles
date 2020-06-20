@@ -48,10 +48,16 @@ split_video() {
     ffmpeg -i $INPUT -ss $START -to $END -vcodec copy -acodec copy "${FILEPATH}__clip_${START/:/-}_${END/:/-}.${EXTENSION}"
 }
 
-mp4_to_mp3() {
+extract_mp3() {
     # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
     INPUT=$1
     ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp3"
+}
+
+download_playlist() {
+    URL=$1
+    OUTPUT=${2:-output.mp4}
+    ffmpeg -i $URL -c copy $OUTPUT
 }
 
 mkv_to_mp4() {
@@ -60,9 +66,10 @@ mkv_to_mp4() {
 }
 
 extract_pdf() {
-    file=$1
-    pages=$2
-    pdftk $file cat $pages output combined.pdf
+    # Example:
+    INPUT=$1
+    PAGES=$2
+    pdftk $INPUT cat $PAGES output "${INPUT%.*}_combined.pdf"
 }
 
 # Extracts any archive(s) (if unp isn't installed)

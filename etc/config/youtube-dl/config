@@ -17,8 +17,8 @@
 #--proxy "http://127.0.0.1:1080"
 
 # [FILE NAME]
-# -o "%(title)s.%(ext)s"
--o "%(playlist_title)s-%(playlist_index)s-%(title)s.%(ext)s"
+-o "%(title)s.%(ext)s"
+# -o "%(playlist_title)s-%(playlist_index)s-%(title)s.%(ext)s"
 #-o "%(playlist_index)s-%(title)s.%(ext)s"
 
 # [PLAYLIST]

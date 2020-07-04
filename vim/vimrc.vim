@@ -39,6 +39,7 @@ call plug#begin('~/.vim/plugged')
     source ~/dotfiles/vim/plugmodules/tagbar.vim
     source ~/dotfiles/vim/plugmodules/markbar.vim
     " source ~/dotfiles/vim/plugmodules/ped.vim
+    source ~/dotfiles/vim/plugmodules/fugitive.vim
     source ~/dotfiles/vim/plugmodules/gitgutter.vim
     source ~/dotfiles/vim/plugmodules/tig.vim
     source ~/dotfiles/vim/plugmodules/fzf.vim
@@ -61,6 +62,7 @@ call plug#end()
 "                               IMPORT MODULES                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MUST BE LOADED AFTER PLUGINS
+source ~/dotfiles/vim/vimrc-functions.vim
 source ~/dotfiles/vim/vimrc-keymappings.vim
 source ~/dotfiles/vim/vimrc-ui.vim
 if filereadable(expand('~/vimrc-local.vim'))

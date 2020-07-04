@@ -41,6 +41,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "{Go-definition}
             nnoremap gd gd
             vnoremap <Leader>gd y/<C-r>0<CR>
+
         "{Search & Highlight}
             "nnoremap * #
             "nnoremap # *
@@ -49,40 +50,17 @@ let $DOTFILES = expand('~') . '/dotfiles'
             vnoremap g* "1y:%s/<C-r>1//n<CR>
             " Refer: https://vim.fandom.com/wiki/Count_number_of_matches_of_a_pattern
             nnoremap g* #<C-O>:%s///gn<CR>
+
         "{Jump to parent bracket/level}
             "nnoremap <C-[> [{
+
         "{Move between Buffers}
             "nnoremap <Space> :bnext<CR>
             nnoremap - :bprev<CR>:echo expand('%')<CR>
             nnoremap = :bnext<CR>:echo expand('%')<CR>
             nnoremap gb :call JumpToBuffer()<CR>
-            function! JumpToBuffer()
-                let buffer_list = filter(range(1, bufnr('$')), 'bufexists(v:val)')
-                echo buffer_list
-                let choice = input('Please input buffer number:')
-                echo '\nYou select buffer: ' . buffer_list[choice]
-                " for i in range(0, len(buffer_list))
-                "     echo buffer_list[i]
-                "     " silent :b &c<CR>
-                " endfor
-            endfunction
-            function! Hello_word()
-                let my_grouped_opts = input ( "1.- Search one\n2.- Search two\n3.- Search three\n" )
-                let my_list_opts = split( my_grouped_opts, '.\zs' )
-                for selection in my_list_opts
-                    echo "\nOption number " selection " selected"
-                endfor
-            endfunction
-
-            " Open git changed files
-            function! EditChangedFiles()
-                let fnames = split(system('git diff --name-only'), '\n')
-                for fn in fnames
-                    " execute 'argadd ' fn
-                    execute 'next ' fn
-                endfor
-            endfunction
             command! OpenChangedFiles :call EditChangedFiles()<CR>
+
         "{Move between Windows}
             nnoremap <Left> <C-w>h
             nnoremap <Right> <C-w>l
@@ -93,11 +71,13 @@ let $DOTFILES = expand('~') . '/dotfiles'
             noremap <M-j> <C-w>j
             noremap <M-k> <C-w>k
             nnoremap <Leader>, <C-w>w
+
         "{Move between Tabs}
             nnoremap ( :tabnext<CR>
             nnoremap ) :tabprev<CR>
             "nnoremap g9 :tabfirst<CR>
             "nnoremap g0 :tablast<CR>
+
         "{Move between Tags}
             " nnoremap <Leader><C-]> <C-]>
             if &runtimepath =~ 'ped' && executable('ped')
@@ -107,34 +87,20 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap <C-]> g<C-]>
             " nnoremap <C-[> <C-i>
             nnoremap <Leader>tt g]
+
         "{Move between Marks}
             if &runtimepath =~ 'vim-markbar'
                 nmap fm <Plug>OpenMarkbar
             endif
-        "{Jump the file under the cursor}
-            function! OpenFileInPrevWindow()
-                "Refer: https://unix.stackexchange.com/questions/74571
-                let cfile = expand(expand("<cfile>"))
-                if filereadable(cfile)
-                    wincmd p
-                    execute "edit " . cfile
-                endif
-            endfunction
 
+        " Number Line
+        nnoremap <leader>l :call ToggleRelativeNumber()<CR>
+
+        "{Jump the file under the cursor}
             " Actually directly using built-in 'gf' will do the trick
             " nnoremap gf :call OpenFileInPrevWindow()<CR>
             "./vim/vimrc-keymappings.vim
             "~/.vim/autoload/plug.vim
-
-        "{Toggle Relative Line Number}
-        function! ToggleRelativeNumber()
-            if &relativenumber == 0
-                set number relativenumber
-            else
-                set number norelativenumber
-            endif
-        endfunction
-        nnoremap <leader>l :call ToggleRelativeNumber()<CR>
 
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
@@ -186,15 +152,14 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "noremap <Space> "
         "noremap <Leader><Space> :registers<CR>
 
+        "Grep & Open files
+        " command! GrepOpen :call GrepAndOpen("")
+
     "<Split>
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         noremap <Leader>s :vsplit<CR><C-w>l
         "{vimrc-edit}
         "nnoremap <Leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
-        function! LoadVimrc()
-            :tabnew
-            :source ~/dotfiles/vim/workspace.vim
-        endfunction
         "nnoremap <Leader>ve :call LoadVimrc()<CR>
         command! Vimrc :call LoadVimrc()
         "nnoremap <Leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
@@ -287,20 +252,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap tp :PwdCopy<CR>
         nnoremap tn :FilenameCopy<CR>
 
-        function! GetGitRemoteCodeReferenceLink()
-            "Expected URL
-                "https://git.appannie.org/appannie/aa-bulk-grabber/blob/master/webanalytics/tasks/bulk_grabber/dimension_info_merger.py#L13"
-            "Formatted string
-                "https://${REPO}/blob/${BRANCH}/${FILEPATH}#{LINE-NUMBER}"
-            let repo = trim(system("git remote get-url origin | sed 's/^git@//; s/\.git$//'"))
-            let branch = trim(system("git rev-parse --abbrev-ref HEAD"))
-            let cwd = expand('%')
-            let lineno = line(".")
-            let url = "https://".repo."/blob/".branch."/".cwd."#L".lineno
-            let @+ = url
-            echo 'Copied: ' url
-        endfunction
-
     "<Folding>
         "noremap <space> za
         "noremap <Leader><return> zR
@@ -321,28 +272,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap  !! /<C-r>+<CR>
 
     "[Session]----------------------------------{
-    function! GetSessionPath()
-        let gitroot = trim(system("git rev-parse --show-toplevel"))
-        if isdirectory(gitroot)
-            let session_path = gitroot . "/.git/workspace.vim"
-        else
-            let session_path = "~/.non-repo-session.vim"
-        endif
-        return session_path
-    endfunction
     if v:version >= 800
-        function! SaveSession()
-            let session_path = GetSessionPath()
-            execute "mksession! " . session_path
-            echo "Saved session to: " . session_path
-        endfunction
-
-        function! LoadSession()
-            let session_path = GetSessionPath()
-            execute "source " . session_path
-            ":echo 'Load session from workspace.vim'
-        endfunction
-
         "{Save session}
         nnoremap S :call SaveSession()<CR><ESC>
         command! SaveSessionCmd :call SaveSession()

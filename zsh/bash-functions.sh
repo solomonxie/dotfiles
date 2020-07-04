@@ -110,3 +110,9 @@ make_venv() {
     $py_exe -m pip install -r $requirements_path
     ln -sf $py_exe .git/python3_symblink
 }
+
+
+slug() {
+    INPUT=$1
+    echo $INPUT |sed "s/[()\!]//g" |sed "s/[. ]/-/g"
+}

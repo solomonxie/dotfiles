@@ -9,6 +9,7 @@ endif
 set shortmess=aoO
 badd +45 vim/vimrc.vim
 badd +1 vim/vimrc-keymappings.vim
+badd +1 vim/vimrc-functions.vim
 badd +1 vim/vimrc-ui.vim
 badd +1 ~/dotfiles/vim/plugmodules/any-jump.vim
 argglobal

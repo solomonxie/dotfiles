@@ -39,6 +39,7 @@ let g:airline_right_alt_sep = '❮'
 " [STATUS-LINE]
     " Remove the 'utf-8[unix]' in statusline
     let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+    let g:airline#extensions#branch#enabled = 1  "Show branch name
     " Customize Section-C (File Path)
     " let g:airline_section_c = '%t'  "Relative file path
     " let g:airline_section_c = airline#section#create(['%{getcwd()}'])

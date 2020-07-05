@@ -95,7 +95,7 @@ function! OpenFileInPrevWindow()
 endfunction
 
 "Search/grep pattern and open files
-function! GrepAndOpen(...)
+function! GrepOpen(...)
     let keywords = a:1
     let path = "."
     echo "searching [" . keywords . "]..."

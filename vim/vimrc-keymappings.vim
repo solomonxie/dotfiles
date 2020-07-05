@@ -131,7 +131,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
 
         vnoremap r "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
-        vnoremap f "1y :Rg <C-r>1<CR>
+        vnoremap f "1y :Rg <C-r>1
         nnoremap fw /<C-r>+<CR>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0
@@ -153,7 +153,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "noremap <Leader><Space> :registers<CR>
 
         "Grep & Open files
-        " command! GrepOpen :call GrepAndOpen("")
+        " command! GrepO :normal :call GrepOpen('haha')
 
     "<Split>
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
@@ -363,11 +363,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 " nnoremap ]h :GitGutterNextHunk<CR>
                 " nnoremap [h :GitGutterPrevHunk<CR>
                 " Changed Hunks
-                nnoremap gn :GitGutterNextHunk<CR>
-                nnoremap gp :GitGutterPrevHunk<CR>
-                nnoremap gP :GitGutterPreviewHunk<CR>
+                nnoremap ghn :GitGutterNextHunk<CR>
+                nnoremap ghp :GitGutterPrevHunk<CR>
+                nnoremap ghP :GitGutterPreviewHunk<CR>
                 " Toggle/fold changed lines
-                nnoremap gF :GitGutterFold<CR>
+                nnoremap ghF :GitGutterFold<CR>
                 " Diff
                 command! ChangeGitDiffBase let g:gitgutter_diff_base = 'master'
             endif
@@ -407,13 +407,20 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nmap mm <Plug>(zoom-toggle)
 
         "[Linter] (Static Code Check)
-            if &runtimepath =~ 'syntastic' || &runtimepath =~ 'ale'
+            if &runtimepath =~ 'syntastic'
                 " nnoremap <C-n> :lnext<CR>
                 " nnoremap <C-p> :lprevious<CR>
                 " Go Error Next
                 nnoremap gen :lnext<CR>
                 " Go Error Previous
                 nnoremap gep :lprevious<CR>
+                " nnoremap <LocalLeader>s :SyntasticCheck<CR>
+            endif
+            if &runtimepath =~ 'ale'
+                " Go Error Next
+                nnoremap <C-n> :ALENext<CR>
+                " Go Error Previous
+                nnoremap <C-p> :ALEPrevious<CR>
                 " nnoremap <LocalLeader>s :SyntasticCheck<CR>
             endif
 
@@ -442,8 +449,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nnoremap <localleader>p/ :Files ..
             "nnoremap <localleader>color/ :Colors
             "nnoremap <localleader>k/ :Maps<CR>
-            nnoremap fg :Files<CR>
-            nnoremap fd :GFiles<CR>
+            nnoremap fd :Files<CR>
+            nnoremap fg :GFiles<CR>
             nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
             nnoremap ft :Tags<CR>
             nnoremap fc :Commands<CR>

@@ -102,6 +102,9 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "./vim/vimrc-keymappings.vim
             "~/.vim/autoload/plug.vim
 
+        " Grep words under v selection and open files
+        vnoremap <Leader>f "1y:call GrepOpen("<C-r>1")<CR>
+
     "<Edit> -> <Tab> default set to <C-i>, but remap not working
         noremap  <C-c> <Esc>:nohl<CR><ESC>
         nnoremap <ESC> <Esc>:nohl<CR><ESC>
@@ -131,7 +134,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
 
         vnoremap r "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
-        vnoremap f "1y :Rg <C-r>1
+        vnoremap f "1y :Rg <C-r>1<CR>
         nnoremap fw /<C-r>+<CR>
         "{ctrl-v paste reg:0}
         inoremap <C-v> <C-r>0

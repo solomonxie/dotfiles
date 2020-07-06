@@ -60,7 +60,7 @@ let g:ale_python_pyls_config = {
 " Make it 'g:' to only run linters I specified
 let g:ale_linters = {
 \   'sh': ['shell'],
-\   'python': ['flake8', 'pyls'],
+\   'python': ['flake8'],
 \   'make': ['checkmake'],
 \   'vim': ['vint'],
 \   'dockerfile': ['dockerfile_lint'],

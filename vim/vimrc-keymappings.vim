@@ -396,6 +396,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         if &runtimepath =~ 'jedi-vim'
             " nnoremap <Leader>d :call jedi#goto_definitions()<CR>
             nnoremap <Leader>d :call jedi#goto()<CR>
+            nnoremap <Leader>n :call jedi#usages()<CR>
         endif
 
         "[nnn]

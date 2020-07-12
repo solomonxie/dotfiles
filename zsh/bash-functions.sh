@@ -51,7 +51,7 @@ split_video() {
 extract_mp3() {
     # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
     INPUT=$1
-    ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp3"
+    ffmpeg -i $INPUT "${INPUT%.*}.mp3"
 }
 
 download_playlist() {

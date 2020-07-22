@@ -87,6 +87,7 @@ alias yourc="vim ~/.config/youtube-dl/config"
 #######################################################################
 alias gs="git status"
 alias gc="git commit"
+alias gac="git add . && git commit"
 # alias gd="git diff --word-diff=plain"
 alias gd="git diff"
 alias gsh="git stash"

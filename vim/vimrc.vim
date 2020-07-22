@@ -186,10 +186,10 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 "                                    FOLD                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldmethod=manual  "manual|syntax
-set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
-set foldlevelstart=99  "No folding on file open
-set foldlevel=1
-set foldclose=all  "Auto-close folding
+" set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
+" set foldlevelstart=99  "No folding on file open
+" set foldlevel=1
+" set foldclose=all  "Auto-close folding
 " set foldnestmax=1
 " set foldcolumn=0
 

@@ -15,15 +15,11 @@ function! Hello_word()
     endfor
 endfunction
 
-function! JumpToBuffer()
-    let buffer_list = filter(range(1, bufnr("$")), "bufexists(v:val)")
+function! JumpToBuffer(...)
+    let bufindex = a:1
+    let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
     echo buffer_list
-    let choice = input("Please input buffer number:")
-    echo "\nYou select buffer: " . buffer_list[choice]
-    " for i in range(0, len(buffer_list))
-    "     echo buffer_list[i]
-    "     " silent :b &c<CR>
-    " endfor
+    exe ":buffer " . buffer_list[bufindex]
 endfunction
 
 " Open git changed files

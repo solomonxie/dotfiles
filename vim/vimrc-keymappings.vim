@@ -78,6 +78,14 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nnoremap g9 :tabfirst<CR>
             "nnoremap g0 :tablast<CR>
 
+        "{Move between Buffers}
+            nnoremap t1 :call JumpToBuffer(0)<CR>
+            nnoremap t2 :call JumpToBuffer(1)<CR>
+            nnoremap t3 :call JumpToBuffer(2)<CR>
+            nnoremap t4 :call JumpToBuffer(3)<CR>
+            nnoremap t0 :call JumpToBuffer(-1)<CR>
+
+
         "{Move between Tags}
             " nnoremap <Leader><C-]> <C-]>
             if &runtimepath =~ 'ped' && executable('ped')

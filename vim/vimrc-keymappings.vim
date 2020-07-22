@@ -83,6 +83,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap t2 :call JumpToBuffer(1)<CR>
             nnoremap t3 :call JumpToBuffer(2)<CR>
             nnoremap t4 :call JumpToBuffer(3)<CR>
+            nnoremap t5 :call JumpToBuffer(4)<CR>
+            nnoremap t6 :call JumpToBuffer(5)<CR>
+            nnoremap t7 :call JumpToBuffer(6)<CR>
+            nnoremap t8 :call JumpToBuffer(-3)<CR>
+            nnoremap t9 :call JumpToBuffer(-2)<CR>
             nnoremap t0 :call JumpToBuffer(-1)<CR>
 
 

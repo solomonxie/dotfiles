@@ -18,7 +18,7 @@ endfunction
 function! JumpToBuffer(...)
     let bufindex = a:1
     let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
-    echo buffer_list
+    " echo buffer_list
     exe ":buffer " . buffer_list[bufindex]
 endfunction
 

@@ -185,8 +185,9 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    FOLD                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nofoldenable  "Cancel all folds when enter vim
 set foldmethod=manual  "manual|syntax
-" set nofoldenable  "Disable fold by default (press zE if the folding marks exist)
+autocmd BufEnter * set foldmethod=manual
 " set foldlevelstart=99  "No folding on file open
 " set foldlevel=1
 " set foldclose=all  "Auto-close folding

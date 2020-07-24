@@ -29,11 +29,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
         " noremap  <C-x> <ESC>:x<CR><ESC>
         "noremap <Leader>j :jumps<CR>
         noremap <Leader>o :browse oldfiles<CR>
-        command! OpenThisOnMac :silent exec "!open %"<CR>
-        command! OpenAllInThisDir :next *
-        "{Change pwd/Current Directory to be same with buffer}
-        command! CDToCurrentDir :cd %:p:h
-        command! R :source ~/.vimrc
 
     "<Navigation>
         "{Go-next-call}
@@ -73,7 +68,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap - :bprev<CR>:echo expand('%')<CR>
             nnoremap = :bnext<CR>:echo expand('%')<CR>
             nnoremap gb :call JumpToBuffer()<CR>
-            command! OpenChangedFiles :call EditChangedFiles()<CR>
             nnoremap t1 :call JumpToBuffer(0)<CR>
             nnoremap t2 :call JumpToBuffer(1)<CR>
             nnoremap t3 :call JumpToBuffer(2)<CR>
@@ -169,16 +163,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "noremap <Space> "
         "noremap <Leader><Space> :registers<CR>
 
-        "Grep & Open files
-        " command! GrepO :normal :call GrepOpen('haha')
-
     "<Split>
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         noremap <Leader>s :vsplit<CR><C-w>l
         "{vimrc-edit}
         "nnoremap <Leader>ve :tabnew<CR>:source ~/dotfiles/vim/workspace.vim<CR>:tabnext<CR>
         "nnoremap <Leader>ve :call LoadVimrc()<CR>
-        command! Vimrc :call LoadVimrc()
         "nnoremap <Leader>ve :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc<CR>
         "{vimrc-keymapping}
         "nnoremap <Leader>vk :split<CR><C-w>j<ESC>:e ~/dotfiles/vim/vimrc-keymappings<CR>
@@ -192,8 +182,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "noremap <Leader>q :windo bdelete<CR><ESC>
             noremap <Leader>q :bdelete<CR><ESC>
             "noremap <Leader>q :bprev \| bd# <CR>
-            command! CloseAllBuffers :normal :bufdo bd<CR>
-            "command! CloseAllBuffers :% bd|e#
         "{History search}
             "noremap <Leader><C-h> :browse oldfiles<CR>
             "noremap <Leader><C-h> :History<CR>
@@ -226,7 +214,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "noremap <Leader>Q :qa<CR>
 
     "<Terminal>
-        command! TerminalOpenAtBottom :bot split \| resize 10 \| terminal<CR>i
         "noremap <Leader>ot :bot split \| resize 10 \| terminal<CR>i
         "tnoremap <ESC> <C-\><C-n>
         "tnoremap <C-c><C-c> <C-\><C-n>
@@ -235,8 +222,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "tnoremap <Leader>q <C-w>:q!<CR>
 
     "<Spelling>
-        command! SpellCheck01On  setlocal spell spelllang=en,en_us,cjk
-        command! SpellCheck02Off setlocal nospell
         "noremap <LocalLeader>! :setlocal spell spelllang=en,en_us,cjk<CR>
         "noremap <LocalLeader>@ :setlocal nospell<CR>
 
@@ -248,20 +233,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "{Copy system clipboard to current register}
         noremap <Leader>p "+p
         "noremap <Leader>" :reg<CR>
-        command! Cwd echo expand('%')
-        command! CwdCopy let @+ = expand('%') | echo 'Copied: ' @+
-        command! C let @+ = expand('%') | echo 'Copied: ' @+
-
-        command! Pwd echo expand('%:p')
-        command! PwdCopy let @+ = expand('%:p') | echo 'Copied: ' @+
-        command! P let @+ = expand('%:p') | echo 'Copied: ' @+
-
-        command! FilenameCopy let @+ = expand('%:t') | echo 'Copied: ' @+
-        command! F let @+ = expand('%:t') | echo 'Copied: ' @+
-
-        command! RemoteGitFileReference call GetGitRemoteCodeReferenceLink()
-        "command! CopyFolderRelativePath let @+ = expand('%:h') | echo 'Copied: ' @+
-        "command! CopyFolderAbsolutePath let @+ = expand('%:p:h') | echo 'Copied: ' @+
 
         nnoremap \\ :echo expand('%')<CR>
         nnoremap tf :Cwd<CR>
@@ -292,18 +263,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
     if v:version >= 800
         "{Save session}
         nnoremap S :call SaveSession()<CR><ESC>
-        command! SaveSessionCmd :call SaveSession()
         "{Load session}
         " noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
         nnoremap R :call LoadSession()<CR><ESC>
-        command! LoadSessionCmd :call LoadSession()
         "autocmd VimEnter * call LoadSession()
         autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
     endif
-    " }
-
-    "[Prettify/Formatting]--------------------------{
-    command! PrettifyJson :% !python -m json.tool
     " }
 
 

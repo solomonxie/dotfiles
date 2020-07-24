@@ -63,6 +63,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MUST BE LOADED AFTER PLUGINS
 source ~/dotfiles/vim/vimrc-functions.vim
+source ~/dotfiles/vim/vimrc-commands.vim
 source ~/dotfiles/vim/vimrc-keymappings.vim
 source ~/dotfiles/vim/vimrc-ui.vim
 if filereadable(expand('~/vimrc-local.vim'))
@@ -194,7 +195,7 @@ autocmd BufEnter * set foldmethod=manual
 " set foldnestmax=1
 " set foldcolumn=0
 
-" Persistent Folding
+" [Persistent Folding]
 " augroup AutoSaveFolds
 "   autocmd!
 "   autocmd BufWinLeave * mkview 1

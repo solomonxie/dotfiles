@@ -28,33 +28,38 @@ if !filereadable(expand('~/.vim/autoload/plug.vim'))
     echo 'Done.'
 endif
 call plug#begin('~/.vim/plugged')
-    source ~/dotfiles/vim/plugmodules/basic.vim
-    source ~/dotfiles/vim/plugmodules/misc.vim
-    source ~/dotfiles/vim/plugmodules/provider.vim
-    source ~/dotfiles/vim/plugmodules/nerdtree.vim
-    source ~/dotfiles/vim/plugmodules/airline.vim
-    source ~/dotfiles/vim/plugmodules/semshi.vim
-    source ~/dotfiles/vim/plugmodules/ctags.vim
-    source ~/dotfiles/vim/plugmodules/vista.vim
-    source ~/dotfiles/vim/plugmodules/tagbar.vim
-    source ~/dotfiles/vim/plugmodules/markbar.vim
-    " source ~/dotfiles/vim/plugmodules/ped.vim
-    source ~/dotfiles/vim/plugmodules/fugitive.vim
-    source ~/dotfiles/vim/plugmodules/gitgutter.vim
-    source ~/dotfiles/vim/plugmodules/tig.vim
-    source ~/dotfiles/vim/plugmodules/fzf.vim
-    source ~/dotfiles/vim/plugmodules/ultisnips.vim
-    " source ~/dotfiles/vim/plugmodules/YCM.vim
-    source ~/dotfiles/vim/plugmodules/any-jump.vim
-    source ~/dotfiles/vim/plugmodules/jedi.vim
-    source ~/dotfiles/vim/plugmodules/deoplete.vim
-    " source ~/dotfiles/vim/plugmodules/coc.vim
-    " source ~/dotfiles/vim/plugmodules/ncm2.vim
-    source ~/dotfiles/vim/plugmodules/autopairs.vim
-    " source ~/dotfiles/vim/plugmodules/syntastic.vim
-    source ~/dotfiles/vim/plugmodules/ale.vim
-    source ~/dotfiles/vim/plugmodules/indent-line.vim
-    " source <sfile>:h/plugmodules/airline.vim
+    "{Common}
+        source ~/dotfiles/vim/plugmodules/basic.vim
+        source ~/dotfiles/vim/plugmodules/misc.vim
+    "{UI}
+        source ~/dotfiles/vim/plugmodules/indent-line.vim
+        source ~/dotfiles/vim/plugmodules/airline.vim
+        source ~/dotfiles/vim/plugmodules/nerdtree.vim
+        source ~/dotfiles/vim/plugmodules/semshi.vim
+        source ~/dotfiles/vim/plugmodules/vista.vim
+        source ~/dotfiles/vim/plugmodules/tagbar.vim
+        source ~/dotfiles/vim/plugmodules/markbar.vim
+        " source <sfile>:h/plugmodules/airline.vim
+        " source ~/dotfiles/vim/plugmodules/syntastic.vim
+    "{Completion | Usages | Definitions}
+        source ~/dotfiles/vim/plugmodules/fzf.vim
+        source ~/dotfiles/vim/plugmodules/ale.vim
+        source ~/dotfiles/vim/plugmodules/jedi.vim
+        source ~/dotfiles/vim/plugmodules/deoplete.vim
+        source ~/dotfiles/vim/plugmodules/ultisnips.vim
+        source ~/dotfiles/vim/plugmodules/any-jump.vim
+        source ~/dotfiles/vim/plugmodules/ctags.vim
+        " source ~/dotfiles/vim/plugmodules/YCM.vim
+        " source ~/dotfiles/vim/plugmodules/coc.vim
+        " source ~/dotfiles/vim/plugmodules/ncm2.vim
+        " source ~/dotfiles/vim/plugmodules/ped.vim
+    "{Git}
+        source ~/dotfiles/vim/plugmodules/tig.vim
+        source ~/dotfiles/vim/plugmodules/provider.vim
+        source ~/dotfiles/vim/plugmodules/fugitive.vim
+        source ~/dotfiles/vim/plugmodules/gitgutter.vim
+    "{Python}
+        source ~/dotfiles/vim/plugmodules/autopairs.vim
 call plug#end()
 " source ~/dotfiles/vim/vimrc-plugins.vim
 

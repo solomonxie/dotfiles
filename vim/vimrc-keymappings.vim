@@ -51,16 +51,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
             " Refer: https://vim.fandom.com/wiki/Count_number_of_matches_of_a_pattern
             nnoremap g* #<C-O>:%s///gn<CR>
 
-        "{Jump to parent bracket/level}
-            "nnoremap <C-[> [{
-
-        "{Move between Buffers}
-            "nnoremap <Space> :bnext<CR>
-            nnoremap - :bprev<CR>:echo expand('%')<CR>
-            nnoremap = :bnext<CR>:echo expand('%')<CR>
-            nnoremap gb :call JumpToBuffer()<CR>
-            command! OpenChangedFiles :call EditChangedFiles()<CR>
-
         "{Move between Windows}
             nnoremap <Left> <C-w>h
             nnoremap <Right> <C-w>l
@@ -79,6 +69,11 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nnoremap g0 :tablast<CR>
 
         "{Move between Buffers}
+            "nnoremap <Space> :bnext<CR>
+            nnoremap - :bprev<CR>:echo expand('%')<CR>
+            nnoremap = :bnext<CR>:echo expand('%')<CR>
+            nnoremap gb :call JumpToBuffer()<CR>
+            command! OpenChangedFiles :call EditChangedFiles()<CR>
             nnoremap t1 :call JumpToBuffer(0)<CR>
             nnoremap t2 :call JumpToBuffer(1)<CR>
             nnoremap t3 :call JumpToBuffer(2)<CR>
@@ -89,6 +84,12 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap t8 :call JumpToBuffer(-3)<CR>
             nnoremap t9 :call JumpToBuffer(-2)<CR>
             nnoremap t0 :call JumpToBuffer(-1)<CR>
+
+        "{Move between brackets (JSON)}
+            nnoremap ]b :call searchpair('\[','','\]')<cr>
+            nnoremap [b :call searchpair('\[','','\]','b')<cr>
+            nnoremap ]B :call searchpair('{','','}')<cr>
+            nnoremap [B :call searchpair('{','','}','b')<cr>
 
 
         "{Move between Tags}
@@ -470,8 +471,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap fg :GFiles<CR>
             nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
             nnoremap ft :Tags<CR>
-            nnoremap fc :Commands<CR>
-            nnoremap fH :History:<CR>
+            nnoremap fc :History:<CR>
+            nnoremap fC :Commands<CR>
             nnoremap fh :History<CR>
             nnoremap fa :Rg<CR>
             " nnoremap fa :call fzf#vim#ag('', fzf#vim#with_preview('right'))<CR>

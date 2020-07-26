@@ -1,5 +1,5 @@
-# Examples
-# https://crontab.guru/examples.html
+# Cron Examples: https://crontab.guru/examples.html
+# Cron Generator: http://corntab.com/
 #
 # Common:
 # * * * * * <--- Every minute
@@ -11,7 +11,17 @@
 #
 # FORMAT->
 # MIN HOUR DOM MON DOW CMD
+#
+# FORMAT->
+# ┌────────────── second (optional)
+# │ ┌──────────── minute
+# │ │ ┌────────── hour
+# │ │ │ ┌──────── day of month
+# │ │ │ │ ┌────── month
+# │ │ │ │ │ ┌──── day of week
+# │ │ │ │ │ │
+# │ │ │ │ │ │
+# 0 * * * * *
 
-#*/1**** date >> test.txt
 #*/1 * * * * git -C ~/dotfiles pull origin master
 #*/1 * * * * cd ~/Gitissues && python3 issues.py > ~/Gitissues/.gitissues.log 2>&1

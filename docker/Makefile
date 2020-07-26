@@ -70,7 +70,7 @@ apps_mac:
 
 apps_raspbian: webav_raspbian
 
-apps_ubuntu: vpn_ipsec shadowsocks webdav frp
+apps_ubuntu: vpn_ipsec shadowsocks webdav frp crontabui
 
 checkhealth_debian:
 	apt-get --version
@@ -191,3 +191,6 @@ playground_raspbian: checkhealth_docker
 
 playground_ubuntu: checkhealth_docker
 	docker run -it --name ubuntu solomonxie/lightsail:ubuntu-1604 bash
+
+crontabui:
+	docker run -d -p 8123:8000 --name crontabui --restart always alseambusher/crontab-ui

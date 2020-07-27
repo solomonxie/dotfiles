@@ -103,7 +103,16 @@ set history-size  = 500  # Size of persistent history, 0 to disable
     #bind main R !?git rebase --onto HEAD mark "%(commit)" -i
     bind main B !bash -xc 'B="%(prompt Enter new branch name: )"; test -z "$B" && exit 1; git branch "$B" "%(commit)" || { read -n 1 -p "Exists already. Force [y/n]? " X; test "$X" != "y" && exit 1; git branch -D "$B" && git branch -f -vv "$B" "%(commit)"; }'
     bind main P ?git cherry-pick "%(commit)"
+    bind main C ?git checkout "%(commit)"
     bind main L !bash -c "git reflog --pretty=raw | tig --pretty=raw"
+    # bind main C ?git cherry-pick %(commit)
+    bind status C !git commit
+    bind stash A ?git stash apply %(stash)
+    bind stash P ?git stash pop %(stash)
+    bind stash ! ?git stash drop %(stash)
+    bind refs C ?git checkout %(branch)
+    bind refs ! ?git branch -D %(branch)
+
 # }
 
 # User-defined commands
@@ -142,14 +151,6 @@ set history-size  = 500  # Size of persistent history, 0 to disable
 #   %(cmdlineargs) All other options passed on the command line.
 #   %(diffargs)  The diff options from `diff-options` or `TIG_DIFF_OPTS`
 #   %(prompt)  Prompt for the argument value.
-
-bind main C ?git cherry-pick %(commit)
-bind status C !git commit
-bind stash A ?git stash apply %(stash)
-bind stash P ?git stash pop %(stash)
-bind stash ! ?git stash drop %(stash)
-bind refs C ?git checkout %(branch)
-bind refs ! ?git branch -D %(branch)
 
 # Normal commands
 # ---------------

@@ -14,7 +14,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
 " [   Key Mappings / Bindings   ]----------------------------{
     "<Leader key>
         let mapleader = ","
-        let maplocalleader = "\\"
+        " let maplocalleader = "\\"
 
     "<Undefined>
         "noremap - <NOP>
@@ -97,6 +97,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap <Leader>tt g]
 
         "{Move between Marks}
+            nnoremap \ `
             if &runtimepath =~ 'vim-markbar'
                 nmap fm <Plug>OpenMarkbar
             endif
@@ -121,7 +122,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
         nnoremap ,. <Esc>:nohl<CR><ESC>
         nnoremap <Space> viw
         nnoremap <LEADER><Space> viW
-        nnoremap <M-Space> vip
         "{Macro}
         " nnoremap 2 q
 
@@ -418,17 +418,17 @@ let $DOTFILES = expand('~') . '/dotfiles'
         if &runtimepath =~ 'fzf'
             "nnoremap <localleader>f :Files %:p:h<CR>
             nnoremap <M-f> :Files<CR>
-            nnoremap <LocalLeader>f :Files<CR>
-            nnoremap <localleader>H :Helptags<CR>
-            nnoremap <localleader>h :History<CR>
-            nnoremap <localleader>c :History:<CR>
-            nnoremap <localleader>/ :History/<CR>
-            nnoremap <localleader>p :Snippets<CR>
-            nnoremap <localleader>C :BCommits<CR>
-            nnoremap <localleader>b :Buffers<CR>
-            nnoremap <localleader>t :Tags<CR>
-            nnoremap <LocalLeader>a :Ag<CR>
-            nnoremap <localleader>m :Marks<CR>
+            " nnoremap <LocalLeader>f :Files<CR>
+            " nnoremap <localleader>H :Helptags<CR>
+            " nnoremap <localleader>h :History<CR>
+            " nnoremap <localleader>c :History:<CR>
+            " nnoremap <localleader>/ :History/<CR>
+            " nnoremap <localleader>p :Snippets<CR>
+            " nnoremap <localleader>C :BCommits<CR>
+            " nnoremap <localleader>b :Buffers<CR>
+            " nnoremap <localleader>t :Tags<CR>
+            " nnoremap <LocalLeader>a :Ag<CR>
+            " nnoremap <localleader>m :Marks<CR>
             "nnoremap <localleader>p/ :Files ..
             "nnoremap <localleader>color/ :Colors
             "nnoremap <localleader>k/ :Maps<CR>
@@ -440,6 +440,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap fC :Commands<CR>
             nnoremap fh :History<CR>
             nnoremap fa :Rg<CR>
+            nnoremap fm :Marks<CR>
             " nnoremap fa :call fzf#vim#ag('', fzf#vim#with_preview('right'))<CR>
             nnoremap fs :Snippets<CR>
             " nnoremap fS :History/<CR>

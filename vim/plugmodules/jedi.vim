@@ -1,5 +1,5 @@
 "https://github.com/davidhalter/jedi-vim
-Plug 'davidhalter/jedi-vim', {'do': 'python3 -m pip install --user pynvim neovim jedi' }
+Plug 'davidhalter/jedi-vim'  ", {'do': '~/dotfiles/vim/pythonx/venv-nvim/bin/python3 -m pip install --user pynvim neovim jedi' }
 " ^ Will auto install jedi dependencies
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

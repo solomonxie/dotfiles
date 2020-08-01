@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
         source ~/dotfiles/vim/plugmodules/indent_line.vim
         source ~/dotfiles/vim/plugmodules/airline.vim
         source ~/dotfiles/vim/plugmodules/nerdtree.vim
+        " source ~/dotfiles/vim/plugmodules/chadtree.vim
         source ~/dotfiles/vim/plugmodules/semshi.vim
         source ~/dotfiles/vim/plugmodules/vista.vim
         source ~/dotfiles/vim/plugmodules/tagbar.vim

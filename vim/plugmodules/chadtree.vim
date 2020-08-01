@@ -1,1 +1,1 @@
-Plug 'ms-jpq/chadtree', {'branch': 'master', 'do': ':UpdateRemotePlugins'}
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}

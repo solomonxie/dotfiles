@@ -15,12 +15,14 @@ function! Hello_word()
     endfor
 endfunction
 
+
 function! JumpToBuffer(...)
     let bufindex = a:1
     let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
     " echo buffer_list
     exe ":buffer " . buffer_list[bufindex]
 endfunction
+
 
 " Open git changed files
 function! EditChangedFiles()
@@ -31,6 +33,7 @@ function! EditChangedFiles()
     endfor
 endfunction
 
+
 "{Toggle Relative Line Number}
 function! ToggleRelativeNumber()
     if &relativenumber == 0
@@ -40,10 +43,12 @@ function! ToggleRelativeNumber()
     endif
 endfunction
 
+
 function! LoadVimrc()
     :tabnew
     :source ~/dotfiles/vim/workspace.vim
 endfunction
+
 
 function! GetGitRemoteCodeReferenceLink()
     "Expected URL
@@ -59,6 +64,7 @@ function! GetGitRemoteCodeReferenceLink()
     echo "Copied: " url
 endfunction
 
+
 function! GetSessionPath()
     let gitroot = trim(system("git rev-parse --show-toplevel"))
     if isdirectory(gitroot)
@@ -69,17 +75,20 @@ function! GetSessionPath()
     return session_path
 endfunction
 
+
 function! SaveSession()
     let session_path = GetSessionPath()
     execute "mksession! " . session_path
     echo "Saved session to: " . session_path
 endfunction
 
+
 function! LoadSession()
     let session_path = GetSessionPath()
     execute "source " . session_path
     ":echo "Load session from workspace.vim"
 endfunction
+
 
 function! OpenFileInPrevWindow()
     "Refer: https://unix.stackexchange.com/questions/74571
@@ -89,6 +98,7 @@ function! OpenFileInPrevWindow()
         execute "edit " . cfile
     endif
 endfunction
+
 
 "Search/grep pattern and open files
 function! GrepOpen(...)
@@ -109,4 +119,10 @@ function! GrepOpen(...)
             execute "edit " . fname
         endfor
     endif
+endfunction
+
+
+function! UpdatePlugins()
+    echo system('pip install --user --upgrade pynvim')
+    echo system('pip install --user --upgrade msgpack')
 endfunction

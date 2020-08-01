@@ -13,7 +13,7 @@
 #-f bestvideo+bestaudio
 
 # [PROXY]
---proxy "socks5://127.0.0.1:1060"
+# --proxy "socks5://127.0.0.1:1060"
 #--proxy "http://127.0.0.1:1080"
 
 # [FILE NAME]

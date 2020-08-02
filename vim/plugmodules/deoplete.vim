@@ -8,7 +8,7 @@ if has('python3')
     Plug 'Shougo/deoplete.nvim'
     " Completion sources
     " https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
-    " Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-jedi'
     " Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
     " if ! has('vim') ">> For vim only
     Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework

@@ -9,8 +9,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default
 let g:loaded_python_provider = 0
-" let g:loaded_python3_provider = 1
 let g:python3_host_prog = '~/dotfiles/.git/venv3/bin/python'
+let g:python_host_prog = '~/dotfiles/.git/venv2/bin/python'
 
 
 "Override by project
@@ -21,8 +21,9 @@ let use_py2 = filereadable(py2_link)
 let use_py3 = filereadable(py3_link)
 if use_py2
     let g:loaded_python_provider = 1
-    if executable(py2_link)
-        let g:python_host_prog = trim(system("readlink -f " . py2_link))
+    let pylink = py2_link
+    if executable(pylink)
+        let g:python_host_prog = trim(system("readlink -f " . pylink))
     else
         let projectvenv = projectroot . '/.git/venv2'
         let pylink = trim(system("readlink -f " . projectvenv . '/bin/python'))
@@ -33,10 +34,12 @@ if use_py2
         endif
         let g:python_host_prog = pylink
     endif
+    echo 'Use Python: ' . pylink
 elseif use_py3
     let g:loaded_python_provider = 0
-    if executable(py3_link)
-        let g:python3_host_prog = trim(system("readlink -f " . py3_link))
+    let pylink = py3_link
+    if executable(pylink)
+        let g:python3_host_prog = trim(system("readlink -f " . pylink))
     else
         let projectvenv = projectroot . '/.git/venv3'
         let pylink = trim(system("readlink -f " . projectvenv . '/bin/python'))
@@ -47,4 +50,5 @@ elseif use_py3
         endif
         let g:python3_host_prog = pylink
     endif
+    echo 'Use Python: ' . pylink
 endif

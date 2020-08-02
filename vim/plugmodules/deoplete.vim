@@ -5,10 +5,10 @@
 "   - python3 -m pip install --user pynvim neovim
 " https://github.com/Shougo/deoplete.nvim
 if has('python3')
-    Plug 'Shougo/deoplete.nvim', {'do': 'python3 -m pip install --user pynvim neovim' }
+    Plug 'Shougo/deoplete.nvim'
     " Completion sources
     " https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
-    Plug 'zchee/deoplete-jedi', {'do': 'python3 -m pip install jedi --user'}
+    " Plug 'zchee/deoplete-jedi'
     " Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
     " if ! has('vim') ">> For vim only
     Plug 'roxma/nvim-yarp' " Nvim Remote Plugin Framework
@@ -25,8 +25,8 @@ if has('python3')
     let deoplete#custom#option = 100
 
     " Max number of candidates
-        let g:deoplete#max_abbr_width = 30
-        let g:deoplete#max_menu_width = 40
+    let g:deoplete#max_abbr_width = 30
+    let g:deoplete#max_menu_width = 40
 
     " Set multiple options
         "call deoplete#custom#option({

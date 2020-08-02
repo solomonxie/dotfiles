@@ -36,7 +36,7 @@ call plug#begin('~/.vim/plugged')
         source ~/dotfiles/vim/plugmodules/indent_line.vim
         source ~/dotfiles/vim/plugmodules/airline.vim
         source ~/dotfiles/vim/plugmodules/nerdtree.vim
-        source ~/dotfiles/vim/plugmodules/chadtree.vim
+        " source ~/dotfiles/vim/plugmodules/chadtree.vim
         source ~/dotfiles/vim/plugmodules/semshi.vim
         source ~/dotfiles/vim/plugmodules/vista.vim
         source ~/dotfiles/vim/plugmodules/tagbar.vim
@@ -48,7 +48,7 @@ call plug#begin('~/.vim/plugged')
         source ~/dotfiles/vim/plugmodules/deoplete.vim
         source ~/dotfiles/vim/plugmodules/ultisnips.vim
         source ~/dotfiles/vim/plugmodules/any_jump.vim
-        " source ~/dotfiles/vim/plugmodules/ctags.vim
+        source ~/dotfiles/vim/plugmodules/ctags.vim
         " source ~/dotfiles/vim/plugmodules/YCM.vim
         " source ~/dotfiles/vim/plugmodules/coc.vim
         " source ~/dotfiles/vim/plugmodules/ncm2.vim

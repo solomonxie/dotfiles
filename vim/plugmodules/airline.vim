@@ -60,10 +60,22 @@ let g:airline_right_alt_sep = '❮'
 " [BUFFERS]
 " @airline-extension-tabline-buffers
     let g:airline#extensions#tabline#show_buffers=1  "Enable buffers display
-    let g:airline#extensions#tabline#buffer_nr_show=1  "Show buffer index (real index)
-    let g:airline#extensions#tabline#buffer_idx_mode=0  "Show buffer index (order index)
+    let g:airline#extensions#tabline#buffer_nr_show=0  "Show buffer index (real index)
+    let g:airline#extensions#tabline#buffer_idx_mode=1  "Show buffer index (order index)
     let g:airline#extensions#tabline#buffers_label='BUFFERS'
     "let g:airline#extensions#tabline#buffer_idx_format={}
+    let g:airline#extensions#tabline#buffer_idx_format = {
+        \ '0': '0:',
+        \ '1': '1:',
+        \ '2': '2:',
+        \ '3': '3:',
+        \ '4': '4:',
+        \ '5': '5:',
+        \ '6': '6:',
+        \ '7': '7:',
+        \ '8': '8:',
+        \ '9': '9:'
+    \}
 
 " [SPLIT]
 " @airline-extensions-tabline-splits

@@ -78,6 +78,19 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap t8 :call JumpToBuffer(-3)<CR>
             nnoremap t9 :call JumpToBuffer(-2)<CR>
             nnoremap t0 :call JumpToBuffer(-1)<CR>
+            "Airline Buffers
+            if &runtimepath =~ 'vim-airline'
+                nmap <Leader>1 <Plug>AirlineSelectTab1
+                nmap <Leader>2 <Plug>AirlineSelectTab2
+                nmap <Leader>3 <Plug>AirlineSelectTab3
+                nmap <Leader>4 <Plug>AirlineSelectTab4
+                nmap <Leader>5 <Plug>AirlineSelectTab5
+                nmap <Leader>6 <Plug>AirlineSelectTab6
+                nmap <Leader>7 <Plug>AirlineSelectTab7
+                nmap <Leader>8 <Plug>AirlineSelectTab8
+                nmap <Leader>9 <Plug>AirlineSelectTab9
+                nmap <Leader>10 <Plug>AirlineSelectTab10
+            endif
 
         "{Move between brackets (JSON)}
             nnoremap ]b :call searchpair('\[','','\]')<cr>

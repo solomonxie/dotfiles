@@ -51,10 +51,10 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap <Right> <C-w>l
             nnoremap <Up> <C-w>k
             nnoremap <Down> <C-w>j
-            noremap <M-h> <C-w>h
-            noremap <M-l> <C-w>l
-            noremap <M-j> <C-w>j
-            noremap <M-k> <C-w>k
+            nnoremap <M-h> <C-w>h
+            nnoremap <M-l> <C-w>l
+            nnoremap <M-j> <C-w>j
+            nnoremap <M-k> <C-w>k
             nnoremap <Leader>, <C-w>w
 
         "{Move between Tabs}

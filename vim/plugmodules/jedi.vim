@@ -15,7 +15,7 @@ let g:jedi#auto_initialization = 0
 let g:jedi#auto_vim_configuration = 0
 
 " Display function call signatures/parameters in insert mode in real-time
-let g:jedi#show_call_signatures = 1
+let g:jedi#show_call_signatures = 2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                KEY BINDINGS                                "

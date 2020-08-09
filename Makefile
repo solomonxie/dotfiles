@@ -133,6 +133,7 @@ install_raspbian: install_bash install_tmux
 install_vim: config
 	# Archive(Backup)
 	# sudo cp -a ~/.vim{,_$(date +%F)}  # Does not support this in makefile
+	mkdir ~/.vim ||true
 	mv ~/.vim ~/.vim_`date +%F` || true
 	# Install symlinks
 	ln -sf ~/dotfiles/vim/ ~/.vim/

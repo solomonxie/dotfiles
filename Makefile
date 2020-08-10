@@ -73,6 +73,19 @@ build_docker:
 	cd docker && $(MAKE) apps_${MYOS}
 	echo "OK."
 
+build_ubuntu_samba:
+	# Refer to: https://ubuntu.com/tutorials/install-and-configure-samba#1-overview
+	sudo apt install samba -y
+	mkdir ~/sambashare/
+	sudo cat ~/dotfiles/etc/samba/smb_share_definition.conf >> /etc/samba/smb.conf
+	# sudo echo [sambashare] >> /etc/samba/smb.conf
+	# sudo echo     comment = Samba on Ubuntu >> /etc/samba/smb.conf
+	# sudo echo     path = /home/solnas/sambashare >> /etc/samba/smb.conf
+	# sudo echo     read only = no >> /etc/samba/smb.conf
+	# sudo echo     browsable = yes >> /etc/samba/smb.conf
+	sudo service smbd restart
+	sudo smbpasswd -a solnas
+
 ##################################################################
 #            ____ ___  __  __ __  __  ___  _   _                 #
 #           / ___/ _ \|  \/  |  \/  |/ _ \| \ | |                #

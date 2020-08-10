@@ -29,7 +29,9 @@ if !filereadable(expand('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
     "{Common}
-        source ~/dotfiles/vim/plugmodules/nvim_provider.vim  "IMPORTANT!
+        if has('nvim')
+            source ~/dotfiles/vim/plugmodules/nvim_provider.vim  "IMPORTANT!
+        endif
         source ~/dotfiles/vim/plugmodules/basic.vim
         source ~/dotfiles/vim/plugmodules/misc.vim
     "{UI}

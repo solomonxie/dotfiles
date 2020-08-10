@@ -9,8 +9,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default
 let g:loaded_python_provider = 0
-let g:python3_host_prog = '~/dotfiles/.git/venv3/bin/python'
-let g:python_host_prog = '~/dotfiles/.git/venv2/bin/python'
+let g:python3_host_prog = '~/virtualenv/venv/bin/python'
+let g:python_host_prog = '~/virtualenv/venv2/bin/python'
 
 
 "Override by project

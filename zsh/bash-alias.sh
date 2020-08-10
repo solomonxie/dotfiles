@@ -119,6 +119,8 @@ alias venv-nvim="source ~/virtualenv/venv-ju/bin/activate"
 alias ju="jupyter notebook"
 alias ipy="ipython"
 alias pythonvim="~/dotfiles/.git/venv3/bin/python"
+# [[ -e ~/virtualenv/venv/bin/python ]] && alias python="~/virtualenv/venv/bin/python"
+# [[ -e ~/virtualenv/venv/bin/pip ]] && alias pip="~/virtualenv/venv/bin/pip"
 
 #######################################################################
 #                          MAC APPLICATIONS                           #

@@ -22,6 +22,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:`python -m site --user-base`/bin"  # pip executables are here
+export PATH="$HOME/virtualenv/venv/bin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"

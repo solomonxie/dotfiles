@@ -20,13 +20,14 @@
 # etc., cat 'expot path=...' > ~/.zshrc
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:`python -m site --user-base`/bin"  # pip executables are here
-export PATH="$HOME/virtualenv/venv/bin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+# Python
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/virtualenv/venv2/bin:$PATH"
+export PATH="$HOME/virtualenv/venv/bin:$PATH"
 
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"

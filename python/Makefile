@@ -32,6 +32,11 @@ debian: checkhealth_debian
 ubuntu: debian
 raspbian: debian
 
+venv:
+	[ ! -e ~/virtualenv/venv/bin/python ] && python -m virtualenv -p python3.7 ~/virtualenv/venv/ ||true
+	~/virtualenv/venv/bin/pip install -r ~/dotfiles/python/requirements-mac.txt
+	@echo [ OK ]
+
 
 checkhealth_python:
 	python3 -V

@@ -33,9 +33,13 @@ ubuntu: debian
 raspbian: debian
 
 venv:
+	# Py2 (must be in the front to be covered by py2 later)
+	[ ! -e ~/virtualenv/venv2/bin/python2 ] && python -m virtualenv -p python2.7 ~/virtualenv/venv2/ ||true
+	if ! grep -q "$HOME/virtualenv/venv/bin/python2" <<< $PATH;then echo "export PATH=\"$HOME/virtualenv/venv2/bin:$PATH\"" |tee >> ~/.zshrc ~/.bashrc; fi
+	# Py3
 	[ ! -e ~/virtualenv/venv/bin/python ] && python -m virtualenv -p python3.7 ~/virtualenv/venv/ ||true
-	if ! grep -q "$HOME/virtualenv/venv/bin" <<< $PATH;then echo "export PATH=\"$HOME/virtualenv/venv/bin:$PATH\"" >> ~/.zshrc; fi
-	~/virtualenv/venv/bin/pip install -r ~/dotfiles/python/requirements-mac.txt
+	if ! grep -q "$HOME/virtualenv/venv/bin/python3" <<< $PATH;then echo "export PATH=\"$HOME/virtualenv/venv/bin:$PATH\"" |tee >> ~/.zshrc ~/.bashrc; fi
+	~/virtualenv/venv/bin/pip install --upgrade -r ~/dotfiles/python/requirements.txt
 	@echo [ OK ]
 
 

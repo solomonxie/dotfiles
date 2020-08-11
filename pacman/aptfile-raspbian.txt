@@ -2,3 +2,6 @@ htop
 tree
 unzip
 ifstat
+git
+curl
+wget

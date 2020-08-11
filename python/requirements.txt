@@ -2,28 +2,36 @@
 #-
 #-re-commit
 
-pudb
-ipdb
-ipython
-pandas
-numpy
-ped
-pgcli
-awscli
-flake8
+# vim
 pynvim
 neovim
 jedi
+ped
+
+#debugging
+pudb
+ipdb
+ipython
+
+# Math
+pandas
+numpy
+
+# CLI tools
 curljson
-gevent
+youtube-dl
+httpie
 gunicorn
+
+# Project
+pgcli
+awscli
+flake8
+gevent
 mocket
-neovim
 pook
 pre-commit
-youtube-dl
 flask
 sqlalchemy
 django
 fakeredis
-httpie

@@ -34,6 +34,7 @@ raspbian: debian
 
 venv:
 	[ ! -e ~/virtualenv/venv/bin/python ] && python -m virtualenv -p python3.7 ~/virtualenv/venv/ ||true
+	if ! grep -q "$HOME/virtualenv/venv/bin" <<< $PATH;then echo "export PATH=\"$HOME/virtualenv/venv/bin:$PATH\"" >> ~/.zshrc; fi
 	~/virtualenv/venv/bin/pip install -r ~/dotfiles/python/requirements-mac.txt
 	@echo [ OK ]
 

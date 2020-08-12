@@ -44,7 +44,7 @@ MAILCHECK=0
 # set HOSTALIASES=~/hosts
 
 # Set Default Title (Useful for Tmux pane-border title)
-printf "\033]0;%s\a" "TITLE"
+# printf "\033]0;%s\a" "TITLE"  #THIS JEPERDIZE SOME PROGRAMS (etc., ANSIBLE)
 
 
 #zstyle ':completion:*' menu select # select completions with arrow keys

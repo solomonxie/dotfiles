@@ -2,7 +2,7 @@
 #                                BASH                                 #
 #######################################################################
 export LANG=en_US.UTF-8
-printf "\033]0;%s\a" "TITLE"
+# printf "\033]0;%s\a" "TITLE"  #THIS JEPERDIZE SOME PROGRAMS (etc., ANSIBLE)
 HISTFILESIZE=2000
 shopt -s histappend  # append to the history file, don't overwrite it
 shopt -s checkwinsize  # check the window size

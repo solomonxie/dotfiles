@@ -18,6 +18,12 @@
 #######################################################################
 # Some would be imported here by other programms automatically
 # etc., cat 'expot path=...' > ~/.zshrc
+
+# IMPORTANT!!
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version

@@ -1,6 +1,8 @@
 source ~/dotfiles/zsh/zshrc-mini.sh
 
-export LC_ALL=C
+# IMPORTANT!!
+LC_ALL=en_US.UTF-8
+LANG=en_US.UTF-8
 
 
 # Environment Variables, paths

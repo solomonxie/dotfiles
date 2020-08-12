@@ -71,3 +71,53 @@ if [[ "$0" =~ "zsh" ]]; then
     #bindkey '^e' autosuggest-accept # [Essential] Ctrl+i to confirm hint
     #bindkey -e
 fi
+
+#######################################################################
+#                    PATH / ENVIRONMENT VARIABLES                     #
+#######################################################################
+# Some would be imported here by other programms automatically
+# etc., cat 'expot path=...' > ~/.zshrc
+
+# IMPORTANT!!
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+# Python
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/virtualenv/venv2/bin:$PATH"
+export PATH="$HOME/virtualenv/venv/bin:$PATH"
+
+export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
+
+#######################################################################
+#                              HOMEBREW                               #
+#######################################################################
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+
+#Java
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home"
+# export JAVA_HOME=$(/usr/libexec/java_home)
+
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /usr/local/bin/mc mc
+
+# Fzf
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+# Autojump
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+
+# Broot
+# source /Users/xiaoboxie/Library/Preferences/org.dystroy.broot/launcher/bash/br

@@ -35,11 +35,6 @@ raspbian: config build_raspbian build_python build_tmux
 	@echo "OK."
 
 
-set_locale:
-	export LC_ALL=C
-	sudo apt-get update
-	touch ~/.bashrc && echo "export LC_ALL=C" >> ~/.bashrc
-
 
 #################################################################################
 #         _____ ____ ____  _____ _   _ _____ ___    _    _     ____             #
@@ -107,13 +102,13 @@ build_mac:
 	brew bundle
 	brew bundle install --file ~/dotfiles/pacman/Brewfile
 
-build_ubuntu: set_locale
+build_ubuntu:
 	cat ~/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get autoremove -y
 	sudo apt-get autoclean -y
 
-build_raspbian: set_locale
+build_raspbian:
 	cat ~/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get remove --purge wolfram-engine -y

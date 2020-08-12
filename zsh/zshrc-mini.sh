@@ -26,13 +26,3 @@
 # General settings {
     MAILCHECK=0   # Get rid of "you have a mail" from crontab
 # }
-
-# Builtin behaviors {
-        setopt no_nomatch
-# }
-
-
-# Key Bindings / Mappings {
-    bindkey '^p' up-line-or-search # Up arrow
-    bindkey '^n' down-line-or-search # Down arrow
-# }

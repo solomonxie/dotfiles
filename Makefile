@@ -75,16 +75,16 @@ build_docker:
 
 build_ubuntu_samba:
 	# Refer to: https://ubuntu.com/tutorials/install-and-configure-samba#1-overview
-	sudo apt install samba -y
-	mkdir ~/sambashare/
-	sudo cat ~/dotfiles/etc/samba/smb_share_definition.conf >> /etc/samba/smb.conf
-	# sudo echo [sambashare] >> /etc/samba/smb.conf
-	# sudo echo     comment = Samba on Ubuntu >> /etc/samba/smb.conf
-	# sudo echo     path = /home/solnas/sambashare >> /etc/samba/smb.conf
-	# sudo echo     read only = no >> /etc/samba/smb.conf
-	# sudo echo     browsable = yes >> /etc/samba/smb.conf
+	sudo apt install samba -y ||true
+	mkdir ~/sambashare/ ||true
+	sudo mv ~/dotfiles/etc/samba/smb_share_definition.conf /etc/samba/smb.conf
 	sudo service smbd restart
-	sudo smbpasswd -a solnas
+	sudo smbpasswd -a ${USER}
+
+build_ubuntu_remote_desktop:
+	sudo apt-get install xrdp -y
+	sudo sed -e 's/^new_cursors=true/new_cursors=false/g' -i /etc/xrdp/xrdp.ini
+	sudo systemctl restart xrdp
 
 ##################################################################
 #            ____ ___  __  __ __  __  ___  _   _                 #
@@ -137,7 +137,7 @@ install_mac: install_bash install_zsh install_tmux install_vim
 	@echo "OK."
 
 install_ubuntu: install_bash install_tmux
-	echo "1 * * * * git -C /home/ubuntu/dotfiles/ pull origin master" |crontab ||true
+	echo "1 * * * * git -C /home/${USER}/dotfiles/ pull origin master" |crontab ||true
 	@echo "OK."
 
 install_raspbian: install_bash install_tmux

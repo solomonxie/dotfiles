@@ -1,7 +1,7 @@
 #######################################################################
 #                                BASH                                 #
 #######################################################################
-source ~/dotfiles/zsh/zshrc-mini.sh
+source ~/dotfiles/zsh/bash-alias.sh
 
 # IMPORTANT!!
 export LC_ALL=en_US.UTF-8

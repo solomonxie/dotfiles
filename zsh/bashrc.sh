@@ -1,23 +1,27 @@
 #######################################################################
 #                                BASH                                 #
 #######################################################################
+source ~/dotfiles/zsh/zshrc-mini.sh
+
+# IMPORTANT!!
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-# printf "\033]0;%s\a" "TITLE"  #THIS JEPERDIZE SOME PROGRAMS (etc., ANSIBLE)
-HISTFILESIZE=2000
-shopt -s histappend  # append to the history file, don't overwrite it
-shopt -s checkwinsize  # check the window size
+export LANGUAGE=en_US.UTF-8
 
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
-# Default Editor (Ctrl-x plus Ctrl-e to pop editor for current shell command)
-[[ -e $(command -v nvim) ]] && export EDITOR=nvim || export EDITOR=vim
+# Environment Variables, paths
+# Some would be imported here by other programms automatically
+# etc., cat 'expot path=...' > ~/.zshrc
 
-#######################################################################
-#                              SOURCING                               #
-#######################################################################
-source ~/dotfiles/zsh/bash-alias.sh
-source ~/dotfiles/zsh/bash-functions.sh
-[[ ! -f ~/.bashrc-local.sh ]] && touch ~/.bashrc-local.sh
-source ~/.bashrc-local.sh
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# Python
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/virtualenv/venv2/bin:$PATH"
+export PATH="$HOME/virtualenv/venv/bin:$PATH"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export EDITOR=vim
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export OCTAVE_EXECUTABLE=/usr/local/bin/octave

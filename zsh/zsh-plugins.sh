@@ -12,6 +12,13 @@ if [ ! -e ~/.zsh/plugins/zsh-syntax-highlighting ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
 fi
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Print last command's execution time
+if [ ! -e ~/.zsh/plugins/zsh-syntax-highlighting ]; then
+    git clone https://github.com/popstas/zsh-command-time.git ~/.zsh/plugins/zsh-command-time
+fi
+source ~/.zsh/plugins/zsh-command-time/command-time.plugin.zsh
+
 # Setups for plugins {
     # [zsh-autosuggestions]
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6' # [Essential]

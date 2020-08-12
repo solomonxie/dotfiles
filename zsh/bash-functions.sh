@@ -24,10 +24,12 @@ sslo() {
     nohup ss-local -c $1 -v 1> /tmp/ssclient.log 2> /tmp/ssclient-err.log &
 }
 
-# create .tar.gz
-targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
-# extra .tar.gz
-untargz() { tar -zxvf $1; rm -r $1; }
+
+targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }  # create .tar.gz
+
+
+untargz() { tar -zxvf $1; rm -r $1; }  # extra .tar.gz
+
 
 extension() {
     # https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
@@ -35,6 +37,7 @@ extension() {
     EXTENSION="${INPUT##*.}"
     echo $EXTENSION
 }
+
 
 split_video() {
     # Split video (without conversion)
@@ -48,11 +51,13 @@ split_video() {
     ffmpeg -i $INPUT -ss $START -to $END -vcodec copy -acodec copy "${FILEPATH}__clip_${START/:/-}_${END/:/-}.${EXTENSION}"
 }
 
+
 extract_mp3() {
     # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
     INPUT=$1
     ffmpeg -i $INPUT "${INPUT%.*}.mp3"
 }
+
 
 download_playlist() {
     URL=$1
@@ -60,10 +65,12 @@ download_playlist() {
     ffmpeg -i $URL -c copy $OUTPUT
 }
 
+
 mkv_to_mp4() {
     INPUT=$1
     ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
 }
+
 
 extract_pdf() {
     # Example:
@@ -72,8 +79,9 @@ extract_pdf() {
     pdftk $INPUT cat $PAGES output "${INPUT%.*}_combined.pdf"
 }
 
-# Extracts any archive(s) (if unp isn't installed)
+
 decompress () {
+    # Extracts any archive(s) (if unp isn't installed)
     for archive in $*; do
         if [ -f $archive ] ; then
             case $archive in
@@ -97,8 +105,8 @@ decompress () {
 }
 
 
-# Make a virtualenv
 make_venv() {
+    # Make a virtualenv
     gitroot="$(git rev-parse --show-toplevel)"
     [[ ! -e "$gitroot" ]] && echo "Not in a git repo"
     requirements_path="$gitroot/requirements.txt"

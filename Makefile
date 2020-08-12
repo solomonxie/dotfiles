@@ -51,6 +51,7 @@ set_locale:
 #################################################################################
 build_python:
 	cd python && $(MAKE) ${MYOS}
+	cd python && $(MAKE) venv
 	echo "OK."
 
 build_tmux:

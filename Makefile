@@ -25,6 +25,10 @@ build: config
 	echo "make ${MYOS}" | sh
 	echo "Build Done. Please proceed to: $ make install."
 
+build_ubuntu_locale:
+	sudo locale-gen en_US en_US.UTF-8
+	sudo dpkg-reconfigure locales
+
 # OS specific
 mac: config build_mac build_python build_vim build_zsh build_tmux
 	@echo "OK."

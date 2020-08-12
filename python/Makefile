@@ -27,7 +27,10 @@ mac: checkhealth_mac
 debian: checkhealth_debian
 	sudo apt-get install python3 -y
 	sudo apt-get install virtualenv -y
-	sudo apt-get install -y python-pip python3-pip
+	# Pip
+	# sudo apt-get install -y python-pip python3-pip
+	curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+	sudo python /tmp/get-pip.py
 
 ubuntu: debian
 raspbian: debian
@@ -61,7 +64,7 @@ utils: checkhealth_python
 
 
 virtualenv: checkhealth_python
-	virtualenv -p python3 ${HOME}/virtualenv/venv3
+	virtualenv -p python3 ${HOME}/virtualenv/venv
 	virtualenv -p python3 ~/virtualenv/venv-ju
 	virtualenv -p python2 ${HOME}/virtualenv/venv2
 

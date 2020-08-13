@@ -7,6 +7,7 @@
 #                                                    #
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com> #
 ######################################################
+# HOW TO FIND THE SLOW PART OF LOADING ZSH: $ zsh -xv
 
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
@@ -19,16 +20,12 @@ fi
 source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
 source ~/dotfiles/zsh/fzf-settings.sh
-[[ ! -f ~/.bashrc-local.sh ]] && touch ~/.bashrc-local.sh
-source ~/.bashrc-local.sh
+[[ -e ~/.bashrc-local.sh ]] && source ~/.bashrc-local.sh ||true
 
 
 #######################################################################
 #                          GENERAL SETTINGS                           #
 #######################################################################
-# Important: Locale
-export LANG=en_US.UTF-8
-
 # Vi mode
 # set editing-mode vi
 
@@ -117,7 +114,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Autojump
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+# [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 
 # Broot
 # source /Users/xiaoboxie/Library/Preferences/org.dystroy.broot/launcher/bash/br

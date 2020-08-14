@@ -98,8 +98,12 @@ export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-# Python
+# =====PYTHON=====
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+export PATH="/usr/local/opt/python@2/bin:$PATH"
+export PATH="/usr/local/opt/python@3/bin:$PATH"
 export PATH="$HOME/virtualenv/venv2/bin:$PATH"
 export PATH="$HOME/virtualenv/venv/bin:$PATH"
 

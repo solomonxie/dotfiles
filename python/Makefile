@@ -28,9 +28,9 @@ debian: checkhealth_debian
 	sudo apt-get install python3 -y
 	sudo apt-get install virtualenv -y
 	# Pip
-	# sudo apt-get install -y python-pip python3-pip
-	curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
-	sudo python /tmp/get-pip.py
+	sudo apt install -y python3-pip python-pip
+	# curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+	sudo python ~/dotfiles/python/get-pip.py
 
 ubuntu: debian
 raspbian: debian

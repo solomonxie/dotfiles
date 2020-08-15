@@ -17,6 +17,7 @@ alias ll='ls -alF'
 alias ls='ls --color=auto'
 alias la='ls -A'
 alias lsa='ls -lah'
+alias lsd='ls -lah -d */'
 alias lah="ls -lah"
 alias please="sudo"
 

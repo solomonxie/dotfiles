@@ -25,12 +25,7 @@ mac: checkhealth_mac
 	pip3 install virtualenv --user
 
 debian: checkhealth_debian
-	sudo apt install python3 -y
-	sudo apt install virtualenv -y
-	# Pip
-	sudo apt install -y python3-pip python-pip
-	# curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
-	# sudo python ~/dotfiles/python/get-pip.py
+	cat ~/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 
 ubuntu: debian
 raspbian: debian

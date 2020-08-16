@@ -32,11 +32,11 @@ raspbian: debian
 
 python_pip:
 	# [ -e $(command -v brew) ] && [ ! -e $(command -v pip) ] && brew install python-pip ||true
-	[ -e $(command -v apt-get) ] && [ ! -e $(command -v pip) ] && sudo apt-get install python-pip  ||true
+	[ -e $(command -v apt) ] && [ ! -e $(command -v pip3) ] && sudo apt install -y python3-pip  ||true
 	which pip
 
 venv: python_pip
-	[ ! -e $(command -v virtualenv) ] && pip install virtualenv ||true
+	[ ! -e $(command -v virtualenv) ] && pip3 install virtualenv ||true
 	# Py2 (must be in the front to be covered by py2 later)
 	[ ! -e ~/virtualenv/venv2/bin/python2 ] && virtualenv -p python2 ~/virtualenv/venv2/ ||true
 	if ! grep -q "${HOME}/virtualenv/venv/bin/python2" <<< ${PATH};then echo "export PATH=\"${HOME}/virtualenv/venv2/bin:$PATH\"" |tee >> ~/.zshrc ~/.bashrc; fi

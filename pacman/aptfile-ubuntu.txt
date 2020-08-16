@@ -1,3 +1,9 @@
+openssh-server
+sshpass
+python3
+virtualenv
+python3-pip
+python-pip
 htop
 bc
 tree

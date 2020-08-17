@@ -13,10 +13,10 @@
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
 if [[ "$0" =~ "zsh" ]]; then
-    # source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
-
     # Plugins
+    # source ~/dotfiles/zsh/ohmyzsh-settings.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
+    # source ~/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
     # source ~/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
@@ -27,7 +27,6 @@ if [[ "$0" =~ "zsh" ]]; then
 fi
 source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
-source ~/dotfiles/zsh/fzf-settings.sh
 [[ -e ~/.bashrc-local.sh ]] && source ~/.bashrc-local.sh ||true
 
 
@@ -82,10 +81,11 @@ if [[ "$0" =~ "zsh" ]]; then
     bindkey '^p' up-line-or-search # Up arrow
     bindkey '^n' down-line-or-search # Down arrow
     # [autosuggestions] (history conflict with zsh hints, not recommanded)
-    bindkey '^e' autosuggest-accept # [Essential] Ctrl+i to confirm hint
-    bindkey -e  # Allow ctrl-a ctrl-e to jump to the head/tail of the line
+    bindkey '^e' autosuggest-accept # [Essential] Ctrl+e to confirm hint
     bindkey "^[[1;5D" backward-word  # ctrl-left
     bindkey "^[[1;5C" forward-word  # ctrl-right
+    # Conflict with fzf ---> (Allow ctrl-a ctrl-e to jump to the head/tail of the line)
+    # bindkey -e
 fi
 
 

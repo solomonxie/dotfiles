@@ -16,11 +16,11 @@ if [[ "$0" =~ "zsh" ]]; then
     # source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
 
     # Plugins
+    source ~/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
-    source ~/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
+    # source ~/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
-    source ~/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
 fi
 source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
@@ -41,6 +41,15 @@ source ~/dotfiles/zsh/fzf-settings.sh
 
 # Get rid of "you have a mail" from crontab
 MAILCHECK=0
+
+# History
+HISTFILE=~/.bash_history
+HISTSIZE=50000
+SAVEHIST=10000
+setopt appendhistory
+setopt extendedhistory
+setopt sharehistory
+setopt incappendhistory
 
 # User-specified hosts (not working at the moment)
 # set HOSTALIASES=~/hosts

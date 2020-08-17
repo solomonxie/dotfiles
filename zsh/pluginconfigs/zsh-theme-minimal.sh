@@ -3,7 +3,7 @@ if [ ! -e ~/.zsh/plugins/minimal ]; then
     git clone https://github.com/subnixr/minimal.git ~/.zsh/plugins/minimal
 fi
 
-MNML_PROMPT=(mnml_status 'mnml_cwd 2 0' mnml_git)
+MNML_PROMPT=(mnml_git 'mnml_cwd 2 0' mnml_status )
 MNML_RPROMPT=()
 MNML_INFOLN=()
 MNML_MAGICENTER=()

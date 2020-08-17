@@ -13,9 +13,14 @@
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
 if [[ "$0" =~ "zsh" ]]; then
-    source ~/dotfiles/zsh/zsh-plugins.sh
-    source ~/dotfiles/zsh/prompt/minimal.sh
     # source ~/dotfiles/zsh/ohmyzsh-settings.sh  # Must be after theme settings
+
+    # Plugins
+    source ~/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
+    source ~/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
+    source ~/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
+    source ~/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
+    source ~/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
 fi
 source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
@@ -66,7 +71,9 @@ if [[ "$0" =~ "zsh" ]]; then
     bindkey '^n' down-line-or-search # Down arrow
     # [autosuggestions] (history conflict with zsh hints, not recommanded)
     bindkey '^e' autosuggest-accept # [Essential] Ctrl+i to confirm hint
-    #bindkey -e
+    bindkey -e  # Allow ctrl-a ctrl-e to jump to the head/tail of the line
+    bindkey "^[[1;5D" backward-word  # ctrl-left
+    bindkey "^[[1;5C" forward-word  # ctrl-right
 fi
 
 

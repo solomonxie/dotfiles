@@ -21,6 +21,9 @@ if [[ "$0" =~ "zsh" ]]; then
     source ~/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
     # source ~/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
+    source ~/dotfiles/zsh/pluginconfigs/fzf.sh
+    # source ~/dotfiles/zsh/pluginconfigs/autojump.sh
+    # source ~/dotfiles/zsh/pluginconfigs/broot.sh
 fi
 source ~/dotfiles/zsh/bash-alias.sh
 source ~/dotfiles/zsh/bash-functions.sh
@@ -150,12 +153,3 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/mc mc
-
-# Fzf
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
-# Autojump
-# [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
-
-# Broot
-# source /Users/xiaoboxie/Library/Preferences/org.dystroy.broot/launcher/bash/br

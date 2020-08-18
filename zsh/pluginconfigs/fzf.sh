@@ -6,6 +6,8 @@ if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
 
 # Import key bindings for auto completion
 [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+# Import specific key bindings
+source "$HOME/.fzf/shell/key-bindings.zsh"
 
 
 # Setup appearence (Highlighting, scale, preview...)
@@ -24,8 +26,5 @@ elif [ -x $(command -v rg) ]; then
 #elif [ -x $(command -v ag) ]; then
     #
 fi
-
-# Import specific key bindings
-source "$HOME/.fzf/shell/key-bindings.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

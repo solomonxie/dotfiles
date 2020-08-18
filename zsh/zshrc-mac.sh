@@ -18,8 +18,8 @@ if [[ "$0" =~ "zsh" ]]; then
     source ~/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
     # source ~/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
-    source ~/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
-    # source ~/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
+    # source ~/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
+    source ~/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
     source ~/dotfiles/zsh/pluginconfigs/fzf.sh
     # source ~/dotfiles/zsh/pluginconfigs/autojump.sh
@@ -81,9 +81,12 @@ if [[ "$0" =~ "zsh" ]]; then
     bindkey '^p' up-line-or-search # Up arrow
     bindkey '^n' down-line-or-search # Down arrow
     # [autosuggestions] (history conflict with zsh hints, not recommanded)
-    bindkey '^e' autosuggest-accept # [Essential] Ctrl+e to confirm hint
+    # bindkey '^e' autosuggest-accept # [Essential] Ctrl+e to confirm hint
     bindkey "^[[1;5D" backward-word  # ctrl-left
     bindkey "^[[1;5C" forward-word  # ctrl-right
+    bindkey "^A" vi-beginning-of-line
+    bindkey "^e" vi-end-of-line
+    bindkey "^k" backward-kill-line
     # Conflict with fzf ---> (Allow ctrl-a ctrl-e to jump to the head/tail of the line)
     # bindkey -e
 fi

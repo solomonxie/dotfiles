@@ -14,8 +14,8 @@
 #######################################################################
 if [[ "$0" =~ "zsh" ]]; then
     # Plugins
-    # source ~/dotfiles/zsh/ohmyzsh-settings.sh
-    source ~/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
+    source ~/dotfiles/zsh/ohmyzsh-settings.sh
+    # source ~/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
     # source ~/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
     source ~/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
     # source ~/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh

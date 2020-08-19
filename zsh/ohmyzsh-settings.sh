@@ -56,6 +56,11 @@ export ZSH_THEME="awesomepanda"  # export TERM="xterm-256color"
 # ...
 
 #######################################################################
+#                   CUSTOMIZED THEME: AWESOME PANDA                   #
+#######################################################################
+# source ~/dotfiles/zsh/pluginconfigs/ohmyzsh-theme-awesome-panda.sh
+
+#######################################################################
 #                              AT BOTTOM                              #
 #######################################################################
 source $ZSH/oh-my-zsh.sh

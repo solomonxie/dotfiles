@@ -197,7 +197,9 @@ crontabui:
 
 
 postgres: checkhealth_docker
-	docker run --name pg --restart always -p 5432:5432 \
+	docker run --restart always \
+		--name pg \
+		-p 54320:5432 \
 		-e POSTGRES_PASSWORD=123123 \
 		-e POSTGRES_USER=sol \
-		-d postgres
+		-d postgres postgres -c log_statement=all

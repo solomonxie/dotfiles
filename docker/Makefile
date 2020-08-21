@@ -194,3 +194,10 @@ playground_ubuntu: checkhealth_docker
 
 crontabui:
 	docker run -d -p 8123:8000 --name crontabui --restart always alseambusher/crontab-ui
+
+
+postgres: checkhealth_docker
+	docker run --name pg --restart always -p 5432:5432 \
+		-e POSTGRES_PASSWORD=123123 \
+		-e POSTGRES_USER=sol \
+		-d postgres

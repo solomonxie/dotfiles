@@ -203,3 +203,9 @@ postgres: checkhealth_docker
 		-e POSTGRES_PASSWORD=123123 \
 		-e POSTGRES_USER=sol \
 		-d postgres postgres -c log_statement=all
+
+redis: checkhealth_docker
+	docker run --restart always \
+		--name rd \
+		-p 63790:6379 \
+		-d redis:alpine

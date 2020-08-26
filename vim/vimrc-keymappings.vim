@@ -133,7 +133,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
         vnoremap ,. <Esc>:nohl<CR><ESC>
         nnoremap ,. <Esc>:nohl<CR><ESC>
         nnoremap <Space> viw
-        nnoremap <CR> viW
+        nnoremap v<Space> viW
         "{Macro}
         " nnoremap 2 q
 

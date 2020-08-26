@@ -1,7 +1,7 @@
+" https://github.com/scrooloose/nerdtree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          NERDTREE - FILE BROWSER                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"https://github.com/scrooloose/nerdtree
 
 Plug 'scrooloose/nerdtree'          " File tree manager
 " Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs

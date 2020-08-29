@@ -1,3 +1,8 @@
+" https://github.com/ludovicchabant/vim-gutentags
+" MEMO:
+"   1. put `.notags` at root of project path to disable
+"   2. let g:gutentags_enabled = 0 to disable
+"   2. :GutentagsToggleEnabled<CR> to enable/disable plugin
 if executable('ctags')
     Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)
 
@@ -17,8 +22,9 @@ if executable('ctags')
     else
         let g:gutentags_file_list_command = 'find . -type f'
     endif
-    let g:gutentags_exclude_filetypes = ['json', 'csv', 'txt', 'xml', 'html', 'gz', 'xls', 'doc']
+    let g:gutentags_exclude_filetypes = ['js', 'sql', 'tmpl', 'sh', 'json', 'csv', 'txt', 'xml', 'html', 'gz', 'xls', 'doc']
     let g:gutentags_ctags_exclude = ['.git']
+    let g:gutentags_generate_on_empty_buffer = 0
     " Tag files store place, instead of project dirs
     " let s:vim_tags = expand('~/.vim/tags')
     let s:vim_tags = '.git/ctags'

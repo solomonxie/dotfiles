@@ -299,7 +299,7 @@ let $DOTFILES = expand('~') . '/dotfiles'
             autocmd BufReadPre Makefile noremap <buffer> <M-b> :w<CR>:!make <CR>
 
         "<RCs> (Configs)
-            autocmd BufReadPre .vimrc,vimrc* noremap <buffer> <M-b> :w<CR>:source % <CR>
+            autocmd BufReadPre .vim,.vimrc,vimrc* noremap <buffer> <M-b> :w<CR>:source % <CR>
             autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <M-b> :w<CR>:!source % <CR>
 
         "<Executable>  -> conflict with above

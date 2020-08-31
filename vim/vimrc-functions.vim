@@ -24,6 +24,12 @@ function! JumpToBuffer(...)
 endfunction
 
 
+function! HowManyBuffers()
+    let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
+    echo 'There are [' . len(buffer_list) . '] buffers'
+endfunction
+
+
 " Open git changed files
 function! EditChangedFiles()
     let fnames = split(system("git diff --name-only"), "\n")

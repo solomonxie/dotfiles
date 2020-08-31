@@ -15,6 +15,7 @@
     "{Change pwd/Current Directory to be same with buffer}
     command! CDToCurrentDir :cd %:p:h
     command! R :source ~/.vimrc
+    command! BufferCount :call HowManyBuffers()
 "}
 
 

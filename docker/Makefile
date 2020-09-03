@@ -70,7 +70,7 @@ apps_mac:
 
 apps_raspbian: webav_raspbian
 
-apps_ubuntu: vpn_ipsec shadowsocks webdav frp crontabui
+apps_ubuntu: vpn_ipsec shadowsocks webdav frp
 
 checkhealth_debian:
 	apt-get --version

@@ -1,1 +1,0 @@
-/Users/xiaoboxie/dotfiles/vim/nvimrc.vim

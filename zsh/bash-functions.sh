@@ -46,17 +46,17 @@ splitvideo() {
 }
 
 
-tomp3() {
-    # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
-    INPUT=$1
-    ffmpeg -i $INPUT "${INPUT%.*}.mp3"
-}
-
-
 downloadplaylist() {
     URL=$1
     OUTPUT=${2:-output.mp4}
     ffmpeg -i $URL -c copy $OUTPUT
+}
+
+
+tomp3() {
+    # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
+    INPUT=$1
+    ffmpeg -i $INPUT "${INPUT%.*}.mp3"
 }
 
 

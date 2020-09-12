@@ -25,12 +25,6 @@ sslo() {
 }
 
 
-targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }  # create .tar.gz
-
-
-untargz() { tar -zxvf $1; rm -r $1; }  # extra .tar.gz
-
-
 extension() {
     # https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
     INPUT=$1
@@ -39,7 +33,7 @@ extension() {
 }
 
 
-split_video() {
+splitvideo() {
     # Split video (without conversion)
     #    $ ffmpeg -i INPUTT -ss mm:ss -to mm:ss -vcodec copy -acodec copy OUTPUT
     INPUT=$1
@@ -52,27 +46,32 @@ split_video() {
 }
 
 
-extract_mp3() {
+extractmp3() {
     # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
     INPUT=$1
     ffmpeg -i $INPUT "${INPUT%.*}.mp3"
 }
 
 
-download_playlist() {
+downloadplaylist() {
     URL=$1
     OUTPUT=${2:-output.mp4}
     ffmpeg -i $URL -c copy $OUTPUT
 }
 
 
-mkv_to_mp4() {
+tomp4() {
     INPUT=$1
-    ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
+    TARGET="$2"
+    if [[ $TARGET == "" ]]; then
+        TARGET="${INPUT%.*}_converted.mp4"
+    fi
+    # ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
+    ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$TARGET"
 }
 
 
-extract_pdf() {
+extractpdf() {
     # Example:
     INPUT=$1
     PAGES=$2
@@ -105,7 +104,7 @@ decompress () {
 }
 
 
-make_venv() {
+makevenv() {
     # Make a virtualenv
     gitroot="$(git rev-parse --show-toplevel)"
     [[ ! -e "$gitroot" ]] && echo "Not in a git repo"

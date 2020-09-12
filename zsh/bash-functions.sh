@@ -46,7 +46,7 @@ splitvideo() {
 }
 
 
-extractmp3() {
+tomp3() {
     # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
     INPUT=$1
     ffmpeg -i $INPUT "${INPUT%.*}.mp3"
@@ -62,13 +62,18 @@ downloadplaylist() {
 
 tomp4() {
     INPUT=$1
-    TARGET="$2"
-    if [[ $TARGET == "" ]]; then
-        now="$(date -u +'%Y%m%d%H%M%S')"
-        TARGET="${INPUT%.*}_${now}.mp4"
+    now="$(date -u +'%Y%m%d%H%M%S')"
+    if [[ -f "$INPUT" ]]; then
+        target="${INPUT%.*}_${now}.mp4"
+        # ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
+        ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$target"
     fi
-    # ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
-    ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$TARGET"
+    if [[ -d "$INPUT" ]]; then
+        for f in $(ls "$INPUT"); do
+            target="${f%.*}_${now}.mp4"
+            ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$target"
+        done
+    fi
 }
 
 

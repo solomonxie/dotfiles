@@ -67,11 +67,10 @@ tomp4() {
         target="${INPUT%.*}_${now}.mp4"
         # ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
         ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$target"
-    fi
-    if [[ -d "$INPUT" ]]; then
-        for f in $(ls "$INPUT"); do
+    elif [[ -d "$INPUT" ]]; then
+        for f in $(find "$INPUT" -type f); do
             target="${f%.*}_${now}.mp4"
-            ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$target"
+            ffmpeg -i $f -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$target"
         done
     fi
 }

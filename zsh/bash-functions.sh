@@ -64,7 +64,8 @@ tomp4() {
     INPUT=$1
     TARGET="$2"
     if [[ $TARGET == "" ]]; then
-        TARGET="${INPUT%.*}_converted.mp4"
+        now="$(date -u +'%Y%m%d%H%M%S')"
+        TARGET="${INPUT%.*}_${now}.mp4"
     fi
     # ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
     ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$TARGET"

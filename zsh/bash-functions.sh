@@ -96,7 +96,7 @@ mergemp4() {
 
 mergemp4audio() {
     INPUT1="$1"
-    for ext in ("m4a" "webm" "mp3");do
+    for ext in "m4a" "webm" "mp3";do
         INPUT2="${2:-${INPUT1%.*}.${ext}}"
         if [[ -f $INPUT2 ]];then break; fi
     done

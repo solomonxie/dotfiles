@@ -62,17 +62,49 @@ tomp3() {
 
 tomp4() {
     INPUT=$1
+    # TARGET=$2
+    THREADS=${2:-"2"}
     now="$(date -u +'%Y%m%d%H%M%S')"
     if [[ -f "$INPUT" ]]; then
         target="${INPUT%.*}_${now}.mp4"
         # ffmpeg -i $INPUT -codec copy "${INPUT%.*}.mp4"
-        ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$target"
+        ffmpeg -i $INPUT -codec:a aac -b:a 128k -codec:v libx264 -crf 23 -threads $THREADS "$target"
     elif [[ -d "$INPUT" ]]; then
         for f in $(find "$INPUT" -type f); do
             target="${f%.*}_${now}.mp4"
-            ffmpeg -i $f -codec:a aac -b:a 128k -codec:v libx264 -crf 23 "$target"
+            ffmpeg -i $f -codec:a aac -b:a 128k -codec:v libx264 -crf 23 -threads $THREADS "$target"
         done
     fi
+}
+
+
+mergemp4() {
+    params=""
+    INPUT1="$1"
+    INPUT2="$2"
+    # INPUT2="${2:-${INPUT1%.*}.m4a}"
+    for input in $*;do
+        if [[ -f "$input" ]];then
+            params="$params -i \"$input\" "
+        else
+            echo "Not exists: $input"
+        fi
+    done
+    sh -c "ffmpeg $params -acodec copy -vcodec copy ${INPUT1%.*}_combined.mp4 "
+}
+
+
+mergemp4audio() {
+    INPUT1="$1"
+    for ext in ("m4a" "webm" "mp3");do
+        INPUT2="${2:-${INPUT1%.*}.${ext}}"
+        if [[ -f $INPUT2 ]];then break; fi
+    done
+    if [[ ! -f $INPUT2 ]];then
+        echo "No relative audio file found for: $INPUT1"
+        exit 1
+    fi
+    ffmpeg -i $INPUT1 -i $INPUT2 -acodec copy -vcodec copy "${INPUT1%.*}_combined.mp4"
 }
 
 

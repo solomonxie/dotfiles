@@ -83,6 +83,9 @@ alias yourc="vim ~/.config/youtube-dl/config"
 #alias vfzf="vim $(fzf)"
 #alias dfzf="cd $(sh 'find * -type d | fzf')"
 
+alias wgetwholesite="wget -r -p -np -k"
+alias wgetkeep="wget -x"
+
 
 #######################################################################
 #                                 GIT                                 #

@@ -146,7 +146,7 @@ fi
 #######################################################################
 # PostgreSQL clients
 if [ -x $(command -v pgcli) ]; then
-    alias psql="$(command -v pgcli)"
+    alias psql="pgcli"
 elif [ -x /Applications/Postgres.app/Contents/Versions/latest/bin/psql ];then
     alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
 fi

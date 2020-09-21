@@ -8,7 +8,7 @@
 -civw
 
 # [FORMAT]
--f 'bestvideo+bestaudio' --merge-output-format mp4
+-f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4
 #-f best/mp4
 #-f bestvideo+bestaudio
 

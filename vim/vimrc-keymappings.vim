@@ -74,8 +74,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap t5 :call JumpToBuffer(4)<CR>
             nnoremap t6 :call JumpToBuffer(5)<CR>
             nnoremap t7 :call JumpToBuffer(6)<CR>
-            nnoremap t8 :call JumpToBuffer(-3)<CR>
-            nnoremap t9 :call JumpToBuffer(-2)<CR>
+            nnoremap t8 :call JumpToBuffer(7)<CR>
+            nnoremap t9 :call JumpToBuffer(8)<CR>
             nnoremap t0 :call JumpToBuffer(-1)<CR>
             "Airline Buffers
             if &runtimepath =~ 'vim-airline'
@@ -377,7 +377,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             endif
             if &runtimepath =~ 'vista' " hit * ->open all folds; = ->close all folds
                 "noremap <Leader>t :TagbarToggle<CR>=<ESC>
-                noremap tt :Vista!!<CR>
+                " noremap tt :Vista!!<CR>
+                noremap tt :Vista show<CR>
             endif
 
         "[AnyJump]

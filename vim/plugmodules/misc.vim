@@ -14,6 +14,9 @@ Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
 
+"https://github.com/wsdjeg/vim-fetch
+Plug 'wsdjeg/vim-fetch'  "Open/Edit file from reference: /path/to/file:190:3
+
 if has('nvim')
     Plug 'rbgrouleff/bclose.vim'
 endif

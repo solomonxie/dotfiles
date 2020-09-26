@@ -58,8 +58,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             nnoremap <Leader>, <C-w>w
 
         "{Move between Tabs}
-            nnoremap ( :tabnext<CR>
-            nnoremap ) :tabprev<CR>
+            " nnoremap ( :tabnext<CR>
+            " nnoremap ) :tabprev<CR>
             "nnoremap g9 :tabfirst<CR>
             "nnoremap g0 :tablast<CR>
 
@@ -104,15 +104,19 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 vnoremap <Leader>gd "1y:Ped<Space><C-r>1
             endif
             " Pops selection list for ambiguous tags
-            nnoremap <C-]> g<C-]>
+            " nnoremap <C-]> g<C-]>
             " nnoremap <C-[> <C-i>
-            nnoremap <Leader>tt g]
+            " nnoremap <Leader>tt g]
 
         "{Move between Marks}
             nnoremap \ `
             if &runtimepath =~ 'vim-markbar'
                 nmap fm <Plug>OpenMarkbar
             endif
+
+        "{Move between methods}
+            " nnoremap <C-[> [m
+            " nnoremap <C-]> ]m
 
         " Number Line
         nnoremap <leader>l :call ToggleRelativeNumber()<CR>

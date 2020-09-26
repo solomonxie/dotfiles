@@ -156,3 +156,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/mc mc
+
+# added by Snowflake SnowSQL installer v1.2
+export PATH=/Users/xiaoboxie/Applications/SnowSQL.app/Contents/MacOS:$PATH

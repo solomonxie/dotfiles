@@ -108,6 +108,17 @@ mergemp4audio() {
 }
 
 
+
+mergesubtitle() {
+    INPUT=$1
+    SUB=$2
+    DELAY=${3:-0}
+    OFFSET=${4:-0}
+    # echo ffmpeg -itoffset $OFFSET -i "$SUB" -c copy "/tmp/subtmp$OFFSET"
+    # echo ffmpeg -i "$INPUT" -vf "subtitles=/tmp/subtmp/$OFFSET":force_style='Alignment=95'" "${INPUT%.*}_sub.mp4"
+}
+
+
 extractpdf() {
     # Example:
     INPUT=$1

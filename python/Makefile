@@ -56,9 +56,9 @@ utils: checkhealth_python
 
 
 virtualenv: checkhealth_python
-	virtualenv -p python3 ${HOME}/virtualenv/venv
+	# virtualenv -p python3 ${HOME}/virtualenv/venv
 	virtualenv -p python3 ~/virtualenv/venv-ju
-	virtualenv -p python2 ${HOME}/virtualenv/venv2
+	# virtualenv -p python2 ${HOME}/virtualenv/venv2
 
 jupyter_notebook: checkhealth_python
 	source ~/virtualenv/venv-ju/bin/activate && \

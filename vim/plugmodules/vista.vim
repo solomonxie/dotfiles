@@ -3,7 +3,7 @@ if executable('ctags')
     Plug 'liuchengxu/vista.vim'  "More friendly tagbar
 
     "UI
-    let g:vista_sidebar_position = 'vertical botright'  "'vertical botright'
+    let g:vista_sidebar_position = 'vertical topleft'  "'vertical botright' | 'vertical topleft'
     let g:vista_fzf_preview = ['up:60%']
     let g:vista_no_mappings = 0
     let g:vista_sidebar_width = 40

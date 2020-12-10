@@ -147,11 +147,11 @@ fi
 #                         CLI TOOLS/COMMANDS                          #
 #######################################################################
 # PostgreSQL clients
-if [ -x $(command -v pgcli) ]; then
-    alias psql="pgcli"
-elif [ -x /Applications/Postgres.app/Contents/Versions/latest/bin/psql ];then
-    alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
-fi
+# if [ -x $(command -v pgcli) ]; then
+#     alias psql="pgcli"
+# elif [ -x /Applications/Postgres.app/Contents/Versions/latest/bin/psql ];then
+#     alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
+# fi
 
 [[ -x $(command -v autojump) ]] && alias cdj="autojump"
 

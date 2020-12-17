@@ -2,7 +2,7 @@
 [ $(id -u) != "0" ] && { echo "${CFAILURE}Error: You must be root to run this script${CEND}"; exit 1; }
 
 # Check if wget installed
-if  [ ! -x "$(command -v wget)" ]; then
+if  [ ! -e "$(which wget)"]; then
     echo "Error: wget command not found. You must be install wget command at first."
     exit 1
 fi

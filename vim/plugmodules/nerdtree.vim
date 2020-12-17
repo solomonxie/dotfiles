@@ -18,7 +18,7 @@ let g:NERDTreeHidden=1     " Don't show hidden files
 let NERDTreeWinSize=40     " Initial NERDTree width
 let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
 "let NERDTreeShowBookmarks=0   " Show NERDTree bookmarks
-let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__', '.git']   " Hide temp files in NERDTree
+let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']   " Hide temp files in NERDTree
 "let g:NERDTreeShowLineNumbers=1  " Show Line Number
 
 "let NERDTreeAutoCenter = 1  "Not working

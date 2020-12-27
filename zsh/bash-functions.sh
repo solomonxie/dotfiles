@@ -171,3 +171,9 @@ slug() {
     INPUT=$1
     echo $INPUT |sed "s/[()\!]//g" |sed "s/[. ]/-/g"
 }
+
+
+cheat() {
+    KEYWORD=$1
+    curl "https://cheat.sh/$KEYWORD"
+}

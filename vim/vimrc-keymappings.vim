@@ -179,6 +179,13 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "noremap <Space> "
         "noremap <Leader><Space> :registers<CR>
 
+        "{Git Mergetool}
+        if &diff
+            map <leader>1 :diffget LOCAL<CR>
+            map <leader>2 :diffget BASE<CR>
+            map <leader>3 :diffget REMOTE<CR>
+        endif
+
     "<Split>
         "noremap S :vsplit<CR><C-w>l<ESC>:bn<CR><ESC>
         noremap <Leader>s :vsplit<CR><C-w>l

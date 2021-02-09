@@ -96,6 +96,7 @@ set history-size  = 500  # Size of persistent history, 0 to disable
 # ================ KEY BINDINGS =====================
 
 # [ CUSTOMIZED ] -----{
+    # MAIN VIEW
     bind main P !?git push origin
     bind main a !?git commit --amend
     bind main G @bash -c "open 'https://'$(git remote -v | grep -Eo 'github.com[:/][^.]+' | head -1 | tr : / | cut -d' ' -f1)'/commit/%(commit)'"
@@ -105,11 +106,18 @@ set history-size  = 500  # Size of persistent history, 0 to disable
     bind main P ?git cherry-pick "%(commit)"
     bind main C ?git checkout "%(commit)"
     bind main L !bash -c "git reflog --pretty=raw | tig --pretty=raw"
-    # bind main C ?git cherry-pick %(commit)
+
+    # STATUS VIEW
     bind status C !git commit
+    bind status D !@?rm %(file)
+    # bind main C ?git cherry-pick %(commit)
+
+    # STASH VIEW
     bind stash A ?git stash apply %(stash)
     bind stash P ?git stash pop %(stash)
     bind stash ! ?git stash drop %(stash)
+
+    # REFERENCE VIEW
     bind refs C ?git checkout %(branch)
     bind refs ! ?git branch -D %(branch)
 

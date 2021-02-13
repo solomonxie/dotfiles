@@ -868,3 +868,110 @@ def get_sys_args():
 sysargs = get_sys_args()
 print(sysargs.choices)
 endsnippet
+
+
+snippet defaultdict_lambda
+from collections import defaultdict
+_ = defaultdict(lambda: defaultdict(set))
+endsnippet
+
+snippet sorted_key
+_ = sorted(items, key=lambda x: x['name'], reverse=True)
+endsnippet
+
+
+snippet cache_memoize
+# pip install cacheout==0.11.2
+from cacheout import Cache
+
+cache_for_func = Cache(5120, ttl=settings.BREADCRUMB_TTL)
+
+@cache_for_func.memoize()
+def my_func(myid, myname=None):
+	pass
+endsnippet
+
+
+snippet testcase_ft_flask
+import json
+import pook
+from unittest import TestCase
+from unittest.mock import patch
+
+from application.app import app
+from tests.interface.test_utils import mock_run_sql, mock_engine
+from tests import sqls
+
+
+class TestBreadcrumb(TestCase):
+    def setUp(self):
+        self.client = app.app.app.test_client()
+        pook.on()
+        self.patches = [
+            patch('db_utils.run_sql', side_effect=mock_run_sql),
+        ]
+        for p in self.patches:
+            p.start()
+
+        # Prepare mock data
+        engine = mock_engine()
+        print('\n[ ... ] INSERT SAMPLE DATA FOR UT')
+        with engine.connect() as conn:
+            conn.execute(sqls.create_tables.sql)
+            conn.execute(sqls.insert_records.sql)
+            conn.execute('select * from mytable limit 1')
+        print('[ OK ] INSERT SAMPLE DATA DONE.')
+
+		# Setup Context
+		self.context = flask.Flask(__name__).test_request_context()
+        self.context.push()
+        setattr(flask.request, 'request_id', 'fake_req_id')
+        seq_id_gen = MagicMock()
+        seq_id_gen.sequence_id = 'fake_seq_id'
+        setattr(flask.request, 'sequence_id_generator', seq_id_gen)
+
+    def tearDown(self):
+        engine = mock_engine()
+        with engine.connect() as conn:
+            conn.execute(sqls.clean_tables.sql)
+
+        pook.off()
+        pook.reset()
+        self.context.pop()
+        for p in self.patches:
+            p.stop()
+
+    def test_endpoint(self):
+		# Mock API calls inside of the impl
+        resp_d = {'data': [{'token': 'fake_token'}]}
+        pook.get(url='http://localhost/get-tokens?user_id=1', reply=200, response_json=resp_d)
+
+        url = '/api/myendpoint/?myid=12345'
+        resp = self.client.get(url)
+        self.assertEqual(200, resp.status_code)
+        result = json.loads(resp.data)
+        self.assertIsNotNone(result)
+endsnippet
+
+
+snippet pook_get
+import pook
+pook.on()
+(pook.get(url)
+	 .reply(200)
+	 .headers({'Content-Type': 'application/json'})
+	 .json(json.dumps({'data': [1, 2, 3]}))
+)
+pook.off()
+pook.reset()
+endsnippet
+
+snippet pook_post
+(pook.post(url)
+	 .type('json')  # Request body type
+	 .headers({'Content-Type': 'application/json'})  # Request header
+	 .reply(200)
+	 .headers({'Content-Type': 'application/json'})  # Response header
+	 .json(json.dumps({'data': [1, 2, 3]}))
+)
+endsnippet

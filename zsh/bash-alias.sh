@@ -40,7 +40,7 @@ alias .....='cd ../../../../'
 #######################################################################
 #                                 Vim                                 #
 #######################################################################
-[[ -e $(command -v nvim) ]] && alias vim="nvim" && alias vimdiff="nvim -d"
+# [[ -e $(command -v nvim) ]] && alias vim="nvim" && alias vimdiff="nvim -d"
 alias vi="vi --noplugin"
 
 
@@ -154,6 +154,8 @@ fi
 # fi
 
 [[ -x $(command -v autojump) ]] && alias cdj="autojump"
+
+[[ -x $(command -v bat) ]] && alias cat="bat"
 
 #######################################################################
 #                            TMUX RELATED                             #

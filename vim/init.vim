@@ -44,7 +44,7 @@ call plug#begin('~/.vim/plugged')
         source ~/dotfiles/vim/plugmodules/tagbar.vim
         " source ~/dotfiles/vim/plugmodules/markbar.vim
         " source ~/dotfiles/vim/plugmodules/syntastic.vim
-        " source ~/dotfiles/vim/plugmodules/telescope.vim
+        source ~/dotfiles/vim/plugmodules/telescope.vim
     "{Completion | Usages | Definitions}
         source ~/dotfiles/vim/plugmodules/fzf.vim
         source ~/dotfiles/vim/plugmodules/ale.vim

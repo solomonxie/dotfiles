@@ -141,8 +141,8 @@ endsnippet
 snippet convert_timestamp_to_time_str
 from datetime import datetime
 
-def convert_timestamp_to_time_str(timestamp: int, fmt='%Y-%m-%d %H:%M:%S'):
-	return datetime.fromtimestamp(timestamp).strftime(fmt)
+def convert_timestamp_to_time_str(timestamp: int, fmt=):
+	return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
 endsnippet
 
 
@@ -1003,4 +1003,13 @@ def flatten_deep_dict(data, path='root', sort=True, sort_keys=['id', 'type', 'ge
             sub = {sub_path: item}
         new.update(sub)
     return new
+endsnippet
+
+
+snippet counter
+from collections import Counter
+anything = [1, 2, 3, 3]  # tuple, list, dict, string... anything
+result_dict = Counter(anything)
+print(result_dict)
+# {'target1': num_of_appearances, 'target2': num_of_appearances}
 endsnippet

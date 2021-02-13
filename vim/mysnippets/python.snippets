@@ -956,8 +956,9 @@ endsnippet
 
 snippet pook_get
 import pook
+import json
 pook.on()
-(pook.get(url)
+(pook.get('http://localhost/myendpoint?q=1')
 	 .reply(200)
 	 .headers({'Content-Type': 'application/json'})
 	 .json(json.dumps({'data': [1, 2, 3]}))
@@ -967,11 +968,39 @@ pook.reset()
 endsnippet
 
 snippet pook_post
-(pook.post(url)
+import pook
+import json
+(pook.post('http://localhost/myendpoint?q=1')
 	 .type('json')  # Request body type
 	 .headers({'Content-Type': 'application/json'})  # Request header
 	 .reply(200)
 	 .headers({'Content-Type': 'application/json'})  # Response header
 	 .json(json.dumps({'data': [1, 2, 3]}))
 )
+endsnippet
+
+
+snippet flatten_deep_dict
+def flatten_deep_dict(data, path='root', sort=True, sort_keys=['id', 'type', 'genre_id', 'modifier_id']):
+    new = {}
+    if not isinstance(data, (dict, list)):
+        return data
+    keys = list(data.keys()) if isinstance(data, dict) else list(range(len(data)))
+    for k in keys:
+        item = data[k]
+        sub_path = path + '.' + str(k)
+        if isinstance(item, (dict, list)):
+            # Dict Path
+            for sk in sort_keys:
+                if isinstance(item, dict) and sk in item:
+                    sub_path = path + '.' + str(sk) + '-' + str(item[sk])
+                    break
+            # Sort List
+            if sort and isinstance(item, list) and len(item) and not isinstance(item[0], (dict, list)):
+                item = sorted(item)
+            sub = flatten_deep_dict(item, sub_path)
+        else:
+            sub = {sub_path: item}
+        new.update(sub)
+    return new
 endsnippet

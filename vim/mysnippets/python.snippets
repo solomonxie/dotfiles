@@ -94,7 +94,7 @@ from datetime import datetime, timedelta
 datetime.now().strftime('%Y%m%d%H%M%S')
 endsnippet
 
-snippet date-range
+snippet get_dates_from_range
 from datetime import datetime, timedelta
 def get_dates_from_range(granularity, start_date, end_date):
 	"""
@@ -120,7 +120,9 @@ def get_dates_from_range(granularity, start_date, end_date):
 	return combos
 endsnippet
 
-snippet date-to-start-end-date
+snippet get_start_end_date
+from datetime import datetime
+
 def get_start_end_date(target_date, granularity):
 	target = datetime.strptime(target_date, '%Y-%m-%d') if isinstance(target_date, str) else target_date
 	if granularity == 'daily':
@@ -133,6 +135,354 @@ def get_start_end_date(target_date, granularity):
 		any_day_in_next_month = target.replace(day=28) + timedelta(days=4)
 		end = any_day_in_next_month - timedelta(days=any_day_in_next_month.day)
 	return start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d')
+endsnippet
+
+
+snippet convert_timestamp_to_time_str
+from datetime import datetime
+
+def convert_timestamp_to_time_str(timestamp: int, fmt='%Y-%m-%d %H:%M:%S'):
+	return datetime.fromtimestamp(timestamp).strftime(fmt)
+endsnippet
+
+
+snippet convert_rfc2822_date_time_to_timestamp
+from datetime import datetime
+
+def convert_rfc2822_date_time_to_timestamp(date_time_str):
+	"""
+	RFC 2822 format: Tue, 26 Mar 2019 09:09:14 GMT
+	"""
+	date_time_obj = datetime.strptime(date_time_str, '%a, %d %b %Y %H:%M:%S %Z')
+	epoch = datetime(1970, 1, 1, 0, 0, 0)
+	return int((date_time_obj - epoch).total_seconds())
+endsnippet
+
+
+snippet requests_get
+import requests
+from retry import retry
+
+@retry((RequestException, ServerBusyError), tries=10, delay=30, jitter=5)
+def requests_get(url, *args, **kwargs):
+    try:
+        resp = requests.get(url, *args, **kwargs)
+
+    except Exception:
+        msg = f'Error on requesting: {url}'
+        raise RequestException(msg)
+
+    if resp.status_code in [400, 403, 404, 428]:
+        raise NoRetryError(f'BadRequest ({resp.status_code})')
+    elif resp.status_code != 200:
+        raise ServerBusyError(f'BadRequest ({resp.status_code})')
+
+    # SubRequest Error
+    result = resp.json() if resp.headers.get('Content-Type') == 'application/json' else {}
+    if 'code' in result and result.get('code') in ['403', '428']:
+        raise NoRetryError(f'Server SubRequest Issue ({result["code"]})')
+    for error in result.get('errors') or []:
+        if error.get('code') in ['SUB_REQUEST_TIMEOUT', '500', 'SUB_REQUEST_ERROR']:
+            raise ServerBusyError(f'Server SubRequest Issue ({result["code"]})')
+
+    return resp, result
+endsnippet
+
+
+snippet s3_operator
+import os
+import boto3
+
+def get_s3_client(access_key, secret, endpoint=None, region=None):
+    return boto3.client(
+        's3',
+        aws_access_key_id=access_key,
+        aws_secret_access_key=secret,
+        endpoint_url=endpoint,
+        region_name=region,
+        # config=boto3.session.Config(signature_version='s3v4'),
+    )
+
+
+def get_s3_resource(access_key, secret, endpoint=None, region=None):
+    return boto3.resource(
+        's3',
+        aws_access_key_id=access_key,
+        aws_secret_access_key=secret,
+        endpoint_url=endpoint,
+        region_name=region,
+        # config=boto3.session.Config(signature_version='s3v4'),
+    )
+
+
+class S3Operator(object):
+    def __init__(self, access_key=None, secret=None, endpoint=None, region=None):
+        self.client = get_s3_client(
+            access_key,
+            secret,
+            endpoint=endpoint,
+            region=region
+        )
+        self.resource = get_s3_resource(
+            access_key,
+            secret,
+            endpoint=endpoint,
+            region=region
+        )
+
+    def upload_file(self, localpath, bucket_name, object_name=None):
+        if not os.path.exists(localpath):
+            return False
+        object_name = object_name or os.path.basename(localpath)
+        try:
+            self.client.upload_file(localpath, bucket_name, object_name)
+        except RuntimeError as ex:
+            print(ex)
+        return True
+
+    def upload_file_blob(self, file_blob, bucket_name, object_name):
+        try:
+            self.client.put_object(Bucket=bucket_name, Key=object_name, Body=file_blob)
+        except RuntimeError as ex:
+            print(ex)
+        return True
+
+    def download_file_blob(self, bucket_name, object_name):
+        obj = self.resource.Object(bucket_name, object_name)
+        body = obj.get()
+        blob = body['Body'].read()
+        return blob
+
+    def get_signed_url(self, bucket_name, object_name, expiredin=86400, httpmethod=None):
+        url = self.client.generate_presigned_url(
+            ClientMethod='get_object',
+            Params={
+                'Bucket': bucket_name,
+                'Key': object_name,
+            },
+            ExpiresIn=expiredin,
+            HttpMethod=httpmethod,
+        )
+        return url
+
+    def create_bucket_if_not_exists(self, bucket_name):
+        existing = [b['Name'] for b in self.client.list_buckets()['Buckets']]
+        if bucket_name not in existing:
+            self.resource.create_bucket(Bucket=bucket_name)
+            print('Created bucket:', str(bucket_name))
+        return self.resource.Bucket(bucket_name).creation_date
+
+    def delete_bucket(self, bucket_name):
+        """
+        Only used in testing environment
+        """
+        existing = [b['Name'] for b in self.client.list_buckets()['Buckets']]
+        if bucket_name in existing:
+            bucket = self.resource.Bucket(bucket_name)
+            _ = [key.delete() for key in bucket.objects.all()]
+            bucket.delete()
+
+    def list_objects_under_folder(self, bucket_name, folder_path=None):
+        obj_keys = []
+        is_truncated = False
+        while is_truncated:
+            objects = self.client.list_objects(Bucket=bucket_name, Prefix=folder_path, MaxKeys=1000)
+            obj_keys += [obj['Key'] for obj in objects.get('Contents', [])]
+            is_truncated = objects.get('IsTruncated', False)
+        return obj_keys
+
+    def list_objects(self, bucket_name, path_prefix=None):
+        if path_prefix:
+            keys = [obj.key for obj in self.resource.Bucket(bucket_name).objects.filter(Prefix=path_prefix)]
+        else:
+            keys = [obj.key for obj in self.resource.Bucket(bucket_name).objects.all()]
+        return keys
+endsnippet
+
+
+snippet redis_conn
+def get_redis_conn(db, redis_setting):
+    xxxx
+    return redis_conn
+
+
+redis_conn = get_redis_conn('DB_NAME', redis_setting={'YOUR_REDIS_CONF': None})
+redis_conn.hset('DB_NAME', 'YOUR_KEY', json.dumps({'YOUR_DATA': None}))
+endsnippet
+
+
+snippet requests_post
+import requests
+from retry import retry
+
+@retry((RequestException, ServerBusyError), tries=10, delay=30, jitter=5)
+def requests_post(url, data, *args, **kwargs):
+    try:
+        resp = requests.post(url, data=data, *args, **kwargs)
+
+    except Exception:
+        raise RequestException(f'Error on requesting: {url}.')
+
+    if resp.status_code in [400, 403, 404, 428]:
+        msg = f'BadRequest Request payload:\n{data}\nResponse content:{resp.content}\nResponse headers: {resp.headers}'
+        raise NoRetryError(msg)
+    elif resp.status_code != 200:
+        raise ServerBusyError(f'Server Busy ({resp.status_code})')
+
+    # SubRequest Error
+    result = resp.json() if resp.headers.get('Content-Type') == 'application/json' else {}
+    if 'code' in result and result.get('code') in ['403', '428']:
+        raise NoRetryError(f'Server SubRequest Issue ({result["code"]})')
+    for error in result.get('errors') or []:
+        if error.get('code') in ['500', 'SUB_REQUEST_TIMEOUT', 'SUB_REQUEST_ERROR']:
+            raise ServerBusyError(f'Server SubRequest Issue ({error["code"]})')
+
+    return resp, result
+endsnippet
+
+
+snippet run_sql_to_pg_with_session
+import sqlalchemy
+from retry import retry
+from contextlib import contextmanager
+from sqlalchemy.pool import QueuePool
+from sqlalchemy.orm import sessionmaker, scoped_session
+from requests.structures import CaseInsensitiveDict
+
+import settings
+
+logger = getLogger(__name__)
+
+
+SESSION_MAKER = {0: None}
+
+
+def create_sqlalchemy_engine():
+    conn_str = 'postgresql+psycopg2://{user}:{pwd}@{host}:{port}/{db}'.format(
+        user=settings.DATABASES_RDS_USER,
+        pwd=settings.DATABASES_RDS_PASSWORD,
+        host=settings.DATABASES_RDS_HOST,
+        port=settings.DATABASES_RDS_PORT,
+        db=settings.DATABASES_RDS_NAME,
+    )
+    engine = sqlalchemy.create_engine(
+        conn_str,
+        # echo=settings.DATABASES_RDS_VERBOSE,
+        echo=False,
+        isolation_level='AUTOCOMMIT',  # IMPORTANT: R/O USER SHOULD HAVE THIS
+        poolclass=QueuePool,
+        pool_recycle=30,  # 1800sec on server | 30sec at local
+        pool_size=5,
+        connect_args={
+            'application_name': 'bapi-service',
+        },
+    )
+    return engine
+
+
+def get_session_maker():
+    """
+    CONNECTION MANAGEMENT STRATEGY:
+    - EACH THREAD HAS 1 ENGINE (CONNECTION POOL) TO KEEP THREAD SAFE
+    - SESSION MAKER SHOULD BE AT TOP LEVEL IN THE APPLICATION
+    """
+    if SESSION_MAKER[0]:
+        return SESSION_MAKER[0]
+
+    logger.info('Creating new SQLALchemy Engine for RDS...')
+    engine = create_sqlalchemy_engine()
+    maker = sessionmaker(bind=engine, autocommit=True)
+    SESSION_MAKER[0] = maker
+    return maker
+
+
+@contextmanager
+def get_context_session():
+    session = scoped_session(get_session_maker())
+    try:
+        yield session
+    except psycopg2.OperationalError as ex:
+        # Remove Global Session Maker if it's expired
+        SESSION_MAKER[0] = None
+        raise ex
+    except Exception as ex:
+        session.rollback()
+        raise ex
+    finally:
+        session.close()
+
+
+@retry((psycopg2.OperationalError, ), tries=5, delay=0.5, jitter=0.3, logger=logger)
+def run_sql_to_pg_with_session(sql, params):
+    """ SEPARATE ACTUAL IMPL FOR EASIER MOCK IN UT """
+	""" THE ROW LIMIT SHOULD BE SPECIFIED IN SQL """
+    start = time()
+    with get_context_session() as session:
+        logger.debug('RDS session created in {:.3f}sec'.format(time() - start))
+        result = session.execute(sql, params).fetchall()
+    rows = [CaseInsensitiveDict(x) for x in result]
+    return rows
+endsnippet
+
+
+snippet run_sql_to_snowflake
+import sqlalchemy
+import sqlalchemy.orm
+import snowflake.connector
+from snowflake.connector import DictCursor
+from requests.structures import CaseInsensitiveDict
+
+import settings
+
+
+def get_conn(schema):
+    return snowflake.connector.connect(
+        user=settings.SNOWFLAKE_USERNAME,
+        password=settings.SNOWFLAKE_PASSWORD,
+        account=settings.SNOWFLAKE_ACCOUNT,
+        session_parameters={'QUERY_TAG': 'django-sf-poc'},
+        warehouse=settings.SNOWFLAKE_WAREHOUSE,
+        database=settings.SNOWFLAKE_DATABASE,
+        schema=schema,
+        # client_session_keep_alive=True,
+    )
+
+
+def run_sql(sql, params=None, schema=settings.SNOWFLAKE_SCHEMA_DIM, fetchone=False, use_dictcursor=True):
+    conn = get_conn(schema=schema)
+    cursor = conn.cursor(DictCursor) if use_dictcursor else conn.cursor()
+    result = None
+    try:
+        cursor.execute(sql, params)
+        result = cursor.fetchone() if fetchone else cursor.fetchall()
+    finally:
+        cursor.close()
+
+    if use_dictcursor:
+        if fetchone:
+            result = CaseInsensitiveDict(result)
+        else:
+            result = [CaseInsensitiveDict(rec) for rec in result]
+
+    return result
+
+
+def get_snowflake_session(schema='ADL_MASTER', echo=False):
+    """
+    Ref: https://docs.snowflake.com/en/user-guide/sqlalchemy.html#additional-connection-parameters
+    """
+    conn_str = 'snowflake://{}:{}@{}/{}/{}?warehouse={}'.format(
+        settings.SNOWFLAKE_USERNAME,
+        settings.SNOWFLAKE_PASSWORD,
+        settings.SNOWFLAKE_ACCOUNT,
+        settings.SNOWFLAKE_DATABASE,
+        schema,
+        settings.SNOWFLAKE_WAREHOUSE,
+    )
+    engine = sqlalchemy.create_engine(conn_str, echo=echo)
+    Session = sqlalchemy.orm.sessionmaker(bind=engine)
+    session = Session()
+    return session
 endsnippet
 
 
@@ -366,6 +716,19 @@ def ichunks(generator, size):
 		yield items
 endsnippet
 
+
+snippet mkdir
+import os
+
+def mkdir(path):
+	dirname = os.path.dirname(path)
+	if not os.path.exists(dirname):
+		try:
+			os.makedirs(dirname)
+		except Exception:
+			pass
+endsnippet
+
 snippet islice
 def islice(maximum, chunk_size):
 	for i in range(0, maximum - maximum % chunk_size + chunk_size, chunk_size):
@@ -378,7 +741,7 @@ def mem_info():
 	used = format(psutil.virtual_memory().used / 1024 / 1024 / 1024, '.2f')
 	total = format(psutil.virtual_memory().total / 1024 / 1024 / 1024, '.2f')
 	percent = psutil.virtual_memory().percent
-	logger.info('*'*15 + f'Current memory usage ({percent}%): [{used}GB / {total}GB]' + '*'*15)
+	print('*'*15 + f'Current memory usage ({percent}%): [{used}GB / {total}GB]' + '*'*15)
 	return percent
 endsnippet
 
@@ -397,14 +760,14 @@ def os_check(wait=2, timeout=60*60, mem_use=10, cpu_use=70, disk_free=5):
 	# while mem > mem_use or cpu > cpu_use or disk < disk_free:
 	while mem > mem_use:
 		if time() - begin > timeout:
-			logger.critical('_'*15 + 'Memory usage is high for too long. Now quit waiting' + '_'*15)
+			print('_'*15 + 'Memory usage is high for too long. Now quit waiting' + '_'*15)
 			break  # Quit looping if it's waiting too long
 		if mem > mem_use:
 			gc.collect()
 		if cpu > cpu_use:
-			logger.info('#'*10 + f'CPU USAGE: {cpu}%.' + '#'*10)
+			print('#'*10 + f'CPU USAGE: {cpu}%.' + '#'*10)
 		if disk < disk_free:
-			logger.info('$'*10 + f'DISK FREE: {disk}GB' + '$'*10)
+			print('$'*10 + f'DISK FREE: {disk}GB' + '$'*10)
 		sleep(wait)
 		mem, cpu, disk = get_os_usage()  # Refresh current info
 endsnippet
@@ -437,6 +800,15 @@ def get_top_os_usage_processes(top=1):
 	return mem_rank[:top], cpu_rank[:top]
 endsnippet
 
+snippet multiprocess
+from multiprocessing import Process
+params_list = []
+tasks = [Process(target=func, args=(params,)) for params in params_list]
+_ = [t.start() for t in tasks]
+_ = [t.join() for t in tasks]
+_ = [t.close() for t in tasks]
+endsnippet
+
 snippet threadpool
 from multiprocessing.pool import ThreadPool
 pool = ThreadPool(concurrency)
@@ -452,8 +824,23 @@ with ProcessPoolExecutor(max_workers=concurrency) as pool:
 results = [r.result() for r in responses]
 endsnippet
 
+snippet cross_process_share
+from multiprocessing import Manager
 
-snippet args-from-cli
+m = Manager()
+IN_MEM_INFO = m.dict()
+
+
+def update_in_mem_info(key: str, new_info: dict):
+	# SHARED INFO ACCROSS PROCESSES
+	""" In-mem sharing dict can't be updated in sub-process but directly assign the value """
+	into = IN_MEM_INFO.get(key) or {}
+	into.update(new_info)
+	IN_MEM_INFO[task.task_id] = info
+endsnippet
+
+
+snippet args
 import sys
 import argparse
 def get_sys_args():

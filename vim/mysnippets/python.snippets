@@ -89,10 +89,6 @@ endsnippet
 #######################################################################
 #                             DATE / TIME                             #
 #######################################################################
-snippet now
-from datetime import datetime, timedelta
-datetime.now().strftime('%Y%m%d%H%M%S')
-endsnippet
 
 snippet get_dates_from_range
 from datetime import datetime, timedelta
@@ -137,25 +133,37 @@ def get_start_end_date(target_date, granularity):
 	return start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d')
 endsnippet
 
+snippet now
+from datetime import datetime, timedelta
+_ = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+endsnippet
 
-snippet convert_timestamp_to_time_str
+snippet from_datetime_str
 from datetime import datetime
+date_str = datetime.strftime('%Y-%m-%d %H:%M:%S')
+endsnippet
 
-def convert_timestamp_to_time_str(timestamp: int, fmt=):
-	return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+snippet to_datetime
+from datetime import datetime
+datetime_obj = datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S')
 endsnippet
 
 
-snippet convert_rfc2822_date_time_to_timestamp
+snippet epoch_to_datetime_str
+from datetime import datetime
+date_str = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+endsnippet
+
+
+snippet datestr_to_epoch_rfc2822
 from datetime import datetime
 
-def convert_rfc2822_date_time_to_timestamp(date_time_str):
-	"""
-	RFC 2822 format: Tue, 26 Mar 2019 09:09:14 GMT
-	"""
-	date_time_obj = datetime.strptime(date_time_str, '%a, %d %b %Y %H:%M:%S %Z')
-	epoch = datetime(1970, 1, 1, 0, 0, 0)
-	return int((date_time_obj - epoch).total_seconds())
+"""
+RFC 2822 format: Tue, 26 Mar 2019 09:09:14 GMT
+"""
+date_time_obj = datetime.strptime(date_time_str, '%a, %d %b %Y %H:%M:%S %Z')
+epoch_datetime = datetime(1970, 1, 1, 0, 0, 0)
+epoch = int((date_time_obj - epoch).total_seconds())
 endsnippet
 
 

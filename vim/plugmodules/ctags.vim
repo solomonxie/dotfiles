@@ -22,7 +22,7 @@ if executable('ctags')
     else
         let g:gutentags_file_list_command = 'find . -type f'
     endif
-    let g:gutentags_exclude_filetypes = ['js', 'sql', 'tmpl', 'sh', 'json', 'csv', 'txt', 'xml', 'html', 'gz', 'xls', 'doc']
+    let g:gutentags_exclude_filetypes = ['js', 'sql', 'tmpl', 'sh', 'json', 'csv', 'txt', 'xml', 'html', 'gz', 'xls', 'doc', 'gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
     let g:gutentags_ctags_exclude = ['.git']
     let g:gutentags_generate_on_empty_buffer = 0
     " Tag files store place, instead of project dirs

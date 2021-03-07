@@ -67,6 +67,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
             "nnoremap <Space> :bnext<CR>
             nnoremap - :bprev<CR>:echo expand('%')<CR>
             nnoremap = :bnext<CR>:echo expand('%')<CR>
+            " nnoremap { :bprev<CR>:echo expand('%')<CR>
+            " nnoremap } :bnext<CR>:echo expand('%')<CR>
             nnoremap t1 :call JumpToBuffer(0)<CR>
             nnoremap t2 :call JumpToBuffer(1)<CR>
             nnoremap t3 :call JumpToBuffer(2)<CR>

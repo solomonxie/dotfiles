@@ -30,7 +30,7 @@ let g:any_jump_ignored_files = ['*.tmp', '*.temp', '*.log', '*.js', '*.json']
 
 " Any-jump window size & position options
 let g:any_jump_window_width_ratio  = 0.7
-let g:any_jump_window_height_ratio = 0.4
+let g:any_jump_window_height_ratio = 0.6
 let g:any_jump_window_top_offset   = 4
 
 " let g:any_jump_keyword_match_cursor_mode', 'word'

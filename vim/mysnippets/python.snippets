@@ -140,7 +140,7 @@ endsnippet
 
 snippet from_datetime_str
 from datetime import datetime
-date_str = datetime.strftime('%Y-%m-%d %H:%M:%S')
+date_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 endsnippet
 
 snippet to_datetime
@@ -832,6 +832,30 @@ with ProcessPoolExecutor(max_workers=concurrency) as pool:
 results = [r.result() for r in responses]
 endsnippet
 
+snippet thread_task_pool
+from multiprocessing.pool import ThreadPool
+MAX_THREAD_COUNT = 100
+task_pool = ThreadPool(MAX_THREAD_COUNT)
+
+def run_in_threads(task_list):
+    results = {}
+    for i, (func, params) in enumerate(task_list):
+        results[i] = task_pool.apply_async(func, args=params)
+
+    return [results[i] for i in sorted(results.keys())]
+
+def test_run_threads():
+    task_list = [
+        (sorted, ([3, 2, 1], )),
+        (max, ([1, 2, 3], ))
+    ]
+    results = run_in_threads(task_list)
+    results = [r.get() for r in results]
+    order, big = results
+    print(order)
+    print(big)
+endsnippet
+
 snippet cross_process_share
 from multiprocessing import Manager
 
@@ -845,6 +869,31 @@ def update_in_mem_info(key: str, new_info: dict):
 	into = IN_MEM_INFO.get(key) or {}
 	into.update(new_info)
 	IN_MEM_INFO[task.task_id] = info
+endsnippet
+
+snippet timeout
+import signal
+
+def timeout(func):
+    """ DOESN'T WORK IN THREADS """
+    TTL = 10
+
+    def handler(_, frame):
+        raise RuntimeError('[ TIMEOUT ] FORCE QUIT: {}'.format(str(frame)))
+
+    def wrapper(*args, **kwargs):
+        signal.signal(signal.SIGALRM, handler)
+        signal.alarm(TTL)
+        try:
+            result = func(*args, **kwargs)
+        except RuntimeError:
+            result = None
+            print('[ TIMEOUT ] Force shutdown function: {}'.format(str(func)))
+        finally:
+            signal.alarm(0)
+        return result
+
+    return wrapper
 endsnippet
 
 
@@ -888,7 +937,7 @@ _ = sorted(items, key=lambda x: x['name'], reverse=True)
 endsnippet
 
 
-snippet cache_memoize
+snippet cacheout_memoize
 # pip install cacheout==0.11.2
 from cacheout import Cache
 
@@ -898,6 +947,18 @@ cache_for_func = Cache(5120, ttl=settings.BREADCRUMB_TTL)
 def my_func(myid, myname=None):
 	pass
 endsnippet
+
+snippet filelock
+# pip install fielock
+from filelock import Filelock
+
+lock = FileLock('/tmp/some.lock')
+
+for n in range(5):
+    with lock.acquire(timeout=10, poll_intervall=0.01):
+        open('/tmp/haha', 'a').write(str(n)*5 + '\n')
+endsnippet
+
 
 
 snippet testcase_ft_flask
@@ -1020,4 +1081,49 @@ anything = [1, 2, 3, 3]  # tuple, list, dict, string... anything
 result_dict = Counter(anything)
 print(result_dict)
 # {'target1': num_of_appearances, 'target2': num_of_appearances}
+endsnippet
+
+
+snippet dtree
+class Dtree(dict):
+    """ ALLOWS TREE LIKE DEEP DICT TO REPLACE DEFAULTDICT FOR EASIER CACHE """
+    def __missing__(self, key):
+        value = self[key] = type(self)()
+        return value
+endsnippet
+
+snippet decorator
+from functools import wraps, partial
+import logging
+
+
+def logged(func=None, *d_args, level=logging.DEBUG, name=None, message=None, **d_kwargs):
+    if func is None:
+		# 1. With dec-args, func == None 2. Without dec-args, func != None
+		# Here it's executed while "decorating", not while func "running"
+        return partial(logged, *d_args, level=level, name=name, message=message, **d_kwargs)
+
+    logname = name if name else func.__module__
+    log = logging.getLogger(logname)
+    logmsg = message if message else func.__name__
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        __import__('pudb').set_trace()
+        log.log(level, logmsg)
+        return func(*args, **kwargs)
+
+    return wrapper
+
+
+@logged  # func == add
+def add(x, y):
+    __import__('pudb').set_trace()
+    return x + y
+
+
+@logged(level=logging.CRITICAL, name='example')  # func == None
+def spam():
+    __import__('pudb').set_trace()
+    print('Spam!')
 endsnippet

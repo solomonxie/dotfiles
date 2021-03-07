@@ -395,6 +395,13 @@ let $DOTFILES = expand('~') . '/dotfiles'
         endif
         nnoremap K :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
 
+        if &runtimepath =~ 'telescope'
+            nnoremap <leader>gf <cmd>lua require('telescope.builtin').find_files()<cr>
+            nnoremap <leader>gg <cmd>lua require('telescope.builtin').live_grep()<cr>
+            nnoremap <leader>gb <cmd>lua require('telescope.builtin').buffers()<cr>
+            nnoremap <leader>gt <cmd>lua require('telescope.builtin').help_tags()<cr>
+        endif
+
         "[Jedi-vim]
         if &runtimepath =~ 'jedi-vim'
             " nnoremap <Leader>d :call jedi#goto_definitions()<CR>

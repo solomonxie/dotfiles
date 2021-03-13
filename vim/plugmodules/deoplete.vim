@@ -1,13 +1,13 @@
+" https://github.com/Shougo/deoplete.nvim
+" https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                    DEOPLETE - AUTOCOMPLETION (PYTHON3)                     "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dependencies
 "   - python3 -m pip install --user pynvim neovim
-" https://github.com/Shougo/deoplete.nvim
 if has('python3')
     Plug 'Shougo/deoplete.nvim'
     " Completion sources
-    " https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
     Plug 'zchee/deoplete-jedi'
     " Plug 'Shougo/deoplete-clangx'   " C/C++ completion source
     " if ! has('vim') ">> For vim only

@@ -57,7 +57,7 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/plugmodules/ncm2.vim
     "{Git}
         source ~/dotfiles/vim/plugmodules/tig.vim
-        source ~/dotfiles/vim/plugmodules/fugitive.vim
+        " source ~/dotfiles/vim/plugmodules/fugitive.vim
         source ~/dotfiles/vim/plugmodules/gitgutter.vim
     "{Python}
         source ~/dotfiles/vim/plugmodules/autopairs.vim

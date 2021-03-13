@@ -1127,3 +1127,36 @@ def spam():
     __import__('pudb').set_trace()
     print('Spam!')
 endsnippet
+
+
+snippet timeit
+from functools import wraps, partial
+def timeit(func=None, *d_args, **d_kwargs):
+    if func is None:
+        # 1. With dec-args, func == None 2. Without dec-args, func != None
+        # Here it's executed while "decorating", not while func "running"
+        return partial(timeit, *d_args, **d_kwargs)
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time()
+        result = func(*args, **kwargs)
+        duration = time() - start
+        logger.info('[ BREADCRUMB ] Spent {:.3f}sec'.format(duration), extra={'tags': {
+            'duration': duration,
+            'request_args': get_actual_request_args(),
+            'request_url': request.url,
+            'request_headers': str(request.headers),
+        }})
+        return result
+
+    return wrapper
+
+@timeit  # func == add
+def add(x, y):
+    return x + y
+
+@timeit(xxx=1, yyy=2)  # func == None
+def spam():
+    print('Spam!')
+endsnippet

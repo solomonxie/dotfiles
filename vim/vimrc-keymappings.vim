@@ -370,9 +370,10 @@ let $DOTFILES = expand('~') . '/dotfiles'
                 " nnoremap ]h :GitGutterNextHunk<CR>
                 " nnoremap [h :GitGutterPrevHunk<CR>
                 " Changed Hunks
-                nnoremap gn :GitGutterNextHunk<CR>
-                nnoremap gp :GitGutterPrevHunk<CR>
-                nnoremap gP :GitGutterPreviewHunk<CR>
+                " nnoremap gn :GitGutterNextHunk<CR>
+                " nnoremap gp :GitGutterPrevHunk<CR>
+                " nnoremap gP :GitGutterPreviewHunk<CR>
+                nnoremap [p :GitGutterPreviewHunk<CR>
                 " Toggle/fold changed lines
                 nnoremap gz :GitGutterFold<CR>
                 " Diff

@@ -9,7 +9,8 @@ if executable('git')
     let g:gitgutter_diff_base = 'HEAD'
 
     let g:gitgutter_enabled = 1
-    let g:gitgutter_map_keys = 0  "Cancel pre-set mapping
+    let g:gitgutter_max_signs = 500
+    " let g:gitgutter_map_keys = 0  "Cancel pre-set mapping
     " let g:gitgutter_highlight_lines = 1  "Will hide removed line (annoying)
     let g:gitgutter_highlight_linenrs = 1  "highlight line number only
     let g:gitgutter_preview_win_floating = 1  "for vim compatible let g:gitgutter_terminal_reports_focus = 0
@@ -31,16 +32,19 @@ if executable('git')
     endif
 
     " Aoivd hanging when loading big files
-    " autocmd BufReadPre * if line('$') >=1000 | let g:gitgutter_enabled = 0 | else | let g:gitgutter_enabled = 1 | endif
-    autocmd BufEnter * call Disable_plugins()
+    " autocmd BufEnter * call Disable_plugins()
 endif
 
 function! Disable_plugins()
     if line('$') > 1000
-        execute "GitGutterDisable"
-        " echo system("echo disable >> /tmp/msg.log")
+        if g:gitgutter_enabled == 1
+            execute "GitGutterDisable"
+            " echo system("echo disable >> /tmp/msg.log")
+        endif
     else
-        execute "GitGutterEnable"
-        " echo system("echo enable >> /tmp/msg.log")
+        if g:gitgutter_enabled == 0
+            execute "GitGutterEnable"
+            " echo system("echo enable >> /tmp/msg.log")
+        endif
     endif
 endfunction

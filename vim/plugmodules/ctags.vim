@@ -28,6 +28,7 @@ if executable('ctags')
     let g:gutentags_ctags_exclude = [
     \  '*.git', '*.svn', '*.hg',
     \  'cache', 'build', 'dist', 'bin', 'node_modules', 'bower_components',
+    \  'js', 'css', 'html', 'htm',
     \  '*-lock.json',  '*.lock',
     \  '*.min.*',
     \  '*.bak',
@@ -48,13 +49,14 @@ if executable('ctags')
     \  '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
     \  '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx', '*.xls',
     \]
+    " let g:gutentags_ctags_exclude_wildignore = ['']
     let g:gutentags_generate_on_new = 1
     let g:gutentags_generate_on_missing = 1
     let g:gutentags_generate_on_write = 1
     let g:gutentags_generate_on_empty_buffer = 0
     " Tag files store place, instead of project dirs
-    " let s:vim_tags = expand('~/.vim/tags')
-    let s:vim_tags = '.git/ctags'
+    let s:vim_tags = expand('~/Downloads/ctags')
+    " let s:vim_tags = '.git/ctags'
     let g:gutentags_cache_dir = s:vim_tags
     " Create tag dir if not exists
     if !isdirectory(s:vim_tags)

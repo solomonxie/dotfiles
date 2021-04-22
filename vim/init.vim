@@ -182,7 +182,7 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 " [  Persistent undo  ]--------{
     if has("persistent_undo")
         set undofile "Save UNDO history to local files
-        set undodir=~/.vim/undo//
+        set undodir=~/Downloads/ctags/undo//
         " Create folder if not exists
         if !isdirectory(&undodir)
            silent! call mkdir(&undodir, 'p')

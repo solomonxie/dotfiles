@@ -897,27 +897,25 @@ def timeout(func):
 endsnippet
 
 
-snippet args
+snippet cli_args
+import os
 import sys
 import argparse
 def get_sys_args():
-	"""
-	Refer: https://stackoverflow.com/a/15753721
-		- CLI arguments: '--granularity daily weekly --dates 2019-01-01 2019-01-02_2019-01-31'
-	"""
+	""" REF: https://stackoverflow.com/a/15753721 """
 	parser = argparse.ArgumentParser()
 
 	# Common args for all modes
-	parser.add_argument('--choices', '-M', default='a', choices=['a', 'b', 'c'])
-	parser.add_argument('--int', '-C', type=int, default=5)
-	parser.add_argument('--bool', action='store_true', default=False)
-	parser.add_argument('--str', type=str)
-	parser.add_argument('--list-of-int', nargs='*', type=int, default=[])
-	parser.add_argument('--list-of-str', nargs='*', type=int, default=[])
-	parser.add_argument('--list-of-any', nargs='*', default=[])
+	parser.add_argument('--choices', '-M', default='a', choices=['a', 'b', 'c'], required=False, help='a list')
+	parser.add_argument('--int', '-C', type=int, default=5, required=False, help='a number')
+	parser.add_argument('--bool', action='store_true', default=False, required=False, help='a bool')
+	parser.add_argument('--str', type=str, required=False, help='a string')
+	parser.add_argument('--list-of-int', nargs='*', type=int, default=[], required=False, help='a list')
+	parser.add_argument('--list-of-str', nargs='*', type=int, default=[], required=False, help='a list')
+	parser.add_argument('--list-of-any', nargs='*', default=[], required=False, help='a list')
 
 	# Either from ENV or CLI args
-	input_args = CI_PARAMS.get('CLI_ARGS', '').split() or sys.argv[1:]
+	input_args = os.environ.get('CLI_ARGS', '').split() or sys.argv[1:]
 	args = parser.parse_args(input_args)
 
 	return args

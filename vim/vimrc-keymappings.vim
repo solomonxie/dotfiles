@@ -159,7 +159,8 @@ let $DOTFILES = expand('~') . '/dotfiles'
         "{Replace-all}
         "noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
 
-        vnoremap r "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
+        vnoremap r "1y:%s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
+        vnoremap lr "1y:1,10 s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
         vnoremap f "1y :Rg <C-r>1<CR>
         nnoremap fw /<C-r>+<CR>
         "{ctrl-v paste reg:0}

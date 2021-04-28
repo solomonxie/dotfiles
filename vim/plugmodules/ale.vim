@@ -1,8 +1,14 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                LINTER: ALE                                 "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                DEPENDENCIES                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python:
+" $ pip install python-language-server --user
+" Javascript:
+" $ yarn global add eslint
+
 
 let g:ale_completion_enabled = 0  "Disable completion
 let g:airline#extensions#ale#enabled = 1  "Enable error message in AirLine
@@ -29,8 +35,6 @@ let g:ale_set_loclist = 0
 "               LSP will be specified in the "g:ale_linters" below           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Python:
-" $ pip install python-language-server --user
 " let g:ale_linters = {'python': ['pyls']}
 
 
@@ -64,17 +68,19 @@ let g:ale_linters = {
 \   'make': ['checkmake'],
 \   'vim': ['vint'],
 \   'dockerfile': ['dockerfile_lint'],
+\   'javascript': ['eslint'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace']
 \ }
-" let b:ale_fixers = {
-" \   'python': ['autopep8'],
-" \   'c++': ['clang', 'gcc']
-" \}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   FIXERS                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+let b:ale_fixers = {
+\   'python': ['autopep8'],
+\   'c++': ['clang', 'gcc'],
+\   'javascript': ['prettier', 'eslint']
+\}
 
 
 

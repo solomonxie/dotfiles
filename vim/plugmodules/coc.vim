@@ -7,6 +7,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-jedi
 " :CocInstall coc-python
 " :CocInstall coc-vimlsp
+" :CocInstall coc-eslint
 
 " Configs
 " vim/coc-settings.json

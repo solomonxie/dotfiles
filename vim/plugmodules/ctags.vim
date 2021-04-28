@@ -56,7 +56,7 @@ if executable('ctags')
     let g:gutentags_generate_on_write = 1
     let g:gutentags_generate_on_empty_buffer = 0
     " Tag files store place, instead of project dirs
-    let s:vim_tags = expand('~/Downloads/ctags')
+    let s:vim_tags = expand('~/Downloads/do.not.move/ctags')
     " let s:vim_tags = '.git/ctags'
     let g:gutentags_cache_dir = s:vim_tags
     " Create tag dir if not exists

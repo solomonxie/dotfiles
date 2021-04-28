@@ -56,11 +56,11 @@
 "[Session]----------------------------------{
 if v:version >= 800
     "{Save session}
-    nnoremap S :call SaveSession()<CR><ESC>
+    nnoremap <leader>S :call SaveSession()<CR><ESC>
     command! SaveSessionCmd :call SaveSession()
     "{Load session}
     " noremap <Leader>R :source ~/vim-session.vim<CR><ESC>
-    nnoremap R :call LoadSession()<CR><ESC>
+    nnoremap <leader>R :call LoadSession()<CR><ESC>
     command! LoadSessionCmd :call LoadSession()
     "autocmd VimEnter * call LoadSession()
     autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif

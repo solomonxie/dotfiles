@@ -25,7 +25,7 @@ let g:any_jump_remove_comments_from_results = 1
 
 " Important
 let g:any_jump_references_only_for_current_filetype = 1
-let g:any_jump_ignored_files = ['*.tmp', '*.temp', '*.log', '*.js', '*.json']
+let g:any_jump_ignored_files = ['*.tmp', '*.temp', '*.log', '*.json']
 
 
 " Any-jump window size & position options

@@ -43,7 +43,7 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/plugmodules/chadtree.vim
         source ~/dotfiles/vim/plugmodules/semshi.vim
         source ~/dotfiles/vim/plugmodules/vista.vim
-        " source ~/dotfiles/vim/plugmodules/tagbar.vim  "300ms+
+        source ~/dotfiles/vim/plugmodules/tagbar.vim  "300ms+
         " source ~/dotfiles/vim/plugmodules/markbar.vim
         " source ~/dotfiles/vim/plugmodules/syntastic.vim
         " source ~/dotfiles/vim/plugmodules/telescope.vim

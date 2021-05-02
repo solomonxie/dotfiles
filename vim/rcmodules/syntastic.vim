@@ -5,6 +5,15 @@
 "Static Code Check
 Plug 'vim-syntastic/syntastic'
 
+" >> KEY MAPPINGS
+" nnoremap <C-n> :lnext<CR>
+" nnoremap <C-p> :lprevious<CR>
+" Go Error Next
+nnoremap gen :lnext<CR>
+" Go Error Previous
+nnoremap gep :lprevious<CR>
+" nnoremap <LocalLeader>s :SyntasticCheck<CR>
+
 let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'

@@ -30,41 +30,43 @@ endif
 call plug#begin('~/.vim/plugged')
     "{Common}
         if has('nvim')
-            source ~/dotfiles/vim/plugmodules/nvim_provider.vim  "IMPORTANT!
+            source ~/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
         endif
-        source ~/dotfiles/vim/plugmodules/basic.vim
-        source ~/dotfiles/vim/plugmodules/misc.vim
+        source ~/dotfiles/vim/rcmodules/basic.vim
+        source ~/dotfiles/vim/rcmodules/misc.vim
     "{UI}
-        source ~/dotfiles/vim/plugmodules/indent_line.vim
-        source ~/dotfiles/vim/plugmodules/airline.vim  "680ms+
-        " source ~/dotfiles/vim/plugmodules/lightline.vim
-        " source ~/dotfiles/vim/plugmodules/buftabline.vim
-        source ~/dotfiles/vim/plugmodules/nerdtree.vim
-        " source ~/dotfiles/vim/plugmodules/chadtree.vim
-        source ~/dotfiles/vim/plugmodules/semshi.vim
-        source ~/dotfiles/vim/plugmodules/vista.vim
-        source ~/dotfiles/vim/plugmodules/tagbar.vim  "300ms+
-        " source ~/dotfiles/vim/plugmodules/markbar.vim
-        " source ~/dotfiles/vim/plugmodules/syntastic.vim
-        " source ~/dotfiles/vim/plugmodules/telescope.vim
+        source ~/dotfiles/vim/rcmodules/indent_line.vim
+        source ~/dotfiles/vim/rcmodules/airline.vim  "680ms+
+        " source ~/dotfiles/vim/rcmodules/lightline.vim
+        " source ~/dotfiles/vim/rcmodules/buftabline.vim
+        source ~/dotfiles/vim/rcmodules/nerdtree.vim
+        " source ~/dotfiles/vim/rcmodules/chadtree.vim
+        source ~/dotfiles/vim/rcmodules/semshi.vim
+        source ~/dotfiles/vim/rcmodules/vista.vim
+        source ~/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
+        " source ~/dotfiles/vim/rcmodules/markbar.vim
+        " source ~/dotfiles/vim/rcmodules/syntastic.vim
+        " source ~/dotfiles/vim/rcmodules/telescope.vim
     "{Completion | Usages | Definitions}
-        source ~/dotfiles/vim/plugmodules/fzf.vim
-        source ~/dotfiles/vim/plugmodules/ale.vim
-        source ~/dotfiles/vim/plugmodules/deoplete.vim
-        source ~/dotfiles/vim/plugmodules/ultisnips.vim
-        source ~/dotfiles/vim/plugmodules/any_jump.vim
-        source ~/dotfiles/vim/plugmodules/ctags.vim  "300ms+
-        " source ~/dotfiles/vim/plugmodules/YCM.vim
-        " source ~/dotfiles/vim/plugmodules/coc.vim
-        " source ~/dotfiles/vim/plugmodules/ncm2.vim
+        source ~/dotfiles/vim/rcmodules/fzf.vim
+        source ~/dotfiles/vim/rcmodules/ale.vim
+        source ~/dotfiles/vim/rcmodules/deoplete.vim
+        source ~/dotfiles/vim/rcmodules/ultisnips.vim
+        source ~/dotfiles/vim/rcmodules/any_jump.vim
+        source ~/dotfiles/vim/rcmodules/ctags.vim  "300ms+
+        " source ~/dotfiles/vim/rcmodules/YCM.vim
+        " source ~/dotfiles/vim/rcmodules/coc.vim
+        " source ~/dotfiles/vim/rcmodules/ncm2.vim
     "{Git}
-        source ~/dotfiles/vim/plugmodules/tig.vim
-        source ~/dotfiles/vim/plugmodules/fugitive.vim
-        source ~/dotfiles/vim/plugmodules/gitgutter.vim  "50ms+
+        source ~/dotfiles/vim/rcmodules/tig.vim
+        source ~/dotfiles/vim/rcmodules/fugitive.vim
+        source ~/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
     "{Python}
-        source ~/dotfiles/vim/plugmodules/autopairs.vim
-        source ~/dotfiles/vim/plugmodules/jedi.vim
-        " source ~/dotfiles/vim/plugmodules/ped.vim
+        source ~/dotfiles/vim/rcmodules/autopairs.vim
+        source ~/dotfiles/vim/rcmodules/jedi.vim
+        " source ~/dotfiles/vim/rcmodules/ped.vim
+    "{NodeJS}
+        " source ~/dotfiles/vim/rcmodules/vimspector.vim
 call plug#end()
 " source ~/dotfiles/vim/vimrc-plugins.vim
 
@@ -160,10 +162,10 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
     set writebackup
     " set backupcopy=yes  " Force backups to be copied from original, not renamed
     " Create folder if not exists
+    set backupdir=~/Downloads/do.not.move/vim_backup//
     if !isdirectory(&backupdir)
        silent! call mkdir(&backupdir, 'p')
     endif
-    set backupdir=~/.vim/backup//
 " }
 
 

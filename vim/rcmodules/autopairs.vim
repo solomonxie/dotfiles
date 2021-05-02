@@ -1,6 +1,10 @@
 " https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs' "Smartest (bug:)
 
+" KEY MAPPINGS
+"imap <C-d> <Meta>
+"imap <C-d>e <M-e>
+
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
 "Fly mode
 let g:AutoPairsFlyMode = 0

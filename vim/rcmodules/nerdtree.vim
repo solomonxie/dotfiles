@@ -8,6 +8,15 @@ Plug 'scrooloose/nerdtree'          " File tree manager
 " Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "Slow down vim significantly
 
+">> Key Mappings
+nnoremap <Leader>f :NERDTree<CR>
+" nnoremap <Leader>F :NERDTree %:p:h<CR>
+nnoremap <Leader>F :NERDTreeFind<CR>zz
+" Add '%' for changing root accordingly
+"nnoremap <Leader>f :NERDTree %:p:h<CR>
+nnoremap FF :NERDTree<CR>
+nnoremap ff :NERDTreeFind<CR>zz
+
 ">> UI settings
 let NERDTreeQuitOnOpen=1   " Open|Close NERDtree when files was opened
 let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)

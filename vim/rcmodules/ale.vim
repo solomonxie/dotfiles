@@ -1,6 +1,13 @@
 " https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
 
+" KEY MAPPINGS
+" Go Error Next
+nnoremap <C-n> :ALENext<CR>
+" Go Error Previous
+nnoremap <C-p> :ALEPrevious<CR>
+" nnoremap <LocalLeader>s :SyntasticCheck<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                DEPENDENCIES                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

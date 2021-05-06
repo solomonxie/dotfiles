@@ -16,6 +16,10 @@
 let $HOME = expand('~')
 let $DOTFILES = expand('~') . '/dotfiles'
 
+" HAS TO DEFINE LEADER ASAP BECAUSE KMAP BEFORE THAT IS NOT WORKING
+let mapleader = ","
+" let maplocalleader = ""
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        VIM-PLUG MANAGER FOR PLUGINS                        "

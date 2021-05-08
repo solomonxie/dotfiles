@@ -8,7 +8,7 @@
 #                                                    #
 ######################################################
 
-pkgrep() {
+kgrep() {
     keywords=$1
     pids="$(ps aux |grep $keywords |grep -v grep |awk '{print $2}' |xargs)"
     echo "[$keywords]: $pids"

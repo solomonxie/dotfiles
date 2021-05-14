@@ -17,6 +17,7 @@ if has('python3')
 
     " Language Sources
     Plug 'zchee/deoplete-jedi'
+    Plug 'ternjs/tern_for_vim', {'do': 'yarn global add tern'}
     Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}
 
     " Must be right after the loading
@@ -55,10 +56,10 @@ if has('python3')
     let g:deoplete#sources#ternjs#docs = 1
     let g:deoplete#sources#ternjs#filter = 0
     let g:deoplete#sources#ternjs#case_insensitive = 1
-    let g:deoplete#sources#ternjs#guess = 0
+    let g:deoplete#sources#ternjs#guess = 1
     let g:deoplete#sources#ternjs#sort = 0
     let g:deoplete#sources#ternjs#expand_word_forward = 0
-    let g:deoplete#sources#ternjs#omit_object_prototype = 0
+    let g:deoplete#sources#ternjs#omit_object_prototype = 1
     let g:deoplete#sources#ternjs#include_keywords = 1
     let g:deoplete#sources#ternjs#in_literal = 0
     let g:deoplete#sources#ternjs#filetypes = [
@@ -67,4 +68,18 @@ if has('python3')
         \ 'vue',
         \ '...'
     \ ]
+    " !! HAVE TO CREATE `.tern-project` in project root to MAKE IT WORK on node
+    " {
+    "     "libs": [
+    "         "browser",
+    "         "ecmascript",
+    "         "jquery",
+    "         "react",
+    "         "underscore"
+    "     ],
+    "     "plugins": {
+    "         "node": {},
+    "         "esmodules": {}
+    "     }
+    " }
 endif

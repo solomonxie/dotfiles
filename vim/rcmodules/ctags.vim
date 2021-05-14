@@ -9,7 +9,7 @@ if executable('ctags')
     " Searching fields (recursively searching from bottom up)
     let g:gutentags_add_default_project_roots = 0
     let g:gutentags_project_root = ['Makefile', '.git', '.root', '.svn', '.project', 'package.json']
-    " Ignore some specifi projects
+    " Ignore some specific projects
     " let g:gutentags_exclude_project_root = ['~/workspace/']
     " Tag filename
     let g:gutentags_ctags_tagfile = 'tags'

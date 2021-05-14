@@ -103,6 +103,10 @@ set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger vi
 "set mouse=nicr
 "noremap <LeftDrag> <LeftMouse>
 "noremap! <LeftDrag> <LeftMouse>
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 set nopaste  "IMPORTANT: If it's on, vim will auto indent (messed up) on your paste
 set showcmd " show keypress at right-bottom
 set backspace=2 "backspace over everything in insert mode
@@ -223,7 +227,7 @@ autocmd BufEnter * set foldmethod=manual
 "                               MISC SETTINGS                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " [  Builtin Autocomplete (omnifunc) ] ----{
-    autocmd FileType python set omnifunc=python3complete#Complete
+    "autocmd FileType python set omnifunc=python3complete#Complete
     "autocmd FileType python setl ofu=pythoncomplete#CompletePHP
     "autocmd FileType php setl ofu=phpcomplete#CompletePHP
     "autocmd FileType ruby,eruby setl ofu=rubycomplete#Complete

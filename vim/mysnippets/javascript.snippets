@@ -10,3 +10,30 @@ func(obj, (a, b) => {
 	// do something
 });
 endsnippet
+
+snippet log
+console.log(${1:${VISUAL:something}});
+endsnippet
+
+snippet err
+console.error(${1:${VISUAL:something}});
+endsnippet
+
+snippet fs
+const fs = require('fs');
+endsnippet
+
+snippet readfile
+const fs = require('fs');
+var content = fs.readFileSync('${1:${VISUAL:path_to_file}}', 'utf-8');
+console.log(content);
+endsnippet
+
+snippet writefile
+const fs = require('fs');
+fs.writeFileSync('${1:${VISUAL:path_to_file}}', content, {flag: 'w'});
+endsnippet
+
+snippet dbg "debugger;"
+debugger;
+endsnippet

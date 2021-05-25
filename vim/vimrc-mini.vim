@@ -53,7 +53,7 @@
     "set termguicolors   " -> !! NOT WORKING in Tmux through SSH
 
     syntax on  "Required for any colorscheme
-    colorscheme badwolf
+    colorscheme default
     set background=dark
     set fillchars+=vert:\!  "Bar character for VERTical Split Pane
     set term=screen-256color

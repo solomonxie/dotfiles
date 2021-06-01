@@ -58,7 +58,7 @@ endfunction
 
 function! GetGitRemoteCodeReferenceLink()
     "Expected URL
-        "https://git.appannie.org/appannie/aa-bulk-grabber/blob/master/webanalytics/tasks/bulk_grabber/dimension_info_merger.py#L13"
+        "https://git.appannie.org/thecompany/myrepo/blob/master/path/to/script.py#L13"
     "Formatted string
         "https://${REPO}/blob/${BRANCH}/${FILEPATH}#{LINE-NUMBER}"
     let repo = trim(system("git remote get-url origin | sed "s/^git@//; s/\.git$//""))

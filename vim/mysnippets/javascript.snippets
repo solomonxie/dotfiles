@@ -37,3 +37,37 @@ endsnippet
 snippet dbg "debugger;"
 debugger;
 endsnippet
+
+snippet async_anonymous
+(async () => {
+	${1:${VISUAL:YOUR_CODE}}
+})();
+endsnippet
+
+snippet	puppeteer_hello_word
+const puppeteer = require('puppeteer');
+
+(async () => {
+    debugger;
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.goto('https://www.baidu.com');
+    let res, inputBox, btnSubmit;
+    res = await page.$x("//input[@id='kw']");
+    if (res.length > 0) inputBox = res[0];
+    res = await page.$x("//input[@id='su']");
+    if (res.length > 0) btnSubmit = res[0];
+    await inputBox.click();
+    await page.keyboard.type('hello', {delay: 2000});
+    await btnSubmit.click();
+    await browser.close();
+    debugger;
+})();
+endsnippet
+
+snippet ifmain
+if (require.main == module) {
+    console.log('[ START ]')
+    console.log('[ END ]')
+}
+endsnippet

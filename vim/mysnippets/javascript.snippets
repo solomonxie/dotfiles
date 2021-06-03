@@ -23,15 +23,15 @@ snippet fs
 const fs = require('fs');
 endsnippet
 
-snippet readfile
+snippet readJson
 const fs = require('fs');
-var content = fs.readFileSync('${1:${VISUAL:path_to_file}}', 'utf-8');
+const content = fs.readFileSync('${1:${VISUAL:path_to_file}}', 'utf-8');
 console.log(content);
 endsnippet
 
-snippet writefile
+snippet writeJson
 const fs = require('fs');
-fs.writeFileSync('${1:${VISUAL:path_to_file}}', content, {flag: 'w'});
+fs.writeFileSync('${1:${VISUAL:path_to_file}}', JSON.stringfy(obj), {flag: 'w'});
 endsnippet
 
 snippet dbg "debugger;"
@@ -40,7 +40,7 @@ endsnippet
 
 snippet async_anonymous
 (async () => {
-	${1:${VISUAL:YOUR_CODE}}
+	// MY CODE...
 })();
 endsnippet
 
@@ -68,6 +68,31 @@ endsnippet
 snippet ifmain
 if (require.main == module) {
     console.log('[ START ]')
+	// MY CODE...
     console.log('[ END ]')
 }
+endsnippet
+
+
+snippet func_async
+const ${1:${VISUAL:myfunc}} = async () => {
+	// MY CODE...
+};
+endsnippet
+
+snippet async_func
+async function ${1:${VISUAL:myfunc}}(){
+	// MY CODE...
+};
+endsnippet
+
+snippet export_module
+module.exports = {
+	myfunc: myfunc,
+};
+endsnippet
+
+snippet sleep
+const sleep = ms => new Promise(res => setTimeout(res, ms));
+await sleep(2000);
 endsnippet

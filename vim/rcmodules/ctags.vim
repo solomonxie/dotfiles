@@ -28,7 +28,7 @@ if executable('ctags')
     let g:gutentags_ctags_exclude = [
     \  '*.git', '*.svn', '*.hg',
     \  'cache', 'build', 'dist', 'bin', 'node_modules', 'bower_components',
-    \  '*.js', '*.css', '*.html', '*.htm', '*.json', '*.md', '*.rst', '*.yml', '*.conf', '*.sh', '*.dat',
+    \  '*.css', '*.html', '*.htm', '*.json', '*.md', '*.rst', '*.yml', '*.conf', '*.sh', '*.dat',
     \  'Makefile*',
     \  '*-lock.json',  '*.lock',
     \  '*.min.*',

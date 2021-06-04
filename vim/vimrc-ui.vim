@@ -116,3 +116,10 @@ colorscheme badwolf
     "highlight! VertSplit guifg=red guibg=blue term=None
     "highlight! Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
     " highlight! Normal ctermfg=grey ctermbg=black  "Set background color
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               PLUGIN RELATED                               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" THIS IS REQUIRED BY PLUGIN TO LOAD AFTER SETTING COLORSCHEME
+
+highlight HighlightedyankRegion cterm=reverse gui=reverse

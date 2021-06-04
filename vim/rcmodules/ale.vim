@@ -8,13 +8,15 @@ nnoremap <C-n> :ALENext<CR>
 nnoremap <C-p> :ALEPrevious<CR>
 " nnoremap <LocalLeader>s :SyntasticCheck<CR>
 
+nnoremap <Leader>d :ALEGoToDefinition<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                DEPENDENCIES                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python:
-" $ pip install python-language-server --user
+" $ pip install python-language-server
 " Javascript:
-" $ yarn global add eslint
+" $ npm install -g typescript
 
 
 let g:ale_completion_enabled = 0  "Disable completion
@@ -71,11 +73,11 @@ let g:ale_python_pyls_config = {
 " Make it 'g:' to only run linters I specified
 let g:ale_linters = {
 \   'sh': ['shell'],
-\   'python': ['flake8'],
+\   'python': ['pyls'],
 \   'make': ['checkmake'],
 \   'vim': ['vint'],
 \   'dockerfile': ['dockerfile_lint'],
-\   'javascript': ['eslint'],
+\   'javascript': ['tsserver'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \ }
 
@@ -86,7 +88,7 @@ let g:ale_linters = {
 let b:ale_fixers = {
 \   'python': ['autopep8'],
 \   'c++': ['clang', 'gcc'],
-\   'javascript': ['prettier', 'eslint']
+\   'javascript': ['prettier']
 \}
 
 
@@ -96,4 +98,11 @@ let b:ale_fixers = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if ! executable('mypy')
     echo "MyPy not installed for ALE linters: $ python3 -m pip install -U mypy"
+endif
+if ! executable('pyls')
+    echo "ALE linters missing: $ python3 -m pip install python-language-server"
+endif
+
+if ! executable('tsserver')
+    echo "ALE linters missing: $ python3 -m pip install tyepscript"
 endif

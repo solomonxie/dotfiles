@@ -3,8 +3,8 @@ Plug 'davidhalter/jedi-vim'
 " ^ Will auto install jedi dependencies
 
 " KEY MAPPINGS
-nnoremap <Leader>d :call jedi#goto()<CR>
-nnoremap <Leader>n :call jedi#usages()<CR>
+" nnoremap <Leader>d :call jedi#goto()<CR>
+" nnoremap <Leader>n :call jedi#usages()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                LAZY LOADING                                "

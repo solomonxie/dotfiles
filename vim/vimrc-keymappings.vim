@@ -17,6 +17,9 @@ let $DOTFILES = expand('~') . '/dotfiles'
 let mapleader = ","
 " let maplocalleader = "\\"
 
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
+set shortmess+=c
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 NAVIGATION                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

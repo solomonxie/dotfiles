@@ -304,8 +304,8 @@ endif
 
 "<Javascript>
     autocmd BufReadPre *.js noremap <buffer> <M-b> :w<CR>:call DebugCurrentFile()<CR>
-    autocmd BufReadPre *.js nnoremap <buffer> [[ []%
-    autocmd BufReadPre *.js nnoremap <buffer> ]] ][]m
+    autocmd BufReadPre *.js nnoremap <buffer> [[ []%0
+    autocmd BufReadPre *.js nnoremap <buffer> ]] ][%0
 
 "<Bash>
     autocmd BufReadPre *.sh noremap <buffer> <M-b> :w<CR>:!bash % <CR>

@@ -299,12 +299,15 @@ endif
     autocmd BufReadPre *.c noremap <buffer> <M-b> :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
     autocmd BufReadPre *.cpp,*.cc noremap <buffer> <M-b> :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
 
+"<Javascript>
+    autocmd BufReadPre *.js noremap <buffer> <M-b> :w<CR>:call DebugCurrentFile()<CR>
+
 "<Bash>
     autocmd BufReadPre *.sh noremap <buffer> <M-b> :w<CR>:!bash % <CR>
     autocmd BufReadPre Makefile noremap <buffer> <M-b> :w<CR>:!make <CR>
 
 "<RCs> (Configs)
-    autocmd BufReadPre .vim,.vimrc,vimrc* noremap <buffer> <M-b> :w<CR>:source % <CR>
+    autocmd BufReadPre .vim,.vimrc,vimrc* noremap <buffer> <M-b> :w<CR>:source ~/.vim/init.vim <CR>
     autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <M-b> :w<CR>:!source % <CR>
 
 "<Executable>  -> conflict with above

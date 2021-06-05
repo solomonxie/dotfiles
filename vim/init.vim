@@ -57,7 +57,7 @@ call plug#begin('~/.vim/plugged')
         source ~/dotfiles/vim/rcmodules/deoplete.vim
         source ~/dotfiles/vim/rcmodules/ultisnips.vim
         source ~/dotfiles/vim/rcmodules/any_jump.vim
-        source ~/dotfiles/vim/rcmodules/ctags.vim  "300ms+
+        " source ~/dotfiles/vim/rcmodules/ctags.vim  "300ms+
         " source ~/dotfiles/vim/rcmodules/YCM.vim
         " source ~/dotfiles/vim/rcmodules/coc.vim
         source ~/dotfiles/vim/rcmodules/ncm2.vim
@@ -103,6 +103,9 @@ set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger vi
 "set mouse=nicr
 "noremap <LeftDrag> <LeftMouse>
 "noremap! <LeftDrag> <LeftMouse>
+
+"Avoid annoying continuation of comment (:help fo-table)
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete

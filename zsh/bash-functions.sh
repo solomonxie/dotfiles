@@ -177,3 +177,25 @@ cheat() {
     KEYWORD=$1
     curl "https://cheat.sh/$KEYWORD"
 }
+
+debug_launcher() {
+    # REF:
+    # - https://github.com/fabiospampinato/vscode-debug-launcher/blob/master/docs/terminal.md
+    # - https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-debug-launcher
+    # REQUIRES:
+    # 1. MACOS
+    # 2. VSCODE + DEBUG LAUNCHER (EXTENSION)
+
+    # Examples:
+    # $ debug-launcher file /path/to/foo.js # Trigger `Debug Launcher: File` on the provided path
+    # $ debug-launcher auto /path/to/project # Trigger `Debug Launcher: Auto` on the provided path
+    # $ debug-launcher launch '{"type":"node","name":"Foo","request":"launch","program":"/path/to/foo.js"}' # Launch the debugger using a custom launch configuration
+    subcommand="$1"
+    args="$2"
+    # if [[ "$subcommand" == "file" ]]; then
+    #     path="$(/usr/local/bin/realpath $args)"
+    #     /usr/bin/open "vscode://fabiospampinato.vscode-debug-launcher/file?args=$path"
+    # else
+    #     /usr/bin/open "vscode://fabiospampinato.vscode-debug-launcher/$subcommand?args=$args"
+    # fi
+}

@@ -56,7 +56,7 @@ call plug#begin('~/.vim/plugged')
         source ~/dotfiles/vim/rcmodules/ale.vim
         source ~/dotfiles/vim/rcmodules/deoplete.vim
         source ~/dotfiles/vim/rcmodules/ultisnips.vim
-        source ~/dotfiles/vim/rcmodules/any_jump.vim
+        source ~/dotfiles/vim/rcmodules/anyjump.vim
         " source ~/dotfiles/vim/rcmodules/ctags.vim  "300ms+
         " source ~/dotfiles/vim/rcmodules/YCM.vim
         " source ~/dotfiles/vim/rcmodules/coc.vim

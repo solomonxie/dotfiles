@@ -286,6 +286,9 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Get current filetype -> :echo &filetype or as variable &filetype
 
+" <General>
+"   ...
+
 " <Python>
     autocmd BufReadPre *.py noremap <buffer> <M-b> :w<CR>:!python "%:p" <CR>
     "autocmd BufReadPre *.py noremap <buffer> K yiw:!pydoc <C-r>0<CR>
@@ -301,6 +304,8 @@ endif
 
 "<Javascript>
     autocmd BufReadPre *.js noremap <buffer> <M-b> :w<CR>:call DebugCurrentFile()<CR>
+    autocmd BufReadPre *.js nnoremap <buffer> [[ []%
+    autocmd BufReadPre *.js nnoremap <buffer> ]] ][]m
 
 "<Bash>
     autocmd BufReadPre *.sh noremap <buffer> <M-b> :w<CR>:!bash % <CR>

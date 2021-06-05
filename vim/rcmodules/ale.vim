@@ -8,6 +8,7 @@ nnoremap <C-n> :ALENext<CR>
 nnoremap <C-p> :ALEPrevious<CR>
 " nnoremap <LocalLeader>s :SyntasticCheck<CR>
 
+" IMPORTANT: WON'T WORK PROPERLY IF LINTERS AREN'T LSP BASED OR NOT INSTALLED GLOBALLY
 nnoremap <Leader>d :ALEGoToDefinition<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -77,7 +78,7 @@ let g:ale_linters = {
 \   'make': ['checkmake'],
 \   'vim': ['vint'],
 \   'dockerfile': ['dockerfile_lint'],
-\   'javascript': ['tsserver'],
+\   'javascript': ['tsserver', 'eslint'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \ }
 

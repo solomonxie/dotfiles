@@ -4,7 +4,7 @@ if executable('ctags')
 endif
 
 "KEY MAPPINGS
-noremap tt :Vista show<CR>
+noremap tt :Vista!!<CR>
 "noremap <Leader>t :TagbarToggle<CR>=<ESC>
 "noremap tt :Vista!!<CR>
 

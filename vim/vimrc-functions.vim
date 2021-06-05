@@ -132,3 +132,14 @@ function! UpdatePlugins()
     echo system('pip install --user --upgrade pynvim')
     echo system('pip install --user --upgrade msgpack')
 endfunction
+
+
+function! DebugCurrentFile()
+    " https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-debug-launcher
+    " REQUIRES:
+    " 1. MACOS
+    " 2. VSCODE + DEBUG LAUNCHER (EXTENSION)
+    let file_path = expand('%:p')
+    let cmd = "open 'vscode://fabiospampinato.vscode-debug-launcher/file?args=". file_path ."'"
+    echo system(cmd)
+endfunction

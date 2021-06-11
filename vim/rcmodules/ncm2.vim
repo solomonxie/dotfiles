@@ -18,7 +18,12 @@ if has("nvim-0.2.2") && has("python3")
     Plug 'ncm2/ncm2-vim'  "Vimscript
     Plug 'ncm2/ncm2-tern'  "Javascript
     Plug 'ncm2/ncm2-ultisnips'  "Snippets
-    Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+
+    " REF: https://github.com/autozimu/LanguageClient-neovim/tree/master
+    " DEPENDENCIES:
+    " > LINXU
+    " > Rust + Cargo + $ ./vim/plugged/LanguageClient-neovim/install.sh
+    " Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 else
     echo 'NCM2 needs requires: pip3 install pynvim'
 endif
@@ -32,7 +37,7 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 " add 180ms delay before the omni wrapper:
 "  'on_complete': ['ncm2#on_complete#delay', 180,
 "               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-au User Ncm2Plugin call ncm2#register_source({
+autocmd User Ncm2Plugin call ncm2#register_source({
     \ 'name' : 'css',
     \ 'priority': 9,
     \ 'subscope_enable': 1,
@@ -42,3 +47,15 @@ au User Ncm2Plugin call ncm2#register_source({
     \ 'complete_pattern': ':\s*',
     \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
     \ })
+
+" let g:LanguageClient_serverCommands = {
+"     \ 'python': [trim(system('which pyls')],
+"     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+"     \ 'ruby': [trim(system('which solargraph'), 'stdio'],
+"     \ }
+
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_devel = 1 " Use rust debug build
+let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level

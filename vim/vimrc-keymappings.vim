@@ -6,6 +6,8 @@
 "              \_/  |_|_| |_| |_| |_|\_\___|\__, |___/           -
 "                                           |___/                -
 "----------------------------GENERATED-BY-FIGLET------------------
+" DEBUG TIPS
+" > :verbose imap "
 
 " Get Full path of ~, e.g., /home/ubuntu
 let $HOME = expand('~')

@@ -136,10 +136,34 @@ endfunction
 
 function! DebugCurrentFile()
     " https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-debug-launcher
+    " - https://github.com/fabiospampinato/vscode-debug-launcher/blob/master/docs/terminal.md
     " REQUIRES:
     " 1. MACOS
     " 2. VSCODE + DEBUG LAUNCHER (EXTENSION)
     let file_path = expand('%:p')
     let cmd = "open 'vscode://fabiospampinato.vscode-debug-launcher/file?args=". file_path ."'"
     echo system(cmd)
+endfunction
+
+" REF: https://gist.github.com/JoshuaJWilborn/e8c14b8fabaca3e18178c69f556d30cf
+let g:term_buf = 0
+let g:term_win = 0
+function! TermToggle(height)
+    if win_gotoid(g:term_win)
+        hide
+    else
+        botright new
+        exec "resize " . a:height
+        try
+            exec "buffer " . g:term_buf
+        catch
+            call termopen($SHELL, {"detach": 0})
+            let g:term_buf = bufnr("")
+            set nonumber
+            set norelativenumber
+            set signcolumn=no
+        endtry
+        startinsert!
+        let g:term_win = win_getid()
+    endif
 endfunction

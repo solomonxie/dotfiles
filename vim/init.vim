@@ -37,7 +37,6 @@ call plug#begin('~/.vim/plugged')
             source ~/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
         endif
         source ~/dotfiles/vim/rcmodules/basic.vim
-        source ~/dotfiles/vim/rcmodules/misc.vim
     "{UI}
         source ~/dotfiles/vim/rcmodules/indent_line.vim
         source ~/dotfiles/vim/rcmodules/airline.vim  "680ms+
@@ -66,7 +65,7 @@ call plug#begin('~/.vim/plugged')
         source ~/dotfiles/vim/rcmodules/fugitive.vim
         source ~/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
     "{Python}
-        source ~/dotfiles/vim/rcmodules/autopairs.vim
+        " source ~/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/dotfiles/vim/rcmodules/jedi.vim
         " source ~/dotfiles/vim/rcmodules/ped.vim
     "{NodeJS}

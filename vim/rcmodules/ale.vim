@@ -97,13 +97,16 @@ let b:ale_fixers = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                DEPENDENCIES                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if ! executable('mypy')
-    echo "MyPy not installed for ALE linters: $ python3 -m pip install -U mypy"
-endif
-if ! executable('pyls')
-    echo "ALE linters missing: $ python3 -m pip install python-language-server"
-endif
+function CheckHealthALE()
+    if &filetype == 'python' && !executable('mypy')
+        echo "MyPy not installed for ALE linters: $ python3 -m pip install -U mypy"
+    endif
+    if &filetype == 'python' && !executable('pyls')
+        echo "ALE linters missing: $ python3 -m pip install python-language-server"
+    endif
 
-if ! executable('tsserver')
-    echo "ALE linters missing: $ python3 -m pip install tyepscript"
-endif
+    if &filetype == 'js' && !executable('tsserver')
+        echo "ALE linters missing: $ python3 -m pip install tyepscript"
+    endif
+endfunction
+" autocmd BufReadPre * call CheckHealthALE()

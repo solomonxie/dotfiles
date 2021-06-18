@@ -60,16 +60,17 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/rcmodules/YCM.vim
         " source ~/dotfiles/vim/rcmodules/coc.vim
         source ~/dotfiles/vim/rcmodules/ncm2.vim
+        source ~/dotfiles/vim/rcmodules/autopairs.vim
     "{Git}
         source ~/dotfiles/vim/rcmodules/tig.vim
         source ~/dotfiles/vim/rcmodules/fugitive.vim
         source ~/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
     "{Python}
-        " source ~/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/dotfiles/vim/rcmodules/jedi.vim
         " source ~/dotfiles/vim/rcmodules/ped.vim
     "{NodeJS}
         " source ~/dotfiles/vim/rcmodules/vimspector.vim
+        " source ~/dotfiles/vim/rcmodules/nvim_dap.vim
 call plug#end()
 " source ~/dotfiles/vim/vimrc-plugins.vim
 
@@ -196,7 +197,7 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 " [  Persistent undo  ]--------{
     if has("persistent_undo")
         set undofile "Save UNDO history to local files
-        set undodir=~/Downloads/do.not.move/ctags/undo//
+        set undodir=~/Downloads/do.not.move/undo//
         " Create folder if not exists
         if !isdirectory(&undodir)
            silent! call mkdir(&undodir, 'p')

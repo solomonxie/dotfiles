@@ -68,7 +68,6 @@ endsnippet
 snippet ifmain
 if (require.main == module) {
     console.log('[ START ]')
-	// MY CODE...
     console.log('[ END ]')
 }
 endsnippet
@@ -76,13 +75,11 @@ endsnippet
 
 snippet funcasync
 const ${1:${VISUAL:myfunc}} = async () => {
-	// MY CODE...
 };
 endsnippet
 
 snippet asyncfunc
 async function ${1:${VISUAL:myfunc}}() {
-	// MY CODE...
 }
 endsnippet
 
@@ -99,13 +96,16 @@ endsnippet
 
 snippet export_async_func
 module.exports.init_page = async function myfunc() {
-	// MY CODE...
 };
 endsnippet
 
 
 snippet try
 try {
-	// MY CODE...
 } catch (e) {console.warn(e)}
+endsnippet
+
+snippet try1
+try {
+} catch (e) {1 == 1}
 endsnippet

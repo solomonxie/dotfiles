@@ -10,6 +10,7 @@ nnoremap <C-p> :ALEPrevious<CR>
 
 " IMPORTANT: WON'T WORK PROPERLY IF LINTERS AREN'T LSP BASED OR NOT INSTALLED GLOBALLY
 nnoremap <Leader>d :ALEGoToDefinition<CR>
+nnoremap <Leader>r :ALERename<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                DEPENDENCIES                                "

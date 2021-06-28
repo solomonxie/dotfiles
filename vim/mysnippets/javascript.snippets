@@ -15,8 +15,16 @@ snippet log
 console.log(${1:${VISUAL:something}});
 endsnippet
 
-snippet err
+snippet info
+console.info(${1:${VISUAL:something}});
+endsnippet
+
+snippet error
 console.error(${1:${VISUAL:something}});
+endsnippet
+
+snippet warn
+console.warn(${1:${VISUAL:something}});
 endsnippet
 
 snippet fs
@@ -34,11 +42,11 @@ const fs = require('fs');
 fs.writeFileSync('${1:${VISUAL:path_to_file}}', JSON.stringfy(obj), {flag: 'w'});
 endsnippet
 
-snippet dbg "debugger;"
+snippet deb "debugger;"
 debugger;
 endsnippet
 
-snippet asyncanonymous
+snippet asyncanonymous "Anonymous Async Code Block"
 (async () => {
 	// MY CODE...
 })();
@@ -73,17 +81,17 @@ if (require.main == module) {
 endsnippet
 
 
-snippet funcasync
+snippet funcasync "Async Function As Constant"
 const ${1:${VISUAL:myfunc}} = async () => {
 };
 endsnippet
 
-snippet asyncfunc
+snippet asyncfunc "Async Function As Function"
 async function ${1:${VISUAL:myfunc}}() {
 }
 endsnippet
 
-snippet export
+snippet export "Export Module"
 module.exports = {
 	${1:${VISUAL:myfunc}}: ${2:${VISUAL:myfunc}},
 };
@@ -105,12 +113,12 @@ try {
 } catch (e) {console.warn(e)}
 endsnippet
 
-snippet try1
+snippet try1 "Try Catch Without Catch"
 try {
 } catch (e) {1 == 1}
 endsnippet
 
-snippet globals
+snippet globals "Global Definitions For IDE Linters"
 /*IDE LINTER FRIENDLY*/
 /*global WORKSPACE_ROOT */
 /*eslint no-undef: "error"*/

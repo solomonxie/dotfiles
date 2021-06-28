@@ -82,6 +82,7 @@ source ~/dotfiles/vim/vimrc-functions.vim
 source ~/dotfiles/vim/vimrc-commands.vim
 source ~/dotfiles/vim/vimrc-keymappings.vim
 source ~/dotfiles/vim/vimrc-ui.vim
+source ~/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
 if filereadable(expand('~/vimrc-local.vim'))
     source ~/vimrc-local.vim
 endif

@@ -1,5 +1,6 @@
 "https://github.com/ncm2/ncm2/wiki
 if has("nvim-0.2.2") && has("python3")
+    Plug 'Shougo/neco-vim'
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
     " let g:python3_host_prog = system('which python3')  "This was already registered at top level
@@ -16,7 +17,7 @@ if has("nvim-0.2.2") && has("python3")
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-jedi'  "Python
     Plug 'ncm2/ncm2-vim'  "Vimscript
-    Plug 'ncm2/ncm2-tern'  "Javascript
+    " Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}  "Javascript
     Plug 'ncm2/ncm2-ultisnips'  "Snippets
 
     " REF: https://github.com/autozimu/LanguageClient-neovim/tree/master
@@ -59,3 +60,27 @@ autocmd User Ncm2Plugin call ncm2#register_source({
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_devel = 1 " Use rust debug build
 let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 JAVASCRIPT                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {TernJS}
+" REF: https://ternjs.net/doc/manual.html#configuration
+" $ touch ~/.tern-config
+" OR
+" $ touch ./tern-project
+" HAVE TO CREATE `~/.tern-config` or `.tern-project` in project root to MAKE IT WORK on NodeJS
+" {
+"     "libs": [
+"         "browser",
+"         "ecmascript",
+"         "jquery",
+"         "react",
+"         "underscore"
+"     ],
+"     "plugins": {
+"         "node": {},
+"         "esmodules": {}
+"     }
+" }

@@ -10,6 +10,14 @@ if __name__ == '__main__':
 	main()
 endsnippet
 
+snippet ifmain_async
+async def main():
+    print('[ DONE ]')
+
+
+asyncio.get_event_loop().run_until_complete(main())
+endsnippet
+
 snippet jsonload
 with open('${1:${VISUAL:path}}', 'r') as f:
 	${2:${VISUAL:data}} = json.loads(f.read())

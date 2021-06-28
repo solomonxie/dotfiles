@@ -21,6 +21,7 @@ hi semshiErrorChar       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
 sign define semshiError text=E> texthl=semshiErrorSign
 
 let g:semshi#active = v:true
+let g:semshi#filetypes = ['python']
 let g:semshi#excluded_hl_groups = ['local']
 let g:semshi#simplify_markup = v:true
 let g:semshi#always_update_all_highlights = v:true

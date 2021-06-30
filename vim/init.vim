@@ -59,7 +59,7 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/rcmodules/ctags.vim  "300ms+
         " source ~/dotfiles/vim/rcmodules/YCM.vim
         " source ~/dotfiles/vim/rcmodules/coc.vim
-        source ~/dotfiles/vim/rcmodules/ncm2.vim
+        " source ~/dotfiles/vim/rcmodules/ncm2.vim
         source ~/dotfiles/vim/rcmodules/autopairs.vim
     "{Git}
         source ~/dotfiles/vim/rcmodules/tig.vim

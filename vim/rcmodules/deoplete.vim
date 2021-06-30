@@ -16,7 +16,7 @@ if has('python3')
     " endif
 
     " Language Sources
-    " Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-jedi'
     Plug 'ternjs/tern_for_vim', {'do': 'npm -g install neovim tern'}
     Plug 'carlitux/deoplete-ternjs', {'do': 'npm -g install neovim tern'}
 

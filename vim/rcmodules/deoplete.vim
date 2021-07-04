@@ -90,3 +90,8 @@ endif
 "         "esmodules": {}
 "     }
 " }
+
+
+
+" =====> MORE SETTINGS IN =========>
+" ./vim/rcmodules/_run_outside_of_plug_begin.vim

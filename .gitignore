@@ -10,6 +10,7 @@ vim/sessions/*
 vim/swap/*
 vim/tags/*
 vim/plugged/*
+vim/executagble/
 tmux/plugins/
 !tmux/plugins/README.md
 tmux/resurrect/*.txt

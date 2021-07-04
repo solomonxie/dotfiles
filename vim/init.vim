@@ -45,7 +45,7 @@ call plug#begin('~/.vim/plugged')
         source ~/dotfiles/vim/rcmodules/nerdtree.vim
         " source ~/dotfiles/vim/rcmodules/chadtree.vim
         source ~/dotfiles/vim/rcmodules/semshi.vim
-        source ~/dotfiles/vim/rcmodules/vista.vim
+        " source ~/dotfiles/vim/rcmodules/vista.vim
         source ~/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
         " source ~/dotfiles/vim/rcmodules/markbar.vim
         " source ~/dotfiles/vim/rcmodules/syntastic.vim
@@ -61,6 +61,7 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/rcmodules/coc.vim
         " source ~/dotfiles/vim/rcmodules/ncm2.vim
         source ~/dotfiles/vim/rcmodules/autopairs.vim
+        " source ~/dotfiles/vim/rcmodules/treesitter.vim
     "{Git}
         source ~/dotfiles/vim/rcmodules/tig.vim
         source ~/dotfiles/vim/rcmodules/fugitive.vim

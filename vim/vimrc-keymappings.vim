@@ -146,6 +146,7 @@ set shortmess+=c
     "noremap  <Leader>ra "1y:% s/<C-r>1/<C-r>1/gc<Left><Left><Left>
 
     vnoremap r "1y:%s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
+    vnoremap br "1y:bufdo %s/<C-r>1/<C-r>1/ge \| update
     vnoremap <leader>r "1y:1,10 s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
     vnoremap f "1y :Rg <C-r>1<CR>
     nnoremap fw /<C-r>+<CR>

@@ -31,6 +31,7 @@ set shortmess+=c
 "{Go-definition}
     nnoremap gd gd
     vnoremap <Leader>gd y/<C-r>0<CR>
+    nnoremap gx :!open <c-r><c-a><CR>
 
 "{Search & Highlight}
     "nnoremap * #

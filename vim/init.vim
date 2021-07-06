@@ -62,6 +62,7 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/rcmodules/ncm2.vim
         source ~/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/dotfiles/vim/rcmodules/treesitter.vim
+        " source ~/dotfiles/vim/rcmodules/nvim_native_lsp.vim
     "{Git}
         source ~/dotfiles/vim/rcmodules/tig.vim
         source ~/dotfiles/vim/rcmodules/fugitive.vim

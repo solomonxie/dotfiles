@@ -54,7 +54,8 @@ let g:ale_set_loclist = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Available Linters:
 " https://github.com/dense-analysis/ale/tree/master/ale_linters
-let g:ale_linters_explicit = 1  "Only run linters when I specify
+
+" let g:ale_linters_explicit = 1  "Only run linters when I specify = Disable linters I didn't specify
 
 " =======================Custom args to linters / fixers==========================
 let g:ale_python_mypy_options = '--ignore-missing-imports'

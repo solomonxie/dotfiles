@@ -2,8 +2,11 @@
 "                    Semshi - Python Syntax Highlighting                     "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "The Best for python-syntax (pynvim required)
-"
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+" REF: https://github.com/numirias/semshi/issues/105
+Plug 'sh8/semshi', {'do': ':UpdateRemotePlugins'}  "FORK: FIXED THE CONFLICT WITH VIM-COMPE
 
 hi semshiLocal           ctermfg=209 guifg=#ff875f
 hi semshiGlobal          ctermfg=214 guifg=#ffaf00

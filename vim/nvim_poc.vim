@@ -12,6 +12,7 @@ noremap <Leader>q :bdelete<CR><ESC>
 noremap <A-c> <C-w>c
 source ~/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
 nnoremap <Leader>R :source .git/workspace.vim<CR><ESC>
+set nofoldenable  "Cancel all folds when enter vim
 
 
 call plug#begin('~/.vim/plugged')
@@ -65,7 +66,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver" }
+local servers = { "pyls", "rust_analyzer", "tsserver" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

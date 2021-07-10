@@ -29,8 +29,8 @@ set shortmess+=c
 "{Go-next-call}
     "nnoremap m yiw/<C-r>0<CR>
 "{Go-definition}
-    nnoremap gd gd
-    vnoremap <Leader>gd y/<C-r>0<CR>
+    " nnoremap gd gd
+    " vnoremap <Leader>gd y/<C-r>0<CR>
     nnoremap gx :!open <c-r><c-a><CR>
 
 "{Search & Highlight}
@@ -85,9 +85,9 @@ set shortmess+=c
 
 "{Move between Tags}
     " nnoremap <Leader><C-]> <C-]>
-    if &runtimepath =~ 'ped' && executable('ped')
-        vnoremap <Leader>gd "1y:Ped<Space><C-r>1
-    endif
+    " if &runtimepath =~ 'ped' && executable('ped')
+    "     vnoremap <Leader>gd "1y:Ped<Space><C-r>1
+    " endif
     " Pops selection list for ambiguous tags
     " nnoremap <C-]> g<C-]>
     " nnoremap <C-[> <C-i>

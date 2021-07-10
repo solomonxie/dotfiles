@@ -52,8 +52,8 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/rcmodules/which_key.vim
     "{Completion | Usages | Definitions}
         source ~/dotfiles/vim/rcmodules/fzf.vim
-        source ~/dotfiles/vim/rcmodules/ale.vim
-        source ~/dotfiles/vim/rcmodules/deoplete.vim
+        " source ~/dotfiles/vim/rcmodules/ale.vim
+        " source ~/dotfiles/vim/rcmodules/deoplete.vim
         source ~/dotfiles/vim/rcmodules/ultisnips.vim
         source ~/dotfiles/vim/rcmodules/anyjump.vim
         " source ~/dotfiles/vim/rcmodules/ctags.vim  "300ms+
@@ -62,7 +62,7 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/rcmodules/ncm2.vim
         source ~/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/dotfiles/vim/rcmodules/treesitter.vim
-        " source ~/dotfiles/vim/rcmodules/nvim_native_lsp.vim
+        source ~/dotfiles/vim/rcmodules/nvim_native_lsp.vim
     "{Git}
         source ~/dotfiles/vim/rcmodules/tig.vim
         source ~/dotfiles/vim/rcmodules/fugitive.vim

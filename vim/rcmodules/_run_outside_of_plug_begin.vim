@@ -23,6 +23,7 @@ endif
 if &runtimepath =~ 'nvim-lspconfig'
 lua << EOF
     local nvim_lsp = require('lspconfig')
+    vim.lsp.set_log_level("debug")
 
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
@@ -59,7 +60,7 @@ lua << EOF
 
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
-    local servers = { "pyls", "rust_analyzer", "tsserver" }
+    local servers = {"pyls", "tsserver"}
     for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -68,5 +69,17 @@ lua << EOF
         }
       }
     end
+
+    require('lspconfig').pyls.setup{
+        on_attach=on_attach_vim,
+        settings = {
+            pyls = {
+                plugins = {
+                    pycodestyle =  { enabled = false },
+                    pylint =  { enabled = false }
+                }
+            }
+        }
+    }
 EOF
 endif

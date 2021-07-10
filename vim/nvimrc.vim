@@ -20,8 +20,6 @@ let $DOTFILES = expand('~') . '/dotfiles'
 let mapleader = ","
 " let maplocalleader = ""
 
-" source ~/dotfiles/vim/rcmodules/nvim_poc.vim
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        VIM-PLUG MANAGER FOR PLUGINS                        "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

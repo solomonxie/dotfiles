@@ -1,6 +1,18 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        PROOF OF CONCEPTS (NEO VIM)                         "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme badwolf
+let mapleader = ","
+nnoremap - :bprev<CR>:echo expand('%')<CR>
+nnoremap = :bnext<CR>:echo expand('%')<CR>
+inoremap ,. <Esc>:nohl<CR><ESC>
+vnoremap ,. <Esc>:nohl<CR><ESC>
+nnoremap ,. <Esc>:nohl<CR><ESC>
+noremap <Leader>q :bdelete<CR><ESC>
+noremap <A-c> <C-w>c
+source ~/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
+nnoremap <Leader>R :source .git/workspace.vim<CR><ESC>
+
 
 call plug#begin('~/.vim/plugged')
 

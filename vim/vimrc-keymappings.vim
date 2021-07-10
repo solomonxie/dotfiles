@@ -296,7 +296,7 @@ endif
 " <Python>
     autocmd BufReadPre *.py noremap <buffer> <M-b> :w<CR>:!python "%:p" <CR>
     "autocmd BufReadPre *.py noremap <buffer> K yiw:!pydoc <C-r>0<CR>
-    autocmd BufReadPre *.py nnoremap <buffer> K :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
+    " autocmd BufReadPre *.py nnoremap <buffer> K :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
     " (Could use [m and ]m instead)
     " autocmd FileType python nnoremap <buffer> [[ ?^class\\|^\s*def<CR>
     " autocmd FileType python nnoremap <buffer> ]] /^class\\|^\s*def<CR>

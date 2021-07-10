@@ -2,8 +2,11 @@
 Plug 'hrsh7th/nvim-compe'
 
 " Prerequisite
-" $ npm -g install pyls
-" $ pip install pyls python-language-server
+" $ npm -g install python-language-server bash-language-server vim-language-server
+" $ pip install python-language-server jedi-language-server python-lsp-server
+
+" AVAILABLE LANGUAGE SERVERS:
+" REF: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
 
 set completeopt=menuone,noselect

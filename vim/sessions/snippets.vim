@@ -12,11 +12,10 @@ badd +1 vim/mysnippets/python.snippets
 badd +1 vim/mysnippets/sh.snippets
 badd +1 vim/mysnippets/snippets.snippets
 badd +1 vim/mysnippets/vim.snippets
-badd +1 vim/plugged/vim-snippets/snippets/python.snippets
+badd +1 vim/mysnippets/javascript.snippets
 argglobal
 %argdel
-$argadd vim/plugged/vim-snippets/snippets/python.snippets
-edit vim/mysnippets/all.snippets
+edit vim/mysnippets/python.snippets
 set splitbelow splitright
 set nosplitbelow
 wincmd t

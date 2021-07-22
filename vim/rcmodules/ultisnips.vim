@@ -1,3 +1,4 @@
+" REF: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 if has('python3')
     Plug 'SirVer/ultisnips'  " Track the engine.
     Plug 'honza/vim-snippets'  " Snippets are separated from the engine.

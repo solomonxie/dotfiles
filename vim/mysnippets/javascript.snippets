@@ -46,12 +46,6 @@ snippet deb "debugger;"
 debugger;
 endsnippet
 
-snippet asyncanonymous "Anonymous Async Code Block"
-(async () => {
-	// MY CODE...
-})();
-endsnippet
-
 snippet	puppeteer_hello_word
 const puppeteer = require('puppeteer');
 
@@ -80,15 +74,22 @@ snippet ifmain
 endsnippet
 
 
+snippet af "Async Function As Function"
+async function ${1:${VISUAL:myfunc}}() {
+}
+endsnippet
+
+snippet afa "Anonymous Async Code Block"
+(async () => {
+	// MY CODE...
+})();
+endsnippet
+
 snippet afc "Async Function As Constant"
 const ${1:${VISUAL:myfunc}} = async () => {
 };
 endsnippet
 
-snippet af "Async Function As Function"
-async function ${1:${VISUAL:myfunc}}() {
-}
-endsnippet
 
 snippet exports "Export Module"
 module.exports = {

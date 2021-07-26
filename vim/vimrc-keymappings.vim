@@ -95,9 +95,9 @@ set shortmess+=c
 
 "{Move between Marks}
     nnoremap \ `
-    if &runtimepath =~ 'vim-markbar'
-        nmap fm <Plug>OpenMarkbar
-    endif
+    " if &runtimepath =~ 'vim-markbar'
+    "     nmap fm <Plug>OpenMarkbar
+    " endif
 
 "{Move between methods}
     " nnoremap <C-[> [m
@@ -216,9 +216,9 @@ set shortmess+=c
 
 "<Window>
     noremap <A-c> <C-w>c
-    if &runtimepath =~ 'goyo'
-        nnoremap mo :Goyo<CR>
-    endif
+    " if &runtimepath =~ 'goyo'
+    "     nnoremap mo :Goyo<CR>
+    " endif
     "noremap m <C-w>
     "noremap H <C-w>h
     "noremap L <C-w>l

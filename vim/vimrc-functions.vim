@@ -61,7 +61,7 @@ function! GetGitRemoteCodeReferenceLink()
         "https://git.appannie.org/thecompany/myrepo/blob/master/path/to/script.py#L13"
     "Formatted string
         "https://${REPO}/blob/${BRANCH}/${FILEPATH}#{LINE-NUMBER}"
-    let repo = trim(system("git remote get-url origin | sed "s/^git@//; s/\.git$//""))
+    let repo = trim(system("git remote get-url origin | sed \"s/^git@//; s/\.git$//\""))
     let branch = trim(system("git rev-parse --abbrev-ref HEAD"))
     let cwd = expand("%")
     let lineno = line(".")

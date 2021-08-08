@@ -49,7 +49,7 @@ call plug#begin('~/.vim/plugged')
         " source ~/dotfiles/vim/rcmodules/markbar.vim
         " source ~/dotfiles/vim/rcmodules/syntastic.vim
         " source ~/dotfiles/vim/rcmodules/telescope.vim
-        " source ~/dotfiles/vim/rcmodules/which_key.vim
+        source ~/dotfiles/vim/rcmodules/which_key.vim
     "{Completion | Usages | Definitions}
         source ~/dotfiles/vim/rcmodules/fzf.vim
         " source ~/dotfiles/vim/rcmodules/ale.vim

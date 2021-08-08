@@ -43,22 +43,35 @@ vnoremap f "1y :Rg <C-r>1<CR>
 
 nnoremap Y y$
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                             SPECIAL CHARACTERS                             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" No Use of ";" in Normal mode
+nnoremap ; :
+
 " Break undo sequence:
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
 inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
+" inoremap <Space> <Space><C-g>u
 
 " Buffer Movement
 nnoremap - :bprev<CR>:echo expand('%')<CR>
 nnoremap = :bnext<CR>:echo expand('%')<CR>
 
+" ESC replacement
 inoremap ,. <Esc>:nohl<CR><ESC>
 vnoremap ,. <Esc>:nohl<CR><ESC>
 nnoremap ,. <Esc>:nohl<CR><ESC>
+cnoremap ,. <ESC>
+
+" Word Selection
 nnoremap <Space> viw
 nnoremap v<Space> viW
 
+" Highlight
 nnoremap  / :set hlsearch<cr>/
 nnoremap  ? :set hlsearch<cr>?
 nnoremap  * #:set hlsearch<cr>
@@ -66,6 +79,13 @@ nnoremap  # *:set hlsearch<cr>
 nnoremap  !! /<C-r>+<CR>
 
 vnoremap <CR> "+y
+
+nnoremap <Del> <ESC>:nohl<CR><ESC>
+vnoremap <Del> <ESC>:nohl<CR><ESC>
+inoremap <Del> <ESC>
+onoremap <Del> <ESC>
+cnoremap <Del> <ESC>
+tnoremap <Del> <ESC>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -75,7 +95,7 @@ vnoremap <leader>r "1y:1,10 s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
 nnoremap <Leader>v v$h
 nnoremap <Leader>0 v^
 vnoremap <Leader>y "+y
-noremap <Leader>p "+p
+nnoremap <Leader>p "+p
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -20,7 +20,6 @@ endif
 
 if &runtimepath =~ 'nvim-lspconfig'
 lua << EOF
-    local nvim_lsp = require('lspconfig')
     vim.lsp.set_log_level("debug")
 
     -- Use an on_attach function to only map the following keys
@@ -34,6 +33,7 @@ lua << EOF
 
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
+    local nvim_lsp = require('lspconfig')
     local servers = { "pyls", "tsserver", "bashls", "vimls" }
     for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup {
@@ -44,8 +44,9 @@ lua << EOF
       }
     end
 
-    require('lspconfig').pyls.setup{
-        on_attach=on_attach_vim,
+    -- Python
+    nvim_lsp.pyls.setup{
+        on_attach=on_attach,
         settings = {
             pyls = {
                 configurationSources = { "flake8" },

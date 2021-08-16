@@ -1,4 +1,5 @@
 "REF: https://github.com/folke/which-key.nvim
+"REF: https://www.chrisatmachine.com/Neovim/15-which-key/
 
 Plug 'folke/which-key.nvim'
 

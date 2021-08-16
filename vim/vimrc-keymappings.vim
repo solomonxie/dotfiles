@@ -22,6 +22,9 @@ let mapleader = ","
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
 set shortmess+=c
 
+" When menu comes out, can use ctrl-n to select
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  ALPHABET                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -31,7 +34,7 @@ nnoremap fw /<C-r>+<CR>
 " Centralize
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap J mzJ`z
+" nnoremap J mzJ`z
 
 nnoremap gx :!open <c-r><c-a><CR>
 vnoremap g* "1y:%s/<C-r>1//n<CR>
@@ -48,7 +51,7 @@ nnoremap Y y$
 "                             SPECIAL CHARACTERS                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " No Use of ";" in Normal mode
-nnoremap ; :
+" nnoremap ; :
 
 " Break undo sequence:
 inoremap , ,<C-g>u

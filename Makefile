@@ -6,11 +6,11 @@
 #          |____/ \___/ |_| |_|   |___|_____|_____|____/             #
 #                                                                    #
 #       $ git clone https://github.com/solomonxie/dotfiles           #
-#           $ cd dotfiles && make build && make install              #
+#           $ cd myconf/dotfiles && make build && make install              #
 ######################################################################
 .PHONY: config build install
 
-DOTFILES ?= ~/dotfiles
+DOTFILES ?= ~/myconf/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 DT ?= `date +%Y%m%d%s`
@@ -73,7 +73,7 @@ build_ubuntu_samba:
 	# Refer to: https://ubuntu.com/tutorials/install-and-configure-samba#1-overview
 	sudo apt install samba -y ||true
 	mkdir ~/sambashare/ ||true
-	sudo mv ~/dotfiles/etc/samba/smb_share_definition.conf /etc/samba/smb.conf
+	sudo mv ~/myconf/dotfiles/etc/samba/smb_share_definition.conf /etc/samba/smb.conf
 	sudo service smbd restart
 	sudo smbpasswd -a ${USER}
 
@@ -100,16 +100,16 @@ build_mac:
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update
 	brew bundle
-	brew bundle install --file ~/dotfiles/pacman/Brewfile
+	brew bundle install --file ~/myconf/dotfiles/pacman/Brewfile
 
 build_ubuntu:
-	cat ~/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
+	cat ~/myconf/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get autoremove -y
 	sudo apt-get autoclean -y
 
 build_raspbian:
-	cat ~/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
+	cat ~/myconf/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get remove --purge wolfram-engine -y
 	sudo apt-get remove --purge libreoffice* -y
@@ -129,57 +129,66 @@ install: config
 	echo "make install_${MYOS}" | sh
 	echo "OK."
 
-install_mac: install_bash install_zsh install_tmux install_vim
-	@echo "OK."
-
-install_ubuntu: install_bash install_tmux
-	echo "1 * * * * git -C /home/${USER}/dotfiles/ pull origin master" |crontab ||true
-	@echo "OK."
-
-install_raspbian: install_bash install_tmux
-	@echo "OK."
-
-install_vim: config
+install_mac:
 	# Archive(Backup)
 	# sudo cp -a ~/.vim{,_$(date +%F)}  # Does not support this in makefile
 	mkdir ~/.vim ||true
 	mv ~/.vim ~/.vim_`date +%F` || true
-	# Install symlinks
-	ln -sf ~/dotfiles/vim/ ~/.vim/
-	ln -sf ~/dotfiles/vim/vimrc.vim ~/.vimrc
-	mkdir -p ~/.config/nvim || ln -sf ~/dotfiles/vim/ ~/.config/nvim/
-	mkdir -p ~/.nvim || ln -sf ~/dotfiles/vim/vimrc.vim ~/.nvim/init.vim
-
-install_zsh: config
-	# Archive(Backup)
+	mkdir -p ~/.config/nvim ||true
+	mkdir -p ~/.nvim ||true
 	mv ~/.zshrc ~/.zshrc_`date +%F` || true
 	mv ~/.zsh ~/.zsh_`date +%F` || true
-	# Install symlinks
-	ln -s ~/dotfiles/zsh ~/.zsh
-	ln -sf ~/dotfiles/zsh/env-${MYOS}.sh ~/.zshrc
-
-install_bash: config
-	ln -sf ~/dotfiles/zsh/bashrc.sh ~/.bashrc
-	# touch ~/.bashrc && echo "source ~/dotfiles/zsh/bashrc.sh" >> ~/.bashrc
-
-
-install_tmux: config
-	# Archive(Backup)
 	mv ~/.tmux ~/.tmux_`date +%F` || true
 	mv ~/.tmux.conf ~/.tmux.conf_`date +%F` || true
-	# Install symlinks
-	ln -s ~/dotfiles/tmux ~/.tmux
-	ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+	# SYMBLINKS
+	ln -sf  ~/.config/gitconfig .gitconfig
+	ln -sf  ~/.config/iterm2 .iterm2
+	ln -sf  ~/.config/iterm2_shell_integration.zsh .iterm2_shell_integration.zsh
+	ln -sf  ~/.config/minio .minio
+	ln -sf  ~/.config/postman .postman
+	ln -sf  ~/.config/sh_history .sh_history
+	ln -sf  ~/myconf/aws .aws
+	ln -sf  ~/myconf/config .config
+	ln -sf  ~/myconf/config/fiddler .fiddler
+	ln -sf  ~/myconf/config/fzf.bash .fzf.bash
+	ln -sf  ~/myconf/config/fzf.zsh .fzf.zsh
+	ln -sf  ~/myconf/dotfiles/etc/tigrc .tigrc
+	ln -sf  ~/myconf/dotfiles/tmux .tmux
+	ln -sf  ~/myconf/dotfiles/tmux/tmux.conf .tmux.conf
+	ln -sf  ~/myconf/dotfiles/vim .vim
+	ln -sf  ~/myconf/dotfiles/vim/vimrc-mini.vim .vimrc
+	ln -sf  ~/myconf/dotfiles/zsh .zsh
+	ln -sf  ~/myconf/dotfiles/zsh/zshrc-mac.sh .zshrc
+	ln -sf  ~/myconf/local .local
+	ln -sf  ~/myconf/ssh .ssh
+	ln -sf  ~/myconf/zsh_history .zsh_history
+	# VIM
+	ln -sf ~/myconf/dotfiles/vim/ ~/.vim/
+	ln -sf ~/myconf/dotfiles/vim/vimrc.vim ~/.vimrc
+	ln -sf ~/myconf/dotfiles/vim/ ~/.config/nvim/
+	ln -sf ~/myconf/dotfiles/vim/vimrc.vim ~/.nvim/init.vim
+	# ZSH
+	ln -sf ~/myconf/dotfiles/zsh ~/.zsh
+	ln -sf ~/myconf/dotfiles/zsh/env-${MYOS}.sh ~/.zshrc
+	ln -sf ~/myconf/dotfiles/zsh/bashrc.sh ~/.bashrc
+	# TMUX
+	ln -s ~/myconf/dotfiles/tmux ~/.tmux
+	ln -sf ~/myconf/dotfiles/tmux/tmux.conf ~/.tmux.conf
 	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS}.txt ${HOME}/.tmux/resurrect/last || true
 
-install_git: config
-	echo "[include]\n    path = ~/dotfiles/etc/git/gitconfig.ini" > ~/.gitconfig
+	@echo "OK."
 
+install_raspbian:
+	echo "1 * * * * git -C /home/${USER}/myconf/dotfiles/ pull origin master" |crontab ||true
+	@echo "OK."
+
+install_git: config
+	echo "[include]\n    path = ~/myconf/dotfiles/etc/git/gitconfig.ini" > ~/.gitconfig
 
 
 # Stage-4: Backup
 save:
-	#mv ~/dotfiles/tmux/resurrect/tmux_resurrect_20190525T173225.txt ~/dotfiles/tmux/resurrect/last
+	#mv ~/myconf/dotfiles/tmux/resurrect/tmux_resurrect_20190525T173225.txt ~/myconf/dotfiles/tmux/resurrect/last
 	zip -r /tmp/mydotfiles.zip ~/
 	mv /tmp/mydotfiles.zip ~/
 

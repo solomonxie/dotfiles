@@ -14,19 +14,19 @@
 #######################################################################
 if [[ "$0" =~ "zsh" ]]; then
     # Plugins
-    source ~/dotfiles/zsh/ohmyzsh-settings.sh
-    # source ~/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
-    # source ~/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
-    source ~/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
-    # source ~/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
-    source ~/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
-    source ~/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
-    source ~/dotfiles/zsh/pluginconfigs/fzf.sh
-    # source ~/dotfiles/zsh/pluginconfigs/autojump.sh
-    # source ~/dotfiles/zsh/pluginconfigs/broot.sh
+    source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
+    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
+    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
+    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
+    #source ~/myconf/dotfiles/zsh/pluginconfigs/fzf.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/autojump.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/broot.sh
 fi
-source ~/dotfiles/zsh/bash-alias.sh
-source ~/dotfiles/zsh/bash-functions.sh
+source ~/myconf/dotfiles/zsh/bash-alias.sh
+source ~/myconf/dotfiles/zsh/bash-functions.sh
 [[ -e ~/.bashrc-local.sh ]] && source ~/.bashrc-local.sh ||true
 
 
@@ -37,7 +37,9 @@ source ~/dotfiles/zsh/bash-functions.sh
 # set editing-mode vi
 
 # Default Editor (Ctrl-x plus Ctrl-e to pop editor for current shell command)
-[[ -e $(command -v nvim) ]] && export EDITOR=nvim || export EDITOR=vim
+# [[ -e $(command -v nvim) ]] && export EDITOR=nvim || export EDITOR=vim
+export EDITOR=nvim || export EDITOR=vim
+alias vim="nvim" && alias vimdiff="nvim -d"
 
 # set -o vi
 
@@ -124,6 +126,7 @@ export LC_MEASUREMENT=en_US.UTF-8
 export LC_IDENTIFICATION=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version
@@ -131,7 +134,6 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 # =====PYTHON=====
-export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 export PATH="/usr/local/opt/python@2/bin:$PATH"
@@ -166,4 +168,24 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+#=========================FZF================================
+# Import binary execution to PATH
+if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
+# Import key bindings for auto completion
+[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+# Import specific key bindings
+source "$HOME/.fzf/shell/key-bindings.zsh"
+# Setup appearence (Highlighting, scale, preview...)
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+# Setup default searching tool (to replace "find")
+if [ -x $(command -v ag) ]; then
+    export FZF_DEFAULT_COMMAND='ag -g ""'
+elif [ -x $(command -v fd) ]; then
+    export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
+    #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+elif [ -x $(command -v rg) ]; then
+    export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden \
+        --follow --glob "!{.git,node_modules}/*" 2> /dev/null'
+fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

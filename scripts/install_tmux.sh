@@ -54,9 +54,9 @@ install_tmux_ubuntu(){
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+    cp $HOME/myconf/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $HOME/dotfiles/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
+    cp $HOME/myconf/dotfiles/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
@@ -66,9 +66,9 @@ install_tmux_rpi(){
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+    cp $HOME/myconf/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $HOME/dotfiles/tmux/resurrect/last-rpi.txt $HOME/.tmux/resurrect/last.txt
+    cp $HOME/myconf/dotfiles/tmux/resurrect/last-rpi.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 
@@ -78,9 +78,9 @@ install_tmux_mac(){
     # Make paths for tmux extensions
     mkdir -p $HOME/.tmux/resurrect
     echo "----------[  Overwrite .tmux.conf   ]--------------"
-    cp $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+    cp $HOME/myconf/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
     echo "----------[  Recover preset Tmux session   ]--------------"
-    cp $HOME/dotfiles/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
+    cp $HOME/myconf/dotfiles/tmux/resurrect/last-ubuntu.txt $HOME/.tmux/resurrect/last.txt
     ln -sf $HOME/.tmux/resurrect/last.txt $HOME/.tmux/resurrect/last
 }
 

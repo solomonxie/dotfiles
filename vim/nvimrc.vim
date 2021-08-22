@@ -179,7 +179,7 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
     set writebackup
     " set backupcopy=yes  " Force backups to be copied from original, not renamed
     " Create folder if not exists
-    set backupdir=~/Downloads/do.not.move/vim_backup//
+    set backupdir=~/do.not.move/vim_backup//
     if !isdirectory(&backupdir)
        silent! call mkdir(&backupdir, 'p')
     endif
@@ -203,7 +203,7 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 " [  Persistent undo  ]--------{
     if has("persistent_undo")
         set undofile "Save UNDO history to local files
-        set undodir=~/Downloads/do.not.move/undo//
+        set undodir=~/do.not.move/undo//
         " Create folder if not exists
         if !isdirectory(&undodir)
            silent! call mkdir(&undodir, 'p')

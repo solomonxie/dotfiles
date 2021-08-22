@@ -12,7 +12,7 @@
 set -x
 
 # Setup env variables and shared functions
-cd $(dirname $0); source "$(dirname $(pwd))/dotfiles.env"; cd -
+cd $(dirname $0); source "$(dirname $(pwd))/myconf/dotfiles.env"; cd -
 
 #-------------------------------------
 #     Installation Methods

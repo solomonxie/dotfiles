@@ -32,7 +32,7 @@ do_install_python(){
     virtualenv -p python2 $HOME/virtualenv/venv2
     # Change source for pip to Chinese
     mkdir $HOME/.pip
-    cp $HOME/dotfiles/python/pip.conf ~/.pip/
+    cp $HOME/myconf/dotfiles/python/pip.conf ~/.pip/
 }
 
 

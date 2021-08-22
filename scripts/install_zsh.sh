@@ -35,14 +35,14 @@ do_init_zsh(){
             # Install Plugins
             install_zsh_plugins
             # Link config file
-            ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
+            ln -sf $HOME/myconf/dotfiles/zsh/zshrc $HOME/.zshrc
             ;;
         mac)
             brew install zsh
             # Install Plugins
             install_zsh_plugins
             # Link config file
-            ln -sf $HOME/dotfiles/zsh/zshrc-mac $HOME/.zshrc
+            ln -sf $HOME/myconf/dotfiles/zsh/zshrc-mac $HOME/.zshrc
             # Theme: powerlevel9k
                 #git clone https://github.com/bhilburn/powerlevel9k.git $HOME/.oh-my-zsh/custom/themes/powerlevel9k
                 #pip install powerline-status --user

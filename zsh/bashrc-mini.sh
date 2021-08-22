@@ -68,25 +68,25 @@ alias vi="vi --noplugin"
 #######################################################################
 #                           CONFIG PROJECTS                           #
 #######################################################################
-alias zshrc="vim -S ~/dotfiles/vim/sessions/zsh.vim"
+alias zshrc="vim -S ~/myconf/dotfiles/vim/sessions/zsh.vim"
 # alias zshrc0="vim ~/.zshrc"
-# alias zshrc2="vim ~/dotfiles/zsh/alias-mac.sh"
-# alias zshrc3="vim ~/dotfiles/zsh/themes.sh"
-# alias vimrc="vim ~/dotfiles/vim/vimrc.vim"
-alias vimrc="vim -S ~/dotfiles/vim/sessions/vimrc_session.vim"
-#alias vimrc2="vim ~/dotfiles/vim/vimrc-plugins"
-#alias vimrc3="vim ~/dotfiles/vim/vimrc-keymappings"
-#alias vimrc4="vim ~/dotfiles/vim/vimrc-ui"
-#alias nvimrc="vim ~/dotfiles/vim/init.vim"
-# alias nvimrc="vim -S ~/dotfiles/vim/sessions/vimrc.vim"
-alias tmuxrc="vim ~/dotfiles/tmux/tmux.conf"
+# alias zshrc2="vim ~/myconf/dotfiles/zsh/alias-mac.sh"
+# alias zshrc3="vim ~/myconf/dotfiles/zsh/themes.sh"
+# alias vimrc="vim ~/myconf/dotfiles/vim/vimrc.vim"
+alias vimrc="vim -S ~/myconf/dotfiles/vim/sessions/vimrc_session.vim"
+#alias vimrc2="vim ~/myconf/dotfiles/vim/vimrc-plugins"
+#alias vimrc3="vim ~/myconf/dotfiles/vim/vimrc-keymappings"
+#alias vimrc4="vim ~/myconf/dotfiles/vim/vimrc-ui"
+#alias nvimrc="vim ~/myconf/dotfiles/vim/init.vim"
+# alias nvimrc="vim -S ~/myconf/dotfiles/vim/sessions/vimrc.vim"
+alias tmuxrc="vim ~/myconf/dotfiles/tmux/tmux.conf"
 alias bashrc="vim ~/.bashrc"
 alias rangerrc="vim ~/.config/ranger/rc.conf"
 #alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias muttrc="vim -S ~/dotfiles/vim/sessions/muttrc.vim"
+alias muttrc="vim -S ~/myconf/dotfiles/vim/sessions/muttrc.vim"
 alias tigrc="vim ~/.tigrc"
 # alias vimchanges="vim $(git status --porcelain | awk '{print $2}')"
-alias snippets="vim -S ~/dotfiles/vim/sessions/snippets.vim "
+alias snippets="vim -S ~/myconf/dotfiles/vim/sessions/snippets.vim "
 
 
 #######################################################################
@@ -125,5 +125,5 @@ alias gcl="git clone"
 alias diff=vimdiff
 
 alias gitrc0="vim ~/.gitconfig"
-alias gitrc="vim ~/dotfiles/etc/git/gitconfig.ini"
+alias gitrc="vim ~/myconf/dotfiles/etc/git/gitconfig.ini"
 alias gitrc_="vim ./.git/config"

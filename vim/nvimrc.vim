@@ -14,7 +14,7 @@
 
 " Get Full path of ~, e.g., /home/ubuntu
 let $HOME = expand('~')
-let $DOTFILES = expand('~') . '/dotfiles'
+let $DOTFILES = expand('~') . '/myconf/dotfiles'
 
 " HAS TO DEFINE LEADER ASAP BECAUSE KMAP BEFORE THAT IS NOT WORKING
 let mapleader = ","
@@ -33,63 +33,63 @@ endif
 call plug#begin('~/.vim/plugged')
     "{Common}
         if has('nvim')
-            source ~/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
+            source ~/myconf/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
         endif
-        source ~/dotfiles/vim/rcmodules/basic.vim
+        source ~/myconf/dotfiles/vim/rcmodules/basic.vim
     "{UI}
-        source ~/dotfiles/vim/rcmodules/indent_line.vim
-        source ~/dotfiles/vim/rcmodules/airline.vim  "680ms+
-        " source ~/dotfiles/vim/rcmodules/lightline.vim
-        " source ~/dotfiles/vim/rcmodules/buftabline.vim
-        source ~/dotfiles/vim/rcmodules/nerdtree.vim
-        " source ~/dotfiles/vim/rcmodules/chadtree.vim
-        source ~/dotfiles/vim/rcmodules/semshi.vim
-        " source ~/dotfiles/vim/rcmodules/vista.vim
-        source ~/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
-        " source ~/dotfiles/vim/rcmodules/markbar.vim
-        " source ~/dotfiles/vim/rcmodules/syntastic.vim
-        " source ~/dotfiles/vim/rcmodules/telescope.vim
-        " source ~/dotfiles/vim/rcmodules/which_key.vim
+        source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim
+        source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "680ms+
+        " source ~/myconf/dotfiles/vim/rcmodules/lightline.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim
+        source ~/myconf/dotfiles/vim/rcmodules/nerdtree.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/chadtree.vim
+        source ~/myconf/dotfiles/vim/rcmodules/semshi.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/vista.vim
+        source ~/myconf/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
+        " source ~/myconf/dotfiles/vim/rcmodules/markbar.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/syntastic.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/telescope.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/which_key.vim
     "{Completion | Usages | Definitions}
-        source ~/dotfiles/vim/rcmodules/fzf.vim
-        " source ~/dotfiles/vim/rcmodules/ale.vim
-        " source ~/dotfiles/vim/rcmodules/deoplete.vim
-        source ~/dotfiles/vim/rcmodules/ultisnips.vim
-        source ~/dotfiles/vim/rcmodules/anyjump.vim
-        " source ~/dotfiles/vim/rcmodules/ctags.vim  "300ms+
-        " source ~/dotfiles/vim/rcmodules/YCM.vim
-        " source ~/dotfiles/vim/rcmodules/coc.vim
-        " source ~/dotfiles/vim/rcmodules/ncm2.vim
-        source ~/dotfiles/vim/rcmodules/autopairs.vim
-        " source ~/dotfiles/vim/rcmodules/treesitter.vim
-        source ~/dotfiles/vim/rcmodules/nvim_native_lsp.vim
-        source ~/dotfiles/vim/rcmodules/nvim_compe.vim
-        " source ~/dotfiles/vim/rcmodules/lspsaga.vim
+        source ~/myconf/dotfiles/vim/rcmodules/fzf.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/ale.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim
+        source ~/myconf/dotfiles/vim/rcmodules/ultisnips.vim
+        source ~/myconf/dotfiles/vim/rcmodules/anyjump.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/ctags.vim  "300ms+
+        " source ~/myconf/dotfiles/vim/rcmodules/YCM.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/coc.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
+        source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_native_lsp.vim
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim
     "{Git}
-        source ~/dotfiles/vim/rcmodules/tig.vim
-        source ~/dotfiles/vim/rcmodules/fugitive.vim
-        source ~/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
+        source ~/myconf/dotfiles/vim/rcmodules/tig.vim
+        source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
+        source ~/myconf/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
     "{Python}
-        " source ~/dotfiles/vim/rcmodules/jedi.vim
-        " source ~/dotfiles/vim/rcmodules/ped.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/jedi.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/ped.vim
     "{NodeJS}
-        " source ~/dotfiles/vim/rcmodules/vimspector.vim
-        " source ~/dotfiles/vim/rcmodules/nvim_dap.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/vimspector.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/nvim_dap.vim
 call plug#end()
-" source ~/dotfiles/vim/vimrc-plugins.vim
+" source ~/myconf/dotfiles/vim/vimrc-plugins.vim
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               IMPORT MODULES                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MUST BE LOADED AFTER PLUGINS
-source ~/dotfiles/vim/vimrc-functions.vim
-source ~/dotfiles/vim/vimrc-commands.vim
-source ~/dotfiles/vim/vimrc-keymappings.vim
-source ~/dotfiles/vim/vimrc-ui.vim
-source ~/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
-if filereadable(expand('~/vimrc-local.vim'))
-    source ~/vimrc-local.vim
+source ~/myconf/dotfiles/vim/vimrc-functions.vim
+source ~/myconf/dotfiles/vim/vimrc-commands.vim
+source ~/myconf/dotfiles/vim/vimrc-keymappings.vim
+source ~/myconf/dotfiles/vim/vimrc-ui.vim
+source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
+if filereadable(expand('~/.config/vimrc-local.vim'))
+    source ~/.config/vimrc-local.vim
 endif
 
 
@@ -269,5 +269,3 @@ autocmd BufEnter * set foldmethod=manual
         " iabbrev waht what
         " iabbrev tehn then
 " }
-
-

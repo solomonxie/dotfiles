@@ -1,4 +1,4 @@
-DOTFILES ?= ~/dotfiles
+DOTFILES ?= ~/myconf/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`
 

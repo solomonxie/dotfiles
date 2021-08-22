@@ -11,7 +11,7 @@
 
 " Get Full path of ~, e.g., /home/ubuntu
 let $HOME = expand('~')
-let $DOTFILES = expand('~') . '/dotfiles'
+let $DOTFILES = expand('~') . '/myconf/dotfiles'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          GENERAL GLOBAL MAPPINGS                           "
@@ -99,6 +99,7 @@ nnoremap <Leader>v v$h
 nnoremap <Leader>0 v^
 vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
+vnoremap <Leader>p "+p
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

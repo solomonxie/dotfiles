@@ -44,6 +44,33 @@ lua << EOF
       }
     end
 
+    -- $ npm install -g vim-language-server
+    nvim_lsp["vimls"].setup{
+        on_attach=on_attach,
+        settings = {
+            vimls = {
+                cmd = {"vim-language-server", "--stdio"},
+                filetypes = {"vim"},
+                init_options = {
+                    diagnostic = {enable = true},
+                    indexes = {
+                        count = 3,
+                        gap = 100,
+                        projectRootPatterns = { "runtime", "nvim", ".git", "autoload", "plugin" },
+                        runtimepath = true
+                    },
+                    iskeyword = "@,48-57,_,192-255,-#",
+                    runtimepath = "",
+                    suggest = {
+                        fromRuntimepath = true,
+                        fromVimruntime = true
+                    },
+                    vimruntime = ""
+                }
+            }
+        }
+    }
+
     -- $ pip install python-lsp-server
     nvim_lsp["pylsp"].setup{
        on_attach=on_attach,

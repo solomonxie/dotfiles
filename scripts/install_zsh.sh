@@ -62,7 +62,7 @@ install_zsh_plugins(){
     curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
     echo "-----[  INSTALLING PLUGINS FOR ZSH   ]-----"
     if [ -e $HOME/.zsh ];then rm -rf $HOME/.zsh; fi
-    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh_plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/plugins/.zsh/zsh-syntax-highlighting
 }
 

@@ -12,8 +12,7 @@
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
-if [[ "$0" =~ "zsh" ]]; then
-    # Plugins
+if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
@@ -24,6 +23,8 @@ if [[ "$0" =~ "zsh" ]]; then
     #source ~/myconf/dotfiles/zsh/pluginconfigs/fzf.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/autojump.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/broot.sh
+    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-prompt-benchmark.sh
 fi
 source ~/myconf/dotfiles/zsh/bash-alias.sh
 source ~/myconf/dotfiles/zsh/bash-functions.sh
@@ -138,8 +139,10 @@ export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 export PATH="/usr/local/opt/python@2/bin:$PATH"
 export PATH="/usr/local/opt/python@3/bin:$PATH"
-export PATH="$HOME/virtualenv/venv2/bin:$PATH"
 export PATH="$HOME/virtualenv/venv/bin:$PATH"
+export PATH="$HOME/virtualenv/venv2/bin:$PATH"
+# =====NODE.JS=====
+export PATH="$HOME/.nvm/versions/node/v10.17.0/bin:$PATH"
 
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -163,9 +166,9 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # added by Snowflake SnowSQL installer v1.2
 export PATH=/Users/xiaoboxie/Applications/SnowSQL.app/Contents/MacOS:$PATH
 
-# NVM (Node)
+# NVM (Node) ==> SLOWING DOWN SHELL!!!
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 

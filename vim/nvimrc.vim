@@ -30,7 +30,7 @@ if !filereadable(expand('~/.vim/autoload/plug.vim'))
     call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs ' . url)
     echo 'Done.'
 endif
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/vim_plugged')
     "{Common}
         if has('nvim')
             source ~/myconf/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!

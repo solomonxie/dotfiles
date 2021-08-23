@@ -34,35 +34,29 @@ lua << EOF
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
     local nvim_lsp = require('lspconfig')
+    local servers = { "pylsp", "tsserver", "bashls", "vimls" }
+    for _, lsp in ipairs(servers) do
+      nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,
+        }
+      }
+    end
 
-    nvim_lsp["vimls"].setup{
-        on_attach = on_attach,
-        flags = {
-          debounce_text_changes = 150,
-        }
-    }
-    nvim_lsp["bashls"].setup{
-        on_attach = on_attach,
-        flags = {
-          debounce_text_changes = 150,
-        }
-    }
-    nvim_lsp["tsserver"].setup{
-        on_attach = on_attach,
-        flags = {
-          debounce_text_changes = 150,
-        }
-    }
-    nvim_lsp["pyls"].setup{
+    -- $ pip install python-lsp-server
+    nvim_lsp["pylsp"].setup{
        on_attach=on_attach,
        settings = {
-           pyls = {
+           pylsp = {
+               cmd = {"pylsp"},
+               filetypes = {"python"},
                configurationSources = { "flake8" },
                plugins = {
+                   flake8 =  { enabled = true },
                    pycodestyle =  { enabled = false },
                    pylint =  { enabled = false },
-                   pyflakes =  { enabled = false },
-                   flake8 =  { enabled = true }
+                   pyflakes =  { enabled = false }
                }
            }
        }

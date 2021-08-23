@@ -1,5 +1,5 @@
 # Minimal
-if [ ! -e ~/.zsh/plugins/minimal ]; then
-    git clone https://github.com/subnixr/minimal.git ~/.zsh/plugins/minimal
+if [ ! -e ~/.zsh_plugins/minimal ]; then
+    git clone https://github.com/subnixr/minimal.git ~/.zsh_plugins/minimal
 fi
-source ~/.zsh/plugins/minimal/minimal.zsh
+source ~/.zsh_plugins/minimal/minimal.zsh

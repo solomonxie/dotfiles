@@ -34,8 +34,8 @@ ohmyzsh:
 	test -e ${HOME}/.oh-my-zsh
 
 plugins:
-	mkdir -p ${HOME}/.zsh/plugins || True
-	mv ${HOME}/.zsh/plugins/zsh-autosuggestions /tmp/ || True
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${HOME}/.zsh/plugins/zsh-autosuggestions
-	mv ${HOME}/.zsh/plugins/zsh-syntax-highlighting /tmp/ || True
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.zsh/plugins/zsh-syntax-highlighting
+	mkdir -p ${HOME}/.zsh_plugins || True
+	mv ${HOME}/.zsh_plugins/zsh-autosuggestions /tmp/ || True
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${HOME}/.zsh_plugins/zsh-autosuggestions
+	mv ${HOME}/.zsh_plugins/zsh-syntax-highlighting /tmp/ || True
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.zsh_plugins/zsh-syntax-highlighting

@@ -20,19 +20,18 @@
 skip_global_compinit=1
 
 # REF: https://gist.github.com/ctechols/ca1035271ad134841284
-# autoload -Uz compinit
-# if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-# 	compinit;
-# else
-# 	compinit -C;
-# fi;
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
 
 if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
-    source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
     source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
@@ -42,13 +41,18 @@ if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     source ~/myconf/dotfiles/zsh/pluginconfigs/fzf.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/autojump.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/broot.sh
-    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-prompt-benchmark.sh
+
+    # Theme
+    source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/pure-zsh.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/myminimalist-theme.sh
 fi
 source ~/myconf/dotfiles/zsh/bash-alias.sh
 source ~/myconf/dotfiles/zsh/bash-functions.sh
 [[ -e ~/.bashrc-local.sh ]] && source ~/.bashrc-local.sh ||true
 
+# alias alias=:  # Avoid override by other installations
 
 #######################################################################
 #                          GENERAL SETTINGS                           #

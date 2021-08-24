@@ -10,6 +10,8 @@
 ######################################################################
 .PHONY: config build install
 
+# REF: https://pawamoy.github.io/posts/pass-makefile-args-as-typed-in-command-line/
+
 DOTFILES ?= ~/myconf/dotfiles
 MYOS ?= `cat /tmp/env-os`
 USER ?= `cat /tmp/env-user`

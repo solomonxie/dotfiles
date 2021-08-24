@@ -12,6 +12,8 @@
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
+skip_global_compinit=1  # !!! SPEED UP ZSH FOR 1+ SECOND BY SKIPPING /etc/zsh
+
 if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh

@@ -7,12 +7,29 @@
 #                                                    #
 # MAINTAINER: Solomon Xie <solomonxiewise@gmail.com> #
 ######################################################
-# HOW TO FIND THE SLOW PART OF LOADING ZSH: $ zsh -xv
+
+
+#######################################################################
+#                           PERFORMANCE                               #
+#######################################################################
+# HOW TO FIND THE SLOW PART OF LOADING ZSH:
+# $ zsh -xv
+
+# REF: https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html
+# !!! SPEED UP ZSH FOR 1+ SECOND BY SKIPPING /etc/zsh
+skip_global_compinit=1
+
+# REF: https://gist.github.com/ctechols/ca1035271ad134841284
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 #######################################################################
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
-skip_global_compinit=1  # !!! SPEED UP ZSH FOR 1+ SECOND BY SKIPPING /etc/zsh
 
 if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh

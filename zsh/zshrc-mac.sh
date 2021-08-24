@@ -22,7 +22,7 @@ if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
     source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
     source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
-    #source ~/myconf/dotfiles/zsh/pluginconfigs/fzf.sh
+    source ~/myconf/dotfiles/zsh/pluginconfigs/fzf.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/autojump.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/broot.sh
     source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
@@ -172,25 +172,3 @@ export PATH=/Users/xiaoboxie/Applications/SnowSQL.app/Contents/MacOS:$PATH
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-#=========================FZF================================
-# Import binary execution to PATH
-if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
-# Import key bindings for auto completion
-[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
-# Import specific key bindings
-source "$HOME/.fzf/shell/key-bindings.zsh"
-# Setup appearence (Highlighting, scale, preview...)
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
-# Setup default searching tool (to replace "find")
-if [ -x $(command -v ag) ]; then
-    export FZF_DEFAULT_COMMAND='ag -g ""'
-elif [ -x $(command -v fd) ]; then
-    export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
-    #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-elif [ -x $(command -v rg) ]; then
-    export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden \
-        --follow --glob "!{.git,node_modules}/*" 2> /dev/null'
-fi
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

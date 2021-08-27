@@ -54,3 +54,10 @@ elseif use_py3
     endif
     echo 'Use Python: ' . pylink
 endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  NODE.JS                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"$ npm install -g neovim
+let g:node_host_prog = '~/virtualnode/venv/bin/neovim-node-host'

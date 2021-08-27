@@ -45,6 +45,9 @@ lua << EOF
     end
 
     -- $ npm install -g vim-language-server
+    -- $ npm i -g bash-language-server
+    -- $ npm install -g typescript typescript-language-server
+    -- $ pip install python-lsp-server
     nvim_lsp["vimls"].setup{
         on_attach=on_attach,
         settings = {
@@ -71,7 +74,6 @@ lua << EOF
         }
     }
 
-    -- $ pip install python-lsp-server
     nvim_lsp["pylsp"].setup{
        on_attach=on_attach,
        settings = {

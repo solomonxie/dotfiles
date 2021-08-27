@@ -14,7 +14,7 @@ if has('python3')
     " !! MUST BE FULL PATH (~ DOESN'T WORK) !!
     let g:UltiSnipsSnippetsDir = expand("~/.vim/mysnippets")
     " let g:UltiSnipsSnippetDirectories=[expand('~/.vim/plugged/vim-snippets/UltiSnips/'), expand('~/.vim/plugged/vim-snippets/'), expand('~/.vim/mysnippets')]
-    let g:UltiSnipsSnippetDirectories=[expand('~/.vim/plugged/vim-snippets/UltiSnips/'), expand('~/.vim/mysnippets')]
+    let g:UltiSnipsSnippetDirectories=[expand('~/vim_plugged/vim-snippets/UltiSnips/'), expand('~/myconf/dotfiles/vim/mysnippets')]
     " Could be buggy if not specifying the Python version
     if has('python3')
         let g:UltiSnipsUsePythonVersion=3

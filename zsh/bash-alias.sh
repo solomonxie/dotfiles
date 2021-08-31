@@ -139,6 +139,7 @@ if [[ $(uname) == "Darwin" ]]; then
     alias chrome="open -a Google\ Chrome"
     alias safari="open -a Safari"
     # alias brew="HOMEBREW_NO_AUTO_UPDATE=1 brew"
+    alias ibrew="arch -x86_64 /usr/local/bin/brew"
 fi
 
 

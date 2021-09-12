@@ -56,8 +56,8 @@ nnoremap ]p :GitGutterPreviewHunk<CR>
 nnoremap gz :GitGutterFold<CR>
 " Diff
 command! ChangeGitDiffBase let g:gitgutter_diff_base = 'master'
-" nnoremap ]h :GitGutterNextHunk<CR>
-" nnoremap [h :GitGutterPrevHunk<CR>
+nnoremap g[ :GitGutterPrevHunk<CR>
+nnoremap g] :GitGutterNextHunk<CR>
 " Changed Hunks
 " nnoremap gn :GitGutterNextHunk<CR>
 " nnoremap gp :GitGutterPrevHunk<CR>

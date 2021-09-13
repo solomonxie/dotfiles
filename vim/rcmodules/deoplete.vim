@@ -16,9 +16,9 @@ if has('python3')
     " endif
 
     " Language Sources
-    Plug 'zchee/deoplete-jedi'
-    Plug 'ternjs/tern_for_vim', {'do': 'npm -g install neovim tern'}
-    Plug 'carlitux/deoplete-ternjs', {'do': 'npm -g install neovim tern'}
+    Plug 'zchee/deoplete-jedi'  "Python
+    " Plug 'ternjs/tern_for_vim', {'do': 'npm -g install neovim tern'}
+    " Plug 'carlitux/deoplete-ternjs', {'do': 'npm -g install neovim tern'}
 
     " Must be right after the loading
     let g:deoplete#enable_at_startup = 1

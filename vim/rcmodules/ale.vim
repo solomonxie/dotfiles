@@ -46,7 +46,7 @@ let g:ale_set_loclist = 0
 "               LSP will be specified in the "g:ale_linters" below           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:ale_linters = {'python': ['pyls']}
+let g:ale_linters = {'python': ['pylint']}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -60,7 +60,7 @@ let g:ale_set_loclist = 0
 " =======================Custom args to linters / fixers==========================
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 " let g:ale_python_mypy_options = '--follow-imports skip'
-let g:ale_python_pylint_options = '--rcfile=~/dotfiles/etc/config/pylint/pylintrc.ini'
+let g:ale_python_pylint_options = '--rcfile=~/.config/pylintrc'
 " Flake8
 let g:ale_python_flake8_use_global = 1  "Python -> Flake8
 let g:ale_python_flake8_options = '--max-line-length=120'

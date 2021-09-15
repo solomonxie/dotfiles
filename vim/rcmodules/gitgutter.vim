@@ -8,7 +8,7 @@ if executable('git')
 endif
 
 set updatetime=100
-let g:gitgutter_diff_base = 'HEAD'
+let g:gitgutter_diff_base = 'master'
 let g:gitgutter_enabled = 1
 let g:gitgutter_max_signs = 500
 " let g:gitgutter_map_keys = 0  "Cancel pre-set mapping
@@ -55,9 +55,10 @@ nnoremap ]p :GitGutterPreviewHunk<CR>
 " Toggle/fold changed lines
 nnoremap gz :GitGutterFold<CR>
 " Diff
-command! ChangeGitDiffBase let g:gitgutter_diff_base = 'master'
-nnoremap g[ :GitGutterPrevHunk<CR>
-nnoremap g] :GitGutterNextHunk<CR>
+command! SwitchGitDiffBase let g:gitgutter_diff_base = 'HEAD'
+nnoremap gp :GitGutterPrevHunk<CR>
+nnoremap gn :GitGutterNextHunk<CR>
+nnoremap gP :GitGutterPreviewHunk<CR>
 " Changed Hunks
 " nnoremap gn :GitGutterNextHunk<CR>
 " nnoremap gp :GitGutterPrevHunk<CR>

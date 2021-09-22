@@ -102,10 +102,9 @@ alias gsc="git sync"
 alias gcp="git add .; git quickcommit; git pub"
 alias gcl="git clone"
 alias diff=vimdiff
+alias work="vim -S .git/work.vim"
 
-alias gitrc0="vim ~/.gitconfig"
 alias gitrc="vim ~/myconf/dotfiles/etc/git/gitconfig.ini"
-alias gitrc_="vim ./.git/config"
 
 
 #######################################################################

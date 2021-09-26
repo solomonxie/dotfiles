@@ -36,6 +36,7 @@ call plug#begin('~/vim_plugged')
             source ~/myconf/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
         endif
         source ~/myconf/dotfiles/vim/rcmodules/basic.vim
+        source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
     "{UI}
         source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim
         source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "680ms+
@@ -52,8 +53,8 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/which_key.vim
     "{Completion | Usages | Definitions}
         source ~/myconf/dotfiles/vim/rcmodules/fzf.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/ale.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim
+        source ~/myconf/dotfiles/vim/rcmodules/ale.vim
+        source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim
         source ~/myconf/dotfiles/vim/rcmodules/ultisnips.vim
         source ~/myconf/dotfiles/vim/rcmodules/anyjump.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ctags.vim  "300ms+
@@ -62,8 +63,8 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
-        source ~/myconf/dotfiles/vim/rcmodules/nvim_native_lsp.vim
-        source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/nvim_native_lsp.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim

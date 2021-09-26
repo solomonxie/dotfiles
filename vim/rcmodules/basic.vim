@@ -14,13 +14,6 @@ Plug 'tomtom/tcomment_vim'
 
 Plug 'bronson/vim-trailing-whitespace'
 
-" REF: https://github.com/tweekmonster/startuptime.vim
-" TIPS:
-" - :StartupTime ~/foo.vim 100
-" - :StartupTime 100 -- -u ~/foo.vim -i NONE -- ~/foo.vim
-Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
-
-
 "REF: https://github.com/wsdjeg/vim-fetch
 Plug 'wsdjeg/vim-fetch'  "Open/Edit file from reference: /path/to/file:190:3
 

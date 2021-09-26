@@ -36,7 +36,7 @@ endif
 " autocmd BufEnter * call Disable_plugins()
 
 function! Disable_plugins()
-    if line('$') > 1000
+    if line('$') > 2000
         if g:gitgutter_enabled == 1
             execute "GitGutterDisable"
             " echo system("echo disable >> /tmp/msg.log")

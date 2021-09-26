@@ -194,3 +194,10 @@ save:
 	zip -r /tmp/mydotfiles.zip ~/
 	mv /tmp/mydotfiles.zip ~/
 
+
+
+#######################################################################
+#                        PERFORMANCE PROFILING                        #
+#######################################################################
+vim-perf:
+	python ./vim/vim-profiler/vim-profiler.py nvim

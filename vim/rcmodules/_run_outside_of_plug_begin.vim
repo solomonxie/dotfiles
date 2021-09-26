@@ -49,13 +49,14 @@ lua << EOF
         }
     }
 
+    -- SUPER SLOW! MANY SECONDS!!!
     nvim_lsp["pylsp"].setup{
        on_attach=on_attach,
        settings = {
            pylsp = {
                cmd = {"pylsp"},
                filetypes = {"python"},
-               configurationSources = { "flake8" },
+               configurationSources = { "pylint" },
                plugins = {
                    -- flake8 =  { enabled = true },
                    -- pycodestyle =  { enabled = false },

@@ -46,7 +46,7 @@ let g:ale_set_loclist = 0
 "               LSP will be specified in the "g:ale_linters" below           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ale_linters = {'python': ['pylint']}
+let g:ale_linters = {'python': ['flake8']}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,8 +66,8 @@ let g:ale_python_flake8_use_global = 1  "Python -> Flake8
 let g:ale_python_flake8_options = '--max-line-length=120'
 " Pyls
 " https://github.com/palantir/python-language-server/issues/190
-let g:ale_python_pyls_config = {
-\    'pyls': {
+let g:ale_python_pylsp_config = {
+\    'pylsp': {
 \        'configurationSources': ['flake8']
 \    },
 \}
@@ -76,7 +76,7 @@ let g:ale_python_pyls_config = {
 " Make it 'g:' to only run linters I specified
 let g:ale_linters = {
 \   'sh': ['shell'],
-\   'python': ['pyls'],
+\   'python': ['pylsp'],
 \   'make': ['checkmake'],
 \   'vim': ['vint'],
 \   'dockerfile': ['dockerfile_lint'],

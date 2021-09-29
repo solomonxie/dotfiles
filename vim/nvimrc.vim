@@ -132,7 +132,7 @@ retab "Replace all tabs to spaces on file opened
 "[Key maps timeout]
 set timeout
 set ttimeout
-set timeoutlen=2000
+set timeoutlen=300
 set ttimeoutlen=0
 "Word recognizing
 "set iskeyword-=_

@@ -5,7 +5,7 @@
 " https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
 
 " Dependencies
-"   - python3 -m pip install --user pynvim neovim
+"   - python3 -m pip install pynvim neovim
 if has('python3')
     Plug 'Shougo/deoplete.nvim'
 

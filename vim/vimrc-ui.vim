@@ -51,18 +51,6 @@
     autocmd BufRead,BufNewFile *.txt,*.md setlocal spell spelllang=en,en_us,cjk
     autocmd FileType gitcommit setlocal spell spelllang=en,en_us,cjk
 
-" <NetRW File Tree>
-    let g:netrw_browse_split=0   "[Essential]
-    let g:netrw_liststyle=3   "List Style  3:Tree listing
-    let g:netrw_banner=0  "Hide banner
-    let g:netrw_altv = 2
-    let g:netrw_winsize = 25
-    let g:netrw_hide=1
-    "let g:netrw_list_hide= '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,^\.\.\=/\=$'
-    let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-    "autocmd FileType netrw setl bufhidden=wipe
-    "autocmd FileType netrw setl bufhidden=delete
-
 " <Length Marker>
     " highlight OverLength ctermbg=red ctermfg=white  "> Warning color
     " let &colorcolumn=join(range(120,999),",")  "> Warning Column

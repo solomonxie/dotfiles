@@ -43,7 +43,9 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/lightline.vim
         source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing simple/fast
         " source ~/myconf/dotfiles/vim/rcmodules/statusline.vim
-        source ~/myconf/dotfiles/vim/rcmodules/nerdtree.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/nerdtree.vim
+        source ~/myconf/dotfiles/vim/rcmodules/netrw.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/vinegar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/chadtree.vim
         source ~/myconf/dotfiles/vim/rcmodules/semshi.vim
         " source ~/myconf/dotfiles/vim/rcmodules/vista.vim

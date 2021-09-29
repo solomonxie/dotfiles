@@ -39,9 +39,9 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
     "{UI}
         source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim
-        source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "680ms+
+        " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "680ms+
         " source ~/myconf/dotfiles/vim/rcmodules/lightline.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim
+        source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing simple/fast
         source ~/myconf/dotfiles/vim/rcmodules/nerdtree.vim
         " source ~/myconf/dotfiles/vim/rcmodules/chadtree.vim
         source ~/myconf/dotfiles/vim/rcmodules/semshi.vim

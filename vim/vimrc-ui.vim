@@ -64,12 +64,13 @@
     "autocmd FileType netrw setl bufhidden=delete
 
 " <Length Marker>
-    "> Warning color
-    "highlight OverLength ctermbg=red ctermfg=white
+    " highlight OverLength ctermbg=red ctermfg=white  "> Warning color
+    " let &colorcolumn=join(range(120,999),",")  "> Warning Column
+
     "match OverLength /\%81v.\+/
-    "> Warning Column
-    "let &colorcolumn=join(range(81,999),",")
-    "let &colorcolumn="80,".join(range(400,999),",")
+
+    "> or
+    " let &colorcolumn="120,".join(range(400,999),",")
     "> or
     "set colorcolumn=80
     "highlight ColorColumn guibg=#155460

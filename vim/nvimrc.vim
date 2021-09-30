@@ -39,8 +39,8 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
     "{UI}
         source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "680ms+
-        source ~/myconf/dotfiles/vim/rcmodules/lightline.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "681ms+
+        source ~/myconf/dotfiles/vim/rcmodules/lightline.vim  "Blazing flast"
         source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing simple/fast
         " source ~/myconf/dotfiles/vim/rcmodules/statusline.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nerdtree.vim
@@ -73,6 +73,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
         source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
         source ~/myconf/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
+        source ~/myconf/dotfiles/vim/rcmodules/blame.vim
     "{Python}
         " source ~/myconf/dotfiles/vim/rcmodules/jedi.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ped.vim
@@ -132,7 +133,7 @@ retab "Replace all tabs to spaces on file opened
 "[Key maps timeout]
 set timeout
 set ttimeout
-set timeoutlen=300
+set timeoutlen=1000
 set ttimeoutlen=0
 "Word recognizing
 "set iskeyword-=_

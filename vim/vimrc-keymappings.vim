@@ -106,7 +106,7 @@ nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
 "Git blame current line
-nnoremap gb :execute "!git blame -L " . line(".") . ",+1 %"<CR>
+nnoremap gb :execute "!git blame -L " . line(".") . ",+1 % "<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

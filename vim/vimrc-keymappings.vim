@@ -100,9 +100,13 @@ tnoremap <Del> <ESC>
 vnoremap <leader>r "1y:1,10 s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
 nnoremap <Leader>v v$h
 nnoremap <Leader>0 v^
+
 vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
+
+"Git blame current line
+nnoremap gb :execute "!git blame -L " . line(".") . ",+1 %"<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

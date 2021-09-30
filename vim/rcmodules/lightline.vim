@@ -10,10 +10,10 @@ let g:lightline = {
   \ 'colorscheme': 'deus',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'readonly', 'gitbranch', 'modified', 'relativepath', 'spell' ] ],
+  \             [ 'readonly', 'gitbranch', 'modified', 'filetype', 'relativepath', 'spell' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
-  \              [ 'filetype', 'mycustom1' ] ]
+  \              [ 'mycustom1', 'modified' ] ]
   \ },
   \ 'component': {
   \   'mycustom1': 'Solomon X.'
@@ -23,6 +23,8 @@ let g:lightline = {
   \   'readonly': 'FuncLightlineReadonly',
   \ },
   \ }
+
+" components: 'fileformat', 'fileencoding', 'filetype'
 
 let g:lightline.separator = { 'left': '', 'right': '' }
 let g:lightline.subseparator = { 'left': '|', 'right': '|' }

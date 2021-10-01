@@ -18,9 +18,9 @@ add-zsh-hook precmd vcs_info
 
 export GIT_ROOT=`git rev-parse --show-toplevel ||true`
 export GIT_BRANCH=`git rev-parse --abbrev-ref HEAD ||true`
-git_info="git:(${GIT_BRANCH})"
-# export PROMPT="%F{51}% %. %F{10}% ${git_info} "
-export PROMPT='%1~ %F{red}${vcs_info_msg_0_}%f $ '
+# git_info="git:(${GIT_BRANCH})"
+export PROMPT='%F{51}% %. %F{10}% ${vcs_info_msg_0_}%f $ '
+# export PROMPT='%1~ %F{red}${vcs_info_msg_0_}%f $ '
 
 # zstyle ':vcs_info:*' check-for-changes true
 # zstyle ':vcs_info:*' unstagedstr ' *'

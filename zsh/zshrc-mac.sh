@@ -14,10 +14,10 @@
 #######################################################################
 # REF: https://joshghent.com/zsh-speed/
 # REF: https://htr3n.github.io/2018/07/faster-zsh/
-# for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
-
-# HOW TO FIND THE SLOW PART OF LOADING ZSH:
-# $ zsh -xv
+# REF: https://stevenvanbael.com/profiling-zsh-startup
+# 1. $ for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
+# 2. $ zprof
+# 3. $ zsh -xv
 
 # REF: https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html#The-zsh_002fzprof-Module
 zmodload zsh/zprof  # Then do "$ zprof" in command line
@@ -53,9 +53,9 @@ if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-prompt-benchmark.sh
 
     # Theme
-    source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
+    # source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/pure-zsh.sh
-    # source ~/myconf/dotfiles/zsh/pluginconfigs/myminimalist-theme.sh
+    source ~/myconf/dotfiles/zsh/pluginconfigs/myminimalist-theme.sh
 fi
 source ~/myconf/dotfiles/zsh/bash-alias.sh
 source ~/myconf/dotfiles/zsh/bash-functions.sh

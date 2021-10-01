@@ -53,9 +53,9 @@ if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-prompt-benchmark.sh
 
     # Theme
-    # source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
+    source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/pure-zsh.sh
-    source ~/myconf/dotfiles/zsh/pluginconfigs/myminimalist-theme.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/myminimalist-theme.sh
 fi
 source ~/myconf/dotfiles/zsh/bash-alias.sh
 source ~/myconf/dotfiles/zsh/bash-functions.sh

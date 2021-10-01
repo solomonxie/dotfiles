@@ -41,12 +41,9 @@ augroup closeOnOpen
     autocmd BufWinEnter * if getbufvar(winbufnr(winnr()), "&filetype") != "netrw"|call CloseNetrw()|endif
 aug END
 
-nnoremap <Leader>f :Lexplore .<CR>
-" nnoremap <Leader>F :NERDTreeFind<CR>zz
-" nnoremap FF :NERDTree<CR>
-" nnoremap ff :NERDTreeFind<CR>zz
+" nnoremap ff :silent execute "let @/=expand('%:t')<Bar>silent execute 'Lexplore' expand('%:h')<Bar>normal n"<CR>
+" nnoremap <Leader>f :Lexplore .<CR>
+
+
 " ===> More mappings inside netrw ->
 " vim/after/ftplugin/netrw.vim
-
-" command! ExploreFind let @/=expand("%:t") | execute 'Lexplore ' expand('%:h') | normal n
-nnoremap ff :silent execute "let @/=expand('%:t')<Bar>silent execute 'Lexplore' expand('%:h')<Bar>normal n"<CR>

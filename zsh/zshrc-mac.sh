@@ -27,13 +27,14 @@ zmodload zsh/zprof  # Then do "$ zprof" in command line
 skip_global_compinit=1
 
 # REF: https://gist.github.com/ctechols/ca1035271ad134841284
-autoload -Uz compinit
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
-else
-	compinit -C;
-fi;
+# autoload -Uz compinit
+# if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+# 	compinit;
+# else
+# 	compinit -C;
+# fi;
 
+ZSH_CACHE_DIR="/tmp/zsh_cache"
 
 
 #######################################################################
@@ -41,6 +42,8 @@ fi;
 #######################################################################
 
 if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
+    source ~/myconf/dotfiles/zsh/bindkeys.zsh
+
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
     source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
@@ -53,9 +56,10 @@ if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-prompt-benchmark.sh
 
     # Theme
-    source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
+    # source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/pure-zsh.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/myminimalist-theme.sh
+    source ~/myconf/dotfiles/zsh/pluginconfigs/git-prompt.sh
 fi
 source ~/myconf/dotfiles/zsh/bash-alias.sh
 source ~/myconf/dotfiles/zsh/bash-functions.sh
@@ -216,8 +220,6 @@ export NVM_DIR="$HOME/.nvm"
 if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
 # Import key bindings for auto completion
 [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
-# Import specific key bindings
-source "$HOME/.fzf/shell/key-bindings.zsh"
 # Setup appearence (Highlighting, scale, preview...)
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 # Setup default searching tool (to replace "find")
@@ -230,4 +232,6 @@ elif [ -x $(command -v rg) ]; then
     export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden \
         --follow --glob "!{.git,node_modules}/*" 2> /dev/null'
 fi
+# Import specific key bindings
+[ -f ~/.fzf/shell/key-bindings.zsh ] && source "$HOME/.fzf/shell/key-bindings.zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

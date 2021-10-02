@@ -4,8 +4,6 @@
 # https://github.com/ohmyzsh/ohmyzsh
 if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "`wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh`"
-    export ZSH=~/.oh-my-zsh
-    source $ZSH/oh-my-zsh.sh
 fi
 export ZSH=~/.oh-my-zsh
 export ZSH_CUSTOM=~/.oh-my-zsh/custom

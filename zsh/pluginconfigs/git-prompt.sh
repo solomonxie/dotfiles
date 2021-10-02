@@ -29,6 +29,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
 _ZSH_FULL_DIR='%'
 _ZSH_CURRENT_DIR='%.'
 # PROMPT='%B%40<..<%~%b$(gitprompt)'
-PROMPT='%B%40<..<${_ZSH_CURRENT_DIR} >%b$(gitprompt)'
+PROMPT='%B%40<..<${_ZSH_CURRENT_DIR} >%b$(gitprompt) '
 PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{green})❯%f.%F{red}❯%f) '
 RPROMPT=''

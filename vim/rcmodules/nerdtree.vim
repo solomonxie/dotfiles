@@ -3,7 +3,7 @@
 "                          NERDTREE - FILE BROWSER                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 " Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
 " Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "Slow down vim significantly

@@ -25,10 +25,13 @@ ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}✚"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[cyan]%}⚑"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%} ✔"
+ZSH_THEME_GIT_PROMPT_TAGS_PREFIX="🏷 "
+ZSH_THEME_GIT_PROMPT_TAGS_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_TAG="%{$fg_bold[magenta]%}"
 
 _ZSH_FULL_DIR='%'
 _ZSH_CURRENT_DIR='%.'
 # PROMPT='%B%40<..<%~%b$(gitprompt)'
-PROMPT='%B%40<..<${_ZSH_CURRENT_DIR} \\%b$(gitprompt) '
+PROMPT='%B%40<..<${_ZSH_CURRENT_DIR} ⎇%b$(gitprompt) '
 PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{green})$%f.%F{red}$%f) '
 RPROMPT=''

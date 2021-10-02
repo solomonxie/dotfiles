@@ -59,7 +59,7 @@ if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     # source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/pure-zsh.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/myminimalist-theme.sh
-    source ~/myconf/dotfiles/zsh/pluginconfigs/git-prompt.sh
+    source ~/myconf/dotfiles/zsh/pluginconfigs/git-prompt.sh  # BLAZING FAST!!
 fi
 source ~/myconf/dotfiles/zsh/bash-alias.sh
 source ~/myconf/dotfiles/zsh/bash-functions.sh
@@ -215,7 +215,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 #########################FZF######################################
-# https://github.com/junegunn/fzf
+# REF: https://github.com/junegunn/fzf
 # Import binary execution to PATH
 if [[ ! "$PATH" == *~/.fzf/bin* ]]; then export PATH="$PATH:$HOME/.fzf/bin"; fi
 # Import key bindings for auto completion
@@ -235,3 +235,7 @@ fi
 # Import specific key bindings
 [ -f ~/.fzf/shell/key-bindings.zsh ] && source "$HOME/.fzf/shell/key-bindings.zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# my_script_widget() {history 1000 |fzf}
+# zle -N my_script_widget
+# bindkey '^R' my_script_widget

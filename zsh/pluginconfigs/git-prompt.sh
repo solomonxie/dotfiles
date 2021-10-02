@@ -9,7 +9,7 @@ source ~/.zsh_plugins/git-prompt/git-prompt.zsh
 # source ~/.zsh_plugins/git-prompt/examples/compact.zsh
 ZSH_GIT_PROMPT_SHOW_STASH=1
 ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"  # symbol|full|no
-ZSH_THEME_GIT_PROMPT_PREFIX=" "
+ZSH_THEME_GIT_PROMPT_PREFIX=" ⎇ "
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
 ZSH_THEME_GIT_PROMPT_DETACHED="%{$fg_bold[cyan]%}:"
@@ -32,6 +32,6 @@ ZSH_THEME_GIT_PROMPT_TAG="%{$fg_bold[magenta]%}"
 _ZSH_FULL_DIR='%'
 _ZSH_CURRENT_DIR='%.'
 # PROMPT='%B%40<..<%~%b$(gitprompt)'
-PROMPT='%B%40<..<${_ZSH_CURRENT_DIR} ⎇%b$(gitprompt) '
+PROMPT='%B%40<..<${_ZSH_CURRENT_DIR}%b$(gitprompt) '
 PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{green})$%f.%F{red}$%f) '
 RPROMPT=''

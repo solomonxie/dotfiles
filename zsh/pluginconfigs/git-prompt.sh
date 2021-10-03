@@ -5,6 +5,8 @@ fi
 source ~/.zsh_plugins/git-prompt/git-prompt.zsh
 # source ~/.zsh_plugins/git-prompt/examples/multiline.zsh
 
+#REF: https://github.com/zsh-users/zsh/blob/master/Functions/Misc/colors
+
 # CUSTOMIZATION
 # source ~/.zsh_plugins/git-prompt/examples/compact.zsh
 ZSH_GIT_PROMPT_SHOW_STASH=1
@@ -33,6 +35,6 @@ _ZSH_FULL_DIR='%'
 _ZSH_CURRENT_DIR='%.'
 _ZSH_COMMAND_PREFIX='>>'  # ❯|$|>
 # PROMPT='%B%40<..<%~%b$(gitprompt)'
-PROMPT='%{$fg_bold[cyan]%}${_ZSH_CURRENT_DIR}%b%F{magenta}$(gitprompt) '
+PROMPT='%{$fg_bold[cyan]%}${_ZSH_CURRENT_DIR}%b%F{white}$(gitprompt) '
 PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{green})${_ZSH_COMMAND_PREFIX}%f.%F{red}${_ZSH_COMMAND_PREFIX}%f) '
 RPROMPT=''

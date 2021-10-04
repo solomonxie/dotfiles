@@ -9,7 +9,7 @@ common: root
 	apt update
 	apt install make
 	apt install docker docker.io -y
-	yes| apt install wget curl htop tmux vim ncdu
+	yes| apt install wget curl htop tmux vim ncdu ranger
 	wget https://github.com/bcicen/ctop/releases/download/0.7.6/ctop-0.7.6-linux-amd64 -O /usr/local/bin/ctop
 	chmod +x /usr/local/bin/ctop
 	yes| apt install python3 python3-pip

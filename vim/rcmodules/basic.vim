@@ -8,7 +8,8 @@ let g:highlightedyank_highlight_duration = 1000
 
 Plug 'bronson/vim-visual-star-search'
 
-Plug 'kassio/neoterm'
+"REF: https://github.com/kassio/neoterm
+" Plug 'kassio/neoterm'  "For Terminal
 
 Plug 'tomtom/tcomment_vim'
 

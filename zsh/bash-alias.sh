@@ -71,7 +71,7 @@ alias snippets="vim -S ~/myconf/dotfiles/vim/sessions/snippets.vim "
 #######################################################################
 #                               NETWORK                               #
 #######################################################################
-alias proxy='export all_proxy=http://127.0.0.1:1061'
+alias proxy='export all_proxy=http://127.0.0.1:1080'
 alias unproxy='unset all_proxy'
 alias myip="curl https://httpbin.org/ip"
 alias hosts='sudo vim /etc/hosts'

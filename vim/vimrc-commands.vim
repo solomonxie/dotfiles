@@ -64,6 +64,15 @@ if v:version >= 800
     command! LoadSessionCmd :call LoadSession()
     "autocmd VimEnter * call LoadSession()
     autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
+
+    nnoremap <Leader>S :call SaveSession()<CR><ESC>
+    nnoremap <Leader>R :call LoadSession()<CR><ESC>
+
+    augroup AutoSaveSession
+        autocmd!
+        autocmd VimLeave,QuitPre * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
+    augroup end
+
 endif
 "}
 

@@ -118,6 +118,10 @@ set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger vi
 "Avoid annoying continuation of comment (:help fo-table)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
+" Avoid prompt to hit enter for every echo when it's not enough to show full msg
+set shortmess+=T
+set cmdheight=2
+
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 

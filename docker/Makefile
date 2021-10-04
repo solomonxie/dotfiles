@@ -53,6 +53,10 @@ docker_compose:
 	sudo apt-get install docker-compose -y
 
 
+ctop:
+	sudo wget https://github.com/bcicen/ctop/releases/download/0.7.6/ctop-0.7.6-linux-amd64 -O /usr/local/bin/ctop
+	sudo chmod +x /usr/local/bin/ctop
+
 
 
 ###############################################################
@@ -200,6 +204,8 @@ postgres: checkhealth_docker
 	docker run --restart always \
 		--name pg \
 		-p 54320:5432 \
+		-v /mydata/pg:/var/lib/postgresql/data \
+		-e PGDATA=/var/lib/postgresql/data/pgdata \
 		-e POSTGRES_PASSWORD=123123 \
 		-e POSTGRES_USER=sol \
 		-d postgres postgres -c log_statement=all
@@ -208,4 +214,15 @@ redis: checkhealth_docker
 	docker run --restart always \
 		--name rd \
 		-p 63790:6379 \
-		-d redis:alpine
+		-v /mydata/redis:/data \
+		-d redis:alpine \
+		redis-server --appendonly yes
+
+mongo: checkhealth_docker
+	docker run --restart always \
+		--name mongo \
+		-p 18081:27017 \
+		-e MONGO_INITDB_ROOT_USERNAME=sol \
+		-e MONGO_INITDB_ROOT_PASSWORD=123123 \
+		-v /mydata/mongo:/data/db \
+		-d mongo

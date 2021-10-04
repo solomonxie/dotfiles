@@ -143,7 +143,7 @@ nnoremap [B :call searchpair('{','','}','b')<cr>
 nnoremap \ `
 nnoremap <leader>l :call ToggleRelativeNumber()<CR>
 
-vnoremap <Leader>f "1y:call GrepOpen("<C-r>1")<CR>
+" vnoremap <Leader>f "1y:call GrepOpen("<C-r>1")<CR>
 nnoremap <Leader>aa :ggVG<CR>
 nnoremap <Leader>ay :%y+<CR>
 nnoremap <Leader>ad :%d+<CR>
@@ -161,21 +161,19 @@ nnoremap tc :CwdCopy<CR>
 nnoremap tp :PwdCopy<CR>
 nnoremap tn :FilenameCopy<CR>
 
-nnoremap <Leader>S :call SaveSession()<CR><ESC>
-nnoremap <Leader>R :call LoadSession()<CR><ESC>
-
-autocmd VimLeave,QuitPre,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
-
-autocmd BufReadPre *.py noremap <buffer> <M-b> :w<CR>:!python "%:p" <CR>
-autocmd BufReadPre *.c noremap <buffer> <M-b> :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
-autocmd BufReadPre *.cpp,*.cc noremap <buffer> <M-b> :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
-autocmd BufReadPre *.js noremap <buffer> <M-b> :w<CR>:call DebugCurrentFile()<CR>
-autocmd BufReadPre *.js nnoremap <buffer> [[ []
-autocmd BufReadPre *.js nnoremap <buffer> ]] ][
-autocmd BufReadPre *.sh noremap <buffer> <M-b> :w<CR>:!bash % <CR>
-autocmd BufReadPre Makefile noremap <buffer> <M-b> :w<CR>:!make <CR>
-autocmd BufReadPre .vim,.vimrc,vimrc* noremap <buffer> <M-b> :w<CR>:source ~/.vim/init.vim <CR>
-autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <M-b> :w<CR>:!source % <CR>
+augroup FileCompile
+    autocmd!
+    autocmd BufReadPre *.py noremap <buffer> B :w<CR>:!python "%:p" <CR>
+    autocmd BufReadPre *.c noremap <buffer> B :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
+    autocmd BufReadPre *.cpp,*.cc noremap <buffer> B :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
+    autocmd BufReadPre *.js noremap <buffer> B :w<CR>:call DebugCurrentFile()<CR>
+    " autocmd BufReadPre *.js nnoremap <buffer> [[ []
+    " autocmd BufReadPre *.js nnoremap <buffer> ]] ][
+    autocmd BufReadPre *.sh noremap <buffer> B :w<CR>:!bash % <CR>
+    autocmd BufReadPre Makefile noremap <buffer> B :w<CR>:!make <CR>
+    autocmd BufReadPre .vim,.vimrc,vimrc* noremap <buffer> B :w<CR>:source ~/.vim/init.vim <CR>
+    autocmd BufReadPre .zshrc,zshrc* noremap <buffer> B :w<CR>:!source % <CR>
+augroup end
 
 if &diff
     map <leader>1 :diffget LOCAL<CR>

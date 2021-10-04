@@ -50,7 +50,9 @@ efs: root
 	# START TO MOUNT
 	mkdir /myefs
 	mkdir /myefs/log
-	mount -t efs -o tls YOUR_EFS_ID:/ /myefs
+	echo 'fs-YOUR_EFS_ID.efs.us-east-1.amazonaws.com:/ /myefs efs defaults,_netdev 0 0' >> /etc/fstab
+	mount -a
+	# mount -t efs -o tls fs-YOUR_EFS_ID:/ /myefs
 	mount |grep myefs
 	df -h |grep myefs
 	chmod go+rw /myefs

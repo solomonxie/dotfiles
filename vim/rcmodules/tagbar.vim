@@ -1,6 +1,6 @@
 "https://github.com/majutsushi/tagbar
 if executable('ctags')
-    Plug 'majutsushi/tagbar'
+    Plug 'majutsushi/tagbar', {'on': ['TagbarToggle']}
 endif
 
 " >> KEY MAPPINGS

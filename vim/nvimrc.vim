@@ -38,7 +38,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/basic.vim
         source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
     "{UI}
-        source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim
+        source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim  "Good: pretty; Bad: hides quotes in JSON
         " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "681ms+
         source ~/myconf/dotfiles/vim/rcmodules/lightline.vim  "Blazing flast"
         source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing simple/fast

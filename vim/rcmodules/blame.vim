@@ -5,5 +5,6 @@
 Plug 'solomonxie/git-blame-nvim', {'branch': 'master'}  "Fork & modified
 
 let g:git_blame_enabled = 0
+highlight! GitBlameTextStyle ctermfg=249
 
 nnoremap <Leader>b :call GitBlameToggle()<CR>

@@ -7,7 +7,8 @@ root:
 
 common: root
 	apt update
-	apt install docker -y
+	apt install make
+	apt install docker docker.io -y
 	yes| apt install wget curl htop tmux vim ncdu
 	wget https://github.com/bcicen/ctop/releases/download/0.7.6/ctop-0.7.6-linux-amd64 -O /usr/local/bin/ctop
 	chmod +x /usr/local/bin/ctop
@@ -32,18 +33,33 @@ v2ray: root
 
 #REF: https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html
 #REF: https://docs.aws.amazon.com/zh_cn/efs/latest/ug/wt1-test.html
+#REF: https://stackoverflow.com/questions/49762840/unable-to-mount-efs-on-ec2-instance-connection-timed-out-error
+#REF: https://www.youtube.com/watch?v=I9GO3mYeNAM
+#STEPS: CREATE EFS > SELECT SAME REGION & ZONE! > SELECT SAME SEC-GROUP > ADD NFS TO SEC-GROUP > ATTACH THROUGH CLI
 efs: root
+	# PREPARE
 	apt install nfs-common -y
+	apt install python3-pip
+	pip3 install botocore
+	#REF: https://docs.aws.amazon.com/efs/latest/ug/installing-amazon-efs-utils.html#installing-other-distro
+	apt install binutils -y
+	git clone https://github.com/aws/efs-utils
+	cd efs-utils
+	./build-deb.sh
+	yes| apt install ./build/amazon-efs-utils*deb
+	# START TO MOUNT
 	mkdir /myefs
 	mkdir /myefs/log
-	sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport YOUR_IP_OF_EFS:/ /YOUR_PATH_TO_LOCAL
-	sudo chmod go+rw /myefs
-	ls -lah /myefs
+	mount -t efs -o tls YOUR_EFS_ID:/ /myefs
+	mount |grep myefs
+	df -h |grep myefs
+	chmod go+rw /myefs
 	touch /myefs/README.txt
+	wget http://speedtest-nyc1.digitalocean.com/100mb.test -O /myefs/100mb.test
 
 #REF: https://hub.docker.com/_/postgres
 pg: root
-	apt install pgcli
+	yes| apt install pgcli
 	docker run --restart always \
 		--name pg \
 		-p 54320:5432 \
@@ -55,7 +71,7 @@ pg: root
 
 #REF: https://hub.docker.com/_/redis
 redis: root
-	apt install redis-tools
+	yes| apt install redis-tools
 	docker run --restart always \
 		--name rd \
 		-p 63790:6379 \

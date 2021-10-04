@@ -24,7 +24,7 @@
     set paste
     set showcmd
     set backspace=2
-    set autoindent
+    " set autoindent  "Conflict with set paste
     set tabstop=4
     set shiftwidth=4
     set expandtab
@@ -53,7 +53,7 @@
     "set termguicolors   " -> !! NOT WORKING in Tmux through SSH
 
     syntax on  "Required for any colorscheme
-    colorscheme default
+    colorscheme pablo
     set background=dark
     set fillchars+=vert:\!  "Bar character for VERTical Split Pane
     set term=screen-256color

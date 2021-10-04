@@ -119,3 +119,10 @@ nginx: root
 	service nginx start ||true
 	service nginx restart
 	service nginx status
+
+
+minio: root
+	mkdir -p /myefs/minio/bin/
+	wget https://dl.min.io/server/minio/release/linux-amd64/minio -O /myefs/minio/bin/minio
+	chmod +x /myefs/minio/bin/minio
+	MINIO_ROOT_USER=admin MINIO_ROOT_PASSWORD=password /myefs/minio/bin/minio server /myefs/minio --console-address ":19001"

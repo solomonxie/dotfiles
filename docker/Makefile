@@ -69,7 +69,6 @@ ctop:
 #                                          |_|   |_|          #
 #                                                             #
 ###############################################################
-
 apps_mac:
 
 apps_raspbian: webav_raspbian
@@ -91,6 +90,10 @@ checkhealth_docker:
 checkhealth_raspbian: checkhealth_docker
 checkhealth_ubuntu:
 
+
+#######################################################################
+#                    CREDENTIALS ARE FOR POC ONLY                     #
+#######################################################################
 
 shadowsocks: ss
 ss: checkhealth_docker

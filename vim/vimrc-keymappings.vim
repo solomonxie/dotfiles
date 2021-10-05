@@ -39,7 +39,8 @@ nnoremap N Nzzzv
 " nnoremap Mp [m
 " nnoremap Mn ]m
 
-nnoremap gx :silent execute "!open <c-r><c-a>"<CR>
+" nnoremap gx :silent execute "!open <c-r><c-a>"<CR>
+nnoremap gx :call OpenLink("<C-r><C-a>")<CR>
 vnoremap g* "1y:%s/<C-r>1//n<CR>
 " Refer: https://vim.fandom.com/wiki/Count_number_of_matches_of_a_pattern
 nnoremap g* #<C-O>:%s///gn<CR>

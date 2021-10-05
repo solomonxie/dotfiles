@@ -23,6 +23,7 @@ nnoremap <Leader>r :ALERename<CR>
 
 let g:ale_completion_enabled = 0  "Disable completion
 let g:airline#extensions#ale#enabled = 1  "Enable error message in AirLine
+let g:ale_virtualtext_cursor = 1
 
 let g:ale_sign_error = 'E'
 let g:ale_sign_warning = 'W'
@@ -40,6 +41,17 @@ let g:ale_open_list = 0  "Disable auto-open quickfix when error occurs
 let g:ale_keep_list_window_open = 0  "Auto-close quickfix when no error
 let g:ale_list_window_size = 5
 let g:ale_set_loclist = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            CUSTOMIZE HIGHLIGHTS                            "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"REF: https://jonasjacek.github.io/colors/
+hi! ALEVirtualTextError ctermfg=200
+hi! ALEVirtualTextWarning ctermfg=250
+hi! ALEVirtualTextInfo ctermfg=226
+hi! ALEVirtualTextStyleError ctermfg=200
+hi! ALEVirtualTextInfo ctermfg=226
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       LANGUAGE SERVER PROTOCOL (LSP)                       "

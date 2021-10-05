@@ -195,20 +195,20 @@ export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 
 # =======AUTO INJECT envfile=======
 # REF: https://thoughtbot.com/blog/run-a-command-every-time-you-change-directories-in-zsh
-inject_envfile() {
+_inject_envfile() {
     fpath=$1
     [[ -e "$fpath" ]] && export $(grep -v '^#' $fpath | xargs) > /dev/null
 }
 chpwd() {
     #!!! OVERRIDE ZSH BUILT-IN FUNCTION, WILL BE EXECUTED AT EVERY DIR CHANGE===>
-    inject_envfile envfile
-    inject_envfile envfile-local
+    _inject_envfile envfile
+    _inject_envfile envfile-local
 }
-execute_at_initial_dir() {
-    inject_envfile envfile
-    inject_envfile envfile-local
+_execute_at_initial_dir() {
+    _inject_envfile envfile
+    _inject_envfile envfile-local
 }
-execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
+_execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
 
 
 #Java

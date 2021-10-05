@@ -1,3 +1,7 @@
+#!make
+include envfile
+include envfile-local
+
 ubuntu_xrdp:
 	sudo apt install -y xrdp xubuntu-desktop
 	sudo apt install -y xfce4 xubuntu-desktop

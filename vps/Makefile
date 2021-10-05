@@ -1,6 +1,8 @@
 #######################################################################
 #                    CREDENTIALS ARE FOR POC ONLY                     #
 #######################################################################
+include envfile
+include envfile-local
 
 root:
 	sudo su root
@@ -48,14 +50,16 @@ efs: root
 	./build-deb.sh
 	yes| apt install ./build/amazon-efs-utils*deb
 	# START TO MOUNT
-	mkdir /myefs
-	mkdir /myefs/log
+	mkdir /myefs ||true
 	echo 'fs-YOUR_EFS_ID.efs.us-east-1.amazonaws.com:/ /myefs efs defaults,_netdev 0 0' >> /etc/fstab
 	mount -a
 	# mount -t efs -o tls fs-YOUR_EFS_ID:/ /myefs
 	mount |grep myefs
 	df -h |grep myefs
 	chmod go+rw /myefs
+	mkdir -p /myefs/log
+	mkdir -p /myefs/db
+	mkdir -p /myefs/bin
 	touch /myefs/README.txt
 	wget http://speedtest-nyc1.digitalocean.com/100mb.test -O /myefs/100mb.test
 

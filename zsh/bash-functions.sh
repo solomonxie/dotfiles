@@ -10,6 +10,10 @@
 
 kgrep() {
     keywords=$1
+    if [[ -z "$keywords" ]];then
+        echo "ERROR: MISSING PROCESS NAME..."
+        return 128
+    fi
     pids="$(ps aux |grep $keywords |grep -v grep |awk '{print $2}' |xargs)"
     echo "[$keywords]: $pids"
     [[ $pids == "" ]] && return 0
@@ -17,6 +21,7 @@ kgrep() {
     read answer
     [[ $answer == "y" ]] && echo $pids |xargs kill -9
 }
+alias pskill=kgrep
 
 port2proc() {
     port=$1

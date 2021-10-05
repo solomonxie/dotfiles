@@ -194,6 +194,7 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 
 # =======AUTO INJECT envfile=======
+# REF: https://thoughtbot.com/blog/run-a-command-every-time-you-change-directories-in-zsh
 inject_envfile() {
     fpath=$1
     [[ -e "$fpath" ]] && export $(grep -v '^#' $fpath | xargs) > /dev/null

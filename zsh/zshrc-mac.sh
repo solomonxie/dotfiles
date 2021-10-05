@@ -184,17 +184,30 @@ export PATH="$HOME/virtualenv/venv/bin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="$HOME/virtualnode/venv10/bin/:$PATH"
 export PATH="$HOME/.nvm/versions/node/v10.17.0/bin:$PATH"
-# =====MISC========
+# =====OTHER-PATH========
 export PATH="$HOME/workspace/bin:$PATH"
 
+# =====MISC===============
+export HOMEBREW_NO_AUTO_UPDATE=1
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 
-#######################################################################
-#                              HOMEBREW                               #
-#######################################################################
-export HOMEBREW_NO_AUTO_UPDATE=1
+# =======AUTO INJECT envfile=======
+inject_envfile() {
+    fpath=$1
+    [[ -e "$fpath" ]] && export $(grep -v '^#' $fpath | xargs) > /dev/null
+}
+chpwd() {
+    #!!! OVERRIDE ZSH BUILT-IN FUNCTION, WILL BE EXECUTED AT EVERY DIR CHANGE===>
+    inject_envfile envfile
+    inject_envfile envfile-local
+}
+execute_at_initial_dir() {
+    inject_envfile envfile
+    inject_envfile envfile-local
+}
+execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
 
 
 #Java

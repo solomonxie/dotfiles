@@ -99,10 +99,11 @@ setopt incappendhistory
 # printf "\033]0;%s\a" "TITLE"  #THIS JEPERDIZE SOME PROGRAMS (etc., ANSIBLE)
 
 
-#zstyle ':completion:*' menu select # select completions with arrow keys
-#zstyle ':completion:*' group-name '' # group results by category
-# enable approximate matches for completion
-#zstyle ':completion:::::' completer _expand _complete _ignored _approximate
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # builtin completion [case insensitive]
+# zstyle ':completion:*' menu select # select completions with arrow keys
+# zstyle ':completion:*' group-name '' # group results by category
+# # enable approximate matches for completion
+# zstyle ':completion:::::' completer _expand _complete _ignored _approximate
 # [ Conflict options ]
     #setopt auto_list # automatically list choices on ambiguous completion
     #setopt auto_menu # automatically use menu completion
@@ -197,7 +198,10 @@ export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 # REF: https://thoughtbot.com/blog/run-a-command-every-time-you-change-directories-in-zsh
 _inject_envfile() {
     fpath=$1
-    [[ -e "$fpath" ]] && export $(grep -v '^#' $fpath | xargs) > /dev/null
+    if [[ -e "$fpath" ]];then
+        export $(grep -v '^#' $fpath | xargs) > /dev/null
+        echo "injected env: ${fpath}"
+    fi
 }
 chpwd() {
     #!!! OVERRIDE ZSH BUILT-IN FUNCTION, WILL BE EXECUTED AT EVERY DIR CHANGE===>
@@ -209,6 +213,8 @@ _execute_at_initial_dir() {
     _inject_envfile envfile-local
 }
 _execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
+#!!! OVERRIDE ZSH BUILT-IN COMMAND, WILL BE EXECUTED AT EVERY DIR CHANGE===>
+# cd () { builtin cd "$@" && chpwd; }
 
 
 #Java

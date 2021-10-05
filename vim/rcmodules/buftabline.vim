@@ -6,6 +6,7 @@ let g:buftabline_numbers = 2
 let g:buftabline_indicators = v:true
 let g:buftabline_separators = v:false
 "let g:buftabline_plug_max = 10
+let g:buftabline_indicators = v:true
 
 " REF: CTERM COLOR PICKER ==> https://jonasjacek.github.io/colors/
 "highlight XXX cterm=NONE ctermbg=15 ctermfg=8 gui=NONE guibg=#ffffff guifg=#d70000

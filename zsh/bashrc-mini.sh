@@ -121,16 +121,16 @@ alias gitrc="vim ~/.gitconfig"
 
 kgrep() {
     keywords=$1
-    if [[ -z "$keywords" ]];then
+    if [ -z "$keywords" ];then
         echo "ERROR: MISSING PROCESS NAME..."
         return 128
     fi
     pids="$(ps aux |grep $keywords |grep -v grep |awk '{print $2}' |xargs)"
     echo "[$keywords]: $pids"
-    [[ $pids == "" ]] && return 0
+    [ $pids == "" ] && return 0
     echo "Kill above processes? (y/n) "
     read answer
-    [[ $answer == "y" ]] && echo $pids |xargs kill -9
+    [ $answer == "y" ] && echo $pids |xargs kill -9
 }
 alias pskill=kgrep
 
@@ -144,7 +144,10 @@ port2proc() {
 # REF: https://thoughtbot.com/blog/run-a-command-every-time-you-change-directories-in-zsh
 _inject_envfile() {
     fpath=$1
-    [[ -e "$fpath" ]] && export $(grep -v '^#' $fpath | xargs) > /dev/null
+    if [ -e "$fpath" ];then
+        export $(grep -v '^#' $fpath | xargs) > /dev/null
+        echo "injected env: ${fpath}"
+    fi
 }
 chpwd() {
     #!!! OVERRIDE ZSH BUILT-IN FUNCTION, WILL BE EXECUTED AT EVERY DIR CHANGE===>
@@ -156,3 +159,5 @@ _execute_at_initial_dir() {
     _inject_envfile envfile-local
 }
 _execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
+#!!! OVERRIDE ZSH BUILT-IN COMMAND, WILL BE EXECUTED AT EVERY DIR CHANGE===>
+cd () { builtin cd "$@" && chpwd; }

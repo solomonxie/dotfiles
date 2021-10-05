@@ -12,8 +12,12 @@ let g:buftabline_separators = v:false
 
 " ==> airline-theme: 'wombat'
 " REF: https://gist.github.com/iboard/5853434
+" REF: https://jonasjacek.github.io/colors/
 highlight BufTabLineCurrent ctermbg=192 ctermfg=0
 highlight BufTabLineHidden ctermbg=235 ctermfg=191
+highlight BufTabLineModifiedCurrent ctermbg=220 ctermfg=0
+highlight BufTabLineModifiedActive ctermbg=214 ctermfg=0
+highlight BufTabLineModifiedHidden ctermbg=222 ctermfg=0
 
 " DEFAULT
 "hi default link BufTabLineCurrent TabLineSel

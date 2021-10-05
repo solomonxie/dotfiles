@@ -8,6 +8,22 @@
 #                                                    #
 ######################################################
 
+inject_envfile() {
+    fpath=$1
+    [[ -e "$fpath" ]] && export $(grep -v '^#' $fpath | xargs) > /dev/null
+}
+
+#!!! OVERRIDE ZSH BUILT-IN FUNCTION, WILL BE EXECUTED AT EVERY DIR CHANGE===>
+chpwd() {
+    inject_envfile envfile
+    inject_envfile envfile-local
+}
+execute_at_initial_dir() {
+    inject_envfile envfile
+    inject_envfile envfile-local
+}
+execute_at_initial_dir
+
 kgrep() {
     keywords=$1
     pids="$(ps aux |grep $keywords |grep -v grep |awk '{print $2}' |xargs)"

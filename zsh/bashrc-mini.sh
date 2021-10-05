@@ -70,25 +70,11 @@ alias vi="vi --noplugin"
 #######################################################################
 #                           CONFIG PROJECTS                           #
 #######################################################################
-alias zshrc="vim -S ~/myconf/dotfiles/vim/sessions/zsh.vim"
-# alias zshrc0="vim ~/.zshrc"
-# alias zshrc2="vim ~/myconf/dotfiles/zsh/alias-mac.sh"
-# alias zshrc3="vim ~/myconf/dotfiles/zsh/themes.sh"
-# alias vimrc="vim ~/myconf/dotfiles/vim/vimrc.vim"
-alias vimrc="vim -S ~/myconf/dotfiles/vim/sessions/vimrc_session.vim"
-#alias vimrc2="vim ~/myconf/dotfiles/vim/vimrc-plugins"
-#alias vimrc3="vim ~/myconf/dotfiles/vim/vimrc-keymappings"
-#alias vimrc4="vim ~/myconf/dotfiles/vim/vimrc-ui"
-#alias nvimrc="vim ~/myconf/dotfiles/vim/init.vim"
-# alias nvimrc="vim -S ~/myconf/dotfiles/vim/sessions/vimrc.vim"
-alias tmuxrc="vim ~/myconf/dotfiles/tmux/tmux.conf"
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+alias tmuxrc="vim ~/.tmux.conf"
 alias bashrc="vim ~/.bashrc"
-alias rangerrc="vim ~/.config/ranger/rc.conf"
-#alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias muttrc="vim -S ~/myconf/dotfiles/vim/sessions/muttrc.vim"
-alias tigrc="vim ~/.tigrc"
 # alias vimchanges="vim $(git status --porcelain | awk '{print $2}')"
-alias snippets="vim -S ~/myconf/dotfiles/vim/sessions/snippets.vim "
 
 
 #######################################################################
@@ -126,6 +112,47 @@ alias gcp="git add .; git quickcommit; git pub"
 alias gcl="git clone"
 alias diff=vimdiff
 
-alias gitrc0="vim ~/.gitconfig"
-alias gitrc="vim ~/myconf/dotfiles/etc/git/gitconfig.ini"
-alias gitrc_="vim ./.git/config"
+alias gitrc="vim ~/.gitconfig"
+
+
+#######################################################################
+#                              FUNCTIONS                              #
+#######################################################################
+
+kgrep() {
+    keywords=$1
+    if [[ -z "$keywords" ]];then
+        echo "ERROR: MISSING PROCESS NAME..."
+        return 128
+    fi
+    pids="$(ps aux |grep $keywords |grep -v grep |awk '{print $2}' |xargs)"
+    echo "[$keywords]: $pids"
+    [[ $pids == "" ]] && return 0
+    echo "Kill above processes? (y/n) "
+    read answer
+    [[ $answer == "y" ]] && echo $pids |xargs kill -9
+}
+alias pskill=kgrep
+
+port2proc() {
+    port=$1
+    lsof -i :$port |awk '{print $2}' |tail -n +2
+}
+
+
+# =======AUTO INJECT envfile=======
+# REF: https://thoughtbot.com/blog/run-a-command-every-time-you-change-directories-in-zsh
+_inject_envfile() {
+    fpath=$1
+    [[ -e "$fpath" ]] && export $(grep -v '^#' $fpath | xargs) > /dev/null
+}
+chpwd() {
+    #!!! OVERRIDE ZSH BUILT-IN FUNCTION, WILL BE EXECUTED AT EVERY DIR CHANGE===>
+    _inject_envfile envfile
+    _inject_envfile envfile-local
+}
+_execute_at_initial_dir() {
+    _inject_envfile envfile
+    _inject_envfile envfile-local
+}
+_execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL

@@ -167,3 +167,11 @@ function! TermToggle(height)
         let g:term_win = win_getid()
     endif
 endfunction
+
+
+function! OpenLink(...)
+    let link = a:1
+    let url = substitute(link, '\#', '\\#', 's')
+    let cmd = "open " . url
+    echo system(cmd)
+endfunction

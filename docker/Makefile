@@ -6,6 +6,9 @@
 #            |____/ \___/ \___|_|\_\___|_|              #
 #                                                       #
 #########################################################
+include envfile
+include envfile-local
+
 #
 # docker-run ==> docker-compose:
 # 	https://composerize.com/

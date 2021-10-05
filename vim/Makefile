@@ -1,6 +1,8 @@
 #######################################################################
 #                         VIM - make install                          #
 #######################################################################
+include envfile
+include envfile-local
 
 DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`

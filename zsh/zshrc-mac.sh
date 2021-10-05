@@ -184,6 +184,8 @@ export PATH="$HOME/virtualenv/venv/bin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="$HOME/virtualnode/venv10/bin/:$PATH"
 export PATH="$HOME/.nvm/versions/node/v10.17.0/bin:$PATH"
+# =====MISC========
+export PATH="$HOME/workspace/bin:$PATH"
 
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"

@@ -1,6 +1,9 @@
 #######################################################################
 #                         ZSH - make install                          #
 #######################################################################
+include envfile
+include envfile-local
+
 
 DOTFILES ?= ~/myconf/dotfiles
 MYOS ?= `cat /tmp/env-os`

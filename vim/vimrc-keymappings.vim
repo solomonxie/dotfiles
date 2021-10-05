@@ -163,16 +163,16 @@ nnoremap tn :FilenameCopy<CR>
 
 augroup FileCompile
     autocmd!
-    autocmd BufReadPre *.py noremap <buffer> B :w<CR>:!python "%:p" <CR>
-    autocmd BufReadPre *.c noremap <buffer> B :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
-    autocmd BufReadPre *.cpp,*.cc noremap <buffer> B :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
-    autocmd BufReadPre *.js noremap <buffer> B :w<CR>:call DebugCurrentFile()<CR>
+    autocmd BufReadPre *.py noremap <buffer> <leader>B :w<CR>:!python "%:p" <CR>
+    autocmd BufReadPre *.c noremap <buffer> <leader>B :w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out <CR>
+    autocmd BufReadPre *.cpp,*.cc noremap <buffer> <leader>B :w<CR>:!g++ % -o /tmp/a.out && /tmp/a.out <CR>
+    autocmd BufReadPre *.js noremap <buffer> <leader>B :w<CR>:call DebugCurrentFile()<CR>
     " autocmd BufReadPre *.js nnoremap <buffer> [[ []
     " autocmd BufReadPre *.js nnoremap <buffer> ]] ][
-    autocmd BufReadPre *.sh noremap <buffer> B :w<CR>:!bash % <CR>
-    autocmd BufReadPre Makefile noremap <buffer> B :w<CR>:!make <CR>
-    autocmd BufReadPre .vim,.vimrc,vimrc* noremap <buffer> B :w<CR>:source ~/.vim/init.vim <CR>
-    autocmd BufReadPre .zshrc,zshrc* noremap <buffer> B :w<CR>:!source % <CR>
+    autocmd BufReadPre *.sh noremap <buffer> <leader>B :w<CR>:!bash % <CR>
+    autocmd BufReadPre Makefile noremap <buffer> <leader>B :w<CR>:!make <CR>
+    autocmd BufReadPre .vim,.vimrc,vimrc* noremap <buffer> <leader>B :w<CR>:source ~/.vim/init.vim <CR>
+    autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <leader>B :w<CR>:!source % <CR>
 augroup end
 
 if &diff

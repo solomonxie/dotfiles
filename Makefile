@@ -9,6 +9,8 @@
 #           $ cd myconf/dotfiles && make build && make install              #
 ######################################################################
 .PHONY: config build install
+include envfile
+include envfile-local
 
 # REF: https://pawamoy.github.io/posts/pass-makefile-args-as-typed-in-command-line/
 

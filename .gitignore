@@ -17,3 +17,5 @@ tmux/resurrect/*.txt
 tmux/resurrect/last
 zsh/plugins/*
 !zsh/plugins/README.md
+envfile-local
+Makefile-local

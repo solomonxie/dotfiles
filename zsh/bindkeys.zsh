@@ -19,12 +19,17 @@ bindkey "^k" backward-kill-line
 # zle -N my_script_widget
 # bindkey '^R' my_script_widget
 
-my-backward-delete-word() {
-    local WORDCHARS=${WORDCHARS/\//}
-    zle backward-delete-word
-}
-zle -N my-backward-delete-word
-bindkey '^W' my-backward-delete-word
+# =========BACKWARD DELETE WORD============
+# my-backward-delete-word() {
+#     #REF: https://unix.stackexchange.com/questions/48577/modifying-the-zsh-shell-word-split
+#     local WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'  # without /
+#     zle backward-delete-word
+# }
+# zle -N my-backward-delete-word
+# bindkey '^W' my-backward-delete-word
+# REF: https://unix.stackexchange.com/questions/258656/how-can-i-have-two-keystrokes-to-delete-to-either-a-slash-or-a-word-in-zsh/258661#258661?newreg=88e4a4681c1c41e382f07df47688f34f
+autoload -U select-word-style
+select-word-style bash
 
 
 # REF: https://newbedev.com/list-of-zsh-bindkey-commands

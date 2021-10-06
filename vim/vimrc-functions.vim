@@ -171,7 +171,42 @@ endfunction
 
 function! OpenLink(...)
     let link = a:1
-    let url = substitute(link, '\#', '\\#', 's')
+    let url = substitute(link, '\#', '\\#', 'g')
     let cmd = "open " . url
     echo system(cmd)
+endfunction
+
+
+function! EscapeString(...)
+    let text = a:1
+    let text = substitute(text, '\#', '\\#', 'g')
+    let text = substitute(text, '\\', '\\\\', 'g')
+    let text = substitute(text, '\/', '\\/', 'g')
+    let text = substitute(text, '\~', '\\~', 'g')
+    " let text = substitute(text, '\@', '\\@', 'g')
+    return text
+endfunction
+
+function! GetVisualSelection()
+    "REF: https://stackoverflow.com/questions/1533565/how-to-get-visually-selected-text-in-vimscript
+    " Why is this not a built-in Vim script function?!
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+endfunction
+
+function! ReplaceSelection()
+    "abc/def/hah
+    "~/myconf/dotfiles/vim/rcmodules/anyjump.vim
+    let src = GetVisualSelection()
+    let src2 = EscapeString(src)
+    let dest = input("Enter alternative: ")
+    let dest2 = EscapeString(dest)
+    execute "%s/" . src2 . "/" . dest2 . "/gc"
 endfunction

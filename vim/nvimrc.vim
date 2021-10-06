@@ -55,6 +55,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/telescope.vim
         " source ~/myconf/dotfiles/vim/rcmodules/which_key.vim
     "{Completion | Usages | Definitions}
+        " source ~/myconf/dotfiles/vim/rcmodules/replace.vim
         source ~/myconf/dotfiles/vim/rcmodules/fzf.vim
         source ~/myconf/dotfiles/vim/rcmodules/ale.vim
         source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim

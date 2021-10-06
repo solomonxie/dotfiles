@@ -179,10 +179,10 @@ endfunction
 
 function! EscapeString(...)
     let text = a:1
-    let text = substitute(text, '\#', '\\#', 'g')
     let text = substitute(text, '\\', '\\\\', 'g')
     let text = substitute(text, '\/', '\\/', 'g')
     let text = substitute(text, '\~', '\\~', 'g')
+    " let text = substitute(text, '\#', '\\#', 'g')
     " let text = substitute(text, '\@', '\\@', 'g')
     return text
 endfunction
@@ -202,11 +202,10 @@ function! GetVisualSelection()
 endfunction
 
 function! ReplaceSelection()
-    "abc/def/hah
-    "~/myconf/dotfiles/vim/rcmodules/anyjump.vim
+    "/path/to/abc/def/hah
     let src = GetVisualSelection()
     let src2 = EscapeString(src)
-    let dest = input("Enter alternative: ")
+    let dest = input("ENTER ALTERNATIVE BELOW:\n", src)
     let dest2 = EscapeString(dest)
     execute "%s/" . src2 . "/" . dest2 . "/gc"
 endfunction

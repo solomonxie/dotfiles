@@ -1,6 +1,31 @@
+#! zsh
 # Important key bindings
 bindkey -e  # Emacs style bindings!!
 bindkey '^R' history-incremental-search-backward
+
+bindkey '^p' up-line-or-search # Up arrow
+bindkey '^n' down-line-or-search # Down arrow
+# [autosuggestions] (history conflict with zsh hints, not recommanded)
+# bindkey '^e' autosuggest-accept # [Essential] Ctrl+e to confirm hint
+bindkey "^[[1;5D" backward-word  # ctrl-left
+bindkey "^[[1;5C" forward-word  # ctrl-right
+bindkey "^A" vi-beginning-of-line
+bindkey "^e" vi-end-of-line
+bindkey "^k" backward-kill-line
+# Conflict with fzf ---> (Allow ctrl-a ctrl-e to jump to the head/tail of the line)
+# bindkey -e
+
+# my_script_widget() {history 1000 |fzf}
+# zle -N my_script_widget
+# bindkey '^R' my_script_widget
+
+my-backward-delete-word() {
+    local WORDCHARS=${WORDCHARS/\//}
+    zle backward-delete-word
+}
+zle -N my-backward-delete-word
+bindkey '^W' my-backward-delete-word
+
 
 # REF: https://newbedev.com/list-of-zsh-bindkey-commands
 # LIST OF ALL "zle" commands to be binded

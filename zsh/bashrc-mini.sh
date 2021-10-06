@@ -1,3 +1,4 @@
+#! bash
 export EDITOR=vim
 
 #######################################################################
@@ -19,6 +20,8 @@ export LC_MEASUREMENT=en_US.UTF-8
 export LC_IDENTIFICATION=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -28,9 +31,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/virtualenv/venv2/bin:$PATH"
 export PATH="$HOME/virtualenv/venv/bin:$PATH"
-
-export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 
 #######################################################################
 #                            FOR BUILT-IN                             #
@@ -161,3 +161,8 @@ _execute_at_initial_dir() {
 _execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
 #!!! OVERRIDE ZSH BUILT-IN COMMAND, WILL BE EXECUTED AT EVERY DIR CHANGE===>
 cd () { builtin cd "$@" && chpwd; }
+
+
+# ========DELETE WORD BACKWARDS BY CTRL-W============
+stty werase undef
+bind '\C-w:unix-filename-rubout'

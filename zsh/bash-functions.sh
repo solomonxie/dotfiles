@@ -9,6 +9,7 @@
 ######################################################
 
 kgrep() {
+    local keywords pids
     keywords=$1
     if [[ -z "$keywords" ]];then
         echo "ERROR: MISSING PROCESS NAME..."
@@ -24,6 +25,7 @@ kgrep() {
 alias pskill=kgrep
 
 port2proc() {
+    local port
     port=$1
     lsof -i :$port |awk '{print $2}' |tail -n +2
 }
@@ -36,6 +38,7 @@ sslo() {
 
 
 extension() {
+    local INPUT EXTENSION
     # https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
     INPUT=$1
     EXTENSION="${INPUT##*.}"
@@ -46,6 +49,7 @@ extension() {
 splitvideo() {
     # Split video (without conversion)
     #    $ ffmpeg -i INPUTT -ss mm:ss -to mm:ss -vcodec copy -acodec copy OUTPUT
+    local INPUT START END FILENAME FILEPATH EXTENSION
     INPUT=$1
     START=$2
     END=$3
@@ -57,6 +61,7 @@ splitvideo() {
 
 
 downloadplaylist() {
+    local URL OUTPUT
     URL=$1
     OUTPUT=${2:-output.mp4}
     ffmpeg -i $URL -c copy $OUTPUT
@@ -64,6 +69,7 @@ downloadplaylist() {
 
 
 tomp3() {
+    local INPUT
     # $ ffmpeg -i INPUT.mp4 OUTPUT.mp3
     INPUT=$1
     ffmpeg -i $INPUT "${INPUT%.*}.mp3"
@@ -71,6 +77,7 @@ tomp3() {
 
 
 tomp4() {
+    local INPUT THREADS now target
     INPUT=$1
     # TARGET=$2
     THREADS=${2:-"2"}
@@ -89,6 +96,7 @@ tomp4() {
 
 
 mergemp4() {
+    local params input INPUT1 INPUT2
     params=""
     INPUT1="$1"
     INPUT2="$2"
@@ -105,6 +113,7 @@ mergemp4() {
 
 
 mergemp4audio() {
+    local INPUT
     INPUT1="$1"
     for ext in "m4a" "webm" "mp3";do
         INPUT2="${2:-${INPUT1%.*}.${ext}}"
@@ -120,6 +129,7 @@ mergemp4audio() {
 
 
 mergesubtitle() {
+    local INPUT SUB DELAY OFFSET
     INPUT=$1
     SUB=$2
     DELAY=${3:-0}
@@ -130,6 +140,7 @@ mergesubtitle() {
 
 
 extractpdf() {
+    local INPUT PAGES
     # Example:
     INPUT=$1
     PAGES=$2
@@ -138,6 +149,7 @@ extractpdf() {
 
 
 decompress () {
+    local archive
     # Extracts any archive(s) (if unp isn't installed)
     for archive in $*; do
         if [ -f $archive ] ; then
@@ -163,6 +175,7 @@ decompress () {
 
 
 makevenv() {
+    local gitroot requirements_path venv_path py_exe
     # Make a virtualenv
     gitroot="$(git rev-parse --show-toplevel)"
     [[ ! -e "$gitroot" ]] && echo "Not in a git repo"
@@ -178,12 +191,14 @@ makevenv() {
 
 
 slug() {
+    local INPUT
     INPUT=$1
     echo $INPUT |sed "s/[()\!]//g" |sed "s/[. ]/-/g"
 }
 
 
 cheat() {
+    local KEYWORD
     KEYWORD=$1
     curl "https://cheat.sh/$KEYWORD"
 }

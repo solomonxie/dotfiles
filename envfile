@@ -1,0 +1,33 @@
+#! envfile
+
+# AWS EFS
+AWS_EFS_ID=fs-YOUR_EFS_ID
+AWS_EFS_MOUNT_DIR=~/myefs
+
+# MongoDB
+MONGO_PORT=18081
+MONGO_USER=sol
+MONGO_PASSWORD=abc123!@#
+MONGO_DATA_DIR=~/myefs/mongo
+
+# Redis
+REDIS_PORT=63790
+
+# Postgres
+PG_PORT=54320
+PG_USER=sol
+PG_PASSWORD=abc123!@#
+PG_DATA_DIR=~/myefs/pg
+PGDATA=/var/lib/postgresql/data/pgdata
+
+# MySQL
+MYSQL_PORT=23306
+MYSQL_USER=sol
+MYSQL_PASSWORD=abc123!@#
+MYSQL_DATA_DIR=~/myefs/mysql
+MYSQL_DEFAULT_DB=demo
+
+# Sqlite
+SQLITE_USER=sol
+SQLITE_PASSWORD=abc123!@#
+SQLITE_DATA_DIR=~/myefs/sqlite/

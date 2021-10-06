@@ -8,34 +8,25 @@
 #       $ git clone https://github.com/solomonxie/dotfiles           #
 #           $ cd myconf/dotfiles && make build && make install              #
 ######################################################################
-.PHONY: config build install
+.PHONY: build install
 include envfile
 include envfile-local
 
 # REF: https://pawamoy.github.io/posts/pass-makefile-args-as-typed-in-command-line/
-
-DOTFILES ?= ~/myconf/dotfiles
-MYOS ?= `cat /tmp/env-os`
-USER ?= `cat /tmp/env-user`
 DT ?= `date +%Y%m%d%s`
 
-
-# Stage-1: Configure
-config:
-	./configure
-
-# Step-2: Build
-build: config
+build:
 	echo "make ${MYOS}" | sh
 	echo "Build Done. Please proceed to: $ make install."
 
 # OS specific
-mac: config build_mac build_python build_vim build_zsh build_tmux
-	@echo "OK."
-ubuntu: config build_ubuntu build_python build_tmux
+mac: build_mac build_python build_vim build_zsh build_tmux
 	@echo "OK."
 
-raspbian: config build_raspbian build_python build_tmux
+ubuntu: build_ubuntu build_python build_tmux
+	@echo "OK."
+
+raspbian: build_raspbian build_python build_tmux
 	@echo "OK."
 
 
@@ -79,7 +70,7 @@ build_ubuntu_samba:
 	mkdir ~/sambashare/ ||true
 	sudo mv ~/myconf/dotfiles/etc/samba/smb_share_definition.conf /etc/samba/smb.conf
 	sudo service smbd restart
-	sudo smbpasswd -a ${USER}
+	sudo smbpasswd -a ${ME_USER}
 
 build_ubuntu_remote_desktop:
 	sudo apt-get install xrdp -y
@@ -129,7 +120,7 @@ build_raspbian:
 #    |____/ |_| |_|  |_|_____|___|_| \_|_|\_\____/        #
 #                                                         #
 ###########################################################
-install: config
+install:
 	echo "make install_${MYOS}" | sh
 	echo "OK."
 
@@ -183,10 +174,10 @@ install_mac:
 	@echo "OK."
 
 install_raspbian:
-	echo "1 * * * * git -C /home/${USER}/myconf/dotfiles/ pull origin master" |crontab ||true
+	echo "1 * * * * git -C /home/${ME_USER}/myconf/dotfiles/ pull origin master" |crontab ||true
 	@echo "OK."
 
-install_git: config
+install_git:
 	echo "[include]\n    path = ~/myconf/dotfiles/etc/git/gitconfig.ini" > ~/.gitconfig
 
 

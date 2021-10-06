@@ -1,5 +1,9 @@
 #! envfile
 
+MYOS=mac
+ME_USER=whoami
+DOTFILE_DIR=~/dotfiles
+
 # AWS EFS
 AWS_EFS_ID=fs-YOUR_EFS_ID
 AWS_EFS_MOUNT_DIR=~/myefs

@@ -98,7 +98,8 @@ tnoremap <Del> <ESC>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            LEADER KEY MAPPINGS                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vnoremap <leader>r "1y:1,10 s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
+" vnoremap <leader>r "1y:1,10 s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
+vnoremap <leader>r :call ReplaceSelection()<CR>
 nnoremap <Leader>v v$h
 nnoremap <Leader>0 v^
 

@@ -15,15 +15,21 @@ include envfile-local
 # REF: https://pawamoy.github.io/posts/pass-makefile-args-as-typed-in-command-line/
 DT ?= `date +%Y%m%d%s`
 
-build:
+test_env:
+	@[ ! -z "${MYOS}" ] || exit 128
+	@[ ! -z "${ME_USER}" ] || exit 128
+	@[ ! -z "${DOTFILE_DIR}" ] || exit 128
+	@echo "OK, ENV READY."
+
+build: test_env
 	echo "make ${MYOS}" | sh
 	echo "Build Done. Please proceed to: $ make install."
 
 # OS specific
-mac: build_mac build_python build_vim build_zsh build_tmux
+mac: test_env build_mac build_python build_vim build_zsh build_tmux
 	@echo "OK."
 
-ubuntu: build_ubuntu build_python build_tmux
+ubuntu: test_env build_ubuntu build_python build_tmux
 	@echo "OK."
 
 raspbian: build_raspbian build_python build_tmux
@@ -68,7 +74,7 @@ build_ubuntu_samba:
 	# Refer to: https://ubuntu.com/tutorials/install-and-configure-samba#1-overview
 	sudo apt install samba -y ||true
 	mkdir ~/sambashare/ ||true
-	sudo mv ~/myconf/dotfiles/etc/samba/smb_share_definition.conf /etc/samba/smb.conf
+	sudo mv ${DOTFILE_DIR}/etc/samba/smb_share_definition.conf /etc/samba/smb.conf
 	sudo service smbd restart
 	sudo smbpasswd -a ${ME_USER}
 
@@ -95,16 +101,16 @@ build_mac:
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update
 	brew bundle
-	brew bundle install --file ~/myconf/dotfiles/pacman/Brewfile
+	brew bundle install --file ${DOTFILE_DIR}/pacman/Brewfile
 
 build_ubuntu:
-	cat ~/myconf/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
+	cat ${DOTFILE_DIR}/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get autoremove -y
 	sudo apt-get autoclean -y
 
 build_raspbian:
-	cat ~/myconf/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
+	cat ${DOTFILE_DIR}/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 	# Remove unused apps
 	sudo apt-get remove --purge wolfram-engine -y
 	sudo apt-get remove --purge libreoffice* -y
@@ -120,7 +126,7 @@ build_raspbian:
 #    |____/ |_| |_|  |_|_____|___|_| \_|_|\_\____/        #
 #                                                         #
 ###########################################################
-install:
+install: test_env
 	echo "make install_${MYOS}" | sh
 	echo "OK."
 
@@ -147,30 +153,29 @@ install_mac:
 	ln -sf  ~/myconf/config/fiddler .fiddler
 	ln -sf  ~/myconf/config/fzf.bash .fzf.bash
 	ln -sf  ~/myconf/config/fzf.zsh .fzf.zsh
-	ln -sf  ~/myconf/dotfiles/etc/tigrc .tigrc
-	ln -sf  ~/myconf/dotfiles/tmux .tmux
-	ln -sf  ~/myconf/dotfiles/tmux/tmux.conf .tmux.conf
-	ln -sf  ~/myconf/dotfiles/vim .vim
-	ln -sf  ~/myconf/dotfiles/vim/vimrc-mini.vim .vimrc
-	ln -sf  ~/myconf/dotfiles/zsh .zsh
-	ln -sf  ~/myconf/dotfiles/zsh/zshrc-mac.sh .zshrc
+	ln -sf  ${DOTFILE_DIR}/etc/tigrc .tigrc
+	ln -sf  ${DOTFILE_DIR}/tmux .tmux
+	ln -sf  ${DOTFILE_DIR}/tmux/tmux.conf .tmux.conf
+	ln -sf  ${DOTFILE_DIR}/vim .vim
+	ln -sf  ${DOTFILE_DIR}/vim/vimrc-mini.vim .vimrc
+	ln -sf  ${DOTFILE_DIR}/zsh .zsh
+	ln -sf  ${DOTFILE_DIR}/zsh/zshrc-mac.sh .zshrc
 	ln -sf  ~/myconf/local .local
 	ln -sf  ~/myconf/ssh .ssh
 	ln -sf  ~/myconf/zsh_history .zsh_history
 	# VIM
-	ln -sf ~/myconf/dotfiles/vim/ ~/.vim/
-	ln -sf ~/myconf/dotfiles/vim/vimrc.vim ~/.vimrc
-	ln -sf ~/myconf/dotfiles/vim/ ~/.config/nvim/
-	ln -sf ~/myconf/dotfiles/vim/vimrc.vim ~/.nvim/init.vim
+	ln -sf ${DOTFILE_DIR}/vim/ ~/.vim/
+	ln -sf ${DOTFILE_DIR}/vim/vimrc.vim ~/.vimrc
+	ln -sf ${DOTFILE_DIR}/vim/ ~/.config/nvim/
+	ln -sf ${DOTFILE_DIR}/vim/vimrc.vim ~/.nvim/init.vim
 	# ZSH
-	ln -sf ~/myconf/dotfiles/zsh ~/.zsh
-	ln -sf ~/myconf/dotfiles/zsh/env-${MYOS}.sh ~/.zshrc
-	ln -sf ~/myconf/dotfiles/zsh/bashrc.sh ~/.bashrc
+	ln -sf ${DOTFILE_DIR}/zsh ~/.zsh
+	ln -sf ${DOTFILE_DIR}/zsh/env-${MYOS}.sh ~/.zshrc
+	ln -sf ${DOTFILE_DIR}/zsh/bashrc.sh ~/.bashrc
 	# TMUX
-	ln -s ~/myconf/dotfiles/tmux ~/.tmux
-	ln -sf ~/myconf/dotfiles/tmux/tmux.conf ~/.tmux.conf
+	ln -s ${DOTFILE_DIR}/tmux ~/.tmux
+	ln -sf ${DOTFILE_DIR}/tmux/tmux.conf ~/.tmux.conf
 	ln -sf ${HOME}/.tmux/resurrect/last-${MYOS}.txt ${HOME}/.tmux/resurrect/last || true
-
 	@echo "OK."
 
 install_raspbian:
@@ -178,12 +183,12 @@ install_raspbian:
 	@echo "OK."
 
 install_git:
-	echo "[include]\n    path = ~/myconf/dotfiles/etc/git/gitconfig.ini" > ~/.gitconfig
+	echo "[include]\n    path = ${DOTFILE_DIR}/etc/git/gitconfig.ini" > ~/.gitconfig
 
 
 # Stage-4: Backup
 save:
-	#mv ~/myconf/dotfiles/tmux/resurrect/tmux_resurrect_20190525T173225.txt ~/myconf/dotfiles/tmux/resurrect/last
+	#mv ${DOTFILE_DIR}/tmux/resurrect/tmux_resurrect_20190525T173225.txt ${DOTFILE_DIR}/tmux/resurrect/last
 	zip -r /tmp/mydotfiles.zip ~/
 	mv /tmp/mydotfiles.zip ~/
 

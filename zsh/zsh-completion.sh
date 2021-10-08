@@ -1,16 +1,22 @@
 #! zsh
-
-autoload -Uz compinit && compinit
-
 # IF NOT WORKING
 #   1. TRY TO REMOVE ALL CACHE: `$ rm ~/.zcompdump*`
 #   2. CHECK ENV: `$ echo $FPATH`
+
+autoload -Uz compinit && compinit
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # builtin completion [case insensitive]
 zstyle ':completion:*' menu select # select completions with arrow keys
 zstyle ':completion:*' group-name '' # group results by category
 
-# ENABLE APPROXIMATE MATCHES FOR COMPLETION
-# zstyle ':completion:::::' completer _expand _complete _ignored _approximate
+# APPROXIMATE MATCHE
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate
+
+# PARTIAL MATCH
+zstyle ':completion:*' matcher-list \
+    'm:{[:lower:]}={[:upper:]}' \
+    '+r:|[._-]=* r:|=*' \
+    '+l:|=*'
 
 # [ CONFLICT OPTIONS ]
     setopt auto_list # automatically list choices on ambiguous completion

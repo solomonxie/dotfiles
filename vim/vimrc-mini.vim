@@ -1,16 +1,11 @@
-" -------------[ MINIMUM VIMRC ]---------------
-"
-" MAINTAINER: Solomon Xie <solomonxiewise@gmail>
-" Enviroment: Raspbian
-
-
-" [  Import Modules  ]-----------{
-    "source ~/dotfiles/vim/vimrc-plugins.vim
-    "source ~/dotfiles/vim/vimrc-keymappings.vim
-    "source ~/dotfiles/vim/vimrc-ui.vim
-" }
-
-
+"----------------------------------------------------
+"            __     ___           ____   ____       -
+"            \ \   / (_)_ __ ___ |  _ \ / ___|      -
+"             \ \ / /| | '_ ` _ \| |_) | |          -
+"              \ V / | | | | | | |  _ <| |___       -
+"               \_/  |_|_| |_| |_|_| \_\\____|      -
+"                                                   -
+"----------------GENERATED-BY-FIGLET-----------------
 " [  General Builtin Settings  ]-----------{
     "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
     set nocompatible  " be iMproved, required
@@ -20,7 +15,7 @@
     set smartcase
     set hidden
     set number
-    set mouse=a
+    " set mouse=n
     set paste
     set showcmd
     set backspace=2
@@ -65,8 +60,9 @@
 
 
 " [  Swap files  ]--------{
-    set swapfile    "enable swap file
-    set directory=~/.vim/swap//    "set swp file directory.
+    " set swapfile    "enable swap file
+    set noswapfile  "Disable swap
+    set directory=/tmp/vim/swap//    "set swp file directory.
     " ▼ update also check cursor-holds and other functions, bit expensive one.
     set updatetime=60000   "save swap file every amount of ms
     set updatecount=200     "save swp file every amount of characters
@@ -78,7 +74,7 @@
 
 " [  Persistent undo  ]--------{
     set undofile "Maintain UNDO history between sessions
-    set undodir=~/.vim/undo//
+    set undodir=/tmp/vim/undo//
     if !isdirectory(&undodir)
        silent! call mkdir(&undodir, 'p')
     endif
@@ -142,4 +138,42 @@
     nnoremap  * #:set hlsearch<cr>
     nnoremap  # *:set hlsearch<cr>
     nnoremap  !! /<C-r>+<CR>
+" }
+
+
+" [ NETRW TREE ]----------------{
+
+    let g:netrw_banner=0
+    let g:netrw_hide=1
+    let g:netrw_browse_split=4  "How files are opened"
+    let g:netrw_liststyle=3  "Directory view in netrw"
+    let g:netrw_altv = 2
+    let g:netrw_winsize=30
+    let g:netrw_list_hide= '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,^\.\.\=/\=$'
+    let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
+
+    autocmd FileType netrw setl bufhidden=wipe
+    autocmd FileType netrw setl bufhidden=delete
+
+    let g:netrw_fastbrowse = 0
+    function! CloseNetrw() abort
+        for bufn in range(1, bufnr('$'))
+            if bufexists(bufn) && getbufvar(bufn, '&filetype') ==# 'netrw'
+                silent! execute 'bwipeout ' . bufn
+                if getline(2) =~# '^" Netrw '
+                    silent! bwipeout
+                endif
+                return
+            endif
+        endfor
+    endfunction
+
+    augroup closeOnOpen
+        autocmd!
+        autocmd BufWinEnter * if getbufvar(winbufnr(winnr()), "&filetype") != "netrw"|call CloseNetrw()|endif
+    aug END
+
+    nnoremap ff :silent execute "let @/=expand('%:t')<Bar>silent execute 'Lexplore' expand('%:h')<Bar>normal n"<CR>
+    nnoremap <Leader>f :Lexplore .<CR>
 " }

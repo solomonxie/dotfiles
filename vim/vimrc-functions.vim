@@ -203,9 +203,11 @@ endfunction
 
 function! ReplaceSelection()
     "/path/to/abc/def/hah
-    let src = GetVisualSelection()
-    let src2 = EscapeString(src)
-    let dest = input("ENTER ALTERNATIVE BELOW:\n", src)
-    let dest2 = EscapeString(dest)
-    execute "%s/" . src2 . "/" . dest2 . "/gc"
+    try
+        let src = GetVisualSelection()
+        let src2 = EscapeString(src)
+        let dest = input("ENTER ALTERNATIVE BELOW:\n", src)
+        let dest2 = EscapeString(dest)
+        execute "%s/" . src2 . "/" . dest2 . "/gc"
+    endtry
 endfunction

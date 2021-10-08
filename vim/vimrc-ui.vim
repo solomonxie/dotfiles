@@ -7,6 +7,23 @@
 "                                                                      -
 "----------------------------GENERATED-BY-FIGLET------------------------
 
+"REF: http://bytefluent.com/devify/
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           COLORS SCHEME / THEMES                           "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" colorscheme gruvbox ">> grubox is slow for old machine
+colorscheme badwolf
+"let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
+" -> Alternative
+    "colorscheme monokai ">> Super slow, has block color comment
+    "colorscheme monokai "Fast (sickill/vim-monokai)
+    "colorscheme shades_of_purple ">> Require the plugin
+"Colorscheme based on filetype --{
+    "autocmd FileType python colorscheme gruvbox
+    " autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
+" }
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         GENERAL UI / COLOR SCHEME                          "
@@ -25,9 +42,19 @@
     "[CAREFUL!!!] >> Ugly when working with other themes & syntax highlighting plugins
     " set termguicolors  "{True Color Support} Vim-specific sequences for RGB colors
     set notermguicolors  "Turn off -> when on, bg-color will affect the whole look
-
-    set cursorline  "Highlighting current line
     set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+
+    " REF: https://jonasjacek.github.io/colors/
+    " REF: https://vi.stackexchange.com/questions/23066/change-cursorline-style
+    set cursorline  "Highlighting current line
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=214  "Orange
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=161  "Deep Pink
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=8  "Gray
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=88  "Dark Red
+    highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=89  "Pink
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=90  "Dark Magenta
+
+    highlight! CursorLineNR cterm=NONE ctermfg=NONE ctermbg=89  "Pink
 
     autocmd WinEnter * set cursorline
     autocmd WinLeave * set nocursorline
@@ -66,22 +93,6 @@
     "highlight ColorColumn ctermbg=grey
     "> or
     "highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           COLORS SCHEME / THEMES                           "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" colorscheme gruvbox ">> grubox is slow for old machine
-colorscheme badwolf
-"let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
-" -> Alternative
-    "colorscheme monokai ">> Super slow, has block color comment
-    "colorscheme monokai "Fast (sickill/vim-monokai)
-    "colorscheme shades_of_purple ">> Require the plugin
-"Colorscheme based on filetype --{
-    "autocmd FileType python colorscheme gruvbox
-    " autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
-" }
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -8,11 +8,16 @@
 #       $ git clone https://github.com/solomonxie/dotfiles           #
 #           $ cd myconf/dotfiles && make build && make install              #
 ######################################################################
+
+# REF: https://skofgar.ch/dev/2020/08/how-to-quickly-replace-environment-variables-in-a-file/
+# REF: https://pawamoy.github.io/posts/pass-makefile-args-as-typed-in-command-line/
+
 .PHONY: build install
 include envfile
 include envfile-local
 
-# REF: https://pawamoy.github.io/posts/pass-makefile-args-as-typed-in-command-line/
+TARGET: build install
+
 DT ?= `date +%Y%m%d%s`
 
 test_env:

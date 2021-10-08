@@ -22,8 +22,8 @@ if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
     source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
-    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh
-    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh  # ==>SLOW
+    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh  #==>SLOWEST
     source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/autojump.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/broot.sh

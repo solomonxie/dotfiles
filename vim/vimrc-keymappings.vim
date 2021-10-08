@@ -32,8 +32,8 @@ vnoremap br "1y:bufdo %s/<C-r>1/<C-r>1/ge \| update
 nnoremap fw /<C-r>+<CR>
 
 " Centralize
-nnoremap n nzzzv
-nnoremap N Nzzzv
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
 " nnoremap J mzJ`z
 
 " nnoremap Mp [m

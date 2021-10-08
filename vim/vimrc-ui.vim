@@ -49,12 +49,14 @@ colorscheme badwolf
     set cursorline  "Highlighting current line
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=214  "Orange
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=161  "Deep Pink
-    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=8  "Gray
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=8  "Grey
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=88  "Dark Red
-    highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=89  "Pink
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=89  "Pink
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=90  "Dark Magenta
+    highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=237  "Grey
+    " highlight! CursorLine cterm=underline ctermfg=NONE ctermbg=236  "Dark Magenta
 
-    highlight! CursorLineNR cterm=NONE ctermfg=NONE ctermbg=89  "Pink
+    " highlight! CursorLineNR cterm=NONE ctermfg=NONE ctermbg=89  "Pink
 
     autocmd WinEnter * set cursorline
     autocmd WinLeave * set nocursorline

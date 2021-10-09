@@ -10,19 +10,22 @@ let g:lightline = {
   \ 'colorscheme': 'deus',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'readonly', 'gitbranch', 'modified', 'filetype', 'relativepath', 'spell' ] ],
+  \             [ 'readonly', 'gitbranch', 'modified', 'filetype', 'relativepath', 'spell' ],
+  \   ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
-  \              [ 'mycustom1', 'modified' ] ]
+  \              [ 'mycustom1', 'modified' ],
+  \   ]
   \ },
   \ 'component': {
-  \   'mycustom1': 'Solomon X.'
+  \   'mycustom1': 'Solomon X.',
   \ },
   \ 'component_function': {
   \   'gitbranch': 'FugitiveHead',
   \   'readonly': 'FuncLightlineReadonly',
+  \   'lineinfo': 'LightlineLineinfo',
   \ },
-  \ }
+\}
 
 " components: 'fileformat', 'fileencoding', 'filetype'
 
@@ -44,4 +47,22 @@ function! LightlineFilename()
         return path[len(root)+1:]
     endif
     return expand
+endfunction
+
+"REF: https://yeripratama.com/blog/customizing-vim-lightline/
+function! LightlineLineinfo() abort
+    if winwidth(0) < 86
+        return ''
+    endif
+
+    let l:cur_line = printf('%-2s', line('.'))
+    let l:max_line = printf('%-2s', line('$'))
+    let l:line_display = 'L:' . l:cur_line . '/' . l:max_line
+
+    let l:cur_col = printf('%-2s', col('.'))
+    let l:max_col = printf('%-2s', col('$'))
+    let l:col_display = 'C:' . l:cur_col . '/' . l:max_col
+
+    let l:lineinfo = l:col_display . ' ' . l:line_display
+    return l:lineinfo
 endfunction

@@ -50,7 +50,7 @@ function! LightlineFilename()
 endfunction
 
 "REF: https://yeripratama.com/blog/customizing-vim-lightline/
-function! LightlineLineinfo() abort
+function! LightlineLineinfo() abort  "abort: stop function as soon as error occurs
     if winwidth(0) < 86
         return ''
     endif

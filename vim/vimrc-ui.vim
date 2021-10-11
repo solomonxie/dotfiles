@@ -12,19 +12,48 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           COLORS SCHEME / THEMES                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"==========> GRUVBOX ============>>>>
 " colorscheme gruvbox ">> grubox is slow for old machine
+"let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
+
+"==========> BADWOLF ============>>>>
 " Plug 'solomonxie/badwolf'
 colorscheme badwolf
+let g:enable_badwolf_plugin = 0
+let g:enable_badwolf_filetype = 1
+let g:enable_badwolf_vim = 0
 let g:enable_badwolf_python = 0
-"let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
-" -> Alternative
+let g:enable_badwolf_ctrlp = 0
+let g:enable_badwolf_easymotion = 0
+let g:enable_badwolf_intersting_words = 0
+let g:enable_badwolf_makegreen = 0
+let g:enable_badwolf_rainbow_parentheses = 0
+let g:enable_badwolf_show_marks = 0
+let g:enable_badwolf_clojure = 0
+let g:enable_badwolf_common_lisp = 0
+let g:enable_badwolf_css = 0
+let g:enable_badwolf_diff = 0
+let g:enable_badwolf_django_templates = 0
+let g:enable_badwolf_html = 0
+let g:enable_badwolf_java = 0
+let g:enable_badwolf_latex = 0
+let g:enable_badwolf_less_css = 0
+let g:enable_badwolf_lispyscript = 0
+let g:enable_badwolf_repls = 0
+let g:enable_badwolf_mail = 0
+let g:enable_badwolf_markdown = 0
+let g:enable_badwolf_mysql = 0
+let g:enable_badwolf_slimv = 0
+
+" ==========> ALTERNATIVES ===========>
     "colorscheme monokai ">> Super slow, has block color comment
     "colorscheme monokai "Fast (sickill/vim-monokai)
     "colorscheme shades_of_purple ">> Require the plugin
-"Colorscheme based on filetype --{
+
+" ==========> Colorscheme based on filetype ===========>
     "autocmd FileType python colorscheme gruvbox
-    " autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
-" }
+    "autocmd FileType vim,tmux,sh,txt,dockerfile colorscheme badwolf
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -16,9 +16,9 @@ let g:buftabline_indicators = v:true
 " REF: https://jonasjacek.github.io/colors/
 highlight BufTabLineCurrent ctermbg=192 ctermfg=0
 highlight BufTabLineHidden ctermbg=235 ctermfg=191
-highlight BufTabLineModifiedCurrent ctermbg=220 ctermfg=0
-highlight BufTabLineModifiedActive ctermbg=214 ctermfg=0
-highlight BufTabLineModifiedHidden ctermbg=222 ctermfg=0
+highlight BufTabLineModifiedCurrent ctermfg=0 ctermbg=168
+highlight BufTabLineModifiedActive ctermfg=0 ctermbg=214
+highlight BufTabLineModifiedHidden ctermfg=0 ctermbg=222
 
 " DEFAULT
 "hi default link BufTabLineCurrent TabLineSel

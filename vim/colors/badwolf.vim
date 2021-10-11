@@ -28,6 +28,10 @@
 "
 " }}}
 
+" Customization -------------------------------------------------------------
+let g:enable_badwolf_python = get(g:, 'enable_badwolf_python', 1)
+
+
 " Supporting code -------------------------------------------------------------
 " Preamble {{{
 
@@ -41,7 +45,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let colors_name = "badwolf"
+let g:colors_name = "badwolf"
 
 if !exists("g:badwolf_html_link_underline") " {{{
     let g:badwolf_html_link_underline = 1
@@ -89,6 +93,12 @@ let s:bwc.taffy = ['ff2c4b', 196]
 let s:bwc.saltwatertaffy = ['8cffba', 121]
 
 " The star of the show comes straight from Made of Code.
+"
+" You should almost never use this.  It should be used for things that denote
+" 'where the user is', which basically consists of:
+"
+" * The cursor
+" * A REPL prompt
 let s:bwc.tardis = ['0a9dff', 39]
 
 " This one's from Mustang, not Florida!
@@ -443,14 +453,21 @@ call s:HL('clojureParen0', 'lightgravel', '', 'none')
 call s:HL('clojureAnonArg', 'snow', '', 'bold')
 
 " }}}
+" Common Lisp {{{
+
+call s:HL('lispFunc',           'lime', '', 'none')
+call s:HL('lispVar',            'orange', '', 'bold')
+call s:HL('lispEscapeSpecial',  'orange', '', 'none')
+
+" }}}
 " CSS {{{
 
 if g:badwolf_css_props_highlight
-    call s:HL('cssColorProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssBoxProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssTextProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssRenderProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssGeneratedContentProp', 'dirtyblonde', '', 'none')
+    call s:HL('cssColorProp', 'taffy', '', 'none')
+    call s:HL('cssBoxProp', 'taffy', '', 'none')
+    call s:HL('cssTextProp', 'taffy', '', 'none')
+    call s:HL('cssRenderProp', 'taffy', '', 'none')
+    call s:HL('cssGeneratedContentProp', 'taffy', '', 'none')
 else
     call s:HL('cssColorProp', 'fg', '', 'none')
     call s:HL('cssBoxProp', 'fg', '', 'none')
@@ -558,6 +575,13 @@ call s:HL('lispyscriptDefMacro', 'lime', '', '')
 call s:HL('lispyscriptRepeat', 'dress', '', 'none')
 
 " }}}
+" REPLs {{{
+" This isn't a specific plugin, but just useful highlight classes for anything
+" that might want to use them.
+
+call s:HL('replPrompt', 'tardis', '', 'bold')
+
+" }}}
 " Mail {{{
 
 call s:HL('mailSubject', 'orange', '', 'bold')
@@ -605,21 +629,23 @@ call s:HL('markdownCodeBlock', 'dirtyblonde', '', 'none')
 call s:HL('mysqlSpecial', 'dress', '', 'bold')
 
 " }}}
+
 " Python {{{
-
-hi def link pythonOperator Operator
-call s:HL('pythonBuiltin',     'dress')
-call s:HL('pythonBuiltinObj',  'dress')
-call s:HL('pythonBuiltinFunc', 'dress')
-call s:HL('pythonEscape',      'dress')
-call s:HL('pythonException',   'lime', '', 'bold')
-call s:HL('pythonExceptions',  'lime', '', 'none')
-call s:HL('pythonPrecondit',   'lime', '', 'none')
-call s:HL('pythonDecorator',   'taffy', '', 'none')
-call s:HL('pythonRun',         'gravel', '', 'bold')
-call s:HL('pythonCoding',      'gravel', '', 'bold')
-
+if g:enable_badwolf_python
+    hi def link pythonOperator Operator
+    call s:HL('pythonBuiltin',     'dress')
+    call s:HL('pythonBuiltinObj',  'dress')
+    call s:HL('pythonBuiltinFunc', 'dress')
+    call s:HL('pythonEscape',      'dress')
+    call s:HL('pythonException',   'lime', '', 'bold')
+    call s:HL('pythonExceptions',  'lime', '', 'none')
+    call s:HL('pythonPrecondit',   'lime', '', 'none')
+    call s:HL('pythonDecorator',   'taffy', '', 'none')
+    call s:HL('pythonRun',         'gravel', '', 'bold')
+    call s:HL('pythonCoding',      'gravel', '', 'bold')
+endif
 " }}}
+
 " SLIMV {{{
 
 " Rainbow parentheses

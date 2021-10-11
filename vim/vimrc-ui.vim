@@ -15,6 +15,7 @@
 " colorscheme gruvbox ">> grubox is slow for old machine
 " Plug 'solomonxie/badwolf'
 colorscheme badwolf
+let g:enable_badwolf_python = 0
 "let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
 " -> Alternative
     "colorscheme monokai ">> Super slow, has block color comment

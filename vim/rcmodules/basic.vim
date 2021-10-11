@@ -11,7 +11,10 @@ Plug 'bronson/vim-visual-star-search'
 "REF: https://github.com/kassio/neoterm
 " Plug 'kassio/neoterm'  "For Terminal
 
-Plug 'tomtom/tcomment_vim'
+" Plug 'tomtom/tcomment_vim'  "2ms
+
+" REF: https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'  "Blazing fast!!
 
 Plug 'bronson/vim-trailing-whitespace'
 

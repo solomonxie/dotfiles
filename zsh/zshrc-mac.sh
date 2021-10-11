@@ -13,26 +13,27 @@
 #                      IMPORT MODULIZED SETTINGS                      #
 #######################################################################
 if [[ "$0" =~ "zsh" ]]; then  # >>> PLUGINS >>>
+    source ~/myconf/dotfiles/zsh/zsh-performance.sh
     source ~/myconf/dotfiles/zsh/zsh-envs.sh
     source ~/myconf/dotfiles/zsh/bindkeys.zsh
-    source ~/myconf/dotfiles/zsh/zsh-performance.sh
     source ~/myconf/dotfiles/zsh/zsh-completion.sh
 
     # PLUGINS
-    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
-    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
-    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh
-    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh  # ==>SLOW
-    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh  #==>SLOWEST
+    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-syntax-highlighting.sh  # -> 16ms
+    source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autosuggestions.sh  # -> 50ms
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-autocomplete.sh  #1100ms -> SUPER SLOW & UGLY
     source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
+
+    # UTILS
     # source ~/myconf/dotfiles/zsh/pluginconfigs/autojump.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/broot.sh
-    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-prompt-benchmark.sh
 
     # THEMES
     # source ~/myconf/dotfiles/zsh/ohmyzsh-settings.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/pure-zsh.sh
     # source ~/myconf/dotfiles/zsh/pluginconfigs/myminimalist-theme.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-minimal.sh
+    # source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-theme-powerlevel10k.sh
     source ~/myconf/dotfiles/zsh/pluginconfigs/git-prompt.sh  # BLAZING FAST!!
 fi
 source ~/myconf/dotfiles/zsh/bash-alias.sh

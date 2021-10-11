@@ -1,1 +1,0 @@
-/Users/xiaoboxie/workspace/solomonxie/badwolf/colors/goodwolf.vim

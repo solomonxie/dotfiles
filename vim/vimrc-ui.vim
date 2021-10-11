@@ -13,6 +13,7 @@
 "                           COLORS SCHEME / THEMES                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme gruvbox ">> grubox is slow for old machine
+" Plug 'solomonxie/badwolf'
 colorscheme badwolf
 "let g:gruvbox_contrast_dark='hard' "[hard|medium|soft]
 " -> Alternative

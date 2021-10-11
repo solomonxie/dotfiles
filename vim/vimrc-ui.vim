@@ -19,7 +19,8 @@
 
 "==========> BADWOLF ============>>>>
 " Plug 'solomonxie/badwolf'
-colorscheme badwolf
+"FILE: ./colors/badwolf.vim
+ colorscheme badwolf  "16ms after my fork
 let g:enable_badwolf_plugin = 0
 let g:enable_badwolf_filetype = 1
 let g:enable_badwolf_vim = 0
@@ -47,8 +48,9 @@ let g:enable_badwolf_mysql = 0
 let g:enable_badwolf_slimv = 0
 
 " ==========> ALTERNATIVES ===========>
-    "colorscheme monokai ">> Super slow, has block color comment
-    "colorscheme monokai "Fast (sickill/vim-monokai)
+    "colorscheme gruvbox  "20ms
+    "colorscheme cobalt2 "100ms
+    "colorscheme monokai "7ms. Fast (sickill/vim-monokai)
     "colorscheme shades_of_purple ">> Require the plugin
 
 " ==========> Colorscheme based on filetype ===========>

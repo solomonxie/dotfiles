@@ -13,8 +13,8 @@
 # REF: https://pawamoy.github.io/posts/pass-makefile-args-as-typed-in-command-line/
 
 .PHONY: build install
-include envfile
-include envfile-local
+-include envfile
+-include envfile-local
 
 TARGET: build install
 

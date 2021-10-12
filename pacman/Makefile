@@ -1,6 +1,6 @@
 #!make
-include envfile
-include envfile-local
+-include envfile
+-include envfile-local
 
 DOTFILES ?= ~/dotfiles
 MYOS ?= `cat /tmp/env-os`

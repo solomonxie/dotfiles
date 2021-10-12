@@ -1,8 +1,8 @@
 #######################################################################
 #                    CREDENTIALS ARE FOR POC ONLY                     #
 #######################################################################
-include envfile
-include envfile-local
+-include envfile
+-include envfile-local
 
 root:
 	sudo su root

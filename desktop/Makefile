@@ -1,6 +1,6 @@
 #!make
-include envfile
-include envfile-local
+-include envfile
+-include envfile-local
 
 ubuntu_xrdp:
 	sudo apt install -y xrdp xubuntu-desktop

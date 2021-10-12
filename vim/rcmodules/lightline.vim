@@ -66,3 +66,10 @@ function! LightlineLineinfo() abort  "abort: stop function as soon as error occu
     let l:lineinfo = l:col_display . ' ' . l:line_display
     return l:lineinfo
 endfunction
+
+
+function! LightLineSelectionInfo() abort
+    let l:line_count = line("'>") - line("'<") + 1
+    let l:select_info = 'S:' . l:line_count
+    return l:select_info
+endfunction

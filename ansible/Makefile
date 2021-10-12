@@ -1,6 +1,6 @@
 #!make
-include envfile
-include envfile-local
+-include envfile
+-include envfile-local
 
 admin-mac:
 	yes | pip install ansible

@@ -5,9 +5,9 @@
 
 "LOAD SIGNIFICANTLY FASTER
 "REF: https://github.com/preservim/nerdtree/issues/276
-Plug 'git@github.com:scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'git@github.com:scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTree'] }
 
-" Plug 'scrooloose/nerdtree'  ", {'on': ['NERDTREE', 'NERDTreeFind', 'NERDTreeToggle']}
+" Plug 'scrooloose/nerdtree'  ", {'on': ['NERDTree', 'NERDTreeFind', 'NERDTreeToggle']}
 " Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
 " Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "Slow down vim significantly

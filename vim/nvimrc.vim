@@ -40,8 +40,8 @@ call plug#begin('~/vim_plugged')
     "{UI}
         source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim  "Good: pretty; Bad: hides quotes in JSON
         " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "681ms+
-        source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing fast!"
-        source ~/myconf/dotfiles/vim/rcmodules/lightline.vim  "Blazing fast!"
+        source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing fast!
+        source ~/myconf/dotfiles/vim/rcmodules/lightline.vim  "Blazing fast!
         " source ~/myconf/dotfiles/vim/rcmodules/statusline.vim
         source ~/myconf/dotfiles/vim/rcmodules/nerdtree.vim
         source ~/myconf/dotfiles/vim/rcmodules/netrw.vim

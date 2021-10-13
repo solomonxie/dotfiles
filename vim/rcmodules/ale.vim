@@ -58,7 +58,7 @@ hi! ALEVirtualTextInfo ctermfg=226
 "               LSP will be specified in the "g:ale_linters" below           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ale_linters = {'python': ['pylint']}
+let g:ale_linters = {'python': ['pylint', 'flake8']}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -87,7 +87,7 @@ let g:ale_python_pylint_options = '--rcfile=~/.config/pylintrc'
 " https://github.com/palantir/python-language-server/issues/190
 let g:ale_python_pylsp_config = {
 \    'pylsp': {
-\        'configurationSources': ['pylint']
+\        'configurationSources': ['pylint', 'flake8']
 \    },
 \}
 

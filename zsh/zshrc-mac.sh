@@ -142,3 +142,5 @@ export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 
 # BETTER TO BE AT THE BOTTOM
 source ~/myconf/dotfiles/zsh/pluginconfigs/fzf.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

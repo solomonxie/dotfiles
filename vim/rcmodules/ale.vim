@@ -58,7 +58,7 @@ hi! ALEVirtualTextInfo ctermfg=226
 "               LSP will be specified in the "g:ale_linters" below           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['pylint']}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,19 +70,34 @@ let g:ale_linters = {'python': ['flake8']}
 " let g:ale_linters_explicit = 1  "Only run linters when I specify = Disable linters I didn't specify
 
 " =======================Custom args to linters / fixers==========================
+
+" ==Flake8==
+let g:ale_python_flake8_executable = 'flake8'
+let g:ale_python_flake8_use_global = 0
+let g:ale_python_flake8_options = '--config ~/.config/flake8'
+
+" ==Mypy==
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 " let g:ale_python_mypy_options = '--follow-imports skip'
+
+" ==Pylint==
 let g:ale_python_pylint_options = '--rcfile=~/.config/pylintrc'
-" Flake8
-let g:ale_python_flake8_use_global = 1  "Python -> Flake8
-let g:ale_python_flake8_options = '--max-line-length=120'
-" Pyls
+
+" ==Pyls==
 " https://github.com/palantir/python-language-server/issues/190
 let g:ale_python_pylsp_config = {
 \    'pylsp': {
-\        'configurationSources': ['flake8']
+\        'configurationSources': ['pylint']
 \    },
 \}
+
+let g:ale_lint_delay = 200
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_cache_executable_check_failures = 1
 
 
 " Make it 'g:' to only run linters I specified
@@ -115,7 +130,7 @@ function CheckHealthALE()
     if &filetype == 'python' && !executable('mypy')
         echo "MyPy not installed for ALE linters: $ python3 -m pip install -U mypy"
     endif
-    if &filetype == 'python' && !executable('pyls')
+    if &filetype == 'python' && !executable('pylsp')
         echo "ALE linters missing: $ python3 -m pip install python-language-server"
     endif
 

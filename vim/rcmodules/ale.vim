@@ -55,10 +55,9 @@ hi! ALEVirtualTextInfo ctermfg=226
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       LANGUAGE SERVER PROTOCOL (LSP)                       "
-"               LSP will be specified in the "g:ale_linters" below           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" " ==Pyls==
+" " ===Pylsp===
 " " https://github.com/palantir/python-language-server/issues/190
 " let g:ale_python_pylsp_config = {
 " \    'pylsp': {
@@ -71,6 +70,7 @@ hi! ALEVirtualTextInfo ctermfg=226
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  LINTERS                                   "
+"               LSP will be specified in the "g:ale_linters" below           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Available Linters:
 " https://github.com/dense-analysis/ale/tree/master/ale_linters
@@ -82,7 +82,7 @@ hi! ALEVirtualTextInfo ctermfg=226
 " Make it 'g:' to only run linters I specified
 let g:ale_linters = {
 \   'sh': ['shell'],
-\   'python': ['flake8'],
+\   'python': ['pylsp'],
 \   'make': ['checkmake'],
 \   'vim': ['vint'],
 \   'dockerfile': ['dockerfile_lint'],

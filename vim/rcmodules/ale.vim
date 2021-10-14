@@ -58,7 +58,15 @@ hi! ALEVirtualTextInfo ctermfg=226
 "               LSP will be specified in the "g:ale_linters" below           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ale_linters = {'python': ['pylint', 'flake8']}
+" " ==Pyls==
+" " https://github.com/palantir/python-language-server/issues/190
+" let g:ale_python_pylsp_config = {
+" \    'pylsp': {
+" \        'configurationSources': "['flake8']"
+" \    },
+" \}
+" "^^^^^^^^^^^^^^DON'T SPECIFY flake8 FROM LSP, THAT'S VERY BUGGY!!!^^^^^^^^^^
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,6 +78,17 @@ let g:ale_linters = {'python': ['pylint', 'flake8']}
 " let g:ale_linters_explicit = 1  "Only run linters when I specify = Disable linters I didn't specify
 
 " =======================Custom args to linters / fixers==========================
+
+" Make it 'g:' to only run linters I specified
+let g:ale_linters = {
+\   'sh': ['shell'],
+\   'python': ['flake8'],
+\   'make': ['checkmake'],
+\   'vim': ['vint'],
+\   'dockerfile': ['dockerfile_lint'],
+\   'javascript': ['tsserver', 'eslint'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace']
+\ }
 
 " ==Flake8==
 let g:ale_python_flake8_executable = 'flake8'
@@ -83,14 +102,6 @@ let g:ale_python_mypy_options = '--ignore-missing-imports'
 " ==Pylint==
 let g:ale_python_pylint_options = '--rcfile=~/.config/pylintrc'
 
-" ==Pyls==
-" https://github.com/palantir/python-language-server/issues/190
-let g:ale_python_pylsp_config = {
-\    'pylsp': {
-\        'configurationSources': ['pylint', 'flake8']
-\    },
-\}
-
 let g:ale_lint_delay = 200
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_filetype_changed = 1
@@ -98,18 +109,6 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_cache_executable_check_failures = 1
-
-
-" Make it 'g:' to only run linters I specified
-let g:ale_linters = {
-\   'sh': ['shell'],
-\   'python': ['pylsp'],
-\   'make': ['checkmake'],
-\   'vim': ['vint'],
-\   'dockerfile': ['dockerfile_lint'],
-\   'javascript': ['tsserver', 'eslint'],
-\   '*': ['remove_trailing_lines', 'trim_whitespace']
-\ }
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

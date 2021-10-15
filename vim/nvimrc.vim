@@ -67,7 +67,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/nvim_native_lsp.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim  "SUPER! ADDED 2000ms!
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim
     "{Git}
@@ -93,7 +93,7 @@ source ~/myconf/dotfiles/vim/vimrc-functions.vim
 source ~/myconf/dotfiles/vim/vimrc-commands.vim
 source ~/myconf/dotfiles/vim/vimrc-keymappings.vim
 source ~/myconf/dotfiles/vim/vimrc-ui.vim
-source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
+" source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
 if filereadable(expand('~/.config/vimrc-local.vim'))
     source ~/.config/vimrc-local.vim
 endif

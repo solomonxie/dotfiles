@@ -75,16 +75,27 @@ hi! ALEVirtualTextInfo ctermfg=226
 " Available Linters:
 " https://github.com/dense-analysis/ale/tree/master/ale_linters
 
+"{Python}
+"REF: https://github.com/palantir/python-language-server  "Pylsp"
+
+"{Vim}
+" REF: https://github.com/iamcco/vim-language-server  "vimls"
+
+"{Javascript}
+" REF: https://github.com/typescript-language-server/typescript-language-server  "tsserver"
+
+"{Bash}
+" REF: https://github.com/bash-lsp/bash-language-server  "bash-language-server"
+
 " let g:ale_linters_explicit = 1  "Only run linters when I specify = Disable linters I didn't specify
 
 " =======================Custom args to linters / fixers==========================
 
 " Make it 'g:' to only run linters I specified
 let g:ale_linters = {
-\   'sh': ['shell'],
+\   'sh': ['language_server'],
 \   'python': ['pylsp'],
-\   'make': ['checkmake'],
-\   'vim': ['vint'],
+\   'vim': ['vimls'],
 \   'dockerfile': ['dockerfile_lint'],
 \   'javascript': ['tsserver', 'eslint'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
@@ -135,6 +146,14 @@ function CheckHealthALE()
 
     if &filetype == 'js' && !executable('tsserver')
         echo "ALE linters missing: $ python3 -m pip install tyepscript"
+    endif
+
+    if &filetype == 'vim' && !executable('vim-language-server')
+        echo "ALE linters missing: $ npm install -g vim-language-server"
+    endif
+
+    if &filetype == 'cmake' && !executable('cmakelint')
+        echo "ALE linters missing: $ pip install cmakelint"
     endif
 endfunction
 " autocmd BufReadPre * call CheckHealthALE()

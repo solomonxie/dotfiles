@@ -63,6 +63,7 @@ let g:enable_badwolf_slimv = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <Syntax Highlighting>  Better to be in the front
     syntax enable
+    let python_highlight_all = 1  "FOR vim/syntax/python.vim (FROM WEB)
 
 "<FileType>
     filetype plugin on    " [essential]

@@ -52,7 +52,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
         " source ~/myconf/dotfiles/vim/rcmodules/markbar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/syntastic.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/telescope.vim
+        source ~/myconf/dotfiles/vim/rcmodules/telescope.vim
         " source ~/myconf/dotfiles/vim/rcmodules/which_key.vim
     "{Completion | Usages | Definitions}
         " source ~/myconf/dotfiles/vim/rcmodules/replace.vim
@@ -225,7 +225,7 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    FOLD                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nofoldenable  "Cancel all folds when enter vim
+set nofoldenable  "Cancel all folds when enter vim (faster)
 set foldmethod=manual  "manual|syntax
 autocmd BufEnter * set foldmethod=manual
 " set foldlevelstart=99  "No folding on file open

@@ -39,3 +39,6 @@ endif
 " Plug 'yegappan/mru'
 
 " Plug 'dhruvasagar/vim-zoom'  "Zoom window
+
+" Plug 'justinmk/vim-sneak'
+" let g:sneak#label = 1

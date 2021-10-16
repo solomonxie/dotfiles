@@ -1,7 +1,4 @@
 #! /usr/bin/env bash
-#
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
 
 
 filter_folder_contain_less_files(){

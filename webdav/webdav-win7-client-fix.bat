@@ -1,4 +1,3 @@
-:: Author: Solomon Xie <solomonxiewise@gmail.com>
 :: Environment: Windows 7
 :: Description: 
 ::      Fix the Webdav Drive through HTTP problem

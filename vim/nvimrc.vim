@@ -8,7 +8,6 @@
 "----------------GENERATED-BY-FIGLET-----------------
 "
 "--------------[ STANDARD VIMRC ]----------------
-" MAINTAINER: Solomon Xie <solomonxiewise@gmail>
 " Enviroment: MacOS Sierra / Raspbian / Ubuntu
 " -----------------------------------------------
 

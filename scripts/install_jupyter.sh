@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 #
-# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # ENVIRONMENT: MAC / UBUNTU
 # Preload:
 # Commands:

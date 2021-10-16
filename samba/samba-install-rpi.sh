@@ -1,5 +1,3 @@
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
 # Enviroment: Raspberry Pi Jessie
 # Preload:
 # Commands:

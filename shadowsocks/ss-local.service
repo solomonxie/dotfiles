@@ -1,7 +1,5 @@
 # FRP-Client system service file
 # Environment: Ubuntu
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
 # How to set this service
 #   1. Save this file as:
 #       `/etc/systemd/system/ss-local.service`

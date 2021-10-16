@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 #
-# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Python on any Unix-like OS
 # Description:
 #   WsgiDav is a Python implementation for Webadv Server

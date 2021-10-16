@@ -1,6 +1,5 @@
 # FRP-Server system service file
 #
-# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Environment: Ubuntu
 # Requirements:
 #   1. `sudo apt-get install python3 python3-pip`

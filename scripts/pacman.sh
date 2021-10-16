@@ -1,12 +1,11 @@
 #! /usr/bin/env bash
 #
-# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # Enviroment: Debian based distro
 # How to run:
 
 set -x
 
-REPO_URL="https://raw.githubusercontent.com/solomonxie/dotfiles/master"
+REPO_URL=""
 
 do_install_apt_by_os(){
     # Load uitility functions (check os)

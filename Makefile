@@ -55,6 +55,11 @@ build_python:
 	cd python && $(MAKE) venv
 	echo "OK."
 
+build_python:
+	cd nodejs && $(MAKE) ${MYOS}
+	cd nodejs && $(MAKE) venv
+	echo "OK."
+
 build_tmux:
 	cd tmux && $(MAKE) ${MYOS}
 	cd tmux && $(MAKE) plugins

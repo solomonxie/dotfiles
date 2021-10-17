@@ -151,7 +151,7 @@ pexpect==4.8.0
 pgcli==3.0.0
 pgspecial==1.11.10
 pickleshare==0.7.5
-Pillow==7.2.0
+Pillow==8.3.2
 pipx==0.15.4.0
 pluggy==0.13.1
 pook==0.2.8

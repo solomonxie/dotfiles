@@ -22,6 +22,25 @@
     git push origin master
 
 
+## Remove credential from history
+
+Steps:
+1. Find out the file exposes credential (/path/to/file)
+1. Find out the earliest commit submitted the credential (7b204)
+2. Find out the commit remove the credential (HEAD)
+3. Execute git builtin command:
+
+```sh
+$ git checkout master
+$ git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch /path/to/file 7b204..HEAD
+```
+4. Wait until it's done
+5. Force push:
+```sh
+$ git push --force origin master
+```
+
+
 
 ## Colaboration
 - Pull request

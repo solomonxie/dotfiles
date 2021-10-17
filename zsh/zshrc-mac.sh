@@ -132,6 +132,8 @@ export PATH="$HOME/.nvm/versions/node/v10.17.0/bin:$PATH"
 export PATH=/Users/xiaoboxie/Applications/SnowSQL.app/Contents/MacOS:$PATH
 # =====OTHER-PATH========
 export PATH="$HOME/workspace/bin:$PATH"
+# =====GNU BIN===============
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # =====MISC===============
 export HOMEBREW_NO_AUTO_UPDATE=1
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"

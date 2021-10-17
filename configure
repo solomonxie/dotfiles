@@ -1,6 +1,5 @@
 #! /bin/bash
 #
-# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # ENVIRONMENT: Ubuntu / Raspbian / MacOS
 #
 # Description: Additional configs for zshrc, which aren't good for public.

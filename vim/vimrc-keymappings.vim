@@ -51,6 +51,21 @@ vnoremap f "1y :Rg <C-r>1<CR>
 
 nnoremap Y y$
 
+" FZF RELATED
+nnoremap fd :Files<CR>
+" nnoremap fg :GFiles<CR>
+nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
+nnoremap ft :Tags<CR>
+nnoremap fc :History:<CR>
+nnoremap fC :Commands<CR>
+nnoremap fh :History<CR>
+nnoremap fa :Rg<CR>
+nnoremap fm :Marks<CR>
+" nnoremap fa :call fzf#vim#ag('', fzf#vim#with_preview('right'))<CR>
+nnoremap fs :Snippets<CR>
+
+nnoremap fg :<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             SPECIAL CHARACTERS                             "
@@ -111,6 +126,13 @@ vnoremap <Leader>p "+p
 "Git blame current line
 nnoremap gb :execute "!git blame -L " . line(".") . ",+1 % "<CR>
 
+
+" TELESCOPE
+nnoremap <C-f> :Telescope find_files<CR>
+nnoremap <leader>gf <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>gg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>gb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>gt <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          CTRL + ALPHABET MAPPINGS                          "

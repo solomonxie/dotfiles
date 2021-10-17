@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 #
-# MAINTAINER: Solomon Xie <solomonxiewise@gmail.com>
 # ENVIRONMENT: Ubuntu / Raspbian / MacOS
 # NOTICE:
 #   This script shouldn't be run as ROOT user,

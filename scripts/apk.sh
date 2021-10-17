@@ -1,7 +1,5 @@
 #! /usr/bin/env bash
 #
-# Owner: Solomon Xie
-# Email: solomonxiewise@gmail.com
 # Enviroment: Alpine Linux
 
 do_install_tools(){

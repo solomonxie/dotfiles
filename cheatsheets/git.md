@@ -41,6 +41,24 @@ $ git push --force origin master
 ```
 
 
+## Secret Scan
+
+REF: https://github.com/awslabs/git-secrets#nix-linux-macos
+
+```sh
+# Install
+brew install git-secrets
+
+# Hook the scan to project
+cd /path/to/project
+git secrets --install
+
+# Scan full history
+git secrets --scan
+git secrets --scan-history
+```
+
+
 
 ## Colaboration
 - Pull request

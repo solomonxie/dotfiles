@@ -51,7 +51,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
         " source ~/myconf/dotfiles/vim/rcmodules/markbar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/syntastic.vim
-        source ~/myconf/dotfiles/vim/rcmodules/telescope.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/telescope.vim
         " source ~/myconf/dotfiles/vim/rcmodules/which_key.vim
     "{Completion | Usages | Definitions}
         " source ~/myconf/dotfiles/vim/rcmodules/replace.vim

@@ -163,6 +163,6 @@ _execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
 cd () { builtin cd "$@" && chpwd; }
 
 
-# ========DELETE WORD BACKWARDS BY CTRL-W============
-stty werase undef
-bind '\C-w:unix-filename-rubout'
+# # ========DELETE WORD BACKWARDS BY CTRL-W============
+# stty werase undef
+# bind '\C-w:unix-filename-rubout'

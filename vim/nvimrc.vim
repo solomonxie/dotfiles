@@ -179,6 +179,10 @@ set hlsearch " Enable Highlighting all matches
 autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 
 
+"IMPORTANT: FOR OPENNING LARGE FILE
+let g:large_file_size = 10000000  "10MB
+autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:large_file_size | set noswapfile | syntax off | endif
+autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) <= g:large_file_size | syntax on | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          PERSISTENT FILE SETTINGS                          "
@@ -198,7 +202,7 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 " [  Swap files  ]--------{
     set noswapfile  "Disable Swap files
     "set swapfile  "Enable swap file
-    set directory=~/.vim/swap//    "set swp file directory.
+    set directory=/tmp/vim_swap//    "set swp file directory.
     " Create folder if not exists
     if !isdirectory(&directory)
        silent! call mkdir(&directory, 'p')

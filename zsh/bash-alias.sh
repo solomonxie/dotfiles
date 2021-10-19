@@ -45,25 +45,16 @@ alias vi="vi --noplugin"
 #######################################################################
 #                           CONFIG PROJECTS                           #
 #######################################################################
-alias zshrc="vim -S ~/myconf/dotfiles/vim/sessions/zsh.vim"
-# alias zshrc0="vim ~/.zshrc"
-# alias zshrc2="vim ~/myconf/dotfiles/zsh/alias-mac.sh"
-# alias zshrc3="vim ~/myconf/dotfiles/zsh/themes.sh"
-# alias vimrc="vim ~/myconf/dotfiles/vim/vimrc.vim"
-alias vimrc="vim -S ~/myconf/dotfiles/vim/sessions/vimrc_session.vim"
-#alias vimrc2="vim ~/myconf/dotfiles/vim/vimrc-plugins"
-#alias vimrc3="vim ~/myconf/dotfiles/vim/vimrc-keymappings"
-#alias vimrc4="vim ~/myconf/dotfiles/vim/vimrc-ui"
-#alias nvimrc="vim ~/myconf/dotfiles/vim/init.vim"
-# alias nvimrc="vim -S ~/myconf/dotfiles/vim/sessions/vimrc.vim"
+alias zshrc="vim ~/myconf/dotfiles/zsh/zshrc-mac.sh"
+alias vimrc="vim ~/myconf/dotfiles/vim/nvimrc.vim"
 alias tmuxrc="vim ~/myconf/dotfiles/tmux/tmux.conf"
 alias bashrc="vim ~/.bashrc"
 alias rangerrc="vim ~/.config/ranger/rc.conf"
 #alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias muttrc="vim -S ~/myconf/dotfiles/vim/sessions/muttrc.vim"
+# alias muttrc="vim -S ~/myconf/dotfiles/vim/sessions/muttrc.vim"
 alias tigrc="vim ~/.tigrc"
 # alias vimchanges="vim $(git status --porcelain | awk '{print $2}')"
-alias snippets="vim -S ~/myconf/dotfiles/vim/sessions/snippets.vim "
+# alias snippets="vim -S ~/myconf/dotfiles/vim/sessions/snippets.vim "
 
 
 #######################################################################

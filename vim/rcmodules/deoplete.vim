@@ -95,3 +95,9 @@ endif
 
 " =====> MORE SETTINGS IN =========>
 " ./vim/rcmodules/_run_outside_of_plug_begin.vim
+
+" PUT THIS OUTSIDE OF THIS CONFIG
+" if &runtimepath =~ 'deoplete'
+"     " REF (Bug): https://github.com/carlitux/deoplete-ternjs/issues/88#issuecomment-713913170
+"     call deoplete#custom#option('num_processes', 4)
+" endif

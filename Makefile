@@ -55,11 +55,6 @@ build_python:
 	cd python && $(MAKE) venv
 	echo "OK."
 
-build_python:
-	cd nodejs && $(MAKE) ${MYOS}
-	cd nodejs && $(MAKE) venv
-	echo "OK."
-
 build_tmux:
 	cd tmux && $(MAKE) ${MYOS}
 	cd tmux && $(MAKE) plugins
@@ -209,3 +204,12 @@ save:
 #######################################################################
 vim-perf:
 	python ./vim/vim-profiler/vim-profiler.py nvim
+
+
+
+#######################################################################
+#                            DEPENDENCIES                             #
+#######################################################################
+update-pip-freeze:
+	[ ! -x $(command -v pip-chill) ] && pip install pip-chill ||true
+	pip-chill |sort > pacman/requirements_venv3.txt

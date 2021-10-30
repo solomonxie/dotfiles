@@ -182,6 +182,8 @@ function! EscapeString(...)
     let text = substitute(text, '\\', '\\\\', 'g')
     let text = substitute(text, '\/', '\\/', 'g')
     let text = substitute(text, '\~', '\\~', 'g')
+    let text = substitute(text, '\[', '\\[', 'g')
+    let text = substitute(text, '\]', '\\]', 'g')
     " let text = substitute(text, '\#', '\\#', 'g')
     " let text = substitute(text, '\@', '\\@', 'g')
     return text

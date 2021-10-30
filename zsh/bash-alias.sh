@@ -112,7 +112,7 @@ alias venv-ju="source ~/virtualenv/venv-ju/bin/activate"
 alias venv-nvim="source ~/virtualenv/venv-ju/bin/activate"
 alias ju="~/virtualenv/venv-ju/bin/jupyter notebook"
 alias ipy="ipython"
-alias webdav="python3 -m http.server 8888"
+alias webdav="python3 -m http.server 7000"
 # [[ -e ~/virtualenv/venv/bin/python ]] && alias python="~/virtualenv/venv/bin/python"
 # [[ -e ~/virtualenv/venv/bin/pip ]] && alias pip="~/virtualenv/venv/bin/pip"
 

@@ -26,6 +26,15 @@ mac: checkhealth_mac
 	# Virtualenv
 	pip3 install virtualenv --user
 
+
+# FOR Mac (M1 Chip, Apple Silicon) Only:
+mac_m1:
+	arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	arch -x86_64 /usr/local/bin/brew install python@3.7
+	python3.7 -m pip install pip --upgrade
+	python3.7 -m pip install virtualenv
+
+
 debian: checkhealth_debian
 	cat ~/dotfiles/pacman/aptfile-raspbian.txt |xargs sudo apt-get install -y
 

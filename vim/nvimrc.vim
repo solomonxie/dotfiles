@@ -105,7 +105,7 @@ endif
 set nocompatible
 set encoding=utf8
 "set spell spelllang=en,en_us,cjk  "Spell check [Ugly]
-"set nospell
+set nospell
 set ignorecase "Case Insensitive
 set smartcase  "Case sensitive when there's upper case in search
 set hidden "Enable to switch buffer without saving

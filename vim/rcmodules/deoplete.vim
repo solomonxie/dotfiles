@@ -30,6 +30,7 @@ if has('python3')
     " Max number of candidates
     let g:deoplete#max_abbr_width = 30
     let g:deoplete#max_menu_width = 40
+    " let g:deoplete#custom#option#smart_case = v:true
 
     " Set multiple options
         "call deoplete#custom#option({

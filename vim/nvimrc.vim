@@ -58,7 +58,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/replace.vim
         source ~/myconf/dotfiles/vim/rcmodules/fzf.vim
         source ~/myconf/dotfiles/vim/rcmodules/ale.vim
-        source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim
         source ~/myconf/dotfiles/vim/rcmodules/ultisnips.vim
         source ~/myconf/dotfiles/vim/rcmodules/anyjump.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ctags.vim  "300ms+
@@ -67,8 +67,8 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim  "SUPER! ADDED 2000ms!
-        " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim  "SUPER! ADDED 2000ms!
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
@@ -93,7 +93,8 @@ source ~/myconf/dotfiles/vim/vimrc-functions.vim
 source ~/myconf/dotfiles/vim/vimrc-commands.vim
 source ~/myconf/dotfiles/vim/vimrc-keymappings.vim
 source ~/myconf/dotfiles/vim/vimrc-ui.vim
-" luafile ~/myconf/dotfiles/vim/rcmodules/lua_config.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua_config.lua
+" source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
 if filereadable(expand('~/.config/vimrc-local.vim'))
     source ~/.config/vimrc-local.vim
 endif

@@ -4,6 +4,16 @@ Plug 'neovim/nvim-lspconfig'
 " AVAILABLE LANGUAGE SERVERS:
 " REF: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
+" PREREQUISITE:
+" INSTALLATION:
+" pip install neovim
+" pip install python-language-server
+" pip install python-lsp-server
+" npm install -g neovim
+" npm install -g vim-language-server
+" npm install -g typescript typescript-language-server
+" npm -i -g bash-language-server
+
 " =====> more settings in =========>
 " ./vim/rcmodules/_run_outside_of_plug_begin.vim
 

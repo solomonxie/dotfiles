@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 
 -- {nvim-lspconfig}
-if string.find(vim.o['runtimepath'], 'nvim-lspconfig') then
+if string.find(vim.o['runtimepath'], 'lspconfig') then
     -- vim.lsp.set_log_level("debug")
 
     -- Use an on_attach function to only map the following keys

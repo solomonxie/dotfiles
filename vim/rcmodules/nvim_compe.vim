@@ -2,6 +2,7 @@
 Plug 'hrsh7th/nvim-compe'
 
 " Prerequisite
+" $ npm -g install neovim
 " $ npm -g install python-language-server bash-language-server vim-language-server
 " $ pip install python-language-server jedi-language-server python-lsp-server
 

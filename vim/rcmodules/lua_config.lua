@@ -28,6 +28,7 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
                 init_options = {
                     lint = true,
                 },
+                single_file_support = true,
                 plugins = {
                     flake8 =  { enabled = true },
                     -- pycodestyle =  { enabled = false },

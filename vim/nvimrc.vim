@@ -57,7 +57,7 @@ call plug#begin('~/vim_plugged')
     "{Completion | Usages | Definitions}
         " source ~/myconf/dotfiles/vim/rcmodules/replace.vim
         source ~/myconf/dotfiles/vim/rcmodules/fzf.vim
-        source ~/myconf/dotfiles/vim/rcmodules/ale.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/ale.vim
         " source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim
         source ~/myconf/dotfiles/vim/rcmodules/ultisnips.vim
         source ~/myconf/dotfiles/vim/rcmodules/anyjump.vim

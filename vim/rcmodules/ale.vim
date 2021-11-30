@@ -61,7 +61,7 @@ hi! ALEVirtualTextInfo ctermfg=226
 " " https://github.com/palantir/python-language-server/issues/190
 " let g:ale_python_pylsp_config = {
 " \    'pylsp': {
-" \        'configurationSources': "['flake8']"
+" \        'configurationSources': '["flake8"]'
 " \    },
 " \}
 " "^^^^^^^^^^^^^^DON'T SPECIFY flake8 FROM LSP, THAT'S VERY BUGGY!!!^^^^^^^^^^
@@ -94,7 +94,7 @@ hi! ALEVirtualTextInfo ctermfg=226
 " Make it 'g:' to only run linters I specified
 let g:ale_linters = {
 \   'sh': ['language_server'],
-\   'python': ['pylsp'],
+\   'python': ['pylsp', 'flake8'],
 \   'vim': ['vimls'],
 \   'dockerfile': ['dockerfile_lint'],
 \   'javascript': ['tsserver', 'eslint'],
@@ -102,9 +102,11 @@ let g:ale_linters = {
 \ }
 
 " ==Flake8==
+" HELP: :help ale-python-flake8
 let g:ale_python_flake8_executable = 'flake8'
-let g:ale_python_flake8_use_global = 0
-let g:ale_python_flake8_options = '--config ~/.config/flake8'
+let g:ale_python_flake8_use_global = 1
+let g:ale_python_flake8_options = '--config ${HOME}/.config/flake8'
+" let g:ale_python_flake8_change_directory = "project"  "project|file|off
 
 " ==Mypy==
 let g:ale_python_mypy_options = '--ignore-missing-imports'

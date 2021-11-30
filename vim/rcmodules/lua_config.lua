@@ -24,46 +24,49 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
             pylsp = {
                 cmd = {"pylsp"},
                 filetypes = {"python"},
-                configurationSources = { "pylint" },
+                configurationSources = { "flake8" },
+                init_options = {
+                    lint = true,
+                },
                 plugins = {
-                    -- flake8 =  { enabled = true },
+                    flake8 =  { enabled = true },
                     -- pycodestyle =  { enabled = false },
-                    pylint =  { enabled = true },
+                    -- pylint =  { enabled = true },
                     -- pyflakes =  { enabled = true }
                 }
             }
         }
     }
 
-    -- $ npm install -g vim-language-server
-    -- $ npm i -g bash-language-server
-    -- $ npm install -g typescript typescript-language-server
-    -- $ pip install python-lsp-server
-    nvim_lsp["vimls"].setup{
-        on_attach=on_attach,
-        settings = {
-            vimls = {
-                cmd = {"vim-language-server", "--stdio"},
-                filetypes = {"vim"},
-                init_options = {
-                    diagnostic = {enable = true},
-                    indexes = {
-                        count = 3,
-                        gap = 100,
-                        projectRootPatterns = { "runtime", "nvim", ".git", "autoload", "plugin" },
-                        runtimepath = true
-                    },
-                    iskeyword = "@,48-57,_,192-255,-#",
-                    runtimepath = "",
-                    suggest = {
-                        fromRuntimepath = true,
-                        fromVimruntime = true
-                    },
-                    vimruntime = ""
-                }
-            }
-        }
-    }
+    -- -- $ npm install -g vim-language-server
+    -- -- $ npm i -g bash-language-server
+    -- -- $ npm install -g typescript typescript-language-server
+    -- -- $ pip install python-lsp-server
+    -- nvim_lsp["vimls"].setup{
+    --     on_attach=on_attach,
+    --     settings = {
+    --         vimls = {
+    --             cmd = {"vim-language-server", "--stdio"},
+    --             filetypes = {"vim"},
+    --             init_options = {
+    --                 diagnostic = {enable = true},
+    --                 indexes = {
+    --                     count = 3,
+    --                     gap = 100,
+    --                     projectRootPatterns = { "runtime", "nvim", ".git", "autoload", "plugin" },
+    --                     runtimepath = true
+    --                 },
+    --                 iskeyword = "@,48-57,_,192-255,-#",
+    --                 runtimepath = "",
+    --                 suggest = {
+    --                     fromRuntimepath = true,
+    --                     fromVimruntime = true
+    --                 },
+    --                 vimruntime = ""
+    --             }
+    --         }
+    --     }
+    -- }
 end
 
 -- {treesitter}

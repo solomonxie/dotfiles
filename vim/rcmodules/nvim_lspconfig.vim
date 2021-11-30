@@ -2,7 +2,7 @@
 Plug 'neovim/nvim-lspconfig'
 
 " AVAILABLE LANGUAGE SERVERS:
-" REF: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+" REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
 " PREREQUISITE:
 " INSTALLATION:

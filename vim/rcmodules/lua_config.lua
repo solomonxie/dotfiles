@@ -14,24 +14,29 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
         buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
         local opts = { noremap=true, silent=true }
     end
-
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
     local nvim_lsp = require('lspconfig')
+
+    -- REF: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+    -- $ pip install python-lsp-server
+    -- $ pip install pycodestyle
     nvim_lsp["pylsp"].setup{
         on_attach=on_attach,
         settings = {
             pylsp = {
                 cmd = {"pylsp"},
                 filetypes = {"python"},
-                configurationSources = { "flake8" },
                 init_options = {
                     lint = true,
                 },
                 single_file_support = true,
+                -- configurationSources = {"flake8"},  -- CONFLICT WITH pylsp.plugins.flake8.config
+                log_file = '/tmp/pylsp.log',
                 plugins = {
-                    flake8 =  { enabled = true },
-                    -- pycodestyle =  { enabled = false },
+                    flake8 =  {enabled = true, config = vim.fn.expand("~/.config/flake8")},
+                    pylsp_mypy =  { enabled = true },
+                    -- pycodestyle =  { enabled = true },
                     -- pylint =  { enabled = true },
                     -- pyflakes =  { enabled = true }
                 }

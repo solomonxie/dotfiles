@@ -39,4 +39,4 @@ let g:compe.source.nvim_lua = v:true
 let g:compe.source.vsnip = v:false
 let g:compe.source.ultisnips = v:true
 let g:compe.source.luasnip = v:false
-let g:compe.source.emoji = v:true
+let g:compe.source.emoji = v:false

@@ -53,17 +53,20 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
         on_attach=on_attach,
         cmd = {"pyright-python-langserver", "--stdio"},
         filetypes = {"python"},
+        single_file_support = true,
         -- root_dir = function(startpath)
         --     return M.search_ancestors(startpath, matcher)
         -- end,
         settings = {
           python = {
             analysis = {
+              disableOrganizeImports = true,
+              disableLanguageServices = true,
               autoSearchPaths = true,
               autoImportCompletions = true,
               autoSearchPaths = true,
-              typeCheckingMode = true,
-              diagnosticMode = "workspace",
+              typeCheckingMode = "off",  -- off|basic|strict
+              diagnosticMode = "workspace",  -- workspace | openFilesOnly
               useLibraryCodeForTypes = true,
             }
           }

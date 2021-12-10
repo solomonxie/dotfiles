@@ -20,31 +20,31 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
     -- map buffer local keybindings when the language server attaches
     local nvim_lsp = require('lspconfig')
 
-    -- REF: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
-    -- $ pip install python-lsp-server
-    -- $ pip install pycodestyle
-    nvim_lsp["pylsp"].setup{
-        on_attach=on_attach,
-        settings = {
-            pylsp = {
-                cmd = {"pylsp"},
-                filetypes = {"python"},
-                init_options = {
-                    lint = true,
-                },
-                single_file_support = true,
-                -- configurationSources = {"flake8"},  -- CONFLICT WITH pylsp.plugins.flake8.config
-                log_file = '/tmp/pylsp.log',
-                plugins = {
-                    flake8 =  {enabled = true, config = vim.fn.expand("~/.config/flake8")},
-                    pylsp_mypy =  { enabled = true },
-                    -- pycodestyle =  { enabled = true },
-                    -- pylint =  { enabled = true },
-                    -- pyflakes =  { enabled = true }
-                }
-            }
-        }
-    }
+    -- -- REF: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+    -- -- $ pip install python-lsp-server
+    -- -- $ pip install pycodestyle
+    -- nvim_lsp["pylsp"].setup{
+    --     on_attach=on_attach,
+    --     settings = {
+    --         pylsp = {
+    --             cmd = {"pylsp"},
+    --             filetypes = {"python"},
+    --             init_options = {
+    --                 lint = true,
+    --             },
+    --             single_file_support = true,
+    --             -- configurationSources = {"flake8"},  -- CONFLICT WITH pylsp.plugins.flake8.config
+    --             log_file = '/tmp/pylsp.log',
+    --             plugins = {
+    --                 flake8 =  {enabled = true, config = vim.fn.expand("~/.config/flake8")},
+    --                 pylsp_mypy =  { enabled = true },
+    --                 -- pycodestyle =  { enabled = true },
+    --                 -- pylint =  { enabled = true },
+    --                 -- pyflakes =  { enabled = true }
+    --             }
+    --         }
+    --     }
+    -- }
 
     -- REF: https://github.com/microsoft/pyright
     -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
@@ -61,7 +61,7 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
           python = {
             analysis = {
               disableOrganizeImports = true,
-              disableLanguageServices = true,
+              disableLanguageServices = false,
               autoSearchPaths = true,
               autoImportCompletions = true,
               autoSearchPaths = true,
@@ -71,7 +71,6 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
             }
           }
         }
-        -- single_file_support = true,
     }
 
     -- -- $ npm install -g vim-language-server

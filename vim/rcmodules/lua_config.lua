@@ -46,31 +46,44 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
     --     }
     -- }
 
-    -- REF: https://github.com/microsoft/pyright
-    -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
-    -- $ npm -g install pyright
-    nvim_lsp["pyright"].setup{
+    -- -- REF: https://github.com/microsoft/pyright
+    -- -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
+    -- -- $ npm -g install pyright
+    -- nvim_lsp["pyright"].setup{
+    --     on_attach=on_attach,
+    --     cmd = {"pyright-python-langserver", "--stdio"},
+    --     filetypes = {"python"},
+    --     single_file_support = true,
+    --     -- root_dir = function(startpath)
+    --     --     return M.search_ancestors(startpath, matcher)
+    --     -- end,
+    --     settings = {
+    --       python = {
+    --         analysis = {
+    --           disableOrganizeImports = true,
+    --           disableLanguageServices = false,
+    --           autoSearchPaths = true,
+    --           autoImportCompletions = true,
+    --           autoSearchPaths = true,
+    --           typeCheckingMode = "off",  -- off|basic|strict
+    --           diagnosticMode = "workspace",  -- workspace | openFilesOnly
+    --           useLibraryCodeForTypes = true,
+    --         }
+    --       }
+    --     }
+    -- }
+
+    -- REF: https://github.com/pappasam/jedi-language-server
+    -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jedi_language_server
+    -- $ pip install jedi-language-server
+    nvim_lsp["jedi_language_server"].setup{
         on_attach=on_attach,
-        cmd = {"pyright-python-langserver", "--stdio"},
+        cmd = {"jedi-language-server"},
         filetypes = {"python"},
         single_file_support = true,
-        -- root_dir = function(startpath)
-        --     return M.search_ancestors(startpath, matcher)
-        -- end,
-        settings = {
-          python = {
-            analysis = {
-              disableOrganizeImports = true,
-              disableLanguageServices = false,
-              autoSearchPaths = true,
-              autoImportCompletions = true,
-              autoSearchPaths = true,
-              typeCheckingMode = "off",  -- off|basic|strict
-              diagnosticMode = "workspace",  -- workspace | openFilesOnly
-              useLibraryCodeForTypes = true,
-            }
-          }
-        }
+        jediSettings = {
+            caseInsensitiveCompletion = true,
+        },
     }
 
     -- -- $ npm install -g vim-language-server
@@ -103,6 +116,22 @@ if string.find(vim.o['runtimepath'], 'lspconfig') then
     --     }
     -- }
 end
+
+-- if string.find(vim.o['runtimepath'], 'installer') then
+--     local lsp_installer_servers = require'nvim-lsp-installer.servers'
+
+--     local server_available, requested_server = lsp_installer_servers.get_server("jedi_language_server")
+--     if server_available then
+--         requested_server:on_ready(function ()
+--             local opts = {}
+--             requested_server:setup(opts)
+--         end)
+--         if not requested_server:is_installed() then
+--             -- Queue the server to be installed
+--             requested_server:install()
+--         end
+--     end
+-- end
 
 -- {treesitter}
 if string.find(vim.o['runtimepath'], 'treesitter') then

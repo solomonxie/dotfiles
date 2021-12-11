@@ -64,10 +64,11 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/ctags.vim  "300ms+
         " source ~/myconf/dotfiles/vim/rcmodules/YCM.vim
         " source ~/myconf/dotfiles/vim/rcmodules/coc.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/coq.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
-        source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim  "SUPER! ADDED 2000ms!
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim
     "{Git}

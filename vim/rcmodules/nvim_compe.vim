@@ -10,6 +10,9 @@ Plug 'hrsh7th/nvim-compe'
 " AVAILABLE LANGUAGE SERVERS:
 " REF: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
+" ISSUES:
+" - HOW TO TRIGGER COMPLETION ON SPACE KEY? --> Press Ctrl-y to show up candidates
+
 
 set completeopt=menuone,noselect
 

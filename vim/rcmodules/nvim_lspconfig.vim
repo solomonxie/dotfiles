@@ -15,9 +15,6 @@ Plug 'williamboman/nvim-lsp-installer'
 " npm install -g typescript typescript-language-server
 " npm -i -g bash-language-server
 
-" =====> more settings in =========>
-" ./vim/rcmodules/_run_outside_of_plug_begin.vim
-
 nnoremap <Leader>d :lua vim.lsp.buf.definition()<CR>
 nnoremap <Leader>r :lua vim.lsp.buf.rename()<CR>
 nnoremap <Leader>u :lua vim.lsp.buf.references()<CR>
@@ -28,3 +25,6 @@ nnoremap <Leader>x :lua vim.lsp.buf.formatting()<CR>
 nnoremap K :lua vim.lsp.buf.hover()<CR>
 
 " -- See `:help vim.lsp.*` for documentation on any of the below functions
+
+" =====> more settings in =========>
+" ./vim/rcmodules/lua/*.lua

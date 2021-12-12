@@ -4,8 +4,10 @@
 " - $ time vim +q
 " - $ vim +StartupTime
 " - $ vim --startuptime startup.txt startup.txt
+" - $ vim -D  # Step debugging mode
 
 "REF: https://reposhub.com/python/miscellaneous/lewis6991-impatient-nvim.html  "Speed up Lua"
+"REF: https://codeinthehole.com/tips/debugging-vim-by-example/#why-is-vim-slow-to-start-up
 
 
 " REF: https://github.com/tweekmonster/startuptime.vim

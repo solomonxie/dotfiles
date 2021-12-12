@@ -70,7 +70,9 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim  "slower than nvim-compe
+        source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim  "Buggy
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
         source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
@@ -94,7 +96,15 @@ source ~/myconf/dotfiles/vim/vimrc-functions.vim
 source ~/myconf/dotfiles/vim/vimrc-commands.vim
 source ~/myconf/dotfiles/vim/vimrc-keymappings.vim
 source ~/myconf/dotfiles/vim/vimrc-ui.vim
-luafile ~/myconf/dotfiles/vim/rcmodules/lua_config.lua
+" LUA CONFIGURATIONS (BASED ON BUILT-IN LSP)
+if &runtimepath =~ 'lspconfig'
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-clients.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
+endif
 " source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
 if filereadable(expand('~/.config/vimrc-local.vim'))
     source ~/.config/vimrc-local.vim

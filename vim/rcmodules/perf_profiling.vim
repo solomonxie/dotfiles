@@ -1,6 +1,8 @@
 " TIPS:
 " - :StartupTime ~/foo.vim 100
 " - :StartupTime 100 -- -u ~/foo.vim -i NONE -- ~/foo.vim
+" - $ time vim +q
+" - $ vim +StartupTime
 
 "REF: https://reposhub.com/python/miscellaneous/lewis6991-impatient-nvim.html  "Speed up Lua"
 

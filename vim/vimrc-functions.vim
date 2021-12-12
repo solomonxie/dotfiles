@@ -213,3 +213,26 @@ function! ReplaceSelection()
         execute "%s/" . src2 . "/" . dest2 . "/gc"
     endtry
 endfunction
+
+
+function! ToggleVerbose()
+    " $ tail -f /tmp/vim-runtime.log
+    " $ less +F /tmp/vim-runtime.log
+    " When bigger than zero, Vim will give messages about what it is doing. Currently, these messages are given:
+    " >= 1 When the viminfo file is read or written.
+    " >= 2 When a file is ":source"'ed.
+    " >= 5 Every searched tags file and include file.
+    " >= 8 Files for which a group of autocommands is executed.
+    " >= 9 Every executed autocommand.
+    " >= 12 Every executed function.
+    " >= 13 When an exception is thrown, caught, finished, or discarded.
+    " >= 14 Anything pending in a ":finally" clause.
+    " >= 15 Every executed Ex command (truncated at 200 characters).
+    if !&verbose
+        set verbosefile=/tmp/vim-runtime.log
+        set verbose=9
+    else
+        set verbose=0
+        set verbosefile=
+    endif
+endfunction

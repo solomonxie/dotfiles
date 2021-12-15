@@ -20,7 +20,7 @@
 "==========> BADWOLF ============>>>>
 " Plug 'solomonxie/badwolf'
 "FILE: ./colors/badwolf.vim
- colorscheme badwolf  "16ms after my fork
+colorscheme badwolf  "16ms after my fork
 let g:enable_badwolf_plugin = 0
 let g:enable_badwolf_filetype = 1
 let g:enable_badwolf_vim = 0
@@ -88,12 +88,12 @@ let g:enable_badwolf_slimv = 0
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=89  "Pink
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=90  "Dark Magenta
     highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=237  "Grey
+    highlight! CursorLineNr cterm=NONE ctermfg=11 gui=bold guifg=Yellow
     " highlight! CursorLine cterm=underline ctermfg=NONE ctermbg=236  "Dark Magenta
-
     " highlight! CursorLineNR cterm=NONE ctermfg=NONE ctermbg=89  "Pink
 
-    autocmd WinEnter * set cursorline
-    autocmd WinLeave * set nocursorline
+    " autocmd WinEnter * set cursorline
+    " autocmd WinLeave * set nocursorline
 
 " <Line Number>
     " turn hybrid line numbers on

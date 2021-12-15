@@ -89,6 +89,7 @@ alias gdh="git diff"
 alias gsh="git stash"
 alias gco="git checkout"
 alias gsc="git sync"
+alias gp="git pub"
 alias gcp="git add .; git quickcommit; git pub"
 alias gcl="git clone"
 alias diff=vimdiff

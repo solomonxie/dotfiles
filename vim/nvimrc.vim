@@ -36,6 +36,7 @@ call plug#begin('~/vim_plugged')
             source ~/myconf/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
         endif
         source ~/myconf/dotfiles/vim/rcmodules/basic.vim
+        source ~/myconf/dotfiles/vim/rcmodules/hop.vim
         source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
     "{UI}
         source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim  "Good: pretty; Bad: hides quotes in JSON
@@ -72,7 +73,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim  "slower than nvim-compe
-        source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim  "Buggy
+        " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim  "Buggy
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
         source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
@@ -98,6 +99,7 @@ source ~/myconf/dotfiles/vim/vimrc-keymappings.vim
 source ~/myconf/dotfiles/vim/vimrc-ui.vim
 " LUA CONFIGURATIONS (BASED ON BUILT-IN LSP)
 if &runtimepath =~ 'lspconfig'
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-clients.lua
     " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
     " luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua

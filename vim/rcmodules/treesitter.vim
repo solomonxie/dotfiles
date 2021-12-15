@@ -11,7 +11,4 @@
 " 3. :TSInstall python javascript bash json
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
-
-" =====> MORE SETTINGS IN =========>
-" ./vim/rcmodules/_run_outside_of_plug_begin.vim
+Plug 'nvim-treesitter/playground'

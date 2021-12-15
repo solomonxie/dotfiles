@@ -22,9 +22,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'wsdjeg/vim-fetch'  "Open/Edit file from reference: /path/to/file:190:3
 
 " REF: https://github.com/rbgrouleff/bclose.vim
-if has('nvim')
-    Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
-endif
+Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
 
 
 " REF: https://github.com/machakann/vim-swap

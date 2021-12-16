@@ -25,6 +25,15 @@ Plug 'wsdjeg/vim-fetch'  "Open/Edit file from reference: /path/to/file:190:3
 Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
 
 
+"REF: https://github.com/nathom/filetype.nvim
+Plug 'nathom/filetype.nvim'  "Speed-up over filetype.vim for 10ms
+let g:did_load_filetypes = 1
+
+"REF: https://github.com/mhinz/vim-signify
+" Plug 'mhinz/vim-signify'  "Git Diff
+
+" Plug 'lewis6991/gitsigns.nvim'
+
 " REF: https://github.com/machakann/vim-swap
 " Plug 'machakann/vim-swap'  "SWAP FUNCTION ARGUMENTS
 

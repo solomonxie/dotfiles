@@ -12,8 +12,8 @@
 " -----------------------------------------------
 
 " Get Full path of ~, e.g., /home/ubuntu
-let $HOME = expand('~')
-let $DOTFILES = expand('~') . '/myconf/dotfiles'
+" let $HOME = expand('~')
+" let $DOTFILES = expand('~') . '/myconf/dotfiles'
 
 " HAS TO DEFINE LEADER ASAP BECAUSE KMAP BEFORE THAT IS NOT WORKING
 let mapleader = ","
@@ -23,21 +23,21 @@ let mapleader = ","
 "                        VIM-PLUG MANAGER FOR PLUGINS                        "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/junegunn/vim-plug
-if !filereadable(expand('~/.vim/autoload/plug.vim'))
-    echo 'Downlading vim-plug manager...'
-    let url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs ' . url)
-    echo 'Done.'
-endif
+" if !filereadable(expand('~/.vim/autoload/plug.vim'))
+"     echo 'Downlading vim-plug manager...'
+"     let url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+"     call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs ' . url)
+"     echo 'Done.'
+" endif
 
 call plug#begin('~/vim_plugged')
     "{Common}
+        source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
         if has('nvim')
             source ~/myconf/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
         endif
         source ~/myconf/dotfiles/vim/rcmodules/basic.vim
         source ~/myconf/dotfiles/vim/rcmodules/hop.vim
-        source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
     "{UI}
         source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim  "Good: pretty; Bad: hides quotes in JSON
         " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "681ms+
@@ -76,7 +76,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim  "Buggy
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
-        source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
         source ~/myconf/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
         source ~/myconf/dotfiles/vim/rcmodules/blame.vim
     "{Python}
@@ -179,6 +179,9 @@ set scrolloff=5  "Set 99 to make it center
 set incsearch "Enable instant search Highlighting
 set hlsearch " Enable Highlighting all matches
 
+"Disable runtime matchit.vim (SLOW)
+let g:loaded_matchit = 1
+
 "<Buffer>
     "Change pwd/current-dir
     "set autochdir " Automatically change current directory
@@ -222,7 +225,7 @@ autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) <= g:large_file_si
     if !isdirectory(&directory)
        silent! call mkdir(&directory, 'p')
     endif
-    set updatecount=20     "save swp file every amount of characters
+    set updatecount=100     "save swp file every amount of characters
     " ▼ update also check cursor-holds and other functions, bit expensive one.
     set updatetime=100   "save swap file every amount of ms
 " }
@@ -297,3 +300,6 @@ autocmd BufEnter * set foldmethod=manual
         " iabbrev waht what
         " iabbrev tehn then
 " }
+
+" profile pause
+" noautocmd qall!

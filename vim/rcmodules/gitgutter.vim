@@ -50,8 +50,8 @@ function! Disable_plugins()
 endfunction
 
 " >> KEY MAPPINGS
-nnoremap [p :GitGutterPreviewHunk<CR>
-nnoremap ]p :GitGutterPreviewHunk<CR>
+" nnoremap [p :GitGutterPreviewHunk<CR>
+" nnoremap ]p :GitGutterPreviewHunk<CR>
 " Toggle/fold changed lines
 nnoremap gz :GitGutterFold<CR>
 " Diff

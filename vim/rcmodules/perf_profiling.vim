@@ -17,3 +17,19 @@ Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
 "REF: https://github.com/lewis6991/impatient.nvim
 "Optimize Lua module loading time
 " Plug 'lewis6991/impatient.nvim'
+
+
+"REF: https://thoughtbot.com/blog/profiling-vim
+" :profile start profile.log
+" :profile func *
+" :profile file *
+" " At this point do slow actions
+" :profile pause
+" :noautocmd qall!
+
+profile start /tmp/vim_profile.log
+profile func *
+profile file *
+" PUT THESE LINES AT THE BOTTOM OF VIMRC
+" :profile pause
+" :noautocmd qall!

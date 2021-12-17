@@ -15,6 +15,11 @@ bindkey "^k" backward-kill-line
 # Conflict with fzf ---> (Allow ctrl-a ctrl-e to jump to the head/tail of the line)
 # bindkey -e
 
+# Ctrl-x Ctrl-e to edit command in editor
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 # my_script_widget() {history 1000 |fzf}
 # zle -N my_script_widget
 # bindkey '^R' my_script_widget

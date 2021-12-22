@@ -7,13 +7,13 @@ local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
 return {
     -- color_scheme = "Batman",
-    -- font = wezterm.font("Droid Sans Mono for Powerline"),
     -- default_prog = {"/bin/zsh", "-l"},
     tab_bar_at_bottom = true,
     enable_scroll_bar = true,
-    font = wezterm.font("JetBrains Mono"),
+    -- font = wezterm.font("JetBrains Mono"),
+    font = wezterm.font("Droid Sans Mono for Powerline"),
     font_size = 14.0,
-    text_blink_rate = 500
+    text_blink_rate = 500,
 
     set_environment_variables = {
         WEZTERM_CONFIG_FILE = "~/.config/wezterm/wezterm.lua"

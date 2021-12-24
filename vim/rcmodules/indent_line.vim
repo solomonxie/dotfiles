@@ -11,8 +11,9 @@ let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_maxLines = 1000
 let g:indentLine_fileTypeExclude = ['json', 'md']
-let g:indentLine_setConceal = 0  "0->Show quotes; 1or2->Hide quotes
-" let g:indentLine_setColors = 0
+" let g:indentLine_setConceal = 0  "0->Show quotes; 1or2->Hide quotes
+"
+"let g:indentLine_setColors = 0
 " let g:indentLine_bgcolor_term = 202
 " let g:indentLine_bgcolor_gui = '#FF5F00'
 

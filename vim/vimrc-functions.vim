@@ -82,11 +82,27 @@ function! GetSessionPath()
 endfunction
 
 
-function! SaveSession()
+function! SaveSessionBuiltIn()
     let session_path = GetSessionPath()
     execute "mksession! " . session_path
     echo "Saved session to: " . session_path
 endfunction
+
+
+function! SaveSession()
+    let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
+    " echom 'Buffers: ' . string(buffer_list)
+    let steps = ['cd '. getcwd(), 'edit ' . expand('#'. buffer_list[0] .':b'), '']
+    for bn in buffer_list
+        call add(steps, 'badd +1 ' . expand('#' . bn . ':b'))
+    endfor
+    " echom 'Buffers: ' . string(steps)
+    if len(steps) > 0
+        call writefile(steps, GetSessionPath(), 'b')
+    endif
+endfunction
+
+
 
 
 function! LoadSession()

@@ -54,7 +54,6 @@
 
 
 "[Session]----------------------------------{
-if v:version >= 800
     "{Save session}
     nnoremap <leader>S :call SaveSession()<CR><ESC>
     command! SaveSessionCmd :call SaveSession()
@@ -72,11 +71,14 @@ if v:version >= 800
         autocmd!
         autocmd VimLeave,QuitPre * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
     augroup end
-
-endif
 "}
 
 
 "[Prettify/Formatting]--------------------------{
     command! PrettifyJson :% !python -m json.tool
+"}
+
+
+"[Reload Vimrc]--------------------------{
+    command! SO :source ~/myconf/dotfiles/vim/nvimrc.vim
 "}

@@ -123,6 +123,8 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
+vnoremap <Leader>L :source ~/myconf/dotfiles/vim/nvimrc.vim
+
 "Git blame current line
 nnoremap gb :execute "!git blame -L " . line(".") . ",+1 % "<CR>
 

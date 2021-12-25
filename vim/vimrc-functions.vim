@@ -103,8 +103,6 @@ function! SaveSession()
 endfunction
 
 
-
-
 function! LoadSession()
     let session_path = GetSessionPath()
     execute "source " . session_path

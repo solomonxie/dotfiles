@@ -60,7 +60,7 @@ alias tigrc="vim ~/.tigrc"
 #######################################################################
 #                               NETWORK                               #
 #######################################################################
-alias proxy='export all_proxy=http://127.0.0.1:1080'
+alias proxy='export all_proxy=socks5://127.0.0.1:1086'
 alias unproxy='unset all_proxy'
 alias myip="curl https://httpbin.org/ip"
 alias hosts='sudo vim /etc/hosts'

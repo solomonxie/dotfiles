@@ -90,6 +90,7 @@ endfunction
 
 
 function! SaveSession()
+    echom "SAVING SESSION BY FILES..."
     let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
     " echom 'Buffers: ' . string(buffer_list)
     let steps = ['cd '. getcwd(), 'edit ' . expand('#'. buffer_list[0] .':b'), '']

@@ -56,7 +56,6 @@
 "[Session]----------------------------------{
     "{Load session}
     nnoremap <leader>R :call LoadSession()<CR><ESC>
-    command! LoadSessionCmd :call LoadSession()
 
     augroup AutoSaveSession
         autocmd!

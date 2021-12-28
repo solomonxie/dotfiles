@@ -33,9 +33,7 @@ let mapleader = ","
 call plug#begin('~/vim_plugged')
     "{Common}
         source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
-        if has('nvim')
-            source ~/myconf/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
-        endif
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
         source ~/myconf/dotfiles/vim/rcmodules/basic.vim
         source ~/myconf/dotfiles/vim/rcmodules/hop.vim
     "{UI}

@@ -84,32 +84,32 @@ nvim_lsp["jedi_language_server"].setup{
     },
 }
 
--- -- $ npm install -g vim-language-server
--- -- $ npm i -g bash-language-server
--- -- $ npm install -g typescript typescript-language-server
--- -- $ pip install python-lsp-server
--- nvim_lsp["vimls"].setup{
---     on_attach=on_attach,
---     settings = {
---         vimls = {
---             cmd = {"vim-language-server", "--stdio"},
---             filetypes = {"vim"},
---             init_options = {
---                 diagnostic = {enable = true},
---                 indexes = {
---                     count = 3,
---                     gap = 100,
---                     projectRootPatterns = { "runtime", "nvim", ".git", "autoload", "plugin" },
---                     runtimepath = true
---                 },
---                 iskeyword = "@,48-57,_,192-255,-#",
---                 runtimepath = "",
---                 suggest = {
---                     fromRuntimepath = true,
---                     fromVimruntime = true
---                 },
---                 vimruntime = ""
---             }
---         }
---     }
--- }
+-- $ npm install -g vim-language-server
+-- $ npm i -g bash-language-server
+-- $ npm install -g typescript typescript-language-server
+-- $ pip install python-lsp-server
+nvim_lsp["vimls"].setup{
+    on_attach=on_attach,
+    settings = {
+        vimls = {
+            cmd = {"vim-language-server", "--stdio"},
+            filetypes = {"vim"},
+            init_options = {
+                diagnostic = {enable = true},
+                indexes = {
+                    count = 3,
+                    gap = 100,
+                    projectRootPatterns = { "runtime", "nvim", ".git", "autoload", "plugin" },
+                    runtimepath = true
+                },
+                iskeyword = "@,48-57,_,192-255,-#",
+                runtimepath = "",
+                suggest = {
+                    fromRuntimepath = true,
+                    fromVimruntime = true
+                },
+                vimruntime = ""
+            }
+        }
+    }
+}

@@ -21,6 +21,7 @@ return {
 
     keys = {
         {key="w", mods="CMD", action="DisableDefaultAssignment"},
+        -- {key="f", mods="CMD", action=action=wezterm.action{Search={CaseInSensitiveString="hash"}}},
     },
 
     tab_max_width = 32,

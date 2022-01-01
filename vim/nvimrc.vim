@@ -208,28 +208,29 @@ autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) <= g:large_file_si
 "                          PERSISTENT FILE SETTINGS                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " [  Backup Files  ]--------{
-    set backup
-    set writebackup
-    " set backupcopy=yes  " Force backups to be copied from original, not renamed
-    " Create folder if not exists
-    set backupdir=~/do.not.move/vim_backup//
-    if !isdirectory(&backupdir)
-       silent! call mkdir(&backupdir, 'p')
-    endif
+    set nobackup
+    " set backup
+    " set writebackup
+    " " set backupcopy=yes  " Force backups to be copied from original, not renamed
+    " " Create folder if not exists
+    " set backupdir=~/do.not.move/vim_backup//
+    " if !isdirectory(&backupdir)
+    "    silent! call mkdir(&backupdir, 'p')
+    " endif
 " }
 
 
 " [  Swap files  ]--------{
     set noswapfile  "Disable Swap files
-    "set swapfile  "Enable swap file
-    set directory=/tmp/vim_swap//    "set swp file directory.
-    " Create folder if not exists
-    if !isdirectory(&directory)
-       silent! call mkdir(&directory, 'p')
-    endif
-    set updatecount=100     "save swp file every amount of characters
-    " ▼ update also check cursor-holds and other functions, bit expensive one.
-    set updatetime=100   "save swap file every amount of ms
+    ""set swapfile  "Enable swap file
+    "set directory=/tmp/vim_swap//    "set swp file directory.
+    "" Create folder if not exists
+    "if !isdirectory(&directory)
+    "   silent! call mkdir(&directory, 'p')
+    "endif
+    "set updatecount=100     "save swp file every amount of characters
+    "" ▼ update also check cursor-holds and other functions, bit expensive one.
+    "set updatetime=100   "save swap file every amount of ms
 " }
 
 

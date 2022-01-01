@@ -101,6 +101,7 @@ function! SaveSession()
     if len(steps) > 0
         call writefile(steps, GetSessionPath(), 'b')
     endif
+    echom "DONE: SAVED SESSION."
 endfunction
 
 

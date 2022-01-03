@@ -123,7 +123,12 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
+nnoremap <Leader>o :lua vim.lsp.diagnostic.set_qflist()<CR>
+
 vnoremap <Leader>L :source ~/myconf/dotfiles/vim/nvimrc.vim
+
+nnoremap <leader>R :call LoadSession()<CR><ESC>
+
 
 "Git blame current line
 nnoremap gb :execute "!git blame -L " . line(".") . ",+1 % "<CR>

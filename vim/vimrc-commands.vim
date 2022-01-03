@@ -9,7 +9,6 @@
 
 
 "<Files>----------------------------------------------------{
-    noremap <Leader>o :browse oldfiles<CR>
     command! OpenThisOnMac :silent exec "!open %"<CR>
     command! OpenAllInThisDir :next *
     "{Change pwd/Current Directory to be same with buffer}
@@ -55,12 +54,16 @@
 
 "[Session]----------------------------------{
     "{Load session}
-    nnoremap <leader>R :call LoadSession()<CR><ESC>
-
     augroup AutoSaveSession
         autocmd!
         autocmd VimLeave,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
     augroup end
+
+    augroup persistent_folds
+        autocmd!
+        autocmd BufWinLeave * silent! mkview
+        autocmd BufWinEnter * silent! loadview
+    augroup END
 "}
 
 

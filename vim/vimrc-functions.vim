@@ -82,14 +82,15 @@ function! GetSessionPath()
 endfunction
 
 
-function! SaveSessionBuiltIn()
+" function! SaveSessionBuiltIn()
+function! SaveSession()
     let session_path = GetSessionPath()
     execute "mksession! " . session_path
     echo "Saved session to: " . session_path
 endfunction
 
 
-function! SaveSession()
+function! SaveSessionSimple()
     echom "SAVING SESSION BY FILES..."
     let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
     " echom 'Buffers: ' . string(buffer_list)

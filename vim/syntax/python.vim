@@ -207,7 +207,7 @@ if !s:Enabled("g:python_highlight_file_headers_as_comments")
   syn match   pythonRun		"\%^#!.*$"
   syn match   pythonCoding	"\%^.*\%(\n.*\)\?#.*coding[:=]\s*[0-9A-Za-z-_.]\+.*$"
 endif
-syn keyword pythonTodo		TODO FIXME XXX contained
+syn keyword pythonTodo		TODO FIXME XXX FYI NOTE contained
 
 "
 " Errors

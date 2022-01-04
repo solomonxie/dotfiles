@@ -10,6 +10,7 @@ let g:indentLine_color_gui = '#A4E57E'
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_maxLines = 1000
+let g:indentLine_fileType = ['python', 'javascript', 'lua', 'c', 'cpp']
 let g:indentLine_fileTypeExclude = ['json', 'md']
 " let g:indentLine_setConceal = 0  "0->Show quotes; 1or2->Hide quotes
 "

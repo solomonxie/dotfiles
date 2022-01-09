@@ -75,7 +75,8 @@ call plug#begin('~/vim_plugged')
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
-        source ~/myconf/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
+        " source ~/myconf/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
+        source ~/myconf/dotfiles/vim/rcmodules/gitsigns.vim  "BLAZING FAST: 0.2262ms
         source ~/myconf/dotfiles/vim/rcmodules/blame.vim
     "{Python}
         " source ~/myconf/dotfiles/vim/rcmodules/jedi.vim
@@ -99,6 +100,7 @@ source ~/myconf/dotfiles/vim/vimrc-ui.vim
 if &runtimepath =~ 'lspconfig'
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-clients.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
     " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
     " luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
     " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua

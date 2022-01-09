@@ -113,3 +113,18 @@ nvim_lsp["vimls"].setup{
         }
     }
 }
+
+-- $ npm install -g typescript typescript-language-server
+nvim_lsp["tsserver"].setup{
+    on_attach=on_attach,
+    settings = {
+        tsserver = {
+            cmd = { "typescript-language-server", "--stdio" },
+            filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+            init_options = {
+                hostInfo = "neovim"
+            },
+            -- root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+        }
+    }
+}

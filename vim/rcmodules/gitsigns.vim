@@ -7,3 +7,4 @@ nnoremap gn :Gitsigns next_hunk<CR>
 nnoremap gp :Gitsigns prev_hunk<CR>
 nnoremap gP :Gitsigns preview_hunk<CR>
 nnoremap gB :Gitsigns blame_line<CR>
+nnoremap <Leader>b :Gitsigns toggle_current_line_blame<CR>

@@ -77,7 +77,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
         " source ~/myconf/dotfiles/vim/rcmodules/gitgutter.vim  "50ms+
         source ~/myconf/dotfiles/vim/rcmodules/gitsigns.vim  "BLAZING FAST: 0.2262ms
-        source ~/myconf/dotfiles/vim/rcmodules/blame.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/blame.vim
     "{Python}
         " source ~/myconf/dotfiles/vim/rcmodules/jedi.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ped.vim
@@ -101,11 +101,11 @@ if &runtimepath =~ 'lspconfig'
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-clients.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
 endif
 " source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
 if filereadable(expand('~/.config/vimrc-local.vim'))

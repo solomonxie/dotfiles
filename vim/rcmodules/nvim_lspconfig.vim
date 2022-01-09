@@ -1,6 +1,7 @@
 " REF: https://github.com/neovim/nvim-lspconfig
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+Plug 'nvim-lua/plenary.nvim'  "Func Dependencies for many Lua plugins
 
 " AVAILABLE LANGUAGE SERVERS:
 " REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md

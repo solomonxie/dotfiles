@@ -34,10 +34,10 @@ call plug#begin('~/vim_plugged')
     "{Common}
         source ~/myconf/dotfiles/vim/rcmodules/perf_profiling.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_provider.vim  "IMPORTANT!
-        source ~/myconf/dotfiles/vim/rcmodules/basic.vim
+        source ~/myconf/dotfiles/vim/rcmodules/misc.vim
         source ~/myconf/dotfiles/vim/rcmodules/hop.vim
     "{UI}
-        source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim  "Good: pretty; Bad: hides quotes in JSON
+        " source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim  "Good: pretty; Bad: hides quotes in JSON
         " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "681ms+
         source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing fast!
         source ~/myconf/dotfiles/vim/rcmodules/lightline.vim  "Blazing fast!

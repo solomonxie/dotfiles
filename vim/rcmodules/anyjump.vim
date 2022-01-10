@@ -16,6 +16,7 @@ nnoremap fu :AnyJump<CR>
 
 "Disable preset key mappings
 let g:any_jump_disable_default_keybindings = 1
+let g:any_jump_disable_vcs_ignore = 1
 
 let g:any_jump_list_numbers = 1
 let g:any_jump_references_enabled = 1
@@ -27,8 +28,8 @@ let g:any_jump_results_ui_style = 'filename_first'  "filename_fist|filename_last
 let g:any_jump_remove_comments_from_results = 1
 
 " Important
-let g:any_jump_references_only_for_current_filetype = 1
-let g:any_jump_ignored_files = ['*.tmp', '*.temp', '*.log', '*.json']
+let g:any_jump_references_only_for_current_filetype = 0
+let g:any_jump_ignored_files = ['*.tmp', '*.temp', '*.log', '*.json', '*.yaml']
 
 
 " Any-jump window size & position options

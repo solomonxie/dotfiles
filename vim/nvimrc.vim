@@ -37,7 +37,8 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/misc.vim
         source ~/myconf/dotfiles/vim/rcmodules/hop.vim
     "{UI}
-        " source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim  "Good: pretty; Bad: hides quotes in JSON
+        " source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim
+        source ~/myconf/dotfiles/vim/rcmodules/blankline.vim
         " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "681ms+
         source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing fast!
         source ~/myconf/dotfiles/vim/rcmodules/lightline.vim  "Blazing fast!
@@ -106,6 +107,7 @@ if &runtimepath =~ 'lspconfig'
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/blankline.lua
 endif
 " source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
 if filereadable(expand('~/.config/vimrc-local.vim'))

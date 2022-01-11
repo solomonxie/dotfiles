@@ -1,5 +1,8 @@
+--REF: https://github.com/lewis6991/gitsigns.nvim
+
 if string.find(vim.o['runtimepath'], 'gitsigns')  then
-    require('gitsigns').setup {
+    MOD = require('gitsigns')
+    MOD.setup {
         signs = {
             add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
             change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
@@ -7,7 +10,7 @@ if string.find(vim.o['runtimepath'], 'gitsigns')  then
             topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
             changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
         },
-        base = 'master',
+        base = 'HEAD',
         signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
         numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
         linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
@@ -63,4 +66,17 @@ if string.find(vim.o['runtimepath'], 'gitsigns')  then
             enable = false
         },
     }
+
+    local refresh_rate = 5000  -- ms
+    local function time_background()
+        local timer = vim.loop.new_timer()
+        timer:start(0, refresh_rate, vim.schedule_wrap(function()
+            MOD.refresh()
+            -- print(os.date('%S'))
+            -- local hour = tonumber(os.date('%H'))
+            -- local bg = (hour > 6 and hour < 18) and 'light' or 'dark'
+            -- if vim.o.bg ~= bg then vim.o.bg = bg end
+        end))
+    end
+    -- time_background()
 end

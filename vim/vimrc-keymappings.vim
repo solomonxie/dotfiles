@@ -131,7 +131,7 @@ nnoremap <leader>R :call LoadSession()<CR><ESC>
 
 
 "Git blame current line
-nnoremap gb :execute "!git blame -L " . line(".") . ",+1 % "<CR>
+" nnoremap gb :execute "!git blame -L " . line(".") . ",+1 % "<CR>
 
 
 " TELESCOPE

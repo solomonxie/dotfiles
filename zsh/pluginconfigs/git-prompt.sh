@@ -6,6 +6,7 @@ source ~/.zsh_plugins/git-prompt/git-prompt.zsh
 # source ~/.zsh_plugins/git-prompt/examples/multiline.zsh
 
 #REF: https://github.com/zsh-users/zsh/blob/master/Functions/Misc/colors
+#REF: https://www.vertex42.com/ExcelTips/unicode-symbols.html
 
 # CUSTOMIZATION
 # source ~/.zsh_plugins/git-prompt/examples/compact.zsh
@@ -26,14 +27,14 @@ ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}●"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}✚"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[cyan]%}⚑"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%} ✔"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%} √"
 ZSH_THEME_GIT_PROMPT_TAGS_PREFIX="🏷 "
 ZSH_THEME_GIT_PROMPT_TAGS_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_TAG="%{$fg_bold[magenta]%}"
 
 _ZSH_FULL_DIR='%'
 _ZSH_CURRENT_DIR='%.'
-_ZSH_COMMAND_PREFIX='>>'  # ❯|$|>
+_ZSH_COMMAND_PREFIX='>>'  # ❯ | $|> | » | >>
 # PROMPT='%B%40<..<%~%b$(gitprompt)'
 PROMPT='%{$fg_bold[cyan]%}${_ZSH_CURRENT_DIR}%b%F{white}$(gitprompt) '
 PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{green})${_ZSH_COMMAND_PREFIX}%f.%F{red}${_ZSH_COMMAND_PREFIX}%f) '

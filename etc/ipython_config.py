@@ -20,7 +20,7 @@ c.InteractiveShellApp.exec_files = [
 c.InteractiveShell.autoindent = True
 c.InteractiveShell.colors = 'LightBG'
 c.InteractiveShell.confirm_exit = False
-c.InteractiveShell.deep_reload = True
+c.InteractiveShell.deep_reload = False
 c.InteractiveShell.editor = 'nano'
 c.InteractiveShell.xmode = 'Context'
 

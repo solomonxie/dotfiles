@@ -45,7 +45,7 @@ alias vi="vi --noplugin"
 #######################################################################
 #                           CONFIG PROJECTS                           #
 #######################################################################
-alias zshrc="vim ~/myconf/dotfiles/zsh/zshrc-mac.sh"
+alias zshrc="vim ~/myconf/dotfiles/zsh/zshrc-mac.zsh"
 alias vimrc="vim ~/myconf/dotfiles/vim/nvimrc.vim"
 alias tmuxrc="vim ~/myconf/dotfiles/tmux/tmux.conf"
 alias bashrc="vim ~/.bashrc"
@@ -107,15 +107,9 @@ alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:400
 #######################################################################
 #                               PYTHON                                #
 #######################################################################
-alias venv2="source ~/virtualenv/venv2/bin/activate"
-alias venv3="source ~/virtualenv/venv3/bin/activate"
-alias venv-ju="source ~/virtualenv/venv-ju/bin/activate"
-alias venv-nvim="source ~/virtualenv/venv-ju/bin/activate"
-alias ju="~/virtualenv/venv-ju/bin/jupyter notebook"
+alias ju="~/virtualenv/conda/bin/jupyter notebook"
 alias ipy="ipython"
 alias webdav="python3 -m http.server 7000"
-# [[ -e ~/virtualenv/venv/bin/python ]] && alias python="~/virtualenv/venv/bin/python"
-# [[ -e ~/virtualenv/venv/bin/pip ]] && alias pip="~/virtualenv/venv/bin/pip"
 
 #######################################################################
 #                          MAC APPLICATIONS                           #

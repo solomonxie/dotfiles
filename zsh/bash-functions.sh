@@ -191,16 +191,19 @@ makevenv() {
 
 
 slug() {
-    local INPUT
-    INPUT=$1
-    echo $INPUT |sed "s/[()\!]//g" |sed "s/[. ]/-/g"
+    local s=$1
+    echo $s |sed "s/[()\!]//g" |sed "s/[. ]/-/g"
 }
 
 
 cheat() {
-    local KEYWORD
-    KEYWORD=$1
-    curl "https://cheat.sh/$KEYWORD"
+    local keyword=$1
+    curl "https://cheat.sh/$keyword"
+}
+
+venv() {
+    local name=$1
+    source "$HOME/virtualenv/$name/bin/activate"
 }
 
 # debug_launcher() {

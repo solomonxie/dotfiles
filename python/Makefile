@@ -59,65 +59,66 @@ checkhealth_python:
 	python3 -V
 	pip --version
 	virtualenv --version
-	test -e ~/virtualenv/venv-ju
 	curl --version
 
-utils: checkhealth_python
+utils:
 	pip install --user youtube-dl tldr ffmpeg
 
 
-virtualenv: checkhealth_python
+virtualenv:
 	# virtualenv -p python3 ${HOME}/virtualenv/venv
 	virtualenv -p python3 ~/virtualenv/venv-ju
 	# virtualenv -p python2 ${HOME}/virtualenv/venv2
 
-jupyter_notebook: checkhealth_python
-	source ~/virtualenv/venv-ju/bin/activate && \
-	pip install jupyter && \
-	pip install ipykernel && \
-	deactivate
 
-jupyter_kernel_octave: checkhealth_python
+
+#######################################################################
+#                               JUPYTER                               #
+#######################################################################
+venv-ju:
+	virtualenv -p python3 ~/virtualenv/conda
+
+jupyter-notebook:
+	pip install jupyter
+	pip install ipykernel
+
+jupyter-extention:
+	# EXTENTIONS
+	pip install jupyter_nbextensions_configurator
+	jupyter nbextensions_configurator enable
+	pip install jupyter_contrib_nbextensions
+	jupyter contrib nbextension install
+	pip install jupyterthemes
+
+jupyter-octave:
 	# Octave Kernel
-	source ~/virtualenv/venv-ju/bin/activate && \
-	python -m octave_kernel install && \
-	pip install metakernel && \
-	pip install octave_kernel && \
-	echo export OCTAVE_EXECUTABLE=$(which octave) >> ~/.zshrc && \
-	deactivate
+	python -m octave_kernel install
+	pip install metakernel
+	pip install octave_kernel
+	echo export OCTAVE_EXECUTABLE=$(which octave) >> ~/.zshrc
 
-jupyter_kernel_r:
-jupyter_kernel_c:
-jupyter_kernel_cpp:
+# jupyter_kernel_r:
+# jupyter_kernel_c:
+# jupyter_kernel_cpp:
 
-jupyter_extension: checkhealth_python
-	source ~/virtualenv/venv-ju/bin/activate && \
-	pip install jupyter_nbextensions_configurator && \
-	jupyter nbextensions_configurator enable && \
-	pip install jupyter_contrib_nbextensions && \
-	jupyter contrib nbextension install && \
-	pip install jupyterthemes && \
-	deactivate
-
-jupyter_ML: checkhealth_python
-	source ~/virtualenv/venv-ju/bin/activate && \
-	pip install scikit-learn && \
-	pip install numpy && \
-	pip install pandas && \
-	pip install matplotlib && \
-	pip install seaborn scipy && \
+jupyter-ml:
+	pip install scikit-learn
+	pip install numpy
+	pip install pandas
+	pip install matplotlib
+	pip install seaborn scipy
 	pip install xgboost
-	deactivate
 
-jupyter_lab: checkhealth_python
-	source ~/virtualenv/venv-ju/bin/activate && \
-	pip install jupyterlab && \
-	jupyter labextension install @jupyterlab/toc && \
-	jupyter labextension install jupyterlab_voyager && \
-	jupyter labextension install jupyterlab-drawio && \
-	jupyter labextension install pylantern && \
-	jupyter serverextension enable --py lantern && \
-	deactivate
+jupyter-lab:
+	pip install jupyterlab
+	jupyter labextension install @jupyterlab/toc
+	jupyter labextension install jupyterlab_voyager
+	jupyter labextension install jupyterlab-drawio
+	jupyter labextension install pylantern
+	jupyter serverextension enable --py lantern
 
-jupyter: jupyter_notebook jupyter_extension
+jupyter: jupyter-notebook jupyter-extension
 	@echo 'OK.'
+
+jupyter-start:
+	jupyter notebook

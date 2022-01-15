@@ -132,7 +132,7 @@ export PATH="$HOME/virtualnode/venv16/bin/:$PATH"
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # ======Snowflake========
-export PATH=/Users/xiaoboxie/Applications/SnowSQL.app/Contents/MacOS:$PATH
+export PATH="$HOME/Applications/SnowSQL.app/Contents/MacOS:$PATH"
 # =====OTHER-PATH========
 export PATH="$HOME/workspace/bin:$PATH"
 # =====GNU BIN===============

@@ -67,16 +67,16 @@ if string.find(vim.o['runtimepath'], 'gitsigns')  then
         },
     }
 
-    local refresh_rate = 5000  -- ms
-    local function time_background()
-        local timer = vim.loop.new_timer()
-        timer:start(0, refresh_rate, vim.schedule_wrap(function()
-            MOD.refresh()
-            -- print(os.date('%S'))
-            -- local hour = tonumber(os.date('%H'))
-            -- local bg = (hour > 6 and hour < 18) and 'light' or 'dark'
-            -- if vim.o.bg ~= bg then vim.o.bg = bg end
-        end))
-    end
+    -- local refresh_rate = 5000  -- ms
+    -- local function time_background()
+    --     local timer = vim.loop.new_timer()
+    --     timer:start(0, refresh_rate, vim.schedule_wrap(function()
+    --         MOD.refresh()
+    --         -- print(os.date('%S'))
+    --         -- local hour = tonumber(os.date('%H'))
+    --         -- local bg = (hour > 6 and hour < 18) and 'light' or 'dark'
+    --         -- if vim.o.bg ~= bg then vim.o.bg = bg end
+    --     end))
+    -- end
     -- time_background()
 end

@@ -107,14 +107,14 @@ export LC_ALL=en_US.UTF-8
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/nvim-osx64/bin:$PATH"
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/bin/:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 # =====PYTHON=====
 export PATH="/usr/local/opt/python@2/bin:$PATH"
 export PATH="$HOME/virtualenv/venv2/bin:$PATH"

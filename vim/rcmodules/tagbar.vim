@@ -1,4 +1,4 @@
-"https://github.com/majutsushi/tagbar
+"REF: https://github.com/majutsushi/tagbar
 if executable('ctags')
     Plug 'majutsushi/tagbar', {'on': ['TagbarToggle']}
 endif
@@ -17,6 +17,6 @@ let g:tagbar_vertical = 30
 "let g:tagbar_singleclick = 1
 let g:tagbar_compact = 1
 "let g:tagbar_autopreview = 1
-"let g:tagbar_previewwin_pos = 'rightbelow'
-"let g:tagbar_indent = 1
-"let g:tagbar_show_visibility = 1
+" let g:tagbar_previewwin_pos = 'rightbelow'  "rightbelow |
+let g:tagbar_indent = 1
+let g:tagbar_show_visibility = 1

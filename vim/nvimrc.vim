@@ -38,7 +38,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/hop.vim
     "{UI}
         " source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim
-        source ~/myconf/dotfiles/vim/rcmodules/blankline.vim
+        source ~/myconf/dotfiles/vim/rcmodules/blankline.vim  "INDENT-LINE
         " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "681ms+
         source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing fast!
         source ~/myconf/dotfiles/vim/rcmodules/lightline.vim  "Blazing fast!
@@ -48,8 +48,8 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/vinegar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/chadtree.vim
         source ~/myconf/dotfiles/vim/rcmodules/semshi.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/vista.vim
-        source ~/myconf/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
+        source ~/myconf/dotfiles/vim/rcmodules/vista.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
         " source ~/myconf/dotfiles/vim/rcmodules/markbar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/syntastic.vim
         " source ~/myconf/dotfiles/vim/rcmodules/telescope.vim

@@ -9,3 +9,5 @@ nnoremap gP :Gitsigns preview_hunk<CR>
 nnoremap gb :Gitsigns blame_line<CR>
 nnoremap gS :Gitsigns refresh<CR>
 nnoremap <Leader>b :Gitsigns toggle_current_line_blame<CR>
+
+autocmd SessionLoadPost * autocmd BufEnter * ++once lua vim.defer_fn(require'gitsigns'.refresh, 150)

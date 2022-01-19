@@ -69,9 +69,9 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
-        source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim  "slower than nvim-compe
+        " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim
         " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim  "Buggy
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
@@ -135,6 +135,7 @@ set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger vi
 " Persistent Session Options
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
+" set sessionoptions=blank,buffers,curdir,tabpages,winsize,terminal
 
 "Avoid annoying continuation of comment (:help fo-table)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
@@ -145,6 +146,7 @@ set cmdheight=2
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+" set completeopt=menu,menuone,noselect
 
 set nopaste  "IMPORTANT: If it's on, vim will auto indent (messed up) on your paste
 set showcmd " show keypress at right-bottom
@@ -190,7 +192,7 @@ let g:loaded_matchit = 1
 
 "<Buffer>
     "Change pwd/current-dir
-    "set autochdir " Automatically change current directory
+    set autochdir " Automatically change current directory
     "autocmd BufEnter * cd %:p:h  "Auto change 'pwd' to current folder when enter a buffer
     set splitright  "Default split at right
     "set splitbelow  "Default split at right

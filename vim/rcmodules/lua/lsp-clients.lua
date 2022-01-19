@@ -4,7 +4,7 @@
 if string.find(vim.o['runtimepath'], 'lspconfig')  then
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
-    local nvim_lsp = require('lspconfig')
+    local lspc = require('lspconfig')
 
     -- vim.lsp.set_log_level("debug")
     -- Use an on_attach function to only map the following keys
@@ -22,7 +22,7 @@ if string.find(vim.o['runtimepath'], 'lspconfig')  then
     -- REF: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
     -- $ pip install python-lsp-server
     -- $ pip install pycodestyle
-    nvim_lsp["pylsp"].setup{
+    lspc["pylsp"].setup{
         on_attach=on_attach,
         settings = {
             pylsp = {
@@ -48,7 +48,7 @@ if string.find(vim.o['runtimepath'], 'lspconfig')  then
     -- -- REF: https://github.com/microsoft/pyright
     -- -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
     -- -- $ npm -g install pyright
-    -- nvim_lsp["pyright"].setup{
+    -- lspc["pyright"].setup{
     --     on_attach=on_attach,
     --     cmd = {"pyright-python-langserver", "--stdio"},
     --     filetypes = {"python"},
@@ -75,7 +75,7 @@ if string.find(vim.o['runtimepath'], 'lspconfig')  then
     -- REF: https://github.com/pappasam/jedi-language-server
     -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jedi_language_server
     -- $ pip install jedi-language-server
-    nvim_lsp["jedi_language_server"].setup{
+    lspc["jedi_language_server"].setup{
         on_attach=on_attach,
         cmd = {"jedi-language-server"},
         filetypes = {"python"},
@@ -89,7 +89,7 @@ if string.find(vim.o['runtimepath'], 'lspconfig')  then
     -- $ npm i -g bash-language-server
     -- $ npm install -g typescript typescript-language-server
     -- $ pip install python-lsp-server
-    nvim_lsp["vimls"].setup{
+    lspc["vimls"].setup{
         on_attach=on_attach,
         settings = {
             vimls = {
@@ -116,7 +116,7 @@ if string.find(vim.o['runtimepath'], 'lspconfig')  then
     }
 
     -- $ npm install -g typescript typescript-language-server
-    nvim_lsp["tsserver"].setup{
+    lspc["tsserver"].setup{
         on_attach=on_attach,
         settings = {
             tsserver = {

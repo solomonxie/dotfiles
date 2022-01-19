@@ -14,7 +14,7 @@ Plug 'hrsh7th/nvim-compe'
 " - HOW TO TRIGGER COMPLETION ON SPACE KEY? --> Press Ctrl-y to show up candidates
 
 
-set completeopt=menuone,noselect
+" set completeopt=menuone,noselect
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 NVIM-COMPE                                 "

@@ -29,13 +29,16 @@ Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
 Plug 'nathom/filetype.nvim'  "Speed-up over filetype.vim for 10ms
 let g:did_load_filetypes = 1
 
-"REF: https://github.com/airblade/vim-rooter
-Plug 'airblade/vim-rooter'
-" autocmd BufEnter * :Rooter
-let g:rooter_patterns = ['.git', 'Makefile', 'envfile*']
-let g:rooter_change_directory_for_non_project_files = 'current'
-let g:rooter_silent_chdir = 0
-let g:rooter_resolve_links = 1
+""REF: https://github.com/airblade/vim-rooter
+"Plug 'airblade/vim-rooter'
+"" autocmd BufEnter * :Rooter
+"let g:rooter_patterns = ['.git', 'Makefile', 'envfile*']
+"let g:rooter_change_directory_for_non_project_files = 'current'
+"let g:rooter_silent_chdir = 0
+"let g:rooter_resolve_links = 1
+
+"REF: https://github.com/ahmedkhalf/project.nvim
+Plug 'ahmedkhalf/project.nvim'
 
 ""REF: https://github.com/Shatur/neovim-session-manager
 "Plug 'Shatur/neovim-session-manager'

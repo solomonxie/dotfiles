@@ -31,7 +31,7 @@ if string.find(vim.o['runtimepath'], 'lspconfig')  then
                 init_options = { lint = true },
                 debounce = 100,
                 single_file_support = true,
-                configurationSources = { "flake8" },  -- CONFLICT WITH pylsp.plugins.flake8.config
+                -- configurationSources = { "flake8" },  -- CONFLICT WITH pylsp.plugins.flake8.config
                 plugins = {
                     flake8 =  {enabled = true, config = vim.fn.expand("~/.config/flake8")},
                     -- pylsp_mypy =  { enabled = true },
@@ -42,6 +42,12 @@ if string.find(vim.o['runtimepath'], 'lspconfig')  then
             }
         }
     }
+
+    -- -- REF: https://github.com/emanspeaks/pyls-flake8/
+    -- -- $ pip install pyls-flake8
+    -- lspc["pylsp-flake8"].setup{
+    --     on_attach=on_attach,
+    -- }
 
     -- -- REF: https://github.com/pappasam/jedi-language-server
     -- -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jedi_language_server

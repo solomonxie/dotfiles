@@ -263,3 +263,11 @@ function! ShowHighlightGroupUnderCursor ()
         echo n1 "->" n2
     endfor
 endfunction
+
+
+function! ChangeCwdToProjectRoot ()
+    let s:cwd = expand('%:p')
+    echo s:cwd
+    " TBD
+    " ...
+endfunction

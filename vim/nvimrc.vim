@@ -148,6 +148,8 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 " set completeopt=menu,menuone,noselect
 
+autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
+
 set nopaste  "IMPORTANT: If it's on, vim will auto indent (messed up) on your paste
 set showcmd " show keypress at right-bottom
 set backspace=2 "backspace over everything in insert mode
@@ -192,7 +194,7 @@ let g:loaded_matchit = 1
 
 "<Buffer>
     "Change pwd/current-dir
-    set autochdir " Automatically change current directory
+    " set autochdir " Automatically change current directory
     "autocmd BufEnter * cd %:p:h  "Auto change 'pwd' to current folder when enter a buffer
     set splitright  "Default split at right
     "set splitbelow  "Default split at right
@@ -273,7 +275,7 @@ autocmd BufEnter * set foldmethod=manual
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               MISC SETTINGS                                "
+"                              OTHER SETTINGS                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " [  Builtin Autocomplete (omnifunc) ] ----{
     "autocmd FileType python set omnifunc=python3complete#Complete

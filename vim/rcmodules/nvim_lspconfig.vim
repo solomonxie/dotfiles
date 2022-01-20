@@ -17,7 +17,8 @@ Plug 'nvim-lua/plenary.nvim'  "Func Dependencies for many Lua plugins
 " npm -i -g bash-language-server
 
 nnoremap <Leader>d :lua vim.lsp.buf.definition()<CR>
-nnoremap <Leader>r :lua vim.lsp.buf.rename()<CR>
+nnoremap <Leader>r :lua vim.lsp.buf.rename('')<LEFT><LEFT>
+vnoremap <Leader>r :lua vim.lsp.buf.rename('')<LEFT><LEFT>
 nnoremap <Leader>u :lua vim.lsp.buf.references()<CR>
 nnoremap <C-p> :lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <C-n> :lua vim.lsp.diagnostic.goto_next()<CR>

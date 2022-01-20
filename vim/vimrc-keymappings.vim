@@ -46,7 +46,7 @@ vnoremap g* "1y:%s/<C-r>1//n<CR>
 nnoremap g* #<C-O>:%s///gn<CR>
 
 vnoremap r "1y:%s/<C-r>1/<C-r>1/gc<Left><Left><Left>*<BS>
-vnoremap <leader>r :call ReplaceSelection()<CR>
+vnoremap R :call ReplaceSelection()<CR>
 vnoremap f "1y :Rg <C-r>1<CR>
 
 nnoremap Y y$

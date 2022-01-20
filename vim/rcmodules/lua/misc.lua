@@ -16,3 +16,7 @@ if string.find(vim.o['runtimepath'], 'project') then
         datapath = vim.fn.stdpath("data"),
     }
 end
+
+if string.find(vim.o['runtimepath'], 'nnn') then
+    require("nnn").setup()
+end

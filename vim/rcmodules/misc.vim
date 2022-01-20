@@ -40,6 +40,11 @@ let g:did_load_filetypes = 1
 "REF: https://github.com/ahmedkhalf/project.nvim
 Plug 'ahmedkhalf/project.nvim'
 
+
+"REF: https://github.com/luukvbaal/nnn.nvim
+" Plug 'luukvbaal/nnn.nvim'  "VERY SLOW
+" nnoremap fn :NnnPicker<CR>
+
 ""REF: https://github.com/Shatur/neovim-session-manager
 "Plug 'Shatur/neovim-session-manager'
 

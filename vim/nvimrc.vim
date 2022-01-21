@@ -98,6 +98,7 @@ source ~/myconf/dotfiles/vim/vimrc-functions.vim
 source ~/myconf/dotfiles/vim/vimrc-commands.vim
 source ~/myconf/dotfiles/vim/vimrc-keymappings.vim
 source ~/myconf/dotfiles/vim/vimrc-ui.vim
+" source ~/myconf/dotfiles/vim/rcmodules/schedules.vim
 " LUA CONFIGURATIONS (BASED ON BUILT-IN LSP)
 if &runtimepath =~ 'lspconfig'
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
@@ -109,6 +110,7 @@ if &runtimepath =~ 'lspconfig'
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/blankline.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/schedule.lua
 endif
 " source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
 if filereadable(expand('~/.config/vimrc-local.vim'))
@@ -147,7 +149,7 @@ set cmdheight=2
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-" set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone,noselect
 
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 

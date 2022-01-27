@@ -9,7 +9,8 @@ let g:fzf_action = {
 
 " Default fzf layout
     " down | up | left | right
-    let g:fzf_layout = { 'down': '~40%' }
+    " let g:fzf_layout = { 'down': '~40%' }
+    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 " [Buffers] Jump to the existing window if possible
     "let g:fzf_buffers_jump = 1
@@ -29,22 +30,50 @@ let g:fzf_action = {
     "let g:fzf_layout = { 'window': '10split enew' }
 
 " [Rg] Set preview window
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+" command! -bang -nargs=* Rg
+"   \ call fzf#vim#grep(
+"   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+"   \   fzf#vim#with_preview(), <bang>0)
 
-" [Rg] disable matching file path
-command! -bang -nargs=* Rg
-    \ call fzf#vim#grep(
-    \   "rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1,
-    \   {'options': '--delimiter : --nth 4..'}, <bang>0)
+" " [Rg] disable matching file path
+" command! -bang -nargs=* Rg
+"     \ call fzf#vim#grep(
+"     \   "rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1,
+"     \   {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " [Ag] disable matching file path
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+  let height = float2nr(&lines * 0.7)
+  let width = float2nr(&columns * 0.8)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 10
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+  call nvim_open_win(buf, v:true, opts)
+endfunction
 
 "">> KEY MAPPINGS
+nnoremap fd :Files<CR>
+" nnoremap fg :GFiles<CR>
+nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
+nnoremap ft :Tags<CR>
+nnoremap fc :History:<CR>
+nnoremap fC :Commands<CR>
+nnoremap fh :History<CR>
+nnoremap fa :Rg<CR>
+nnoremap fm :Marks<CR>
+nnoremap fs :Snippets<CR>
+" nnoremap fa :call fzf#vim#ag('', fzf#vim#with_preview('right'))<CR>
 ""nnoremap <localleader>f :Files %:p:h<CR>
 "" nnoremap <M-f> :Files<CR>
 "" nnoremap <LocalLeader>f :Files<CR>
@@ -80,4 +109,4 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 " MUST BE PLACED AFTER SETTINGS
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'chengzeyi/fzf-preview.vim'
+Plug 'chengzeyi/fzf-preview.vim'

@@ -40,6 +40,8 @@ alias .....='cd ../../../../'
 #######################################################################
 # [[ -e $(command -v nvim) ]] && alias vim="nvim" && alias vimdiff="nvim -d"
 alias vi="vi --noplugin"
+alias ":e"="vim"
+alias SO="source ~/.zshrc"
 
 
 #######################################################################
@@ -94,6 +96,7 @@ alias gcp="git add .; git quickcommit; git pub"
 alias gcl="git clone"
 alias diff=vimdiff
 alias work="vim -S .git/work.vim"
+alias lg="lazygit"
 
 alias gitrc="vim ~/myconf/dotfiles/etc/git/gitconfig.ini"
 

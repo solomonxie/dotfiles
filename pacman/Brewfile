@@ -16,6 +16,7 @@ brew "cowsay"
 brew "ctags", link: false
 brew "ctop"
 brew "curl"
+brew "duf"
 brew "diff-so-fancy"
 brew "emacs"
 brew "fd"

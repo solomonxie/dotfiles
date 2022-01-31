@@ -115,6 +115,7 @@ alias ipy="ipython"
 alias webdav="python3 -m http.server 7000"
 alias ipdb="python3 ~/myconf/dotfiles/python/ipdb_debugger.py"
 alias pudb="python3 ~/myconf/dotfiles/python/pudb_debugger.py"
+alias load="python3 ~/myconf/dotfiles/python/read_data.py"
 
 #######################################################################
 #                          MAC APPLICATIONS                           #

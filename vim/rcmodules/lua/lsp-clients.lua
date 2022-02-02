@@ -43,6 +43,30 @@ if string.find(vim.o['runtimepath'], 'lspconfig')  then
         }
     }
 
+    -- REF: https://github.com/sumneko/lua-language-server
+    -- $ brew install lua-language-server
+    -- :LspInstall sumneko_lua
+    lspc["sumneko_lua"].setup{
+        on_attach=on_attach,
+        settings = {
+            Lua = {
+                runtime = {
+                    version = 'LuaJIT',
+                    -- path = runtime_path,
+                },
+                diagnostics = {
+                    globals = {'vim'},
+                },
+                workspace = {
+                    library = vim.api.nvim_get_runtime_file("", true),
+                },
+                telemetry = {
+                    enable = false,
+                },
+            },
+        }
+    }
+
     -- -- REF: https://github.com/emanspeaks/pyls-flake8/
     -- -- $ pip install pyls-flake8
     -- lspc["pylsp-flake8"].setup{

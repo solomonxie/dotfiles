@@ -35,7 +35,7 @@ source ~/myconf/dotfiles/zsh/pluginconfigs/zsh-cmd-time.sh
 source ~/myconf/dotfiles/zsh/pluginconfigs/git-prompt.sh  # BLAZING FAST!!
 # fi
 
-source ~/myconf/dotfiles/zsh/zsh-envs.sh
+source ~/myconf/dotfiles/zsh/zsh-envfiles.sh
 source ~/myconf/dotfiles/zsh/bash-alias.sh
 source ~/myconf/dotfiles/zsh/bash-functions.sh
 [[ -e ~/.bashrc-local.sh ]] && source ~/.bashrc-local.sh ||true
@@ -144,6 +144,12 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
+
+# =========LUA==============
+export LUA_PATH="/opt/homebrew/Cellar/luarocks/3.8.0/share/lua/5.4/?.lua;/opt/homebrew/share/lua/5.4/?.lua;/opt/homebrew/share/lua/5.4/?/init.lua;/opt/homebrew/lib/lua/5.4/?.lua;/opt/homebrew/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;~/.luarocks/share/lua/5.4/?.lua;~/.luarocks/share/lua/5.4/?/init.lua"
+export LUA_PATH="$HOME/myconf/dotfiles/lua/lib/?.lua;$LUA_PATH"
+export LUA_CPATH='/opt/homebrew/lib/lua/5.4/?.so;/opt/homebrew/lib/lua/5.4/loadall.so;./?.so;~/.luarocks/lib/lua/5.4/?.so'
+export PATH="~/.luarocks/bin:$PATH"
 
 
 # BETTER TO BE AT THE BOTTOM

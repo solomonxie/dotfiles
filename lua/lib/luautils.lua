@@ -26,4 +26,28 @@ function M.enumerate_line(content)
     end
 end
 
+
+function M.pprint (tb, indent)
+    if not indent then indent = 4 end
+    for k, v in pairs(tb) do
+        local formatting = string.rep("  ", indent) .. k .. ": "
+        if type(v) == "table" then
+            print(formatting)
+            M.pprint(v, indent+indent)
+        elseif type(v) == 'boolean' then
+            print(formatting .. tostring(v))
+        else
+            print(formatting .. v)
+        end
+    end
+end
+
+
+function M.len (tb)
+    if not tb then tb = {} end
+    local i = 0
+    for _ in pairs(tb) do i = i + 1 end
+    return i
+end
+
 return M

@@ -41,3 +41,44 @@ endsnippet
 snippet trim
 ${1:mystr} = string.gsub(string.gsub(${1}, '^%s+', ''), '%s+$', '')
 endsnippet
+
+
+snippet read_file
+f = io.open(${1:path}, 'r')
+rows = {}
+while true do
+	local v = f:read()
+	if not v then
+		f:close()
+		break
+	end
+	print(v)
+	table.insert(rows, v)
+end
+endsnippet
+
+
+snippet write_file
+f = io.open(${1:path}, '${2:a}')
+f:write('1hihi', '\n')
+f:write('2hello', '\n')
+f:close()
+endsnippet
+
+
+snippet read_file_by_line
+function read_file_by_line(path)
+    print('LODING CONTENT...')
+    local i = 0
+    local iter = io.lines(path)
+    return function ()
+        i = i + 1
+        local line = iter()
+        if line then
+			return i, line
+        else
+            print('DONE: LOADED CSV CONTENT...')
+        end
+    end
+end
+endsnippet

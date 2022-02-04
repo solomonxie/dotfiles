@@ -257,11 +257,16 @@ endsnippet
 #######################################################################
 #                              FILE I/O                               #
 #######################################################################
-snippet csv_reader
+snippet csv_dict_reader
 with open('path', 'r') as f:
-	reader = __import__('csv').DictWriter(f, fieldnames=cols)
-	for row_dict in reader:
-		print(row_dict)
+	reader = __import__('csv').DictReader(f)
+	rows = list(reader)
+endsnippet
+
+snippet csv_dict_reader
+with open('path', 'r') as f:
+	reader = __import__('csv').reader(f)
+	rows = list(reader)
 endsnippet
 
 snippet csv_writer

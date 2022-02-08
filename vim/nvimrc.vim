@@ -102,7 +102,10 @@ source ~/myconf/dotfiles/vim/vimrc-ui.vim
 " LUA CONFIGURATIONS (BASED ON BUILT-IN LSP)
 if &runtimepath =~ 'lspconfig'
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-clients.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
+    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-vim.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-js.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua

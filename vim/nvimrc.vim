@@ -104,6 +104,7 @@ if &runtimepath =~ 'lspconfig'
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
+    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-sql.lua
     " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-vim.lua
     " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-js.lua
     luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua

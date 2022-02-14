@@ -74,6 +74,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim
         " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim  "Buggy
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim

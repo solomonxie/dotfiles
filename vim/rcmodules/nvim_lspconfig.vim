@@ -27,6 +27,7 @@ nnoremap <Leader>x :lua vim.lsp.buf.formatting()<CR>
 nnoremap K :lua vim.lsp.buf.hover()<CR>
 
 
+" RUN AFTER ALL PLUGINS ARE LOADED:
 augroup LoadLspClients
     autocmd!
     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua

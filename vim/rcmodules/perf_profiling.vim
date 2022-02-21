@@ -30,6 +30,12 @@ Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
 profile start /tmp/vim_profile.log
 profile func *
 profile file *
+
 " PUT THESE LINES AT THE BOTTOM OF VIMRC
 " :profile pause
 " :noautocmd qall!
+augroup PauseProfiling
+    autocmd!
+    autocmd VimEnter * profile pause
+    " autocmd VimEnter * noautocmd qall!
+augroup end

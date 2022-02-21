@@ -300,6 +300,3 @@ autocmd BufEnter * set foldmethod=manual
         " iabbrev waht what
         " iabbrev tehn then
 " }
-
-" profile pause
-" noautocmd qall!

@@ -203,7 +203,7 @@ save:
 #                        PERFORMANCE PROFILING                        #
 #######################################################################
 vim-perf:
-	python ./vim/vim-profiler/vim-profiler.py nvim
+	python ./vim/profiling/vim-profiler/vim-profiler.py nvim
 
 
 

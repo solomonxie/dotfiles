@@ -69,12 +69,12 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
+    "{NEOVIM + LSP + LUA}
         source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim
         " source ~/myconf/dotfiles/vim/rcmodules/lspsaga.vim  "Buggy
-        source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim
     "{Git}
         source ~/myconf/dotfiles/vim/rcmodules/tig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/fugitive.vim
@@ -88,7 +88,6 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/vimspector.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_dap.vim
 call plug#end()
-" source ~/myconf/dotfiles/vim/vimrc-plugins.vim
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -100,24 +99,6 @@ source ~/myconf/dotfiles/vim/vimrc-commands.vim
 source ~/myconf/dotfiles/vim/vimrc-keymappings.vim
 source ~/myconf/dotfiles/vim/vimrc-ui.vim
 " source ~/myconf/dotfiles/vim/rcmodules/schedules.vim
-" LUA CONFIGURATIONS (BASED ON BUILT-IN LSP)
-if &runtimepath =~ 'lspconfig'
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-sql.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-vim.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-js.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
-    luafile ~/myconf/dotfiles/vim/rcmodules/lua/blankline.lua
-    " luafile ~/myconf/dotfiles/vim/rcmodules/lua/schedule.lua
-endif
-" source ~/myconf/dotfiles/vim/rcmodules/_run_outside_of_plug_begin.vim
 if filereadable(expand('~/.config/vimrc-local.vim'))
     source ~/.config/vimrc-local.vim
 endif

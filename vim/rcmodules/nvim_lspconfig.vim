@@ -26,6 +26,26 @@ nnoremap <Leader>a :lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap <Leader>x :lua vim.lsp.buf.formatting()<CR>
 nnoremap K :lua vim.lsp.buf.hover()<CR>
 
+
+augroup LoadLspClients
+    autocmd!
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
+    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/blankline.lua
+
+    " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-sql.lua
+    " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-vim.lua
+    " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-js.lua
+    " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/schedule.lua
+augroup end
+
 " -- See `:help vim.lsp.*` for documentation on any of the below functions
 
 " =====> more settings in =========>

@@ -37,7 +37,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/misc.vim
         source ~/myconf/dotfiles/vim/rcmodules/hop.vim
     "{UI}
-        " source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/indent_line.vim  "BUGGY
         source ~/myconf/dotfiles/vim/rcmodules/blankline.vim  "INDENT-LINE
         " source ~/myconf/dotfiles/vim/rcmodules/airline.vim  "681ms+
         source ~/myconf/dotfiles/vim/rcmodules/buftabline.vim  "Blazing fast!
@@ -53,7 +53,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
         " source ~/myconf/dotfiles/vim/rcmodules/markbar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/syntastic.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/telescope.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/telescope.vim  "SLOW
         " source ~/myconf/dotfiles/vim/rcmodules/which_key.vim
     "{Completion | Usages | Definitions}
         " source ~/myconf/dotfiles/vim/rcmodules/replace.vim

@@ -112,5 +112,4 @@ nnoremap fl :FZFBLines<CR>
 "REF: https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"REF: https://github.com/junegunn/fzf.vim
 Plug 'chengzeyi/fzf-preview.vim'

@@ -19,6 +19,11 @@ highlight BufTabLineHidden ctermbg=235 ctermfg=191
 highlight BufTabLineModifiedCurrent ctermfg=0 ctermbg=168
 highlight BufTabLineModifiedActive ctermfg=0 ctermbg=214
 highlight BufTabLineModifiedHidden ctermfg=0 ctermbg=222
+" highlight BufTabLineCurrent ctermbg=192 ctermfg=0 cterm=none guibg=blue guifg=0
+" highlight BufTabLineHidden ctermbg=235 ctermfg=191 cterm=none guibg=red guifg=191
+" highlight BufTabLineModifiedCurrent ctermfg=0 ctermbg=168 cterm=none guibg=green guifg=0
+" highlight BufTabLineModifiedActive ctermfg=0 ctermbg=214 cterm=none guibg=blue guifg=0
+" highlight BufTabLineModifiedHidden ctermfg=0 ctermbg=222 cterm=none guibg=yellow guifg=0
 
 " DEFAULT
 "hi default link BufTabLineCurrent TabLineSel

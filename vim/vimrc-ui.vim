@@ -71,11 +71,11 @@ let g:enable_badwolf_slimv = 0
 
 " <Basic Settings>
     set t_Co=256   ">> Overwriting Alert !!
+    " set termguicolors  "{True Color Support} Vim-specific sequences for RGB colors
+    set notermguicolors  "Turn off -> when on, bg-color will affect the whole look
     set background=dark   ">> Overwriting Alert !!
 
     "[CAREFUL!!!] >> Ugly when working with other themes & syntax highlighting plugins
-    " set termguicolors  "{True Color Support} Vim-specific sequences for RGB colors
-    set notermguicolors  "Turn off -> when on, bg-color will affect the whole look
     set fillchars+=vert:\!  "Bar character for VERTical Split Pane
 
     " REF: https://jonasjacek.github.io/colors/
@@ -87,10 +87,12 @@ let g:enable_badwolf_slimv = 0
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=88  "Dark Red
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=89  "Pink
     " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=90  "Dark Magenta
-    highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=237  "Grey
-    highlight! CursorLineNr cterm=NONE ctermfg=11 gui=bold guifg=Yellow
     " highlight! CursorLine cterm=underline ctermfg=NONE ctermbg=236  "Dark Magenta
     " highlight! CursorLineNR cterm=NONE ctermfg=NONE ctermbg=89  "Pink
+    highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=237  "Grey
+    highlight! CursorLineNr cterm=NONE ctermfg=11 gui=bold guifg=Yellow
+    " highlight! LineNr ctermfg=gray ctermbg=black cterm=NONE guibg=black guifg=gray
+    " highlight! SignColumn ctermfg=gray ctermbg=black cterm=NONE guibg=black guifg=gray
 
     " autocmd WinEnter * set cursorline
     " autocmd WinLeave * set nocursorline
@@ -152,6 +154,7 @@ let g:enable_badwolf_slimv = 0
     "highlight! VertSplit guifg=red guibg=blue term=None
     "highlight! Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
     " highlight! Normal ctermfg=grey ctermbg=black  "Set background color
+    " highlight Normal guibg=black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               PLUGIN RELATED                               "

@@ -178,6 +178,11 @@ nnoremap tc :CwdCopy<CR>
 nnoremap tp :PwdCopy<CR>
 nnoremap tn :FilenameCopy<CR>
 
+nnoremap <M-h> <C-w>h
+nnoremap <M-l> <C-w>l
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+
 augroup FileCompile
     autocmd!
     autocmd BufReadPre *.py noremap <buffer> <leader>B :w<CR>:!python "%:p" <CR>

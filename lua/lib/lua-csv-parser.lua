@@ -38,7 +38,7 @@ end
 
 
 function M.parse_file(path, sep)
-    print('LODING CONTENT...')
+    print('LOADING CONTENT...')
     if not sep then sep = ',' end
     -- PARSE LINES
     local rows = {}
@@ -63,7 +63,7 @@ end
 
 
 function M.parse_file_by_line(path, sep)
-    print('LODING CONTENT...')
+    print('LOADING CONTENT...')
     if not sep then sep = ',' end
     local i = 0
     local iter = io.lines(path)

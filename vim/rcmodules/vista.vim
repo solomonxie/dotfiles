@@ -23,7 +23,7 @@ let g:vista#renderer#enable_icon = 0
 " \  }
 
 "Action
-let g:vista_close_on_jump = 0  "<<<<<<<<<<<<<
+let g:vista_close_on_jump = 1  "<<<<<<<<<<<<<
 let g:vista_stay_on_open = 1  "<<<<<<<<<<<
 let g:vista_sidebar_keepalt = 0
 let g:vista_blink = [2, 100]

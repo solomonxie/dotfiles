@@ -92,19 +92,19 @@ endfunction
 
 function! SaveSessionSimple()
     echom "SAVING SESSION BY FILES..."
-    let session_path = GetSessionPath()
     let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
     " echom 'Buffers: ' . string(buffer_list)
     let steps = []
     call add(steps, 'cd '. expand(getcwd()))
     call add(steps, 'let g:gitroot = "'. g:gitroot . '"')
-    call add(steps, 'let s:wipebuf = bufnr("%")')
+    call add(steps, 'let s:wipebuf = bufnr("%")')  "Mark initial/empty buffer
     for bn in buffer_list
         call add(steps, '$argadd ' . expand('#' . bn . ':b'))
     endfor
     call add(steps, 'edit ' . expand('#'. bufnr('%') .':b'))
-    call add(steps, 'silent exe "bwipe " . s:wipebuf')
-    " echom 'Buffers: ' . string(steps)
+    call add(steps, 'silent exe "bwipe " . s:wipebuf')  "Remove initial/empty buffer
+    " echom 'Steps: ' . string(steps)
+    let session_path = GetSessionPath()
     if len(steps) > 0
         call writefile(steps, session_path, 'b')
     endif

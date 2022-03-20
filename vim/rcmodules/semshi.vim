@@ -6,7 +6,7 @@
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " REF: https://github.com/numirias/semshi/issues/105  "FORK: ====> FIXED THE CONFLICT WITH VIM-COMPE
-Plug 'sh8/semshi', {'do': ':UpdateRemotePlugins', 'for': ['python']}
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': ['python']}
 
 hi semshiLocal           ctermfg=209 guifg=#ff875f
 hi semshiGlobal          ctermfg=214 guifg=#ffaf00
@@ -27,7 +27,7 @@ let g:semshi#active = v:true
 let g:semshi#filetypes = ['python']
 let g:semshi#excluded_hl_groups = ['local']
 let g:semshi#simplify_markup = v:true
-let g:semshi#always_update_all_highlights = v:true
+let g:semshi#always_update_all_highlights = v:false
 "Don't show a sign by the line-no if a syntax error occurred
 let g:semshi#error_sign = v:false
 "Tolerate some minor syntax errors to update highlights

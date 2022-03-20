@@ -20,7 +20,6 @@
 "==========> BADWOLF ============>>>>
 " Plug 'solomonxie/badwolf'
 "FILE: ./colors/badwolf.vim
-colorscheme badwolf  "16ms after my fork
 let g:enable_badwolf_plugin = 0
 let g:enable_badwolf_filetype = 1
 let g:enable_badwolf_vim = 0
@@ -46,6 +45,7 @@ let g:enable_badwolf_mail = 0
 let g:enable_badwolf_markdown = 0
 let g:enable_badwolf_mysql = 0
 let g:enable_badwolf_slimv = 0
+colorscheme badwolf  "16ms after my fork
 
 " ==========> ALTERNATIVES ===========>
     "colorscheme gruvbox  "20ms
@@ -63,7 +63,7 @@ let g:enable_badwolf_slimv = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <Syntax Highlighting>  Better to be in the front
     syntax enable
-    let python_highlight_all = 1  "FOR vim/syntax/python.vim (FROM WEB)
+    " let python_highlight_all = 1  "FOR vim/syntax/python.vim (FROM WEB)
 
 "<FileType>
     filetype plugin on    " [essential]
@@ -76,7 +76,7 @@ let g:enable_badwolf_slimv = 0
     set background=dark   ">> Overwriting Alert !!
 
     "[CAREFUL!!!] >> Ugly when working with other themes & syntax highlighting plugins
-    set fillchars+=vert:\!  "Bar character for VERTical Split Pane
+    set fillchars+=vert:\|  "Bar character for VERTical Split Pane
 
     " REF: https://jonasjacek.github.io/colors/
     " REF: https://vi.stackexchange.com/questions/23066/change-cursorline-style

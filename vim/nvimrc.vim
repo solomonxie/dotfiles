@@ -121,6 +121,8 @@ set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger vi
 "noremap <LeftDrag> <LeftMouse>
 "noremap! <LeftDrag> <LeftMouse>
 
+set shell=/bin/sh
+
 " Persistent Session Options
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds

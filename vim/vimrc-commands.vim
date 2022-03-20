@@ -56,7 +56,8 @@
     "{Load session}
     augroup AutoSaveSession
         autocmd!
-        autocmd VimLeave,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
+        " autocmd VimLeave,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSession() | endif
+        autocmd VimLeave,FocusLost * if len(getbufinfo({'buflisted':1}))>=2 | call SaveSessionSimple() | endif
     augroup end
 
     augroup persistent_folds
@@ -68,7 +69,8 @@
 
 
 "[Prettify/Formatting]--------------------------{
-    command! PrettifyJson :% !python -m json.tool
+    command! JsonPrettify :% !python -m json.tool
+    command! SqlPrettify :% !python -m sqlparse.format --reindent --keywords upper --identifiers lower
 "}
 
 

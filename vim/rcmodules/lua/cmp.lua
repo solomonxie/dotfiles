@@ -24,7 +24,7 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
                 { name = 'buffer' },
                 { name = 'path' },
                 { name = 'commandline' },
-                { name = 'nvim_lsp' },
+                -- { name = 'nvim_lsp' },
                 { name = 'treesitter' },
             }
         )

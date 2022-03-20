@@ -72,11 +72,11 @@ endfunction
 
 
 function! GetSessionPath()
-    let gitroot = trim(system("git rev-parse --show-toplevel"))
-    if isdirectory(gitroot)
-        let session_path = gitroot . "/.git/workspace.vim"
+    let g:gitroot = get(g:, 'gitroot', trim(system("git rev-parse --show-toplevel")))
+    if isdirectory(g:gitroot)
+        let session_path = g:gitroot . "/.git/workspace.vim"
     else
-        let session_path = "~/.non-repo-session.vim"
+        let session_path = "/tmp/lastsession.vim"
     endif
     return session_path
 endfunction
@@ -92,24 +92,30 @@ endfunction
 
 function! SaveSessionSimple()
     echom "SAVING SESSION BY FILES..."
+    let session_path = GetSessionPath()
     let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
     " echom 'Buffers: ' . string(buffer_list)
-    let steps = ['cd '. getcwd(), 'edit ' . expand('#'. buffer_list[0] .':b'), '']
+    let steps = []
+    call add(steps, 'cd '. expand(getcwd()))
+    call add(steps, 'let g:gitroot = "'. g:gitroot . '"')
+    call add(steps, 'let s:wipebuf = bufnr("%")')
     for bn in buffer_list
-        call add(steps, 'badd +1 ' . expand('#' . bn . ':b'))
+        call add(steps, '$argadd ' . expand('#' . bn . ':b'))
     endfor
+    call add(steps, 'edit ' . expand('#'. bufnr('%') .':b'))
+    call add(steps, 'silent exe "bwipe " . s:wipebuf')
     " echom 'Buffers: ' . string(steps)
     if len(steps) > 0
-        call writefile(steps, GetSessionPath(), 'b')
+        call writefile(steps, session_path, 'b')
     endif
-    echom "DONE: SAVED SESSION."
+    echom "DONE: SAVED SESSION TO: " . session_path
 endfunction
 
 
 function! LoadSession()
     let session_path = GetSessionPath()
     execute "source " . session_path
-    ":echo "Load session from workspace.vim"
+    echom "DONE: Loaded session from: " . session_path
 endfunction
 
 

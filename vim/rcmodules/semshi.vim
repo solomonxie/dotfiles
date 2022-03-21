@@ -7,6 +7,7 @@
 
 " REF: https://github.com/numirias/semshi/issues/105  "FORK: ====> FIXED THE CONFLICT WITH VIM-COMPE
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': ['python']}
+" Plug 'sh8/semshi', {'do': ':UpdateRemotePlugins', 'for': ['python']}
 
 hi semshiLocal           ctermfg=209 guifg=#ff875f
 hi semshiGlobal          ctermfg=214 guifg=#ffaf00

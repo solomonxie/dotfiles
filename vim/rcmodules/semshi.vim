@@ -27,7 +27,7 @@ let g:semshi#active = v:true
 let g:semshi#filetypes = ['python']
 let g:semshi#excluded_hl_groups = ['local']
 let g:semshi#simplify_markup = v:true
-let g:semshi#always_update_all_highlights = v:false
+let g:semshi#always_update_all_highlights = v:true
 "Don't show a sign by the line-no if a syntax error occurred
 let g:semshi#error_sign = v:false
 "Tolerate some minor syntax errors to update highlights

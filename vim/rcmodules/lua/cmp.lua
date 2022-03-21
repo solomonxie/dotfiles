@@ -19,12 +19,12 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
                 -- { name = 'vsnip' }, -- For vsnip users.
                 -- { name = 'luasnip' }, -- For luasnip users.
                 -- { name = 'snippy' }, -- For snippy users.
+                { name = 'buffer' },
             },
             {
-                { name = 'buffer' },
+                -- { name = 'nvim_lsp' },
                 { name = 'path' },
                 { name = 'commandline' },
-                -- { name = 'nvim_lsp' },
                 { name = 'treesitter' },
             }
         )

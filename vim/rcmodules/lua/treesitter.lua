@@ -1,3 +1,4 @@
+--REF: https://github.com/nvim-treesitter/nvim-treesitter
 if string.find(vim.o['runtimepath'], 'nvim-treesitter')  then
     require "nvim-treesitter.configs".setup {
         playground = {

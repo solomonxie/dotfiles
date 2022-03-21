@@ -68,7 +68,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/coq.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
-        source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
     "{NEOVIM + LSP + LUA}
         source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
@@ -124,8 +124,8 @@ set mouse=a  "a -> all, enbles mouse in Tmux (but text selection will trigger vi
 set shell=/bin/sh
 
 " Persistent Session Options
-set ssop-=options    " do not store global and local values in a session
-set ssop-=folds      " do not store folds
+set sessionoptions-=options    " do not store global and local values in a session
+set sessionoptions-=folds      " do not store folds
 " set sessionoptions=blank,buffers,curdir,tabpages,winsize,terminal
 
 "Avoid annoying continuation of comment (:help fo-table)
@@ -133,7 +133,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 " Avoid prompt to hit enter for every echo when it's not enough to show full msg
 set shortmess+=T
-set cmdheight=2
+set cmdheight=1
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete

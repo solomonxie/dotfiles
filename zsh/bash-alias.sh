@@ -34,15 +34,16 @@ alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 
+alias SO="source ~/.zshrc"
+
 
 #######################################################################
 #                                 Vim                                 #
 #######################################################################
 # [[ -e $(command -v nvim) ]] && alias vim="nvim" && alias vimdiff="nvim -d"
-alias vi="vi --noplugin"
+alias vi="vi -u NONE -N"
 alias ":e"="vim"
-alias SO="source ~/.zshrc"
-
+alias vimprofiling="vim --startuptime /tmp/startup.log +q && vim /tmp/startup.log"
 
 #######################################################################
 #                           CONFIG PROJECTS                           #

@@ -101,21 +101,21 @@ function! SaveSessionSimple()
     for bn in buffer_list
         call add(steps, '$argadd ' . expand('#' . bn . ':b'))
     endfor
-    call add(steps, 'edit ' . expand('#'. bufnr('%') .':b'))
+    call add(steps, 'edit ' . expand('#'. bufnr('%') .':b'))  "Set focused file
     call add(steps, 'silent exe "bwipe " . s:wipebuf')  "Remove initial/empty buffer
     " echom 'Steps: ' . string(steps)
     let session_path = GetSessionPath()
     if len(steps) > 0
         call writefile(steps, session_path, 'b')
     endif
-    echom "DONE: SAVED SESSION TO: " . session_path
+    echom "SAVED SESSION TO: " . session_path
 endfunction
 
 
 function! LoadSession()
     let session_path = GetSessionPath()
     execute "source " . session_path
-    echom "DONE: Loaded session from: " . session_path
+    echom "LOADED SESSION FROM: " . session_path
 endfunction
 
 

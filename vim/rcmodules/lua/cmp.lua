@@ -1,7 +1,10 @@
+local lspc = require('lspconfig')
+local cmp = require('cmp')
+if not lspc or not cmp then return nil end
+
 -- SUPPORTED SOURCES: https://github.com/topics/nvim-cmp
 if string.find(vim.o['runtimepath'], 'cmp')  then
     -- Setup nvim-cmp.
-    local cmp = require'cmp'
     cmp.setup({
         snippet = {
             -- REQUIRED - you must specify a snippet engine
@@ -57,7 +60,6 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
     -- Setup lspconfig.
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
     -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    lspc = require('lspconfig')
     -- lspc['pylsp'].setup { capabilities = capabilities }
     -- lspc['jedi_language_server'].setup { capabilities = capabilities }
     lspc['vimls'].setup { capabilities = capabilities }

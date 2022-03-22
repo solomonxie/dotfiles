@@ -1,3 +1,5 @@
+if not lspc then return nil end
+
 if string.find(vim.o['runtimepath'], 'nvim-lsp-installer')  then
     local servers = require('nvim-lsp-installer.servers')
     local server_available, requested_server = servers.get_server("jedi_language_server")

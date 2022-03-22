@@ -1,4 +1,5 @@
 local lspc = require('lspconfig')
+if not lspc then return nil end
 
 local on_attach = function(_, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end

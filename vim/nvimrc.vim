@@ -68,7 +68,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/coq.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
+        source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
     "{NEOVIM + LSP + LUA}
         source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim

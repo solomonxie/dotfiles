@@ -13,7 +13,6 @@
 " REF: https://github.com/tweekmonster/startuptime.vim
 Plug 'tweekmonster/startuptime.vim'   "VIM loading analysis
 
-
 "REF: https://github.com/lewis6991/impatient.nvim
 "Optimize Lua module loading time
 " Plug 'lewis6991/impatient.nvim'

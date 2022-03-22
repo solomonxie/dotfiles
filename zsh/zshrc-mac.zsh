@@ -108,7 +108,7 @@ export LC_IDENTIFICATION=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 export PATH="$HOME/.local/bin:$PATH"
-# export PATH="$HOME/nvim-osx64/bin:$PATH"
+export PATH="$HOME/nvim-osx64/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version

@@ -28,24 +28,25 @@ nnoremap K :lua vim.lsp.buf.hover()<CR>
 
 
 " RUN AFTER ALL PLUGINS ARE LOADED:
-augroup LoadLspClients
-    autocmd!
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
-    autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/blankline.lua
+" augroup LoadLspClients  "SLOW!!! COLD START!!!
+"     autocmd!
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
+"     autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/blankline.lua
 
-    " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-sql.lua
-    " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-vim.lua
-    " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-js.lua
-    " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/schedule.lua
-augroup end
+"     " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-sql.lua
+"     " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-vim.lua
+"     " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-js.lua
+"     " autocmd VimEnter * luafile ~/myconf/dotfiles/vim/rcmodules/lua/schedule.lua
+" augroup end
+
 
 " -- See `:help vim.lsp.*` for documentation on any of the below functions
 

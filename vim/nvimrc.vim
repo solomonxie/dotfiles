@@ -89,11 +89,28 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_dap.vim
 call plug#end()
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                LUA CONFIGS                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MUST BE LOADED AFTER PLUGINS
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/cmp.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/lspsaga.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/treesitter.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/whichkey.lua
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/blankline.lua
+" luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-sql.lua
+" luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-vim.lua
+" luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-js.lua
+" luafile ~/myconf/dotfiles/vim/rcmodules/lua/schedule.lua
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               IMPORT MODULES                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MUST BE LOADED AFTER PLUGINS
 source ~/myconf/dotfiles/vim/vimrc-functions.vim
 source ~/myconf/dotfiles/vim/vimrc-commands.vim
 source ~/myconf/dotfiles/vim/vimrc-keymappings.vim

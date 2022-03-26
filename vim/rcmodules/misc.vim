@@ -19,7 +19,7 @@ Plug 'tpope/vim-commentary'  "Blazing fast!!
 Plug 'bronson/vim-trailing-whitespace'
 
 "REF: https://github.com/wsdjeg/vim-fetch
-Plug 'wsdjeg/vim-fetch'  "Open/Edit file from reference: /path/to/file:190:3
+" Plug 'wsdjeg/vim-fetch'  "Open/Edit file from reference: /path/to/file:190:3
 
 " REF: https://github.com/rbgrouleff/bclose.vim
 Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW

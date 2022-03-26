@@ -1,25 +1,22 @@
 " REF: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
-if has('python3')
-    Plug 'SirVer/ultisnips'  " Track the engine.
-    Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
+Plug 'SirVer/ultisnips'  " Track the engine.
+Plug 'honza/vim-snippets'  " Snippets are separated from the engine.
 
-    " Trigger configuration.
-    " Do not use <tab> if you use YouCompleteMe.
-    let g:UltiSnipsExpandTrigger="<Tab>"
-    let g:UltiSnipsJumpForwardTrigger="<C-j>"
-    let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-    " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
-    " Specify snippets locations
-    " !! MUST BE FULL PATH (~ DOESN'T WORK) !!
-    let g:UltiSnipsSnippetsDir = expand("~/.vim/mysnippets")
-    " let g:UltiSnipsSnippetDirectories=[expand('~/.vim/plugged/vim-snippets/UltiSnips/'), expand('~/.vim/plugged/vim-snippets/'), expand('~/.vim/mysnippets')]
-    let g:UltiSnipsSnippetDirectories=[expand('~/vim_plugged/vim-snippets/UltiSnips/'), expand('~/myconf/dotfiles/vim/mysnippets')]
-    " Could be buggy if not specifying the Python version
-    if has('python3')
-        let g:UltiSnipsUsePythonVersion=3
-    endif
-endif
+" Could be buggy if not specifying the Python version
+let g:UltiSnipsUsePythonVersion=3
+
+" Trigger configuration.
+" Do not use <tab> if you use YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Specify snippets locations ==> MUST BE FULL PATH (`~` DOESN'T WORK) !!
+" let g:UltiSnipsSnippetsDir = expand("~/.vim/mysnippets")
+let g:UltiSnipsSnippetDirectories=[expand('~/vim_plugged/vim-snippets/UltiSnips/'), expand('~/myconf/dotfiles/vim/mysnippets')]
 
 " [  Lazy Load Plugins  ]-----------{
     " augroup load_ultisnips

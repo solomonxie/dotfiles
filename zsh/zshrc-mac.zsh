@@ -108,7 +108,6 @@ export LC_IDENTIFICATION=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/nvim-osx64/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"  # Curl newer version
@@ -139,6 +138,7 @@ export PATH="$HOME/Applications/SnowSQL.app/Contents/MacOS:$PATH"
 export PATH="$HOME/workspace/bin:$PATH"
 # =====GNU BIN===============
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # =====MISC===============
 export HOMEBREW_NO_AUTO_UPDATE=1
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
@@ -151,6 +151,8 @@ export LUA_PATH="$HOME/myconf/dotfiles/lua/lib/?.lua;$LUA_PATH"
 export LUA_CPATH='/opt/homebrew/lib/lua/5.4/?.so;/opt/homebrew/lib/lua/5.4/loadall.so;./?.so;~/.luarocks/lib/lua/5.4/?.so'
 export PATH="~/.luarocks/bin:$PATH"
 
+# =========Neovim==============
+export PATH="$HOME/nvim-osx64/bin:$PATH"
 
 # BETTER TO BE AT THE BOTTOM
 source ~/myconf/dotfiles/zsh/pluginconfigs/fzf.sh

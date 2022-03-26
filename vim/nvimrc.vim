@@ -68,7 +68,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/coq.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
-        source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
     "{NEOVIM + LSP + LUA}
         source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
@@ -93,6 +93,8 @@ call plug#end()
 "                                LUA CONFIGS                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MUST BE LOADED AFTER PLUGINS
+luafile ~/myconf/dotfiles/vim/rcmodules/lua/nvimrc-functions.lua
+
 luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
 luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
 luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
@@ -147,6 +149,9 @@ set sessionoptions-=folds      " do not store folds
 
 "Avoid annoying continuation of comment (:help fo-table)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+"Enable to close netrw buffer
+autocmd FileType netrw setl bufhidden=wipe
 
 " Avoid prompt to hit enter for every echo when it's not enough to show full msg
 set shortmess+=T

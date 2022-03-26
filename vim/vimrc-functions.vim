@@ -94,6 +94,7 @@ function! SaveSessionSimple()
     echom "SAVING SESSION BY FILES..."
     let buffer_list = filter(range(1, bufnr("$")), "buflisted(v:val)")
     " echom 'Buffers: ' . string(buffer_list)
+    let session_path = GetSessionPath()
     let steps = []
     call add(steps, 'cd '. expand(getcwd()))
     call add(steps, 'let g:gitroot = "'. g:gitroot . '"')
@@ -104,7 +105,6 @@ function! SaveSessionSimple()
     call add(steps, 'edit ' . expand('#'. bufnr('%') .':b'))  "Set focused file
     call add(steps, 'silent exe "bwipe " . s:wipebuf')  "Remove initial/empty buffer
     " echom 'Steps: ' . string(steps)
-    let session_path = GetSessionPath()
     if len(steps) > 0
         call writefile(steps, session_path, 'b')
     endif

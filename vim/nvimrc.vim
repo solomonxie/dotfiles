@@ -69,7 +69,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
-    "{NEOVIM + LSP + LUA}
+    "{NEOVIM + LANGUAGE SERVER + LUA}
         source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
@@ -222,8 +222,8 @@ autocmd FileType *.conf,*.config,*.cfg,*.ini set syntax=cfg
 
 "IMPORTANT: FOR OPENNING LARGE FILE
 let g:large_file_size = 10000000  "10MB
-autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:large_file_size | set noswapfile | syntax off | endif
-autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) <= g:large_file_size | syntax on | endif
+autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:large_file_size | set noswapfile | syntax clear | endif
+autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) <= g:large_file_size | syntax clear | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          PERSISTENT FILE SETTINGS                          "

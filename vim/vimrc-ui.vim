@@ -62,8 +62,10 @@ colorscheme badwolf  "16ms after my fork
 "                         GENERAL UI / COLOR SCHEME                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <Syntax Highlighting>  Better to be in the front
-    syntax enable
     let python_highlight_all = 1  "FOR vim/syntax/python.vim (FROM WEB)
+    "Performance strategy: set manual (disable at start), then lazy load on buffer level
+    syntax manual  "Speed: off > manual > on > enable
+    autocmd BufRead,BufNewFile *.py,*.js,*.md,*.vim,*.sh,*.zsh,zshrc*,Makefile* set syntax=on
 
 "<FileType>
     filetype plugin on    " [essential]

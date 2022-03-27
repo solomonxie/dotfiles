@@ -47,8 +47,8 @@ function NerdTreeCustom()
         q
     endif
     " Manually turn on syntax
-    "syntax manual
-    set syntax=on
+    " syntax manual
+    " set syntax=on
 endfunction
 
 autocmd FileType nerdtree call NerdTreeCustom()

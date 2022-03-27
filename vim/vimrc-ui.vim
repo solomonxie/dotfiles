@@ -62,8 +62,8 @@ colorscheme badwolf  "16ms after my fork
 "                         GENERAL UI / COLOR SCHEME                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function SetSyntax()
-    let s:max_line = 2000
-    if line('$') <= s:max_line
+    let b:max_line = 5000
+    if line('$') <= b:max_line "&& &syntax != 'manual'
         syntax manual
         set syntax=on
         filetype plugin on    " [essential]
@@ -78,8 +78,9 @@ endfunction
 " <Syntax Highlighting>  Better to be in the front
     "ULTIMATE PERFORMANCE STRATEGY: disable syntax at start, then lazy load on buffer level
     syntax off  "Speed: off > manual > on > enable
-    autocmd BufRead *.py,*.js,*.md,*.sql,*.json,*.json.gz,*.csv,*.csv.gz,*.vim,*.sh,*.zsh,zshrc*,Makefile* call SetSyntax()
+    autocmd BufEnter *.py,*.js,*.md,*.sql,*.json,*.json.gz,*.csv,*.csv.gz,*.vim,*.sh,*.zsh,zshrc*,Makefile* call SetSyntax()
     autocmd FileType nerdtree call SetSyntax()
+    autocmd FileType vista call SetSyntax()
     autocmd BufRead *.json.gz set filetype=json
     autocmd BufRead *.csv.gz set filetype=csv
     let python_highlight_all = 1  "FOR vim/syntax/python.vim (FROM WEB)

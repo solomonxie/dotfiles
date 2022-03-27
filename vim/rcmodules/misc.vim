@@ -29,6 +29,12 @@ Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
 Plug 'nathom/filetype.nvim'  "Speed-up over filetype.vim for 10ms
 let g:did_load_filetypes = 1
 
+"REF: https://github.com/mechatroner/rainbow_csv
+"Plug 'mechatroner/rainbow_csv'
+
+"REF: https://github.com/chrisbra/csv.vim
+" Plug 'chrisbra/csv.vim'
+
 ""REF: https://github.com/airblade/vim-rooter
 "Plug 'airblade/vim-rooter'
 "" autocmd BufEnter * :Rooter

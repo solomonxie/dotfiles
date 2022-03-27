@@ -40,8 +40,19 @@ let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__', 'node_modules']
 "autocmd vimenter * if !argc()|NERDTree|endif
 " Or, auto-open Nerdtree
 "autocmd vimenter * NERDTree
-" Close NERDTree when there's no other windows
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+function NerdTreeCustom()
+    echom "nerd"
+    " Close NERDTree when there's no other windows
+    if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())
+        q
+    endif
+    " Manually turn on syntax
+    "syntax manual
+    set syntax=on
+endfunction
+
+autocmd FileType nerdtree call NerdTreeCustom()
+
 
 " Customize icons on Nerdtree
 let g:NERDTreeDirArrowExpandable = '▸'

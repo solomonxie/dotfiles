@@ -75,10 +75,9 @@ function SetSyntax()
     endif
 endfunction
 
-
 " <Syntax Highlighting>  Better to be in the front
     let python_highlight_all = 1  "FOR vim/syntax/python.vim (FROM WEB)
-    "Performance strategy: disable at start, then lazy load on buffer level
+    "ULTIMATE PERFORMANCE STRATEGY: disable syntax at start, then lazy load on buffer level
     syntax off  "Speed: off > manual > on > enable
     autocmd BufRead *.py,*.js,*.md,*.json,*.vim,*.sh,*.zsh,zshrc*,Makefile* call SetSyntax()
     autocmd FileType nerdtree call SetSyntax()
@@ -96,29 +95,12 @@ endfunction
     "[CAREFUL!!!] >> Ugly when working with other themes & syntax highlighting plugins
     set fillchars+=vert:\|  "Bar character for VERTical Split Pane
 
-    " REF: https://jonasjacek.github.io/colors/
-    " REF: https://vi.stackexchange.com/questions/23066/change-cursorline-style
-    set cursorline  "Highlighting current line
-    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=214  "Orange
-    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=161  "Deep Pink
-    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=8  "Grey
-    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=88  "Dark Red
-    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=89  "Pink
-    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=90  "Dark Magenta
-    " highlight! CursorLine cterm=underline ctermfg=NONE ctermbg=236  "Dark Magenta
-    " highlight! CursorLineNR cterm=NONE ctermfg=NONE ctermbg=89  "Pink
-    highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=237  "Grey
-    highlight! CursorLineNr cterm=NONE ctermfg=11 gui=bold guifg=Yellow
-    " highlight! LineNr ctermfg=gray ctermbg=black cterm=NONE guibg=black guifg=gray
-    " highlight! SignColumn ctermfg=gray ctermbg=black cterm=NONE guibg=black guifg=gray
-
-    " autocmd WinEnter * set cursorline
-    " autocmd WinLeave * set nocursorline
-
-" <Line Number>
+" =={NUMBER LINE}==
     " turn hybrid line numbers on
     " set number relativenumber
     set number norelativenumber
+    " highlight! LineNr ctermfg=gray ctermbg=black cterm=NONE guibg=black guifg=gray
+    " highlight! SignColumn ctermfg=gray ctermbg=black cterm=NONE guibg=black guifg=gray
     " Automatic toggling between line number modes
     " augroup AutoToggleRelativeNumber
     "   autocmd!
@@ -150,7 +132,6 @@ endfunction
     "> or
     "highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                HIGHLIGHTING                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -173,6 +154,23 @@ endfunction
     "highlight! Normal ctermbg=White ctermfg=Black guifg=Black guibg=White
     " highlight! Normal ctermfg=grey ctermbg=black  "Set background color
     " highlight Normal guibg=black
+
+" =={CURSOR LINE}==
+    " REF: https://jonasjacek.github.io/colors/
+    " REF: https://vi.stackexchange.com/questions/23066/change-cursorline-style
+    set cursorline  "Highlighting current line
+    " autocmd WinEnter * set cursorline
+    " autocmd WinLeave * set nocursorline
+    highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=237  "Grey
+    highlight! CursorLineNr cterm=NONE ctermfg=11 gui=bold guifg=Yellow
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=214  "Orange
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=161  "Deep Pink
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=8  "Grey
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=88  "Dark Red
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=89  "Pink
+    " highlight! CursorLine cterm=NONE ctermfg=NONE ctermbg=90  "Dark Magenta
+    " highlight! CursorLine cterm=underline ctermfg=NONE ctermbg=236  "Dark Magenta
+    " highlight! CursorLineNR cterm=NONE ctermfg=NONE ctermbg=89  "Pink
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               PLUGIN RELATED                               "

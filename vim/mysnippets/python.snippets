@@ -144,21 +144,22 @@ def get_dates_from_range(granularity, start_date, end_date):
 	return combos
 endsnippet
 
-snippet get_start_end_date
-from datetime import datetime
+snippet date_to_start_end
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 
-def get_start_end_date(target_date, granularity):
-	target = datetime.strptime(target_date, '%Y-%m-%d') if isinstance(target_date, str) else target_date
-	if granularity == 'daily':
-		start = end = target
-	elif granularity == 'weekly':
-		start = target
-		end = target + timedelta(days=6)
-	elif granularity == 'monthly':
-		start = target.replace(day=1)
-		any_day_in_next_month = target.replace(day=28) + timedelta(days=4)
-		end = any_day_in_next_month - timedelta(days=any_day_in_next_month.day)
-	return start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d')
+def date_to_start_end(dstr: str, granularity: str = 'daily') -> tuple:
+    assert isinstance(dstr, str) and isinstance(granularity, str)
+    start = end = day = datetime.strptime(dstr, '%Y-%m-%d')
+    if granularity == 'weekly':
+        weekday_n = day.isoweekday() % 7
+        start = day - timedelta(days=weekday_n)
+        end = day + timedelta(days=6 - weekday_n)
+    elif granularity == 'monthly':
+        start = day.replace(day=1)
+        end = (start + relativedelta(months=1)) - relativedelta(days=1)
+    start_str, end_str = start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d')
+    return start_str, end_str
 endsnippet
 
 snippet now
@@ -166,14 +167,14 @@ from datetime import datetime, timedelta
 _ = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 endsnippet
 
-snippet from_datetime_str
+snippet date_to_str
 from datetime import datetime
 date_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 endsnippet
 
-snippet to_datetime
+snippet date_from_str
 from datetime import datetime
-datetime_obj = datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S')
+datetime_obj = datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S')
 endsnippet
 
 

@@ -78,7 +78,7 @@ endfunction
 " <Syntax Highlighting>  Better to be in the front
     "ULTIMATE PERFORMANCE STRATEGY: disable syntax at start, then lazy load on buffer level
     syntax off  "Speed: off > manual > on > enable
-    autocmd BufEnter *.py,*.js,*.md,*.sql,*.json,*.json.gz,*.csv,*.csv.gz,*.vim,*.sh,*.zsh,zshrc*,Makefile* call SetSyntax()
+    autocmd BufEnter *.py,*.js,*.md,*.sql,*.json,*.json.gz,*.csv,*.csv.gz,*.vim,*.sh,*.zsh,zshrc*,Makefile*,*.snippets call SetSyntax()
     autocmd FileType nerdtree call SetSyntax()
     autocmd FileType vista call SetSyntax()
     autocmd BufRead *.json.gz set filetype=json

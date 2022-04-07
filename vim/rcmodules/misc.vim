@@ -29,6 +29,9 @@ Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
 Plug 'nathom/filetype.nvim'  "Speed-up over filetype.vim for 10ms
 let g:did_load_filetypes = 1
 
+" REF: https://github.com/andymass/vim-matchup
+" Plug 'andymass/vim-matchup'
+
 "REF: https://github.com/mechatroner/rainbow_csv
 "Plug 'mechatroner/rainbow_csv'
 
@@ -45,6 +48,7 @@ let g:did_load_filetypes = 1
 
 "REF: https://github.com/ahmedkhalf/project.nvim
 Plug 'ahmedkhalf/project.nvim'
+"^ LUA CONFIGS: vim/rcmodules/lua/misc.lua
 
 "REF: https://github.com/mattn/emmet-vim
 " Plug 'mattn/emmet-vim'  "Not working

@@ -51,7 +51,7 @@
     colorscheme pablo
     set background=dark
     set fillchars+=vert:\!  "Bar character for VERTical Split Pane
-    set term=screen-256color
+    "set term=screen-256color
     set incsearch
     set hlsearch
     highlight Search guibg='Purple' guifg='NONE'

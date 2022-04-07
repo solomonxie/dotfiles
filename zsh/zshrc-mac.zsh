@@ -151,7 +151,7 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 
 # =========Neovim==============
-export PATH="$HOME/nvim-osx64/bin:$PATH"
+# export PATH="$HOME/nvim-osx64/bin:$PATH"
 
 # =========PROJECT-LEVEL-OVERRIDE===========
 source ~/myconf/dotfiles/zsh/zsh-envfiles.sh

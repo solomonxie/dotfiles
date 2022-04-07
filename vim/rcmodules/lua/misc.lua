@@ -7,8 +7,9 @@ end
 if string.find(vim.o['runtimepath'], 'project') then
     require("project_nvim").setup {
         manual_mode = false,
-        detection_methods = { "lsp", "pattern" },
-        patterns = { ".git" },
+        -- detection_methods = { "lsp", "pattern" },
+        detection_methods = {"pattern", "LICENSE"},
+        patterns = {".git"},
         ignore_lsp = {},
         exclude_dirs = {},
         show_hidden = false,

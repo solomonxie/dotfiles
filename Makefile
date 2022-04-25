@@ -15,6 +15,7 @@
 .PHONY: build install
 -include envfile
 -include envfile-local
+.EXPORT_ALL_VARIABLES:
 
 TARGET: build install
 

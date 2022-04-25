@@ -1,3 +1,4 @@
+local lspc = require('lspconfig')
 if not lspc then return nil end
 
 if string.find(vim.o['runtimepath'], 'nvim-lsp-installer')  then

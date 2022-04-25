@@ -192,6 +192,7 @@ set scrolloff=5  "Set 99 to make it center
 "     set inccommand=split
 " endif
 
+set isfname-==  "When using 'gf', ignore '=' as part of the file name
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         ADVANCED BUILT-IN SETTINGS                         "

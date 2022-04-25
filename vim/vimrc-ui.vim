@@ -83,7 +83,8 @@ endfunction
     " autocmd BufEnter *.py,*.js,*.md,*.sql,*.json,*.json.gz,*.yaml,*.yml,*.csv,*.csv.gz,*.vim,*.sh,*.zsh,zshrc*,Makefile*,*.snippets call SetSyntax()
     " autocmd FileType nerdtree call SetSyntax()
     " autocmd FileType vista call SetSyntax()
-    " autocmd BufRead *.json.gz set filetype=json
+    autocmd BufRead *.json.gz set filetype=json
+    autocmd BufRead *.sh,envfile* set filetype=bash
 
     let python_highlight_all = 1  "FOR vim/syntax/python.vim (FROM WEB)
 "<FileType>

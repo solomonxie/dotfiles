@@ -6,7 +6,9 @@ _inject_envfile() {
     local fpath
     fpath=$1
     if [[ -e "$fpath" ]];then
-        export $(grep -v '^#' $fpath | xargs) > /dev/null
+        for env in $(grep -v '^#' $fpath); do
+            export ${env} > /dev/null
+        done
         echo "injected env: ${fpath}"
     fi
 }

@@ -44,6 +44,7 @@ alias SO="source ~/.zshrc"
 alias vi="vi -u NONE -N"
 alias ":e"="vim"
 alias vimprofiling="vim --startuptime /tmp/startup.log +q && vim /tmp/startup.log"
+alias viprofiling="/usr/bin/vim --startuptime /tmp/startup.log +q && vim /tmp/startup.log"
 
 #######################################################################
 #                           CONFIG PROJECTS                           #

@@ -43,6 +43,10 @@ raspbian: debian
 
 
 venv:
+	python3 -m pip install virtualenv
+	python3 -m virtualenv ~/virtualenv/venv
+
+venv-full:
 	[ -e $(command -v apt) ] && [ ! -e $(command -v pip3) ] && sudo apt install -y python3-pip  ||true
 	[ ! -e $(command -v virtualenv) ] && pip3 install virtualenv ||true
 	# Py2 (must be in the front to be covered by py2 later)

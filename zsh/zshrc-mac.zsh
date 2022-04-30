@@ -152,6 +152,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
+export WEZTERM_CONFIG_DIR="${HOME}/.config/wezterm"
+export WEZTERM_CONFIG_FILE="${HOME}/.config/wezterm/wezterm.lua"
 
 # =========Neovim==============
 # export PATH="$HOME/nvim-osx64/bin:$PATH"

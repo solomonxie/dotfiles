@@ -143,6 +143,9 @@ export PATH="$HOME/Applications/SnowSQL.app/Contents/MacOS:$PATH"
 export PATH="$HOME/workspace/bin:$PATH"
 # =====GNU BIN===============
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+# =====GOOGLE CLOUD===============
+export PATH="$HOME/local/share/google-cloud-sdk/bin:$PATH"
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/gcp-service-account-serverless-admin-f50d0f01265f.json"
 
 # =====MISC===============
 export HOMEBREW_NO_AUTO_UPDATE=1

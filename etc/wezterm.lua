@@ -10,17 +10,12 @@ return {
     -- FONT
     font = wezterm.font("Droid Sans Mono for Powerline"),
     -- font = wezterm.font("JetBrains Mono"),
-    font_size = 15,  -- 14 for coding, 20 for CLI
+    font_size = 17.0,  -- 16 for coding, 20 for CLI
 
     -- GENERAL
     automatically_reload_config = true,
-    disable_default_key_bindings = false,
-    text_blink_rate = 500,
-    launch_menu = {},
-    hide_tab_bar_if_only_one_tab = false,
-    enable_tab_bar = true,
     set_environment_variables = {
-        WEZTERM_CONFIG_FILE = "~/.config/wezterm/wezterm.lua"
+        WEZTERM_CONFIG_FILE = "~/.config/wezterm/wezterm.lua",
     },
     keys = {
         -- {key="w", mods="CMD", action="DisableDefaultAssignment"},
@@ -53,7 +48,7 @@ return {
                 bg_color = "#363636",
                 fg_color = "#909090",
                 italic = false,
-            }
-        }
-    }
+            },
+        },
+    },
 }

@@ -4,8 +4,10 @@ local wezterm = require('wezterm');
 
 -- Version: 20220408
 return {
-    -- SCHEME
-    color_scheme = "Abernathy",
+    -- SCHEME: https://wezfurlong.org/wezterm/colorschemes
+    -- SCHEME: https://github.com/mbadolato/iTerm2-Color-Schemes
+    -- Argonaut | Ayu | Blue Matrix
+    color_scheme = "Ayu",
 
     -- FONT
     font = wezterm.font("Droid Sans Mono for Powerline"),

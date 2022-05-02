@@ -5,7 +5,7 @@ local wezterm = require('wezterm');
 -- Version: 20220408
 return {
     -- SCHEME
-    -- color_scheme = "Batman",
+    color_scheme = "Abernathy",
 
     -- FONT
     font = wezterm.font("Droid Sans Mono for Powerline"),

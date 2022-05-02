@@ -2,9 +2,7 @@
 
 local wezterm = require('wezterm');
 
-local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
-local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
-
+-- Version: 20220408
 return {
     -- SCHEME
     -- color_scheme = "Batman",
@@ -16,7 +14,11 @@ return {
 
     -- GENERAL
     automatically_reload_config = true,
+    disable_default_key_bindings = false,
     text_blink_rate = 500,
+    launch_menu = {},
+    hide_tab_bar_if_only_one_tab = false,
+    enable_tab_bar = true,
     set_environment_variables = {
         WEZTERM_CONFIG_FILE = "~/.config/wezterm/wezterm.lua"
     },
@@ -24,7 +26,6 @@ return {
         -- {key="w", mods="CMD", action="DisableDefaultAssignment"},
         -- {key="f", mods="CMD", action=action=wezterm.action{Search={CaseInSensitiveString="hash"}}},
     },
-    -- default_prog = {"/bin/zsh", "-l"},
 
     -- WINDOW
     initial_cols = 130,
@@ -33,26 +34,26 @@ return {
     -- TAB
     tab_bar_at_bottom = true,
     tab_max_width = 32,
-    tab_bar_style = {
-        new_tab = wezterm.format({
-            {Background={Color="#0b0022"}},
-            {Foreground={Color="#2b2042"}},
-            {Text=SOLID_LEFT_ARROW},
-        }),
-        new_tab_hover = wezterm.format({
-            {Background={Color="#0b0022"}},
-            {Foreground={Color="#2b2042"}},
-            {Text=SOLID_RIGHT_ARROW},
-        }),
-        -- inactive_tab_left = wezterm.format({
-        --     {Background={Color="#0b0022"}},
-        --     {Foreground={Color="#1b1032"}},
-        --     {Text=SOLID_LEFT_ARROW},
-        -- }),
-        -- inactive_tab_right = wezterm.format({
-        --     {Background={Color="#0b0022"}},
-        --     {Foreground={Color="#1b1032"}},
-        --     {Text=SOLID_RIGHT_ARROW},
-        -- }),
-    },
+    colors = {
+        tab_bar = {
+            background = "#262626",
+            active_tab = {
+                bg_color = "#404040",
+                fg_color = "#c0c0c0",
+                intensity = "Bold",
+                underline = "None",
+                italic = false,
+                strikethrough = false,
+            },
+            inactive_tab = {
+                bg_color = "#202020",
+                fg_color = "#808080",
+            },
+            inactive_tab_hover = {
+                bg_color = "#363636",
+                fg_color = "#909090",
+                italic = false,
+            }
+        }
+    }
 }

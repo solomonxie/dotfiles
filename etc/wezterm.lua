@@ -6,24 +6,32 @@ local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
 return {
+    -- SCHEME
     -- color_scheme = "Batman",
-    -- default_prog = {"/bin/zsh", "-l"},
-    tab_bar_at_bottom = true,
-    enable_scroll_bar = true,
-    -- font = wezterm.font("JetBrains Mono"),
-    font = wezterm.font("Droid Sans Mono for Powerline"),
-    font_size = 14.0,
-    text_blink_rate = 500,
 
+    -- FONT
+    font = wezterm.font("Droid Sans Mono for Powerline"),
+    -- font = wezterm.font("JetBrains Mono"),
+    font_size = 15,  -- 14 for coding, 20 for CLI
+
+    -- GENERAL
+    automatically_reload_config = true,
+    text_blink_rate = 500,
     set_environment_variables = {
         WEZTERM_CONFIG_FILE = "~/.config/wezterm/wezterm.lua"
     },
-
     keys = {
         -- {key="w", mods="CMD", action="DisableDefaultAssignment"},
         -- {key="f", mods="CMD", action=action=wezterm.action{Search={CaseInSensitiveString="hash"}}},
     },
+    -- default_prog = {"/bin/zsh", "-l"},
 
+    -- WINDOW
+    initial_cols = 130,
+    initial_rows = 40,
+
+    -- TAB
+    tab_bar_at_bottom = true,
     tab_max_width = 32,
     tab_bar_style = {
         new_tab = wezterm.format({

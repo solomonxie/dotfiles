@@ -1,3 +1,4 @@
+--REF: https://github.com/hrsh7th/nvim-cmp
 local lspc = require('lspconfig')
 local cmp = require('cmp')
 if not lspc or not cmp then return nil end
@@ -27,7 +28,7 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
             {
                 -- { name = 'nvim_lsp' },
                 { name = 'path' },
-                { name = 'commandline' },
+                { name = 'cmdline' },
                 { name = 'treesitter' },
             }
         )
@@ -43,19 +44,29 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
         --     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         -- },
     })
+
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
         sources = {
-            { name = 'buffer' }
+            { name = 'buffer' },
+            { name = 'path' },
+            { name = 'cmdline' },
         }
     })
+
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(':', {
-        sources = cmp.config.sources({
-            { name = 'path' }
-        }, {
-            { name = 'cmdline' }
-        })
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources(
+            {
+                { name = 'path' },
+            },
+            {
+                { name = 'buffer' },
+                { name = 'cmdline' },
+            }
+        )
     })
     -- Setup lspconfig.
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

@@ -1,7 +1,7 @@
 local lspc = require('lspconfig')
 if not lspc then return nil end
 
-local on_attach = function(_, bufnr)
+local on_attach_general = function(_, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
@@ -10,7 +10,7 @@ end
 -- $ pip install python-lsp-server
 -- $ pip install pycodestyle
 lspc["pylsp"].setup{
-    on_attach=on_attach,
+    on_attach=on_attach_general,
     settings = {
         pylsp = {
             cmd = { "pylsp" },
@@ -30,17 +30,22 @@ lspc["pylsp"].setup{
     }
 }
 
+-- -- REF: https://github.com/sourcery-ai/sourcery
+-- lspc["sourcery"].setup{
+--     on_attach=on_attach_general,
+-- }
+
 -- -- REF: https://github.com/emanspeaks/pyls-flake8/
 -- -- $ pip install pyls-flake8
 -- lspc["pylsp-flake8"].setup{
---     on_attach=on_attach,
+--     on_attach=on_attach_general,
 -- }
 
 -- -- REF: https://github.com/pappasam/jedi-language-server
 -- -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jedi_language_server
 -- -- $ pip install jedi-language-server
 -- lspc["jedi_language_server"].setup{
---     on_attach=on_attach,
+--     on_attach=on_attach_general,
 --     cmd = {"jedi-language-server"},
 --     filetypes = {"python"},
 --     single_file_support = true,
@@ -50,7 +55,7 @@ lspc["pylsp"].setup{
 -- }
 
 -- lspc["pyright"].setup{
---     on_attach=on_attach,
+--     on_attach=on_attach_general,
 --     cmd = { "pyright-langserver", "--stdio" },
 --     filetypes = { "python" },
 --     single_file_support = true,
@@ -108,7 +113,7 @@ lspc["pylsp"].setup{
 -- -- REF: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
 -- -- $ npm -g install pyright
 -- lspc["pyright"].setup{
---     on_attach=on_attach,
+--     on_attach=on_attach_general,
 --     cmd = {"pyright-python-langserver", "--stdio"},
 --     filetypes = {"python"},
 --     single_file_support = true,

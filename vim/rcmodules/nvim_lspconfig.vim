@@ -14,7 +14,7 @@ Plug 'nvim-lua/plenary.nvim'  "Func Dependencies for many Lua plugins
 " npm install -g neovim
 " npm install -g vim-language-server
 " npm install -g typescript typescript-language-server
-" npm -i -g bash-language-server
+" npm install -g bash-language-server
 
 nnoremap <Leader>d :lua vim.lsp.buf.definition()<CR>
 nnoremap <Leader>r :lua vim.lsp.buf.rename('')<LEFT><LEFT>

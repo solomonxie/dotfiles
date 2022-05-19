@@ -129,11 +129,11 @@ export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 export PATH="/usr/local/opt/python@3/bin:$PATH"
 export PATH="$HOME/virtualenv/venv/bin:$PATH"
 # =====NODE.JS=====
-export PATH="/usr/local/opt/node@10/bin:$PATH"
-export PATH="$HOME/.nvm/versions/node/v10.17.0/bin:$PATH"
+# export PATH="/usr/local/opt/node@10/bin:$PATH"
+# export PATH="$HOME/.nvm/versions/node/v10.17.0/bin:$PATH"
 export PATH="$HOME/virtualnode/venv/bin/:$PATH"
-export PATH="$HOME/virtualnode/venv10/bin/:$PATH"
-export PATH="$HOME/virtualnode/venv16/bin/:$PATH"
+# export PATH="$HOME/virtualnode/venv10/bin/:$PATH"
+# export PATH="$HOME/virtualnode/venv16/bin/:$PATH"
 # ======Java============
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home"
 # export JAVA_HOME=$(/usr/libexec/java_home)

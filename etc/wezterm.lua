@@ -11,9 +11,9 @@ return {
     color_scheme = "Ayu",
 
     -- FONT
-    font = wezterm.font("Droid Sans Mono for Powerline", {weight="Bold"}),
+    font = wezterm.font("Fira Code", {weight="Medium"}),
     -- font = wezterm.font("JetBrains Mono"),
-    font_size = 15.0,  -- 15 for coding, 20 for CLI
+    font_size = 14.0,  -- 15 for coding, 20 for CLI
 
     -- GENERAL
     automatically_reload_config = true,

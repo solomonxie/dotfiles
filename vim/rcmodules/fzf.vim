@@ -54,12 +54,12 @@ function! SpecifyFileFinderFolder(cmd)
     " echo "\nSearch scoope: ". s:dir ."\n"
     if a:cmd == 'Files'
         execute "Files " . s:dir . "/"
-    elseif a:cmd == 'Rg'
+    elseif a:cmd == 'FZFRg'
         " RigGrep special:
-        command! -bang -nargs=* Rg call fzf#vim#grep(
+        command! -bang -nargs=* FZFRg call fzf#vim#grep(
             \ "rg --hidden --column --line-number --no-heading --color=always --smart-case ". shellescape(<q-args>) . " ". s:dir,
             \ 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
-        execute 'Rg'
+        execute 'FZFRg'
     endif
 endfunction
 
@@ -76,7 +76,7 @@ nnoremap fs :FZFSnippets<CR>
 nnoremap fl :FZFBLines<CR>
 
 nnoremap FD :call SpecifyFileFinderFolder("Files")<CR>
-nnoremap FA :call SpecifyFileFinderFolder("Rg")<CR>
+nnoremap FA :call SpecifyFileFinderFolder("FZFRg")<CR>
 
 " nnoremap fg :GFiles<CR>
 " nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>

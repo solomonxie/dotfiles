@@ -36,6 +36,8 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
             ['<C-b>'] = cmp.mapping.scroll_docs(-4),
             ['<C-f>'] = cmp.mapping.scroll_docs(4),
             ['<C-Space>'] = cmp.mapping.complete(),
+            -- ['<C-p>'] = cmp.select_prev_item(),
+            -- ['<C-n>'] = cmp.select_next_item(),
             ['<C-e>'] = cmp.mapping.abort(),
             -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
@@ -43,7 +45,8 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline('/', {
-        mapping = cmp.mapping.preset.cmdline(),
+        -- "Works only for neovim 0.7+ -->
+        -- mapping = cmp.mapping.preset.cmdline(),
         sources = {
             { name = 'buffer' },
             { name = 'path' },
@@ -53,7 +56,8 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
+        -- "Works only for neovim 0.7+ -->
+        -- mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources(
             {
                 { name = 'path' },

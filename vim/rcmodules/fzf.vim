@@ -46,6 +46,13 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
+function! SpecifyFileFinderFolder(cmd)
+    let s:dir = expand("%:h")
+    " echo "Specify the scope for [". a:cmd ."]:\n"
+    let s:dir = input("", s:dir)
+    execute a:cmd . " " . s:dir . "/"
+endfunction
+
 "">> KEY MAPPINGS
 nnoremap fd :Files<CR>
 nnoremap fb :Buffers<CR>
@@ -57,6 +64,9 @@ nnoremap fa :FZFRg<CR>
 nnoremap fm :FZFMarks<CR>
 nnoremap fs :FZFSnippets<CR>
 nnoremap fl :FZFBLines<CR>
+
+nnoremap FD :call SpecifyFileFinderFolder("Files")<CR>
+nnoremap FA :call SpecifyFileFinderFolder("FZFRg")<CR>
 
 " nnoremap fg :GFiles<CR>
 " nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>

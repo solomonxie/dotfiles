@@ -100,6 +100,9 @@ endfunction
     "[CAREFUL!!!] >> Ugly when working with other themes & syntax highlighting plugins
     set fillchars+=vert:\|  "Bar character for VERTical Split Pane
 
+    "Text wrapping
+    set nowrap
+
 " =={NUMBER LINE}==
     " turn hybrid line numbers on
     " set number relativenumber

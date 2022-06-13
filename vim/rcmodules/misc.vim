@@ -2,7 +2,7 @@
 Plug 'mbbill/undotree'
 nnoremap <LocalLeader>d :UndotreeToggle<CR>:UndotreeFocus<CR>
 
-" REF: https://github.com/machakann/vim-highlightedyank
+"REF: https://github.com/machakann/vim-highlightedyank
 Plug 'machakann/vim-highlightedyank'
 let g:highlightedyank_highlight_duration = 1000
 
@@ -13,7 +13,7 @@ Plug 'bronson/vim-visual-star-search'
 
 " Plug 'tomtom/tcomment_vim'  "2ms
 
-" REF: https://github.com/tpope/vim-commentary
+"REF: https://github.com/tpope/vim-commentary
 Plug 'tpope/vim-commentary'  "Blazing fast!!
 
 Plug 'bronson/vim-trailing-whitespace'
@@ -21,7 +21,7 @@ Plug 'bronson/vim-trailing-whitespace'
 "REF: https://github.com/wsdjeg/vim-fetch
 " Plug 'wsdjeg/vim-fetch'  "Open/Edit file from reference: /path/to/file:190:3
 
-" REF: https://github.com/rbgrouleff/bclose.vim
+"REF: https://github.com/rbgrouleff/bclose.vim
 Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
 
 
@@ -29,7 +29,7 @@ Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
 Plug 'nathom/filetype.nvim'  "Speed-up over filetype.vim for 10ms
 let g:did_load_filetypes = 1
 
-" REF: https://github.com/andymass/vim-matchup
+"REF: https://github.com/andymass/vim-matchup
 " Plug 'andymass/vim-matchup'
 
 "REF: https://github.com/mechatroner/rainbow_csv
@@ -38,7 +38,7 @@ let g:did_load_filetypes = 1
 "REF: https://github.com/chrisbra/csv.vim
 " Plug 'chrisbra/csv.vim'
 
-""REF: https://github.com/airblade/vim-rooter
+"REF: https://github.com/airblade/vim-rooter
 "Plug 'airblade/vim-rooter'
 "" autocmd BufEnter * :Rooter
 "let g:rooter_patterns = ['.git', 'Makefile', 'envfile*']
@@ -58,7 +58,7 @@ Plug 'ahmedkhalf/project.nvim'
 " Plug 'luukvbaal/nnn.nvim'  "VERY SLOW
 " nnoremap fn :NnnPicker<CR>
 
-""REF: https://github.com/Shatur/neovim-session-manager
+"REF: https://github.com/Shatur/neovim-session-manager
 "Plug 'Shatur/neovim-session-manager'
 
 "REF: https://github.com/mhinz/vim-signify
@@ -66,10 +66,10 @@ Plug 'ahmedkhalf/project.nvim'
 
 " Plug 'lewis6991/gitsigns.nvim'
 
-" REF: https://github.com/machakann/vim-swap
+"REF: https://github.com/machakann/vim-swap
 " Plug 'machakann/vim-swap'  "SWAP FUNCTION ARGUMENTS
 
-" REF: https://github.com/svermeulen/vim-yoink
+"REF: https://github.com/svermeulen/vim-yoink
 " Plug 'svermeulen/vim-yoink'  "Keep yank history
 " let g:yoinkMaxItems = 100
 
@@ -81,3 +81,10 @@ Plug 'ahmedkhalf/project.nvim'
 
 " Plug 'justinmk/vim-sneak'
 " let g:sneak#label = 1
+
+
+"REF: https://github.com/lifepillar/pgsql.vim
+" Plug 'lifepillar/pgsql.vim'
+
+"REF: https://github.com/mg979/vim-visual-multi
+Plug 'mg979/vim-visual-multi'

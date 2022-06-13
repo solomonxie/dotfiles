@@ -16,3 +16,7 @@ lspc["sqlls"].setup{
     settings = {
     }
 }
+
+lspc["sqls"].setup{
+    on_attach=on_attach,
+}

@@ -57,13 +57,13 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(':', {
         -- "Works only for neovim 0.7+ -->
-        -- mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources(
             {
                 { name = 'path' },
             },
             {
-                { name = 'buffer' },
+                -- { name = 'buffer' },
                 { name = 'cmdline' },
             }
         )

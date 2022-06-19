@@ -101,7 +101,8 @@ endfunction
     set fillchars+=vert:\|  "Bar character for VERTical Split Pane
 
     "Text wrapping
-    set nowrap
+    "set nowrap
+    set wrap
 
 " =={NUMBER LINE}==
     " turn hybrid line numbers on

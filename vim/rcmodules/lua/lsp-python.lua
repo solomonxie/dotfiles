@@ -18,9 +18,9 @@ lspc["pylsp"].setup{
             init_options = { lint = true },
             debounce = 100,
             single_file_support = true,
-            -- configurationSources = { "flake8" },  -- CONFLICT WITH pylsp.plugins.flake8.config
+            configurationSources = { "flake8" },  -- CONFLICT WITH pylsp.plugins.flake8.config
             plugins = {
-                flake8 =  {enabled = true, config = vim.fn.expand("~/.config/flake8")},
+                -- flake8 = {enabled = true, config = vim.fn.expand("~/.config/flake8")},
                 -- pylsp_mypy =  { enabled = true },
                 -- pycodestyle =  { enabled = true },
                 -- pylint =  { enabled = true },

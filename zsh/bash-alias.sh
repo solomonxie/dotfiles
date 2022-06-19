@@ -25,9 +25,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias mv='mv -i'
-alias cp='cp -i'
-alias rm='rm -I --preserve-root'
+alias mv='mv -iv'
+alias cp='cp -iv'
+alias rm='rm -v -I --preserve-root'
 
 alias ..='cd ..'
 alias ...='cd ../../../'

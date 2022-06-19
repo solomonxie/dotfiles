@@ -34,43 +34,43 @@ return {
     -- TAB
     tab_bar_at_bottom = true,
     tab_max_width = 32,
-    colors = {
-        tab_bar = {
-            background = "#262626",
-            active_tab = {
-                bg_color = "#202020",
-                fg_color = "#808080",
-            },
-            inactive_tab = {
-                bg_color = "#404040",
-                fg_color = "#c0c0c0",
-            },
-            inactive_tab_hover = {
-                bg_color = "#363636",
-                fg_color = "#909090",
-            },
-        },
-    },
-    tab_bar_style = {
-        active_tab_left = wezterm.format({
-            {Background={Color="#0b0022"}},
-            {Foreground={Color="#2b2042"}},
-            {Text=utf8.char(0xe0b2)},
-        }),
-        active_tab_right = wezterm.format({
-            {Background={Color="#0b0022"}},
-            {Foreground={Color="#2b2042"}},
-            {Text=utf8.char(0xe0b0)},
-        }),
-        inactive_tab_left = wezterm.format({
-            {Background={Color="#0b0022"}},
-            {Foreground={Color="#1b1032"}},
-            {Text=utf8.char(0xe0b2)},
-        }),
-        inactive_tab_right = wezterm.format({
-            {Background={Color="#0b0022"}},
-            {Foreground={Color="#1b1032"}},
-            {Text=utf8.char(0xe0b0)},
-        }),
-    },
+    -- colors = {
+    --     tab_bar = {
+    --         background = "#262626",
+    --         active_tab = {
+    --             bg_color = "#202020",
+    --             fg_color = "#808080",
+    --         },
+    --         inactive_tab = {
+    --             bg_color = "#404040",
+    --             fg_color = "#c0c0c0",
+    --         },
+    --         inactive_tab_hover = {
+    --             bg_color = "#363636",
+    --             fg_color = "#909090",
+    --         },
+    --     },
+    -- },
+    -- tab_bar_style = {
+    --     active_tab_left = wezterm.format({
+    --         {Background={Color="#0b0022"}},
+    --         {Foreground={Color="#2b2042"}},
+    --         {Text=utf8.char(0xe0b2)},
+    --     }),
+    --     active_tab_right = wezterm.format({
+    --         {Background={Color="#0b0022"}},
+    --         {Foreground={Color="#2b2042"}},
+    --         {Text=utf8.char(0xe0b0)},
+    --     }),
+    --     inactive_tab_left = wezterm.format({
+    --         {Background={Color="#0b0022"}},
+    --         {Foreground={Color="#1b1032"}},
+    --         {Text=utf8.char(0xe0b2)},
+    --     }),
+    --     inactive_tab_right = wezterm.format({
+    --         {Background={Color="#0b0022"}},
+    --         {Foreground={Color="#1b1032"}},
+    --         {Text=utf8.char(0xe0b0)},
+    --     }),
+    -- },
 }

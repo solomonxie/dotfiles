@@ -87,4 +87,4 @@ Plug 'ahmedkhalf/project.nvim'
 " Plug 'lifepillar/pgsql.vim'
 
 "REF: https://github.com/mg979/vim-visual-multi
-Plug 'mg979/vim-visual-multi'
+" Plug 'mg979/vim-visual-multi'

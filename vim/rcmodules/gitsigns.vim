@@ -11,3 +11,8 @@ nnoremap gS :Gitsigns refresh<CR>
 nnoremap <Leader>b :Gitsigns toggle_current_line_blame<CR>
 
 autocmd SessionLoadPost * autocmd BufEnter * ++once lua vim.defer_fn(require'gitsigns'.refresh, 150)
+
+" Toggle with `:Gitsigns toggle_signs`
+" Toggle with `:Gitsigns toggle_numhl`
+" Toggle with `:Gitsigns toggle_linehl`
+" Toggle with `:Gitsigns toggle_word_diff`

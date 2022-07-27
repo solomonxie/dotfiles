@@ -105,8 +105,6 @@
     nnoremap = :bnext<CR>:echo expand('%')<CR>
     nnoremap <C-]> g<C-]>
     nnoremap <Leader>tt g]
-    noremap  <C-c> <Esc>:nohl<CR><ESC>
-    nnoremap <ESC> <Esc>:nohl<CR><ESC>
     inoremap ,. <Esc>:nohl<CR><ESC>
     vnoremap ,. <Esc>:nohl<CR><ESC>
     nnoremap ,. <Esc>:nohl<CR><ESC>

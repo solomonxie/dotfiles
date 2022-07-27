@@ -55,15 +55,20 @@ function! LightlineLineinfo() abort  "abort: stop function as soon as error occu
         return ''
     endif
 
+    "Lines
     let l:cur_line = printf('%-2s', line('.'))
     let l:max_line = printf('%-2s', line('$'))
     let l:line_display = 'L:' . l:cur_line . '/' . l:max_line
 
+    "Columns
     let l:cur_col = printf('%-2s', col('.'))
     let l:max_col = printf('%-2s', col('$'))
     let l:col_display = 'C:' . l:cur_col . '/' . l:max_col
 
-    let l:lineinfo = l:col_display . ' ' . l:line_display
+    "Word Count
+    let l:wc = 'W:' . printf('%-2s', wordcount().words)
+
+    let l:lineinfo = l:col_display . ' ' . l:line_display . ' ' . l:wc
     return l:lineinfo
 endfunction
 

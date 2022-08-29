@@ -30,6 +30,10 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
                 { name = 'path' },
                 { name = 'cmdline' },
                 { name = 'treesitter' },
+            },
+            {
+                { name = "omni" },  -- Slow
+                { name = "spell" },
             }
         ),
         mapping = cmp.mapping.preset.insert({
@@ -42,6 +46,9 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
             -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
     })
+    -- Settings for <cmp-spell>
+    vim.opt.spell = true
+    vim.opt.spelllang = { 'en_us' }
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline('/', {

@@ -108,7 +108,8 @@ alias gitrc="vim ~/myconf/dotfiles/etc/git/gitconfig.ini"
 #                               DOCKER                                #
 #######################################################################
 alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'
-
+#alias docker=podman
+#alias docker-compose=podman-compose
 
 #######################################################################
 #                               PYTHON                                #

@@ -12,10 +12,27 @@ endsnippet
 
 snippet ifmain_async
 async def main():
-    print('[ DONE ]')
+	print('[ DONE ]')
 
 
 asyncio.get_event_loop().run_until_complete(main())
+endsnippet
+
+snippet pathlib
+from pathlib import Path
+path = str(Path(${1:${VISUAL:path}}).expanduser() / '/to/path')
+endsnippet
+
+snippet pathlib1
+__import__('pathlib').Path
+endsnippet
+
+snippet tempfile
+from tempfile import NamedTemporaryFile
+with NamedTemporaryFile(delete=False) as f:
+	f.write('')
+	f.flush()
+	print(f.name)
 endsnippet
 
 snippet jsonload
@@ -341,6 +358,31 @@ snippet patch
 from unittest.mock import patch, MagicMock
 @patch('${1:${VISUAL:module_path}}',
 		MagicMock(return_value=${2:${VISUAL:mock_data}}))
+endsnippet
+
+
+snippet fixture
+@pytest.fixture
+def client():
+	return app.app.app.test_client()
+
+def test_case1(client):
+	client.get('https://xxxx')
+endsnippet
+
+
+snippet fixture_patch
+@pytest.fixture(autouse=True)
+def common_patches():
+	# Before Test == SetUp()
+	patches = [
+		patch('path.to.my.module', return_value=True)
+	]
+	_ = [p.start() for p in patches]
+	yield
+	# After Test == TearDown()
+	_ = [p.stop() for p in patches]
+	return
 endsnippet
 
 #######################################################################

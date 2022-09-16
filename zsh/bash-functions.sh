@@ -195,6 +195,12 @@ slug() {
     echo $s |sed "s/[()\!]//g" |sed "s/[. ]/-/g"
 }
 
+sed_all() {
+    for f in $(fd *.py); do
+        sed -i '/word/ c\ a new whole line/'
+    done
+}
+
 
 cheat() {
     local keyword=$1

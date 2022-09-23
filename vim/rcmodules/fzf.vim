@@ -64,19 +64,19 @@ function! SpecifyFileFinderFolder(cmd)
 endfunction
 
 "">> KEY MAPPINGS
-nnoremap fd :Files<CR>
+nnoremap fd :FZFFiles<CR>
 nnoremap fb :Buffers<CR>
 nnoremap ft :FZFBTags<CR>
 nnoremap fc :FZFHistory:<CR>
-nnoremap fC :FZFCommands<CR>
 nnoremap fh :FZFHistory<CR>
 nnoremap fa :FZFRg<CR>
 nnoremap fm :FZFMarks<CR>
-nnoremap fs :FZFSnippets<CR>
-nnoremap fl :FZFBLines<CR>
+nnoremap fs :Snippets<CR>
 
 nnoremap FD :call SpecifyFileFinderFolder("Files")<CR>
 nnoremap FA :call SpecifyFileFinderFolder("FZFRg")<CR>
+nnoremap FB :FZFBLines<CR>
+nnoremap FC :Commands<CR>
 
 " nnoremap fg :GFiles<CR>
 " nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>

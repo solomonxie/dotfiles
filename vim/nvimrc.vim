@@ -67,7 +67,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/coc.vim
         " source ~/myconf/dotfiles/vim/rcmodules/coq.vim
         " source ~/myconf/dotfiles/vim/rcmodules/ncm2.vim
-        source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim
+        source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim  "Brakets/Quotes
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
     "{NEOVIM + LANGUAGE SERVER + LUA}
         source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
@@ -150,9 +150,6 @@ set sessionoptions-=folds      " do not store folds
 "Avoid annoying continuation of comment (:help fo-table)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-"Enable to close netrw buffer
-autocmd FileType netrw setl bufhidden=wipe
-
 " Avoid prompt to hit enter for every echo when it's not enough to show full msg
 set shortmess+=T
 set cmdheight=1
@@ -167,11 +164,12 @@ set nopaste  "IMPORTANT: If it's on, vim will auto indent (messed up) on your pa
 set showcmd " show keypress at right-bottom
 set backspace=2 "backspace over everything in insert mode
 set tabstop=4 "Set a tab=4spaces
-set autoindent "auto indent when hit RETURN. could be: smartindent, cindent
+set smartindent "Auto indent after hit RETURN: autoindent, smartindent, cindent
 set shiftwidth=4 "Set auto-indent to 4 spaces
 set expandtab "Expand tab to spaces
-"set noexpandtab
 retab "Replace all tabs to spaces on file opened
+filetype plugin indent on
+
 "[Key maps timeout]
 set timeout
 set ttimeout
@@ -205,6 +203,9 @@ set hlsearch " Enable Highlighting all matches
 
 "Disable runtime matchit.vim (SLOW)
 let g:loaded_matchit = 1
+
+"Disable new line with comment
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 "<Buffer>
     "Change pwd/current-dir

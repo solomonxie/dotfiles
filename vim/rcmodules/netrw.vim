@@ -20,10 +20,12 @@ let g:netrw_list_hide= '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,^\.\.\
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 
+"Enable to close netrw buffer
+let g:netrw_fastbrowse = 1
 autocmd FileType netrw setl bufhidden=wipe
 autocmd FileType netrw setl bufhidden=delete
 
-let g:netrw_fastbrowse = 0
+
 function! CloseNetrw() abort
     for bufn in range(1, bufnr('$'))
         if bufexists(bufn) && getbufvar(bufn, '&filetype') ==# 'netrw'

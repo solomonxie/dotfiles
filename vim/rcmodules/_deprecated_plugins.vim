@@ -48,7 +48,7 @@ Plug 'lifepillar/vim-mucomplete'  "tab. sources complicated
 "Indentation
 Plug 'nathanaelkane/vim-indent-guides'
 
-"Brackets
+"Brackets / Quotes
 Plug 'tpope/vim-surround'  "Barely working
 Plug 'Townk/vim-autoclose' "Fair, but not working for some files
 

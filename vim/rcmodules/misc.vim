@@ -47,7 +47,7 @@ let g:did_load_filetypes = 1
 "let g:rooter_resolve_links = 1
 
 "REF: https://github.com/ahmedkhalf/project.nvim
-Plug 'ahmedkhalf/project.nvim'
+" Plug 'ahmedkhalf/project.nvim'
 "^ LUA CONFIGS: vim/rcmodules/lua/misc.lua
 
 "REF: https://github.com/mattn/emmet-vim
@@ -88,3 +88,7 @@ Plug 'ahmedkhalf/project.nvim'
 
 "REF: https://github.com/mg979/vim-visual-multi
 " Plug 'mg979/vim-visual-multi'
+
+
+"REF: https://github.com/rstacruz/vim-closer
+" Plug 'rstacruz/vim-closer'

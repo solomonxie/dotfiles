@@ -10,20 +10,18 @@
 " HELP LINKS ===>
 " :help netrw-quickmap
 
-let g:netrw_banner=0
+let g:netrw_banner=1
 let g:netrw_hide=1
 let g:netrw_browse_split=4  "How files are opened"
 let g:netrw_liststyle=3  "Directory view in netrw"
 let g:netrw_altv = 2
 let g:netrw_winsize=30
-let g:netrw_list_hide= '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,^\.\.\=/\=$'
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_list_hide = '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,^\.\.\=/\=$'
+" let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 
 "Enable to close netrw buffer
-let g:netrw_fastbrowse = 1
 autocmd FileType netrw setl bufhidden=wipe
-autocmd FileType netrw setl bufhidden=delete
 
 
 function! CloseNetrw() abort

@@ -229,13 +229,25 @@ endfunction
 function! ReplaceSelection()
     "Test: /path/to/abc/def/hah
     "Test: abc~!@#$%%^&&**()
-    try
-        let src = GetVisualSelection()
-        let src2 = EscapeString(src)
-        let dest = input("ENTER ALTERNATIVE BELOW:\n", src)
-        let dest2 = EscapeString(dest)
-        execute "%s#" . src2 . "#" . dest2 . "#gc"
-    endtry
+    let l:src = GetVisualSelection()
+    let l:src2 = EscapeString(l:src)
+    let l:dest = input("Alternative ----> ", l:src)
+    let l:dest2 = EscapeString(l:dest)
+    let l:is_to_all_buf = input('All buffers? [Yy/Nn]: ')
+    if index(['y', 'Y'], l:is_to_all_buf) >= 0
+        let l:cmd = "silent! bufdo %s#" . l:src2 . "#" . l:dest2 . "#gc"
+    else
+        let l:cmd = "silent! %s#" . l:src2 . "#" . l:dest2 . "#gc"
+    endif
+    let l:is_to_execute = input(l:cmd . ' ----> [Yy/Nn]: ')
+    if index(['y', 'Y'], l:is_to_execute) >= 0
+        let l:buf = bufnr('%')
+        execute l:cmd
+        " Return to the original buffer:
+        execute 'buffer ' . l:buf
+    else
+        echo "\n^Canceled"
+    endif
 endfunction
 
 

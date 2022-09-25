@@ -233,14 +233,13 @@ function! ReplaceSelection()
     let l:src2 = EscapeString(l:src)
     let l:dest = input("Alternative ----> ", l:src)
     let l:dest2 = EscapeString(l:dest)
-    let l:is_to_all_buf = input('All buffers? [Yy/Nn]: ')
-    if index(['y', 'Y'], l:is_to_all_buf) >= 0
-        let l:cmd = "silent! bufdo %s#" . l:src2 . "#" . l:dest2 . "#gc"
+    if index(['y', 'Y'], input('All buffers? [Yy/Nn]: ', 'y')) >= 0
+        let l:bufs = ' bufdo '
     else
-        let l:cmd = "silent! %s#" . l:src2 . "#" . l:dest2 . "#gc"
+        let l:bufs = ''
     endif
-    let l:is_to_execute = input(l:cmd . ' ----> [Yy/Nn]: ')
-    if index(['y', 'Y'], l:is_to_execute) >= 0
+    let l:cmd = 'silent! '. l:bufs .' %s#' . l:src2 . '#' . l:dest2 . '#gc'
+    if index(['y', 'Y'], input(l:cmd . ' ----> [Yy/Nn]: ', 'y')) >= 0
         let l:buf = bufnr('%')
         execute l:cmd
         " Return to the original buffer:

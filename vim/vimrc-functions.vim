@@ -304,3 +304,16 @@ function! BuildCurrentFile ()
     " autocmd BufReadPre .zshrc,zshrc* noremap <buffer> <leader>B :w<CR>:!source % <CR>
     let s:ft = &filetype
 endfunction
+
+
+function! SearchInFile(pattern)
+    " Good for searching text with special characters
+    let oldpat=@/
+    let @/=a:pattern
+    let old_a=@a
+    normal! gg"aygn
+    let result=@a
+    let @a=old_a
+    let @/=oldpat
+    return result
+endfunction

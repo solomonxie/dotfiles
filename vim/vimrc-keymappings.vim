@@ -29,7 +29,8 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "                                  ALPHABET                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vnoremap br "1y:bufdo %s/<C-r>1/<C-r>1/ge \| update
-nnoremap fw /<C-r>+<CR>
+" nnoremap fw /<C-r>+<CR>
+nnoremap fw :call SearchInFile('<C-r>+')<CR>
 
 " Centralize
 " nnoremap n nzzzv

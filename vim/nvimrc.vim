@@ -157,6 +157,9 @@ set cmdheight=1
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set completeopt=menu,menuone,noselect
+" Bugfix for insert mode in SQL file:
+" SQLComplete, The dbext plugin must be loaded for dynamic SQL completion -->
+let g:omni_sql_default_compl_type = 'syntax'
 
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 
@@ -267,6 +270,8 @@ autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) <= g:large_file_si
         endif
     endif
 " }
+
+set history=1000
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

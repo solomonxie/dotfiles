@@ -121,13 +121,6 @@ nnoremap <leader>R :call LoadSession()<CR><ESC>
 " nnoremap gb :execute "!git blame -L " . line(".") . ",+1 % "<CR>
 
 
-" TELESCOPE
-nnoremap <C-f> :Telescope find_files<CR>
-nnoremap <leader>gf <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>gg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>gb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>gt <cmd>lua require('telescope.builtin').help_tags()<cr>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          CTRL + ALPHABET MAPPINGS                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

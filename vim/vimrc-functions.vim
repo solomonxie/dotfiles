@@ -233,16 +233,19 @@ function! ReplaceSelection()
     let l:src2 = EscapeString(l:src)
     let l:dest = input("Alternative ----> ", l:src)
     let l:dest2 = EscapeString(l:dest)
-    if index(['y', 'Y'], input('All buffers? [Yy/Nn]: ', 'y')) >= 0
+    if index(['y', 'Y'], input('All buffers? [Yy/Nn]: ', 'n')) >= 0
         let l:bufs = ' bufdo '
     else
         let l:bufs = ''
     endif
     let l:cmd = 'silent! '. l:bufs .' %s#' . l:src2 . '#' . l:dest2 . '#gc'
     if index(['y', 'Y'], input(l:cmd . ' ----> [Yy/Nn]: ', 'y')) >= 0
-        let l:buf = bufnr('%')
-        execute l:cmd
-        " Return to the original buffer:
+        let l:buf = bufnr('%')  "Remember current buffer
+        " Add to command history
+        call histadd("cmd", l:cmd)
+        " execute l:cmd
+        call feedkeys(':'. l:cmd, 'i')
+        " Return to the remembered buffer:
         execute 'buffer ' . l:buf
     else
         echo "\n^Canceled"

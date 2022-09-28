@@ -29,6 +29,13 @@ Plug 'rbgrouleff/bclose.vim'  "CLOSE BUF WITHOUT CLOSING WINDOW
 Plug 'nathom/filetype.nvim'  "Speed-up over filetype.vim for 10ms
 let g:did_load_filetypes = 1
 
+"REF: https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'  "Add brackets/quotesAdd brackets/quotes
+
+"REF: https://github.com/kizza/actionmenu.nvim
+Plug 'kizza/actionmenu.nvim'  "Popup Context Menu
+
+
 "REF: https://github.com/andymass/vim-matchup
 " Plug 'andymass/vim-matchup'
 

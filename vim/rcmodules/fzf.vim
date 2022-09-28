@@ -76,7 +76,8 @@ nnoremap fs :Snippets<CR>
 nnoremap FD :call SpecifyFileFinderFolder("Files")<CR>
 nnoremap FA :call SpecifyFileFinderFolder("FZFRg")<CR>
 nnoremap FB :FZFBLines<CR>
-nnoremap FC :Commands<CR>
+" nnoremap FC :Commands<CR>
+nnoremap FC :<C-f>
 
 " nnoremap fg :GFiles<CR>
 " nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>

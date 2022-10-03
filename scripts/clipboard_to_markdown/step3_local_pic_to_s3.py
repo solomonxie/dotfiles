@@ -20,10 +20,11 @@ def main():
     s3_resource = boto3.resource('s3')
     if not s3_file_exists(s3_resource, s3_path):
         s3_resource.meta.client.upload_file(f'/tmp/{SHA}.png', BUCKET_NAME, s3_path)
-        print(f'uploaded pic to: https://{BUCKET_NAME}.s3.amazonaws.com/{s3_path}')
-        # FIXME: INSTEAD, UPLOAD TO A PRIVATE BUCKET, BUT OPEN FILE PUBLIC-READ PERMISSION
-        # object_acl = s3_resource.ObjectAcl(BUCKET_NAME, s3_path)
-        # object_acl.put(ACL='public-read')
+    # FIXME: INSTEAD, UPLOAD TO A PRIVATE BUCKET, BUT OPEN FILE PUBLIC-READ PERMISSION
+    # object_acl = s3_resource.ObjectAcl(BUCKET_NAME, s3_path)
+    # object_acl.put(ACL='public-read')
+
+    print(f'uploaded pic to: https://{BUCKET_NAME}.s3.amazonaws.com/{s3_path}')
 
 
 if __name__ == '__main__':

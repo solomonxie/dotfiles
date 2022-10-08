@@ -8,8 +8,8 @@ from pathlib import Path
 
 S3 = boto3.resource('s3')
 BUCKET_NAME = str(os.getenv('BUCKET_NAME') or 'N-A').strip()
-SEARCH_PATH = str(os.getenv('SEARCH_PATH') or 'N-A').strip()
-PATH_MAP = {}
+SEARCH_PATH = str(os.getenv('SEARCH_PATH') or os.getcwd()).strip()
+PATH_MAP = json.loads(open('/tmp/image-map.json').read())
 
 
 def resize_image(path):
@@ -24,13 +24,14 @@ def resize_image(path):
 
 
 def convert(path: str):
-    path = resize_image(path)
-    sha = file_to_sha(path)
+    new_path = resize_image(path)
+    sha = file_to_sha(new_path)
     l1, l2, l3 = sha[:2], sha[2:4], sha[4:6]
     s3_path = f'pics/{l1}/{l2}/{l3}/{sha}.png'
     bucket = S3.Bucket(BUCKET_NAME)
     if not list(bucket.objects.filter(Prefix=s3_path)):
-        data = open(path, 'rb').read()
+        print('\tUPLOADING...')
+        data = open(new_path, 'rb').read()
         bucket.put_object(Key=s3_path, Body=data, ContentType='image/png')
     s3_url = f'https://{BUCKET_NAME}.s3.amazonaws.com/{s3_path}'
     markdown_url = f'![{sha}]({s3_url})'
@@ -50,8 +51,12 @@ def main():
     paths = [str(s) for s in Path(SEARCH_PATH).rglob('*.png')]
     for i, s in enumerate(paths):
         print('='*20, f'{i}/{len(paths)}', '='*20)
-        convert(s.strip())
-    open('/tmp/image-map.json', 'w').write(json.dumps(PATH_MAP))
+        try:
+            convert(s.strip())
+        except Exception as e:
+            print(e)
+        finally:
+            open('/tmp/image-map.json', 'w').write(json.dumps(PATH_MAP, indent=4))
 
 
 if __name__ == '__main__':

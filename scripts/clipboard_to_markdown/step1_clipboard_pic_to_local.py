@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import os
 import hashlib
-from PIL import ImageGrab
+from PIL import Image, ImageGrab
 
 
 def file_to_sha(path: str) -> str:
@@ -15,9 +15,16 @@ def file_to_sha(path: str) -> str:
 def main():
     # Clipboard -> Local
     tmp_path = '/tmp/tmp_clipboard_pic.png'
-    im = ImageGrab.grabclipboard()
-    if im:
-        im.save(tmp_path, 'PNG')
+    image = ImageGrab.grabclipboard()
+    if image:
+        # Resize
+        width, height = image.size
+        if width > 1024 or height > 768:
+            image.thumbnail((1024, 768), Image.ANTIALIAS)
+        # Save
+        image.save(tmp_path, 'PNG', optimize=True, quality=90)
+    if not os.path.exists(tmp_path):
+        raise RuntimeError(f'File not found: {tmp_path}')
     sha = file_to_sha(tmp_path)
     local_path = f'/tmp/{sha}.png'
     assert 0 == os.system(f'cp {tmp_path} {local_path}')

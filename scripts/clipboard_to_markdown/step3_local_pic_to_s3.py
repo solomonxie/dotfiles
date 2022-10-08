@@ -16,7 +16,13 @@ def s3_file_exists(s3_resource, s3_path):
 
 
 def main():
-    s3_path = f'pics/{SHA}.png'
+    sha = str(SHA)
+    l1, l2, l3 = sha[:2], sha[2:4], sha[4:6]
+    s3_path = f'pics/{l1}/{l2}/{l3}/{sha}.png'
+    bucket = boto3.resource('s3').Bucket(BUCKET_NAME)
+    if not list(bucket.objects.filter(Prefix=s3_path)):
+        data = open(f'/tmp/{sha}.png', 'rb').read()
+        bucket.put_object(Key=s3_path, Body=data, ContentType='image/png')
     s3_resource = boto3.resource('s3')
     if not s3_file_exists(s3_resource, s3_path):
         s3_resource.meta.client.upload_file(f'/tmp/{SHA}.png', BUCKET_NAME, s3_path)

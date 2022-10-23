@@ -146,6 +146,8 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # =====GOOGLE CLOUD===============
 export PATH="$HOME/local/share/google-cloud-sdk/bin:$PATH"
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/gcp-service-account-serverless-admin-f50d0f01265f.json"
+# ===========Clang=================
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 
 # =====MISC===============
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -154,6 +156,10 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export WEZTERM_CONFIG_DIR="${HOME}/.config/wezterm"
 export WEZTERM_CONFIG_FILE="${HOME}/.config/wezterm/wezterm.lua"
+
+# Clang for building packages (requires brew install openssl)
+export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
 
 # =========Neovim==============
 # export PATH="$HOME/nvim-osx64/bin:$PATH"

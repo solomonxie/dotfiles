@@ -4,36 +4,33 @@ from docx.shared import Inches
 
 
 def main():
-    doc = Document()
-    doc.add_heading('The Holy Bible', 0)
-    p = doc.add_paragraph('King James Version')
-    p.bold = True
-    p.italic = True
     df = pd.read_csv('~/Downloads/bible/kjv.tsv', delimiter='\t', header=None, names=[
         'book', 'alias', 'bn', 'cn', 'vn', 'verse',
     ])
     __import__('pudb').set_trace()
     for (bname, bn, alias), book in df.groupby(['book', 'bn', 'alias'], sort=False):
-        doc.add_heading(bname, level=1)
+        doc = Document()
+        doc.add_heading(bname, 0)
         for cn, chapter in book.groupby(['cn'], sort=False):
             # table = doc.add_table(rows=1, cols=3)
-            doc.add_heading(f'{bname} {cn}', level=2)
+            doc.add_heading(f'{bname} {cn}', level=1)
             table = doc.add_table(rows=1, cols=1)
             c = table.rows[0].cells[0]
             c.width = Inches(0.5)
-            p = c.add_paragraph('')
+            # p = c.add_paragraph('')
             for _, v in chapter.iterrows():
+                p = c.add_paragraph('')
                 t_vn = p.add_run(f'{v.vn} ')
                 t_vn.italic = True
                 t_verse = p.add_run(f'{v.verse} ')
                 t_verse.bold = False
             doc.add_page_break()
             print(f'Added Book {bname} - {cn}')
-            break
+            # break
+        doc.save(f'/tmp/kjv_from_tsv_{bn}_{bname}.docx')
         break
     doc.save('/tmp/kjv_from_tsv.docx')
     return
-
 
 
 if __name__ == '__main__':

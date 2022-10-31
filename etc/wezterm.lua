@@ -16,8 +16,8 @@ return {
 
     -- FONT
     font = wezterm.font("Fira Code", {weight="Medium"}),
-    -- font = wezterm.font("JetBrains Mono"),
-    font_size = 14.0,  -- 15 for coding, 20 for CLI
+    -- font = wezterm.font("JetBrains Mono", {weight="Medium"}),
+    font_size = 14.2,  -- 15 for coding, 20 for CLI
 
     -- GENERAL
     automatically_reload_config = true,
@@ -26,7 +26,7 @@ return {
     },
     keys = {
         {key="w", mods="CMD", action="DisableDefaultAssignment"},
-        {key="f", mods="CMD", action=wezterm.action{Search={CaseInSensitiveString="hash"}}},
+        -- {key="f", mods="CMD", action=wezterm.action{Search={CaseInSensitiveString="hash"}}},
     },
 
     -- WINDOW

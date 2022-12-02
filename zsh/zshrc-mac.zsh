@@ -58,9 +58,10 @@ alias vim="nvim" && alias vimdiff="nvim -d"
 MAILCHECK=0
 
 # History
-HISTFILE=~/.bash_history
-HISTSIZE=50000
-SAVEHIST=10000
+export HISTFILE=~/.bash_history
+export HISTSIZE=50000
+export SAVEHIST=10000
+export HISTTIMEFORMAT=''  # '%F %T: '
 setopt appendhistory
 setopt extendedhistory
 setopt sharehistory

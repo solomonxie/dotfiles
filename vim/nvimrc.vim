@@ -58,7 +58,7 @@ call plug#begin('~/vim_plugged')
     "{Completion | Usages | Definitions}
         " source ~/myconf/dotfiles/vim/rcmodules/replace.vim
         source ~/myconf/dotfiles/vim/rcmodules/fzf.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/ale.vim
+        source ~/myconf/dotfiles/vim/rcmodules/ale.vim
         " source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim
         source ~/myconf/dotfiles/vim/rcmodules/ultisnips.vim
         source ~/myconf/dotfiles/vim/rcmodules/anyjump.vim
@@ -70,7 +70,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim  "Brakets/Quotes
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
     "{NEOVIM + LANGUAGE SERVER + LUA}
-        source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim

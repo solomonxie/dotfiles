@@ -1,23 +1,16 @@
-" https://github.com/dense-analysis/ale
+" REF: https://github.com/dense-analysis/ale
+" IMPORTANT: WON'T WORK PROPERLY IF LINTERS AREN'T LSP BASED OR NOT INSTALLED GLOBALLY
 Plug 'dense-analysis/ale'
 
-" KEY MAPPINGS
-" Go Error Next
-nnoremap <C-n> :ALENext<CR>
-" Go Error Previous
-nnoremap <C-p> :ALEPrevious<CR>
-" nnoremap <LocalLeader>s :SyntasticCheck<CR>
-
-" IMPORTANT: WON'T WORK PROPERLY IF LINTERS AREN'T LSP BASED OR NOT INSTALLED GLOBALLY
 nnoremap <Leader>d :ALEGoToDefinition<CR>
 nnoremap <Leader>r :ALERename<CR>
 nnoremap <Leader>u :ALEFindReferences<CR>
 nnoremap <C-p> :ALEPreviousWrap<CR>
 nnoremap <C-n> :ALENextWrap<CR>
 nnoremap <Leader>a :ALEPopulateLocList<CR>
+nnoremap <Leader>x :ALEFix<CR>
 nnoremap K :ALEHover<CR>
 
-nnoremap <Leader>x :lua vim.lsp.buf.formatting()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                DEPENDENCIES                                "
@@ -101,19 +94,30 @@ hi! ALEVirtualTextInfo ctermfg=226
 " Make it 'g:' to only run linters I specified
 let g:ale_linters = {
 \   'sh': ['language_server'],
-\   'python': ['pyright', 'pylsp', 'flake8'],
+\   'python': ['pyright', 'flake8'],
 \   'vim': ['vimls'],
 \   'dockerfile': ['dockerfile_lint'],
 \   'javascript': ['tsserver', 'eslint'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \ }
 
+" ===ALE LINT GENRAL===
+let g:ale_lint_delay = 200
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_cache_executable_check_failures = 1
+
+
 " ==Flake8==
 " HELP: :help ale-python-flake8
+" HELP: pip install flake8==3.9.2  # 4.0 no longer respect user config file
 let g:ale_python_flake8_executable = 'flake8'
 let g:ale_python_flake8_use_global = 1
-let g:ale_python_flake8_options = '--config ${HOME}/.config/flake8'
-" let g:ale_python_flake8_change_directory = "project"  "project|file|off
+let g:ale_python_flake8_options = '--config $HOME/.config/flake8'
+let g:ale_python_flake8_change_directory = "project"  "project|file|off
 
 " ==Mypy==
 let g:ale_python_mypy_options = '--ignore-missing-imports'
@@ -122,13 +126,12 @@ let g:ale_python_mypy_options = '--ignore-missing-imports'
 " ==Pylint==
 let g:ale_python_pylint_options = '--rcfile=~/.config/pylintrc'
 
-let g:ale_lint_delay = 200
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_filetype_changed = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_cache_executable_check_failures = 1
+" ===pyright===
+" let b:ale_python_pyright_config = {
+" \ 'pyright': {
+" \   'typeCheckingMode': 'basic',
+" \ },
+" \}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -58,7 +58,7 @@ hi! ALEVirtualTextInfo ctermfg=226
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " " ===Pylsp===
-" " https://github.com/palantir/python-language-server/issues/190
+" https://github.com/palantir/python-language-server/issues/190
 " let g:ale_python_pylsp_config = {
 " \    'pylsp': {
 " \        'configurationSources': '["flake8"]'
@@ -127,11 +127,15 @@ let g:ale_python_mypy_options = '--ignore-missing-imports'
 let g:ale_python_pylint_options = '--rcfile=~/.config/pylintrc'
 
 " ===pyright===
-" let b:ale_python_pyright_config = {
-" \ 'pyright': {
-" \   'typeCheckingMode': 'basic',
-" \ },
-" \}
+" REF: https://github.com/microsoft/pyright/blob/main/docs/settings.md
+let g:ale_python_pyright_config = {
+\ 'pyright': {
+\   'typeCheckingMode': 'basic',
+\ },
+\ 'python': {
+\   'venvPath': '.git/venv',
+\ },
+\}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -320,3 +320,16 @@ function! SearchInFile(pattern)
     let @/=oldpat
     return result
 endfunction
+
+function! ToggleVerbose()
+    let s:path = "/tmp/vim_verbose_". strftime('%Y%m%d') .".log"
+    if !&verbose
+        echo 'Turnning on verbose mode and saving runtime log into: '. s:path
+        let &verbosefile = s:path
+        set verbose=15
+    else
+        echo 'Turnning off verbose mode'
+        let &verbose=0  "set verbose=0
+        set verbosefile=
+    endif
+endfunction

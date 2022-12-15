@@ -9,17 +9,21 @@ end
 -- REF: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
 -- $ pip install python-lsp-server
 -- $ pip install pycodestyle
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspc["pylsp"].setup{
     on_attach=on_attach_general,
+    capabilities=capabilities,
     settings = {
         pylsp = {
             cmd = { "pylsp" },
             filetypes = {"python"},
-            init_options = { lint = true },
+            init_options = { lint = false },
             debounce = 100,
             single_file_support = true,
             configurationSources = { "flake8" },  -- CONFLICT WITH pylsp.plugins.flake8.config
             plugins = {
+                jedi_completion = { include_params = true },
                 -- flake8 = {enabled = true, config = vim.fn.expand("~/.config/flake8")},
                 -- pylsp_mypy =  { enabled = true },
                 -- pycodestyle =  { enabled = true },

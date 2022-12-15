@@ -49,8 +49,9 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/vinegar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/chadtree.vim
         source ~/myconf/dotfiles/vim/rcmodules/semshi.vim
-        " source ~/myconf/dotfiles/vim/rcmodules/vista.vim  "TAG BAR
+        source ~/myconf/dotfiles/vim/rcmodules/ctags.vim  "300ms+
         source ~/myconf/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
+        " source ~/myconf/dotfiles/vim/rcmodules/vista.vim  "TAG BAR
         " source ~/myconf/dotfiles/vim/rcmodules/markbar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/syntastic.vim
         " source ~/myconf/dotfiles/vim/rcmodules/telescope.vim  "SLOW
@@ -62,7 +63,6 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/deoplete.vim
         source ~/myconf/dotfiles/vim/rcmodules/ultisnips.vim
         source ~/myconf/dotfiles/vim/rcmodules/anyjump.vim
-        source ~/myconf/dotfiles/vim/rcmodules/ctags.vim  "300ms+
         " source ~/myconf/dotfiles/vim/rcmodules/YCM.vim
         " source ~/myconf/dotfiles/vim/rcmodules/coc.vim
         " source ~/myconf/dotfiles/vim/rcmodules/coq.vim
@@ -70,7 +70,7 @@ call plug#begin('~/vim_plugged')
         source ~/myconf/dotfiles/vim/rcmodules/autopairs.vim  "Brakets/Quotes
         " source ~/myconf/dotfiles/vim/rcmodules/treesitter.vim
     "{NEOVIM + LANGUAGE SERVER + LUA}
-        " source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
+        source ~/myconf/dotfiles/vim/rcmodules/nvim_lspconfig.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_lsp_compl.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_compe.vim
         source ~/myconf/dotfiles/vim/rcmodules/nvim_cmp.vim

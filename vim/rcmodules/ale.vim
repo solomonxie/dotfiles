@@ -130,10 +130,17 @@ let g:ale_python_pylint_options = '--rcfile=~/.config/pylintrc'
 " REF: https://github.com/microsoft/pyright/blob/main/docs/settings.md
 let g:ale_python_pyright_config = {
 \ 'pyright': {
-\   'typeCheckingMode': 'basic',
+\   'typeCheckingMode': 'off',
 \ },
 \ 'python': {
+\   'pythonPath': '.git/venv/bin/python',
 \   'venvPath': '.git/venv',
+\   'analysis ': {
+\     'autoImportCompletions': v:true,
+\     'autoSearchPaths': v:true,
+\     'diagnosticMode': 'workspace',
+\     'useLibraryCodeForTypes': v:true,
+\   }
 \ },
 \}
 

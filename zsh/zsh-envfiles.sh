@@ -27,10 +27,10 @@ _inject_local() {
 }
 
 #!!! OVERRIDE ZSH BUILT-IN FUNCTION, WILL BE EXECUTED AT EVERY DIR CHANGE===>
-chpwd() { _inject_local }
+# chpwd() { _inject_local }
 
-_execute_at_initial_dir() { _inject_local }
+# _execute_at_initial_dir() { _inject_local }
+# _execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
 
-_execute_at_initial_dir  # EXECUTE AT BEGINNING OF SHELL
 #!!! OVERRIDE ZSH BUILT-IN COMMAND, WILL BE EXECUTED AT EVERY DIR CHANGE===>
 # cd () { builtin cd "$@" && chpwd; }

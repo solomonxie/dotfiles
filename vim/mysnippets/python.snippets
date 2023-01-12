@@ -734,29 +734,30 @@ class TestBreadcrumb(TestCase):
 endsnippet
 
 
-snippet pook_get
+snippet pook.get
 import pook
 import json
 pook.on()
 (pook.get('http://localhost/myendpoint?q=1')
 	 .reply(200)
 	 .headers({'Content-Type': 'application/json'})
-	 .json(json.dumps({'data': [1, 2, 3]}))
+	 .json({'data': [1, 2, 3]})
 )
 pook.off()
 pook.reset()
 endsnippet
 
-snippet pook_post
+snippet pook.post
 import pook
 import json
-(pook.post('http://localhost/myendpoint?q=1')
-	 .type('json')  # Request body type
-	 .headers({'Content-Type': 'application/json'})  # Request header
-	 .reply(200)
-	 .headers({'Content-Type': 'application/json'})  # Response header
-	 .json(json.dumps({'data': [1, 2, 3]}))
 )
+mock_resp = pook.post(
+	'http://localhost/myendpoint?q=1',
+	reply=200, type='json', headers={'Content-Type': 'application/json'}
+	json=json.dumps({'data': [1, 2, 3]}),
+)
+mock_resp.headers = {'Content-Type': 'application/json'}
+mock_resp.json = json.dumps({'data': [1, 2, 3]})
 endsnippet
 
 

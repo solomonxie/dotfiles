@@ -163,7 +163,7 @@ export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
 
 # =========Neovim==============
-# export PATH="$HOME/nvim-osx64/bin:$PATH"
+export PATH="$HOME/nvim-macos/bin:$PATH"
 
 # =========PROJECT-LEVEL-OVERRIDE===========
 source ~/myconf/dotfiles/zsh/zsh-envfiles.sh

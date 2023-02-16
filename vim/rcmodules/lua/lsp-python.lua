@@ -9,7 +9,7 @@ end
 -- REF: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
 -- $ pip install python-lsp-server
 -- $ pip install pycodestyle
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspc["pylsp"].setup{
     on_attach=on_attach_general,

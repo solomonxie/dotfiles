@@ -9,8 +9,8 @@ end
 
 -- REF: https://github.com/sumneko/lua-language-server
 -- $ brew install lua-language-server
--- :LspInstall sumneko_lua
-lspc["sumneko_lua"].setup{
+-- :LspInstall lua_ls
+lspc["lua_ls"].setup{
     on_attach=on_attach,
     settings = {
         Lua = {

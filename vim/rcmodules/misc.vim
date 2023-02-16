@@ -16,7 +16,7 @@ Plug 'bronson/vim-visual-star-search'
 "REF: https://github.com/tpope/vim-commentary
 Plug 'tpope/vim-commentary'  "Blazing fast!!
 
-Plug 'bronson/vim-trailing-whitespace'
+" Plug 'bronson/vim-trailing-whitespace'
 
 "REF: https://github.com/wsdjeg/vim-fetch
 " Plug 'wsdjeg/vim-fetch'  "Open/Edit file from reference: /path/to/file:190:3

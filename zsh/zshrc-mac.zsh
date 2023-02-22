@@ -169,6 +169,4 @@ export PATH="$HOME/nvim-macos/bin:$PATH"
 source ~/myconf/dotfiles/zsh/zsh-envfiles.sh
 
 # BETTER TO BE AT THE BOTTOM
-source ~/myconf/dotfiles/zsh/pluginconfigs/fzf.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

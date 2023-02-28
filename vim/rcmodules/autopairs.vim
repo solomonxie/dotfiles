@@ -7,7 +7,7 @@ Plug 'jiangmiao/auto-pairs' "Smartest (bug:)
 
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''",'<!--': '-->', '<%': '%>'}
 "Fly mode
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 "Options
 let g:AutoPairsMultilineClose = 0 "Solve bug of deleting pair
 let g:AutoPairsMapBS = 0  "Disable deleting pairs (inconvenient)

@@ -411,6 +411,12 @@ endsnippet
 #######################################################################
 #                              UTILITIES                              #
 #######################################################################
+snippet myip
+import urllib.request
+external_ip = urllib.request.urlopen('https://ident.me').read()
+print(external_ip)
+endsnippet
+
 snippet url_change_port
 import urllib
 obj = urllib.parse.urlparse(url)

@@ -1,3 +1,4 @@
+"REF: https://github.com/junegunn/fzf.vim
 "
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -8,10 +9,9 @@ let g:fzf_action = {
 \}
 
 " let g:fzf_layout = { 'down': '~40%' }  " down | up | left | right
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+" let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 let g:fzf_preview_window = ['right:40%', 'ctrl-/']  " up|down|left|right
-
 
 " let g:fzf_buffers_jump = 1  " [Buffers] Jump to the existing window if possible
 
@@ -64,20 +64,33 @@ function! SpecifyFileFinderFolder(cmd)
 endfunction
 
 "">> KEY MAPPINGS
-nnoremap fd :FZFFiles<CR>
+nnoremap fd :Files<CR>
+nnoremap fa :Rg<CR>
 nnoremap fb :Buffers<CR>
-nnoremap ft :FZFBTags<CR>
-nnoremap fc :FZFHistory:<CR>
-nnoremap fh :FZFHistory<CR>
-nnoremap fa :FZFRg<CR>
-nnoremap fm :FZFMarks<CR>
+nnoremap ft :BTags<CR>
+nnoremap fc :History:<CR>
+nnoremap fh :History<CR>
+nnoremap fm :Marks<CR>
 nnoremap fs :Snippets<CR>
 
 nnoremap FD :call SpecifyFileFinderFolder("Files")<CR>
 nnoremap FA :call SpecifyFileFinderFolder("FZFRg")<CR>
-nnoremap FB :FZFBLines<CR>
+nnoremap FB :BLines<CR>
 " nnoremap FC :Commands<CR>
 nnoremap FC :<C-f>
+
+">> Alter options
+let g:x_fzf_opts = {'options': [
+    \      '--layout=reverse', '--info=inline',
+    \      '--preview', '~/vim_plugged/fzf.vim/bin/preview.sh {}'
+    \ ]}
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
+command! -bang -nargs=? -complete=dir Rg call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
+command! -bang -nargs=? -complete=dir Buffers call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
+command! -bang -nargs=? -complete=dir BTags call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
+command! -bang -nargs=? -complete=dir Marks call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
+command! -bang -nargs=? -complete=dir Snippets call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
+" command! -bang -nargs=? -complete=dir History call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
 
 " nnoremap fg :GFiles<CR>
 " nnoremap fb :call fzf#vim#buffers(fzf#vim#with_preview('right:0%'))<CR>
@@ -133,4 +146,4 @@ nnoremap FC :<C-f>
 "REF: https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'chengzeyi/fzf-preview.vim'
+" Plug 'chengzeyi/fzf-preview.vim'

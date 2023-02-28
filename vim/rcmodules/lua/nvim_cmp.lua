@@ -31,10 +31,6 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
                 { name = 'path' },
                 { name = 'cmdline' },
                 { name = 'treesitter' },
-            },
-            {
-                { name = "omni" },  -- Slow
-                { name = "spell" },
             }
         ),
         mapping = cmp.mapping.preset.insert({
@@ -79,35 +75,35 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
     -- Setup lspconfig.
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    -- lspc['pylsp'].setup { capabilities = capabilities }
+    lspc['pylsp'].setup { capabilities = capabilities }
     -- lspc['jedi_language_server'].setup { capabilities = capabilities }
     lspc['vimls'].setup { capabilities = capabilities }
     lspc['tsserver'].setup { capabilities = capabilities }
 
     -- Dictionary
-    require("cmp_dictionary").setup({
-        dic = {
-            ["*"] = { "/usr/share/dict/words" },
-            -- ["lua"] = "path/to/lua.dic",
-            -- ["javascript,typescript"] = { "path/to/js.dic", "path/to/js2.dic" },
-            -- filename = {
-            --     ["xmake.lua"] = { "path/to/xmake.dic", "path/to/lua.dic" },
-            -- },
-            -- filepath = {
-            --     ["%.tmux.*%.conf"] = "path/to/tmux.dic"
-            -- },
-            -- spelllang = {
-            --     en = "path/to/english.dic",
-            -- },
-        },
-        -- The following are default values.
-        exact = 2,
-        first_case_insensitive = false,
-        document = false,
-        document_command = "wn %s -over",
-        async = false,
-        max_items = -1,
-        capacity = 5,
-        debug = false,
-    })
+    -- require("cmp_dictionary").setup({
+    --     dic = {
+    --         ["*"] = { "/usr/share/dict/words" },
+    --         -- ["lua"] = "path/to/lua.dic",
+    --         -- ["javascript,typescript"] = { "path/to/js.dic", "path/to/js2.dic" },
+    --         -- filename = {
+    --         --     ["xmake.lua"] = { "path/to/xmake.dic", "path/to/lua.dic" },
+    --         -- },
+    --         -- filepath = {
+    --         --     ["%.tmux.*%.conf"] = "path/to/tmux.dic"
+    --         -- },
+    --         -- spelllang = {
+    --         --     en = "path/to/english.dic",
+    --         -- },
+    --     },
+    --     -- The following are default values.
+    --     exact = 2,
+    --     first_case_insensitive = false,
+    --     document = false,
+    --     document_command = "wn %s -over",
+    --     async = false,
+    --     max_items = -1,
+    --     capacity = 5,
+    --     debug = false,
+    -- })
 end

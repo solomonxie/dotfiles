@@ -9,7 +9,7 @@ Plug 'hrsh7th/cmp-omni'
 
 
 " More completion sources
-Plug 'f3fora/cmp-spell'
-Plug 'dmitmel/cmp-cmdline-history'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'uga-rosa/cmp-dictionary'
+" Plug 'f3fora/cmp-spell'
+" Plug 'dmitmel/cmp-cmdline-history'
+" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+" Plug 'uga-rosa/cmp-dictionary'

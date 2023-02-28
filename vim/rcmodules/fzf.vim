@@ -13,6 +13,11 @@ let g:fzf_action = {
 
 let g:fzf_preview_window = ['right:40%', 'ctrl-/']  " up|down|left|right
 
+let $FZF_DEFAULT_OPTS='--layout=reverse --info=inline'
+" let $FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard || fd --type f --type l --hidden --follow"
+" command! -bang -nargs=? -complete=dir Files
+"         \ call fzf#vim#files(<q-args>, { 'options': "--prompt '>' $FZF_DEFAULT_OPTS"}, <bang>0)
+
 " let g:fzf_buffers_jump = 1  " [Buffers] Jump to the existing window if possible
 
 " [[B]Commits] Customize the options used by 'git log':
@@ -65,7 +70,7 @@ endfunction
 
 "">> KEY MAPPINGS
 nnoremap fd :Files<CR>
-nnoremap fa :Rg<CR>
+nnoremap fa :Ag<CR>
 nnoremap fb :Buffers<CR>
 nnoremap ft :BTags<CR>
 nnoremap fc :History:<CR>
@@ -80,16 +85,16 @@ nnoremap FB :BLines<CR>
 nnoremap FC :<C-f>
 
 ">> Alter options
-let g:x_fzf_opts = {'options': [
-    \      '--layout=reverse', '--info=inline',
-    \      '--preview', '~/vim_plugged/fzf.vim/bin/preview.sh {}'
-    \ ]}
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
-command! -bang -nargs=? -complete=dir Rg call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
-command! -bang -nargs=? -complete=dir Buffers call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
-command! -bang -nargs=? -complete=dir BTags call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
-command! -bang -nargs=? -complete=dir Marks call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
-command! -bang -nargs=? -complete=dir Snippets call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
+" let g:x_fzf_opts = {'options': [
+"     \      '--layout=reverse', '--info=inline',
+"     \      '--preview', '~/vim_plugged/fzf.vim/bin/preview.sh {}'
+"     \ ]}
+" command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
+" command! -bang -nargs=? -complete=dir Ag call fzf#vim#ag(<q-args>, g:x_fzf_opts, <bang>0)
+" command! -bang -nargs=? -complete=dir Buffers call fzf#vim#buffers(<q-args>, g:x_fzf_opts, <bang>0)
+" command! -bang -nargs=? -complete=dir BTags call fzf#vim#buffer_tags(<q-args>, g:x_fzf_opts, <bang>0)
+" command! -bang -nargs=? -complete=dir Marks call fzf#vim#marks(<q-args>, g:x_fzf_opts, <bang>0)
+" command! -bang -nargs=? -complete=dir Snippets call fzf#vim#snippets(<q-args>, g:x_fzf_opts, <bang>0)
 " command! -bang -nargs=? -complete=dir History call fzf#vim#files(<q-args>, g:x_fzf_opts, <bang>0)
 
 " nnoremap fg :GFiles<CR>

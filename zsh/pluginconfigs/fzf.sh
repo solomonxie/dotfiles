@@ -1,15 +1,12 @@
-#! zsh
-# REF: https://github.com/junegunn/fzf
-
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == *$HOME/xiaoboxie/.fzf/bin* ]]; then
-  export PATH="$HOME/.fzf/bin:$PATH"
+if [[ ! "$PATH" == */$HOME/myconf/config/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/$HOME/myconf/config/fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/$HOME/.fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------

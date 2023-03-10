@@ -76,7 +76,6 @@ alias tmuxrc="vim ~/.tmux.conf"
 alias bashrc="vim ~/.bashrc"
 # alias vimchanges="vim $(git status --porcelain | awk '{print $2}')"
 
-
 #######################################################################
 #                               NETWORK                               #
 #######################################################################
@@ -113,6 +112,7 @@ alias gcl="git clone"
 alias diff=vimdiff
 
 alias gitrc="vim ~/.gitconfig"
+alias vir="source .git/venv/bin/activate"
 
 
 #######################################################################

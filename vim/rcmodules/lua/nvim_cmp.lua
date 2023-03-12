@@ -20,26 +20,24 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
             {
                 { name = 'nvim_lsp' },
                 { name = 'ultisnips' }, -- For ultisnips users.
+                { name = 'buffer' },
+                { name = 'path' },
+            },
+            {
+                -- { name = 'treesitter' },  -- Buggy
                 -- { name = 'vsnip' }, -- For vsnip users.
                 -- { name = 'luasnip' }, -- For luasnip users.
                 -- { name = 'snippy' }, -- For snippy users.
-                { name = 'buffer' },
                 -- { name = 'dictionary', keyword_length=2, },
-            },
-            {
-                -- { name = 'nvim_lsp' },
-                { name = 'path' },
-                { name = 'cmdline' },
-                { name = 'treesitter' },
             }
         ),
         mapping = cmp.mapping.preset.insert({
             ['<C-b>'] = cmp.mapping.scroll_docs(-4),
             ['<C-f>'] = cmp.mapping.scroll_docs(4),
             ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.abort(),
             -- ['<C-p>'] = cmp.select_prev_item(),
             -- ['<C-n>'] = cmp.select_next_item(),
-            ['<C-e>'] = cmp.mapping.abort(),
             -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
     })
@@ -65,10 +63,11 @@ if string.find(vim.o['runtimepath'], 'cmp')  then
         sources = cmp.config.sources(
             {
                 { name = 'path' },
+                { name = 'cmdline' },
+                { name = 'buffer' },
             },
             {
                 -- { name = 'buffer' },
-                { name = 'cmdline' },
             }
         )
     })

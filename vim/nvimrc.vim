@@ -96,7 +96,7 @@ call plug#end()
 luafile ~/myconf/dotfiles/vim/rcmodules/lua/nvimrc-functions.lua
 
 luafile ~/myconf/dotfiles/vim/rcmodules/lua/misc.lua
-luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
+" luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-python.lua
 luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-lua.lua
 luafile ~/myconf/dotfiles/vim/rcmodules/lua/gitsigns.lua
 luafile ~/myconf/dotfiles/vim/rcmodules/lua/lsp-installer.lua

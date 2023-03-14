@@ -196,8 +196,10 @@ slug() {
 }
 
 sed_all() {
-    for f in $(fd *.py); do
-        sed -i '/word/ c\ a new whole line/'
+    # For your reference only:
+    for f in $(fd .py); do
+        sed -i '/matched_word_of_line/ c\ a_whole_new_line/'
+        sed -i 's/old_word/new_word/'
     done
 }
 

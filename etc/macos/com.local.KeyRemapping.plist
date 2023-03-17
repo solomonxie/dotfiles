@@ -8,13 +8,11 @@
     <array>
         <string>/usr/bin/hidutil</string>
         <string>property</string>
-        <string>--matching</string>
-        <string>'{"ProductID":0x2608}'</string>
         <string>--set</string>
         <string>{"UserKeyMapping":[
             {
               "HIDKeyboardModifierMappingSrc": 0x70000004A,
-              "HIDKeyboardModifierMappingDst": 0x700000029
+              "HIDKeyboardModifierMappingDst": 0x700000035
             },
             {
               "HIDKeyboardModifierMappingSrc": 0x70000004B,
@@ -29,12 +27,16 @@
               "HIDKeyboardModifierMappingDst": 0xC000000CD
             },
             {
-              "HIDKeyboardModifierMappingSrc": 0x7000000E6,
-              "HIDKeyboardModifierMappingDst": 0x700000029
+              "HIDKeyboardModifierMappingSrc": 0x7000000E3,
+              "HIDKeyboardModifierMappingDst": 0x7000000E2
             },
             {
-              "HIDKeyboardModifierMappingSrc": 0x700000029,
-              "HIDKeyboardModifierMappingDst": 0x700000035
+              "HIDKeyboardModifierMappingSrc": 0x7000000E2,
+              "HIDKeyboardModifierMappingDst": 0x7000000E3
+            },
+            {
+              "HIDKeyboardModifierMappingSrc": 0x7000000E6,
+              "HIDKeyboardModifierMappingDst": 0x7000000E7
             }
         ]}</string>
     </array>

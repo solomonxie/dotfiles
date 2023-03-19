@@ -139,6 +139,7 @@ if [[ $(uname) == "Darwin" ]]; then
     alias ibrew="arch -x86_64 /usr/local/bin/brew"
 fi
 
+alias keymap="bash $HOME/myconf/dotfiles/etc/macos/remap_external_keyboard_60keys.sh"
 
 #######################################################################
 #                         CLI TOOLS/COMMANDS                          #

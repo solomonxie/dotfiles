@@ -7,8 +7,8 @@ _inject_envfile() {
     fpath=$1
     if [[ -e "$fpath" ]];then
         # echo export $(grep -v '^#' $fpath |xargs -0)
-        # export $(grep -v '^#' $fpath |xargs -0)
-        source $fpath
+        export $(grep -v '^#' $fpath |xargs -0)
+        # source $fpath
         echo "injected env: ${fpath}"
     fi
 }

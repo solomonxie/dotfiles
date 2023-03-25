@@ -37,8 +37,8 @@ nnoremap fw :call SearchInFile('<C-r>+')<CR>
 " nnoremap N Nzzzv
 " nnoremap J mzJ`z
 
-" nnoremap Mp [m
-" nnoremap Mn ]m
+" nnoremap <Leader>p [m
+" nnoremap <Leader>n ]m
 
 " nnoremap gx :silent execute "!open <c-r><c-a>"<CR>
 " nnoremap gx :call OpenLink("<C-r><C-a>")<CR>

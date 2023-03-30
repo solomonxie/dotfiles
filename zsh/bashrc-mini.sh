@@ -1,6 +1,16 @@
 #! bash
 export EDITOR=vim
 
+# History
+export HISTFILE=~/.bash_history
+export HISTSIZE=50000
+export SAVEHIST=10000
+export HISTTIMEFORMAT=''  # '%F %T: '
+setopt appendhistory
+setopt extendedhistory
+setopt sharehistory
+setopt incappendhistory
+
 #######################################################################
 #                        ENVIRONMENT VARIABLES                        #
 #######################################################################
@@ -43,6 +53,7 @@ alias lsa='ls -harl'
 alias lsd='ls -lah -d */'
 alias lah="ls -lah"
 alias please="sudo"
+alias less="zless"
 
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'

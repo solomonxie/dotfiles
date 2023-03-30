@@ -7,6 +7,10 @@
 #                               #
 #################################
 
+# Cheatsheet:
+# https://devhints.io/tig
+# https://jonas.github.io/tig/doc/tigrc.5.html
+
 # [ General ] -----{
     set ignore_case = yes  # Case insensitive on search
 # }
@@ -18,32 +22,32 @@
 # }
 
 # [ UI ] -----{
+
+    # Main view:
     set main-view = line-number:no,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
+    set main-view-date-display = relative-compact
+    set main-view-author-display = abbreviated
+    set main-view-commit-title-refs = no
+
+    # Other views:
     set refs-view = line-number:no id:yes date:default author:full ref commit-title
     #set tree-view = line-number:no,interval=5 mode author:full file-size date:default id:yes file-n
     set status-view = line-number:no,interval=5 status:short file-name
     set blame-view = id:yes,color file-name:auto author:full date:default line-number:yes,interval=1 text
     set stash-view = line-number:no,interval=5 id:no date:default author:full commit-title
     set grep-view = file-name:no line-number:yes,interval=1 text
-    # Pager based views
     set pager-view = line-number:no,interval=5 text
     set stage-view = line-number:no,interval=5 text
     set log-view = line-number:no,interval=5 text
     set blob-view = line-number:no,interval=5 text
     set diff-view = line-number:no,interval=5 text:yes,commit-title-overflow=no
-    # UI display settings
+
+    # General display:
     set show-changes = yes  # Show changes commits in the main view?
     #set show-untracked = yes  # Show also untracked changes?
     set wrap-lines  = no  # Wrap long lines in pager views?
     set tab-size  = 8  # Number of spaces to use when expanding tabs
-    set line-graphics = default # Enum: ascii, default, utf-8
-    set truncation-delimiter = ~  # Character drawn for truncations, or "utf-8"
-    # UI display settings
-    set show-changes  = yes  # Show changes commits in the main view?
-    #set show-untracked  = yes  # Show also untracked changes?
-    set wrap-lines   = no  # Wrap long lines in pager views?
-    set tab-size   = 8  # Number of spaces to use when expanding tabs
-    set line-graphics  = default # Enum: ascii, default, utf-8
+    set line-graphics = utf-8 # Enum: ascii, default, utf-8
     set truncation-delimiter = ~  # Character drawn for truncations, or "utf-8"
 # }
 
@@ -67,9 +71,9 @@ set status-show-untracked-dirs = yes  # Show files in untracked directories? (st
 set status-show-untracked-files = yes  # Show untracked files?
 set ignore-space  = no  # Enum: no, all, some, at-eol (diff)
 set show-notes   = yes  # When non-bool passed as `--show-notes=...` (diff)
-#set diff-context  = 3  # Number of lines to show around diff changes (diff)
-#set diff-options  = -C  # User-defined options for `tig show` (git-diff)
-#set diff-highlight  = true  # String (or bool): Path to diff-highlight script,
+set diff-context  = 10  # Number of lines to show around diff changes (diff)
+set diff-options  = -C  # User-defined options for `tig show` (git-diff)
+set diff-highlight  = true  # String (or bool): Path to diff-highlight script,
       #                   defaults to `diff-highlight`.
 #set blame-options  = -C -C -C # User-defined options for `tig blame` (git-blame)
 #set log-options  = --pretty=raw # User-defined options for `tig log` (git-log)
@@ -177,7 +181,9 @@ bind generic s view-status
 bind generic S view-status  # Compat binding to avoid going crazy!
 bind generic c view-stage
 bind generic y view-stash
-bind generic g view-grep
+# bind generic g view-grep
+bind generic g move-first-line
+bind generic G move-last-line
 
 # View manipulation
 bind generic <Enter> enter   # Enter and open selected entry

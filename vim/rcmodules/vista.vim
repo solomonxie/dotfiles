@@ -4,9 +4,9 @@ if executable('ctags')
 endif
 
 "KEY MAPPINGS
-noremap tt :Vista<CR>
+noremap gt :Vista<CR>
 "noremap <Leader>t :TagbarToggle<CR>=<ESC>
-"noremap tt :Vista!!<CR>
+"noremap gt :Vista!!<CR>
 
 "UI
 let g:vista_sidebar_position = 'vertical botright'  "'vertical botright' | 'vertical topleft'

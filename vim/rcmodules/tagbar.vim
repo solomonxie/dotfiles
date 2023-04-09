@@ -5,7 +5,7 @@ endif
 
 " >> KEY MAPPINGS
 "noremap <Leader>t :TagbarToggle<CR>=<ESC>
-noremap tt :TagbarToggle<CR>
+noremap gt :TagbarToggle<CR>
 
 let g:tagbar_left = 0  "Show tagbar on right
 let g:tagbar_autofocus = 1   "Focus on tagbar window when open

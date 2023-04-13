@@ -18,8 +18,8 @@ nnoremap <Leader>f :NERDTree<CR>
 nnoremap <Leader>F :NERDTreeFind<CR>zz
 " Add '%' for changing root accordingly
 "nnoremap <Leader>f :NERDTree %:p:h<CR>
-nnoremap FF :NERDTree<CR>
-nnoremap ff :NERDTreeFind<CR>zz
+nnoremap gd :NERDTreeFind<CR>zz
+nnoremap gD :NERDTree<CR>
 
 ">> UI settings
 let NERDTreeQuitOnOpen=1   " Open|Close NERDtree when files was opened

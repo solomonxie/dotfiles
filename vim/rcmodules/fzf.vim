@@ -69,20 +69,20 @@ function! SpecifyFileFinderFolder(cmd)
 endfunction
 
 "">> KEY MAPPINGS
-nnoremap fd :Files<CR>
-nnoremap fa :Ag<CR>
-nnoremap fb :Buffers<CR>
-nnoremap ft :BTags<CR>
-nnoremap fc :History:<CR>
-nnoremap fh :History<CR>
-nnoremap fm :Marks<CR>
-nnoremap fs :Snippets<CR>
+nnoremap gf :Files<CR>
+nnoremap ga :Ag<CR>
+nnoremap gb :Buffers<CR>
+nnoremap gl :BLines<CR>
+" nnoremap gT :BTags<CR>
+" nnoremap gc :History:<CR>
+" nnoremap gh :History<CR>
+" nnoremap gm :Marks<CR>
+" nnoremap gs :Snippets<CR>
 
-nnoremap FD :call SpecifyFileFinderFolder("Files")<CR>
-nnoremap FA :call SpecifyFileFinderFolder("FZFRg")<CR>
-nnoremap FB :BLines<CR>
+nnoremap <Leader>D :call SpecifyFileFinderFolder("Files")<CR>
+nnoremap <Leader>A :call SpecifyFileFinderFolder("FZFRg")<CR>
 " nnoremap FC :Commands<CR>
-nnoremap FC :<C-f>
+" nnoremap gC :<C-f>
 
 ">> Alter options
 " let g:x_fzf_opts = {'options': [

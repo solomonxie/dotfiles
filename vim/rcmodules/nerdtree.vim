@@ -14,12 +14,14 @@ Plug 'git@github.com:scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeF
 
 ">> Key Mappings
 nnoremap <Leader>f :NERDTree<CR>
+" nnoremap <Leader>F :NERDTreeFind<CR>zz
+" nnoremap FF :NERDTree<CR>
+nnoremap ff :NERDTreeFind<CR>zz
 " nnoremap <Leader>F :NERDTree %:p:h<CR>
-nnoremap <Leader>F :NERDTreeFind<CR>zz
 " Add '%' for changing root accordingly
 "nnoremap <Leader>f :NERDTree %:p:h<CR>
-nnoremap gd :NERDTreeFind<CR>zz
-nnoremap gD :NERDTree<CR>
+" nnoremap gd :NERDTreeFind<CR>zz
+" nnoremap gD :NERDTree<CR>
 
 ">> UI settings
 let NERDTreeQuitOnOpen=1   " Open|Close NERDtree when files was opened

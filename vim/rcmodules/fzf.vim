@@ -69,18 +69,18 @@ function! SpecifyFileFinderFolder(cmd)
 endfunction
 
 "">> KEY MAPPINGS
-nnoremap gf :Files<CR>
-nnoremap ga :Ag<CR>
-nnoremap gb :Buffers<CR>
-nnoremap gl :BLines<CR>
-" nnoremap gT :BTags<CR>
-" nnoremap gc :History:<CR>
-" nnoremap gh :History<CR>
-" nnoremap gm :Marks<CR>
-" nnoremap gs :Snippets<CR>
+nnoremap fd :Files<CR>
+nnoremap fa :Ag<CR>
+nnoremap fb :Buffers<CR>
+nnoremap fl :BLines<CR>
+nnoremap ft :BTags<CR>
+" nnoremap tc :History:<CR>
+" nnoremap th :History<CR>
+" nnoremap tm :Marks<CR>
+" nnoremap ts :Snippets<CR>
 
-nnoremap <Leader>D :call SpecifyFileFinderFolder("Files")<CR>
-nnoremap <Leader>A :call SpecifyFileFinderFolder("FZFRg")<CR>
+nnoremap FD :call SpecifyFileFinderFolder("Files")<CR>
+nnoremap FA :call SpecifyFileFinderFolder("FZFRg")<CR>
 " nnoremap FC :Commands<CR>
 " nnoremap gC :<C-f>
 

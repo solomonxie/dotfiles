@@ -168,10 +168,10 @@ nnoremap <Leader>tq :windo bdelete<CR>
 noremap <A-c> <C-w>c
 
 nnoremap \\ :echo expand('%')<CR>
-nnoremap tf :Cwd<CR>
-nnoremap tc :CwdCopy<CR>
-nnoremap tp :PwdCopy<CR>
-nnoremap tn :FilenameCopy<CR>
+" nnoremap tf :Cwd<CR>
+" nnoremap tc :CwdCopy<CR>
+" nnoremap tp :PwdCopy<CR>
+" nnoremap tn :FilenameCopy<CR>
 
 nnoremap <M-h> <C-w>h
 nnoremap <M-l> <C-w>l

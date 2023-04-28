@@ -98,7 +98,7 @@ alias gp="git pub"
 alias ga="git add ."
 alias gcp="git add .; git quickcommit; git pub"
 alias gcl="git clone"
-alias diff=vimdiff
+# alias diff=vimdiff
 alias work="vim -S .git/work.vim"
 alias lg="lazygit"
 

@@ -44,7 +44,7 @@
 " [  UI / Color Scheme  ]---------{
     "set t_Co=256   ">> Overwriting Alert !!
     "set background=dark   ">> Overwriting Alert !!
-    "set cursorline  "Slow
+    set cursorline  "Slow
     "set termguicolors   " -> !! NOT WORKING in Tmux through SSH
 
     syntax on  "Required for any colorscheme

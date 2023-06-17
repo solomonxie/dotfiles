@@ -221,6 +221,28 @@ epoch = int((date_time_obj - epoch).total_seconds())
 endsnippet
 
 
+snippet http_request_get
+from urllib import request
+url = 'https://httpbin.org/ip'
+req = request.Request(url, headers={'Content-Type': 'application/json'})
+resp = request.urlopen(req)
+print(resp.getcode())
+raw = resp.read()
+print(raw)
+endsnippet
+
+
+snippet http_request_post
+from urllib import request, parse
+url = 'https://httpbin.org/ip'
+payload = parse.urlencode({'name': 'xxx'}).encode()
+req = request.Request(url, data=payload, headers={'Content-Type': 'application/json'})
+resp = request.urlopen(req)
+raw = resp.read()
+print(raw)
+endsnippet
+
+
 snippet requests_get
 import requests
 from retry import retry

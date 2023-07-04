@@ -18,4 +18,4 @@ autocmd SessionLoadPost * autocmd BufEnter * ++once lua vim.defer_fn(require'git
 " Toggle with `:Gitsigns toggle_linehl`
 " Toggle with `:Gitsigns toggle_word_diff`
 
-command! ChangeGitDiffBase :Gitsigns change_base master<CR>
+command! ChangeGitDiffBase :Gitsigns change_base master true<CR>

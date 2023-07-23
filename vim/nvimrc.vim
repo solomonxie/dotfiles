@@ -49,7 +49,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/vinegar.vim
         " source ~/myconf/dotfiles/vim/rcmodules/chadtree.vim
         source ~/myconf/dotfiles/vim/rcmodules/semshi.vim
-        source ~/myconf/dotfiles/vim/rcmodules/ctags.vim  "300ms+
+        " source ~/myconf/dotfiles/vim/rcmodules/ctags.vim  "300ms+, 99% CPU
         source ~/myconf/dotfiles/vim/rcmodules/tagbar.vim  "300ms+
         " source ~/myconf/dotfiles/vim/rcmodules/vista.vim  "TAG BAR
         " source ~/myconf/dotfiles/vim/rcmodules/markbar.vim

@@ -2,6 +2,8 @@
 "   1. put `.notags` at root of project path to disable
 "   2. let g:gutentags_enabled = 0 to disable
 "   2. :GutentagsToggleEnabled<CR> to enable/disable plugin
+" REQUIREMENTS:
+"   brew install ctags
 if executable('ctags')
     "REF: https://github.com/ludovicchabant/vim-gutentags
     Plug 'ludovicchabant/vim-gutentags' "Manage tags (auto)

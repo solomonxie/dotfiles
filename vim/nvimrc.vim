@@ -88,7 +88,7 @@ call plug#begin('~/vim_plugged')
         " source ~/myconf/dotfiles/vim/rcmodules/vimspector.vim
         " source ~/myconf/dotfiles/vim/rcmodules/nvim_dap.vim
     "{Misc}
-        source ~/myconf/dotfiles/vim/rcmodules/dadbod.vim
+        " source ~/myconf/dotfiles/vim/rcmodules/dadbod.vim  "DB client
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -112,7 +112,7 @@ vnoremap <Leader>p "+p
 
 nnoremap <Leader>o :lua vim.lsp.diagnostic.set_qflist()<CR>
 
-vnoremap <Leader>L :source ~/myconf/dotfiles/vim/nvimrc.vim
+nnoremap <Leader>L :source ~/myconf/dotfiles/vim/nvimrc.vim<CR>
 
 nnoremap <leader>R :call LoadSession()<CR><ESC>
 

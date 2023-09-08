@@ -214,6 +214,11 @@ venv() {
     source "$HOME/virtualenv/$name/bin/activate"
 }
 
+find_and_remove() {
+    local name=$1
+    find . -name "*$1*" |while read -r line; do echo rm -v -I "$line"; done
+}
+
 # debug_launcher() {
 #     # REF:
 #     # - https://github.com/fabiospampinato/vscode-debug-launcher/blob/master/docs/terminal.md

@@ -1,0 +1,889 @@
+#######################################################################
+#                               COMMON                                #
+#######################################################################
+snippet ifmain
+def main():
+	pass
+
+
+if __name__ == '__main__':
+	main()
+endsnippet
+
+snippet ifmain_async
+async def main():
+	print('[ DONE ]')
+
+
+asyncio.get_event_loop().run_until_complete(main())
+endsnippet
+
+snippet dotdict
+class dotdict(dict):
+    """dot.notation access to dictionary attributes"""
+    __getattr__ = dict.get
+    __setattr__ = dict.__setitem__
+    __delattr__ = dict.__delitem__
+endsnippet
+
+snippet pathlib
+from pathlib import Path
+path = str(Path(${1:${VISUAL:path}}).expanduser() / '/to/path')
+endsnippet
+
+snippet pathlib1
+__import__('pathlib').Path
+endsnippet
+
+snippet tempfile
+from tempfile import NamedTemporaryFile
+with NamedTemporaryFile(delete=False) as f:
+	f.write('')
+	f.flush()
+	print(f.name)
+endsnippet
+
+snippet jsonload
+with open('${1:${VISUAL:path}}', 'r') as f:
+	${2:${VISUAL:data}} = json.loads(f.read())
+endsnippet
+
+snippet jsondump
+with open('${1:${VISUAL:path}}', 'w') as f:
+	f.write(json.dumps(${2:${VISUAL:data}}))
+endsnippet
+
+snippet parse-url
+import urllib
+urlobj = urllib.parse.urlparse(url)
+endsnippet
+
+snippet parse-url-params
+import urllib
+urlobj = urllib.parse.urlparse(url)
+params = urllib.parse.parse_qs(urlobj.query)
+endsnippet
+
+snippet	shuffle_list
+shuffled_list = sorted(${1:${VISUAL:target_list}}, key=lambda _: random.random())
+endsnippet
+
+snippet retry "from retry import retry"
+@retry((KeyError, RuntimeError), tries=5, delay=2, jitter=5)
+endsnippet
+
+snippet deepcopy
+from copy import deepcopy
+endsnippet
+
+snippet product
+from itertools import product
+endsnippet
+
+snippet superi "execute super class init (py3)"
+super().__init__()
+endsnippet
+
+snippet try
+try:
+	pass
+except Exception as e:
+	logger.exception(e)
+	raise e
+endsnippet
+
+#######################################################################
+#                              DEBUGGING                              #
+#######################################################################
+snippet pdb
+__import__('pdb').set_trace()
+endsnippet
+
+snippet ipdb
+__import__('ipdb').set_trace()
+endsnippet
+
+snippet pp
+__import__('pprint').pprint(${1})
+endsnippet
+
+snippet pprint
+__import__('pprint').pprint(${1})
+endsnippet
+
+snippet sleep
+__import__('time').sleep(${1})
+endsnippet
+
+snippet snoop
+with __import__('pysnooper').snoop():
+	${0:put_code_under_here_for_snooping}
+endsnippet
+
+
+snippet logger
+import logging
+logger = logging.getLogger(__name__)
+endsnippet
+
+snippet info
+logger.info(${1})
+endsnippet
+
+snippet warn
+logger.warning(${1})
+endsnippet
+
+snippet error
+logger.error(${1})
+endsnippet
+
+
+#######################################################################
+#                             DATE / TIME                             #
+#######################################################################
+
+snippet get_dates_from_range
+from datetime import datetime, timedelta
+def get_dates_from_range(granularity, start_date, end_date):
+	"""
+		print(get_dates_from_range('monthly', '2019-01-01', '2019-10-20'), '\n\n')
+		print(get_dates_from_range('weekly', '2019-01-01', '2019-10-20'), '\n\n')
+		print(get_dates_from_range('daily', '2019-01-01', '2019-01-20'), '\n\n')
+		[('2018-12-30', 'weekly'), ('2019-01-06', 'weekly'), ('2019-01-01', 'daily')....]
+	"""
+	start, end = datetime.strptime(start_date, '%Y-%m-%d'), datetime.strptime(end_date, '%Y-%m-%d')
+	daily_dates = [start + timedelta(days=i) for i in range((end - start).days + 1)]
+
+	target_dates = []
+	if granularity == 'daily':
+		target_dates = daily_dates
+	elif granularity == 'weekly':
+		# Start from Monday: weeday_index = day.weekday()
+		# Start from Sunday: weeday_index = (day.weekday() + 1) % 7
+		target_dates = sorted(set([day - timedelta(days=(day.weekday() + 1) % 7) for day in daily_dates]))  # Sundays
+	elif granularity == 'monthly':
+		target_dates = sorted(set([day.replace(day=1) for day in daily_dates]))
+
+	combos = [(day.strftime('%Y-%m-%d'), granularity) for day in target_dates]
+	return combos
+endsnippet
+
+snippet date_to_start_end
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+
+def date_to_start_end(dstr: str, granularity: str = 'daily') -> tuple:
+    assert isinstance(dstr, str) and isinstance(granularity, str)
+    start = end = day = datetime.strptime(dstr, '%Y-%m-%d')
+    if granularity == 'weekly':
+        weekday_n = day.isoweekday() % 7
+        start = day - timedelta(days=weekday_n)
+        end = day + timedelta(days=6 - weekday_n)
+    elif granularity == 'monthly':
+        start = day.replace(day=1)
+        end = (start + relativedelta(months=1)) - relativedelta(days=1)
+    start_str, end_str = start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d')
+    return start_str, end_str
+endsnippet
+
+snippet now
+from datetime import datetime, timedelta
+_ = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+endsnippet
+
+snippet date_to_str
+from datetime import datetime
+date_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+endsnippet
+
+snippet date_from_str
+from datetime import datetime
+datetime_obj = datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S')
+endsnippet
+
+
+snippet epoch_to_datetime_str
+from datetime import datetime
+date_str = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+endsnippet
+
+
+snippet datestr_to_epoch_rfc2822
+from datetime import datetime
+
+"""
+RFC 2822 format: Tue, 26 Mar 2019 09:09:14 GMT
+"""
+date_time_obj = datetime.strptime(date_time_str, '%a, %d %b %Y %H:%M:%S %Z')
+epoch_datetime = datetime(1970, 1, 1, 0, 0, 0)
+epoch = int((date_time_obj - epoch).total_seconds())
+endsnippet
+
+
+snippet requests_get
+import requests
+from retry import retry
+
+@retry((RequestException, ServerBusyError), tries=10, delay=30, jitter=5)
+def requests_get(url, *args, **kwargs):
+    try:
+        resp = requests.get(url, *args, **kwargs)
+
+    except Exception:
+        msg = f'Error on requesting: {url}'
+        raise RequestException(msg)
+
+    if resp.status_code in [400, 403, 404, 428]:
+        raise NoRetryError(f'BadRequest ({resp.status_code})')
+    elif resp.status_code != 200:
+        raise ServerBusyError(f'BadRequest ({resp.status_code})')
+
+    # SubRequest Error
+    result = resp.json() if resp.headers.get('Content-Type') == 'application/json' else {}
+    if 'code' in result and result.get('code') in ['403', '428']:
+        raise NoRetryError(f'Server SubRequest Issue ({result["code"]})')
+    for error in result.get('errors') or []:
+        if error.get('code') in ['SUB_REQUEST_TIMEOUT', '500', 'SUB_REQUEST_ERROR']:
+            raise ServerBusyError(f'Server SubRequest Issue ({result["code"]})')
+
+    return resp, result
+endsnippet
+
+
+snippet requests_post
+import requests
+from retry import retry
+
+@retry((RequestException, ServerBusyError), tries=10, delay=30, jitter=5)
+def requests_post(url, data, *args, **kwargs):
+    try:
+        resp = requests.post(url, data=data, *args, **kwargs)
+
+    except Exception:
+        raise RequestException(f'Error on requesting: {url}.')
+
+    if resp.status_code in [400, 403, 404, 428]:
+        msg = f'BadRequest Request payload:\n{data}\nResponse content:{resp.content}\nResponse headers: {resp.headers}'
+        raise NoRetryError(msg)
+    elif resp.status_code != 200:
+        raise ServerBusyError(f'Server Busy ({resp.status_code})')
+
+    # SubRequest Error
+    result = resp.json() if resp.headers.get('Content-Type') == 'application/json' else {}
+    if 'code' in result and result.get('code') in ['403', '428']:
+        raise NoRetryError(f'Server SubRequest Issue ({result["code"]})')
+    for error in result.get('errors') or []:
+        if error.get('code') in ['500', 'SUB_REQUEST_TIMEOUT', 'SUB_REQUEST_ERROR']:
+            raise ServerBusyError(f'Server SubRequest Issue ({error["code"]})')
+
+    return resp, result
+endsnippet
+
+
+#######################################################################
+#                              FILE I/O                               #
+#######################################################################
+snippet csv_dict_reader
+with open('path', 'r') as f:
+	reader = __import__('csv').DictReader(f)
+	rows = list(reader)
+endsnippet
+
+snippet csv_dict_reader
+with open('path', 'r') as f:
+	reader = __import__('csv').reader(f)
+	rows = list(reader)
+endsnippet
+
+snippet csv_writer
+cols = ['col1', 'col2']
+buff = __import__('io').StringIO()
+writer = __import__('csv').DictWriter(buff, fieldnames=cols)
+writer.writeheader()
+writer.writerow({'name': ['psycho1', 'psycho2'], 'age': [10, 20]})
+writer.writerows([{'name': 'jason', 'age': 18}, {'name': 'tom', 'age': 20}])
+print(buff.getvalue())
+endsnippet
+
+snippet string_io
+buff = __import__('io').StringIO()
+buff.write('hello')
+print(buffer.getvalue())
+endsnippet
+
+snippet buffer_io
+buff = __import__('io').BytesIO()
+buff.write(b'hello')
+print(buffer.getvalue())
+endsnippet
+
+snippet file_io
+endsnippet
+
+snippet gzip_compress
+content = __import__('gzip').compress(b'${1:${VISUAL:hello}}', compresslevel=9)
+endsnippet
+
+
+#######################################################################
+#                           TEST FRAMEWORK                            #
+#######################################################################
+snippet mock_constant
+patch('${1:module.module.constant_name}', '${2:mocked_value}').start()
+endsnippet
+
+snippet mock_method
+patch('${1:module.module.method}', MagicMock(return_value=${2:mocked_value})).start()
+endsnippet
+
+snippet mock_property
+patch(${1:module.module.class_name}, '${2:property_name}', ${3:expected_value}).start()
+endsnippet
+
+snippet mock_exception
+patch('${1:module.module.method_name}', MagicMock(side_effect=Exception('${2:err_msg}'))).start()
+endsnippet
+
+
+snippet testcase
+from unittest import TestCase
+
+
+class Test${1:${VISUAL:Name}}(TestCase):
+	def setUp(self):
+		pass
+
+	def tearDown(self):
+		pass
+
+	def test_${2:${VISUAL:case_name}}(self):
+		self.assertEqual(1, 1)
+endsnippet
+
+
+snippet patch
+from unittest.mock import patch, MagicMock
+@patch('${1:${VISUAL:module_path}}',
+		MagicMock(return_value=${2:${VISUAL:mock_data}}))
+endsnippet
+
+
+snippet fixture
+@pytest.fixture
+def client():
+	return app.app.app.test_client()
+
+def test_case1(client):
+	client.get('https://xxxx')
+endsnippet
+
+
+snippet fixture_patch
+@pytest.fixture(autouse=True)
+def common_patches():
+	# Before Test == SetUp()
+	patches = [
+		patch('path.to.my.module', return_value=True)
+	]
+	_ = [p.start() for p in patches]
+	yield
+	# After Test == TearDown()
+	_ = [p.stop() for p in patches]
+	return
+endsnippet
+
+#######################################################################
+#                     SQLAlchemy - DB OPERATIONS                      #
+#######################################################################
+
+# TBD
+
+
+#######################################################################
+#                         Pandas - DATAFRAME                          #
+#######################################################################
+
+# TBD
+
+
+#######################################################################
+#                        Numpy - DATA SCIENCE                         #
+#######################################################################
+
+snippet random_matrix
+
+endsnippet
+
+
+#######################################################################
+#                              UTILITIES                              #
+#######################################################################
+snippet myip
+import urllib.request
+external_ip = urllib.request.urlopen('https://ident.me').read()
+print(external_ip)
+endsnippet
+
+snippet url_change_port
+import urllib
+obj = urllib.parse.urlparse(url)
+url = obj._replace(netloc=f'{obj.hostname}:${1:expected_port}').geturl()
+endsnippet
+
+
+snippet chunks
+def chunks(items, size):
+	for i in range(0, len(items), size):
+		yield items[i: i+size]
+endsnippet
+
+snippet ichunks
+def ichunks(generator, size):
+	"""
+	GOOD TO SPLIT A GENERATOR TO CHUNKS WITHOUT WALK THROUGH EVERY ITEM
+	"""
+	iterable_generator = iter(generator)
+	while True:
+		items = list(islice(iterable_generator, size))
+		if not items:
+		break
+		yield items
+endsnippet
+
+
+snippet mkdir
+import os
+
+def mkdir(path):
+	dirname = os.path.dirname(path)
+	if not os.path.exists(dirname):
+		try:
+			os.makedirs(dirname)
+		except Exception:
+			pass
+endsnippet
+
+snippet islice
+def islice(maximum, chunk_size):
+	for i in range(0, maximum - maximum % chunk_size + chunk_size, chunk_size):
+		yield slice(i, min(i + chunk_size, maximum))
+endsnippet
+
+snippet meminfo
+import psutil
+def mem_info():
+	used = format(psutil.virtual_memory().used / 1024 / 1024 / 1024, '.2f')
+	total = format(psutil.virtual_memory().total / 1024 / 1024 / 1024, '.2f')
+	percent = psutil.virtual_memory().percent
+	print('*'*15 + f'Current memory usage ({percent}%): [{used}GB / {total}GB]' + '*'*15)
+	return percent
+endsnippet
+
+snippet oscheck
+import psutil
+def os_check(wait=2, timeout=60*60, mem_use=10, cpu_use=70, disk_free=5):
+	"""
+	:mem: Memory Usage (GB)
+	:cpu: CPU Usage percentage
+	:disk: Disk free size (GB)
+	"""
+	begin = time()
+	mem, cpu, disk = get_os_usage()
+	# mem_rank, cpu_rank = get_top_os_usage_processes()
+
+	# while mem > mem_use or cpu > cpu_use or disk < disk_free:
+	while mem > mem_use:
+		if time() - begin > timeout:
+			print('_'*15 + 'Memory usage is high for too long. Now quit waiting' + '_'*15)
+			break  # Quit looping if it's waiting too long
+		if mem > mem_use:
+			gc.collect()
+		if cpu > cpu_use:
+			print('#'*10 + f'CPU USAGE: {cpu}%.' + '#'*10)
+		if disk < disk_free:
+			print('$'*10 + f'DISK FREE: {disk}GB' + '$'*10)
+		sleep(wait)
+		mem, cpu, disk = get_os_usage()  # Refresh current info
+endsnippet
+
+snippet osusage
+import psutil
+def get_os_usage():
+	mem = psutil.virtual_memory().used / 1024 / 1024 / 1024  # GB
+	cpu = mean(psutil.cpu_percent(interval=0.01, percpu=True))
+	disk = psutil.disk_usage('/').free / 1024 / 1024 / 1024  # GB
+	return mem, cpu, disk
+endsnippet
+
+snippet osusagetopprocesses
+def get_top_os_usage_processes(top=1):
+	top_mem_use, top_cpu_use = [], []
+	# Iterate over all running process
+	for proc in psutil.process_iter():
+		try:
+			pname = proc.name()
+			mem_use = round(proc.memory_info().vms / 1024 / 1024, 2)  # MB
+			# cpu_use = round(proc.cpu_percent() / psutil.cpu_count(), 2)
+			cpu_use = max([proc.cpu_percent(interval=0.001) for i in range(1, 5)])
+			top_mem_use.append(', '.join((pname, f'{mem_use} MB')))
+			top_cpu_use.append(', '.join((pname, f'{cpu_use}%')))
+		except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+			continue
+	mem_rank = sorted(top_mem_use, reverse=True, key=lambda x: x[1])
+	cpu_rank = sorted(top_cpu_use, reverse=True, key=lambda x: x[1])
+	return mem_rank[:top], cpu_rank[:top]
+endsnippet
+
+snippet multiprocess
+from multiprocessing import Process
+params_list = []
+tasks = [Process(target=func, args=(params,)) for params in params_list]
+_ = [t.start() for t in tasks]
+_ = [t.join() for t in tasks]
+_ = [t.close() for t in tasks]
+endsnippet
+
+snippet threadpool
+from multiprocessing.pool import ThreadPool
+pool = ThreadPool(concurrency)
+responses = [pool.apply_async(${1:${VISUAL:func}}, args=(${2:${VISUAL:a}},)) for i in range(3)]
+_ = [pool.close(), pool.join()]
+results = [r.get() for r in responses]
+endsnippet
+
+snippet process-pool
+responses = []
+with ProcessPoolExecutor(max_workers=concurrency) as pool:
+	responses = [pool.submit(${1:${VISUAL:func}}, *(arg1, arg2))]
+results = [r.result() for r in responses]
+endsnippet
+
+snippet thread_task_pool
+from multiprocessing.pool import ThreadPool
+MAX_THREAD_COUNT = 100
+task_pool = ThreadPool(MAX_THREAD_COUNT)
+
+def run_in_threads(task_list):
+    results = {}
+    for i, (func, params) in enumerate(task_list):
+        results[i] = task_pool.apply_async(func, args=params)
+
+    return [results[i] for i in sorted(results.keys())]
+
+def test_run_threads():
+    task_list = [
+        (sorted, ([3, 2, 1], )),
+        (max, ([1, 2, 3], ))
+    ]
+    results = run_in_threads(task_list)
+    results = [r.get() for r in results]
+    order, big = results
+    print(order)
+    print(big)
+endsnippet
+
+snippet cross_process_share
+from multiprocessing import Manager
+
+m = Manager()
+IN_MEM_INFO = m.dict()
+
+
+def update_in_mem_info(key: str, new_info: dict):
+	# SHARED INFO ACCROSS PROCESSES
+	""" In-mem sharing dict can't be updated in sub-process but directly assign the value """
+	into = IN_MEM_INFO.get(key) or {}
+	into.update(new_info)
+	IN_MEM_INFO[task.task_id] = info
+endsnippet
+
+snippet timeout
+import signal
+
+def timeout(func):
+    """ DOESN'T WORK IN THREADS """
+    TTL = 10
+
+    def handler(_, frame):
+        raise RuntimeError('[ TIMEOUT ] FORCE QUIT: {}'.format(str(frame)))
+
+    def wrapper(*args, **kwargs):
+        signal.signal(signal.SIGALRM, handler)
+        signal.alarm(TTL)
+        try:
+            result = func(*args, **kwargs)
+        except RuntimeError:
+            result = None
+            print('[ TIMEOUT ] Force shutdown function: {}'.format(str(func)))
+        finally:
+            signal.alarm(0)
+        return result
+
+    return wrapper
+endsnippet
+
+
+snippet cli_args
+import os
+import sys
+import argparse
+def get_sys_args():
+	""" REF: https://stackoverflow.com/a/15753721 """
+	parser = argparse.ArgumentParser()
+
+	# Common args for all modes
+	parser.add_argument('--choices', '-M', default='a', choices=['a', 'b', 'c'], required=False, help='a list')
+	parser.add_argument('--int', '-C', type=int, default=5, required=False, help='a number')
+	parser.add_argument('--bool', action='store_true', default=False, required=False, help='a bool')
+	parser.add_argument('--str', type=str, required=False, help='a string')
+	parser.add_argument('--list-of-int', nargs='*', type=int, default=[], required=False, help='a list')
+	parser.add_argument('--list-of-str', nargs='*', type=int, default=[], required=False, help='a list')
+	parser.add_argument('--list-of-any', nargs='*', default=[], required=False, help='a list')
+
+	# Either from ENV or CLI args
+	input_args = os.environ.get('CLI_ARGS', '').split() or sys.argv[1:]
+	args = parser.parse_args(input_args)
+
+	return args
+
+sysargs = get_sys_args()
+print(sysargs.choices)
+endsnippet
+
+
+snippet defaultdict_lambda
+from collections import defaultdict
+_ = defaultdict(lambda: defaultdict(set))
+endsnippet
+
+snippet sorted_key
+_ = sorted(items, key=lambda x: x['name'], reverse=True)
+endsnippet
+
+
+snippet cacheout_memoize
+# pip install cacheout==0.11.2
+from cacheout import Cache
+
+cache_for_func = Cache(5120, ttl=settings.BREADCRUMB_TTL)
+
+@cache_for_func.memoize()
+def my_func(myid, myname=None):
+	pass
+endsnippet
+
+snippet filelock
+# pip install fielock
+from filelock import Filelock
+
+lock = FileLock('/tmp/some.lock')
+
+for n in range(5):
+    with lock.acquire(timeout=10, poll_intervall=0.01):
+        open('/tmp/haha', 'a').write(str(n)*5 + '\n')
+endsnippet
+
+
+
+snippet testcase_ft_flask
+import json
+import pook
+from unittest import TestCase
+from unittest.mock import patch
+
+from application.app import app
+from tests.interface.test_utils import mock_run_sql, mock_engine
+from tests import sqls
+
+
+class TestBreadcrumb(TestCase):
+    def setUp(self):
+        self.client = app.app.app.test_client()
+        pook.on()
+        self.patches = [
+            patch('db_utils.run_sql', side_effect=mock_run_sql),
+        ]
+        for p in self.patches:
+            p.start()
+
+        # Prepare mock data
+        engine = mock_engine()
+        print('\n[ ... ] INSERT SAMPLE DATA FOR UT')
+        with engine.connect() as conn:
+            conn.execute(sqls.create_tables.sql)
+            conn.execute(sqls.insert_records.sql)
+            conn.execute('select * from mytable limit 1')
+        print('[ OK ] INSERT SAMPLE DATA DONE.')
+
+		# Setup Context
+		self.context = flask.Flask(__name__).test_request_context()
+        self.context.push()
+        setattr(flask.request, 'request_id', 'fake_req_id')
+        seq_id_gen = MagicMock()
+        seq_id_gen.sequence_id = 'fake_seq_id'
+        setattr(flask.request, 'sequence_id_generator', seq_id_gen)
+
+    def tearDown(self):
+        engine = mock_engine()
+        with engine.connect() as conn:
+            conn.execute(sqls.clean_tables.sql)
+
+        pook.off()
+        pook.reset()
+        self.context.pop()
+        for p in self.patches:
+            p.stop()
+
+    def test_endpoint(self):
+		# Mock API calls inside of the impl
+        resp_d = {'data': [{'token': 'fake_token'}]}
+        pook.get(url='http://localhost/get-tokens?user_id=1', reply=200, response_json=resp_d)
+
+        url = '/api/myendpoint/?myid=12345'
+        resp = self.client.get(url)
+        self.assertEqual(200, resp.status_code)
+        result = json.loads(resp.data)
+        self.assertIsNotNone(result)
+endsnippet
+
+
+snippet pook.get
+import pook
+import json
+pook.on()
+(pook.get('http://localhost/myendpoint?q=1')
+	 .reply(200)
+	 .headers({'Content-Type': 'application/json'})
+	 .json({'data': [1, 2, 3]})
+)
+pook.off()
+pook.reset()
+endsnippet
+
+snippet pook.post
+import pook
+import json
+)
+mock_resp = pook.post(
+	'http://localhost/myendpoint?q=1',
+	reply=200, type='json', headers={'Content-Type': 'application/json'}
+	json=json.dumps({'data': [1, 2, 3]}),
+)
+mock_resp.headers = {'Content-Type': 'application/json'}
+mock_resp.json = json.dumps({'data': [1, 2, 3]})
+endsnippet
+
+
+snippet flatten_deep_dict
+def flatten_deep_dict(data, path='root', sort=True, sort_keys=['id', 'type', 'genre_id', 'modifier_id']):
+    new = {}
+    if not isinstance(data, (dict, list)):
+        return data
+    keys = list(data.keys()) if isinstance(data, dict) else list(range(len(data)))
+    for k in keys:
+        item = data[k]
+        sub_path = path + '.' + str(k)
+        if isinstance(item, (dict, list)):
+            # Dict Path
+            for sk in sort_keys:
+                if isinstance(item, dict) and sk in item:
+                    sub_path = path + '.' + str(sk) + '-' + str(item[sk])
+                    break
+            # Sort List
+            if sort and isinstance(item, list) and len(item) and not isinstance(item[0], (dict, list)):
+                item = sorted(item)
+            sub = flatten_deep_dict(item, sub_path)
+        else:
+            sub = {sub_path: item}
+        new.update(sub)
+    return new
+endsnippet
+
+
+snippet counter
+from collections import Counter
+anything = [1, 2, 3, 3]  # tuple, list, dict, string... anything
+result_dict = Counter(anything)
+print(result_dict)
+# {'target1': num_of_appearances, 'target2': num_of_appearances}
+endsnippet
+
+
+snippet dtree
+class Dtree(dict):
+    """ ALLOWS TREE LIKE DEEP DICT TO REPLACE DEFAULTDICT FOR EASIER CACHE """
+    def __missing__(self, key):
+        value = self[key] = type(self)()
+        return value
+endsnippet
+
+snippet decorator
+from functools import wraps, partial
+import logging
+
+
+def logged(func=None, *dec_args, level=logging.DEBUG, name=None, message=None, **dec_kwargs):
+    if func is None:
+		# 1. With dec-args, func == None 2. Without dec-args, func != None
+		# Here it's executed while "decorating", not while func "running"
+        return partial(logged, *dec_args, level=level, name=name, message=message, **dec_kwargs)
+
+    logname = name if name else func.__module__
+    log = logging.getLogger(logname)
+    logmsg = message if message else func.__name__
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        __import__('pudb').set_trace()
+        log.log(level, logmsg)
+		result = func(*args, **kwargs)
+        return result
+
+    return wrapper
+
+
+@logged  # func == add
+def add(x, y):
+    __import__('pudb').set_trace()
+    return x + y
+
+
+@logged(level=logging.CRITICAL, name='example')  # func == None
+def spam():
+    __import__('pudb').set_trace()
+    print('Spam!')
+endsnippet
+
+
+snippet timeit
+from functools import wraps, partial
+def timeit(func=None, *d_args, **d_kwargs):
+    if func is None:
+        # 1. With dec-args, func == None 2. Without dec-args, func != None
+        # Here it's executed while "decorating", not while func "running"
+        return partial(timeit, *d_args, **d_kwargs)
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time()
+        result = func(*args, **kwargs)
+        duration = time() - start
+        logger.info('[ BREADCRUMB ] Spent {:.3f}sec'.format(duration), extra={'tags': {
+            'duration': duration,
+            'request_args': get_actual_request_args(),
+            'request_url': request.url,
+            'request_headers': str(request.headers),
+        }})
+        return result
+
+    return wrapper
+
+@timeit  # func == add
+def add(x, y):
+    return x + y
+
+@timeit(xxx=1, yyy=2)  # func == None
+def spam():
+    print('Spam!')
+endsnippet

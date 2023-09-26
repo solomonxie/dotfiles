@@ -118,6 +118,7 @@ alias gitbook='docker run -it --name gitbook --rm -v "$PWD":/gitbook -p 4000:400
 alias ju="~/virtualenv/conda/bin/jupyter notebook"
 alias ipy="ipython"
 alias py="PYTHONPATH=. python"
+alias pt="PYTHONPATH=. pytest"
 alias virpy="PYTHONPATH=. .git/venv/bin/python"
 alias webdav="python3 -m http.server 7000"
 alias ipdb="python3 ~/myconf/dotfiles/python/ipdb_debugger.py"

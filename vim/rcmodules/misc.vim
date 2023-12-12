@@ -99,3 +99,7 @@ Plug 'kizza/actionmenu.nvim'  "Popup Context Menu
 
 "REF: https://github.com/rstacruz/vim-closer
 " Plug 'rstacruz/vim-closer'
+
+"REF: https://github.com/mg979/vim-visual-multi
+"Note: Will mess up with many key mappings
+"Plug 'mg979/vim-visual-multi'

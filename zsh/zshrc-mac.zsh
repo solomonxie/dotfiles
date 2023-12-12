@@ -155,6 +155,11 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 export WEZTERM_CONFIG_DIR="${HOME}/.config/wezterm"
 export WEZTERM_CONFIG_FILE="${HOME}/.config/wezterm/wezterm.lua"
 

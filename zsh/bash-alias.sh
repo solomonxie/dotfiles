@@ -18,7 +18,7 @@ alias lsa='ls -harl'
 alias lsd='ls -lah -d */'
 alias lah="ls -lah"
 alias please="sudo"
-alias less="zless -N"
+#alias less="zless -N"
 
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'

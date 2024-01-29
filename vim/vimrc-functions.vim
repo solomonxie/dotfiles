@@ -99,9 +99,11 @@ function! SaveSessionSimple()
     call add(steps, 'cd '. expand(getcwd()))
     call add(steps, 'let g:gitroot = "'. g:gitroot . '"')
     call add(steps, 'let s:wipebuf = bufnr("%")')  "Mark initial/empty buffer
+    " Record buffers
     for bn in buffer_list
         call add(steps, '$argadd ' . expand('#' . bn . ':b'))
     endfor
+    " Record others
     call add(steps, 'edit ' . expand('#'. bufnr('%') .':b'))  "Set focused file
     call add(steps, 'silent exe "bwipe " . s:wipebuf')  "Remove initial/empty buffer
     " echom 'Steps: ' . string(steps)

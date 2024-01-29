@@ -103,3 +103,7 @@ Plug 'kizza/actionmenu.nvim'  "Popup Context Menu
 "REF: https://github.com/mg979/vim-visual-multi
 "Note: Will mess up with many key mappings
 "Plug 'mg979/vim-visual-multi'
+
+"REF: https://github.com/kshenoy/vim-signature
+Plug 'kshenoy/vim-signature'
+" nnoremap fm :SignatureListBufferMarks<CR>

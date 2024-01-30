@@ -219,6 +219,51 @@ find_and_remove() {
     find . -name "*$1*" |while read -r line; do echo rm -v -I "$line"; done
 }
 
+describe_file() {
+    local fpath="$1"
+    file "$fpath"
+    ls -lah "$fpath"
+    if [[ -d "$fpath" ]]; then
+        tree -L 3 --filelimit=20 "$fpath"
+    elif [[ "$fpath" == *.csv ]]; then
+        duckdb :memory: "DESCRIBE TABLE '$fpath' ;"
+    elif [[ "$fpath" == *.csv.gz ]]; then
+        duckdb :memory: "DESCRIBE TABLE '$fpath' ;"
+    elif [[ "$fpath" == *.parquet ]]; then
+        duckdb :memory: "DESCRIBE TABLE '$fpath' ;"
+    else
+        [[ $(type exiftool 2>&1) ]] && exiftool "$fpath"
+    fi
+}
+
+preview_file() {
+    local fpath="$1"
+    if [[ -d "$fpath" ]]; then
+        tree -L 3 --filelimit=20 "$fpath"
+    elif [[ "$fpath" == *.csv ]]; then
+        if [[ -x $(command -v duckdb) ]]; then
+            duckdb :memory: "SELECT * FROM '$fpath' ;"
+        else
+            less -N "$fpath"
+            # head -n 10 "$fpath"
+            # echo ...
+            # tail -n 10 "$fpath"
+        fi
+    elif [[ "$fpath" == *.csv.gz ]]; then
+        if [[ -x $(command -v duckdb) ]]; then
+            duckdb :memory: "SELECT * FROM '$fpath' ;"
+        else
+            zless -n 10 "$fpath"
+        fi
+    elif [[ "$fpath" == *.parquet ]]; then
+        duckdb :memory: "DESCRIBE TABLE '$fpath' ;"
+    elif [[ "$fpath" == *.zip ]]; then
+        zip -sf "$fpath"
+    else
+        echo TODO...
+    fi
+}
+
 # debug_launcher() {
 #     # REF:
 #     # - https://github.com/fabiospampinato/vscode-debug-launcher/blob/master/docs/terminal.md

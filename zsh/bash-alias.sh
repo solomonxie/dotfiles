@@ -153,9 +153,16 @@ alias keymap="bash $HOME/myconf/dotfiles/etc/macos/remap_external_keyboard_60key
 #     alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
 # fi
 
-[[ -x $(command -v autojump) ]] && alias cdj="autojump"
+[[ $(type autojump 2>&1) ]] && alias cdj="autojump"
 
 # [[ -x $(command -v bat) ]] && alias cat="bat"
+
+#######################################################################
+#                         CUSTOM FUNCTIONS                            #
+#######################################################################
+# >> REF: zsh/bash-functions.sh
+[[ $(type describe_file 2>&1) ]] && alias describe="describe_file"; alias des="describe_file"
+[[ $(type preview_file 2>&1) ]] && alias preview="preview_file"
 
 #######################################################################
 #                            TMUX RELATED                             #

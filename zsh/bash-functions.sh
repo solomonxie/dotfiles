@@ -226,11 +226,11 @@ describe_file() {
     if [[ -d "$fpath" ]]; then
         tree -L 3 --filelimit=20 "$fpath"
     elif [[ "$fpath" == *.csv ]]; then
-        duckdb :memory: "DESCRIBE TABLE '$fpath' ;"
+        duckdb -box :memory: "DESCRIBE TABLE '$fpath' ;"
     elif [[ "$fpath" == *.csv.gz ]]; then
-        duckdb :memory: "DESCRIBE TABLE '$fpath' ;"
+        duckdb -box :memory: "DESCRIBE TABLE '$fpath' ;"
     elif [[ "$fpath" == *.parquet ]]; then
-        duckdb :memory: "DESCRIBE TABLE '$fpath' ;"
+        duckdb -box :memory: "DESCRIBE TABLE '$fpath' ;"
     else
         [[ $(type exiftool 2>&1) ]] && exiftool "$fpath"
     fi
@@ -256,7 +256,7 @@ preview_file() {
             zless -n 10 "$fpath"
         fi
     elif [[ "$fpath" == *.parquet ]]; then
-        duckdb :memory: "DESCRIBE TABLE '$fpath' ;"
+        duckdb :memory: "SELECT * FROM '$fpath' ;"
     elif [[ "$fpath" == *.zip ]]; then
         zip -sf "$fpath"
     else

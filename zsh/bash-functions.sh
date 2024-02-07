@@ -231,6 +231,10 @@ describe_file() {
         duckdb -box :memory: "DESCRIBE TABLE '$fpath' ;"
     elif [[ "$fpath" == *.parquet ]]; then
         duckdb -box :memory: "DESCRIBE TABLE '$fpath' ;"
+    elif [[ "$fpath" == *.json ]]; then
+        duckdb -box :memory: "DESCRIBE TABLE '$fpath' ;"
+    elif [[ "$fpath" == *.json.gz ]]; then
+        duckdb -box :memory: "DESCRIBE TABLE '$fpath' ;"
     else
         [[ $(type exiftool 2>&1) ]] && exiftool "$fpath"
     fi
@@ -259,6 +263,10 @@ preview_file() {
         duckdb :memory: "SELECT * FROM '$fpath' ;"
     elif [[ "$fpath" == *.zip ]]; then
         zip -sf "$fpath"
+    elif [[ "$fpath" == *.json ]]; then
+        duckdb :memory: "SELECT * FROM '$fpath' ;"
+    elif [[ "$fpath" == *.json.gz ]]; then
+        duckdb :memory: "SELECT * FROM '$fpath' ;"
     else
         echo TODO...
     fi

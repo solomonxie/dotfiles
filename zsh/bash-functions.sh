@@ -247,6 +247,7 @@ preview_file() {
     elif [[ "$fpath" == *.csv ]]; then
         if [[ -x $(command -v duckdb) ]]; then
             duckdb :memory: "SELECT * FROM '$fpath' ;"
+            duckdb -line -c "SELECT * FROM '$fpath' limit 3;"
         else
             less -N "$fpath"
             # head -n 10 "$fpath"
@@ -256,17 +257,21 @@ preview_file() {
     elif [[ "$fpath" == *.csv.gz ]]; then
         if [[ -x $(command -v duckdb) ]]; then
             duckdb :memory: "SELECT * FROM '$fpath' ;"
+            duckdb -line -c "SELECT * FROM '$fpath' limit 3;"
         else
             zless -n 10 "$fpath"
         fi
     elif [[ "$fpath" == *.parquet ]]; then
         duckdb :memory: "SELECT * FROM '$fpath' ;"
+        duckdb -line -c "SELECT * FROM '$fpath' limit 3;"
     elif [[ "$fpath" == *.zip ]]; then
         zip -sf "$fpath"
     elif [[ "$fpath" == *.json ]]; then
         duckdb :memory: "SELECT * FROM '$fpath' ;"
+        duckdb -line -c "SELECT * FROM '$fpath' limit 3;"
     elif [[ "$fpath" == *.json.gz ]]; then
         duckdb :memory: "SELECT * FROM '$fpath' ;"
+        duckdb -line -c "SELECT * FROM '$fpath' limit 3;"
     else
         echo TODO...
     fi

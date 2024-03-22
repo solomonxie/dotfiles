@@ -71,8 +71,8 @@ alias myip="curl https://httpbin.org/ip"
 alias hosts='sudo vim /etc/hosts'
 
 #alias you="youtube-dl -civw --proxy "socks5://127.0.0.1:1086" -f best/mp4 --write-sub "
-alias you="youtube-dl"
-alias yourc="vim ~/.config/youtube-dl/config"
+alias you="yt-dlp"
+# alias yourc="vim ~/.config/youtube-dl/config"
 #alias fzf="~/.fzf/bin/fzf --height 40%"
 #alias vfzf="vim $(fzf)"
 #alias dfzf="cd $(sh 'find * -type d | fzf')"
